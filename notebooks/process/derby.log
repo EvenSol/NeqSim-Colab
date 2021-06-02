@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Fri May 21 12:16:45 CEST 2021:
+Booting Derby (version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579)) instance a816c00e-0179-8e6d-657a-00000313be60 
+on database directory classpath:data/neqsimthermodatabase in READ ONLY mode with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@6ff3c5b5. 
+Loaded from file:/C:/Appl/Anaconda3/Lib/site-packages/neqsim/lib/NeqSim.jar.
+java.vendor=GraalVM Community
+java.runtime.version=11.0.10+8-jvmci-21.0-b06
+user.dir=c:\Users\esol\OneDrive - Equinor\programming\neqsim-colab\notebooks\process
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
