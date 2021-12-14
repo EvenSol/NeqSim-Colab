@@ -1,4 +1,4 @@
-#This script implements calculation of dew point pressure for a hydrocarbon gas mixture
+#This script implements calculation of dew point temperature of a hydrocarbon gas mixture
 #Input to calculation is composition of the gas
 #The dew point temperature is calculated using the srk-eos with classic mixing rule
 """
