@@ -1,6 +1,6 @@
-#This script implements calculation of dew point pressure for a hydrocarbon gas mmixture
+#This script implements calculation of dew point pressure for a hydrocarbon gas mixture
 #Input to calculation is composition of the gas
-#The dew point pressure at 0C is calculated using the simplified phaseopt model
+#The dew point temperature is calculated using the srk-eos with classic mixing rule
 """
 Created on Mon Feb  8 14:44:35 2021
 
