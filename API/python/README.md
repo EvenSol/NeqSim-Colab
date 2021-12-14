@@ -10,6 +10,8 @@ A docker contaner soultion is developed, that the user can run as a cloud soluti
 The API can be run localy by using docker or using Uvicorn (https://www.uvicorn.org/).
 
 Using Uvicorn:
-run command (in src directory): uvicorn main:app --reload
+run command (in src directory): 'uvicorn main:app --reload'
 
+Using docker:
+run command: 'docker compose up'
 

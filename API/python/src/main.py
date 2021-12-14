@@ -15,7 +15,7 @@ def read_root():
         </head>        <body>
             <h1>NeqSim Python API</h1>
             <a href="/docs">NeqSimLive API documentation</a><br>
-            <a href="https://github.com/EvenSol/NeqSim-Colab">GitHub repo</a><br>
+            <a href="https://github.com/EvenSol/NeqSim-Colab/tree/master/API/python">GitHub repo</a><br>
         </body>
     </html>
     """

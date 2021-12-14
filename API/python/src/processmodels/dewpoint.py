@@ -9,7 +9,6 @@ Created on Mon Feb  8 14:44:35 2021
 from pydantic import BaseModel, Field
 from typing import Optional, List
 from fastapi import Body, FastAPI
-from scipy.optimize import fsolve
 from neqsim.thermo import *
 
 class dewpointCalc(BaseModel):

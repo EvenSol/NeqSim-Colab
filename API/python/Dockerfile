@@ -1,8 +1,7 @@
-FROM openjdk
-COPY --from=tiangolo/uvicorn-gunicorn-fastapi / /
+FROM openjdk:8
+COPY --from=tiangolo/uvicorn-gunicorn:latest / /
 RUN java -version
 RUN python --version
-ENV CLASSPATH=/code/NeqSim.jar
 
 # set the working directory in the container
 WORKDIR /code

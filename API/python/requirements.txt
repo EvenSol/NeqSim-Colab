@@ -1,9 +1,4 @@
 neqsim
 fastapi
 uvicorn
-jpype1
-requests
-datetime
-pandas
 pydantic
-scipy
