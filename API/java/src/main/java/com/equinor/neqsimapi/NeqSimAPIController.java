@@ -4,9 +4,6 @@
  */
 package com.equinor.neqsimapi;
 import com.equinor.neqsimapi.dto.CalcResponse;
-import java.sql.Connection;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -14,34 +11,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.QueryParam;
-import javax.ws.rs.GET;
 
 @Path("/ML")
 public class NeqSimAPIController {
-
-    private static final Logger LOGGER = LogManager.getLogger(NeqSimAPIController.class.getName());
-
-    private enum CALC_STATUS {
-        SUCCESS, ERROR
-    }
-
-
-    private static Connection conn;
-
-    private void validateKey(String key) {
-        try {
-            if (!System.getenv("ENDPOINT_ACCESS_KEY").equals(key)) {
-                throw new SecurityException("Wrong key");
-            }
-        } catch (Exception ex) {
-            throw new SecurityException("Error providing access");
-        }
-    }
-
-    @GET
-    public String index() {
-        return "<h1>NeqSim TEG process API</h1>";
-    }
 
     @POST
     @Path("/dehydTEGsim")

@@ -308,13 +308,9 @@ public class CalcResponse {
 		tEGinDryGas = ((Stream) operation.getUnit("dry gas from absorber")).getFluid().getComponent("TEG").getFlowRate("kg/hr");
 		tegInWaterFromOHReceiver =  ((Stream) operation.getUnit("water to treatment")).getFluid().getPhase("aqueous").getWtFrac("TEG") * 100.0;
 		fineFilterCv = ((Filter) operation.getUnit("TEG fine filter")).getCvFactor();
-
 		hotLeanHX =  new HXResponse((HeatExchanger) operation.getUnit("rich TEG heat exchanger 1")); 
 		coldLeanHX =  new HXResponse((HeatExchanger) operation.getUnit("lean/rich TEG heat-exchanger")); 
-
-		//flashGasStream = new StreamResponse((Stream) operation.getUnit("gas from degasing separator"));
 		condenserHX =  new HXResponse((HeatExchanger) operation.getUnit("overhead condenser heat-exchanger")); 
-		
 		overheadCondenserStream = new StreamResponse((Stream)((HeatExchanger) operation.getUnit("overhead condenser heat-exchanger")).getOutStream(0));
 		success = true;
 	}
