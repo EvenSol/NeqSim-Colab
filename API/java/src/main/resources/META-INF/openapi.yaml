@@ -1,0 +1,206 @@
+---
+openapi: 3.0.3
+info:
+  title: TEG Process API
+  description: This page is used for documenting the API and gives the user a simple way to learn and run process calculations using the Martin Linge API. Click on the "POST" method and then press "Try it out" and set process parameters to run a calculation. See the request schema for description of parameters and units.
+  version: "1.0"
+servers:
+  - url: 'http://localhost:8080'
+paths:
+  /ML/dehydTEGsim:
+    post:
+      parameters:
+      - name: key
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TEGdehydrationRequest'
+      responses:
+        "200":
+          description: OK
+        "403":
+          description: ERROR
+components:
+  schemas:
+    TEGdehydrationRequest:
+      type: object
+      properties:
+        UAvalueLeanRichTEGHeatExchanger:
+          format: double
+          type: number
+          description: UAvalue Hot LeanRichTEGHeatExchanger (W/K)
+          default: 8316.0
+          minimum: 0.0
+          maximum: 100000.0
+        UAvalueLeanRichTEGHeatExchanger2:
+          format: double
+          type: number
+          description: UAvalue Cold LeanRichTEGHeatExchanger (W/K)
+          default: 2224.0
+          minimum: 0.0
+          maximum: 100000.0
+        absorberFeedGasPressure:
+          format: double
+          type: number
+          description: Pressure of feeed gas to TEG absorber in unit bara
+          default: 155.0
+          minimum: 0.0
+          maximum: 100000.0
+        hotTEGpumpPressure:
+          format: double
+          type: number
+          description: Discharge pressure of hot TEG circulation pump unit bara
+          default: 3.0
+          minimum: 0.0
+          maximum: 100000.0
+        bufferTankTemperatureTEG:
+          format: double
+          type: number
+          description: Temperature in TEG buffer tank in unit Celcius
+          default: 115.0
+          minimum: 0.0
+          maximum: 100000.0
+        absorberFeedGasTemperature:
+          format: double
+          type: number
+          description: Temperature of feeed gas to TEG absorber in unit Celcius
+          default: 35.0
+          minimum: 0.0
+          maximum: 100000.0
+        TEGpumpIsentropicEfficiency:
+          format: double
+          type: number
+          description: isentropic efficiency of lean TEG pump (0.0-1.0)
+          default: 0.8
+          minimum: 0.0
+          maximum: 1.0
+        condenserPressure:
+          format: double
+          type: number
+          description: Pressure in condenser (bara)
+          default: 1.2
+          minimum: 0.0
+          maximum: 1000.0
+        condenserTemperature:
+          format: double
+          type: number
+          description: Temperature in condenser (Celcius)
+          default: 85.0
+          minimum: 0.0
+          maximum: 1000.0
+        feedGasFlowRate:
+          format: double
+          type: number
+          description: Flow to feed gas scrubber rate in unit MSm3/day
+          default: 10.5
+          minimum: 0.0
+          maximum: 100000.0
+        feedGasPressure:
+          format: double
+          type: number
+          description: Pressure of feeed gas to scrubber in unit bara
+          default: 65.0
+          minimum: 0.0
+          maximum: 1000.0
+        feedGasTemperature:
+          format: double
+          type: number
+          description: Temperature of feeed gas to scrubber in unit Celcius
+          default: 23.0
+          minimum: 0.0
+          maximum: 100000.0
+        finefilterdeltaP:
+          format: double
+          type: number
+          description: pressure drop over fine filter (bar)
+          default: 0.01
+          minimum: 0.0
+          maximum: 100.0
+        flashDrumPressure:
+          format: double
+          type: number
+          description: The pressure in the flash drum (bara)
+          default: 4.8
+          minimum: 0.0
+          maximum: 1000.0
+        leanTEGFlowRate:
+          format: double
+          type: number
+          description: The flow rate of lean TEG entering the absorption column (kg/hr)
+          default: 7000.0
+          minimum: 0.0
+          maximum: 100000.0
+        leanTEGTemperature:
+          format: double
+          type: number
+          description: Temperature of the lean TEG entering the absorption column (Celcius)
+          default: 40.0
+          minimum: 0.0
+          maximum: 100000.0
+        numberOfStagesStripper:
+          format: int32
+          type: integer
+          description: Number of stages in water stripper
+          default: 1
+          minimum: 1
+          maximum: 100
+        numberOfStagesTEGabsorber:
+          format: int32
+          type: integer
+          description: Number of stages in TEG absorpber
+          default: 4
+          minimum: 1
+          maximum: 100
+        reboilerPressure:
+          format: double
+          type: number
+          description: Pressure in reboiler (bara)
+          default: 1.2
+          minimum: 0.0
+          maximum: 1000.0
+        reboilerTemperature:
+          format: double
+          type: number
+          description: Temperature in reboiler (Celcius)
+          default: 202.0
+          minimum: 0.0
+          maximum: 1000.0
+        regenerationGasCoolerTemperature:
+          format: double
+          type: number
+          description: Regen gas cooler temperature (Celcius)
+          default: 50.0
+          minimum: 0.0
+          maximum: 1000.0
+        stageEfficiencyStripper:
+          format: double
+          type: number
+          description: Stage efficiency in water stripper
+          default: 0.35
+          minimum: 0.0
+          maximum: 1.0
+        stageEfficiencyTEGabsorber:
+          format: double
+          type: number
+          description: Stage efficiency in TEG absorpber
+          default: 0.5
+          minimum: 0.0
+          maximum: 1.0
+        strippingGasFeedTemperature:
+          format: double
+          type: number
+          description: Stripping gas feed temperature (Celcius)
+          default: 80.0
+          minimum: 0.0
+          maximum: 1000.0
+        strippingGasRate:
+          format: double
+          type: number
+          description: Stripping gas flow rate (Sm3/hr)
+          default: 250.0
+          minimum: 0.0
+          maximum: 1000.0
