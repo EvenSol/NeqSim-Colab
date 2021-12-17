@@ -4,4 +4,4 @@ This project is a demonstration of a container based NeqSim Rest API developed u
 
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
 
-In this API a TEG dehydration process is calculated using NeqSim. An example of using the API is given in [this notebook](https://github.com/EvenSol/NeqSim-Colab/blob/master/API/java/example/TEGprocess.ipynb).
+In this API a [TEG dehydration process](https://github.com/EvenSol/NeqSim-Colab/blob/master/API/java/src/main/java/com/equinor/neqsimapi/model/TEGsim.java) is calculated using NeqSim. An example of using the API is given in [this notebook](https://github.com/EvenSol/NeqSim-Colab/blob/master/API/java/example/TEGprocess.ipynb).
