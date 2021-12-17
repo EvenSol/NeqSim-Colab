@@ -1,9 +1,9 @@
 # NeqSim Python API
 
-This is a demonstration of how to make a NeqSim API in Python using the packages:
-neqsim
-fastapi
-uvicorn
+This is a demonstration of how to make a NeqSim API in Python using packages:
+* neqsim
+* fastapi
+* uvicorn
 
 In the example a simple hydrocarbon dew point calculation is done, but in principle any neqsim calculation could be implemented.
 
