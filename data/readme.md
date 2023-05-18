@@ -1,1 +1,1 @@
-#Input datafiles in this directiory
+# Input datafiles in this directory
