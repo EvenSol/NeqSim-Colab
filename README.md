@@ -1,5 +1,5 @@
 # Introduction to Gas Processing using NeqSim in Colab
-This GitHub repository is the code and notebook base for the web module [Introduction to Gas Processing using NeqSim in Colab](https://colab.research.google.com/github/EvenSol/NeqSim-Colab/blob/master/notebooks/examples_of_NeqSim_in_Colab.ipynb).
+This GitHub repository is the code and notebook base for the web module [Introduction to Gas Processing using NeqSim in Colab](/notebooks/examples_of_NeqSim_in_Colab.ipynb).
 
 NeqSim Python/Colab is part of the [NeqSim project](https://equinor.github.io/neqsimhome/). NeqSim (Non-Equilibrium Simulator) is a Java library for estimation of fluid behavior and process design. The basis for NeqSim is a library of fundamental mathematical models related to phase behavior and physical properties of fluids.
 
