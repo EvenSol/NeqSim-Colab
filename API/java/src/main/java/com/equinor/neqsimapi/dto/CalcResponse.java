@@ -1,9 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.equinor.neqsimapi.dto;
+
+/**
+ * Data transfer object returned from the REST API.
+ *
+ * <p>The fields correspond to various key performance indicators calculated by
+ * the underlying process model. All fields are public to ease JSON
+ * serialisation.</p>
+ */
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -32,9 +35,12 @@ import neqsim.processSimulation.util.monitor.*;
 @XmlRootElement
 public class CalcResponse {
 
-	public boolean success;
-	public String errormessage;
-	public String underlying_error;
+        /** Whether the simulation finished successfully */
+        public boolean success;
+        /** Human readable error message if {@link #success} is {@code false} */
+        public String errormessage;
+        /** Stack trace or underlying exception string */
+        public String underlying_error;
 
 	/**
 	 * The hydrate dew point of the dehydrated gas leaving the TEB absorber
@@ -224,18 +230,28 @@ public class CalcResponse {
 	 */
 	public Double richTEGflow;
 
-	public HXResponse coldLeanHX, hotLeanHX,condenserHX ;
-	public StreamResponse overheadCondenserStream;
+        /** Heat exchanger responses for the main coolers */
+        public HXResponse coldLeanHX, hotLeanHX,condenserHX ;
+        /** Stream data for the condenser outlet */
+        public StreamResponse overheadCondenserStream;
 	/**
 	*
 	* Flash Gas stream
 	*/
 	//public StreamResponse flashGasStream;
 
-	public CalcResponse() {
-	}
+        /**
+         * Create an empty response instance.
+         */
+        public CalcResponse() {
+        }
 
-	public CalcResponse(neqsim.processSimulation.processSystem.ProcessSystem operation) {
+        /**
+         * Populate the response based on a finished process simulation.
+         *
+         * @param operation the executed process system
+         */
+        public CalcResponse(neqsim.processSimulation.processSystem.ProcessSystem operation) {
 		waterInDryGasppm = ((SimpleTEGAbsorber) operation.getUnit("TEG absorber")).getGasOutStream().getFluid()
 				.getPhase("gas").getComponent("water").getx() * 1.0e6;
 		estwaterdewtemperature = ((WaterDewPointAnalyser) operation
