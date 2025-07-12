@@ -1,8 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties. To change this
- * template file, choose Tools | Templates and open the template in the editor.
- */
 package com.equinor.neqsimapi;
+
+/**
+ * REST controller exposing NeqSim simulations.
+ *
+ * <p>The controller currently exposes a single POST endpoint used by the
+ * notebooks in this repository to run a TEG dehydration and regeneration
+ * simulation. The heavy lifting of building the actual process model is
+ * delegated to {@link com.equinor.neqsimapi.model.TEGsim}.</p>
+ */
 import com.equinor.neqsimapi.dto.CalcResponse;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
@@ -19,6 +24,14 @@ public class NeqSimAPIController {
     @Path("/dehydTEGsim")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
+    /**
+     * Execute a full dehydration and regeneration simulation.
+     *
+     * @param req input parameters for the process model
+     * @param key optional API key, currently not validated
+     * @return a {@link javax.ws.rs.core.Response} containing a {@link CalcResponse}
+     *         with results or error information
+     */
     public Response dehydAndRegenSimML(com.equinor.neqsimapi.dto.TEGdehydrationRequest req,
             @QueryParam("key") String key) {
         try {

@@ -19,9 +19,19 @@ import neqsim.processSimulation.processEquipment.util.StreamSaturatorUtil;
 import neqsim.processSimulation.processEquipment.valve.ThrottlingValve;
 import neqsim.processSimulation.processEquipment.separator.Separator;
 
+/**
+ * Helper class that builds a TEG dehydration and regeneration process model.
+ */
 public class TEGsim {
 
-	public neqsim.processSimulation.processSystem.ProcessSystem getProcess(TEGdehydrationRequest req) {
+        /**
+         * Construct a {@link neqsim.processSimulation.processSystem.ProcessSystem}
+         * representing the TEG process.
+         *
+         * @param req user supplied input parameters
+         * @return a process system ready to be executed
+         */
+        public neqsim.processSimulation.processSystem.ProcessSystem getProcess(TEGdehydrationRequest req) {
 		neqsim.thermo.system.SystemInterface feedGas = new neqsim.thermo.system.SystemSrkCPAstatoil(273.15 + 42.0,
 				10.00);
 		feedGas.addComponent("nitrogen", 0.245);
