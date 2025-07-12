@@ -1,6 +1,11 @@
 package com.equinor.neqsimapi.dto;
 
-
+/**
+ * Input parameters for a TEG dehydration/regeneration simulation.
+ *
+ * <p>The fields are public to simplify JSON serialisation when called from the
+ * REST API. Default values match the examples used in the notebooks.</p>
+ */
 public class TEGdehydrationRequest {
 
 	public double coolingMedium1FlowRate = 3448.0;
@@ -143,25 +148,47 @@ public class TEGdehydrationRequest {
 	 */
 	public double hotTEGpumpIsentropicEfficiency = 0.75;
 
-	public Double liftGas_N2=0.342;
-	public Double liftGas_CO2=2.49;
-	public Double liftGas_Methane=90.00;
-	public Double liftGas_Ethane=3.9;
-	public Double liftGas_Propane= 1.7;
-	public Double liftGas_iButane=0.00;
-	public Double liftGas_nButane=0.00;
-	public Double liftGas_iPentane=0.0;
-	public Double liftGas_nPentane=0.0;
+        /** Mole fraction of nitrogen in the feed gas (%) */
+        public Double liftGas_N2=0.342;
+        /** Mole fraction of CO2 in the feed gas (%) */
+        public Double liftGas_CO2=2.49;
+        /** Mole fraction of methane in the feed gas (%) */
+        public Double liftGas_Methane=90.00;
+        /** Mole fraction of ethane in the feed gas (%) */
+        public Double liftGas_Ethane=3.9;
+        /** Mole fraction of propane in the feed gas (%) */
+        public Double liftGas_Propane= 1.7;
+        /** Mole fraction of i-butane in the feed gas (%) */
+        public Double liftGas_iButane=0.00;
+        /** Mole fraction of n-butane in the feed gas (%) */
+        public Double liftGas_nButane=0.00;
+        /** Mole fraction of i-pentane in the feed gas (%) */
+        public Double liftGas_iPentane=0.0;
+        /** Mole fraction of n-pentane in the feed gas (%) */
+        public Double liftGas_nPentane=0.0;
 
-	public TEGdehydrationRequest() {
+        /**
+         * Construct a request with default values matching the tutorial
+         * notebooks.
+         */
+        public TEGdehydrationRequest() {
 
-	}
+        }
 
-	public static void main(String[] args) {
+        /**
+         * Simple entry point used for manual testing while developing the DTO.
+         *
+         * @param args ignored
+         */
+        public static void main(String[] args) {
 
-	}
-
-	public boolean checkValidInput() {
-		return (feedGasFlowRate>0.001 && strippingGasRate>0 && feedGasPressure>0 && flashDrumPressure>0 && condenserPressure>0 && hotTEGpumpPressure>0 && absorberFeedGasPressure>0 && reboilerPressure>0);
-	}
+        }
+        /**
+         * Perform a simple sanity check of the supplied parameters.
+         *
+         * @return {@code true} if all required parameters are positive
+         */
+        public boolean checkValidInput() {
+                return (feedGasFlowRate>0.001 && strippingGasRate>0 && feedGasPressure>0 && flashDrumPressure>0 && condenserPressure>0 && hotTEGpumpPressure>0 && absorberFeedGasPressure>0 && reboilerPressure>0);
+        }
 }
