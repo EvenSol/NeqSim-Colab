@@ -7,6 +7,7 @@ NeqSim Python/Colab is part of the [NeqSim project](https://equinor.github.io/ne
 
 ## Getting Started
 See the [NeqSim Colab page](https://colab.research.google.com/github/EvenSol/NeqSim-Colab/blob/master/notebooks/examples_of_NeqSim_in_Colab.ipynb) for how to start using NeqSim in Colab/Python.
+For a demonstration of energy system analysis, see the [PyPSA-Earth offshore field example](https://colab.research.google.com/github/EvenSol/NeqSim-Colab/blob/master/notebooks/energyopt/PyPSAEarthOffshoreField.ipynb).
 
 ## Contributing
 See the [NeqSim Colab page](https://colab.research.google.com/github/EvenSol/NeqSim-Colab/blob/master/notebooks/examples_of_NeqSim_in_Colab.ipynb). Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests.
