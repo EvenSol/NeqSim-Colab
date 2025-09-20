@@ -5,6 +5,10 @@ NeqSim Python/Colab is part of the [NeqSim project](https://equinor.github.io/ne
 
 [NeqSim (Non-Equilibrium Simulator)](https://equinor.github.io/neqsimhome/) is a library for estimation of fluid behaviour for oil and gas production. Colaboratory (Colab) is a free Jupyter notebook environment that requires no setup and runs entirely in the cloud. In the notebooks listed in this page you will find examples of typical gas processing calculations using NeqSim in Colab, and will serve both as introduction to natural gas processing and to interactive use of NeqSim in a Python based notebook. The notebooks serves as a theoretical introduction and as a simulation tool for many processes found in the gas industry.
 
+## Featured notebooks
+
+* [IoT and Industry 4.0 with NeqSim](notebooks/AI/IoT_and_Industry4.0_with_NeqSim.ipynb) – Build an instrumented digital twin, stream dynamic simulation data, and explore Industry 4.0 workflows backed by NeqSim measurements.
+
 ## Getting Started
 See the [NeqSim Colab page](https://colab.research.google.com/github/EvenSol/NeqSim-Colab/blob/master/notebooks/examples_of_NeqSim_in_Colab.ipynb) for how to start using NeqSim in Colab/Python.
 
