@@ -1,0 +1,135 @@
+{
+  "index": "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+  "total_available": 187,
+  "executed_count": 17,
+  "start": 3,
+  "limit": 17,
+  "timeout_s": 90,
+  "elapsed_s": 362.31,
+  "counts": {
+    "passed": 12,
+    "failed": 4,
+    "timeout": 1
+  },
+  "results": [
+    {
+      "path": "thermodynamics/readproperties.ipynb",
+      "status": "passed",
+      "duration_s": 14.85,
+      "returncode": 0,
+      "summary": ""
+    },
+    {
+      "path": "PVT/parameter_database.ipynb",
+      "status": "passed",
+      "duration_s": 29.64,
+      "returncode": 0,
+      "summary": ""
+    },
+    {
+      "path": "PVT/parameter_database2.ipynb",
+      "status": "passed",
+      "duration_s": 10.91,
+      "returncode": 0,
+      "summary": ""
+    },
+    {
+      "path": "gasvaluechain/energystatistics.ipynb",
+      "status": "failed",
+      "duration_s": 5.27,
+      "returncode": 1,
+      "summary": "Traceback (most recent call last):\nraise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)\nnbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:\n\u001b[31mHTTPError\u001b[39m                                 Traceback (most recent call last)\n\u001b[36mFile \u001b[39m\u001b[32mC:\\Program Files\\Python312\\Lib\\urllib\\request.py:630\u001b[39m, in \u001b[36mHTTPErrorProcessor.http_response\u001b[39m\u001b[34m(self, request, response)\u001b[39m\n\u001b[36mFile \u001b[39m\u001b[32mC:\\Program Files\\Python312\\Lib\\urllib\\request.py:630\u001b[39m, in \u001b[36mHTTPErrorProcessor.http_response\u001b[39m\u001b[34m(self, request, response)\u001b[39m\n\u001b[36mFile \u001b[39m\u001b[32mC:\\Program Files\\Python312\\Lib\\urllib\\request.py:639\u001b[39m, in \u001b[36mHTTPDefaultErrorHandler.http_error_default\u001b[39m\u001b[34m(self, req, fp, code, msg, hdrs)\u001b[39m\n\u001b[32m--> \u001b[39m\u001b[32m639\u001b[39m     \u001b[38;5;28;01mraise\u001b[39;00m HTTPError(req.full_url, code, msg, hdrs, fp)\n\u001b[31mHTTPError\u001b[39m: HTTP Error 404: Not Found"
+    },
+    {
+      "path": "gasvaluechain/useOfNaturalGas.ipynb",
+      "status": "failed",
+      "duration_s": 6.39,
+      "returncode": 1,
+      "summary": "Traceback (most recent call last):\nraise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)\nnbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:\n\u001b[31mHTTPError\u001b[39m                                 Traceback (most recent call last)\n\u001b[36mFile \u001b[39m\u001b[32mC:\\Program Files\\Python312\\Lib\\urllib\\request.py:630\u001b[39m, in \u001b[36mHTTPErrorProcessor.http_response\u001b[39m\u001b[34m(self, request, response)\u001b[39m\n\u001b[36mFile \u001b[39m\u001b[32mC:\\Program Files\\Python312\\Lib\\urllib\\request.py:630\u001b[39m, in \u001b[36mHTTPErrorProcessor.http_response\u001b[39m\u001b[34m(self, request, response)\u001b[39m\n\u001b[36mFile \u001b[39m\u001b[32mC:\\Program Files\\Python312\\Lib\\urllib\\request.py:639\u001b[39m, in \u001b[36mHTTPDefaultErrorHandler.http_error_default\u001b[39m\u001b[34m(self, req, fp, code, msg, hdrs)\u001b[39m\n\u001b[32m--> \u001b[39m\u001b[32m639\u001b[39m     \u001b[38;5;28;01mraise\u001b[39;00m HTTPError(req.full_url, code, msg, hdrs, fp)\n\u001b[31mHTTPError\u001b[39m: HTTP Error 404: Not Found"
+    },
+    {
+      "path": "gasvaluechain/EneregyTransition.ipynb",
+      "status": "passed",
+      "duration_s": 4.55,
+      "returncode": 0,
+      "summary": ""
+    },
+    {
+      "path": "thermodynamics/LawsOfThermodynamics.ipynb",
+      "status": "passed",
+      "duration_s": 10.41,
+      "returncode": 0,
+      "summary": ""
+    },
+    {
+      "path": "thermodynamics/EnergyBalance.ipynb",
+      "status": "passed",
+      "duration_s": 10.44,
+      "returncode": 0,
+      "summary": ""
+    },
+    {
+      "path": "thermodynamics/EquationsOfState.ipynb",
+      "status": "failed",
+      "duration_s": 11.71,
+      "returncode": 1,
+      "summary": "Traceback (most recent call last):\nraise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)\nnbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:\n\u001b[31mValueError\u001b[39m                                Traceback (most recent call last)\n\u001b[32m--> \u001b[39m\u001b[32m477\u001b[39m     \u001b[38;5;28;01mraise\u001b[39;00m \u001b[38;5;167;01mValueError\u001b[39;00m(\n\u001b[31mValueError\u001b[39m: Fluid model umr not found. Available models are ['srk', 'SRK-EoS', 'srk-mc', 'SRK-MC', 'srk-peneloux', 'SRK-Peneloux', 'srk-twucoon', 'SRK-TwuCoon', 'srk-twoCoon', 'SRK-TwuCoon-EOS', 'srk-twucoon-statoil', 'srk-s', 'scrk', 'ScRK-EoS', 'srk-volcor', 'SRK-volcor', 'pr', 'PR-EoS', 'pr-mc', 'PR-MC', 'pr-danesh', 'PR-Danesh', 'pr-volcor', 'PR-volcor', 'pr-umr', 'UMR-PRU', 'psrk', 'Psrk-EoS', 'PSRK-EoS', 'csp-srk', 'CSP-SRK', 'rk', 'RK-EoS', 'cpa', 'cpa-srk', 'CPA-SRK-EoS', 'cpa-srk-s', 'cpa-s', 'sCPA', 'cpa-statoil', 'cpa-pr', 'CPA-PR-EoS', 'electrolyte', 'Electrolyte-ScRK-EoS', 'Electrolyte-CPA-EoS', 'cpa-el', 'electrolyte-cpa', 'nrtl', 'NRTL', 'unifac', 'UNIFAC', 'gerg-water', 'GERG-water', 'gerg-2008', 'GERG-2008', 'span-wagner', 'Span-Wagner', 'bwrs', 'BWRS', 'leachman', 'Leachman', 'leachman-h2', 'ideal-gas', 'ideal']"
+    },
+    {
+      "path": "thermodynamics/PhaseEquilibrium.ipynb",
+      "status": "passed",
+      "duration_s": 11.71,
+      "returncode": 0,
+      "summary": ""
+    },
+    {
+      "path": "thermodynamics/RachRice.ipynb",
+      "status": "passed",
+      "duration_s": 14.57,
+      "returncode": 0,
+      "summary": ""
+    },
+    {
+      "path": "thermodynamics/c1_co2_h2s_flash_test.ipynb",
+      "status": "timeout",
+      "duration_s": 100.78,
+      "returncode": null,
+      "summary": "Timed out.\n[NbConvertApp] ERROR | Timeout waiting for execute reply (90s).\nTraceback (most recent call last):\nTraceback (most recent call last):\nraise CellTimeoutError.error_from_timeout_and_cell(\nnbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 90 seconds."
+    },
+    {
+      "path": "thermodynamics/ThermoPropertyCharts.ipynb",
+      "status": "passed",
+      "duration_s": 73.85,
+      "returncode": 0,
+      "summary": ""
+    },
+    {
+      "path": "thermodynamics/physiclaPropertyChart.ipynb",
+      "status": "passed",
+      "duration_s": 15.85,
+      "returncode": 0,
+      "summary": ""
+    },
+    {
+      "path": "thermodynamics/ThermodynamicCycles.ipynb",
+      "status": "passed",
+      "duration_s": 20.39,
+      "returncode": 0,
+      "summary": ""
+    },
+    {
+      "path": "thermodynamics/ExergyAnalysis.ipynb",
+      "status": "passed",
+      "duration_s": 12.6,
+      "returncode": 0,
+      "summary": ""
+    },
+    {
+      "path": "thermodynamics/ChemicalEquilibrium.ipynb",
+      "status": "failed",
+      "duration_s": 8.32,
+      "returncode": 1,
+      "summary": "Traceback (most recent call last):\nraise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)\nnbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:\n\u001b[31mModuleNotFoundError\u001b[39m                       Traceback (most recent call last)\n\u001b[32m     28\u001b[39m \u001b[38;5;28;01mexcept\u001b[39;00m \u001b[38;5;167;01mImportError\u001b[39;00m:\n\u001b[31mModuleNotFoundError\u001b[39m: No module named 'google.colab'\n\u001b[31mRuntimeError\u001b[39m                              Traceback (most recent call last)\n\u001b[32m     28\u001b[39m \u001b[38;5;28;01mexcept\u001b[39;00m \u001b[38;5;167;01mImportError\u001b[39;00m:\n\u001b[32m---> \u001b[39m\u001b[32m29\u001b[39m     \u001b[38;5;28;01mraise\u001b[39;00m \u001b[38;5;167;01mRuntimeError\u001b[39;00m(\u001b[33m\"\u001b[39m\u001b[33mThis module must ONLY run as part of a Colab notebook!\u001b[39m\u001b[33m\"\u001b[39m)\n\u001b[31mRuntimeError\u001b[39m: This module must ONLY run as part of a Colab notebook!"
+    }
+  ]
+}
