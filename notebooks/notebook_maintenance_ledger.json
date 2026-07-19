@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-19T20:20:53.543Z",
+  "updated_at": "2026-07-19T21:04:53.776Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -655,6 +655,44 @@
         "notebook JSON, nbformat, Colab badge, three current NeqSim documentation links, and the exactly-once front-page catalog link were validated"
       ],
       "summary": "Replaced the sparse phase-equilibrium notes, stale Colab magics, wildcard import, unsupported external links, malformed headings, ambiguous equations, and single fragile TP-flash example with a current educational VLE tutorial. Added SRK and PR model construction, phase compositions, K-values, material and fugacity closure, an independent Rachford-Rice check, pressure and temperature studies, separator product accounting, heavy-end sensitivity, deterministic plots, limitations, references, exercises, and executable validation."
+    },
+    {
+      "path": "notebooks/thermodynamics/PhysicalPropertiesOfMethanol.ipynb",
+      "verified_date": "2026-07-19",
+      "verified_at_utc": "2026-07-19T21:04:53.776Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "fresh virtual environment with python -m pip install --upgrade --no-cache-dir neqsim; all code cells executed sequentially in one isolated Python process after final formatting",
+      "code_cells": 19,
+      "markdown_cells": 19,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "key_checks": [
+        "all 19 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 15 focused engineering assertions passed",
+        "valid notebook JSON, nbformat structure, unique cell IDs, and no hidden state",
+        "teaching-readability gate passed: one statement per line, conventional indentation, no semicolons or inline compound bodies, descriptive names, and code lines at most 100 characters",
+        "the complete notebook was re-executed in a fresh environment after final formatting",
+        "Colab equation gate passed: balanced dollar delimiters, standalone display blocks, single-backslash LaTeX commands, no obsolete delimiters, and a successful nbconvert MathJax HTML preview",
+        "three deterministic engineering plots were rendered and visually inspected with readable SI-labelled axes and smooth physical trends",
+        "CPA liquid density was 792.626863 kg/m3 versus the 786.6 kg/m3 reference, a 0.766 percent deviation",
+        "CPA heat capacity differed by -9.420 percent from the selected NIST 80.35 J/(mol K) datum converted to mass basis",
+        "finite-difference isothermal compressibility agreed with the NeqSim response property within 2 percent",
+        "the Cp/Cv compressibility identity reconstructed sound speed with a 2.22e-16 relative residual",
+        "liquid density and viscosity decreased monotonically from 280 to 330 K",
+        "compressed-liquid density increased monotonically from 1.01325 to 100 bara",
+        "all five methanol-water cases closed composition and remained one associating liquid phase",
+        "all pipe-screening cases were turbulent; pressure drop and heat-transfer coefficient increased monotonically with velocity",
+        "the 5000 kg/h heater duty was 71.982394 kW and matched the independent enthalpy balance within 7.11e-14 kW",
+        "the new relative catalog path replaced one plain entry and is linked exactly once from the Methanol section",
+        "the pre-existing advanced model-predictive-controller path containing a backslash remains outside this exactly-one-entry run"
+      ],
+      "summary": "Created a self-contained CPA-based physical-properties tutorial covering property families, density, Cp, Cv, viscosity, conductivity, speed of sound, thermal expansion, compressibility, thermodynamic identity checks, temperature and pressure sweeps, methanol-water mixtures, Reynolds and Prandtl numbers, Darcy pressure loss, Dittus-Boelter heat-transfer screening, a composable NeqSim stream and heater, limitations, troubleshooting, exercises, references, plots, and executable verification."
     }
   ]
 }
