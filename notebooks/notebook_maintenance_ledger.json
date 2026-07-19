@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-19T13:02:31.035Z",
+  "updated_at": "2026-07-19T13:36:28.365Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -148,6 +148,31 @@
         "catalog relative link, Colab badge target, equations, units, references, and the deterministic sensitivity plot were validated"
       ],
       "summary": "Implemented the previously unlinked foundational Production technology topic as a self-contained PR-EOS surface-production tutorial covering a multiphase well fluid, PH-flash choke, primary separator, gas cooler, compressor scrubber, export compressor, material and enthalpy balances, component routing, compressor screening, operating sensitivities, separator sizing, validity limits, troubleshooting, exercises, and machine-readable results."
+    },
+    {
+      "path": "notebooks/thermodynamics/Interfacialadsorption.ipynb",
+      "verified_date": "2026-07-19",
+      "verified_at_utc": "2026-07-19T13:36:28.365Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean virtual environment with latest public PyPI neqsim; all code cells executed sequentially in one isolated in-process namespace because the automation sandbox blocks local Jupyter TCP kernel connections",
+      "code_cells": 16,
+      "markdown_cells": 16,
+      "key_checks": [
+        "all 16 code cells executed in order with zero unexpected exceptions",
+        "SRK bulk-gas TP flash produced one gas phase with normalized composition and a physically plausible density of 7.07 kg/m3 at 20 degrees Celsius and 10 bara",
+        "high-level DRA and explicit Extended Langmuir, Freundlich, Sips, BET, and DRA calculations returned finite non-negative equilibrium loadings",
+        "reported model totals matched the sum of component loadings within numerical tolerance",
+        "Extended Langmuir loadings increased monotonically from 1 to 80 bara with diminishing CO2 increments toward saturation",
+        "CO2 and total loading decreased over the 0 to 100 degrees Celsius thermal-regeneration study",
+        "five adsorbent materials returned finite positive loadings and finite positive CO2-to-methane equilibrium selectivities",
+        "Zeolite 13X CO2 PSA working capacity was positive at 10-to-1 bara and the captured-mass calculation closed exactly",
+        "all 14 focused engineering assertions passed",
+        "notebook JSON, nbformat, equations, Colab badge, retained catalog link, five web links, stored outputs, and four deterministic plots were validated and visually inspected"
+      ],
+      "summary": "Removed the obsolete neqsim 2.5.35 pin, stale embedded video output, hidden Colab form cells, misspellings, and incorrect adsorption units; rebuilt the tutorial around current DRA and explicit isotherm APIs with a reproducible gas, model and material comparisons, pressure and temperature studies, equilibrium selectivity, PSA working capacity, engineering interpretation, limitations, references, exercises, plots, and executable validation."
     }
   ]
 }
