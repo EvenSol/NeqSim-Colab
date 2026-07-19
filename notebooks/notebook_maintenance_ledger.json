@@ -44,6 +44,29 @@
         "notebook JSON, nbformat, equations, Colab badge, documentation links, retained catalog link, outputs, and four deterministic plots were validated"
       ],
       "summary": "Replaced obsolete Colab form cells and loosely scoped examples with a current, phase-specific viscosity workflow; corrected units, compositions, headings, and model guidance; added gas, liquid, aqueous, and specialized-fluid calculations, sensitivity studies, engineering propagation, plots, interpretation, limitations, references, exercises, and executable validation checks."
+    },
+    {
+      "path": "notebooks/thermodynamics/readproperties.ipynb",
+      "verified_date": "2026-07-19",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.13.5",
+      "java_version": "openjdk 21.0.10",
+      "execution_status": "passed",
+      "execution_method": "clean virtual environment with latest public PyPI neqsim; all code cells executed sequentially in one isolated Python process",
+      "code_cells": 9,
+      "markdown_cells": 13,
+      "key_checks": [
+        "all 9 code cells executed in order with zero unexpected exceptions",
+        "two-phase rich-gas TP flash produced identified gas and oil phases",
+        "phase fractions summed to unity within 1e-10",
+        "maximum component material-closure error was below 1e-10",
+        "all reported thermodynamic and transport properties were finite and positive where required",
+        "oil density and viscosity exceeded gas values at the selected state",
+        "gas density increased monotonically from 5 to 50 bara at 22.3 degC",
+        "all 11 focused notebook assertions passed",
+        "notebook JSON, nbformat, equations, Colab badge, catalog path, and introduced links were validated"
+      ],
+      "summary": "Replaced the minimal property-reading example and stale outputs with a current PyPI-compatible tutorial; clarified TP flash versus physical-property initialization; added explicit units, phase and composition tables, component closure, pressure sensitivity, engineering interpretation, limitations, references, exercises, and executable validation checks."
     }
   ]
 }
