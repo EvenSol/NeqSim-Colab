@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-19T18:26:39.149Z",
+  "updated_at": "2026-07-19T19:20:30.920Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -505,6 +505,45 @@
         "notebook JSON, nbformat, Colab badge, current documentation links, and the exactly-once front-page catalog link were validated"
       ],
       "summary": "Replaced the physically inconsistent minimal transient examples, hidden Colab form cell, notebook magics, wildcard imports, mislabeled plots, and ambiguous units with a current SRK-based tutorial. Added a rigorous closed rigid-vessel VU energy balance; a composable heater, compressor, and cooler process; state and unit tables; material and energy closure; entropy generation and exergy destruction; compressor-efficiency and heat-recovery studies; deterministic plots; limitations; references; exercises; and executable validation."
+    },
+    {
+      "path": "notebooks/hydrogen/liquefaction_of_hydrogen.ipynb",
+      "verified_date": "2026-07-19",
+      "verified_at_utc": "2026-07-19T19:20:30.920Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean virtual environment with current PyPI NeqSim; all code cells executed sequentially in one isolated Python process after final formatting",
+      "code_cells": 20,
+      "markdown_cells": 20,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "related_neqsim_fix": "https://github.com/equinor/neqsim/pull/2517",
+      "key_checks": [
+        "all 20 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 16 focused engineering assertions passed",
+        "valid notebook JSON, nbformat structure, unique cell IDs, and no hidden state",
+        "teaching-readability gate passed: one statement per line, conventional indentation, no semicolons or inline compound bodies, and code lines at most 100 characters",
+        "the complete notebook was re-executed after final formatting",
+        "Colab equation gate passed: balanced dollar delimiters, standalone display blocks, single-backslash LaTeX commands, no obsolete delimiters, and a successful nbconvert MathJax HTML preview",
+        "three deterministic engineering plots were rendered and visually inspected with readable SI-labelled axes and smooth physical trends",
+        "SRK normal boiling point was 20.541408 K versus the NIST 20.369 K reference, a 0.172408 K difference",
+        "the five-stage hydrogen cooling duty was 1182.654423 kW for 1000 kg/h and exactly matched the sum of unit duties",
+        "mass flow closed exactly across every stage",
+        "SRK 22 K to 20 K enthalpy change was 514.005 kJ/kg versus the 446 kJ/kg reference latent heat, a 15.25 percent screening-model deviation",
+        "SRK liquid-hydrogen density was 75.483 kg/m3 versus the 70.85 kg/m3 reference, a 6.54 percent deviation",
+        "minimum reversible work was 3.6925 kWh/kg for the stated environment and storage state",
+        "normal-hydrogen ortho-para conversion correction was 525.844 kJ/kg and exceeded the physical latent heat as expected",
+        "helium cold-end temperature was 20.5811 K and pressure sensitivities followed the expected direction",
+        "heat-leak boiloff increased monotonically and tank-volume calculations closed",
+        "all 204 pre-existing relative notebook links resolved before adding this exactly-once catalog link",
+        "the PyPI 3.16.0 pure-hydrogen bubble-point defect was reproduced and a separately validated NeqSim draft fix PR was opened"
+      ],
+      "summary": "Created a self-contained SRK-based liquid-hydrogen tutorial covering pure-fluid saturation, NIST benchmarking, staged process cooling, mass and energy closure, latent heat and density checks, reversible work, ortho-para conversion, a transparent helium Brayton screen, pressure sensitivity, tank sizing, heat-leak boiloff, safety, limitations, troubleshooting, exercises, references, and executable verification."
     }
   ]
 }
