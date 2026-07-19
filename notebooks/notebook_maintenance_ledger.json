@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-19T21:17:42.844Z",
+  "updated_at": "2026-07-19T21:25:03Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -435,40 +435,34 @@
     {
       "path": "notebooks/process/LNG_Liquefaction_Processes.ipynb",
       "verified_date": "2026-07-19",
-      "verified_at_utc": "2026-07-19T18:08:45.701Z",
-      "neqsim_version": "3.16.0",
+      "verified_at_utc": "2026-07-19T21:25:03Z",
+      "neqsim_version": "source commit 00200d037fb55f52ec4a98d52e5411744443cda2 (PyPI fallback when released)",
       "python_version": "3.12.13",
-      "java_version": "openjdk 17.0.19",
-      "execution_status": "passed",
-      "execution_method": "clean sequential in-process execution against the latest public PyPI neqsim release; all code cells executed in one isolated Python namespace because the automation sandbox blocks local Jupyter TCP kernel connections",
-      "code_cells": 19,
-      "markdown_cells": 19,
+      "java_version": "openjdk 17 runtime locally; Colab fallback requires its JDK",
+      "execution_status": "static_validation_passed_execution_deferred",
+      "execution_method": "Notebook JSON, Python syntax, NeqSim notebook quality gate, catalog link, teaching readability, and Colab-safe math were validated locally. Full execution was deferred because the current PyPI 3.16.0 package predates neqsim.process.lng and this sandbox has no Java compiler or Maven Central access for the pinned-source fallback.",
+      "code_cells": 15,
+      "markdown_cells": 16,
       "publication": {
-        "branch": "master",
-        "mode": "atomic direct-to-default-branch commit",
-        "commit": "this atomic commit"
+        "branch": "agent/lng-cycle-efficiency-notebook",
+        "mode": "draft pull request",
+        "commit": "this pull request commit"
       },
       "key_checks": [
-        "valid nbformat 4.5 JSON with deterministic unique cell IDs, 19 freshly executed code cells, zero error outputs, and zero stderr outputs",
-        "all 14 focused engineering assertions passed",
-        "every code cell passed the teaching-readability gate: one statement per line, conventional indentation, no semicolons or inline compound bodies, and no lines over 100 characters",
-        "the complete notebook was re-executed after formatting and the NeqSim skill check_notebook.py gate passed",
-        "all Markdown equations use Colab-compatible $...$ inline math and standalone $$ display blocks; delimiters are balanced and LaTeX commands use single backslashes",
-        "an nbconvert MathJax HTML preview retained all five displayed equations and was visually/static inspected for fractions, subscripts, symbols, and units",
-        "the synthetic feed composition closed exactly and was single-phase gas at 25 degC and 60 bara",
-        "the four-stage cooling duty was 20.891281 MW and matched the independent enthalpy-rate balance exactly",
-        "the 1.2-bara flash produced 88922.668 kg/h LNG and 11077.332 kg/h flash gas from 100000 kg/h feed",
-        "separator mass closed within 1.1e-11 kg/h and valve specific enthalpy closed within 0.131 percent",
-        "nitrogen and methane enriched in flash gas while ethane and heavier components enriched in LNG",
-        "fixed-temperature pressure yields were bounded and monotonic from 30 to 80 bara",
-        "LNG yield increased monotonically as ethane and propane richness increased",
-        "propane, mixed-refrigerant, and nitrogen-expander state-point screens were finite with positive refrigeration",
-        "the nitrogen expander reached -170.236 degC and recovered 103.379 kW per 1 kg/s refrigerant",
-        "two deterministic plots were stored and visually inspected with SI-labelled axes and smooth physical trends",
-        "all 203 pre-existing relative notebook links in the active catalog resolved on master",
-        "catalog target changed from one plain entry to exactly one relative notebook link"
+        "valid nbformat 4.5 JSON with deterministic unique cell IDs, 15 code cells, and 16 Markdown cells",
+        "all code cells passed Python AST parsing with no semicolon-compressed statements and non-URL lines at most 100 characters",
+        "the NeqSim skill check_notebook.py gate passed",
+        "all Markdown display equations use standalone $$ delimiters with balanced Colab-safe math",
+        "the active examples catalog links exactly once to notebooks/process/LNG_Liquefaction_Processes.ipynb",
+        "four independent builder configurations are present for SMR, C3MR, DMR, and NITROGEN_EXPANDER",
+        "each route uses a fresh cloned SRK feed on a common 20000 kg/h, 25 degC, 60 bara, and 1.2 bara product basis",
+        "result calculations cover LNG yield, capacity, compressor power, expander recovery, net power, specific energy, natural-gas duty, refrigeration COP, product state, MITA, exchanger exergy destruction, mass closure, and runtime",
+        "the exact 0.2561, 0.2548, 0.2456, and 0.6180 kWh/kg LNG literature points and DOI sources are retained",
+        "the notebook explicitly distinguishes literature comparison points from acceptance limits and identifies the nitrogen topology mismatch",
+        "equipment manifests, named LNG and flash-gas outputs, built-in benchmark assessments, comparative plots, and SMR zone sensitivity are included",
+        "full numerical execution remains required in a clean Colab runtime or after the LNG package is released on PyPI"
       ],
-      "summary": "Replaced the incomplete six-code-cell LNG sketch with a self-contained SRK tutorial covering pretreated-feed assumptions, equilibrium cooling curves, staged ProcessSystem coolers, energy balance, Joule-Thomson letdown, flash separation, mass and enthalpy closure, component partitioning, pressure and richness sensitivities, and transparent propane, mixed-refrigerant, and nitrogen-expander state-point screens. Added limitations, troubleshooting, exercises, references, deterministic plots, Colab-safe equations, and teaching-quality Python."
+      "summary": "Upgraded the existing catalog-linked LNG tutorial from disconnected state-point screens to four independent closed-loop route models using LNGProcessBuilder. Added common-basis SMR, C3MR, DMR, and nitrogen-expander construction, explicit equipment manifests, reusable product streams, route efficiency and balance metrics, exact literature comparison points with deviations, broad benchmark diagnostics, power and energy plots, SMR grid sensitivity, verification assertions, limitations, exercises, and a machine-readable result object."
     },
     {
       "path": "notebooks/thermodynamics/EnergyBalance.ipynb",
@@ -693,42 +687,7 @@
         "the pre-existing advanced model-predictive-controller path containing a backslash remains outside this exactly-one-entry run"
       ],
       "summary": "Created a self-contained CPA-based physical-properties tutorial covering property families, density, Cp, Cv, viscosity, conductivity, speed of sound, thermal expansion, compressibility, thermodynamic identity checks, temperature and pressure sweeps, methanol-water mixtures, Reynolds and Prandtl numbers, Darcy pressure loss, Dittus-Boelter heat-transfer screening, a composable NeqSim stream and heater, limitations, troubleshooting, exercises, references, plots, and executable verification."
-    },
-    {
-      "path": "notebooks/thermodynamics/RachRice.ipynb",
-      "verified_date": "2026-07-19",
-      "verified_at_utc": "2026-07-19T21:17:42.844Z",
-      "neqsim_version": "3.16.0",
-      "python_version": "3.12.13",
-      "java_version": "openjdk 17.0.19",
-      "execution_status": "passed",
-      "execution_method": "fresh virtual environment with python -m pip install --upgrade --no-cache-dir neqsim; all code cells executed sequentially in one isolated Python process after final formatting",
-      "code_cells": 15,
-      "markdown_cells": 17,
-      "publication": {
-        "branch": "master",
-        "mode": "atomic direct-to-default-branch commit",
-        "commit": "this atomic commit"
-      },
-      "key_checks": [
-        "all 15 code cells executed in order with zero exceptions and zero error outputs",
-        "all 19 focused flash-calculation engineering assertions passed",
-        "teaching-readability gate passed: one statement per line, conventional indentation, no semicolons or inline compound bodies, descriptive names, and code lines at most 82 characters",
-        "the complete notebook was re-executed after final formatting",
-        "Colab equation gate passed: balanced dollar delimiters, standalone display blocks, single-backslash LaTeX commands, no obsolete delimiters or control characters, and a successful nbconvert MathJax HTML preview",
-        "the safeguarded Newton-bisection solver correctly classified liquid-only, vapour-only, and two-phase cases without leaving the physical interval",
-        "the transparent synthetic example closed liquid composition, vapour composition, component balances, and the Rachford-Rice residual within 1e-12",
-        "the independent Rachford-Rice solution reproduced the NeqSim vapour fraction within 2.220e-16",
-        "maximum independent-versus-NeqSim liquid and vapour composition differences were 5.551e-17 and 2.220e-16",
-        "five initial guesses from 0.01 to 0.99 converged to the same physical root",
-        "Wilson initialization produced a finite two-phase estimate with vapour fraction 0.719509 versus the converged NeqSim value 0.724030",
-        "the 5 to 100 bara study reproduced NeqSim phase fractions within 1e-10 and showed monotonically increasing liquid dropout",
-        "PH and PS flashes converged to two-phase outlet states; specified enthalpy and entropy residuals were below 1e-3 J and 1e-3 J/K",
-        "the 1000 kmol/h separator component balance closed within 2.274e-13 kmol/h",
-        "one deterministic four-panel numerical and engineering figure was rendered and visually inspected with readable unit-labelled axes",
-        "notebook JSON, nbformat, Colab badge, three current NeqSim documentation links, and the exactly-once front-page catalog link were validated"
-      ],
-      "summary": "Replaced duplicated unconstrained Newton solvers, stale Colab magics, three wildcard imports, hidden form syntax, an incorrect n-pentane input, weak headings, fragile mutable-fluid reuse, and unverified TP, PH, and PS examples with a current educational flash-calculation tutorial. Added physical phase classification, a safeguarded Newton-bisection Rachford-Rice solver, composition reconstruction, NeqSim benchmarking, Wilson initialization, initial-guess testing, pressure sensitivity, PH and PS specification checks, separator accounting, deterministic plots, limitations, references, exercises, and executable validation."
     }
   ]
 }
+
