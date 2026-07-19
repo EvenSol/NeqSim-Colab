@@ -30,7 +30,7 @@
       "python_version": "3.12.13",
       "java_version": "openjdk 17.0.19",
       "execution_status": "passed",
-      "execution_method": "in-process sequential executor in one clean shared namespace",
+      "execution_method": "clean virtual environment with latest public PyPI neqsim; every code cell re-executed sequentially in notebook order in an isolated Python process after readability formatting",
       "code_cells": 15,
       "markdown_cells": 15,
       "key_checks": [
@@ -41,9 +41,11 @@
         "the CPA water-MEG case remained one aqueous phase with finite positive density and viscosity",
         "Reynolds-number and Darcy friction-loss scenarios were finite, turbulent, and physically consistent",
         "all 10 focused notebook validation assertions passed",
-        "notebook JSON, nbformat, equations, Colab badge, documentation links, retained catalog link, outputs, and four deterministic plots were validated"
+        "notebook JSON, nbformat, equations, Colab badge, documentation links, retained catalog link, outputs, and four deterministic plots were validated",
+        "readability audit passed: one statement per line, zero semicolon tokens, no inline compound bodies, clearly grouped imports, conventional indentation, and non-literal code lines at most 100 characters"
       ],
-      "summary": "Replaced obsolete Colab form cells and loosely scoped examples with a current, phase-specific viscosity workflow; corrected units, compositions, headings, and model guidance; added gas, liquid, aqueous, and specialized-fluid calculations, sensitivity studies, engineering propagation, plots, interpretation, limitations, references, exercises, and executable validation checks."
+      "summary": "Replaced obsolete Colab form cells and loosely scoped examples with a current, phase-specific viscosity workflow; corrected units, compositions, headings, and model guidance; added gas, liquid, aqueous, and specialized-fluid calculations, sensitivity studies, engineering propagation, plots, interpretation, limitations, references, exercises, and executable validation checks. Reformatted every code cell for teaching readability without changing the engineering workflow, stored outputs, or results.",
+      "verified_at_utc": "2026-07-19T16:56:52.974Z"
     },
     {
       "path": "notebooks/thermodynamics/readproperties.ipynb",
@@ -75,7 +77,7 @@
       "python_version": "3.12.13",
       "java_version": "openjdk 17.0.19",
       "execution_status": "passed",
-      "execution_method": "clean virtual environment with latest public PyPI neqsim; all code cells executed sequentially in one isolated in-process namespace because the automation sandbox blocks local Jupyter TCP kernel connections",
+      "execution_method": "clean virtual environment with latest public PyPI neqsim; every code cell re-executed sequentially in notebook order in an isolated Python process after readability formatting",
       "code_cells": 16,
       "markdown_cells": 16,
       "key_checks": [
@@ -88,9 +90,11 @@
         "CPA case produced gas, oil, and aqueous phases with three finite positive pairwise IFT values",
         "Young-Laplace pressure and Bond-number calculations were finite and followed expected diameter trends",
         "all 14 focused engineering assertions passed",
-        "notebook JSON, nbformat, equations, Colab badge, retained catalog link, five introduced web links, outputs, and four deterministic plots were validated"
+        "notebook JSON, nbformat, equations, Colab badge, retained catalog link, five introduced web links, outputs, and four deterministic plots were validated",
+        "readability audit passed: one statement per line, zero semicolon tokens, no inline compound bodies, clearly grouped imports, conventional indentation, and non-literal code lines at most 100 characters"
       ],
-      "summary": "Removed the obsolete neqsim 2.5.35 pin, hidden Colab form cells, stale embedded video output, weak prose, spelling errors, and index assumptions; rebuilt the tutorial around current interphase-property APIs, explicit phase identification and units, model comparison, pressure and temperature sensitivities, a three-phase CPA case, capillary engineering calculations, interpretation, limitations, references, exercises, and executable validation."
+      "summary": "Removed the obsolete neqsim 2.5.35 pin, hidden Colab form cells, stale embedded video output, weak prose, spelling errors, and index assumptions; rebuilt the tutorial around current interphase-property APIs, explicit phase identification and units, model comparison, pressure and temperature sensitivities, a three-phase CPA case, capillary engineering calculations, interpretation, limitations, references, exercises, and executable validation. Reformatted every code cell for teaching readability without changing the engineering workflow, stored outputs, or results.",
+      "verified_at_utc": "2026-07-19T16:56:52.974Z"
     },
     {
       "path": "notebooks/thermodynamics/diffusioncoefficients.ipynb",
@@ -99,7 +103,7 @@
       "python_version": "3.12.13",
       "java_version": "openjdk 17.0.19",
       "execution_status": "passed",
-      "execution_method": "clean virtual environment with latest public PyPI neqsim; all code cells executed sequentially in one isolated in-process namespace because the automation sandbox blocks local Jupyter TCP kernel connections",
+      "execution_method": "clean virtual environment with latest public PyPI neqsim; every code cell re-executed sequentially in notebook order in an isolated Python process after readability formatting",
       "code_cells": 16,
       "markdown_cells": 16,
       "key_checks": [
@@ -112,9 +116,11 @@
         "ternary-gas binary matrix was symmetric and effective coefficients were finite and positive",
         "Fick-film flux and diffusion-time calculations followed expected thickness trends",
         "all 15 focused engineering assertions passed",
-        "notebook JSON, nbformat, equations, Colab badge, retained catalog link, five web links, outputs, and five deterministic plots were validated and visually inspected"
+        "notebook JSON, nbformat, equations, Colab badge, retained catalog link, five web links, outputs, and five deterministic plots were validated and visually inspected",
+        "readability audit passed: one statement per line, zero semicolon tokens, no inline compound bodies, clearly grouped imports, conventional indentation, and non-literal code lines at most 100 characters"
       ],
-      "summary": "Removed the obsolete neqsim 2.5.35 pin, stale embedded video output, hidden form cells, mislabeled models that were never selected, exception-swallowing flash code, spelling errors, and zero-result initialization mistakes; rebuilt the tutorial around current gas, organic-liquid, aqueous, binary, and effective-diffusivity APIs with explicit units, model comparison, pressure and temperature scaling, multicomponent transport, Fick-film engineering calculations, interpretation, limitations, references, exercises, plots, and executable validation."
+      "summary": "Removed the obsolete neqsim 2.5.35 pin, stale embedded video output, hidden form cells, mislabeled models that were never selected, exception-swallowing flash code, spelling errors, and zero-result initialization mistakes; rebuilt the tutorial around current gas, organic-liquid, aqueous, binary, and effective-diffusivity APIs with explicit units, model comparison, pressure and temperature scaling, multicomponent transport, Fick-film engineering calculations, interpretation, limitations, references, exercises, plots, and executable validation. Reformatted every code cell for teaching readability without changing the engineering workflow, stored outputs, or results.",
+      "verified_at_utc": "2026-07-19T16:56:52.974Z"
     },
     {
       "path": "notebooks/production/production_technology.ipynb",
@@ -152,12 +158,12 @@
     {
       "path": "notebooks/thermodynamics/Interfacialadsorption.ipynb",
       "verified_date": "2026-07-19",
-      "verified_at_utc": "2026-07-19T13:36:28.365Z",
+      "verified_at_utc": "2026-07-19T16:56:52.974Z",
       "neqsim_version": "3.16.0",
       "python_version": "3.12.13",
       "java_version": "openjdk 17.0.19",
       "execution_status": "passed",
-      "execution_method": "clean virtual environment with latest public PyPI neqsim; all code cells executed sequentially in one isolated in-process namespace because the automation sandbox blocks local Jupyter TCP kernel connections",
+      "execution_method": "clean virtual environment with latest public PyPI neqsim; every code cell re-executed sequentially in notebook order in an isolated Python process after readability formatting",
       "code_cells": 16,
       "markdown_cells": 16,
       "key_checks": [
@@ -170,9 +176,10 @@
         "five adsorbent materials returned finite positive loadings and finite positive CO2-to-methane equilibrium selectivities",
         "Zeolite 13X CO2 PSA working capacity was positive at 10-to-1 bara and the captured-mass calculation closed exactly",
         "all 14 focused engineering assertions passed",
-        "notebook JSON, nbformat, equations, Colab badge, retained catalog link, five web links, stored outputs, and four deterministic plots were validated and visually inspected"
+        "notebook JSON, nbformat, equations, Colab badge, retained catalog link, five web links, stored outputs, and four deterministic plots were validated and visually inspected",
+        "readability audit passed: one statement per line, zero semicolon tokens, no inline compound bodies, clearly grouped imports, conventional indentation, and non-literal code lines at most 100 characters"
       ],
-      "summary": "Removed the obsolete neqsim 2.5.35 pin, stale embedded video output, hidden Colab form cells, misspellings, and incorrect adsorption units; rebuilt the tutorial around current DRA and explicit isotherm APIs with a reproducible gas, model and material comparisons, pressure and temperature studies, equilibrium selectivity, PSA working capacity, engineering interpretation, limitations, references, exercises, plots, and executable validation."
+      "summary": "Removed the obsolete neqsim 2.5.35 pin, stale embedded video output, hidden Colab form cells, misspellings, and incorrect adsorption units; rebuilt the tutorial around current DRA and explicit isotherm APIs with a reproducible gas, model and material comparisons, pressure and temperature studies, equilibrium selectivity, PSA working capacity, engineering interpretation, limitations, references, exercises, plots, and executable validation. Reformatted every code cell for teaching readability without changing the engineering workflow, stored outputs, or results."
     },
     {
       "path": "notebooks/production/well_chemistry_and_water_management.ipynb",
@@ -211,12 +218,12 @@
     {
       "path": "notebooks/thermodynamics/density_of_gas.ipynb",
       "verified_date": "2026-07-19",
-      "verified_at_utc": "2026-07-19T14:30:26.194Z",
+      "verified_at_utc": "2026-07-19T16:56:52.974Z",
       "neqsim_version": "3.16.0",
       "python_version": "3.12.13",
       "java_version": "openjdk 17.0.19",
       "execution_status": "passed",
-      "execution_method": "clean virtual environment with latest public PyPI neqsim; all code cells executed sequentially in one isolated in-process namespace because the automation sandbox blocks local Jupyter TCP kernel connections",
+      "execution_method": "clean virtual environment with latest public PyPI neqsim; every code cell re-executed sequentially in notebook order in an isolated Python process after readability formatting",
       "code_cells": 16,
       "markdown_cells": 16,
       "key_checks": [
@@ -230,9 +237,10 @@
         "SRK and PR methane bubble-point temperatures and LNG densities were finite and physically plausible",
         "mass-flow-to-actual-volume and pipe-velocity calculations were finite and practical",
         "all 14 focused engineering assertions passed",
-        "notebook JSON, nbformat, equations, Colab badge, retained catalog link, five web links, stored outputs, and four deterministic plots were validated and visually inspected"
+        "notebook JSON, nbformat, equations, Colab badge, retained catalog link, five web links, stored outputs, and four deterministic plots were validated and visually inspected",
+        "readability audit passed: one statement per line, zero semicolon tokens, no inline compound bodies, clearly grouped imports, conventional indentation, and non-literal code lines at most 100 characters"
       ],
-      "summary": "Removed hidden Colab form cells, stale embedded video output, fragile wildcard imports and phase assumptions, inaccurate gas-constant units, spelling errors, and weak validation; rebuilt the tutorial around current SRK, PR, and GERG density APIs with explicit units and phases, pure methane and natural-gas studies, pressure, temperature, and CO2 sensitivities, compression volume, linepack, LNG density, pipe velocity, model deviation, interpretation, limitations, references, exercises, plots, and executable validation."
+      "summary": "Removed hidden Colab form cells, stale embedded video output, fragile wildcard imports and phase assumptions, inaccurate gas-constant units, spelling errors, and weak validation; rebuilt the tutorial around current SRK, PR, and GERG density APIs with explicit units and phases, pure methane and natural-gas studies, pressure, temperature, and CO2 sensitivities, compression volume, linepack, LNG density, pipe velocity, model deviation, interpretation, limitations, references, exercises, plots, and executable validation. Reformatted every code cell for teaching readability without changing the engineering workflow, stored outputs, or results."
     },
     {
       "path": "notebooks/subseaequipment/subsea_process_simulation.ipynb",
@@ -269,12 +277,12 @@
     {
       "path": "notebooks/thermodynamics/Phase_envelopes_of_oil_and_gas.ipynb",
       "verified_date": "2026-07-19",
-      "verified_at_utc": "2026-07-19T15:22:40.289Z",
+      "verified_at_utc": "2026-07-19T16:56:52.974Z",
       "neqsim_version": "3.16.0",
       "python_version": "3.12.13",
       "java_version": "openjdk 17.0.19",
       "execution_status": "passed",
-      "execution_method": "clean virtual environment with latest public PyPI neqsim; all code cells executed sequentially in one isolated in-process namespace because the automation sandbox blocks local Jupyter TCP kernel connections",
+      "execution_method": "clean virtual environment with latest public PyPI neqsim; every code cell re-executed sequentially in notebook order in an isolated Python process after readability formatting",
       "code_cells": 16,
       "markdown_cells": 16,
       "key_checks": [
@@ -287,9 +295,10 @@
         "80-bara cooling path remained gas above the dew point and formed a bounded positive equilibrium liquid fraction below it",
         "20-degree-Celsius operation at 80 bara had a positive 33.685-degree dry-gas margin",
         "all 11 focused engineering assertions passed",
-        "notebook JSON, nbformat, equations, Colab badge, retained catalog link, five web links, stored outputs, and four deterministic plots were validated and visually inspected"
+        "notebook JSON, nbformat, equations, Colab badge, retained catalog link, five web links, stored outputs, and four deterministic plots were validated and visually inspected",
+        "readability audit passed: one statement per line, zero semicolon tokens, no inline compound bodies, clearly grouped imports, conventional indentation, and non-literal code lines at most 100 characters"
       ],
-      "summary": "Removed stale multimedia and hidden forms, placeholder code, malformed headings, broad exception swallowing, duplicate and incorrect component assignments, wrong-fluid envelope calculations, and inconsistent temperature units; rebuilt the tutorial around current phaseenvelope, dewt, and TPflash APIs with a traceable gas, characteristic points, retrograde dew behavior, heavy-end sensitivity, cooling and condensate formation, operating margin, interpretation, limitations, references, exercises, plots, and executable validation."
+      "summary": "Removed stale multimedia and hidden forms, placeholder code, malformed headings, broad exception swallowing, duplicate and incorrect component assignments, wrong-fluid envelope calculations, and inconsistent temperature units; rebuilt the tutorial around current phaseenvelope, dewt, and TPflash APIs with a traceable gas, characteristic points, retrograde dew behavior, heavy-end sensitivity, cooling and condensate formation, operating margin, interpretation, limitations, references, exercises, plots, and executable validation. Reformatted every code cell for teaching readability without changing the engineering workflow, stored outputs, or results."
     },
     {
       "path": "notebooks/subseaequipment/multiphase_reservoir_fluid_flow.ipynb",
@@ -330,12 +339,12 @@
     {
       "path": "notebooks/thermodynamics/water_dew_point_claculations.ipynb",
       "verified_date": "2026-07-19",
-      "verified_at_utc": "2026-07-19T16:33:04.762Z",
+      "verified_at_utc": "2026-07-19T16:56:52.974Z",
       "neqsim_version": "3.16.0",
       "python_version": "3.12.13",
       "java_version": "openjdk 17.0.19",
       "execution_status": "passed",
-      "execution_method": "clean virtual environment with latest public PyPI neqsim; all code cells executed sequentially in one isolated in-process namespace because the automation sandbox blocks local Jupyter TCP kernel connections",
+      "execution_method": "clean virtual environment with latest public PyPI neqsim; every code cell re-executed sequentially in notebook order in an isolated Python process after readability formatting",
       "code_cells": 15,
       "markdown_cells": 15,
       "key_checks": [
@@ -349,9 +358,10 @@
         "hydrate equilibrium was calculated independently and both water-dew and hydrate margins were positive at the selected operating temperature",
         "dehydration material balance gave 19.048 kg water removal per million standard cubic metres from 35 to 10 ppm mol",
         "all 12 focused engineering assertions passed",
-        "notebook JSON, nbformat, equations, Colab badge, retained catalog link, five web links, stored outputs, and three deterministic plots were validated and visually inspected"
+        "notebook JSON, nbformat, equations, Colab badge, retained catalog link, five web links, stored outputs, and three deterministic plots were validated and visually inspected",
+        "readability audit passed: one statement per line, zero semicolon tokens, no inline compound bodies, clearly grouped imports, conventional indentation, and non-literal code lines at most 100 characters"
       ],
-      "summary": "Removed the empty cell, encoding errors, incorrect TEG dosing, reused mutable fluid state, unsafe aqueous-phase assumptions, unsupported corrosion threshold, and weak units and interpretation; rebuilt the tutorial around current SRK and CPA water-dew flashes, pressure and moisture sensitivities, saturated-water calculations, hydrate comparison, dehydration material balance, scenario matrix, limitations, references, exercises, plots, and executable validation."
+      "summary": "Removed the empty cell, encoding errors, incorrect TEG dosing, reused mutable fluid state, unsafe aqueous-phase assumptions, unsupported corrosion threshold, and weak units and interpretation; rebuilt the tutorial around current SRK and CPA water-dew flashes, pressure and moisture sensitivities, saturated-water calculations, hydrate comparison, dehydration material balance, scenario matrix, limitations, references, exercises, plots, and executable validation. Reformatted every code cell for teaching readability without changing the engineering workflow, stored outputs, or results."
     }
   ]
 }
