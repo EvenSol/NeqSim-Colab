@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-19T22:01:14.565Z",
+  "updated_at": "2026-07-19T22:10:38Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -725,6 +725,41 @@
         "the existing plain catalog entry was converted to exactly one relative link in the Methanol section"
       ],
       "summary": "Replaced the sparse placeholder and exception-swallowing examples with a self-contained methanol-production tutorial. Added steam-methane reforming, water-gas shift and methanol-synthesis theory; reusable Gibbs-reactor workflows; element, mass and energy closure; temperature, pressure and steam-ratio studies; a connected reformer, cooler, water separator, compressor and synthesis reactor; explicit SRK-to-CPA model transfer for condensation; crude-methanol separation and recovery; recycle limiting analysis; front-end KPIs; plots; limitations; troubleshooting; exercises; references; and machine-readable validation."
+    },
+    {
+      "path": "notebooks/fluidflow/neqsim_openfoam_cfd.ipynb",
+      "verified_date": "2026-07-19",
+      "verified_at_utc": "2026-07-19T22:10:38.987Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "openfoam_version": "OpenFOAM Foundation 14, build 14-b4f91ad8bbba",
+      "pyvista_version": "0.48.4",
+      "execution_status": "passed",
+      "execution_method": "clean sequential shared Python process with the current PyPI NeqSim and an official OpenFOAM 14 Ubuntu package extracted into the validation workspace; all code cells executed top to bottom after final formatting because the sandbox blocks local Jupyter TCP kernel connections",
+      "code_cells": 10,
+      "markdown_cells": 13,
+      "publication": {
+        "branch": "agent/neqsim-openfoam-cfd",
+        "mode": "review branch commits and draft pull request",
+        "commit": "pull request head"
+      },
+      "key_checks": [
+        "all 10 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "OpenFOAM 14 generated a 12,225-cell mesh and the steady SIMPLE solution converged in 317 iterations",
+        "NeqSim 3.16.0 SRK predicted a single gas phase with density 15.6646 kg/m3 and dynamic viscosity 1.16088e-5 Pa s at 298.15 K and 20 bara",
+        "the transferred kinematic viscosity was 7.41086e-7 m2/s and the calculated Reynolds number was 685,480",
+        "the CFD outlet velocity was 7.61986 m/s versus the independent area-ratio value 7.65060 m/s, a 0.40185 percent deviation",
+        "inlet-to-outlet mass flow closed to 0.40185 percent",
+        "static-pressure recovery was 108.293 Pa and irreversible total-pressure loss was positive at 209.866 Pa",
+        "minimum axial velocity was -2.56161 m/s, confirming the expected separated recirculation region",
+        "maximum Mach number was 0.02491 and the maximum relative pressure change was 0.01144 percent of absolute pressure, supporting the educational incompressible approximation",
+        "one executed three-panel CFD figure shows velocity contours, streamlines, pressure, and turbulent kinetic energy; a second figure shows downstream velocity and pressure recovery",
+        "both embedded PNG figures were visually inspected at original resolution and have readable SI-labelled axes, legends, wall geometry, and color scales",
+        "valid nbformat 4.5 structure, 23 unique cell IDs, balanced Colab-safe equations, no hidden state, no error outputs, and no actual semicolon-compressed Python statements",
+        "the complete notebook was re-executed after final formatting and its Fluid mechanics catalog link occurs exactly once"
+      ],
+      "summary": "Created a self-contained NeqSim-to-OpenFOAM 14 tutorial that calculates natural-gas transport properties with SRK, transfers kinematic viscosity and turbulence inputs into a backward-facing-step RANS case, runs the official OpenFOAM solver, converts VTK fields to SI pressure, embeds high-quality CFD contours and streamlines, checks flow conservation and pressure behavior, and documents the validity limits and extensions to compressible, thermal, and multiphase coupling."
     }
   ]
 }
