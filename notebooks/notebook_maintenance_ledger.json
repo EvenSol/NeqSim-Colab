@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-19T22:10:38Z",
+  "updated_at": "2026-07-19T22:52:12Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -760,6 +760,37 @@
         "the complete notebook was re-executed after final formatting and its Fluid mechanics catalog link occurs exactly once"
       ],
       "summary": "Created a self-contained NeqSim-to-OpenFOAM 14 tutorial that calculates natural-gas transport properties with SRK, transfers kinematic viscosity and turbulence inputs into a backward-facing-step RANS case, runs the official OpenFOAM solver, converts VTK fields to SI pressure, embeds high-quality CFD contours and streamlines, checks flow conservation and pressure behavior, and documents the validity limits and extensions to compressible, thermal, and multiphase coupling."
+    },
+    {
+      "path": "notebooks/fluidflow/pipeline_evaporation_and_gas_dissolution.ipynb",
+      "verified_date": "2026-07-20",
+      "verified_at_utc": "2026-07-19T22:52:12.758Z",
+      "neqsim_version": "feature commit 55e3d6ccc011 over NeqSim 3.16.0 runtime JAR",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "sequential shared Python process using the exact PR #2519 feature classes compiled against NeqSim 3.16.0; all code cells were executed top to bottom after final formatting. The clean Colab source-build fallback was statically reviewed but not separately executed.",
+      "code_cells": 13,
+      "markdown_cells": 11,
+      "publication": {
+        "branch": "agent/pipeline-phase-transfer-colab",
+        "mode": "review branch commit and draft pull request",
+        "commit": "pull request head"
+      },
+      "related_neqsim_feature_pr": "https://github.com/equinor/neqsim/pull/2519",
+      "key_checks": [
+        "all 13 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 9 focused engineering assertions passed",
+        "the 1 percent tracked-mass criterion was reached at 0.0398042 m for droplets and 0.3873504 m for wall film",
+        "methane bubbles reached the 1 percent dissolution criterion at 0.0773678 m with terminal slip and 0.00150001 m with specified actual phase velocities",
+        "the short SRK-CPA CO2-water case correctly remained incomplete with 0.9999098 tracked gas remaining, a NaN completion distance, a warning, and preserved AQUEOUS type",
+        "maximum component residual was 7.38e-14 mol/s and maximum relative energy residual was 5.93e-8",
+        "the adaptive droplet calculation gave identical completion distance for 0.005, 0.010, and 0.020 m step ceilings",
+        "valid nbformat 4.5 JSON, 24 unique cell IDs, Colab-safe equations, no semicolon-compressed Python, and readable non-URL code lines at most 100 characters",
+        "three deterministic two-panel figures were rendered and visually inspected with readable SI-labelled axes, legends, and physically interpretable profiles",
+        "the Fluid mechanics catalog contains exactly one relative link to the notebook"
+      ],
+      "summary": "Created a self-contained finite-rate pipeline phase-transfer tutorial covering hydrocarbon droplet and wall-film evaporation, methane-bubble dissolution into oil, CO2-bubble dissolution into water, Maxwell–Stefan component fluxes, coupled heat transfer, specified and Schiller–Naumann terminal slip, tracked-inventory completion distance, explicit incomplete results, conservation, step sensitivity, model limits, independent comparison paths, references, plots, and machine-readable results."
     }
   ]
 }
