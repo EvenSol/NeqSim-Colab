@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-19T13:36:28.365Z",
+  "updated_at": "2026-07-19T14:04:16.204Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -173,6 +173,40 @@
         "notebook JSON, nbformat, equations, Colab badge, retained catalog link, five web links, stored outputs, and four deterministic plots were validated and visually inspected"
       ],
       "summary": "Removed the obsolete neqsim 2.5.35 pin, stale embedded video output, hidden Colab form cells, misspellings, and incorrect adsorption units; rebuilt the tutorial around current DRA and explicit isotherm APIs with a reproducible gas, model and material comparisons, pressure and temperature studies, equilibrium selectivity, PSA working capacity, engineering interpretation, limitations, references, exercises, plots, and executable validation."
+    },
+    {
+      "path": "notebooks/production/well_chemistry_and_water_management.ipynb",
+      "verified_date": "2026-07-19",
+      "verified_at_utc": "2026-07-19T14:04:16.204Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean sequential in-process execution against the latest public PyPI neqsim release; all code cells executed in one isolated Python namespace because the automation sandbox blocks local Jupyter TCP kernel connections",
+      "code_cells": 17,
+      "markdown_cells": 17,
+      "publication": {
+        "branch": "master",
+        "mode": "direct",
+        "notebook_commit": "0a821800be453c040181835a63da2478b7f30a4c",
+        "catalog_commit": "b749afdbe8ccf0846c7cfc17a48ef1a2c8f36f5b",
+        "ledger_commit": "this ledger update commit"
+      },
+      "key_checks": [
+        "valid nbformat 4.5 JSON with deterministic cell IDs and no error outputs",
+        "all 17 code cells executed in order with stored fresh outputs",
+        "all 13 focused engineering assertions passed",
+        "70-bara water dew point reproduced the 35 degC saturation state within 0.2 K",
+        "overall equipment mass and water-component balances closed within 1e-9 relative error",
+        "cooling created an increasing aqueous-water load and the knock-out liquid was more than 99 wt% water",
+        "moderate NaCl brine density increased monotonically across the 0-9.1 wt% solution sweep",
+        "hydrate equilibrium temperature increased with pressure and decreased monotonically with aqueous MEG concentration",
+        "lean-MEG dosing algebra exactly recovered the specified mixed-aqueous targets",
+        "specific condensed-water load was rate-invariant within 1e-6 relative variation",
+        "NeqSim documentation link resolved; Colab badge and relative catalog target were syntactically and structurally validated",
+        "the deterministic water/hydrate/MEG envelope plot was rendered and visually inspected"
+      ],
+      "summary": "Implemented the previously unlinked Well chemistry and water management topic as a self-contained CPA-based tutorial covering gas water saturation, water dew point, cooling and aqueous dropout, cooler/separator simulation, total and water balances, moderate-NaCl brine density, hydrate equilibrium, MEG inhibition and dosing, throughput scaling, risk indicators, limitations, troubleshooting, exercises, references, and machine-readable results."
     }
   ]
 }
