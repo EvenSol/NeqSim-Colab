@@ -67,6 +67,30 @@
         "notebook JSON, nbformat, equations, Colab badge, catalog path, and introduced links were validated"
       ],
       "summary": "Replaced the minimal property-reading example and stale outputs with a current PyPI-compatible tutorial; clarified TP flash versus physical-property initialization; added explicit units, phase and composition tables, component closure, pressure sensitivity, engineering interpretation, limitations, references, exercises, and executable validation checks."
+    },
+    {
+      "path": "notebooks/thermodynamics/interfacialtension.ipynb",
+      "verified_date": "2026-07-19",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean virtual environment with latest public PyPI neqsim; all code cells executed sequentially in one isolated in-process namespace because the automation sandbox blocks local Jupyter TCP kernel connections",
+      "code_cells": 16,
+      "markdown_cells": 16,
+      "key_checks": [
+        "all 16 code cells executed in order with zero unexpected exceptions",
+        "gas-oil TP flash produced identified gas and oil phases with phase fractions summing to unity",
+        "maximum component material-closure error was below 1e-9",
+        "Parachor, simple-gradient-theory, and linear-gradient-theory IFT values were finite, positive, plausible, and within 20 percent relative spread",
+        "gas-oil IFT decreased smoothly with pressure from 5 to 80 bara while gas density increased",
+        "gas-oil IFT decreased smoothly with temperature from 0 to 90 degrees Celsius at 25 bara",
+        "CPA case produced gas, oil, and aqueous phases with three finite positive pairwise IFT values",
+        "Young-Laplace pressure and Bond-number calculations were finite and followed expected diameter trends",
+        "all 14 focused engineering assertions passed",
+        "notebook JSON, nbformat, equations, Colab badge, retained catalog link, five introduced web links, outputs, and four deterministic plots were validated"
+      ],
+      "summary": "Removed the obsolete neqsim 2.5.35 pin, hidden Colab form cells, stale embedded video output, weak prose, spelling errors, and index assumptions; rebuilt the tutorial around current interphase-property APIs, explicit phase identification and units, model comparison, pressure and temperature sensitivities, a three-phase CPA case, capillary engineering calculations, interpretation, limitations, references, exercises, and executable validation."
     }
   ]
 }
