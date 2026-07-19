@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-19T14:04:16.204Z",
+  "updated_at": "2026-07-19T14:30:26.194Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -207,6 +207,32 @@
         "the deterministic water/hydrate/MEG envelope plot was rendered and visually inspected"
       ],
       "summary": "Implemented the previously unlinked Well chemistry and water management topic as a self-contained CPA-based tutorial covering gas water saturation, water dew point, cooling and aqueous dropout, cooler/separator simulation, total and water balances, moderate-NaCl brine density, hydrate equilibrium, MEG inhibition and dosing, throughput scaling, risk indicators, limitations, troubleshooting, exercises, references, and machine-readable results."
+    },
+    {
+      "path": "notebooks/thermodynamics/density_of_gas.ipynb",
+      "verified_date": "2026-07-19",
+      "verified_at_utc": "2026-07-19T14:30:26.194Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean virtual environment with latest public PyPI neqsim; all code cells executed sequentially in one isolated in-process namespace because the automation sandbox blocks local Jupyter TCP kernel connections",
+      "code_cells": 16,
+      "markdown_cells": 16,
+      "key_checks": [
+        "all 16 code cells executed in order with zero unexpected exceptions",
+        "synthetic natural-gas composition closed exactly and all operating studies remained in the intended gas phase",
+        "SRK and PR methane densities approached the ideal-gas result within 2 percent at 1 bara and increased monotonically through 250 bara",
+        "SRK and PR natural-gas densities were finite and compared successfully with GERG-2008; PR differed by 0.18 percent at 15 degrees Celsius and 100 bara",
+        "sales-gas density decreased smoothly from 20 to 80 degrees Celsius at 100 bara",
+        "density increased smoothly as CO2 replaced methane from 0 to 10 mol percent",
+        "nitrogen compression volume decreased monotonically and 100-km pipeline linepack increased monotonically with pressure",
+        "SRK and PR methane bubble-point temperatures and LNG densities were finite and physically plausible",
+        "mass-flow-to-actual-volume and pipe-velocity calculations were finite and practical",
+        "all 14 focused engineering assertions passed",
+        "notebook JSON, nbformat, equations, Colab badge, retained catalog link, five web links, stored outputs, and four deterministic plots were validated and visually inspected"
+      ],
+      "summary": "Removed hidden Colab form cells, stale embedded video output, fragile wildcard imports and phase assumptions, inaccurate gas-constant units, spelling errors, and weak validation; rebuilt the tutorial around current SRK, PR, and GERG density APIs with explicit units and phases, pure methane and natural-gas studies, pressure, temperature, and CO2 sensitivities, compression volume, linepack, LNG density, pipe velocity, model deviation, interpretation, limitations, references, exercises, plots, and executable validation."
     }
   ]
 }
