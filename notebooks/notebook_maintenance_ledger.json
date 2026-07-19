@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-19T16:13:13.143Z",
+  "updated_at": "2026-07-19T16:33:04.762Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -326,6 +326,32 @@
         "catalog target changed from one plain entry to exactly one relative notebook link"
       ],
       "summary": "Implemented the previously unlinked Multiphase flow of reservoir fluids topic as a self-contained PR-EOS and Beggs-Brill tutorial covering reservoir-to-flowline flashes, phase properties, standard-condition GOR, composable streams, pressure/temperature/holdup/velocity/regime profiles, pressure-gradient screening, and thermal, diameter, throughput, elevation, roughness and composition sensitivities, with explicit assumptions, limits, troubleshooting, exercises, references, plots and machine-readable results."
+    },
+    {
+      "path": "notebooks/thermodynamics/water_dew_point_claculations.ipynb",
+      "verified_date": "2026-07-19",
+      "verified_at_utc": "2026-07-19T16:33:04.762Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean virtual environment with latest public PyPI neqsim; all code cells executed sequentially in one isolated in-process namespace because the automation sandbox blocks local Jupyter TCP kernel connections",
+      "code_cells": 15,
+      "markdown_cells": 15,
+      "key_checks": [
+        "all 15 code cells executed in order with zero unexpected exceptions",
+        "wet-gas composition closed exactly on a molar basis",
+        "SRK and CPA water-dew calculations were finite at 70 bara; model spread was 6.538 degrees Celsius",
+        "CPA pressure study remained finite from 20 to 150 bara and rose over the low-pressure range before flattening",
+        "CPA dew point increased monotonically from 5 to 100 ppm mol water at 70 bara",
+        "saturated gas water content increased monotonically from -30 to 0 degrees Celsius",
+        "the inverse saturation calculation reproduced 35 ppm at the CPA dew point within 2 percent",
+        "hydrate equilibrium was calculated independently and both water-dew and hydrate margins were positive at the selected operating temperature",
+        "dehydration material balance gave 19.048 kg water removal per million standard cubic metres from 35 to 10 ppm mol",
+        "all 12 focused engineering assertions passed",
+        "notebook JSON, nbformat, equations, Colab badge, retained catalog link, five web links, stored outputs, and three deterministic plots were validated and visually inspected"
+      ],
+      "summary": "Removed the empty cell, encoding errors, incorrect TEG dosing, reused mutable fluid state, unsafe aqueous-phase assumptions, unsupported corrosion threshold, and weak units and interpretation; rebuilt the tutorial around current SRK and CPA water-dew flashes, pressure and moisture sensitivities, saturated-water calculations, hydrate comparison, dehydration material balance, scenario matrix, limitations, references, exercises, plots, and executable validation."
     }
   ]
 }
