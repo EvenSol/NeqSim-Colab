@@ -22,6 +22,28 @@
         "notebook JSON, nbformat, equations, Colab badge, and introduced documentation links were validated"
       ],
       "summary": "Removed the obsolete neqsim 2.5.35 pin; corrected conductivity terminology; documented current API initialization and supported model choices; added reproducible gas, pure-component, pressure, temperature, composition, and heat-transfer studies; added deterministic plots, engineering interpretation, limitations, exercises, and executable validation checks."
+    },
+    {
+      "path": "notebooks/thermodynamics/ViscosityOfFluids.ipynb",
+      "verified_date": "2026-07-19",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "in-process sequential executor in one clean shared namespace",
+      "code_cells": 15,
+      "markdown_cells": 15,
+      "key_checks": [
+        "all 15 code cells executed in order with zero unexpected exceptions after correcting the aqueous-property validation input",
+        "friction-theory, LBC, PFCT, Chung, heavy-oil, polynomial, Muzny, MethaneModel, and CO2Model results were finite and positive",
+        "natural-gas density increased smoothly with pressure and gas viscosity increased smoothly with temperature over the stated single-phase ranges",
+        "n-heptane viscosity decreased smoothly from 0 to 90 degrees Celsius",
+        "the CPA water-MEG case remained one aqueous phase with finite positive density and viscosity",
+        "Reynolds-number and Darcy friction-loss scenarios were finite, turbulent, and physically consistent",
+        "all 10 focused notebook validation assertions passed",
+        "notebook JSON, nbformat, equations, Colab badge, documentation links, retained catalog link, outputs, and four deterministic plots were validated"
+      ],
+      "summary": "Replaced obsolete Colab form cells and loosely scoped examples with a current, phase-specific viscosity workflow; corrected units, compositions, headings, and model guidance; added gas, liquid, aqueous, and specialized-fluid calculations, sensitivity studies, engineering propagation, plots, interpretation, limitations, references, exercises, and executable validation checks."
     }
   ]
 }
