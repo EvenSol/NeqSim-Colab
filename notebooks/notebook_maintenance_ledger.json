@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-19T17:31:57.563Z",
+  "updated_at": "2026-07-19T18:08:45.701Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -431,6 +431,44 @@
         "notebook JSON, nbformat, Colab badge, current documentation links, and the exactly-once front-page catalog link were validated"
       ],
       "summary": "Replaced the stale minimal gas-solubility example, Colab magics, wildcard import, and embedded video output with a current CPA-based engineering tutorial. Added binary methane, carbon-dioxide, and hydrogen-sulfide cases; pressure and temperature sensitivities; Henry-law diagnostics; sour-gas phase partitioning; component closure; degassing; produced-water release; CPA-versus-SRK model sensitivity; plots; interpretation; limitations; references; exercises; and executable validation."
+    },
+    {
+      "path": "notebooks/process/LNG_Liquefaction_Processes.ipynb",
+      "verified_date": "2026-07-19",
+      "verified_at_utc": "2026-07-19T18:08:45.701Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean sequential in-process execution against the latest public PyPI neqsim release; all code cells executed in one isolated Python namespace because the automation sandbox blocks local Jupyter TCP kernel connections",
+      "code_cells": 19,
+      "markdown_cells": 19,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "key_checks": [
+        "valid nbformat 4.5 JSON with deterministic unique cell IDs, 19 freshly executed code cells, zero error outputs, and zero stderr outputs",
+        "all 14 focused engineering assertions passed",
+        "every code cell passed the teaching-readability gate: one statement per line, conventional indentation, no semicolons or inline compound bodies, and no lines over 100 characters",
+        "the complete notebook was re-executed after formatting and the NeqSim skill check_notebook.py gate passed",
+        "all Markdown equations use Colab-compatible $...$ inline math and standalone $$ display blocks; delimiters are balanced and LaTeX commands use single backslashes",
+        "an nbconvert MathJax HTML preview retained all five displayed equations and was visually/static inspected for fractions, subscripts, symbols, and units",
+        "the synthetic feed composition closed exactly and was single-phase gas at 25 degC and 60 bara",
+        "the four-stage cooling duty was 20.891281 MW and matched the independent enthalpy-rate balance exactly",
+        "the 1.2-bara flash produced 88922.668 kg/h LNG and 11077.332 kg/h flash gas from 100000 kg/h feed",
+        "separator mass closed within 1.1e-11 kg/h and valve specific enthalpy closed within 0.131 percent",
+        "nitrogen and methane enriched in flash gas while ethane and heavier components enriched in LNG",
+        "fixed-temperature pressure yields were bounded and monotonic from 30 to 80 bara",
+        "LNG yield increased monotonically as ethane and propane richness increased",
+        "propane, mixed-refrigerant, and nitrogen-expander state-point screens were finite with positive refrigeration",
+        "the nitrogen expander reached -170.236 degC and recovered 103.379 kW per 1 kg/s refrigerant",
+        "two deterministic plots were stored and visually inspected with SI-labelled axes and smooth physical trends",
+        "all 203 pre-existing relative notebook links in the active catalog resolved on master",
+        "catalog target changed from one plain entry to exactly one relative notebook link"
+      ],
+      "summary": "Replaced the incomplete six-code-cell LNG sketch with a self-contained SRK tutorial covering pretreated-feed assumptions, equilibrium cooling curves, staged ProcessSystem coolers, energy balance, Joule-Thomson letdown, flash separation, mass and enthalpy closure, component partitioning, pressure and richness sensitivities, and transparent propane, mixed-refrigerant, and nitrogen-expander state-point screens. Added limitations, troubleshooting, exercises, references, deterministic plots, Colab-safe equations, and teaching-quality Python."
     }
   ]
 }
