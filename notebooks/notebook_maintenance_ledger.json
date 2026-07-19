@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-07-19",
+  "notebooks": [
+    {
+      "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
+      "verified_date": "2026-07-19",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "in-process sequential executor because the automation sandbox blocks local Jupyter TCP kernel connections",
+      "code_cells": 14,
+      "markdown_cells": 15,
+      "key_checks": [
+        "all 14 code cells executed in order with zero unexpected exceptions",
+        "PFCT, Chung-dense, and friction-theory conductivity predictions were finite and physically plausible",
+        "PFCT pressure and temperature sweeps were smooth and monotonic over the stated single-phase range",
+        "methane-gas and n-heptane-liquid reference deviations were below 20 percent",
+        "thermal diffusivity, Prandtl, Reynolds, Nusselt, and heat-transfer calculations were finite and positive",
+        "all 12 notebook validation assertions passed",
+        "notebook JSON, nbformat, equations, Colab badge, and introduced documentation links were validated"
+      ],
+      "summary": "Removed the obsolete neqsim 2.5.35 pin; corrected conductivity terminology; documented current API initialization and supported model choices; added reproducible gas, pure-component, pressure, temperature, composition, and heat-transfer studies; added deterministic plots, engineering interpretation, limitations, exercises, and executable validation checks."
+    }
+  ]
+}
