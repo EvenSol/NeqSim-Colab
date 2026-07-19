@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-19T16:33:04.762Z",
+  "updated_at": "2026-07-19T17:03:49.917Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -362,6 +362,41 @@
         "readability audit passed: one statement per line, zero semicolon tokens, no inline compound bodies, clearly grouped imports, conventional indentation, and non-literal code lines at most 100 characters"
       ],
       "summary": "Removed the empty cell, encoding errors, incorrect TEG dosing, reused mutable fluid state, unsafe aqueous-phase assumptions, unsupported corrosion threshold, and weak units and interpretation; rebuilt the tutorial around current SRK and CPA water-dew flashes, pressure and moisture sensitivities, saturated-water calculations, hydrate comparison, dehydration material balance, scenario matrix, limitations, references, exercises, plots, and executable validation. Reformatted every code cell for teaching readability without changing the engineering workflow, stored outputs, or results."
+    },
+    {
+      "path": "notebooks/process/air_and_water_cooling.ipynb",
+      "verified_date": "2026-07-19",
+      "verified_at_utc": "2026-07-19T17:03:49.917Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean sequential in-process execution against the latest public PyPI neqsim release; all code cells executed in one isolated Python namespace because the automation sandbox blocks local Jupyter TCP kernel connections",
+      "code_cells": 18,
+      "markdown_cells": 18,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "key_checks": [
+        "valid nbformat 4.5 JSON with deterministic unique cell IDs, 18 freshly executed code cells, zero error outputs, and zero stderr outputs",
+        "all 21 focused engineering assertions passed",
+        "every code cell passed the teaching-readability gate: one statement per line, conventional indentation, no semicolons or inline compound bodies, and no lines over 100 characters",
+        "the complete notebook was re-executed after formatting and the NeqSim skill check_notebook.py gate passed",
+        "synthetic gas composition closed exactly; inlet and outlet remained single phase over the documented sensitivity range",
+        "the process cooler removed 1.96187 MW and the independent enthalpy-rate balance matched within 1e-12 relative error",
+        "cooler inlet and outlet mass rates agreed within 1e-8 kg/h and the specified 0.5 bar process pressure loss was met",
+        "NeqSim air heat capacity was physically plausible and air density agreed with the ideal-gas screen within 2 percent",
+        "CPA liquid-water density remained within 980-1010 kg/m3; the documented 4.18 kJ/(kg K) engineering heat capacity was used for the water utility balance",
+        "air and water terminal differences, LMTD, UA, utility flows, indicative areas, fan power, and pump power were positive",
+        "warmer gas targets reduced duty; hotter ambient air increased required UA; larger utility temperature rises reduced flow",
+        "pressure-drop scenarios reproduced their specified outlet pressures and the repeated base calculation was deterministic",
+        "four deterministic plots were rendered and visually inspected with SI-labelled axes and smooth physical trends",
+        "current PyPI version, NeqSim documentation, Colab badge syntax, equations, assumptions, limitations, and references were checked",
+        "catalog target changed from one plain entry to exactly one relative notebook link"
+      ],
+      "summary": "Implemented the previously unlinked Air and water cooling topic as a self-contained SRK-EOS and NeqSim cooler tutorial covering compositional gas properties, named streams, rigorous enthalpy duty, air and cooling-water utility balances, LMTD, UA, indicative area, fan and pump power, and outlet-temperature, ambient, utility-rise and pressure-drop sensitivities, with explicit assumptions, validity limits, troubleshooting, exercises, references, plots, machine-readable results, and teaching-quality Python."
     }
   ]
 }
