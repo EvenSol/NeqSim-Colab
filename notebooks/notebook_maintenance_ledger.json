@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-19T15:22:40.289Z",
+  "updated_at": "2026-07-19T16:13:13.143Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -290,6 +290,42 @@
         "notebook JSON, nbformat, equations, Colab badge, retained catalog link, five web links, stored outputs, and four deterministic plots were validated and visually inspected"
       ],
       "summary": "Removed stale multimedia and hidden forms, placeholder code, malformed headings, broad exception swallowing, duplicate and incorrect component assignments, wrong-fluid envelope calculations, and inconsistent temperature units; rebuilt the tutorial around current phaseenvelope, dewt, and TPflash APIs with a traceable gas, characteristic points, retrograde dew behavior, heavy-end sensitivity, cooling and condensate formation, operating margin, interpretation, limitations, references, exercises, plots, and executable validation."
+    },
+    {
+      "path": "notebooks/subseaequipment/multiphase_reservoir_fluid_flow.ipynb",
+      "verified_date": "2026-07-19",
+      "verified_at_utc": "2026-07-19T16:13:13.143Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean sequential in-process execution against the latest public PyPI neqsim release; all code cells executed in one isolated Python namespace because the automation sandbox blocks local Jupyter TCP kernel connections",
+      "code_cells": 18,
+      "markdown_cells": 18,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "related_neqsim_bugfix_pr": "https://github.com/equinor/neqsim/pull/2512",
+      "key_checks": [
+        "valid nbformat 4.5 JSON with deterministic unique cell IDs, 18 freshly executed code cells, zero error outputs, and zero stderr outputs",
+        "all 21 focused engineering assertions passed",
+        "synthetic composition and phase mass flows closed; the pipe inlet and outlet mass rates agreed within 1e-6 kg/h",
+        "PR-EOS reservoir state was single phase and the 80-bara, 35-degC flowline inlet flashed to gas and oil",
+        "surface GOR was 258.22 Sm3/m3 at the stated 15-degC and 1.01325-bara convention",
+        "the base 10-km line arrived at 77.0447 bara and 16.636 degC with 2.95525 bar pressure drop",
+        "all validated holdups remained in [0,1], with a maximum of 0.94736",
+        "the sum of segment pressure drops matched the reported total and the independent hydrostatic screen had the correct sign and magnitude",
+        "horizontal pressure loss fell with diameter and rose with throughput and roughness",
+        "total pressure drop rose with net elevation; outlet temperature fell with increasing heat-transfer coefficient",
+        "GOR rose smoothly with methane enrichment and the repeated base calculation was deterministic",
+        "mixture velocity remained below the erosional screening velocity",
+        "current PyPI version, NeqSim documentation, source implementation link, Colab badge target, equations, SI units, and four deterministic plots were checked",
+        "the selected released-version operating envelope was kept within physical holdup bounds; the separately reproduced low-velocity holdup defect was submitted as equinor/neqsim PR 2512",
+        "catalog target changed from one plain entry to exactly one relative notebook link"
+      ],
+      "summary": "Implemented the previously unlinked Multiphase flow of reservoir fluids topic as a self-contained PR-EOS and Beggs-Brill tutorial covering reservoir-to-flowline flashes, phase properties, standard-condition GOR, composable streams, pressure/temperature/holdup/velocity/regime profiles, pressure-gradient screening, and thermal, diameter, throughput, elevation, roughness and composition sensitivities, with explicit assumptions, limits, troubleshooting, exercises, references, plots and machine-readable results."
     }
   ]
 }
