@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-19T19:20:30.920Z",
+  "updated_at": "2026-07-19T19:23:27.334Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -544,6 +544,43 @@
         "the PyPI 3.16.0 pure-hydrogen bubble-point defect was reproduced and a separately validated NeqSim draft fix PR was opened"
       ],
       "summary": "Created a self-contained SRK-based liquid-hydrogen tutorial covering pure-fluid saturation, NIST benchmarking, staged process cooling, mass and energy closure, latent heat and density checks, reversible work, ortho-para conversion, a transparent helium Brayton screen, pressure sensitivity, tank sizing, heat-leak boiloff, safety, limitations, troubleshooting, exercises, references, and executable verification."
+    },
+    {
+      "path": "notebooks/thermodynamics/EquationsOfState.ipynb",
+      "verified_date": "2026-07-19",
+      "verified_at_utc": "2026-07-19T19:23:27.334Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean virtual environment with python -m pip install --upgrade --no-cache-dir neqsim; all code cells executed sequentially in one isolated Python process because the automation sandbox blocks local Jupyter TCP kernel connections",
+      "code_cells": 15,
+      "markdown_cells": 16,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "key_checks": [
+        "all 15 code cells executed in order with zero unexpected exceptions and zero error outputs",
+        "all 13 focused engineering assertions passed",
+        "every code cell passed the teaching-readability gate: one statement per line, conventional indentation, no semicolons or inline compound bodies, and non-literal lines at most 100 characters",
+        "the complete notebook was re-executed after formatting and the NeqSim skill check_notebook.py gate passed",
+        "the five-component natural-gas composition summed to unity and all real-fluid base states remained single phase",
+        "SRK, PR, and GERG-2008 approached the ideal-gas compressibility limit at 1 bara",
+        "the density identity using NeqSim volume-corrected Z closed within 1e-6 relative error",
+        "SRK and PR carbon-dioxide fugacity coefficients approached unity at low pressure and decreased smoothly with pressure",
+        "SRK and PR rich-gas flashes produced two phases with phase fractions summing to unity",
+        "every rich-gas component balance closed within 1e-10 mole fraction",
+        "CPA predicted the normal water boiling temperature within 0.307 degrees Celsius of the nominal 100 degree reference",
+        "ethane-nC15 PR bubble pressure increased monotonically over the documented binary-interaction range",
+        "classic PR and UMR-PRU bubble pressures were finite and positive; their illustrative spread was 3.98 percent",
+        "SRK, PR, and GERG-2008 dense-gas densities decreased smoothly with temperature and the maximum model spread was 1.68 percent",
+        "three deterministic plots were rendered and visually inspected with readable SI-labelled axes and physically smooth trends",
+        "all Markdown equations use Colab-compatible $...$ inline math and standalone $$ display blocks; delimiters are balanced, LaTeX commands use single backslashes, and an nbconvert MathJax HTML preview passed",
+        "notebook JSON, nbformat, Colab badge, current documentation links, and the exactly-once front-page catalog link were validated"
+      ],
+      "summary": "Replaced the fragmented EoS notes, stale embedded video, hidden Colab form and magics, wildcard imports, semicolon-compressed code, incorrect or ambiguous equations, fragile phase indexing, stale variable output, and unsupported claims with a current model-selection tutorial. Added ideal, SRK, PR, GERG-2008, CPA, and UMR-PRU workflows; pressure and dense-gas studies; volume-corrected density validation; carbon-dioxide fugacity; rich-gas phase and component closure; water boiling benchmark; binary-interaction sensitivity; model uncertainty; plots; limitations; references; exercises; and executable validation."
     }
   ]
 }
