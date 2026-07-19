@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-19T21:04:53.776Z",
+  "updated_at": "2026-07-19T21:17:42.844Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -693,6 +693,42 @@
         "the pre-existing advanced model-predictive-controller path containing a backslash remains outside this exactly-one-entry run"
       ],
       "summary": "Created a self-contained CPA-based physical-properties tutorial covering property families, density, Cp, Cv, viscosity, conductivity, speed of sound, thermal expansion, compressibility, thermodynamic identity checks, temperature and pressure sweeps, methanol-water mixtures, Reynolds and Prandtl numbers, Darcy pressure loss, Dittus-Boelter heat-transfer screening, a composable NeqSim stream and heater, limitations, troubleshooting, exercises, references, plots, and executable verification."
+    },
+    {
+      "path": "notebooks/thermodynamics/RachRice.ipynb",
+      "verified_date": "2026-07-19",
+      "verified_at_utc": "2026-07-19T21:17:42.844Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "fresh virtual environment with python -m pip install --upgrade --no-cache-dir neqsim; all code cells executed sequentially in one isolated Python process after final formatting",
+      "code_cells": 15,
+      "markdown_cells": 17,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "key_checks": [
+        "all 15 code cells executed in order with zero exceptions and zero error outputs",
+        "all 19 focused flash-calculation engineering assertions passed",
+        "teaching-readability gate passed: one statement per line, conventional indentation, no semicolons or inline compound bodies, descriptive names, and code lines at most 82 characters",
+        "the complete notebook was re-executed after final formatting",
+        "Colab equation gate passed: balanced dollar delimiters, standalone display blocks, single-backslash LaTeX commands, no obsolete delimiters or control characters, and a successful nbconvert MathJax HTML preview",
+        "the safeguarded Newton-bisection solver correctly classified liquid-only, vapour-only, and two-phase cases without leaving the physical interval",
+        "the transparent synthetic example closed liquid composition, vapour composition, component balances, and the Rachford-Rice residual within 1e-12",
+        "the independent Rachford-Rice solution reproduced the NeqSim vapour fraction within 2.220e-16",
+        "maximum independent-versus-NeqSim liquid and vapour composition differences were 5.551e-17 and 2.220e-16",
+        "five initial guesses from 0.01 to 0.99 converged to the same physical root",
+        "Wilson initialization produced a finite two-phase estimate with vapour fraction 0.719509 versus the converged NeqSim value 0.724030",
+        "the 5 to 100 bara study reproduced NeqSim phase fractions within 1e-10 and showed monotonically increasing liquid dropout",
+        "PH and PS flashes converged to two-phase outlet states; specified enthalpy and entropy residuals were below 1e-3 J and 1e-3 J/K",
+        "the 1000 kmol/h separator component balance closed within 2.274e-13 kmol/h",
+        "one deterministic four-panel numerical and engineering figure was rendered and visually inspected with readable unit-labelled axes",
+        "notebook JSON, nbformat, Colab badge, three current NeqSim documentation links, and the exactly-once front-page catalog link were validated"
+      ],
+      "summary": "Replaced duplicated unconstrained Newton solvers, stale Colab magics, three wildcard imports, hidden form syntax, an incorrect n-pentane input, weak headings, fragile mutable-fluid reuse, and unverified TP, PH, and PS examples with a current educational flash-calculation tutorial. Added physical phase classification, a safeguarded Newton-bisection Rachford-Rice solver, composition reconstruction, NeqSim benchmarking, Wilson initialization, initial-guess testing, pressure sensitivity, PH and PS specification checks, separator accounting, deterministic plots, limitations, references, exercises, and executable validation."
     }
   ]
 }
