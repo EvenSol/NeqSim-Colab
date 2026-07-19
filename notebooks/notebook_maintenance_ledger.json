@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-19T20:08:17.572Z",
+  "updated_at": "2026-07-19T20:20:53.543Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -620,6 +620,41 @@
         "the complete pre-existing catalog audit found 205 of 206 unique relative notebook paths functional; one advanced model-predictive-controller path with a backslash remains outside this exactly-one-entry run"
       ],
       "summary": "Created a self-contained CPA-based methanol thermodynamics tutorial covering association theory, component and phase representation, TP and bubble-point flashes, CPA/SRK/PR model comparison, NIST boiling-point, density, heat-capacity, and latent-heat benchmarks, saturation and property sensitivities, methanol-water mixtures, a composable ProcessSystem heating and vaporization train, mass and energy closure, throughput scaling, safety, limitations, troubleshooting, exercises, references, and executable verification."
+    },
+    {
+      "path": "notebooks/thermodynamics/PhaseEquilibrium.ipynb",
+      "verified_date": "2026-07-19",
+      "verified_at_utc": "2026-07-19T20:20:53.543Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "fresh virtual environment with python -m pip install --upgrade --no-cache-dir neqsim; all code cells executed sequentially in one isolated Python process after final formatting",
+      "code_cells": 15,
+      "markdown_cells": 17,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "key_checks": [
+        "all 15 code cells executed in order with zero exceptions and zero error outputs",
+        "all 15 focused phase-equilibrium engineering assertions passed",
+        "teaching-readability gate passed: one statement per line, conventional indentation, no semicolons or inline compound bodies, descriptive names, and code lines at most 82 characters",
+        "the complete notebook was re-executed after final formatting",
+        "Colab equation gate passed: balanced dollar delimiters, standalone display blocks, single-backslash LaTeX commands, no obsolete delimiters or control characters, and a successful nbconvert MathJax HTML preview",
+        "base SRK TP flash produced stable gas and oil phases with finite positive densities and phase fractions summing to unity",
+        "all gas and liquid phase compositions summed to unity within 1e-12",
+        "maximum component material-balance residual was 3.331e-16 mole fraction",
+        "maximum normalized component fugacity residual was 8.346e-15",
+        "independent Rachford-Rice residual was -4.372e-16",
+        "1000 kmol/h separator product accounting closed each component within 1e-8 kmol/h",
+        "pressure, temperature, component-volatility, and heavy-end trends were finite, monotonic, and physically consistent",
+        "SRK-PR vapour-fraction spread was 0.00385 at the base condition",
+        "one deterministic four-panel engineering figure was rendered and visually inspected with readable unit-labelled axes",
+        "notebook JSON, nbformat, Colab badge, three current NeqSim documentation links, and the exactly-once front-page catalog link were validated"
+      ],
+      "summary": "Replaced the sparse phase-equilibrium notes, stale Colab magics, wildcard import, unsupported external links, malformed headings, ambiguous equations, and single fragile TP-flash example with a current educational VLE tutorial. Added SRK and PR model construction, phase compositions, K-values, material and fugacity closure, an independent Rachford-Rice check, pressure and temperature studies, separator product accounting, heavy-end sensitivity, deterministic plots, limitations, references, exercises, and executable validation."
     }
   ]
 }
