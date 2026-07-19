@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-19T15:04:09.454Z",
+  "updated_at": "2026-07-19T15:22:40.289Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -265,6 +265,31 @@
         "four deterministic engineering plots were rendered and visually inspected"
       ],
       "summary": "Implemented the previously unlinked Simulation of subsea processes topic as a self-contained PR-EOS tutorial integrating a multiphase wellstream, subsea and host chokes, non-isothermal Beggs-Brill flowline, host separator, export compressor and cooler; added balances, hydraulic and thermal profiles, diameter, throughput, elevation and insulation sensitivities, phase routing, compressor and velocity screens, validity limits, troubleshooting, exercises, references and machine-readable results."
+    },
+    {
+      "path": "notebooks/thermodynamics/Phase_envelopes_of_oil_and_gas.ipynb",
+      "verified_date": "2026-07-19",
+      "verified_at_utc": "2026-07-19T15:22:40.289Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean virtual environment with latest public PyPI neqsim; all code cells executed sequentially in one isolated in-process namespace because the automation sandbox blocks local Jupyter TCP kernel connections",
+      "code_cells": 16,
+      "markdown_cells": 16,
+      "key_checks": [
+        "all 16 code cells executed in order with zero unexpected exceptions",
+        "synthetic natural-gas composition closed exactly and envelope arrays contained finite dew and bubble points",
+        "dew and bubble branches each contained more than 25 converged points",
+        "reported cricondenbar and cricondentherm agreed with the pressure and temperature maxima within one unit",
+        "direct dew-point calculations from 10 to 80 bara were finite and reproduced the expected retrograde maximum",
+        "multiplying C3+ content from lean through rich shifted cricondentherm monotonically upward",
+        "80-bara cooling path remained gas above the dew point and formed a bounded positive equilibrium liquid fraction below it",
+        "20-degree-Celsius operation at 80 bara had a positive 33.685-degree dry-gas margin",
+        "all 11 focused engineering assertions passed",
+        "notebook JSON, nbformat, equations, Colab badge, retained catalog link, five web links, stored outputs, and four deterministic plots were validated and visually inspected"
+      ],
+      "summary": "Removed stale multimedia and hidden forms, placeholder code, malformed headings, broad exception swallowing, duplicate and incorrect component assignments, wrong-fluid envelope calculations, and inconsistent temperature units; rebuilt the tutorial around current phaseenvelope, dewt, and TPflash APIs with a traceable gas, characteristic points, retrograde dew behavior, heavy-end sensitivity, cooling and condensate formation, operating margin, interpretation, limitations, references, exercises, plots, and executable validation."
     }
   ]
 }
