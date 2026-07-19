@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-19T17:03:49.917Z",
+  "updated_at": "2026-07-19T17:31:57.563Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -366,7 +366,7 @@
     {
       "path": "notebooks/process/air_and_water_cooling.ipynb",
       "verified_date": "2026-07-19",
-      "verified_at_utc": "2026-07-19T17:03:49.917Z",
+      "verified_at_utc": "2026-07-19T17:31:57.563Z",
       "neqsim_version": "3.16.0",
       "python_version": "3.12.13",
       "java_version": "openjdk 17.0.19",
@@ -394,9 +394,43 @@
         "pressure-drop scenarios reproduced their specified outlet pressures and the repeated base calculation was deterministic",
         "four deterministic plots were rendered and visually inspected with SI-labelled axes and smooth physical trends",
         "current PyPI version, NeqSim documentation, Colab badge syntax, equations, assumptions, limitations, and references were checked",
-        "catalog target changed from one plain entry to exactly one relative notebook link"
+        "catalog target changed from one plain entry to exactly one relative notebook link",
+        "all Markdown equations use Colab-compatible $...$ inline math and standalone $$ display blocks; delimiters are balanced, LaTeX commands use single backslashes, and an nbconvert MathJax HTML preview passed"
       ],
-      "summary": "Implemented the previously unlinked Air and water cooling topic as a self-contained SRK-EOS and NeqSim cooler tutorial covering compositional gas properties, named streams, rigorous enthalpy duty, air and cooling-water utility balances, LMTD, UA, indicative area, fan and pump power, and outlet-temperature, ambient, utility-rise and pressure-drop sensitivities, with explicit assumptions, validity limits, troubleshooting, exercises, references, plots, machine-readable results, and teaching-quality Python."
+      "summary": "Implemented the previously unlinked Air and water cooling topic as a self-contained SRK-EOS and NeqSim cooler tutorial covering compositional gas properties, named streams, rigorous enthalpy duty, air and cooling-water utility balances, LMTD, UA, indicative area, fan and pump power, and outlet-temperature, ambient, utility-rise and pressure-drop sensitivities, with explicit assumptions, validity limits, troubleshooting, exercises, references, plots, machine-readable results, and teaching-quality Python. Replaced fragile LaTeX delimiters in seven Markdown cells with Colab-compatible equation delimiters and revalidated the complete notebook."
+    },
+    {
+      "path": "notebooks/thermodynamics/solubility_of_gases_in_water.ipynb",
+      "verified_date": "2026-07-19",
+      "verified_at_utc": "2026-07-19T17:31:57.563Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean virtual environment with the latest public PyPI neqsim; all code cells executed sequentially in one isolated Python process because the automation sandbox blocks local Jupyter TCP kernel connections",
+      "code_cells": 15,
+      "markdown_cells": 16,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "key_checks": [
+        "all 15 code cells executed in order with zero unexpected exceptions",
+        "all 13 focused engineering assertions passed",
+        "every code cell passed the teaching-readability gate: one statement per line, conventional indentation, no semicolons or inline compound bodies, and non-literal lines at most 100 characters",
+        "methane, carbon-dioxide, and hydrogen-sulfide aqueous loadings were finite, positive, and physically ordered at the base state",
+        "aqueous loading increased smoothly with pressure and decreased smoothly with temperature over the documented ranges",
+        "the low-pressure carbon-dioxide loading study was approximately linear, as expected from the Henry-law limit",
+        "multicomponent phase fractions and component inventories closed within numerical tolerance",
+        "the pressure-reduction study produced finite gas release and preserved every component inventory",
+        "the produced-water release calculation was finite and positive with explicit molar and mass units",
+        "CPA and SRK predictions were both finite and the large model spread was explicitly interpreted as model-form uncertainty",
+        "three deterministic plots were rendered and visually inspected with SI-labelled axes and smooth physical trends",
+        "all Markdown equations use Colab-compatible $...$ inline math and standalone $$ display blocks; delimiters are balanced, LaTeX commands use single backslashes, and an nbconvert MathJax HTML preview passed",
+        "notebook JSON, nbformat, Colab badge, current documentation links, and the exactly-once front-page catalog link were validated"
+      ],
+      "summary": "Replaced the stale minimal gas-solubility example, Colab magics, wildcard import, and embedded video output with a current CPA-based engineering tutorial. Added binary methane, carbon-dioxide, and hydrogen-sulfide cases; pressure and temperature sensitivities; Henry-law diagnostics; sour-gas phase partitioning; component closure; degassing; produced-water release; CPA-versus-SRK model sensitivity; plots; interpretation; limitations; references; exercises; and executable validation."
     }
   ]
 }
