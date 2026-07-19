@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-19T21:25:03Z",
+  "updated_at": "2026-07-19T22:01:14.565Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -687,7 +687,44 @@
         "the pre-existing advanced model-predictive-controller path containing a backslash remains outside this exactly-one-entry run"
       ],
       "summary": "Created a self-contained CPA-based physical-properties tutorial covering property families, density, Cp, Cv, viscosity, conductivity, speed of sound, thermal expansion, compressibility, thermodynamic identity checks, temperature and pressure sweeps, methanol-water mixtures, Reynolds and Prandtl numbers, Darcy pressure loss, Dittus-Boelter heat-transfer screening, a composable NeqSim stream and heater, limitations, troubleshooting, exercises, references, plots, and executable verification."
+    },
+    {
+      "path": "notebooks/reactions/Methanol_Production.ipynb",
+      "verified_date": "2026-07-19",
+      "verified_at_utc": "2026-07-19T22:01:14.565Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "fresh virtual environment with python -m pip install --upgrade --no-cache-dir neqsim; all code cells executed sequentially in one isolated Python process after final formatting",
+      "code_cells": 20,
+      "markdown_cells": 20,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "key_checks": [
+        "replaced the 9-cell placeholder with a 40-cell educational methanol-production tutorial",
+        "all 20 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 17 focused engineering assertions passed",
+        "valid notebook JSON, nbformat structure, unique cell IDs, and no hidden state",
+        "teaching-readability gate passed: one statement per line, conventional indentation, no semicolons or inline compound bodies, descriptive names, and code lines at most 100 characters",
+        "the complete notebook was re-executed in a fresh environment after final formatting",
+        "Colab equation gate passed: balanced dollar delimiters, standalone display blocks, single-backslash LaTeX commands, no obsolete delimiters, and a successful nbconvert MathJax HTML preview",
+        "two deterministic engineering figures were rendered and visually inspected with readable SI-labelled axes and smooth physical trends",
+        "base reformer methane conversion was 0.792984 and the 1520 kW isothermal duty had the expected endothermic sign",
+        "reformer conversion increased monotonically from 973.15 to 1173.15 K and from steam-to-carbon ratio 2 to 4",
+        "base and integrated carbon, hydrogen, and oxygen balances closed with a maximum residual of 2.22e-15",
+        "methanol-synthesis carbon conversion decreased monotonically with temperature and increased monotonically from 40 to 120 bara",
+        "the integrated synthesis duty was -389.714 kW and the syngas compressor consumed 1363.027 kW",
+        "water knockout and CPA product-separator mass balances closed within 1e-8 kg/h",
+        "the CPA product flash produced gas and an associating liquid containing 84.12 mol percent methanol",
+        "the crude-product rate was 4495.048 kg/h and methanol recovery to the liquid was 97.565 percent",
+        "the idealized recycle limiting case remained between the single-pass conversion and unity",
+        "the existing plain catalog entry was converted to exactly one relative link in the Methanol section"
+      ],
+      "summary": "Replaced the sparse placeholder and exception-swallowing examples with a self-contained methanol-production tutorial. Added steam-methane reforming, water-gas shift and methanol-synthesis theory; reusable Gibbs-reactor workflows; element, mass and energy closure; temperature, pressure and steam-ratio studies; a connected reformer, cooler, water separator, compressor and synthesis reactor; explicit SRK-to-CPA model transfer for condensation; crude-methanol separation and recovery; recycle limiting analysis; front-end KPIs; plots; limitations; troubleshooting; exercises; references; and machine-readable validation."
     }
   ]
 }
-
