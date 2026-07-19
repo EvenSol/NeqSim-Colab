@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-19T22:52:12Z",
+  "updated_at": "2026-07-19T23:26:07Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -791,6 +791,44 @@
         "the Fluid mechanics catalog contains exactly one relative link to the notebook"
       ],
       "summary": "Created a self-contained finite-rate pipeline phase-transfer tutorial covering hydrocarbon droplet and wall-film evaporation, methane-bubble dissolution into oil, CO2-bubble dissolution into water, Maxwell–Stefan component fluxes, coupled heat transfer, specified and Schiller–Naumann terminal slip, tracked-inventory completion distance, explicit incomplete results, conservation, step sensitivity, model limits, independent comparison paths, references, plots, and machine-readable results."
+    },
+    {
+      "path": "notebooks/process/model_predictive_controller_examples.ipynb",
+      "verified_date": "2026-07-19",
+      "verified_at_utc": "2026-07-19T23:26:07.277Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "fresh isolated target environment installed with python -m pip install --upgrade --no-cache-dir neqsim; all code cells executed sequentially in one isolated Python process after final formatting because the sandbox blocks local Jupyter kernel sockets",
+      "code_cells": 18,
+      "markdown_cells": 19,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "key_checks": [
+        "replaced the 10-cell Python-only surrogate with a 37-cell NeqSim MPC tutorial",
+        "all 18 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 15 focused engineering assertions passed",
+        "valid nbformat 4 JSON, 37 unique cell IDs, sequential execution counts, and no hidden state",
+        "teaching-readability gate passed: one statement per line, conventional indentation, no semicolon-chained statements or inline compound bodies, descriptive names, and code lines at most 82 characters",
+        "the complete notebook was re-executed from a clean state after final formatting",
+        "Colab equation gate passed: seven balanced display equations, standalone dollar delimiters, single-backslash LaTeX commands, no obsolete delimiters, successful nbconvert MathJax HTML generation, and visually inspected equation render",
+        "two embedded engineering plots were visually inspected with readable SI-labelled axes and physically smooth heater-duty and closed-loop trends",
+        "native NeqSim ModelPredictiveController and TemperatureTransmitter APIs were exercised through Python",
+        "SRK feed remained a single gas phase and heater duty was positive",
+        "maximum local heater-duty linearization residual was 0.138191 percent of full scale",
+        "baseline MPC converged to 39.907564 C with a 74.537820 percent heater command for the 40 C target",
+        "moving-horizon estimation recovered gain 0.200017 C/percent, time constant 45.003735 s, and bias 24.999204 C",
+        "five horizon and move-weight tuning cases produced finite results",
+        "the infeasible 48 C target correctly saturated at 100 percent and approached the 45 C modeled limit",
+        "Colab badge, current NeqSim documentation links, PyPI release link, and exactly-once catalog path were validated",
+        "the Windows-style catalog backslash was replaced by one portable relative path"
+      ],
+      "summary": "Modernized the model-predictive-control notebook from an unexecuted, Python-only controller surrogate into a self-contained tutorial using NeqSim 3.16.0 SRK thermodynamics, a real stream and heater, the native Java ModelPredictiveController and TemperatureTransmitter, a first-order dynamic plant, prediction-horizon inspection, moving-horizon estimation, tuning sensitivity, actuator saturation, command-to-duty interpretation, plots, limitations, troubleshooting, references, exercises, and executable checks. Also repaired its broken catalog path."
     }
   ]
 }
+
