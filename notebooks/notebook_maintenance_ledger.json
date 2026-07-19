@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-19",
+  "updated_at": "2026-07-19T13:02:31.035Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -115,6 +115,39 @@
         "notebook JSON, nbformat, equations, Colab badge, retained catalog link, five web links, outputs, and five deterministic plots were validated and visually inspected"
       ],
       "summary": "Removed the obsolete neqsim 2.5.35 pin, stale embedded video output, hidden form cells, mislabeled models that were never selected, exception-swallowing flash code, spelling errors, and zero-result initialization mistakes; rebuilt the tutorial around current gas, organic-liquid, aqueous, binary, and effective-diffusivity APIs with explicit units, model comparison, pressure and temperature scaling, multicomponent transport, Fick-film engineering calculations, interpretation, limitations, references, exercises, plots, and executable validation."
+    },
+    {
+      "path": "notebooks/production/production_technology.ipynb",
+      "verified_date": "2026-07-19",
+      "verified_at_utc": "2026-07-19T13:02:31.035Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean sequential in-process execution against the latest public PyPI neqsim release; all code cells executed in one isolated Python namespace because the automation sandbox blocks local Jupyter TCP kernel connections",
+      "code_cells": 17,
+      "markdown_cells": 17,
+      "publication": {
+        "branch": "master",
+        "mode": "direct",
+        "notebook_commit": "b8f9beda6d1dc57e92b46effbff71f7231f8fc13",
+        "catalog_commit": "125e7212e467fc3050dfba7ec0723ea6586e745e",
+        "ledger_commit": "this ledger update commit"
+      },
+      "key_checks": [
+        "valid nbformat 4.5 JSON with deterministic cell IDs and no error outputs",
+        "all 17 code cells executed in order with stored fresh outputs",
+        "all 11 focused engineering assertions passed",
+        "overall production-system mass balance closed within 1e-8 relative error",
+        "production choke conserved specific enthalpy within 1e-6 relative tolerance",
+        "gas and liquid densities were positive and physically ordered",
+        "methane enriched in separator gas and nC10 enriched in separator liquid",
+        "EOS-based compressor power agreed with the independent ideal-gas screening estimate within 35 percent",
+        "specific compressor power was rate-invariant within 0.1 percent over the throughput sweep",
+        "pressure, cooling-temperature, and throughput sensitivities produced finite, physically interpretable results",
+        "catalog relative link, Colab badge target, equations, units, references, and the deterministic sensitivity plot were validated"
+      ],
+      "summary": "Implemented the previously unlinked foundational Production technology topic as a self-contained PR-EOS surface-production tutorial covering a multiphase well fluid, PH-flash choke, primary separator, gas cooler, compressor scrubber, export compressor, material and enthalpy balances, component routing, compressor screening, operating sensitivities, separator sizing, validity limits, troubleshooting, exercises, and machine-readable results."
     }
   ]
 }
