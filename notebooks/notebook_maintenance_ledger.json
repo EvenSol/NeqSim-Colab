@@ -91,6 +91,30 @@
         "notebook JSON, nbformat, equations, Colab badge, retained catalog link, five introduced web links, outputs, and four deterministic plots were validated"
       ],
       "summary": "Removed the obsolete neqsim 2.5.35 pin, hidden Colab form cells, stale embedded video output, weak prose, spelling errors, and index assumptions; rebuilt the tutorial around current interphase-property APIs, explicit phase identification and units, model comparison, pressure and temperature sensitivities, a three-phase CPA case, capillary engineering calculations, interpretation, limitations, references, exercises, and executable validation."
+    },
+    {
+      "path": "notebooks/thermodynamics/diffusioncoefficients.ipynb",
+      "verified_date": "2026-07-19",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean virtual environment with latest public PyPI neqsim; all code cells executed sequentially in one isolated in-process namespace because the automation sandbox blocks local Jupyter TCP kernel connections",
+      "code_cells": 16,
+      "markdown_cells": 16,
+      "key_checks": [
+        "all 16 code cells executed in order with zero unexpected exceptions",
+        "Chapman-Enskog, Wilke-Lee, Fuller-Schettler-Giddings, and CSP gas coefficients were finite, positive, plausible, and agreed within a factor of two",
+        "Fuller gas diffusivity followed inverse-pressure scaling from 1 to 20 bara with fitted log slope -1.000",
+        "Fuller temperature sweep reproduced the documented exponent 1.75",
+        "five organic-liquid model results were finite and positive; Wilke-Chang diffusivity rose as viscosity fell from 0 to 80 degrees Celsius",
+        "four aqueous CO2-water model results were finite and plausible; Wilke-Chang was within 20 percent of the cited room-temperature reference",
+        "ternary-gas binary matrix was symmetric and effective coefficients were finite and positive",
+        "Fick-film flux and diffusion-time calculations followed expected thickness trends",
+        "all 15 focused engineering assertions passed",
+        "notebook JSON, nbformat, equations, Colab badge, retained catalog link, five web links, outputs, and five deterministic plots were validated and visually inspected"
+      ],
+      "summary": "Removed the obsolete neqsim 2.5.35 pin, stale embedded video output, hidden form cells, mislabeled models that were never selected, exception-swallowing flash code, spelling errors, and zero-result initialization mistakes; rebuilt the tutorial around current gas, organic-liquid, aqueous, binary, and effective-diffusivity APIs with explicit units, model comparison, pressure and temperature scaling, multicomponent transport, Fick-film engineering calculations, interpretation, limitations, references, exercises, plots, and executable validation."
     }
   ]
 }
