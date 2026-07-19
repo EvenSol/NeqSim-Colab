@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-19T19:23:27.334Z",
+  "updated_at": "2026-07-19T20:08:17.572Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -581,6 +581,45 @@
         "notebook JSON, nbformat, Colab badge, current documentation links, and the exactly-once front-page catalog link were validated"
       ],
       "summary": "Replaced the fragmented EoS notes, stale embedded video, hidden Colab form and magics, wildcard imports, semicolon-compressed code, incorrect or ambiguous equations, fragile phase indexing, stale variable output, and unsupported claims with a current model-selection tutorial. Added ideal, SRK, PR, GERG-2008, CPA, and UMR-PRU workflows; pressure and dense-gas studies; volume-corrected density validation; carbon-dioxide fugacity; rich-gas phase and component closure; water boiling benchmark; binary-interaction sensitivity; model uncertainty; plots; limitations; references; exercises; and executable validation."
+    },
+    {
+      "path": "notebooks/thermodynamics/ThermodynamicsOfMethanol.ipynb",
+      "verified_date": "2026-07-19",
+      "verified_at_utc": "2026-07-19T20:08:17.572Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "fresh virtual environment with python -m pip install --upgrade --no-cache-dir neqsim; all code cells executed sequentially in one isolated Python process after final formatting",
+      "code_cells": 19,
+      "markdown_cells": 20,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "key_checks": [
+        "all 19 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 18 focused engineering assertions passed",
+        "valid notebook JSON, nbformat structure, unique cell IDs, and no hidden state",
+        "teaching-readability gate passed: one statement per line, conventional indentation, no semicolons or inline compound bodies, and code lines at most 100 characters",
+        "the complete notebook was re-executed after final formatting",
+        "Colab equation gate passed: balanced dollar delimiters, standalone display blocks, single-backslash LaTeX commands, no obsolete delimiters, and a successful nbconvert MathJax HTML preview",
+        "three deterministic engineering plots were rendered and visually inspected with readable SI-labelled axes and smooth physical trends",
+        "CPA normal boiling temperature was 337.757539 K versus the NIST 337.8 K reference, a -0.042461 K difference",
+        "CPA liquid density was 792.626863 kg/m3 versus the 786.6 kg/m3 reference, a 0.766 percent deviation",
+        "CPA liquid heat capacity differed by -9.420 percent from the selected NIST 80.35 J/(mol K) datum converted to mass basis",
+        "CPA latent heat was 33.416197 kJ/mol versus the NIST 35.21 kJ/mol reference, a -5.095 percent deviation",
+        "CPA saturation temperature increased monotonically from 0.2 to 40 bara",
+        "liquid density and viscosity decreased monotonically over 280 to 330 K",
+        "all five methanol-water mole-fraction cases closed composition and remained one associating liquid phase",
+        "mass flow closed across the feed, preheater outlet, and vaporizer outlet within 1e-9 kg/h",
+        "preheater duty was 21.415237 kW and vaporizer duty was 311.801112 kW for 1000 kg/h; both matched independent enthalpy balances within 1e-10 relative tolerance",
+        "total duty scaled linearly over 250 to 2000 kg/h at fixed thermodynamic states",
+        "the new relative catalog path was changed from one plain entry to exactly one link and the target notebook was included in the same atomic tree",
+        "the complete pre-existing catalog audit found 205 of 206 unique relative notebook paths functional; one advanced model-predictive-controller path with a backslash remains outside this exactly-one-entry run"
+      ],
+      "summary": "Created a self-contained CPA-based methanol thermodynamics tutorial covering association theory, component and phase representation, TP and bubble-point flashes, CPA/SRK/PR model comparison, NIST boiling-point, density, heat-capacity, and latent-heat benchmarks, saturation and property sensitivities, methanol-water mixtures, a composable ProcessSystem heating and vaporization train, mass and energy closure, throughput scaling, safety, limitations, troubleshooting, exercises, references, and executable verification."
     }
   ]
 }
