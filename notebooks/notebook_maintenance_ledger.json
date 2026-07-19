@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-19T22:01:14.565Z",
+  "updated_at": "2026-07-19T22:17:15.677Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -725,6 +725,42 @@
         "the existing plain catalog entry was converted to exactly one relative link in the Methanol section"
       ],
       "summary": "Replaced the sparse placeholder and exception-swallowing examples with a self-contained methanol-production tutorial. Added steam-methane reforming, water-gas shift and methanol-synthesis theory; reusable Gibbs-reactor workflows; element, mass and energy closure; temperature, pressure and steam-ratio studies; a connected reformer, cooler, water separator, compressor and synthesis reactor; explicit SRK-to-CPA model transfer for condensation; crude-methanol separation and recovery; recycle limiting analysis; front-end KPIs; plots; limitations; troubleshooting; exercises; references; and machine-readable validation."
+    },
+    {
+      "path": "notebooks/thermodynamics/ThermoPropertyCharts.ipynb",
+      "verified_date": "2026-07-20",
+      "verified_at_utc": "2026-07-19T22:17:15.677Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "fresh virtual environment with python -m pip install --upgrade --no-cache-dir neqsim; all code cells executed sequentially in one isolated Python process after final formatting",
+      "code_cells": 14,
+      "markdown_cells": 16,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "key_checks": [
+        "all 14 code cells executed in order with zero exceptions and zero error outputs",
+        "all 23 focused thermodynamic-property-chart assertions passed",
+        "teaching-readability gate passed: one statement per line, conventional indentation, no semicolons or inline compound bodies, descriptive names, and code lines at most 83 characters",
+        "the complete notebook was re-executed after final formatting",
+        "Colab equation gate passed: balanced dollar delimiters, standalone display blocks, single-backslash LaTeX commands, no obsolete delimiters or control characters, and a successful nbconvert MathJax HTML preview",
+        "the eight-component synthetic composition summed to unity and every calculated base-state property was finite",
+        "temperature and pressure families produced finite positive heat capacities, densities, and physically smooth enthalpy and compressibility trends",
+        "the finite-difference enthalpy slope reproduced NeqSim heat capacity with relative residual 8.531e-9",
+        "dew and bubble branches each contained more than 25 finite points; cricondenbar was 169.704 bara and cricondentherm was 88.287 degrees Celsius",
+        "all 180 phase-aware property-grid states were finite with gas fractions between zero and one",
+        "the 120 degrees Celsius isotherm had monotonically increasing density and approached ideal-gas compressibility at low pressure",
+        "isentropic compression had positive work, aftercooling removed enthalpy, and the PS entropy residual was below 1e-3 J/K",
+        "all ten PH expansion states closed enthalpy within 1e-3 J and cooled monotonically as outlet pressure decreased",
+        "the interpolated 60-bara dew temperature was 87.966 degrees Celsius, correctly identifying the 20 degrees Celsius base state as inside the liquid-dropout region for the model fluid",
+        "one deterministic four-panel engineering figure was rendered and visually inspected with readable SI-labelled axes, phase boundaries, and process paths",
+        "notebook JSON, nbformat, Colab badge, current NeqSim documentation links, and the exactly-once front-page catalog link were validated"
+      ],
+      "summary": "Replaced the fragmented CoolProp-dependent examples, stale Colab magics, wildcard import, embedded video, hidden form syntax, semicolon-chained statements, incorrect temperature comments, duplicate and incorrect component inputs, exception swallowing, fragile shared-fluid grid evaluation, and weak unit handling with a current NeqSim-only property-chart tutorial. Added phase-aware state helpers, temperature and pressure families, heat-capacity identity validation, a hydrocarbon phase envelope, a 180-state property grid, compression and cooling paths, PH expansion, dew-margin interpretation, deterministic P-T and P-h charts, limitations, exercises, references, and executable engineering checks."
     }
   ]
 }
