@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-19T23:26:07Z",
+  "updated_at": "2026-07-20T00:06:00.016Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -828,7 +828,43 @@
         "the Windows-style catalog backslash was replaced by one portable relative path"
       ],
       "summary": "Modernized the model-predictive-control notebook from an unexecuted, Python-only controller surrogate into a self-contained tutorial using NeqSim 3.16.0 SRK thermodynamics, a real stream and heater, the native Java ModelPredictiveController and TemperatureTransmitter, a first-order dynamic plant, prediction-horizon inspection, moving-horizon estimation, tuning sensitivity, actuator saturation, command-to-duty interpretation, plots, limitations, troubleshooting, references, exercises, and executable checks. Also repaired its broken catalog path."
+    },
+    {
+      "path": "notebooks/thermodynamics/LawsOfThermodynamics.ipynb",
+      "verified_date": "2026-07-20",
+      "verified_at_utc": "2026-07-20T00:06:00.016Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "fresh isolated target environment installed with python -m pip install --upgrade --no-cache-dir neqsim; all code cells executed sequentially in one isolated Python process after final formatting because the sandbox blocks local Jupyter kernel sockets",
+      "code_cells": 19,
+      "markdown_cells": 20,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "key_checks": [
+        "replaced the 11-cell placeholder with a 39-cell self-contained laws-of-thermodynamics tutorial",
+        "all 19 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 18 focused thermodynamic assertions passed",
+        "valid nbformat 4 JSON, 39 unique cell IDs, sequential execution counts, and no hidden state",
+        "teaching-readability gate passed: one statement per line, conventional indentation, no semicolon-chained statements or inline compound bodies, descriptive names, and code lines at most 90 characters",
+        "the complete notebook was re-executed from a clean state after final formatting and link correction",
+        "Colab equation gate passed: seven balanced display equations, standalone dollar delimiters, single-backslash LaTeX commands, no obsolete delimiters, successful nbconvert MathJax HTML generation, and visually inspected equation render",
+        "two embedded engineering plots were visually inspected with readable SI-labelled axes and physically smooth process-state and compressor-efficiency trends",
+        "SRK feed composition normalized to unity and remained a single gas phase at the baseline state",
+        "enthalpy-state-function path residual was exactly zero within reported precision",
+        "rigid-vessel VU-flash energy residual was -0.00420891 J and relative volume residual was 5.27e-7",
+        "heater-compressor-cooler overall energy-balance residual was -2.842e-14 kW",
+        "heater, compressor, and cooler entropy-generation rates were positive",
+        "PS-flash isentropic entropy residual was -6.821e-12 J/K and recovered compressor efficiency was 0.78000000034",
+        "physical exergy remained non-negative, efficiency sensitivity was monotonic, and the unit-pressure-ratio compressor limit produced zero enthalpy and temperature changes",
+        "Colab badge and three current authoritative NeqSim documentation links were validated",
+        "the Thermodynamics catalog contains exactly one relative link to the notebook"
+      ],
+      "summary": "Modernized the laws-of-thermodynamics placeholder into a self-contained NeqSim 3.16.0 tutorial covering the zeroth law, SRK fluid representation, equilibrium flashes, enthalpy and internal energy, state-function path independence, closed rigid-vessel and steady-flow first-law balances, entropy generation, reversible and irreversible compression, physical exergy, efficiency and boundary-temperature sensitivities, limiting cases, troubleshooting, limitations, references, exercises, plots, and executable verification."
     }
   ]
 }
-
