@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-20T17:34:43.163Z",
+  "updated_at": "2026-07-20T18:27:26.998Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -1812,6 +1812,29 @@
         "the official adsorption-bed, adsorption-isotherm, process-package, and thermodynamic-model references resolved on 2026-07-20"
       ],
       "summary": "Rebuilt the empty adsorption placeholder as a complete CO2-on-zeolite-13X screening tutorial using current SRK Stream, AdsorptionBed, Langmuir, axial LDF, Ergun, and transient regeneration APIs. Added explicit assumptions and validity limits, feed and phase checks, equilibrium data, selectivity, independent hydraulics, component-specific breakthrough thresholds, axial profiles, pressure/temperature/flow sensitivities, low-pressure high-temperature regeneration, troubleshooting, references, exercises, tables, plots, and 33 engineering assertions."
+    },
+    {
+      "path": "notebooks/reservoir/simplereservoir.ipynb",
+      "verified_date": "2026-07-20",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "in-process sequential executor because the automation sandbox blocks local Jupyter TCP kernel connections",
+      "code_cells": 18,
+      "markdown_cells": 18,
+      "key_checks": [
+        "all 18 code cells executed in order with zero unexpected exceptions or stderr",
+        "all 18 engineering assertions passed",
+        "maximum normalized component-balance residual was 2.073e-16",
+        "pressure declined smoothly in every three-year scenario and increased monotonically with water-injection rate",
+        "gas, oil, and aqueous phases remained present with finite positive properties",
+        "surface-separator mass residual was -2.856e-10 kg/h",
+        "18-step versus 36-step final-pressure difference was 0.001401 percent",
+        "notebook JSON, nbformat, code readability, Colab badge, equations, outputs, links, and plots were validated",
+        "three equations and two engineering plots were rendered and visually inspected"
+      ],
+      "summary": "Replaced the seven-cell legacy sketch, obsolete magics, wildcard imports, weak tank-model prose, and unverified annual stepping with an executed compositional Peng-Robinson tank-reservoir tutorial covering named producer/injector streams, monthly depletion, water-support sensitivity, component conservation, recovery metrics, phase-volume evolution, time-step refinement, and a reusable surface-separator handoff."
     }
   ]
 }
