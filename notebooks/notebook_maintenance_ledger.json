@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-20T10:26:23.958Z",
+  "updated_at": "2026-07-20T10:45:00.000Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -1501,6 +1501,37 @@
         "all four introduced official NeqSim documentation links resolved on 2026-07-20"
       ],
       "summary": "Removed obsolete Colab magics, wildcard imports, embedded video, semicolon-compressed code, stale links, an invalid compressor-map result with negative power and no pressure rise, and unverified calculations. Rebuilt the topic around a deterministic SRK natural gas, composable Stream, Compressor, and Cooler flowsheets, real-gas and ideal-gas comparison, energy and mass closure, entropy and exergy, efficiency sensitivity, two-stage intercooling, interstage-pressure optimization, cooler temperature scenarios, interpretation, limitations, troubleshooting, references, exercises, tables, plots, and executable assertions."
+    },
+    {
+      "path": "notebooks/fluidflow/neqsim_openfoam_compressor_inlet_wet_gas.ipynb",
+      "verified_date": "2026-07-20",
+      "verified_at_utc": "2026-07-20T10:45:00.000Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17 required by NeqSim 3.16.0",
+      "openfoam_version": "OpenFOAM Foundation 14",
+      "execution_status": "static-validation-only",
+      "execution_method": "Notebook JSON and every code cell were statically validated; the standalone CAD cell was executed in isolation. NeqSim and OpenFOAM were unavailable in the publication runtime, so the coupled solver cells were not executed.",
+      "code_cells": 12,
+      "markdown_cells": 14,
+      "publication": {
+        "branch": "master",
+        "mode": "direct",
+        "commit": "direct-master publication sequence"
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 26 ordered cells and no hidden state",
+        "all 12 code cells compiled without syntax errors",
+        "all Markdown display equations use balanced Colab-safe delimiters and single backslashes",
+        "the isolated CAD cell generated four STL patches with zero open or non-manifold edges",
+        "the generated centerline length was 6.813555 m with correct inlet and eye tangents",
+        "gas and entrained-liquid compositions are normalized by executable assertions",
+        "CFD mass balance and positive total-pressure-loss assertions are included",
+        "droplet-size trends cover 50, 150, and 500 micrometre droplets",
+        "limitations distinguish Stokes impaction screening from a deposition fraction",
+        "exactly one relative catalog link and one Colab badge target the published path"
+      ],
+      "summary": "Added a self-contained NeqSim/OpenFOAM 14 compressor-inlet study with parametric 3D internal CAD, named snappyHexMesh patches, rich-gas and entrained-condensate properties, turbulent carrier CFD, impeller-eye validation, liquid-inertia screening, and an explicit hot-wall evaporation sensitivity. Full coupled execution remains required in Colab."
     }
   ]
 }
