@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-20T08:35:26Z",
+  "updated_at": "2026-07-20T09:26:15.626Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -1436,6 +1436,37 @@
         "Colab equation gate passed with balanced standalone dollar delimiters, single-backslash LaTeX, no obsolete delimiters, successful nbconvert MathJax HTML generation, and visually inspected fractions, subscripts, superscripts, symbols, units, and three SI-labelled plots"
       ],
       "summary": "Removed the obsolete NeqSim 2.5.35 pin, Colab magics, wildcard imports, embedded video, stale outputs, and minimal unverified calculation. The rebuilt tutorial uses current SRK and HeatExchanger APIs for real-gas properties, a composable two-stream exchanger, independent balances, effectiveness-NTU and LMTD checks, thermal resistance and area screening, UA and flow sensitivities, property trends, fouling scenarios, limitations, troubleshooting, exercises, references, assertions, tables, and plots."
+    },
+    {
+      "path": "notebooks/process/pumps.ipynb",
+      "verified_date": "2026-07-20",
+      "verified_at_utc": "2026-07-20T09:26:15.626Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean virtual environment with the latest public PyPI neqsim; all code cells executed sequentially in one shared Python namespace using the documented in-process fallback because a local Jupyter TCP kernel is unavailable",
+      "code_cells": 17,
+      "markdown_cells": 19,
+      "publication": {
+        "branch": "master",
+        "mode": "direct",
+        "commit": "this atomic direct-master commit"
+      },
+      "key_checks": [
+        "all 17 code cells executed in notebook order with sequential execution counts, zero unexpected exceptions, zero error outputs, and zero stderr",
+        "all 17 focused engineering assertions passed",
+        "single-phase SRK hydrocarbon liquid remained one oil phase through the base case and curve-selected operating point",
+        "base-case mass residual was below 1e-10 kg/s and energy residual was below 1e-6 W",
+        "shaft power decreased monotonically with efficiency and increased monotonically with discharge pressure and flow",
+        "all efficiency, pressure, and flow scenario energy residuals were below 1e-6 W",
+        "bubble pressure was below suction pressure and the illustrative available NPSH exceeded the stated required NPSH",
+        "synthetic pump and system curves intersected within 1e-9 m head residual and the resulting point was re-evaluated with NeqSim",
+        "valid nbformat JSON, one-statement-per-line readability, 97-character maximum code line length, Colab badge, balanced single-backslash equations, and exactly one catalog link passed",
+        "three SI-labelled engineering plots and the equation preview were rendered and visually inspected",
+        "all four introduced official NeqSim documentation links resolved on 2026-07-20"
+      ],
+      "summary": "Replaced the nine-cell legacy sketch, obsolete Colab magics, wildcard imports, embedded video, and unverified result with a current liquid-pumping tutorial. Added a reproducible SRK hydrocarbon fluid, Stream and Pump workflow, mass and energy closure, an independent hydraulic estimate, efficiency, pressure, and flow sensitivities, bubble-point and NPSH screening, synthetic pump and system curves, a NeqSim operating-point recheck, interpretation, limitations, troubleshooting, references, exercises, plots, and executable validation."
     }
   ]
 }
