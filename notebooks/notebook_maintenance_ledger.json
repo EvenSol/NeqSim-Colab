@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-20T05:59:03.070Z",
+  "updated_at": "2026-07-20T06:29:21Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -1293,6 +1293,40 @@
         "the active catalog entry was updated in the same publication unit while all unrelated entries and unique links were preserved"
       ],
       "summary": "Rebuilt the unsafe custom-database example as a controlled, composable NeqSim parameter-overlay tutorial. It audits packaged component and interaction data, creates and validates a provenance-rich synthetic overlay, hashes a canonical JSON representation, applies component and symmetric mixing-rule changes only to selected fluid objects, proves fresh-fluid isolation, evaluates flash and pressure sensitivities, integrates baseline and custom fluids with compressor unit operations, closes mass and energy balances, and explains experimental regression, validity limits, troubleshooting, and parameter governance without global database mutation."
+    },
+    {
+      "path": "notebooks/fluidflow/FluidMechanics.ipynb",
+      "verified_date": "2026-07-20",
+      "verified_at_utc": "2026-07-20T06:29:21Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "isolated PyPI-only environment installed with python -m pip install --upgrade --no-cache-dir neqsim; all code cells executed sequentially in one isolated Python process after final formatting because the sandbox blocks local Jupyter kernel sockets",
+      "code_cells": 15,
+      "markdown_cells": 16,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "key_checks": [
+        "replaced the four-cell legacy fluid-mechanics sketch with a 31-cell self-contained single-phase gas-pipeline hydraulics tutorial",
+        "all 15 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 20 focused composition, phase, conservation, reference, profile, trend, geometry, operating, and numerical-health assertions passed",
+        "valid nbformat 4 JSON, sequential execution counts, and no hidden state",
+        "teaching-readability gate passed with one statement per line, conventional indentation, descriptive names, no wildcard imports, Colab magics, semicolon tokens, or inline compound bodies, and code lines at most 89 characters",
+        "the complete notebook was re-executed after final formatting with NeqSim 3.16.0 from an isolated PyPI-only environment",
+        "Colab equation gate passed with balanced standalone dollar delimiters, single-backslash LaTeX, no obsolete delimiters, successful nbconvert MathJax HTML generation, and a visually inspected equation render",
+        "two embedded SI-labelled engineering figures were visually inspected for readable axes and physically meaningful trends",
+        "the SRK gas remained a single gas phase from 80.0 to 79.644251 bara",
+        "the 10 km, 0.50 m line pressure drop was 0.355749 bar and the frozen-property Darcy reference ratio was 0.994815",
+        "mass flow closed exactly within reported precision and NeqSim velocity agreed with the independent continuity calculation within 0.05 m/s",
+        "pressure decreased monotonically along all 20 increments while the Reynolds-number profile remained finite and turbulent",
+        "pressure loss rose monotonically with length, wall roughness, mass flow, and positive elevation, and fell with internal diameter",
+        "the Colab badge, intended repository path, four current official NeqSim documentation links, and existing active-catalog link were validated without changing any catalog entry"
+      ],
+      "summary": "Rebuilt the obsolete FluidMechanics notebook as an executed, teaching-quality introduction to single-phase real-gas pipeline hydraulics. It now covers continuity, Reynolds number, Swamee-Jain friction, a frozen-property Darcy reference, current Stream and PipeBeggsAndBrills APIs, segmented pressure and Reynolds profiles, length, diameter, roughness, flow-rate, and elevation sensitivities, mass and phase validation, limitations, troubleshooting, exercises, references, assertions, tables, and embedded plots. Stale Colab magics, wildcard imports, undefined createfluid usage, compressed code, weak explanations, and unverified legacy output were removed."
     }
   ]
 }
