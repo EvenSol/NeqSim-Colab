@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-20T03:11:16.180Z",
+  "updated_at": "2026-07-20T04:00:32.373Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -1095,6 +1095,44 @@
         "Colab badge, four authoritative references, intended repository path, repaired malformed link, and exactly-once active-catalog link were validated"
       ],
       "summary": "Completed the production-of-ammonia catalog entry as a self-contained natural-gas blue-ammonia screening tutorial. It uses a current SRK fluid, streams, a converged Gibbs reformer, selective water-gas shift, CO2-capture conditioning, a compressor, the supported AmmoniaSynthesisReactor, a cooler, and a separator. It adds governing equations, assumptions, explicit units, element and ammonia balances, duties, capture and recovery indicators, temperature and conversion sensitivities, limitations, troubleshooting, references, exercises, assertions, and embedded outputs."
+    },
+    {
+      "path": "notebooks/process/ammonia_refrigeration.ipynb",
+      "verified_date": "2026-07-20",
+      "verified_at_utc": "2026-07-20T04:00:32.373Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "isolated PyPI-only environment previously installed with python -m pip install --upgrade --no-cache-dir neqsim; all code cells executed sequentially in one isolated Python process after final formatting because the sandbox blocks local Jupyter kernel sockets",
+      "code_cells": 17,
+      "markdown_cells": 18,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "key_checks": [
+        "implemented the missing ammonia-as-a-refrigerant catalog entry as a 35-cell tutorial",
+        "all 17 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 19 focused benchmark, balance, phase, process, quality, model, and trend assertions passed",
+        "valid nbformat 4 JSON, sequential execution counts, and no hidden state",
+        "teaching-readability gate passed with one statement per line, conventional indentation, descriptive names, no wildcard imports, Colab magics, semicolon tokens, or inline compound bodies, and code lines at most 83 characters",
+        "the complete notebook was re-executed after final formatting with NeqSim 3.16.0 from an isolated PyPI-only environment",
+        "Colab equation gate passed with six balanced display equations, standalone dollar delimiters, single-backslash LaTeX, no obsolete delimiters, successful nbconvert MathJax HTML generation, and a visually inspected equation render",
+        "three embedded SI-labelled engineering figures were visually inspected for readable axes and physically meaningful trends",
+        "PR predicted the 1.01325 bara normal boiling point at 239.61017 K, 0.20983 K below the NIST reference",
+        "the baseline -15 to 35 degrees Celsius cycle used 2.38340 and 13.59029 bara saturation pressures with a 5.70206 pressure ratio",
+        "the 0.5 kg/s baseline delivered 554.98982 kW refrigeration capacity at 169.72286 kW compressor power and 3.26998 COP",
+        "the cycle COP remained below the 5.163 Carnot limit and direct thermodynamic energy closure was within 1e-9 kW",
+        "the connected stream-compressor-cooler-valve-heater process closed mass flow within 1e-10 kg/s and energy to zero within reported precision",
+        "the expansion valve preserved enthalpy within 1e-6 kJ/kg and produced 0.177113 vapour quality",
+        "the independent enthalpy lever rule matched the flashed valve-outlet quality within 6.43e-11 kg/kg",
+        "warmer evaporation and higher compressor efficiency increased COP, while warmer condensation reduced COP and increased discharge temperature",
+        "PR and SRK predictions were finite and showed a 0.6217 percent relative COP spread",
+        "Colab badge, NIST reference, three current NeqSim documentation links, intended repository path, and exactly-once active-catalog link were validated"
+      ],
+      "summary": "Implemented a self-contained pure-ammonia vapour-compression refrigeration tutorial using current PR and SRK APIs. It covers pure-fluid validation, saturation pressures, TP/PS/PH flashes, superheat, subcooling, compressor efficiency, isenthalpic expansion, phase quality, COP and Carnot comparison, connected streams and unit operations, mass and energy balances, operating and model sensitivities, limitations, troubleshooting, references, exercises, assertions, and embedded outputs."
     }
   ]
 }
