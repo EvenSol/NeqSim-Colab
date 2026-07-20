@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-20T00:36:24.666Z",
+  "updated_at": "2026-07-20T01:08:56.147Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -901,6 +901,43 @@
         "Colab badge, three current authoritative NeqSim documentation links, and the exactly-once front-page catalog link were validated"
       ],
       "summary": "Modernized the thermodynamic-cycles notebook by replacing Colab magics, wildcard imports, compressed statements, incorrect efficiency formulas, fragile phase handling, unreacted combustion approximations, stale multimedia, and an unfinished process flowsheet. The new NeqSim 3.16.0 tutorial covers Carnot limits, an SRK Brayton cycle by direct flashes and connected unit operations, pressure-ratio sensitivity, an SRK-CPA Rankine cycle with phase-aware turbine expansion, propane vapour-compression refrigeration, COP sensitivity, conservation checks, limitations, troubleshooting, references, exercises, and embedded results."
+    },
+    {
+      "path": "notebooks/thermodynamics/ThermodynamicsOfAmmonia.ipynb",
+      "verified_date": "2026-07-20",
+      "verified_at_utc": "2026-07-20T01:08:56.147Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "fresh isolated target environment installed with python -m pip install --upgrade --no-cache-dir neqsim; all code cells executed sequentially in one isolated Python process after final formatting because the sandbox blocks local Jupyter kernel sockets",
+      "code_cells": 17,
+      "markdown_cells": 19,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "key_checks": [
+        "created the missing pure-ammonia thermodynamics catalog notebook",
+        "all 17 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 18 focused thermodynamic, benchmark, trend, and process assertions passed",
+        "valid nbformat 4 JSON, 36 unique cell IDs, sequential execution counts, and no hidden state",
+        "teaching-readability gate passed with conventional indentation, descriptive names, no wildcard imports, semicolon-chained statements, or inline compound bodies, and code lines at most 100 characters",
+        "the complete notebook was re-executed from a fresh PyPI-only environment after final formatting",
+        "Colab equation gate passed with six balanced display equations, standalone dollar delimiters, single-backslash LaTeX, no obsolete delimiters, successful nbconvert MathJax HTML generation, and a visually inspected equation render",
+        "three embedded SI-labelled engineering figures were visually inspected for readable axes, legends, and physically meaningful trends",
+        "PR normal boiling temperature was 239.610 K versus the 239.82 K NIST reference, a -0.210 K difference",
+        "maximum absolute PR vapour-pressure difference from the NIST Antoine correlation was 1.708 percent from 240 K to 350 K",
+        "PR latent heat at 239 K was 23.606 kJ/mol versus the 23.5 kJ/mol NIST reference, a 0.450 percent difference",
+        "the independent finite-difference and Clapeyron saturation slopes agreed within 0.000369 percent at 300 K",
+        "critical constants, monotonically increasing saturation pressure, liquid-over-vapour density, positive decreasing latent heat, and finite properties were verified",
+        "PR and SRK model sensitivity was quantified at four temperatures without treating model spread as a confidence interval",
+        "the stream-heater model produced 676.610 kW duty with a 1.137e-13 kW energy-balance residual at 0.5 kg/s",
+        "heater duty increased monotonically across four target temperatures and both liquid and vapour outlet regimes were observed",
+        "Colab badge, NIST reference, three current NeqSim documentation links, intended repository path, and the exactly-once active-catalog link were validated"
+      ],
+      "summary": "Implemented a self-contained pure-ammonia tutorial using current supported PR and SRK APIs. It covers EOS assumptions, critical constants, normal boiling point, NIST Antoine vapour-pressure validation, saturated densities and latent heat, Clapeyron consistency, model sensitivity, isobaric phase behaviour, a connected stream-heater process, duty sensitivity, safety limits, troubleshooting, references, exercises, assertions, and embedded outputs."
     }
   ]
 }
