@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-20T00:06:00.016Z",
+  "updated_at": "2026-07-20T00:36:24.666Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -865,6 +865,42 @@
         "the Thermodynamics catalog contains exactly one relative link to the notebook"
       ],
       "summary": "Modernized the laws-of-thermodynamics placeholder into a self-contained NeqSim 3.16.0 tutorial covering the zeroth law, SRK fluid representation, equilibrium flashes, enthalpy and internal energy, state-function path independence, closed rigid-vessel and steady-flow first-law balances, entropy generation, reversible and irreversible compression, physical exergy, efficiency and boundary-temperature sensitivities, limiting cases, troubleshooting, limitations, references, exercises, plots, and executable verification."
+    },
+    {
+      "path": "notebooks/thermodynamics/ThermodynamicCycles.ipynb",
+      "verified_date": "2026-07-20",
+      "verified_at_utc": "2026-07-20T00:36:24.666Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "fresh isolated target environment installed with python -m pip install --upgrade --no-cache-dir neqsim; all code cells executed sequentially in one isolated Python process after final formatting because the sandbox blocks local Jupyter kernel sockets",
+      "code_cells": 16,
+      "markdown_cells": 16,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "key_checks": [
+        "replaced the stale 16-cell notebook with a 32-cell self-contained thermodynamic-cycles tutorial",
+        "all 16 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 24 focused thermodynamic and process assertions passed",
+        "valid nbformat 4 JSON, 32 unique cell IDs, sequential execution counts, and no hidden state",
+        "teaching-readability gate passed: one statement per line, conventional indentation, no wildcard imports, semicolon-chained statements, or inline compound bodies, descriptive names, and code lines at most 90 characters",
+        "the complete notebook was re-executed from a clean state after final formatting",
+        "Colab equation gate passed: six balanced display equations, standalone dollar delimiters, single-backslash LaTeX commands, no obsolete delimiters, successful nbconvert MathJax HTML generation, and visually inspected equation render",
+        "the embedded four-panel engineering figure was visually inspected with readable labelled axes and physically interpretable cycle and sensitivity trends",
+        "Brayton direct flashes and the connected stream-compressor-heater-expander-cooler flowsheet agreed within 3.41e-13 C",
+        "Brayton closed-cycle process energy residual was -9.095e-13 kW and specific balance residual was 5.684e-14 kJ/kg",
+        "Brayton efficiency was 33.0298 percent and maximum net work occurred at pressure ratio 12.0 in the stated grid",
+        "Rankine efficiency was 31.5041 percent, balance residual was zero within reported precision, and turbine exhaust quality was 0.89466",
+        "propane refrigeration COP was 3.96699, below the 6.57875 Carnot bound, with energy residual 1.421e-14 kJ/kg",
+        "propane COP and saturation suction pressure increased monotonically with evaporating temperature",
+        "Carnot limits, positive net work, phase behaviour, entropy increase, energy conservation, model agreement, and nearby operating trends were verified",
+        "Colab badge, three current authoritative NeqSim documentation links, and the exactly-once front-page catalog link were validated"
+      ],
+      "summary": "Modernized the thermodynamic-cycles notebook by replacing Colab magics, wildcard imports, compressed statements, incorrect efficiency formulas, fragile phase handling, unreacted combustion approximations, stale multimedia, and an unfinished process flowsheet. The new NeqSim 3.16.0 tutorial covers Carnot limits, an SRK Brayton cycle by direct flashes and connected unit operations, pressure-ratio sensitivity, an SRK-CPA Rankine cycle with phase-aware turbine expansion, propane vapour-compression refrigeration, COP sensitivity, conservation checks, limitations, troubleshooting, references, exercises, and embedded results."
     }
   ]
 }
