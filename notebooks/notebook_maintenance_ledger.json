@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-20T05:34:07.615Z",
+  "updated_at": "2026-07-20T05:59:03.070Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -1252,6 +1252,47 @@
         "the Colab badge, three current NeqSim documentation links, NeqSimDataBase source link, intended repository path, and exactly-once active-catalog link were validated"
       ],
       "summary": "Rebuilt the empty parameter-database notebook as a safe, traceable tutorial using NeqSim's packaged H2 database. It covers component availability, JDBC ResultSet handling, explicit SI conversion, SRK theory, runtime parameter reconciliation, methane-CO2 binary-interaction lookup, read-only SQL boundaries, local per-fluid KIJSRK sensitivity, pressure trends, stream and compressor integration, mass and energy checks, limitations, troubleshooting, references, exercises, assertions, and embedded outputs without downloading or mutating parameter tables."
+    },
+    {
+      "path": "notebooks/PVT/parameter_database2.ipynb",
+      "verified_date": "2026-07-20",
+      "verified_at_utc": "2026-07-20T05:59:03.070Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "isolated PyPI-only environment installed with python -m pip install --upgrade --no-cache-dir neqsim; all code cells executed sequentially in one isolated Python process after final formatting because the sandbox blocks local Jupyter kernel sockets",
+      "code_cells": 19,
+      "markdown_cells": 21,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "key_checks": [
+        "replaced the 12-cell legacy custom-database notebook with a 40-cell controlled parameter-overlay tutorial",
+        "all 19 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 25 focused database, schema, serialization, model, flash, isolation, phase, trend, mass, and energy assertions passed",
+        "valid nbformat 4 JSON, unique cell IDs, sequential execution counts, and no hidden state",
+        "teaching-readability gate passed with one statement per line, conventional indentation, descriptive names, no wildcard imports, Colab magics, semicolon tokens, or inline compound bodies, and code lines at most 94 characters",
+        "the complete notebook was re-executed after final formatting with NeqSim 3.16.0 from an isolated PyPI-only environment",
+        "Colab equation gate passed with balanced standalone dollar delimiters, single-backslash LaTeX, no obsolete delimiters, successful nbconvert MathJax HTML generation, and a visually inspected equation render",
+        "three embedded SI-labelled engineering figures were visually inspected for readable axes and physically meaningful trends",
+        "removed runtime downloads, redundant installations, stale Colab magics, full-table replacement, global parameter mutation, and unvalidated legacy outputs",
+        "the packaged H2 database exposed 257 component names and supplied methane, CO2, and a methane-CO2 SRK interaction parameter of 0.0973",
+        "the illustrative overlay carries explicit provenance, model, mixing rule, local scope, units, engineering bounds, canonical JSON, and a SHA-256 content identity",
+        "the local overlay changed methane critical temperature and pressure by 0.5 percent, acentric factor by 0.003, and KIJSRK by 0.015 without changing the shared database",
+        "a fresh fluid created after the custom flash reproduced all packaged parameter values with zero reported isolation residual",
+        "the 300 K and 50 bara packaged and overlaid fluids remained single-phase with densities of 48.272479 and 48.254755 kg/m3",
+        "all eleven overlay-fraction states and both nine-point pressure sweeps were finite and single-phase",
+        "packaged and overlaid density increased monotonically from 20 to 100 bara and the maximum relative density difference was 0.085286 percent",
+        "the connected 2 kg/s compressors raised pressure from 50 to 100 bara with powers of 211.698321 and 211.789380 kW",
+        "both compressor cases closed mass and enthalpy-flow energy balances to zero within reported precision",
+        "all database access was read-only and the connection was explicitly closed; no replaceTable, updateTable, external table download, or SQL write appears in code",
+        "the Colab badge, two current NeqSim documentation links, parameter-fitting repository, NeqSimDataBase source, intended path, and exactly-once catalog link were validated",
+        "the active catalog entry was updated in the same publication unit while all unrelated entries and unique links were preserved"
+      ],
+      "summary": "Rebuilt the unsafe custom-database example as a controlled, composable NeqSim parameter-overlay tutorial. It audits packaged component and interaction data, creates and validates a provenance-rich synthetic overlay, hashes a canonical JSON representation, applies component and symmetric mixing-rule changes only to selected fluid objects, proves fresh-fluid isolation, evaluates flash and pressure sensitivities, integrates baseline and custom fluids with compressor unit operations, closes mass and energy balances, and explains experimental regression, validity limits, troubleshooting, and parameter governance without global database mutation."
     }
   ]
 }
