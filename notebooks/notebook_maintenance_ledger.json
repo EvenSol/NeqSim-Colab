@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-20T10:45:00.000Z",
+  "updated_at": "2026-07-20T11:04:37.235Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -1532,6 +1532,39 @@
         "exactly one relative catalog link and one Colab badge target the published path"
       ],
       "summary": "Added a self-contained NeqSim/OpenFOAM 14 compressor-inlet study with parametric 3D internal CAD, named snappyHexMesh patches, rich-gas and entrained-condensate properties, turbulent carrier CFD, impeller-eye validation, liquid-inertia screening, and an explicit hot-wall evaporation sensitivity. Full coupled execution remains required in Colab."
+    },
+    {
+      "path": "notebooks/process/TVP_RVP_Study.ipynb",
+      "verified_date": "2026-07-20",
+      "verified_at_utc": "2026-07-20T11:04:37.235Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "fresh Python process in an isolated environment containing the latest public PyPI neqsim 3.16.0; all code cells executed sequentially in one shared namespace using the documented in-process fallback because a local Jupyter TCP kernel is unavailable",
+      "code_cells": 15,
+      "markdown_cells": 16,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "key_checks": [
+        "replaced the zero-byte TVP_RVP_Study placeholder with a 31-cell executed engineering tutorial and converted the existing unlinked catalog topic into exactly one active link",
+        "all 15 code cells executed in order with sequential counts, zero unexpected exceptions, zero error outputs, and zero stderr",
+        "all 14 composition, phase, finite-value, method-consistency, bubble-point, trend, process-balance, and stabilization assertions passed",
+        "base synthetic oil TVP was 1.777977 bara, VPCR4 was 1.391339 bara, and D6377 RVPE was 1.160377 bara at 37.8 degrees Celsius",
+        "the independent bubble-point calculation reproduced the standard-class TVP within 1e-8 bar",
+        "TVP and VPCR4 rose monotonically from 5 to 50 degrees Celsius, and TVP rose monotonically across five light-end multipliers",
+        "the 1.7 bara and 55 degrees Celsius stabilization case reduced TVP to 1.123382 bara and D6377 RVPE to 0.809329 bara",
+        "stabilization produced 4770.354122 kg/h oil and 229.645878 kg/h flash gas with a relative mass residual magnitude of 9.541e-13",
+        "the five-pressure stabilization study showed the expected monotonic vapour-pressure and oil-yield trade-off",
+        "valid nbformat 4 JSON, 31 unique cell IDs, complete outputs, one Colab badge, balanced single-backslash equations, no obsolete math delimiters, and exactly one catalog link passed",
+        "teaching-readability checks passed with descriptive names, conventional indentation, no wildcard imports or compressed compound statements, and code lines at most 81 characters",
+        "three SI-labelled plots were rendered and visually inspected; nbconvert produced a complete MathJax-compatible HTML rendering",
+        "the NeqSim Standard_ASTM_D6377 implementation and its current test were verified through the connected GitHub source"
+      ],
+      "summary": "Implemented the previously empty oil-vapour-pressure notebook as a self-contained SRK tutorial. It distinguishes TVP, VPCR4, D6377 RVPE, D323-82, and water-free VPCR4; validates TVP with an independent bubble-point flash; studies temperature and light-end sensitivities; connects a composable valve, heater, and separator stabilization process; checks mass balance and product-quality trends; documents method and pressure basis limitations; and emits a reusable JSON result object."
     }
   ]
 }
