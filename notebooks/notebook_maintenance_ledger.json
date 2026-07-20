@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-20T18:27:26.998Z",
+  "updated_at": "2026-07-20T19:23:41Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -1835,6 +1835,44 @@
         "three equations and two engineering plots were rendered and visually inspected"
       ],
       "summary": "Replaced the seven-cell legacy sketch, obsolete magics, wildcard imports, weak tank-model prose, and unverified annual stepping with an executed compositional Peng-Robinson tank-reservoir tutorial covering named producer/injector streams, monthly depletion, water-support sensitivity, component conservation, recovery metrics, phase-volume evolution, time-step refinement, and a reusable surface-separator handoff."
+    },
+    {
+      "path": "notebooks/process/TurboExpanderCompressor_Example.ipynb",
+      "verified_date": "2026-07-20",
+      "verified_at_utc": "2026-07-20T19:23:41Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean isolated environment created with python -m venv and the latest public PyPI neqsim installed using python -m pip install --upgrade --no-cache-dir; all code cells executed sequentially in one shared Python namespace using the documented in-process fallback because a local Jupyter TCP kernel is unavailable",
+      "code_cells": 16,
+      "markdown_cells": 17,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic direct-master commit"
+      },
+      "key_checks": [
+        "all 16 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 18 engineering validation items passed",
+        "the reported 0.999900 mol/mol component inputs were explicitly normalized to 1.000000 mol/mol",
+        "an inlet scrubber removed 7027.497079 kg/h of liquid and provided a single-phase expander feed",
+        "the inlet scrubber mass residual was 8.095e-11 kg/h and both turbo-machine material paths closed exactly within reported precision",
+        "the shared shaft matched at 6576.869485 rpm with 2.958998 MW expander power and 2.958989 MW compressor power",
+        "the bearing-corrected shaft-power residual was -8.673e-06 W",
+        "an independent PSflash reproduced 2958.998009 kW expander power with zero difference at displayed precision",
+        "the expander cooled the gas to -41.146887 degrees C at 42 bara and the compressor discharged at 49.671252 bara",
+        "the expander outlet contained gas and oil with phase fractions closing exactly within reported precision",
+        "pressure sensitivity gave monotonic recovered-power, speed, and outlet-temperature trends",
+        "compressor loading sensitivity gave monotonic speed, discharge-pressure, and normalized Q/N trends while efficiency crossed its curve peak",
+        "a repeated ProcessSystem run reproduced speed, powers, and discharge pressure exactly at displayed precision",
+        "valid notebook JSON and nbformat, sequential execution counts, retained outputs, one Colab badge, and exactly one active-catalog link passed",
+        "teaching-readability checks passed with descriptive names, conventional indentation, no wildcard imports or compressed statements, and every code line at most 100 characters",
+        "five governing equations passed balanced single-backslash Colab math checks and were rendered and visually inspected",
+        "three retained SI-labelled engineering figures were visually inspected; a dual-axis speed/IGV plot was refined for legibility",
+        "the official NeqSim process guide, thermodynamic-model guide, source model, and current PyPI release were verified on 2026-07-20"
+      ],
+      "summary": "Rebuilt the eight-cell legacy turbo-expander/compressor sketch as a 33-cell executed engineering tutorial. Removed the Colab magic, wildcard-style imports, shadowed fluid helper, unnormalized composition, premature equipment run, ambiguous units, weak topology, and unverified output. Added an inlet scrubber for single-phase expander feed, explicit SRK assumptions, reusable ProcessSystem construction, transparent reference curves, shaft and mass closure, an independent isentropic-work check, phase diagnostics, pressure-ratio and compressor-loading sensitivities, repeatability, troubleshooting, limitations, references, exercises, tables, and three plots."
     }
   ]
 }
