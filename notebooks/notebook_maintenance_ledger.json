@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-20T08:14:03.716Z",
+  "updated_at": "2026-07-20T08:35:26Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -1400,6 +1400,42 @@
         "the Colab badge, intended repository path, four current official NeqSim documentation links, and exactly-once active-catalog link were validated"
       ],
       "summary": "Rebuilt the legacy separator sketch as an executed, teaching-quality three-phase production-separation notebook. It covers SRK-CPA phase equilibrium, stream and flowsheet construction, conservation, phase properties, component enrichment, Souders-Brown and liquid-holdup screens, native separator capacity metrics, entrainment, pressure and water-loading sensitivities, staged oil flashing, troubleshooting, limitations, exercises, assertions, tables, and plots."
+    },
+    {
+      "path": "notebooks/thermodynamics/heatTransfer.ipynb",
+      "verified_date": "2026-07-20",
+      "verified_at_utc": "2026-07-20T08:35:26Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean isolated environment containing the latest public PyPI neqsim 3.16.0; all code cells executed sequentially in one shared Python process because the automation environment did not provide an ipykernel",
+      "code_cells": 17,
+      "markdown_cells": 18,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "key_checks": [
+        "replaced the four-cell NeqSim 2.5.35 placeholder with a 35-cell heat-transfer engineering tutorial",
+        "all 17 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 16 finite-state, phase, mass, energy, temperature-approach, effectiveness, entropy, analytical-agreement, trend, transport-property, and fouling assertions passed",
+        "base two-stream exchanger duty was 579.935857 kW with hot and cold outlet temperatures of 37.114851 and 89.997135 degrees Celsius",
+        "overall energy residual was 8.858e-05 W and both stream mass residuals were zero at reported precision",
+        "both exchanger outlets remained single-phase gas and both counter-current terminal approaches remained positive",
+        "NeqSim effectiveness was 0.826599 versus the independent counter-current effectiveness-NTU result 0.826931",
+        "UA-LMTD duty agreed with the NeqSim duty within 1.027 percent",
+        "resistance screening gave clean and fouled U values of 132.964 and 114.668 W/(m2 K), and a base screening area of 218.021 m2",
+        "duty rose monotonically and hot-outlet temperature fell monotonically across the 5 to 40 kW/K UA study",
+        "duty rose monotonically across the 6000 to 18000 kg/h cold-side flow study",
+        "temperature-dependent density, heat capacity, viscosity, and conductivity were finite and physically plausible from 20 to 120 degrees Celsius at 60 bara",
+        "additional fouling reduced UA and duty and raised the hot-outlet temperature at fixed installed area",
+        "readability gate passed with one statement per line, no semicolons or inline compound bodies, conventional indentation, descriptive names, and code lines at most 100 characters",
+        "valid notebook JSON, nbformat 4 structure, sequential execution counts, Colab badge, current official references, and exactly-once catalog link were validated",
+        "Colab equation gate passed with balanced standalone dollar delimiters, single-backslash LaTeX, no obsolete delimiters, successful nbconvert MathJax HTML generation, and visually inspected fractions, subscripts, superscripts, symbols, units, and three SI-labelled plots"
+      ],
+      "summary": "Removed the obsolete NeqSim 2.5.35 pin, Colab magics, wildcard imports, embedded video, stale outputs, and minimal unverified calculation. The rebuilt tutorial uses current SRK and HeatExchanger APIs for real-gas properties, a composable two-stream exchanger, independent balances, effectiveness-NTU and LMTD checks, thermal resistance and area screening, UA and flow sensitivities, property trends, fouling scenarios, limitations, troubleshooting, exercises, references, assertions, tables, and plots."
     }
   ]
 }
