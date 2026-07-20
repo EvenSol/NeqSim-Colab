@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-20T01:30:09.631Z",
+  "updated_at": "2026-07-20T02:03:41.449Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -978,6 +978,46 @@
         "the Colab badge, five authoritative documentation and literature links, and both existing front-page references to the notebook were validated and preserved"
       ],
       "summary": "Modernized the foundational How to use NeqSim notebook by removing stale Colab magics, wildcard imports, duplicated setup, semicolon chains, fragile phase indices, an incorrect GERG example built on PR, ambiguous units, inaccessible source-code links, and random 15,000-flash benchmarks. The new NeqSim 3.16.0 tutorial covers SRK/PR/GERG-2008 model selection, TP/PS/PH flashes, phase-aware property reading, density consistency, component closure, deterministic property grids, ideal-gas limiting behaviour, connected stream, heater, compressor, and cooler calculations, balances, sensitivity, troubleshooting, limitations, references, exercises, assertions, and embedded outputs."
+    },
+    {
+      "path": "notebooks/thermodynamics/PhysicalPropertiesOfAmmonia.ipynb",
+      "verified_date": "2026-07-20",
+      "verified_at_utc": "2026-07-20T02:03:41.449Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "fresh isolated target environment installed with python -m pip install --upgrade --no-cache-dir neqsim; all code cells executed sequentially in one isolated Python process after final formatting because the sandbox blocks local Jupyter kernel sockets",
+      "code_cells": 17,
+      "markdown_cells": 18,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "key_checks": [
+        "created the missing physical-properties-of-ammonia catalog notebook",
+        "all 17 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 24 focused benchmark, identity, property, trend, process, and validity assertions passed",
+        "valid nbformat 4 JSON, unique cell IDs, sequential execution counts, and no hidden state",
+        "teaching-readability gate passed with one statement per line, conventional indentation, descriptive names, no wildcard imports, semicolon chains, or inline compound bodies, and code lines at most 100 characters",
+        "the complete notebook was re-executed from a fresh PyPI-only environment after final formatting",
+        "Colab equation gate passed with balanced standalone dollar delimiters, single-backslash LaTeX, no obsolete delimiters, successful nbconvert MathJax HTML generation, and a visually inspected equation render",
+        "four embedded SI-labelled engineering figures were visually inspected for readable axes and physically meaningful trends",
+        "the ammonia-specific EOS matched the NIST ideal-gas Shomate heat capacity within 0.1169 percent from 300 K to 400 K at 0.01 MPa",
+        "independent finite-difference Cp-Cv identity residuals were 7.78e-09 for gas and 2.12e-09 for liquid",
+        "gas density decreased while viscosity and conductivity increased with temperature; compressed-liquid density and viscosity decreased with temperature",
+        "gas density increased monotonically with pressure and the full sweep remained gaseous with positive Joule-Thomson coefficients",
+        "the direct and PH-flash finite-difference Joule-Thomson coefficients agreed within 1.09e-07 relative residual",
+        "a 1.5 MPa to 0.5 MPa isenthalpic pressure drop cooled ammonia from 330.0 K to 318.566 K",
+        "PR, SRK, and ammonia-specific gas density spread was 8.48 percent; PR-SRK compressed-liquid density spread was 6.40 percent",
+        "the 300 K saturation flash produced two phases with a liquid-to-vapor density ratio of 91.73",
+        "Reynolds and Prandtl numbers satisfied the stated Dittus-Boelter screening range and produced a positive 64.253 W/(m2 K) coefficient",
+        "the baseline stream-cooler duty was -22.2772 kW with a 3.55e-15 kW energy-balance residual",
+        "cooler scenarios remained finite and exposed the expected duty discontinuity across the equilibrium phase boundary",
+        "Colab badge, NIST benchmark, NIST property-table reference, four current NeqSim documentation links, intended repository path, and exactly-once active-catalog link were validated"
+      ],
+      "summary": "Implemented a self-contained pure-ammonia physical-properties tutorial using current SystemAmmoniaEos, PR, and SRK APIs. It covers phase-aware density, heat capacity, viscosity, conductivity, sound speed, and Joule-Thomson calculations; a NIST dilute-gas Cp benchmark; finite-difference thermodynamic identities; temperature, pressure, phase, and model sensitivities; Reynolds-Prandtl-Nusselt heat-transfer screening; a connected stream-cooler model; phase-boundary scenarios; safety and validity limits; troubleshooting; exercises; assertions; and embedded outputs."
     }
   ]
 }
