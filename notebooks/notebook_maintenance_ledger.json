@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-20T11:30:26.708Z",
+  "updated_at": "2026-07-20T11:41:54Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -1600,6 +1600,43 @@
         "the PyPI package, official NeqSim process documentation, and NeqSim source repository references resolved on 2026-07-20"
       ],
       "summary": "Rebuilt the custom dynamic-unit topic as a self-contained SRK tutorial. It derives a lumped heater balance, implements run and runTransient on NeqSim's Python unit-operation interface, composes the heater with normal NeqSim streams and a valve, runs a three-level duty schedule, validates the explicit-Euler result against the exact first-order response, closes mass and energy balances, studies thermal-mass sensitivity, documents the JPype serialization limitation, and emits a reusable result object."
+    },
+    {
+      "path": "notebooks/PVT/fluidcharacterization.ipynb",
+      "verified_date": "2026-07-20",
+      "verified_at_utc": "2026-07-20T11:41:54Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean isolated environment containing the latest public PyPI neqsim 3.16.0; all code cells executed sequentially in one shared Python namespace using the documented in-process fallback because a local Jupyter TCP kernel is unavailable",
+      "code_cells": 18,
+      "markdown_cells": 21,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic direct-master commit"
+      },
+      "key_checks": [
+        "replaced the ten-cell legacy notebook with a 39-cell executed well-fluid characterization tutorial using current PedersenSRK, Pedersen plus-fraction, standard lumping, SaturationPressure, Stream, ThrottlingValve, Heater, Separator, and ProcessSystem APIs",
+        "all 18 code cells executed in order with sequential counts, zero unexpected exceptions, zero error outputs, and zero stderr",
+        "all 23 assay, characterization, phase, finite-state, saturation, envelope, CCE, balance, sensitivity, and convergence assertions passed",
+        "the 100 mol synthetic assay generated five pseudo-components and preserved the 14.7 mol percent heavy fraction within 1e-7 mol percent",
+        "mixture molar mass changed by only -0.043045 percent during finite pseudo-component discretization",
+        "the 90 degrees Celsius and 500 bara reservoir state was one oil phase with density 530.180127 kg/m3",
+        "the documented PVT SaturationPressure simulation gave 408.383232 bara and agreed with phase-envelope interpolation within 0.064013 bar",
+        "the CCE-style study contracted above saturation, normalized at saturation, expanded monotonically below saturation, and changed to two phases",
+        "the composable 50 bara and 35 degrees Celsius separator process produced 2974.398793 kg/h gas and 7025.601207 kg/h liquid",
+        "process mass residual was 4.547e-12 kg/h and maximum component residual was 3.553e-15 mol/s",
+        "reservoir density and saturation pressure rose monotonically across the 220 to 360 g/mol C10+ molar-mass study",
+        "five generated pseudo-components reproduced the eight-component saturation pressure within 1.368 bar",
+        "valid nbformat 4 JSON, 39 unique cells, complete outputs, one Colab badge, and exactly one active-catalog link passed",
+        "teaching-readability checks passed with descriptive names, conventional indentation, no wildcard imports or compressed statements, and code lines at most 94 characters",
+        "seven equations passed balanced single-backslash Colab math checks, nbconvert generated MathJax-compatible HTML, and every equation was visually rendered and inspected",
+        "two embedded SI-labelled engineering figures were visually inspected for readable axes, phase-envelope consistency, expected CCE behavior, smooth heavy-end trends, lumping convergence, and physically meaningful component recovery",
+        "all five introduced authoritative PyPI and NeqSim documentation links resolved on 2026-07-20"
+      ],
+      "summary": "Removed obsolete Colab magics, wildcard imports, an embedded external video, semicolon-compressed 161-character lines, ambiguous units, fragile shared state, and unverified saturation calculations. Rebuilt the topic around a normalized synthetic assay, current SRK and Pedersen characterization APIs, pseudo-component and molar-mass closure, reservoir properties, documented PVT saturation pressure, phase-envelope cross-checking, CCE-style expansion, a composable choke-cooler-separator process, component recovery, heavy-end and lumping sensitivities, limitations, troubleshooting, references, exercises, tables, plots, assertions, and a reusable result summary."
     }
   ]
 }
