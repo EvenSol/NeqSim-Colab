@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-20T16:25:58.063Z",
+  "updated_at": "2026-07-20T17:34:43.163Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -1776,6 +1776,42 @@
         "the official NeqSim process recipes, process guide, thermodynamic-model guide, and solver guide resolved on 2026-07-20"
       ],
       "summary": "Replaced the 25-cell legacy valve sketch with a 37-cell executed engineering tutorial. Removed shell and Colab magics, wildcard imports, repeated setup, an external video, ambiguous units, long lines, and unverified calculations. Added a lean-gas PR valve, isenthalpic and Joule-Thomson checks, entropy and exergy interpretation, Kv/Cv sizing, choke diagnostics, pressure and flow sensitivities, pure-propane flashing and cavitation screening, a valve-to-separator flowsheet, conservation checks, limitations, troubleshooting, references, and exercises."
+    },
+    {
+      "path": "notebooks/process/adsorption.ipynb",
+      "verified_date": "2026-07-20",
+      "verified_at_utc": "2026-07-20T17:34:43.163Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean isolated environment created with python -m venv and the latest public PyPI neqsim installed using python -m pip install --upgrade --no-cache-dir; all code cells executed sequentially in one shared Python namespace using the documented in-process fallback because a local Jupyter TCP kernel is unavailable",
+      "code_cells": 19,
+      "markdown_cells": 19,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic direct-master commit"
+      },
+      "key_checks": [
+        "replaced the one-cell placeholder and wrong empty-template Colab badge with a 38-cell executed fixed-bed adsorption tutorial",
+        "all 19 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 33 feed, phase, isotherm, geometry, hydraulic, breakthrough, trend, regeneration, and numerical assertions passed",
+        "the SRK feed remained one gas phase at 35 degrees C, 50 bara, and 5000 kg/h with 10 mol percent CO2",
+        "13X CO2 equilibrium loading was 6.823077 mol/kg and the component-wise CO2/CH4 screening selectivity was 13.800788",
+        "NeqSim and an independent Ergun calculation both gave 3703.547898 Pa packed-bed pressure drop with a 6.14e-16 relative residual",
+        "component-specific 5, 50, and 95 percent CO2 breakthrough times were 66, 506, and 644 seconds",
+        "final average CO2 loading was 6.822046 mol/kg and final outlet-to-inlet concentration ratio was 0.996743",
+        "pressure and temperature isotherm studies followed the expected loading trends at all evaluated states",
+        "packed-bed pressure drop increased from 1081.259534 to 13571.211115 Pa over the 2500-to-10000 kg/h flow sweep",
+        "low-pressure high-temperature regeneration created 6.483094 mol/kg cyclic working capacity and removed 95.0315 percent of loading",
+        "valid notebook JSON and nbformat, sequential execution counts, retained outputs, one corrected Colab badge, and exactly one catalog link passed",
+        "teaching-readability checks passed with descriptive names, conventional indentation, no wildcard imports or compressed statements, and code lines at most 92 characters",
+        "six governing equations passed balanced single-backslash Colab math checks and were rendered and visually inspected",
+        "four retained SI-labelled engineering figures were visually inspected for readable axes and physically coherent breakthrough, axial-front, isotherm, and regeneration trends",
+        "the official adsorption-bed, adsorption-isotherm, process-package, and thermodynamic-model references resolved on 2026-07-20"
+      ],
+      "summary": "Rebuilt the empty adsorption placeholder as a complete CO2-on-zeolite-13X screening tutorial using current SRK Stream, AdsorptionBed, Langmuir, axial LDF, Ergun, and transient regeneration APIs. Added explicit assumptions and validity limits, feed and phase checks, equilibrium data, selectivity, independent hydraulics, component-specific breakthrough thresholds, axial profiles, pressure/temperature/flow sensitivities, low-pressure high-temperature regeneration, troubleshooting, references, exercises, tables, plots, and 33 engineering assertions."
     }
   ]
 }
