@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-20T02:42:25.690Z",
+  "updated_at": "2026-07-20T03:11:16.180Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -1058,6 +1058,43 @@
         "Colab badge, six authoritative references, intended repository path, and exactly-once active-catalog link were validated"
       ],
       "summary": "Modernized the water-ammonia notebook by removing the shell magic, minimal pure-fluid-only examples, weak explanations, ambiguous units, and missing verification. The new NeqSim 3.16.0 tutorial covers dedicated pure-water and pure-ammonia reference models, saturation pressure, PR binary TP and bubble flashes, phase enrichment, independent component closure, composition and pressure sensitivity, stable PR-SRK model-form uncertainty, explicit exclusion of an initialization-sensitive unregressed CPA boundary, a connected stream-heater calculation, energy closure, phase-boundary scenarios, limitations, troubleshooting, references, exercises, assertions, and embedded outputs."
+    },
+    {
+      "path": "notebooks/reactions/blue_ammonia_production.ipynb",
+      "verified_date": "2026-07-20",
+      "verified_at_utc": "2026-07-20T03:11:16.180Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "isolated PyPI-only environment previously installed with python -m pip install --upgrade --no-cache-dir neqsim; all code cells executed sequentially in one isolated Python process after final formatting because the sandbox blocks local Jupyter kernel sockets; a redundant fresh install attempt was blocked by a transient package-index proxy timeout",
+      "code_cells": 17,
+      "markdown_cells": 17,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "key_checks": [
+        "replaced the six-cell blue-ammonia placeholder with a 34-cell tutorial",
+        "all 17 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 15 focused convergence, balance, duty, phase, and trend assertions passed",
+        "valid nbformat 4 JSON, unique cell IDs, sequential execution counts, and no hidden state",
+        "teaching-readability gate passed with one statement per line, conventional indentation, descriptive names, no wildcard imports, Colab magics, semicolon chains, or inline compound bodies, and code lines at most 100 characters",
+        "the complete notebook was re-executed after final formatting with NeqSim 3.16.0 from an isolated PyPI-only environment",
+        "Colab equation gate passed with balanced standalone dollar delimiters, single-backslash LaTeX, no obsolete delimiters, successful MathJax-compatible rendering, and visual inspection",
+        "the embedded two-panel SI-labelled engineering figure was visually inspected for readable axes and physically meaningful trends",
+        "the Gibbs reformer converged in 1898 iterations with a 9.963e-07 final error and 80.963 percent methane conversion",
+        "the maximum reformer element residual was 8.825e-15 and the shift element residual was zero within reported precision",
+        "the reformer duty was 759.900 kW and methane conversion increased monotonically from 57.067 to 89.567 percent over 1023.15 to 1173.15 K",
+        "the selective shift increased hydrogen, 95 percent capture removed 819.696 kg/h CO2, and the conditioned H2-to-N2 ratio was exactly 3.0",
+        "the 22 to 150 bara compressor consumed 287.287 kW with a 609.748 K outlet temperature",
+        "the ammonia reactor produced 164.158 kg/h gross ammonia at 18 percent per-pass conversion with a -123.705 kW duty and exact reported elemental closure",
+        "cooling to 253.15 K recovered 118.659 kg/h liquid ammonia at 72.281 percent recovery with an 8.293e-16 separator ammonia residual",
+        "gross ammonia production and exothermic duty magnitude increased monotonically across 10 to 25 percent specified conversion",
+        "Colab badge, four authoritative references, intended repository path, repaired malformed link, and exactly-once active-catalog link were validated"
+      ],
+      "summary": "Completed the production-of-ammonia catalog entry as a self-contained natural-gas blue-ammonia screening tutorial. It uses a current SRK fluid, streams, a converged Gibbs reformer, selective water-gas shift, CO2-capture conditioning, a compressor, the supported AmmoniaSynthesisReactor, a cooler, and a separator. It adds governing equations, assumptions, explicit units, element and ammonia balances, duties, capture and recovery indicators, temperature and conversion sensitivities, limitations, troubleshooting, references, exercises, assertions, and embedded outputs."
     }
   ]
 }
