@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-20T21:30:52Z",
+  "updated_at": "2026-07-20T22:31:50Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -1941,6 +1941,43 @@
         "the current NeqSim implementation, executable FIV tests, Beggs-Brill guide, fluid-mechanics guide, and PyPI 3.16.0 release were verified on 2026-07-20"
       ],
       "summary": "Rebuilt the legacy FIV notebook as an executed engineering tutorial. Removed the Colab magic and shell install, wildcard imports, inaccessible E300 file, unnormalized 2.2-mol example, compressed code, malformed equations, and unverified outputs. Corrected the obsolete FRMS constant and phase weighting, and clarified that support distance is not used by the current correlations. Added a public synthetic SRK-CPA gas-condensate-water case, Beggs-Brill profiles, LOF and FRMS derivations, exact independent reconstructions, support, thickness, axial, rate, and diameter sensitivities, conservation and trend checks, limitations, references, exercises, tables, and four plots."
+    },
+    {
+      "path": "notebooks/PVT/OilProperties.ipynb",
+      "verified_date": "2026-07-21",
+      "verified_at_utc": "2026-07-20T22:31:50Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean isolated environment with the latest public PyPI neqsim confirmed using python -m pip install --upgrade --no-cache-dir; all code cells executed sequentially in one shared Python namespace using the documented in-process fallback because a local Jupyter TCP kernel is unavailable",
+      "code_cells": 17,
+      "markdown_cells": 19,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit"
+      },
+      "key_checks": [
+        "all 17 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 28 focused engineering validation items passed",
+        "the public synthetic assay closed at exactly 100 mol and the characterized 22-component composition closed at 1.000000000000 mol/mol",
+        "the independently calculated bubble pressure was 193.240934 bara and matched the current NeqSim regression benchmark within 1e-6 bar",
+        "the DLE driver saturation pressure agreed with the independent saturation calculation within 0.054 bar",
+        "at 351.4 bara, Bo was 1.690408 rm3/sm3, Rs was 212.719426 sm3/sm3, and oil density was 677.597092 kg/m3",
+        "above saturation, Bo rose and density fell as pressure declined toward the bubble point while Rs remained constant",
+        "below saturation, Bo and Rs fell while oil density and Bg rose as pressure declined",
+        "the live-oil viscosity screen had a finite minimum of 0.217716 cP at the bubble pressure",
+        "the 15 degree C and 1.01325 bara stock-tank flash produced gas and oil, 832.469873 kg/m3 oil density, 38.308865 degrees API, and exact reported mass closure",
+        "the single-stage liberated gas-oil ratio was finite and physically plausible",
+        "the PR bubble-pressure prediction differed from SRK by -5.922312 percent, exposing bounded model-form sensitivity",
+        "valid notebook JSON and nbformat, sequential execution counts, retained outputs, one Colab badge, and exactly one catalog link passed",
+        "readability checks passed with descriptive names, conventional indentation, no magics, wildcard imports, semicolons, inline compound bodies, or code lines over 100 characters",
+        "six display equations and all inline symbols passed balanced single-backslash Colab math checks; fractions, subscripts, symbols, and units were rendered and visually inspected",
+        "two retained SI-labelled engineering figures were visually inspected after the final execution",
+        "five current NeqSim documentation and source links, the catalog path, the Colab badge asset, and public PyPI 3.16.0 release were verified on 2026-07-21"
+      ],
+      "summary": "Rebuilt the twelve-cell legacy reservoir-oil notebook as a 36-cell executed PVT tutorial. Removed Colab magics, shell installation, wildcard imports, an embedded video, semicolon-compressed functions, inconsistent Celsius/Kelvin handling, destructive shared-fluid phase removal, ambiguous standard conditions, and unverified Bo, Rs, density, and viscosity calculations. Added a public synthetic 100 mol assay, SRK heavy-end characterization, clone-safe state management, saturation pressure, differential liberation, regime-specific trend checks, constant-composition viscosity, stock-tank/API calculations, mass closure, SRK/PR sensitivity, limitations, references, exercises, complete tables, and two plots."
     }
   ]
 }
+
