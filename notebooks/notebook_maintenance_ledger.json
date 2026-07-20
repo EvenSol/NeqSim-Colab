@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-20T02:03:41.449Z",
+  "updated_at": "2026-07-20T02:36:51.603Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -1018,6 +1018,46 @@
         "Colab badge, NIST benchmark, NIST property-table reference, four current NeqSim documentation links, intended repository path, and exactly-once active-catalog link were validated"
       ],
       "summary": "Implemented a self-contained pure-ammonia physical-properties tutorial using current SystemAmmoniaEos, PR, and SRK APIs. It covers phase-aware density, heat capacity, viscosity, conductivity, sound speed, and Joule-Thomson calculations; a NIST dilute-gas Cp benchmark; finite-difference thermodynamic identities; temperature, pressure, phase, and model sensitivities; Reynolds-Prandtl-Nusselt heat-transfer screening; a connected stream-cooler model; phase-boundary scenarios; safety and validity limits; troubleshooting; exercises; assertions; and embedded outputs."
+    },
+    {
+      "path": "notebooks/thermodynamics/water_ammonia_properties.ipynb",
+      "verified_date": "2026-07-20",
+      "verified_at_utc": "2026-07-20T02:36:51.603Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "fresh isolated target environment installed with python -m pip install --upgrade --no-cache-dir neqsim; all code cells executed sequentially in one isolated Python process after final formatting because the sandbox blocks local Jupyter kernel sockets",
+      "code_cells": 18,
+      "markdown_cells": 19,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "key_checks": [
+        "replaced the seven-cell pure-fluid sketch with a 37-cell water-ammonia thermodynamics tutorial",
+        "all 18 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 19 focused benchmark, phase, component-balance, process, trend, and limiting-case assertions passed",
+        "valid nbformat 4 JSON, unique cell IDs, sequential execution counts, and no hidden state",
+        "teaching-readability gate passed with one statement per line, conventional indentation, descriptive names, no wildcard imports, Colab magics, semicolon chains, or inline compound bodies, and code lines at most 78 characters",
+        "the complete notebook was re-executed from a fresh PyPI-only environment after final formatting",
+        "Colab equation gate passed with five balanced display equations, standalone dollar delimiters, single-backslash LaTeX, no obsolete delimiters, successful nbconvert MathJax HTML generation, and a visually inspected equation render",
+        "four embedded SI-labelled engineering figures were visually inspected for readable axes, legends, and physically meaningful trends",
+        "IAPWS-IF97 water normal boiling temperature was 373.227 K, 0.103 K above the 373.124 K reference",
+        "PR ammonia normal boiling temperature was 239.610 K, 0.210 K below the 239.82 K NIST reference",
+        "pure-component saturation pressures increased monotonically with temperature",
+        "the 350 K and 1.0 MPa baseline split into 0.062170 mol/mol gas and 0.937830 mol/mol aqueous phases",
+        "the gas phase contained 0.962522 mol/mol ammonia while the aqueous phase contained 0.149452 mol/mol ammonia",
+        "maximum binary component-balance residual was 1.08e-12 mol/mol",
+        "bubble temperature decreased monotonically as liquid ammonia fraction increased at 1.0 MPa",
+        "gas fraction decreased monotonically with pressure and reached the single-liquid limiting case by 1.25 MPa",
+        "PR, SRK, and recommended-rule CPA bubble-temperature predictions exposed explicit model-package sensitivity",
+        "the connected stream-heater duty was 205.857766 kW with a 1.71e-13 kW energy-balance residual",
+        "heater duty and equilibrium gas fraction increased monotonically across five outlet-temperature scenarios",
+        "Colab badge, six authoritative references, intended repository path, and exactly-once active-catalog link were validated"
+      ],
+      "summary": "Modernized the water-ammonia notebook by removing the shell magic, minimal pure-fluid-only examples, weak explanations, ambiguous units, and missing verification. The new NeqSim 3.16.0 tutorial covers dedicated pure-water and pure-ammonia reference models, saturation pressure, PR binary TP and bubble flashes, phase enrichment, independent component closure, composition and pressure sensitivity, documented PR-SRK-CPA model-package uncertainty, a connected stream-heater calculation, energy closure, phase-boundary scenarios, limitations, troubleshooting, references, exercises, assertions, and embedded outputs."
     }
   ]
 }
