@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-20T11:21:12.957Z",
+  "updated_at": "2026-07-20T11:30:26.708Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -1505,33 +1505,34 @@
     {
       "path": "notebooks/fluidflow/neqsim_openfoam_compressor_inlet_wet_gas.ipynb",
       "verified_date": "2026-07-20",
-      "verified_at_utc": "2026-07-20T10:45:00.000Z",
+      "verified_at_utc": "2026-07-20T11:30:26.708Z",
       "neqsim_version": "3.16.0",
       "python_version": "3.12.13",
-      "java_version": "OpenJDK 17 required by NeqSim 3.16.0",
+      "java_version": "openjdk 17.0.19",
       "openfoam_version": "OpenFOAM Foundation 14",
-      "execution_status": "static-validation-only",
-      "execution_method": "Notebook JSON and every code cell were statically validated; the standalone CAD cell was executed in isolation. NeqSim and OpenFOAM were unavailable in the publication runtime, so the coupled solver cells were not executed.",
+      "execution_status": "passed",
+      "execution_method": "Clean sequential in-process execution with NeqSim 3.16.0 and a workspace-local OpenFOAM Foundation 14 runtime; all code cells executed in one shared Python namespace because the automation sandbox blocks local Jupyter TCP kernel connections.",
       "code_cells": 12,
       "markdown_cells": 14,
       "publication": {
         "branch": "master",
         "mode": "direct",
-        "commit": "direct-master publication sequence"
+        "notebook_commit": "4e986926ccf7eca99c1c95c402bd52d8449a72c8",
+        "ledger_commit": "this ledger update commit"
       },
       "key_checks": [
-        "valid nbformat 4 JSON with 26 ordered cells and no hidden state",
-        "all 12 code cells compiled without syntax errors",
-        "all Markdown display equations use balanced Colab-safe delimiters and single backslashes",
-        "the isolated CAD cell generated four STL patches with zero open or non-manifold edges",
-        "the generated centerline length was 6.813555 m with correct inlet and eye tangents",
-        "gas and entrained-liquid compositions are normalized by executable assertions",
-        "CFD mass balance and positive total-pressure-loss assertions are included",
-        "droplet-size trends cover 50, 150, and 500 micrometre droplets",
-        "limitations distinguish Stokes impaction screening from a deposition fraction",
-        "exactly one relative catalog link and one Colab badge target the published path"
+        "valid nbformat 4.5 JSON with 26 unique cell IDs, sequential execution counts, zero error outputs, 14 stored outputs, three embedded figures, and two rich tables",
+        "all 12 code cells executed top to bottom against NeqSim 3.16.0 and OpenFOAM Foundation 14",
+        "NeqSim calculated gas and entrained-liquid densities of 48.2978 and 658.629 kg/m3 and viscosities of 1.23433e-5 and 3.24790e-4 Pa s",
+        "the parametric CAD generated 8352 triangles, a 6.81356 m centerline, four named STL patches, and zero open or non-manifold edges",
+        "the 60918-cell OpenFOAM mesh passed checkMesh with maximum non-orthogonality 56.8463, maximum skewness 1.97949, and maximum aspect ratio 9.58976",
+        "the RANS solver completed 2000 pseudo-time iterations; the stored output retains final velocity, pressure, turbulence, continuity, and bounded-k diagnostics",
+        "carrier-flow mass balance closed to 0.285843 percent, total-pressure loss was 893.832 Pa, and impeller-eye velocity coefficient of variation was 0.193456",
+        "50, 150, and 500 micrometre droplets produced Stokes numbers 0.1005, 0.904498, and 10.05 with hot-contact evaporation sensitivities of 100, 45.5669, and 4.46608 percent",
+        "the estimated bulk-gas temperature at the impeller eye was 20.93 degrees Celsius for a 110 degrees Celsius hot-wall sensitivity",
+        "all code compiled, non-URL code lines were at most 100 characters, Colab equations passed delimiter checks, the catalog link remained exactly once, and all three embedded figures were visually inspected"
       ],
-      "summary": "Added a self-contained NeqSim/OpenFOAM 14 compressor-inlet study with parametric 3D internal CAD, named snappyHexMesh patches, rich-gas and entrained-condensate properties, turbulent carrier CFD, impeller-eye validation, liquid-inertia screening, and an explicit hot-wall evaporation sensitivity. Full coupled execution remains required in Colab."
+      "summary": "Executed and repaired the NeqSim/OpenFOAM 14 compressor-inlet notebook. Updated the CAD renderer and current OpenFOAM 14 surfaceFeatures and snappyHexMesh syntax, ran the complete wet-gas CFD workflow, embedded thermophysical tables, CAD, mesh and convergence diagnostics, velocity contours, mass-balance and pressure-loss validation, droplet screening, and hot-wall results directly in the notebook."
     },
     {
       "path": "notebooks/process/TVP_RVP_Study.ipynb",
