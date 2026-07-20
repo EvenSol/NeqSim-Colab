@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-20T04:25:45.147Z",
+  "updated_at": "2026-07-20T05:02:37.006Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -1173,6 +1173,47 @@
         "the Colab badge, four current NeqSim documentation links, original catalog path, and exactly-once front-page link were validated"
       ],
       "summary": "Modernized the foundational Eclipse-fluid import notebook by replacing network-dependent and insecure legacy code with a self-contained current-API tutorial. It covers Eclipse keyword structure, SRK theory, synthetic deck provenance, exact property recovery, TP flashes, phase and component closure, pressure and temperature sensitivity, safe XML serialization, connected stream and separator integration, mass and component balances, phase enrichment, limitations, troubleshooting, references, exercises, assertions, and embedded outputs."
+    },
+    {
+      "path": "notebooks/power/ammonia_power_generation.ipynb",
+      "verified_date": "2026-07-20",
+      "verified_at_utc": "2026-07-20T05:02:37.006Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "isolated PyPI-only environment installed with python -m pip install --upgrade --no-cache-dir neqsim; all code cells executed sequentially in one isolated Python process after final formatting because the sandbox blocks local Jupyter kernel sockets",
+      "code_cells": 22,
+      "markdown_cells": 22,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "key_checks": [
+        "implemented the missing power-production-from-ammonia catalog entry as a 44-cell self-contained tutorial",
+        "all 22 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 21 focused energy, atom, phase, process, limiting-case, and trend assertions passed",
+        "valid nbformat 4 JSON, sequential execution counts, and no hidden state",
+        "teaching-readability gate passed with one statement per line, conventional indentation, descriptive names, no wildcard imports, Colab magics, semicolon tokens, or inline compound bodies, and code lines at most 100 characters",
+        "the complete notebook was re-executed after final formatting with NeqSim 3.16.0 from an isolated PyPI-only environment",
+        "Colab equation gate passed with balanced standalone dollar delimiters, single-backslash LaTeX, no obsolete delimiters, successful nbconvert MathJax HTML generation, and a visually inspected equation render",
+        "three embedded SI-labelled engineering figures were visually inspected for readable axes and physically meaningful trends",
+        "the ammonia LHV was independently derived as 18.6018 MJ/kg from public standard formation enthalpies",
+        "the 10 kg/s air baseline required 0.900063 kg/s ammonia at 1473.15 K and lambda 1.8364",
+        "the atom-balanced product contained 72.7568 mol percent nitrogen, 8.0333 percent oxygen, and 19.2099 percent water",
+        "the maximum nitrogen, hydrogen, and oxygen atom residual was zero within reported precision",
+        "the combustor energy residual was -3.638e-12 kW",
+        "the compressor consumed 3657.006 kW and the turbine produced 8412.226 kW",
+        "net electric power was 4660.115 kW at 27.8335 percent LHV efficiency",
+        "direct flash and process-unit compressor and turbine powers agreed within 2e-10 relative difference",
+        "net power peaked at pressure ratio 14 on the tested 6 to 30 grid while efficiency increased across the grid",
+        "fuel flow and net power increased monotonically across 900 to 1300 degrees Celsius firing temperature",
+        "the zero-fuel limiting case recovered 0.79 nitrogen and 0.21 oxygen mole fractions exactly",
+        "the exhaust sensible-heat screen recovered 6637.430 kW when cooled to 423.15 K without condensation",
+        "the Colab badge, NIST references, three current NeqSim documentation links, intended repository path, and exactly-once active-catalog link were validated"
+      ],
+      "summary": "Implemented the foundational ammonia-power catalog entry as an educational direct-fired Brayton-cycle tutorial. It derives ammonia LHV from standard formation enthalpies, uses SRK fluids with TP, PS, and PH flashes, solves atom and energy balances for oxygen-rich complete combustion, connects NeqSim streams, compressor, fuel stream, atom-balanced combustor outlet, and expander, closes shaft and electric-power balances, and adds pressure-ratio, firing-temperature, generator-efficiency, limiting-case, and exhaust-heat sensitivities with explicit emissions and safety limitations."
     }
   ]
 }
