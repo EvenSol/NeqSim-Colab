@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-20T06:53:34.808Z",
+  "updated_at": "2026-07-20T08:10:22.899Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -1331,7 +1331,7 @@
     {
       "path": "notebooks/fluidflow/neqsim_openfoam_flashing_valve.ipynb",
       "verified_date": "2026-07-20",
-      "verified_at_utc": "2026-07-20T06:53:34.808Z",
+      "verified_at_utc": "2026-07-20T08:10:22.899Z",
       "neqsim_version": "3.16.0",
       "python_version": "3.12.13",
       "java_version": "openjdk 17.0.19",
@@ -1339,15 +1339,15 @@
       "pyvista_version": "0.48.4",
       "execution_status": "passed",
       "execution_method": "clean sequential shared Python process with NeqSim and PyVista installed from current public PyPI packages and the official OpenFOAM 14 Ubuntu package extracted into the validation workspace; all code cells executed top to bottom after final plotting and readability changes because the sandbox blocks local Jupyter TCP kernel connections",
-      "code_cells": 13,
-      "markdown_cells": 14,
+      "code_cells": 17,
+      "markdown_cells": 15,
       "publication": {
         "branch": "agent/neqsim-openfoam-flashing-valve",
         "mode": "review branch commit and draft pull request",
         "commit": "pull request head"
       },
       "key_checks": [
-        "all 13 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 17 code cells executed in order with zero exceptions, error outputs, or stderr",
         "NeqSim 3.16.0 Peng-Robinson predicted a single oil inlet phase at 40 bara and 303.15 K with density 587.445 kg/m3",
         "NeqSim calculated a 14.5051 bara bubble pressure at 303.15 K and a smooth monotonic bubble-pressure curve from 288.15 to 313.15 K",
         "the isenthalpic pressure sweep closed specific enthalpy to within 1.57e-4 J/kg",
@@ -1357,12 +1357,14 @@
         "the 16 bara case reached 14.2437 bara locally with 0.005983 volume-mean gas fraction, 0.712538 peak gas fraction, and zero area-mean outlet gas fraction, demonstrating local cavitation with recovery",
         "the 8 bara case reached 14.1922 bara locally and carried 0.741403 area-mean gas volume fraction through the outlet, demonstrating sustained flashing",
         "all gas-volume-fraction fields remained bounded and the three executable qualitative-regime assertions passed",
-        "two embedded PNG figures were visually inspected at original resolution and have readable SI-labelled axes, legends, pressure and equilibrium plots, and nine CFD field panels",
-        "valid nbformat 4.5 structure, 27 unique cell IDs, Colab-safe equations, one Colab badge, no hidden state, no error outputs, and no code lines longer than 100 characters",
-        "the complete notebook was re-executed after the final common vapor color-scale change and its Fluid mechanics catalog link occurs exactly once"
+        "NeqSim transferred a 587.445 kg/m3 density, 1.97999e-4 Pa s dynamic viscosity, and 3.37052e-7 m2/s kinematic viscosity to the added single-phase 3D case",
+        "OpenFOAM imported three generated STL patches, snappyHexMesh created a 23,024-cell mesh, and checkMesh reported Mesh OK",
+        "the imported-geometry case predicted 1.06198 m/s maximum velocity and 350.635 Pa pressure drop with identical 2.95663e-5 m3/s inlet and outlet flow magnitudes",
+        "three embedded PNG figures were visually inspected at original resolution and have readable SI-labelled axes, thermodynamic plots, nine multiphase CFD panels, an imported 3D surface, and its center-plane velocity field",
+        "valid nbformat 4.5 structure, 32 unique cell IDs, Colab-safe equations, one Colab badge, no hidden state, no error outputs, and no code lines longer than 100 characters",
+        "the complete notebook was re-executed after the final 3D-figure layout change and its Fluid mechanics catalog link occurs exactly once"
       ],
-      "summary": "Created a self-contained liquid-valve screening tutorial that couples NeqSim multicomponent bubble-point and isenthalpic process-valve calculations to an OpenFOAM 14 multiphaseEuler/Schnerr-Sauer model. Three pressure regimes demonstrate single-phase flow, local cavitation with downstream collapse, and sustained flashing. The notebook transfers the NeqSim saturation-pressure table, phase properties, latent-enthalpy reference, and surface tension; generates the valve mesh and cases; embeds CFD fields; validates qualitative regimes; and clearly documents the isothermal pseudo-component, transient-duration, nuclei-calibration, and engineering-use limits."
+      "summary": "Created a self-contained liquid-valve screening tutorial that couples NeqSim multicomponent bubble-point and isenthalpic process-valve calculations to an OpenFOAM 14 multiphaseEuler/Schnerr-Sauer model. Three pressure regimes demonstrate single-phase flow, local cavitation with downstream collapse, and sustained flashing. Added a compact second workflow that writes or accepts separate wall, inlet, and outlet STL surfaces, imports them with snappyHexMesh, transfers NeqSim liquid density and viscosity, runs a steady three-dimensional flow case, validates mesh and flow closure, and visualizes the imported surface beside its center-plane velocity field. The notebook clearly documents the isothermal pseudo-component, transient-duration, nuclei-calibration, CAD preparation, mesh-independence, and engineering-use limits."
     }
   ]
 }
-
