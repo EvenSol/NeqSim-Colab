@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-20T06:53:34.808Z",
+  "updated_at": "2026-07-20T08:02:29Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -1362,7 +1362,41 @@
         "the complete notebook was re-executed after the final common vapor color-scale change and its Fluid mechanics catalog link occurs exactly once"
       ],
       "summary": "Created a self-contained liquid-valve screening tutorial that couples NeqSim multicomponent bubble-point and isenthalpic process-valve calculations to an OpenFOAM 14 multiphaseEuler/Schnerr-Sauer model. Three pressure regimes demonstrate single-phase flow, local cavitation with downstream collapse, and sustained flashing. The notebook transfers the NeqSim saturation-pressure table, phase properties, latent-enthalpy reference, and surface tension; generates the valve mesh and cases; embeds CFD fields; validates qualitative regimes; and clearly documents the isothermal pseudo-component, transient-duration, nuclei-calibration, and engineering-use limits."
+    },
+    {
+      "path": "notebooks/process/Separators.ipynb",
+      "verified_date": "2026-07-20",
+      "verified_at_utc": "2026-07-20T08:02:29Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "isolated PyPI-only environment; all code cells executed sequentially in one Python process after final formatting because the automation environment has no usable Jupyter kernel runtime",
+      "code_cells": 17,
+      "markdown_cells": 19,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "key_checks": [
+        "replaced the four-cell placeholder with a 36-cell production-separator tutorial using current ThreePhaseSeparator, Stream, ProcessSystem, Separator, and ThrottlingValve APIs",
+        "all 17 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 13 final engineering checks passed, including base and second-stage balances, density ordering, capacity screens, and scenario trends",
+        "valid nbformat 4 JSON, sequential execution counts, at least 15 code and 15 substantive Markdown cells, and no hidden state",
+        "teaching-readability gate passed with one statement per line, conventional indentation, descriptive names, no wildcard imports, Colab magics, semicolon tokens, or inline compound bodies, and code lines at most 100 characters",
+        "Colab equation gate passed with balanced standalone dollar delimiters, single-backslash LaTeX, no obsolete delimiters, successful nbconvert MathJax HTML generation, and visually inspected equation renders",
+        "two embedded SI-labelled engineering figures were visually inspected for readable axes and physically meaningful enrichment and pressure trends",
+        "the SRK-CPA feed converged to distinct gas, oil, and aqueous phases with explicit multiphase checking",
+        "base mass residual was 2.299e-09 kg/h and maximum component residual was 1.191e-07 mol/h",
+        "selected 2.2 m internal diameter and 8.8 m tangent length gave gas load factor 0.140232 m/s, droplet cut size 58.425467 um, and inlet momentum flux 3829.695289 Pa",
+        "oil and water retention times were 6.494360 and 18.702157 min, respectively",
+        "entrainment scenario closed mass to 2.299e-09 kg/h and explicitly reported water-in-oil and oil-in-water contamination",
+        "pressure and produced-water studies followed expected equilibrium and recovery trends without reusing hidden fluid state",
+        "the 5 bara second stage liberated 1932.484 kg/h gas and closed mass to -5.587e-08 kg/h",
+        "the Colab badge, intended repository path, four current official NeqSim documentation links, and exactly-once active-catalog link were validated"
+      ],
+      "summary": "Rebuilt the legacy separator sketch as an executed, teaching-quality three-phase production-separation notebook. It covers SRK-CPA phase equilibrium, stream and flowsheet construction, conservation, phase properties, component enrichment, Souders-Brown and liquid-holdup screens, native separator capacity metrics, entrainment, pressure and water-loading sensitivities, staged oil flashing, troubleshooting, limitations, exercises, assertions, tables, and plots."
     }
   ]
 }
-
