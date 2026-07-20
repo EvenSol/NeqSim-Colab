@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-20T01:08:56.147Z",
+  "updated_at": "2026-07-20T01:30:09.631Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -938,6 +938,46 @@
         "Colab badge, NIST reference, three current NeqSim documentation links, intended repository path, and the exactly-once active-catalog link were validated"
       ],
       "summary": "Implemented a self-contained pure-ammonia tutorial using current supported PR and SRK APIs. It covers EOS assumptions, critical constants, normal boiling point, NIST Antoine vapour-pressure validation, saturated densities and latent heat, Clapeyron consistency, model sensitivity, isobaric phase behaviour, a connected stream-heater process, duty sensitivity, safety limits, troubleshooting, references, exercises, assertions, and embedded outputs."
+    },
+    {
+      "path": "notebooks/howtouseneqsim.ipynb",
+      "verified_date": "2026-07-20",
+      "verified_at_utc": "2026-07-20T01:30:09.631Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "fresh isolated target environment installed with python -m pip install --upgrade --no-cache-dir neqsim; all code cells executed sequentially in one isolated Python process after final formatting because the sandbox blocks local Jupyter kernel sockets",
+      "code_cells": 17,
+      "markdown_cells": 19,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "key_checks": [
+        "replaced the stale 21-cell introduction with a 36-cell deterministic NeqSim tutorial",
+        "all 17 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 25 focused thermodynamic, property, flash, phase, process, and trend assertions passed",
+        "valid nbformat 4 JSON, 36 unique cell IDs, sequential execution counts, and no hidden state",
+        "teaching-readability gate passed with one statement per line, conventional indentation, descriptive names, no wildcard imports, Colab magics, semicolon chains, inline compound bodies, or random benchmarks, and code lines at most 90 characters",
+        "the complete notebook was re-executed from a fresh PyPI-only environment after final formatting",
+        "Colab equation gate passed with seven balanced display equations, standalone dollar delimiters, single-backslash LaTeX, no obsolete delimiters, successful nbconvert MathJax HTML generation, and a visually inspected equation render",
+        "three embedded SI-labelled engineering figures were visually inspected for readable axes, legends, and physically meaningful trends",
+        "synthetic natural-gas composition summed to exactly 1.0 mol/mol and the base SRK state was a finite single gas phase",
+        "density from molar mass and molar volume matched the NeqSim density with zero residual within reported precision",
+        "SRK and PR density differed from GERG-2008 by -0.242 percent and +1.097 percent at 300 K and 5.0 MPa absolute",
+        "cooling to 260 K at 5.0 MPa produced gas and oil phases with phase fractions closing to one",
+        "maximum multiphase component-balance residual was zero within reported precision",
+        "PS entropy residual was -1.066e-14 J/K and PH enthalpy residual was 1.355e-08 J",
+        "the low-pressure 350 K compressibility factor was 0.9985552, verifying the ideal-gas limiting trend",
+        "the deterministic 12-state property grid was finite and density increased with pressure at every temperature",
+        "the heater-compressor-cooler flowsheet preserved 0.5 kg/s mass flow and closed energy and mass balances to zero within reported precision",
+        "baseline heater duty was 22.108 kW, compressor power was 86.183 kW, and cooler duty was -126.396 kW",
+        "compressor power and outlet temperature increased monotonically across four discharge-pressure cases",
+        "the Colab badge, five authoritative documentation and literature links, and both existing front-page references to the notebook were validated and preserved"
+      ],
+      "summary": "Modernized the foundational How to use NeqSim notebook by removing stale Colab magics, wildcard imports, duplicated setup, semicolon chains, fragile phase indices, an incorrect GERG example built on PR, ambiguous units, inaccessible source-code links, and random 15,000-flash benchmarks. The new NeqSim 3.16.0 tutorial covers SRK/PR/GERG-2008 model selection, TP/PS/PH flashes, phase-aware property reading, density consistency, component closure, deterministic property grids, ideal-gas limiting behaviour, connected stream, heater, compressor, and cooler calculations, balances, sensitivity, troubleshooting, limitations, references, exercises, assertions, and embedded outputs."
     }
   ]
 }
