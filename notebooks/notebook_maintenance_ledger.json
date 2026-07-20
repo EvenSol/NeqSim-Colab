@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-20T13:02:25.554Z",
+  "updated_at": "2026-07-20T14:38:45.757Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -1673,6 +1673,39 @@
         "the official NeqSim fluid-mechanics, process, process-recipe, and thermodynamic-model references resolved on 2026-07-20"
       ],
       "summary": "Rebuilt the single-phase pipe-flow topic around a public lean-gas SRK fluid and a mass-conserving spatial model composed from current NeqSim streams and AdiabaticPipe units. Added local ambient heat transfer, real-fluid property updates, pressure and temperature profiles, independent Darcy-Weisbach verification, adiabatic and grid-resolution limiting cases, flow, diameter, roughness, and elevation studies, phase and conservation checks, troubleshooting, applicability limits, references, exercises, tables, and plots."
+    },
+    {
+      "path": "notebooks/thermodynamics/ExergyAnalysis.ipynb",
+      "verified_date": "2026-07-20",
+      "verified_at_utc": "2026-07-20T14:38:45.757Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean isolated environment with the latest public PyPI neqsim 3.16.0; all code cells executed sequentially in one shared Python namespace using the documented in-process fallback because a local Jupyter TCP kernel is unavailable",
+      "code_cells": 18,
+      "markdown_cells": 19,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic direct-master commit"
+      },
+      "key_checks": [
+        "all 18 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 24 engineering assertions passed",
+        "legacy valve calculation corrected: PHflash now receives feed enthalpy rather than exergy; specific-enthalpy residual was 3.877e-06 J/kg",
+        "dead-state physical exergy was zero and the NeqSim exergy-reference difference residual was 5.821e-11 J/kg",
+        "valve, reversible expander, and 82 percent-efficient expander results obeyed energy, entropy, and Gouy-Stodola consistency",
+        "compressor energy residual was -2.274e-13 kW and heater exergy destruction was positive",
+        "complete compressor-aftercooler-valve train closed energy to -1.156e-08 kW and exergy to 0.000e+00 kW",
+        "compressor-efficiency and heat-source-temperature sensitivities followed expected physical trends",
+        "notebook JSON and nbformat, sequential execution counts, retained outputs, and exactly one catalog link were validated",
+        "code readability passed with a maximum line length of 91 characters",
+        "four display-equation blocks rendered with Colab-compatible MathJax and were visually inspected",
+        "three SI-labelled engineering plots rendered and were visually inspected",
+        "all four introduced official NeqSim documentation links resolved on 2026-07-20"
+      ],
+      "summary": "Replaced the seven-cell legacy sketch with a 37-cell executed exergy tutorial. Removed obsolete Colab magic, shell installation, wildcard imports, an external video, a 253-character compressed cell, weak equations, and stale outputs. Added a synthetic SRK lean-gas case, physical-flow exergy relative to an explicit dead state, current Stream/Valve/Expander/Compressor/Heater/Cooler APIs, component and plant exergy balances, Gouy-Stodola checks, sensitivities, limitations, troubleshooting, references, and exercises."
     }
   ]
 }
