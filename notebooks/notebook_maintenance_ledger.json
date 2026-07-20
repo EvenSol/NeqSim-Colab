@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-20T22:31:50Z",
+  "updated_at": "2026-07-20T23:27:47Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -1977,7 +1977,41 @@
         "five current NeqSim documentation and source links, the catalog path, the Colab badge asset, and public PyPI 3.16.0 release were verified on 2026-07-21"
       ],
       "summary": "Rebuilt the twelve-cell legacy reservoir-oil notebook as a 36-cell executed PVT tutorial. Removed Colab magics, shell installation, wildcard imports, an embedded video, semicolon-compressed functions, inconsistent Celsius/Kelvin handling, destructive shared-fluid phase removal, ambiguous standard conditions, and unverified Bo, Rs, density, and viscosity calculations. Added a public synthetic 100 mol assay, SRK heavy-end characterization, clone-safe state management, saturation pressure, differential liberation, regime-specific trend checks, constant-composition viscosity, stock-tank/API calculations, mass closure, SRK/PR sensitivity, limitations, references, exercises, complete tables, and two plots."
+    },
+    {
+      "path": "notebooks/reactions/GibbsReactor1.ipynb",
+      "verified_date": "2026-07-21",
+      "verified_at_utc": "2026-07-20T23:27:47Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean isolated environment with the latest public PyPI neqsim confirmed using python -m pip install --upgrade --no-cache-dir; all code cells executed sequentially in one shared Python namespace using the documented in-process fallback because a local Jupyter TCP kernel is unavailable",
+      "code_cells": 15,
+      "markdown_cells": 13,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit"
+      },
+      "key_checks": [
+        "all 15 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 24 focused engineering validation items passed",
+        "the 1000 K, 10 bara, steam-to-carbon 3.0 base case reached 0.685226 mol/mol methane conversion and 2.412262 mol H2/mol CH4 feed",
+        "the outlet H2/CO ratio was 7.340143 mol/mol with both CO and CO2 present",
+        "independent carbon, hydrogen, and oxygen balances closed within 8.438e-15 mol-atoms",
+        "the two-reaction extent reconstruction matched all five species within 1.6e-14 mol",
+        "the constrained outlet Gibbs energy was 26780.659917 J below the unreacted feed on the normalized basis",
+        "methane conversion increased monotonically from 0.224769 to 0.685226 as temperature rose from 800 to 1000 K",
+        "methane conversion decreased monotonically from 0.685226 to 0.464495 as pressure rose from 10 to 30 bara",
+        "methane conversion increased monotonically from 0.685226 to 0.838657 as steam-to-carbon ratio rose from 3.0 to 5.0",
+        "all temperature, pressure, and steam-ratio cases reported GibbsReactor mass-balance convergence",
+        "valid notebook JSON and nbformat, sequential execution counts, retained outputs, one Colab badge, and exactly one catalog link passed",
+        "readability passed with descriptive names, conventional indentation, no magics, wildcard imports, semicolon chains, inline compound bodies, or code lines over 81 characters",
+        "five display equations and all inline symbols passed balanced single-backslash Colab math checks and were visually rendered",
+        "two retained SI-labelled engineering figures were visually inspected after the final execution",
+        "the current GibbsReactor source and tests, NeqSim documentation, and public PyPI 3.16.0 release were verified on 2026-07-21"
+      ],
+      "summary": "Rebuilt the nineteen-cell mixed Gibbs-reactor sketch as a focused 28-cell methane steam-reforming equilibrium tutorial. Removed Colab magics, shell syntax, semicolon-compressed Java calls, duplicate imports and species, malformed comments, broad exception suppression, ambiguous power signs, unrelated combustion and turbine cases, and unverified outputs. Added a normalized five-species SRK model, current GibbsReactor configuration, independent elemental and stoichiometric closure, Gibbs-energy directionality, temperature, pressure, and steam-to-carbon sensitivities, assumptions, limitations, references, exercises, tables, plots, and focused validation."
     }
   ]
 }
-
