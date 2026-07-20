@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-20T15:32:48.823Z",
+  "updated_at": "2026-07-20T16:25:58.063Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -1740,6 +1740,42 @@
         "all four introduced official NeqSim documentation links resolved on 2026-07-20"
       ],
       "summary": "Replaced the three-code-cell NeqSim 2.5.35 placeholder with a 37-cell executed multiphase-pipeline tutorial. Removed Colab magics, wildcard imports, an external video, and unverified output. Added a synthetic gas-condensate-water SRK-CPA fluid, current Stream and PipeBeggsAndBrills APIs, phase diagnostics, pressure-temperature-holdup profiles, conservation and independent pressure checks, grid convergence, rate/diameter/inclination/water sensitivities, limitations, troubleshooting, references, and exercises."
+    },
+    {
+      "path": "notebooks/process/valves.ipynb",
+      "verified_date": "2026-07-20",
+      "verified_at_utc": "2026-07-20T16:25:58.063Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean isolated environment created with python -m venv and the latest public PyPI neqsim installed using python -m pip install --upgrade --no-cache-dir; all code cells executed sequentially in one shared Python namespace using the documented in-process fallback because a local Jupyter TCP kernel is unavailable",
+      "code_cells": 18,
+      "markdown_cells": 19,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic direct-master commit"
+      },
+      "key_checks": [
+        "all 18 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 25 engineering assertions passed",
+        "the 20000 kg/h lean-gas valve reduced pressure from 100 to 40 bara, cooled to 0.515681 degrees C, and remained one gas phase",
+        "required gas-valve Kv and Cv were 29.741432 and 34.381095, with a CRITICAL choke-collapse diagnostic",
+        "gas-valve mass and component rates closed and the total enthalpy residual was 1.426e-04 J",
+        "independent PHflash temperature agreed with the valve outlet and local and average Joule-Thomson coefficients were physically consistent",
+        "gas-valve exergy destruction was 540.706821 kW and entropy generation was positive",
+        "pressure sensitivity moved through SUBCRITICAL, TRANSITION, and CRITICAL regimes with the expected monotonic temperature trend",
+        "required Kv scaled linearly from 10 to 30 t/h while the outlet thermodynamic state remained unchanged",
+        "pure propane throttling from 20 to 5 bara produced 12.696386 mass percent vapour and was correctly classified as FLASHING",
+        "the downstream separator closed mass exactly within reported precision and component flow to 1.433e-07 mol/s",
+        "valid notebook JSON and nbformat, sequential execution counts, retained outputs, one Colab badge, and exactly one active-catalog link passed",
+        "teaching-readability checks passed with descriptive names, conventional indentation, no wildcard imports or compressed statements, and code lines at most 77 characters",
+        "five governing equations passed balanced single-backslash Colab math checks and were rendered and visually inspected",
+        "three retained SI-labelled engineering figures were visually inspected for readable axes and expected pressure, flow, and flashing trends",
+        "the official NeqSim process recipes, process guide, thermodynamic-model guide, and solver guide resolved on 2026-07-20"
+      ],
+      "summary": "Replaced the 25-cell legacy valve sketch with a 37-cell executed engineering tutorial. Removed shell and Colab magics, wildcard imports, repeated setup, an external video, ambiguous units, long lines, and unverified calculations. Added a lean-gas PR valve, isenthalpic and Joule-Thomson checks, entropy and exergy interpretation, Kv/Cv sizing, choke diagnostics, pressure and flow sensitivities, pure-propane flashing and cavitation screening, a valve-to-separator flowsheet, conservation checks, limitations, troubleshooting, references, and exercises."
     }
   ]
 }
