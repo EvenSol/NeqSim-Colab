@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-20T19:23:41Z",
+  "updated_at": "2026-07-20T20:25:59.114Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -1873,6 +1873,38 @@
         "the official NeqSim process guide, thermodynamic-model guide, source model, and current PyPI release were verified on 2026-07-20"
       ],
       "summary": "Rebuilt the eight-cell legacy turbo-expander/compressor sketch as a 33-cell executed engineering tutorial. Removed the Colab magic, wildcard-style imports, shadowed fluid helper, unnormalized composition, premature equipment run, ambiguous units, weak topology, and unverified output. Added an inlet scrubber for single-phase expander feed, explicit SRK assumptions, reusable ProcessSystem construction, transparent reference curves, shaft and mass closure, an independent isentropic-work check, phase diagnostics, pressure-ratio and compressor-loading sensitivities, repeatability, troubleshooting, limitations, references, exercises, tables, and three plots."
+    },
+    {
+      "path": "notebooks/thermodynamics/massTransfer.ipynb",
+      "verified_date": "2026-07-20",
+      "verified_at_utc": "2026-07-20T20:25:59.114Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean isolated environment created with python -m venv and the latest public PyPI neqsim installed using python -m pip install --upgrade --no-cache-dir; all code cells executed sequentially in one shared Python namespace using the documented in-process fallback because a local Jupyter TCP kernel is unavailable",
+      "code_cells": 17,
+      "markdown_cells": 18,
+      "publication": {
+        "branch": "modernize-mass-transfer-notebook",
+        "mode": "atomic branch commit"
+      },
+      "key_checks": [
+        "all 17 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 23 focused engineering validation items passed",
+        "four gas diffusivity correlations were positive, plausible, and agreed within a factor of two",
+        "the Fuller gas coefficient increased with temperature and decreased with pressure",
+        "the binary diffusion matrix was symmetric and the manual effective CO2 coefficient matched NeqSim exactly",
+        "the equimolar film-flux residual was zero within reported precision",
+        "the turbulent Sherwood screen satisfied Re greater than 10000 and increased with velocity",
+        "hydrocarbon-oil and aqueous coefficients were finite, positive, and within liquid diffusivity scales",
+        "the gas coefficient exceeded every liquid result by more than a factor of 1000",
+        "the 1 kmol per hour area screen reproduced its target rate at every film thickness",
+        "notebook JSON, nbformat, Colab badge, catalog path, current documentation links, and four stored figures passed",
+        "all five display equations rendered with fractions, subscripts, superscripts, symbols, and units",
+        "readability audit passed with no magics, wildcard imports, semicolon chains, inline compound bodies, or code lines over 100 characters"
+      ],
+      "summary": "Replaced the four-cell NeqSim 2.5.35 placeholder, obsolete Colab magics, wildcard import, embedded video, and absent calculation with an executed tutorial on binary and effective multicomponent diffusion, gas and liquid correlation comparisons, temperature and pressure sensitivity, Fick film flux, Reynolds-Schmidt-Sherwood screening, area sensitivity, limitations, references, exercises, plots, and focused engineering validation."
     }
   ]
 }
