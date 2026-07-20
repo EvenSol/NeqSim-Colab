@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-20T14:38:45.757Z",
+  "updated_at": "2026-07-20T15:32:48.823Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -1706,6 +1706,40 @@
         "all four introduced official NeqSim documentation links resolved on 2026-07-20"
       ],
       "summary": "Replaced the seven-cell legacy sketch with a 37-cell executed exergy tutorial. Removed obsolete Colab magic, shell installation, wildcard imports, an external video, a 253-character compressed cell, weak equations, and stale outputs. Added a synthetic SRK lean-gas case, physical-flow exergy relative to an explicit dead state, current Stream/Valve/Expander/Compressor/Heater/Cooler APIs, component and plant exergy balances, Gouy-Stodola checks, sensitivities, limitations, troubleshooting, references, and exercises."
+    },
+    {
+      "path": "notebooks/fluidflow/multiphaseflow.ipynb",
+      "verified_date": "2026-07-20",
+      "verified_at_utc": "2026-07-20T15:32:48.823Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean isolated environment created with python -m venv and the latest public PyPI neqsim installed using python -m pip install --upgrade --no-cache-dir; all code cells executed sequentially in one shared Python namespace using the documented in-process fallback because a local Jupyter TCP kernel is unavailable",
+      "code_cells": 18,
+      "markdown_cells": 19,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic direct-master commit"
+      },
+      "key_checks": [
+        "all 18 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 20 engineering assertions passed",
+        "SRK-CPA feed formed gas, oil, and aqueous phases and overall composition closed to 1.000000000000 mol/mol",
+        "base pressure drop was 1.523903 bar, outlet temperature was 21.259907 degrees C, outlet liquid holdup was 0.287577 m3/m3, and the outlet regime was TRANSITION",
+        "total mass and maximum component molar-rate residuals were zero within reported precision",
+        "independent homogeneous Darcy-Haaland pressure screen was 1.225112 times the NeqSim Beggs-Brill result",
+        "20-to-40 increment pressure-drop difference was 0.013577 percent",
+        "pressure drop increased with mass flow, decreased with diameter, and increased with inclination and water fraction",
+        "water loading increased outlet holdup and the 0.300 m case changed to the INTERMITTENT regime",
+        "notebook JSON and nbformat, sequential execution counts, retained outputs, Colab badge, and exactly one catalog link were validated",
+        "code readability passed with a maximum line length of 85 characters",
+        "six display-equation blocks rendered with Colab-compatible math and were visually inspected",
+        "two retained SI-labelled engineering figures rendered and were visually inspected",
+        "all four introduced official NeqSim documentation links resolved on 2026-07-20"
+      ],
+      "summary": "Replaced the three-code-cell NeqSim 2.5.35 placeholder with a 37-cell executed multiphase-pipeline tutorial. Removed Colab magics, wildcard imports, an external video, and unverified output. Added a synthetic gas-condensate-water SRK-CPA fluid, current Stream and PipeBeggsAndBrills APIs, phase diagnostics, pressure-temperature-holdup profiles, conservation and independent pressure checks, grid convergence, rate/diameter/inclination/water sensitivities, limitations, troubleshooting, references, and exercises."
     }
   ]
 }
