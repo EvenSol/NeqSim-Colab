@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-20T19:23:41Z",
+  "updated_at": "2026-07-20T20:35:15.718Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -1873,6 +1873,38 @@
         "the official NeqSim process guide, thermodynamic-model guide, source model, and current PyPI release were verified on 2026-07-20"
       ],
       "summary": "Rebuilt the eight-cell legacy turbo-expander/compressor sketch as a 33-cell executed engineering tutorial. Removed the Colab magic, wildcard-style imports, shadowed fluid helper, unnormalized composition, premature equipment run, ambiguous units, weak topology, and unverified output. Added an inlet scrubber for single-phase expander feed, explicit SRK assumptions, reusable ProcessSystem construction, transparent reference curves, shaft and mass closure, an independent isentropic-work check, phase diagnostics, pressure-ratio and compressor-loading sensitivities, repeatability, troubleshooting, limitations, references, exercises, tables, and three plots."
+    },
+    {
+      "path": "notebooks/thermodynamics/Nonequilibriumthermodynamics.ipynb",
+      "verified_date": "2026-07-20",
+      "verified_at_utc": "2026-07-20T20:35:15.718Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean isolated environment created with python -m venv and the latest public PyPI neqsim installed using python -m pip install --upgrade --no-cache-dir; all code cells executed sequentially in one shared Python namespace using the documented in-process fallback because a local Jupyter TCP kernel is unavailable",
+      "code_cells": 16,
+      "markdown_cells": 17,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit"
+      },
+      "key_checks": [
+        "all 16 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 24 focused engineering validation items passed",
+        "Fourier heat transfer generated positive entropy and followed the expected thickness trend",
+        "CO2-methane diffusion followed the chemical-potential force and generated positive entropy",
+        "the illustrative Onsager matrix was reciprocal and positive definite",
+        "the coupling sweep exposed the positive-semidefinite boundary",
+        "the turbulent Darcy screen produced a finite positive pressure loss and entropy-generation rate",
+        "all valve PH flashes closed enthalpy within 4.1e-5 J/kg and showed increasing destruction with pressure drop",
+        "the compressor PS reference closed entropy within 1e-8 J/(kg K)",
+        "higher compressor efficiency monotonically reduced work and exergy destruction",
+        "notebook JSON, nbformat, Colab badge, catalog path, references, and four stored figures passed",
+        "all ten display equations rendered with fractions, subscripts, superscripts, symbols, and units",
+        "readability audit passed with no magics, wildcard imports, semicolon chains, inline compound bodies, or code lines over 100 characters"
+      ],
+      "summary": "Replaced the seven-cell NeqSim 2.5.35 shell, hidden Colab setup, wildcard import, misspelled literature heading, and embedded video with an executed tutorial covering local equilibrium, entropy generation, Gouy-Stodola lost work, Fourier heat conduction, diffusion and chemical-potential forces, Onsager reciprocity and admissibility, viscous dissipation, isenthalpic throttling, adiabatic compression, sensitivities, limitations, references, exercises, plots, and focused second-law validation."
     }
   ]
 }
