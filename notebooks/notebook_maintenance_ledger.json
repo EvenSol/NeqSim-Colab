@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-20T02:36:51.603Z",
+  "updated_at": "2026-07-20T02:42:25.690Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -1022,7 +1022,7 @@
     {
       "path": "notebooks/thermodynamics/water_ammonia_properties.ipynb",
       "verified_date": "2026-07-20",
-      "verified_at_utc": "2026-07-20T02:36:51.603Z",
+      "verified_at_utc": "2026-07-20T02:42:25.690Z",
       "neqsim_version": "3.16.0",
       "python_version": "3.12.13",
       "java_version": "openjdk 17.0.19",
@@ -1052,12 +1052,12 @@
         "maximum binary component-balance residual was 1.08e-12 mol/mol",
         "bubble temperature decreased monotonically as liquid ammonia fraction increased at 1.0 MPa",
         "gas fraction decreased monotonically with pressure and reached the single-liquid limiting case by 1.25 MPa",
-        "PR, SRK, and recommended-rule CPA bubble-temperature predictions exposed explicit model-package sensitivity",
+        "stable PR and SRK bubble-temperature predictions exposed explicit cubic-EOS model-form sensitivity",
         "the connected stream-heater duty was 205.857766 kW with a 1.71e-13 kW energy-balance residual",
         "heater duty and equilibrium gas fraction increased monotonically across five outlet-temperature scenarios",
         "Colab badge, six authoritative references, intended repository path, and exactly-once active-catalog link were validated"
       ],
-      "summary": "Modernized the water-ammonia notebook by removing the shell magic, minimal pure-fluid-only examples, weak explanations, ambiguous units, and missing verification. The new NeqSim 3.16.0 tutorial covers dedicated pure-water and pure-ammonia reference models, saturation pressure, PR binary TP and bubble flashes, phase enrichment, independent component closure, composition and pressure sensitivity, documented PR-SRK-CPA model-package uncertainty, a connected stream-heater calculation, energy closure, phase-boundary scenarios, limitations, troubleshooting, references, exercises, assertions, and embedded outputs."
+      "summary": "Modernized the water-ammonia notebook by removing the shell magic, minimal pure-fluid-only examples, weak explanations, ambiguous units, and missing verification. The new NeqSim 3.16.0 tutorial covers dedicated pure-water and pure-ammonia reference models, saturation pressure, PR binary TP and bubble flashes, phase enrichment, independent component closure, composition and pressure sensitivity, stable PR-SRK model-form uncertainty, explicit exclusion of an initialization-sensitive unregressed CPA boundary, a connected stream-heater calculation, energy closure, phase-boundary scenarios, limitations, troubleshooting, references, exercises, assertions, and embedded outputs."
     }
   ]
 }
