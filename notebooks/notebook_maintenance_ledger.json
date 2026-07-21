@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-20T23:27:47Z",
+  "updated_at": "2026-07-21T00:27:50Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -2012,6 +2012,42 @@
         "the current GibbsReactor source and tests, NeqSim documentation, and public PyPI 3.16.0 release were verified on 2026-07-21"
       ],
       "summary": "Rebuilt the nineteen-cell mixed Gibbs-reactor sketch as a focused 28-cell methane steam-reforming equilibrium tutorial. Removed Colab magics, shell syntax, semicolon-compressed Java calls, duplicate imports and species, malformed comments, broad exception suppression, ambiguous power signs, unrelated combustion and turbine cases, and unverified outputs. Added a normalized five-species SRK model, current GibbsReactor configuration, independent elemental and stoichiometric closure, Gibbs-energy directionality, temperature, pressure, and steam-to-carbon sensitivities, assumptions, limitations, references, exercises, tables, plots, and focused validation."
+    },
+    {
+      "path": "notebooks/process/absorption.ipynb",
+      "verified_date": "2026-07-21",
+      "verified_at_utc": "2026-07-21T00:27:50Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean isolated environment created with python -m venv and the latest public PyPI neqsim installed using python -m pip install --upgrade --no-cache-dir; all code cells executed sequentially in one shared Python namespace using the documented in-process fallback because a local Jupyter TCP kernel is unavailable",
+      "code_cells": 15,
+      "markdown_cells": 11,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit"
+      },
+      "key_checks": [
+        "all 15 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 26 focused engineering validation items passed",
+        "the 298.15 K, 50 bara base contact formed gas and aqueous phases with plausible densities",
+        "the base contact removed 0.290638 mol/mol CO2 while recovering 0.976299 mol/mol methane",
+        "the CO2-to-methane absorption selectivity was 16.877019 on the equilibrium composition basis",
+        "independent methane, CO2, and water balances closed within 5.662e-15 mol",
+        "the molecular-weight reconstruction closed mass within 5.684e-14 g on the normalized basis",
+        "CO2 removal increased monotonically from 0.087384 to 0.344562 as pressure rose from 10 to 70 bara",
+        "CO2 removal decreased monotonically from 0.369936 to 0.191225 as temperature rose from 283.15 to 328.15 K",
+        "CO2 removal increased monotonically from 0.089818 to 0.385759 as fresh water rose from 5 to 30 mol/mol gas feed",
+        "three cross-current equilibrium contacts reached 0.428694 cumulative CO2 removal and 0.964410 methane recovery",
+        "the complete cascade methane, CO2, and water balances closed within 3.997e-15 mol",
+        "valid notebook JSON and nbformat, sequential execution counts, retained outputs, a corrected Colab badge, and exactly one catalog link passed",
+        "readability passed with descriptive names, conventional indentation, no magics, wildcard imports, semicolon chains, inline compound bodies, or code lines over 92 characters",
+        "four display equations and all inline symbols passed balanced single-backslash Colab math checks and were visually rendered",
+        "three retained SI-labelled engineering figures were visually inspected after the final execution",
+        "the current SRK-CPA source and tests, thermodynamic-model guidance, catalog path, and public PyPI 3.16.0 release were verified on 2026-07-21"
+      ],
+      "summary": "Replaced the empty two-cell absorption placeholder and its incorrect empty-template Colab badge with an executed SRK-CPA tutorial for physical CO2 absorption from methane-rich gas into water. Added a reusable equilibrium-contact model, gas and aqueous phase diagnostics, CO2 removal, methane recovery, distribution selectivity, independent component and mass closure, pressure, temperature, and solvent-rate sensitivities, a three-stage cross-current cascade, assumptions, limitations, references, exercises, tables, three plots, and focused validation."
     }
   ]
 }
