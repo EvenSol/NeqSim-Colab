@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-21T09:27:49Z",
+  "updated_at": "2026-07-21T10:29:52Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -2328,6 +2328,41 @@
         "the current phase-envelope guide, thermodynamic-model guide, catalog path, Colab badge target, NIST carbon-dioxide reference, and public PyPI 3.16.0 release were verified on 2026-07-21"
       ],
       "summary": "Rebuilt the eight-cell legacy CO2 phase-behaviour sketch as an executed engineering tutorial. Removed obsolete Colab magics, shell installation, wildcard imports, semicolon-compressed calls, an embedded video, misspelled prose, broad exception handling, suppressed failures, ambiguous units, and unsupported azeotrope claims. Added current Peng-Robinson APIs, pure-CO2 saturation and property trends, NIST critical and triple-point validation, an independent Clapeyron check, CO2-ethane bubble and dew curves, a diagnostic azeotrope screen, two-phase component, mass, lever-rule, and fugacity closure, a pressure path, SRK sensitivity, a supercritical density map, model limitations, references, exercises, five plots, and focused assertions."
+    },
+    {
+      "path": "notebooks/thermodynamics/physiclaPropertyChart.ipynb",
+      "verified_date": "2026-07-21",
+      "verified_at_utc": "2026-07-21T10:29:52Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean isolated environment created with python -m venv and the latest public PyPI neqsim installed using python -m pip install --upgrade --no-cache-dir; all code cells executed sequentially in one shared Python namespace using the documented in-process fallback because a local Jupyter TCP kernel is unavailable",
+      "code_cells": 17,
+      "markdown_cells": 18,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit"
+      },
+      "key_checks": [
+        "all 17 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 33 focused engineering validation items passed",
+        "the normalized nine-component synthetic gas closed to 1.000000000000 mole fraction and used Peng-Robinson with the classic mixing rule",
+        "the 20 degC and 70 bara base state was a single gas with density 65.459431 kg/m3, viscosity 0.013134780 cP, conductivity 0.039760983 W/(m K), heat capacity 2713.961609 J/(kg K), and sound speed 380.406023 m/s",
+        "independent kinematic-viscosity and thermal-diffusivity reconstruction gave a Prandtl number of 0.896539445 with residual -1.110e-16",
+        "all 72 states over 0 to 80 degC and 10 to 150 bara were finite, positive, and single gas; density increased monotonically with pressure and decreased monotonically with temperature",
+        "the mapped ranges were 6.497958 to 182.870498 kg/m3 density, 0.010557 to 0.019825 cP viscosity, 0.030277 to 0.055522 W/(m K) conductivity, and 2067.668707 to 3835.769908 J/(kg K) heat capacity",
+        "the calculated cricondenbar was 84.421325 bara at -33.645115 degC and the cricondentherm was -8.782325 degC at 39.747995 bara, confirming the full property-map temperature range was outside the two-phase envelope",
+        "PFCT, friction-theory, and LBC gas viscosities were finite and within 6.85% ratio spread; PFCT, Chung, and Chung-dense conductivities were finite and within 28.19% ratio spread",
+        "increasing CO2 from 0 to 5 mol% increased density from 63.228025 to 68.866001 kg/m3 and viscosity from 0.012955 to 0.013400 cP while conductivity decreased from 0.040346 to 0.038936 W/(m K)",
+        "the three pipeline cases were strongly turbulent and produced positive Dittus-Boelter screening coefficients from 343.716044 to 2244.377641 W/(m2 K)",
+        "valid notebook JSON and nbformat, sequential execution counts, retained outputs, one Colab badge, and the single preserved catalog link passed",
+        "readability passed with descriptive names, conventional indentation, no magics, wildcard imports, semicolon chains, inline compound bodies, or code lines over 88 characters",
+        "five display equations and all inline symbols passed balanced single-backslash Colab math checks; fractions, subscripts, superscripts, Greek symbols, and units were rendered and visually inspected",
+        "five retained SI-labelled engineering figures were visually inspected after the final clean execution",
+        "the current physical-property, viscosity-model, conductivity-model, and phase-envelope documentation, catalog path, Colab badge target, and public PyPI 3.16.0 release were verified on 2026-07-21"
+      ],
+      "summary": "Rebuilt the five-cell physical-property plotting sketch as a complete natural-gas mapping and engineering tutorial. Removed Colab magics, shell installation, wildcard imports, semicolon-compressed code, duplicated and incorrectly labelled cells, duplicate and misassigned components, ambiguous units, mutable shared-state mapping, and unverified phase assumptions. Added a normalized public synthetic gas, current Peng-Robinson APIs, phase-guarded density, viscosity, conductivity, heat-capacity, speed-of-sound, diffusivity, and Prandtl maps, analytical identity checks, a PT phase envelope, worked operating points, documented transport-correlation sensitivity, CO2 sensitivity, pipeline Reynolds and heat-transfer screening, limitations, references, exercises, five plots, and focused assertions."
     }
   ]
 }
