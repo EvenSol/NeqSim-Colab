@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-21T04:20:11Z",
+  "updated_at": "2026-07-21T07:22:02Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -2222,6 +2222,42 @@
         "the current reactive-flash guide, chemical-reaction documentation, catalog path, Colab badge, and public PyPI 3.16.0 release were verified on 2026-07-21"
       ],
       "summary": "Rebuilt the 35-cell mixed legacy chemistry notebook as a focused, executed water-gas shift equilibrium tutorial. Removed the no-op Reaktoro shim and its fabricated outputs, wildcard imports, stale links, unrelated combustion, methanol, sulfur, and reservoir fragments, malformed equations, and unverified calculations. Added current NeqSim reactive TP flashes, a normalized public gas basis, Gibbs-minimization theory, real-gas equilibrium quotient reconstruction, independent stoichiometric and elemental closure, path independence, temperature, pressure, and EOS sensitivities, a local van't Hoff fit, a transparent adiabatic thermochemical balance, explicit workarounds for confirmed public 3.16.0 reactive flash defects, limitations, references, exercises, four plots, and focused assertions."
+    },
+    {
+      "path": "notebooks/thermodynamics/H2Sdistribution.ipynb",
+      "verified_date": "2026-07-21",
+      "verified_at_utc": "2026-07-21T07:22:02Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean isolated environment created with python -m venv and the latest public PyPI neqsim installed using python -m pip install --upgrade --no-cache-dir; all code cells executed sequentially in one shared Python namespace using the documented in-process fallback because a local Jupyter TCP kernel is unavailable",
+      "code_cells": 15,
+      "markdown_cells": 18,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit"
+      },
+      "key_checks": [
+        "all 15 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 25 focused engineering validation items passed",
+        "the synthetic sour gas-condensate feed formed gas, oil, and aqueous phases at 35 degC and 50 bara with densities 43.202808, 608.100778, and 992.645654 kg/m3",
+        "gas, oil, and aqueous phases contained 48.511078%, 51.331740%, and 0.157181% of feed H2S, respectively, while their H2S concentrations were 1722.070520, 2446.906705, and 80.540641 mol ppm",
+        "the gas-to-oil H2S distribution coefficient was 0.703774",
+        "the independently reconstructed maximum component residual was 7.105e-15 mol and relative mass residual was 1.406e-14",
+        "the three separator stages released 48.511078%, 26.191318%, and 17.009103% of feed H2S, leaving 8.288501% in final liquids",
+        "the separator-train H2S residual was 6.288e-17 mol and the maximum stage component residual remained below 1e-10 mol",
+        "released-gas H2S concentration increased from 1722.070520 to 4828.488424 and 8665.517976 mol ppm while absolute H2S release decreased by stage",
+        "gas H2S inventory decreased monotonically from 86.113851% to 27.800969% over 10 to 100 bara and increased monotonically from 37.560687% to 58.293703% over 15 to 55 degC",
+        "aqueous neutral-H2S inventory increased monotonically with water amount, and gas H2S concentration increased monotonically with feed sourness",
+        "the normalized result was transparently scaled to a 100000 kg/h reporting flow, producing positive finite stage H2S release rates of 79.758617, 43.061984, and 27.965211 kg/h",
+        "valid notebook JSON and nbformat, sequential execution counts, retained outputs, one Colab badge, and exactly one catalog link passed",
+        "readability passed with descriptive names, conventional indentation, no magics, wildcard imports, semicolon chains, inline compound bodies, or code lines over 85 characters",
+        "four display equations and all inline symbols passed balanced single-backslash Colab math checks; fractions, subscripts, superscripts, fugacity symbols, and units were rendered and visually inspected",
+        "four retained SI-labelled engineering figures were visually inspected after the final clean execution",
+        "the current H2S distribution guides, thermodynamic-model selection guide, separator documentation, catalog path, Colab badge target, and public PyPI 3.16.0 release were verified on 2026-07-21"
+      ],
+      "summary": "Rebuilt the four-cell unexecuted NeqSim 2.5.35 sketch as a focused, safety-conscious H2S distribution tutorial. Removed Colab magics, a pinned obsolete release, wildcard imports, an embedded video, misspelled prose, a hidden electrolyte-ion fragment, ambiguous units, and unverified calculations. Added a public synthetic sour gas-condensate-water feed, current SRK-CPA three-phase equilibrium, neutral-H2S model scope, fugacity and distribution theory, phase inventories and concentrations, independent component and mass closure, a three-stage separator train with flow-rate scaling, pressure, temperature, water, and sourness sensitivities, explicit safety context, limitations, references, exercises, four plots, and focused assertions."
     }
   ]
 }
