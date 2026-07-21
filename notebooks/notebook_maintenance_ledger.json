@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-21T13:26:04Z",
+  "updated_at": "2026-07-21T14:39:12Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -2467,6 +2467,39 @@
         "the current process-package, process JSON export, thermodynamic-model, catalog, badge, and public PyPI 3.16.0 references were verified on 2026-07-21"
       ],
       "summary": "Rebuilt the twelve-cell process-reporting sketch as a complete unit-safe process reporting tutorial. Replaced shell installation, semicolon-compressed Java calls, duplicate local JSON writes, unguarded global unit mutations, minimal outputs, and bare headings. Added a composable SRK valve-separator-compressor-aftercooler process, conservation and energy checks, current Report JSON generation, equipment-schema discovery, guarded default/field/SI reporting with guaranteed unit restoration, independent conversions, canonical JSON round-trip and finite-value checks, throughput sensitivity, interpretation, limitations, references, exercises, three plots, and focused assertions."
+    },
+    {
+      "path": "notebooks/well/wellcalcs.ipynb",
+      "verified_date": "2026-07-21",
+      "verified_at_utc": "2026-07-21T14:39:12Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean isolated environment created with python -m venv and the latest public PyPI neqsim installed using python -m pip install --upgrade --no-cache-dir; all code cells executed sequentially in one shared Python namespace using the documented in-process fallback because a local Jupyter TCP kernel is unavailable",
+      "code_cells": 16,
+      "markdown_cells": 16,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit"
+      },
+      "key_checks": [
+        "all 16 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 22 focused engineering validation items passed",
+        "the normalized public synthetic gas was single phase at the reservoir and wellhead, with finite states throughout the 40-increment vertical-tubing model",
+        "the Fetkovich test point was calibrated at 2.000000 MSm3/day and 160.000000 bara; three independent pressure reconstructions agreed with WellFlow to the displayed precision",
+        "the 120 bara wellhead nodal solve converged to 1.253291 MSm3/day, 187.732793 bara bottom-hole pressure, and a 32.267207 bar reservoir drawdown",
+        "the final rate bracket was 4.768e-08 MSm3/day and the calculated wellhead pressure agreed with its target within 1.0e-06 bar",
+        "tubing mass closure was 0.000e+00 kg/h, the maximum composition residual was 0.000e+00 mol/mol, and pressure declined monotonically upward",
+        "the independent average-property Darcy-Weisbach plus hydrostatic estimate differed from the segmented NeqSim pressure drop by 3.337916 percent",
+        "operating rate increased monotonically with tubing diameter and reservoir pressure and decreased monotonically with required wellhead pressure",
+        "valid notebook JSON and nbformat, sequential execution counts, retained outputs, one Colab badge, and both pre-existing examples-page entries pointing to the notebook were preserved unchanged",
+        "readability passed with descriptive names, conventional indentation, no magics, wildcard imports, semicolon chains, inline compound bodies, or code lines over 89 characters",
+        "five display equations and 13 unique inline expressions passed balanced single-backslash Colab math checks; fractions, roots, subscripts, superscripts, Greek symbols, and units were rendered and visually inspected",
+        "five retained, unit-labelled engineering figures were visually inspected after the final clean execution",
+        "the current well-simulation guide, WellFlow source, pipeline guide, catalog, badge, and public PyPI 3.16.0 references were checked on 2026-07-21"
+      ],
+      "summary": "Rebuilt the legacy well-calculation sketch as an executed gas-well inflow, vertical-lift, and nodal-analysis tutorial. Replaced obsolete Colab magics, wildcard imports, double-escaped equations, duplicated imports, compressed code, stale video links, an inconsistent SI gas-deliverability equation that produced an implausible rate, and unverified standalone curve fits. Added a public synthetic SRK gas, current WellFlow Fetkovich and PipeBeggsAndBrills APIs, independent IPR reconstruction, segmented pressure and temperature profiles, an adaptive bracketed operating-point solve, mass and component closure, an independent hydraulic scale check, tubing, backpressure, and depletion sensitivities, limitations, references, exercises, five plots, and focused assertions."
     }
   ]
 }
