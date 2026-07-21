@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-21T14:39:12Z",
+  "updated_at": "2026-07-21T15:38:29Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -2500,6 +2500,39 @@
         "the current well-simulation guide, WellFlow source, pipeline guide, catalog, badge, and public PyPI 3.16.0 references were checked on 2026-07-21"
       ],
       "summary": "Rebuilt the legacy well-calculation sketch as an executed gas-well inflow, vertical-lift, and nodal-analysis tutorial. Replaced obsolete Colab magics, wildcard imports, double-escaped equations, duplicated imports, compressed code, stale video links, an inconsistent SI gas-deliverability equation that produced an implausible rate, and unverified standalone curve fits. Added a public synthetic SRK gas, current WellFlow Fetkovich and PipeBeggsAndBrills APIs, independent IPR reconstruction, segmented pressure and temperature profiles, an adaptive bracketed operating-point solve, mass and component closure, an independent hydraulic scale check, tubing, backpressure, and depletion sensitivities, limitations, references, exercises, five plots, and focused assertions."
+    },
+    {
+      "path": "notebooks/process/masstransferMeOH.ipynb",
+      "verified_date": "2026-07-21",
+      "verified_at_utc": "2026-07-21T15:38:29Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean isolated environment created with python -m venv and the latest public PyPI neqsim installed using python -m pip install --upgrade --no-cache-dir; all 17 code cells executed sequentially in one shared Python namespace using the documented in-process fallback because a local Jupyter TCP kernel is unavailable",
+      "code_cells": 17,
+      "markdown_cells": 15,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit"
+      },
+      "key_checks": [
+        "all 17 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 25 focused engineering validation items passed",
+        "the normalized public synthetic wet-gas case used SRK-CPA with mixing rule 10 and a NeqSim process saturator at 52.21 bara and 15.2 degC",
+        "the equilibrium endpoint contained gas and aqueous liquid phases; methanol transferred toward the gas while water transferred toward the liquid",
+        "the finite-contact model used NeqSim gas density, viscosity, and binary diffusivities with the documented turbulent Sherwood correlation and NTU effectiveness",
+        "the 10 m base case reached 9.335099 percent of the methanol equilibrium approach and reduced hydrate temperature from 15.271145 to 8.966190 degC",
+        "the base hydrate margin was 6.233810 degC and the interpolated contact length for a 3 degC margin was 5.707422 m",
+        "component and mass residuals were both 0.000e+00 at displayed precision",
+        "hydrate margin increased monotonically with contact length and methanol injection rate across the documented sensitivity studies",
+        "valid notebook JSON and nbformat, sequential execution counts, retained outputs, one Colab badge, and the single pre-existing examples-page link were verified",
+        "readability passed with descriptive names, conventional indentation, no magics, wildcard imports, semicolon chains, inline compound bodies, or code lines over 85 characters",
+        "seven display equations and 15 inline expressions passed balanced single-backslash Colab math checks; representative fractions, subscripts, superscripts, Greek symbols, exponentials, and units were rendered through MathJax and visually inspected",
+        "two retained, unit-labelled engineering figures were visually inspected after the final clean execution",
+        "all introduced NeqSim documentation, catalog, badge, Colab, and public PyPI references were checked on 2026-07-21"
+      ],
+      "summary": "Rebuilt the legacy multi-example NeqSim 2.5.35 notebook as a focused methanol mass-transfer and hydrate-inhibition tutorial. Replaced obsolete Colab magics, a pinned install, wildcard imports, semicolon-compressed code, a large embedded GIF, inconsistent methanol flow units, unrelated TEG, ethane, and stirred-cell fragments, and mostly unexecuted calculations. Added a public synthetic water-saturated SRK-CPA gas, a NeqSim equilibrium endpoint, current transport properties, the documented Sherwood and finite-contact NTU model, hydrate-temperature calculations, contact-length and injection-rate sensitivities, conservation, interpretation, limitations, references, exercises, two plots, and focused assertions."
     }
   ]
 }
