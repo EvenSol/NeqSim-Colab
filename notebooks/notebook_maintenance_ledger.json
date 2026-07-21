@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-21T01:31:03Z",
+  "updated_at": "2026-07-21T02:29:31Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -2083,6 +2083,41 @@
         "the current SRK-CPA source, SALT_WATER enum, thermodynamic-model guidance, catalog path, Colab badge asset, and public PyPI 3.16.0 release were verified on 2026-07-21"
       ],
       "summary": "Rebuilt the five-cell salt-water flash sketch as an executed three-phase gas-oil-brine engineering tutorial. Replaced Colab magics, shell syntax, plain SRK, semicolon-compressed calls, ambiguous salt mass basis, and an unverified density printout. Added a clean PyPI setup, explicit 10 mass percent brine conversion, SRK-CPA with the SALT_WATER physical-property model, reusable fresh-state flashes, phase and composition tables, independent component and mass closure, salt-location checks, salinity, temperature, and pressure sensitivities, limitations for the neutral NaCl pseudo-component, references, exercises, three plots, and focused assertions."
+    },
+    {
+      "path": "notebooks/thermodynamics/freezing_in_LNG.ipynb",
+      "verified_date": "2026-07-21",
+      "verified_at_utc": "2026-07-21T02:29:31Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean isolated environment created with python -m venv and the latest public PyPI neqsim installed using python -m pip install --upgrade --no-cache-dir; all code cells executed sequentially in one shared Python namespace using the documented in-process fallback because a local Jupyter TCP kernel is unavailable",
+      "code_cells": 13,
+      "markdown_cells": 18,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit"
+      },
+      "key_checks": [
+        "all 13 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 29 focused engineering validation items passed",
+        "the 200 mol ppm CO2 and 5 bara base case bracketed solid onset at 111.657410 K (-161.492590 degree C) within 0.007935 K",
+        "a TP-solid flash 5 K below onset produced an essentially pure solid CO2 phase and a physically bounded 0.510357 recovery of feed CO2",
+        "nitrogen, methane, ethane, propane, and CO2 balances closed within 5.418e-11 mol/mol",
+        "the independent molecular-weight mass balance closed to a relative residual of 1.364e-10",
+        "the predicted onset rose monotonically from 102.358093 to 124.924011 K as CO2 increased from 50 to 1000 mol ppm",
+        "the predicted onset decreased monotonically and by less than 0.1 K as pressure increased from 2 to 20 bara in the dense LNG region",
+        "the solid fraction increased monotonically during cooling and remained between zero and the feed CO2 fraction",
+        "coarse and fine onset brackets agreed within 0.05 K, and flashes 0.25 K above and below onset confirmed fluid-only and solid states",
+        "the 111 K worked-example screening boundary was 182.885 mol ppm CO2 for the stated synthetic composition and pressure",
+        "valid notebook JSON and nbformat, sequential execution counts, retained outputs, a corrected Colab badge, and exactly one catalog link passed",
+        "readability passed with descriptive names, conventional indentation, no magics, wildcard imports, semicolon chains, inline compound bodies, or code lines over 100 characters",
+        "three display equations and all inline symbols passed balanced single-backslash Colab math checks and visual rendering",
+        "three retained SI-labelled engineering figures were visually inspected after the final execution",
+        "the current TP-solid flash source example, thermodynamics recipes, thermodynamic-model guidance, catalog path, and public PyPI 3.16.0 release were verified on 2026-07-21"
+      ],
+      "summary": "Rebuilt the seven-cell LNG-freezing sketch as an executed CO2 solid-risk tutorial. Replaced the NeqSim 2.5.35 pin, Colab magics, wildcard imports, embedded video, misspelled and semicolon-compressed bubble-pressure function, unrelated mercury heading, and unverified pure-component plot. Added a normalized synthetic LNG basis, SRK TP-solid flashes, robust onset bracketing, phase diagnostics, independent component and mass closure, CO2 concentration, pressure, and cooling sensitivities, a worked operating-limit screen, assumptions, limitations, references, exercises, three plots, and focused assertions."
     }
   ]
 }
