@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-21T08:26:52Z",
+  "updated_at": "2026-07-21T09:27:49Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -2294,6 +2294,40 @@
         "the current mercury thermodynamics guide, mercury-removal guide, MercuryRemovalBed source, catalog path, Colab badge target, NIST Antoine reference, and public PyPI 3.16.0 release were verified on 2026-07-21"
       ],
       "summary": "Rebuilt the eleven-cell NeqSim 2.5.35 mercury sketch as a safety-conscious thermodynamics and guard-bed tutorial. Removed obsolete Colab magics, a pinned release, wildcard imports, semicolon-compressed code, an embedded video, misspelled prose, ambiguous units, and unvalidated calculations. Added the current SRK-TwuCoon mercury model, an independent NIST vapour-pressure comparison, a public synthetic gas-condensate feed, phase inventory and distribution analysis, independent component and mass closure, temperature partitioning, a component-specific solid-mercury screen, a composable MercuryRemovalBed model, independent Ergun, NTU, sorbent-mass, and lifetime reconstructions, length and bypass sensitivities, explicit safety context, limitations, references, exercises, four plots, and focused assertions."
+    },
+    {
+      "path": "notebooks/thermodynamics/PhaseBEhaviourCO2.ipynb",
+      "verified_date": "2026-07-21",
+      "verified_at_utc": "2026-07-21T09:27:49Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean isolated environment created with python -m venv and the latest public PyPI neqsim installed using python -m pip install --upgrade --no-cache-dir; all code cells executed sequentially in one shared Python namespace using the documented in-process fallback because a local Jupyter TCP kernel is unavailable",
+      "code_cells": 17,
+      "markdown_cells": 19,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit"
+      },
+      "key_checks": [
+        "all 17 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 35 focused engineering validation items passed",
+        "the Peng-Robinson pure-CO2 saturation curve increased monotonically from 6.724824 to 64.428871 bara over -50 to 25 degC while gas and liquid densities approached one another",
+        "NeqSim critical and triple-point properties agreed with NIST reference values within a maximum relative deviation of 0.020325%",
+        "the independently reconstructed Clapeyron slope agreed with the saturation-curve finite difference within 0.232411% at interior points",
+        "the CO2-ethane isothermal screen located a diagnostic near-azeotropic point at xCO2 = yCO2 = 0.675000 and 23.344769 bara with a 0.001026 bar bubble-dew gap",
+        "the 50/50 CO2-ethane base flash at -20 degC and 22.3 bara produced a vapor fraction of 0.707772802 with liquid and vapor CO2 fractions of 0.426956836 and 0.530158264",
+        "the independently reconstructed maximum component, relative mass, CO2 lever-rule, and fugacity-equilibrium residuals were 0.000e+00 mol, 0.000e+00, 0.000e+00, and 9.137e-16",
+        "the pressure path transitioned from vapor through two phases to liquid, and the SRK versus Peng-Robinson bubble-pressure difference at -20 degC was 0.254427%",
+        "the supercritical density map was finite and positive, increased monotonically with pressure, and decreased monotonically with temperature",
+        "valid notebook JSON and nbformat, sequential execution counts, retained outputs, one Colab badge, and the single preserved catalog link passed",
+        "readability passed with descriptive names, conventional indentation, no magics, wildcard imports, semicolon chains, inline compound bodies, or code lines over 88 characters",
+        "five display equations and all inline symbols passed balanced single-backslash Colab math checks; fractions, subscripts, superscripts, Greek symbols, and units were rendered and visually inspected",
+        "five retained SI-labelled engineering figures were visually inspected after the final clean execution",
+        "the current phase-envelope guide, thermodynamic-model guide, catalog path, Colab badge target, NIST carbon-dioxide reference, and public PyPI 3.16.0 release were verified on 2026-07-21"
+      ],
+      "summary": "Rebuilt the eight-cell legacy CO2 phase-behaviour sketch as an executed engineering tutorial. Removed obsolete Colab magics, shell installation, wildcard imports, semicolon-compressed calls, an embedded video, misspelled prose, broad exception handling, suppressed failures, ambiguous units, and unsupported azeotrope claims. Added current Peng-Robinson APIs, pure-CO2 saturation and property trends, NIST critical and triple-point validation, an independent Clapeyron check, CO2-ethane bubble and dew curves, a diagnostic azeotrope screen, two-phase component, mass, lever-rule, and fugacity closure, a pressure path, SRK sensitivity, a supercritical density map, model limitations, references, exercises, five plots, and focused assertions."
     }
   ]
 }
