@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-21T02:29:31Z",
+  "updated_at": "2026-07-21T03:33:20Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -2118,6 +2118,40 @@
         "the current TP-solid flash source example, thermodynamics recipes, thermodynamic-model guidance, catalog path, and public PyPI 3.16.0 release were verified on 2026-07-21"
       ],
       "summary": "Rebuilt the seven-cell LNG-freezing sketch as an executed CO2 solid-risk tutorial. Replaced the NeqSim 2.5.35 pin, Colab magics, wildcard imports, embedded video, misspelled and semicolon-compressed bubble-pressure function, unrelated mercury heading, and unverified pure-component plot. Added a normalized synthetic LNG basis, SRK TP-solid flashes, robust onset bracketing, phase diagnostics, independent component and mass closure, CO2 concentration, pressure, and cooling sensitivities, a worked operating-limit screen, assumptions, limitations, references, exercises, three plots, and focused assertions."
+    },
+    {
+      "path": "notebooks/thermodynamics/c1_co2_h2s_flash_test.ipynb",
+      "verified_date": "2026-07-21",
+      "verified_at_utc": "2026-07-21T03:33:20Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean isolated environment created with python -m venv and the latest public PyPI neqsim installed using python -m pip install --upgrade --no-cache-dir; all code cells executed sequentially in one shared Python namespace using the documented in-process fallback because a local Jupyter TCP kernel is unavailable",
+      "code_cells": 15,
+      "markdown_cells": 18,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit"
+      },
+      "key_checks": [
+        "all 15 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 18 focused engineering assertions passed",
+        "the normalized 49.88/9.87/40.22 methane-CO2-H2S assay closed to exactly 1.000000000000 mol/mol",
+        "the -68 degree C and 50 bara base case formed three phases with mole fractions 0.164864, 0.302429, and 0.532707",
+        "the base light, intermediate, and dense phase densities were 102.735922, 407.868302, and 788.390159 kg/m3",
+        "the component balance closed within 1.688e-14 mol/mol and the independent molecular-weight mass balance closed within 1.212e-14 relative",
+        "the maximum relative component fugacity span across the three phases was 3.875e-12",
+        "the 20 by 20 focused map found one-, two-, and three-phase states, including six three-phase grid points and a maximum density spread of 779.010174 kg/m3",
+        "the 0 degree C pressure sweep reproduced one-to-two-phase condensation, strictly increasing light-phase density, and decreasing light-phase fraction after condensation",
+        "perturbing the database methane-CO2 interaction parameter from 0.0673 to 0.1273 changed the base state between two and three phases",
+        "valid notebook JSON and nbformat, sequential execution counts, retained outputs, one Colab badge, and exactly one catalog link passed",
+        "readability passed with descriptive names, conventional indentation, no magics, wildcard imports, semicolons, inline compound bodies, or code lines over 83 characters",
+        "four display equations and all inline symbols passed balanced single-backslash Colab math checks; fractions, subscripts, superscripts, symbols, and units were rendered and visually inspected",
+        "three retained SI-labelled engineering figures were visually inspected after the final clean execution",
+        "the current thermodynamic-model, mixing-rule, flash-calculation, and thermodynamic-operations documentation links and public PyPI 3.16.0 release were verified on 2026-07-21"
+      ],
+      "summary": "Rebuilt the legacy methane-CO2-H2S sketch as an executed sour-gas phase-behaviour tutorial. Removed Colab magics and shell syntax, malformed equations, semicolon-compressed and monolithic map cells, stale source links, mutable shared state, broad exception handling, ambiguous field units, five-point placeholder grids, and unverified critical-point claims. Added exact composition normalization, current Peng-Robinson multiphase flashes, database interaction-parameter reporting, a reproducible three-phase state, phase and composition tables, independent component, mass, and fugacity closure, focused phase and density maps, a bounded phase-similarity screen, an isothermal trend check, interaction-parameter sensitivity, H2S safety context, limitations, references, exercises, three plots, and focused assertions."
     }
   ]
 }
