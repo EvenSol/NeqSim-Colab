@@ -2187,6 +2187,41 @@
         "the current NeqSim diffusivity-model source documentation, fluid-mechanics guidance, thermodynamic-model guide, catalog path, and public PyPI 3.16.0 release were verified on 2026-07-21"
       ],
       "summary": "Rebuilt the four-cell NeqSim 2.5.35 video placeholder as an executed molecular-diffusion and mass-transfer screening tutorial. Removed Colab magics, shell installation syntax, wildcard imports, the embedded video, and the absence of calculations, units, and validation. Added normalized public gas and liquid examples, current gas and liquid diffusivity correlations, a binary diffusion matrix, independent effective-diffusivity reconstruction, temperature and pressure sweeps, Fick-film flux and equimolar closure, Reynolds-Schmidt-Sherwood scaling, velocity and film-thickness sensitivities, an interfacial-area screen, assumptions, limitations, references, exercises, four plots, and focused assertions."
+    },
+    {
+      "path": "notebooks/thermodynamics/ChemicalEquilibrium.ipynb",
+      "verified_date": "2026-07-21",
+      "verified_at_utc": "2026-07-21T05:29:57Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean isolated environment created with python -m venv and the latest public PyPI neqsim installed using python -m pip install --upgrade --no-cache-dir; all code cells executed sequentially in one shared Python namespace using the documented in-process fallback because a local Jupyter TCP kernel is unavailable",
+      "code_cells": 14,
+      "markdown_cells": 12,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit"
+      },
+      "key_checks": [
+        "all 14 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 26 focused engineering validation items passed",
+        "the 700 K and 10 bara WGS base case converged in 34 RAND iterations with one independent reaction and a forward extent of 0.276794946 mol/mol feed",
+        "the equilibrium amounts were 0.123205054 mol CO, 0.123205058 mol water, 0.376794946 mol CO2, and 0.376794942 mol hydrogen",
+        "the independently reconstructed fugacity-based equilibrium quotient was 9.396320839",
+        "carbon, hydrogen, and oxygen inventories closed within 4.131e-9 mol-atoms, and four stoichiometric extent estimates agreed within 4.131e-9 mol",
+        "an alternative feed with the same element inventory reached the same equilibrium composition within 4.552e-8 mol",
+        "the forward extent and equilibrium quotient decreased monotonically from 500 to 1100 K; a local van't Hoff fit gave -37.727408 kJ/mol with maximum absolute ln(K) residual 0.052809",
+        "the 1 to 100 bara pressure sweep changed extent by less than 0.003 mol/mol feed, and SRK and PR extents differed by less than 7e-6 mol/mol feed",
+        "the independent adiabatic thermochemical balance predicted 898.086380 K and closed within 1.702e-3 J",
+        "NeqSim 3.16.0 was confirmed to reset an explicit one-phase limit and return two duplicated full-mole phases; every calculation restored and verified one gas phase before using extensive properties",
+        "valid notebook JSON and nbformat, sequential execution counts, retained outputs, one Colab badge, and exactly one catalog link passed",
+        "readability passed with descriptive names, conventional indentation, no magics, wildcard imports, semicolon chains, inline compound bodies, or code lines over 100 characters",
+        "seven display equations and all inline symbols passed balanced single-backslash Colab math checks; fractions, subscripts, superscripts, symbols, and units were rendered and visually inspected",
+        "four retained SI-labelled engineering figures were visually inspected after the final clean execution",
+        "the current reactive-flash guide, chemical-reaction documentation, catalog path, Colab badge, and public PyPI 3.16.0 release were verified on 2026-07-21"
+      ],
+      "summary": "Rebuilt the 35-cell mixed legacy chemistry notebook as a focused, executed water-gas shift equilibrium tutorial. Removed the no-op Reaktoro shim and its fabricated outputs, wildcard imports, stale links, unrelated combustion, methanol, sulfur, and reservoir fragments, malformed equations, and unverified calculations. Added current NeqSim reactive TP flashes, a normalized public gas basis, Gibbs-minimization theory, real-gas equilibrium quotient reconstruction, independent stoichiometric and elemental closure, path independence, temperature, pressure, and EOS sensitivities, a local van't Hoff fit, a transparent adiabatic thermochemical balance, explicit workarounds for confirmed public 3.16.0 reactive flash defects, limitations, references, exercises, four plots, and focused assertions."
     }
   ]
 }
