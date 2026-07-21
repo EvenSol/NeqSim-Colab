@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-21T10:29:52Z",
+  "updated_at": "2026-07-21T11:25:41Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -2363,6 +2363,41 @@
         "the current physical-property, viscosity-model, conductivity-model, and phase-envelope documentation, catalog path, Colab badge target, and public PyPI 3.16.0 release were verified on 2026-07-21"
       ],
       "summary": "Rebuilt the five-cell physical-property plotting sketch as a complete natural-gas mapping and engineering tutorial. Removed Colab magics, shell installation, wildcard imports, semicolon-compressed code, duplicated and incorrectly labelled cells, duplicate and misassigned components, ambiguous units, mutable shared-state mapping, and unverified phase assumptions. Added a normalized public synthetic gas, current Peng-Robinson APIs, phase-guarded density, viscosity, conductivity, heat-capacity, speed-of-sound, diffusivity, and Prandtl maps, analytical identity checks, a PT phase envelope, worked operating points, documented transport-correlation sensitivity, CO2 sensitivity, pipeline Reynolds and heat-transfer screening, limitations, references, exercises, five plots, and focused assertions."
+    },
+    {
+      "path": "notebooks/process/manifoldsandpipes.ipynb",
+      "verified_date": "2026-07-21",
+      "verified_at_utc": "2026-07-21T11:25:41Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean isolated environment created with python -m venv and the latest public PyPI neqsim installed using python -m pip install --upgrade --no-cache-dir; all code cells executed sequentially in one shared Python namespace using the documented in-process fallback because a local Jupyter TCP kernel is unavailable",
+      "code_cells": 14,
+      "markdown_cells": 16,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit"
+      },
+      "key_checks": [
+        "all 14 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 25 focused engineering validation items passed",
+        "three normalized synthetic well streams mixed to 32000.000000 kg/h at 62.021680 degC and the documented minimum inlet pressure of 82.000000 bara",
+        "the manifold mass residual was below displayed precision, the maximum component residual was below 1e-8 mol, and an explicit PH flash closed the summed inlet-enthalpy target to 0.000038 J",
+        "the natural parallel flow split was 18270.917532 kg/h through branch A and 13729.082468 kg/h through branch B",
+        "both branches converged as single-phase flow to the same 81.625453 bara outlet pressure with a common 0.374547 bar pressure drop",
+        "both pressure profiles decreased monotonically and all retained profile values were finite",
+        "branch B flow share increased monotonically as its diameter increased from 0.16 to 0.22 m",
+        "the common pressure drop increased monotonically from 0.137017 to 0.729856 bar as total rate increased from 60% to 140% of base",
+        "both one-branch availability scenarios remained above the illustrative 75 bara delivery requirement",
+        "independent turbulent Haaland and Darcy-Weisbach reconstructions agreed with the NeqSim branch drops within 0.167%",
+        "valid notebook JSON and nbformat, sequential execution counts, retained outputs, one corrected Colab badge, and the single preserved catalog link passed",
+        "readability passed with descriptive names, conventional indentation, no magics, wildcard imports, semicolon chains, inline compound bodies, or code lines over 94 characters",
+        "seven display equations and all inline symbols passed balanced single-backslash Colab math checks; fractions, subscripts, superscripts, summations, Greek symbols, and units were rendered and visually inspected",
+        "three retained SI-labelled engineering figures were visually inspected after the final clean execution",
+        "the current mixer, PipeBeggsAndBrills, and pipeline-network documentation sources, catalog path, Colab badge target, and public PyPI 3.16.0 release were verified on 2026-07-21"
+      ],
+      "summary": "Rebuilt the empty three-cell manifolds-and-pipes placeholder as a complete production-manifold and parallel-pipeline tutorial. Corrected the badge that pointed to emptytemplate.ipynb and replaced the empty code cell with current SRK, Stream, Mixer, ThermodynamicOperations, and PipeBeggsAndBrills APIs. Added three public synthetic wells, explicit material, component, and enthalpy closure, equal-outlet-pressure flow splitting, segmented profiles, diameter and throughput sensitivities, one-branch availability screening, an independent Darcy-Weisbach reconstruction, limitations, references, exercises, three plots, and focused assertions."
     }
   ]
 }
