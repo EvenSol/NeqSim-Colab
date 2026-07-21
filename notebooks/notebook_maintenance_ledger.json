@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-21T03:33:20Z",
+  "updated_at": "2026-07-21T04:20:11Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -2152,6 +2152,41 @@
         "the current thermodynamic-model, mixing-rule, flash-calculation, and thermodynamic-operations documentation links and public PyPI 3.16.0 release were verified on 2026-07-21"
       ],
       "summary": "Rebuilt the legacy methane-CO2-H2S sketch as an executed sour-gas phase-behaviour tutorial. Removed Colab magics and shell syntax, malformed equations, semicolon-compressed and monolithic map cells, stale source links, mutable shared state, broad exception handling, ambiguous field units, five-point placeholder grids, and unverified critical-point claims. Added exact composition normalization, current Peng-Robinson multiphase flashes, database interaction-parameter reporting, a reproducible three-phase state, phase and composition tables, independent component, mass, and fugacity closure, focused phase and density maps, a bounded phase-similarity screen, an isothermal trend check, interaction-parameter sensitivity, H2S safety context, limitations, references, exercises, three plots, and focused assertions."
+    },
+    {
+      "path": "notebooks/thermodynamics/massTransfer.ipynb",
+      "verified_date": "2026-07-21",
+      "verified_at_utc": "2026-07-21T04:20:11Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean isolated environment created with python -m venv and the latest public PyPI neqsim installed using python -m pip install --upgrade --no-cache-dir; all code cells executed sequentially in one shared Python namespace using the documented in-process fallback because a local Jupyter TCP kernel is unavailable",
+      "code_cells": 17,
+      "markdown_cells": 18,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit"
+      },
+      "key_checks": [
+        "all 17 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 23 focused engineering validation items passed",
+        "the normalized methane-ethane-CO2-nitrogen gas remained one phase at 298.15 K and 1.01325 bara with density 0.796423 kg/m3 and viscosity 1.1679e-5 Pa s",
+        "four current gas correlations predicted positive CO2-methane binary diffusivities between 1.67e-5 and 1.87e-5 m2/s",
+        "the Fuller-Schettler-Giddings CO2-methane binary diffusivity was 1.776294e-5 m2/s and the multicomponent effective CO2 value was 1.681752e-5 m2/s",
+        "the effective multicomponent CO2 diffusivity reconstructed from the binary matrix with zero relative residual at reported precision",
+        "gas diffusivity increased monotonically from 275 to 350 K and decreased monotonically from 1.01325 to 10 bara",
+        "the 0.5 mm stagnant-film screen produced a 0.033635 m/s coefficient, 0.055111 mol/(m2 s) CO2 flux, and exact equimolar counterflux closure",
+        "the turbulent-tube screen produced Reynolds 54554.620624, Schmidt 0.871960, Sherwood 187.785406, and a 0.031581 m/s convective coefficient",
+        "four supported liquid correlations produced finite hydrocarbon and aqueous diffusivities between 1.327e-9 and 6.442e-9 m2/s, over three orders below the gas value",
+        "the area screen reproduced the 1000 mol/h target at every film thickness and increased monotonically from 1.008057 to 20.161149 m2",
+        "valid notebook JSON and nbformat, sequential execution counts, retained outputs, one Colab badge, and exactly one catalog link passed",
+        "readability passed with descriptive names, conventional indentation, no magics, wildcard imports, semicolon chains, inline compound bodies, or code lines over 100 characters",
+        "five display equations and all inline symbols passed balanced single-backslash Colab math checks; fractions, subscripts, superscripts, symbols, and units were rendered and visually inspected",
+        "four retained SI-labelled engineering figures were visually inspected after the final clean execution",
+        "the current NeqSim diffusivity-model source documentation, fluid-mechanics guidance, thermodynamic-model guide, catalog path, and public PyPI 3.16.0 release were verified on 2026-07-21"
+      ],
+      "summary": "Rebuilt the four-cell NeqSim 2.5.35 video placeholder as an executed molecular-diffusion and mass-transfer screening tutorial. Removed Colab magics, shell installation syntax, wildcard imports, the embedded video, and the absence of calculations, units, and validation. Added normalized public gas and liquid examples, current gas and liquid diffusivity correlations, a binary diffusion matrix, independent effective-diffusivity reconstruction, temperature and pressure sweeps, Fick-film flux and equimolar closure, Reynolds-Schmidt-Sherwood scaling, velocity and film-thickness sensitivities, an interfacial-area screen, assumptions, limitations, references, exercises, four plots, and focused assertions."
     }
   ]
 }
