@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-21T15:54:33Z",
+  "updated_at": "2026-07-21T22:42:53Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -2567,6 +2567,40 @@
         "the current separator, process-package, process-design, thermodynamic-model, catalog, badge, Colab, and public PyPI 3.16.0 references were checked on 2026-07-21"
       ],
       "summary": "Rebuilt the nine-cell legacy gas-oil separation sketch as an executed three-phase gas-oil-water separation and capacity-screening tutorial. Replaced the NeqSim 2.5.35 pin, obsolete Colab magics, wildcard imports, embedded video, duplicated fluid definitions, minimal prose, ambiguous design inputs, and unvalidated calculations. Added a public synthetic SRK-CPA wet gas-condensate, current ThreePhaseSeparator API, named composable outlet streams, product recoveries, component and total mass closure, circular-segment gas-cap geometry, independent Souders-Brown reconstruction, five documented performance screens, throughput capacity, pressure and temperature sensitivities, limitations, references, exercises, three plots, and focused assertions."
+    },
+    {
+      "path": "notebooks/PVT/PVTexperiments.ipynb",
+      "verified_date": "2026-07-22",
+      "verified_at_utc": "2026-07-21T22:42:53Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean isolated target environment created with python -m pip install --upgrade --no-cache-dir; all 16 code cells executed sequentially in one shared Python namespace using the documented in-process fallback because the automation sandbox blocks local Jupyter TCP/ZMQ kernel connections",
+      "code_cells": 16,
+      "markdown_cells": 18,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit"
+      },
+      "key_checks": [
+        "all 16 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 21 focused PVT engineering assertions passed",
+        "the synthetic reservoir oil bubble pressure was 122.332207 bara and the synthetic gas-condensate dew pressure was 120.292173 bara",
+        "constant-composition expansion preserved total mass exactly across the pressure grid",
+        "differential liberation closed every component to 5.551e-17 mol and total mass to -6.939e-18 kg",
+        "oil formation volume factor and solution gas ratio followed the expected differential-liberation trends below bubble pressure",
+        "constant-volume depletion closed every component to 2.776e-17 mol and held cell volume within 3.613e-13 relative residual",
+        "CVD cumulative depletion increased monotonically from 0 to 85.6478 mol percent and retrograde liquid dropout rose then revaporized",
+        "CO2 swelling factor and saturation pressure increased monotonically over the screened 0 to 20 mol percent injection range",
+        "SRK and Peng-Robinson sensitivity results were finite and physically plausible",
+        "valid JSON and nbformat, sequential execution counts, retained tables, one four-panel PNG figure, one Colab badge, and the single pre-existing examples-page link were verified",
+        "readability passed with descriptive names, conventional indentation, no magics, wildcard imports, semicolon chains, inline compound bodies, or code lines over 85 characters",
+        "seven display equations and 15 inline expressions passed balanced single-backslash Colab syntax; every expression was rendered through MathJax and visually inspected",
+        "the retained unit-labelled CCE, differential-liberation, CVD, and CO2-swelling panels were visually inspected after the final pip-installed execution",
+        "all five current NeqSim documentation links were checked on 2026-07-22"
+      ],
+      "summary": "Rebuilt the legacy PVT-experiment sketch as an executed reservoir-fluid laboratory tutorial. Removed obsolete Colab magics, wildcard imports, embedded videos, an inaccessible reference, compressed legacy wrappers, an empty cell, ambiguous units, and the unsupported Pa*s viscosity token. Added public synthetic oil and gas-condensate samples, current saturation-pressure and explicit flash APIs, CCE, differential liberation, direct cP viscosity, corrected constant-volume depletion with auditable equilibrium-gas removal, CO2 swelling, SRK/PR sensitivity, mass and component closure, physical-trend checks, limitations, current references, exercises, retained tables, and a four-panel figure."
     }
   ]
 }
