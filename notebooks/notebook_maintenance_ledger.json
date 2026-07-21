@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-21T22:42:53Z",
+  "updated_at": "2026-07-21T23:30:32Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -2601,6 +2601,40 @@
         "all five current NeqSim documentation links were checked on 2026-07-22"
       ],
       "summary": "Rebuilt the legacy PVT-experiment sketch as an executed reservoir-fluid laboratory tutorial. Removed obsolete Colab magics, wildcard imports, embedded videos, an inaccessible reference, compressed legacy wrappers, an empty cell, ambiguous units, and the unsupported Pa*s viscosity token. Added public synthetic oil and gas-condensate samples, current saturation-pressure and explicit flash APIs, CCE, differential liberation, direct cP viscosity, corrected constant-volume depletion with auditable equilibrium-gas removal, CO2 swelling, SRK/PR sensitivity, mass and component closure, physical-trend checks, limitations, current references, exercises, retained tables, and a four-panel figure."
+    },
+    {
+      "path": "notebooks/reservoir/compositiongrad.ipynb",
+      "verified_date": "2026-07-22",
+      "verified_at_utc": "2026-07-21T23:30:32Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean isolated target environment created with python -m pip install --upgrade --no-cache-dir; all 15 code cells executed sequentially in one shared Python namespace using the documented in-process fallback because the automation sandbox blocks local Jupyter TCP/ZMQ kernel connections",
+      "code_cells": 15,
+      "markdown_cells": 19,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit"
+      },
+      "key_checks": [
+        "all 15 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 27 focused numerical, thermodynamic, and engineering assertions passed",
+        "the isothermal 1500 m column pressure rose from 120.000000 to 135.357529 bara",
+        "the density-integrated hydrostatic pressure rise was 15.451947 bar, within 0.614801 percent of the NeqSim result",
+        "the maximum isothermal fugacity-potential residual was 1.460e-08",
+        "the maximum composition-normalization residual was 2.220e-16 mol/mol",
+        "all base, geothermal, reference-pressure, and lean-versus-rich scenario states remained single phase",
+        "methane decreased while ethane, propane, and CO2 increased monotonically with depth in the base case",
+        "reference-pressure, geothermal-gradient, and richer-gas sensitivity trends were finite and physically plausible",
+        "repeat bottom-state pressure and methane composition matched within 1e-10 and the reference fluid remained unchanged",
+        "valid JSON and nbformat, sequential execution counts, retained tables, four PNG figures, one Colab badge, and the single pre-existing examples-page link were verified",
+        "readability passed with descriptive names, conventional indentation, no magics, wildcard imports, semicolon chains, inline compound bodies, or code lines over 93 characters",
+        "five display equations and 12 inline expressions passed balanced single-backslash Colab syntax; all 17 expressions were rendered through MathJax and visually inspected",
+        "all four unit-labelled profile and sensitivity figures were extracted from the final executed notebook and visually inspected",
+        "the current NeqSim flash guide, thermodynamic-model guide, PyPI package page, API source, Colab target syntax, and catalog target were checked on 2026-07-22"
+      ],
+      "summary": "Rebuilt the unexecuted composition-gradient video shell as a complete reservoir engineering tutorial. Removed the GitHub-source package installation, obsolete Colab magics, wildcard imports, embedded video, Python 3.7 metadata, malformed equation delimiters, and commit-pinned source reference. Added a public synthetic gas, current SRK TPgradientFlash workflow, isothermal fugacity-potential and hydrostatic validation, phase and composition checks, geothermal and pressure sensitivities, lean-versus-rich scenarios, deterministic outputs, limitations, current references, exercises, tables, and four retained figures."
     }
   ]
 }
