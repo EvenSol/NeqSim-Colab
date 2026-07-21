@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-21T15:38:29Z",
+  "updated_at": "2026-07-21T15:54:33Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -2533,6 +2533,40 @@
         "all introduced NeqSim documentation, catalog, badge, Colab, and public PyPI references were checked on 2026-07-21"
       ],
       "summary": "Rebuilt the legacy multi-example NeqSim 2.5.35 notebook as a focused methanol mass-transfer and hydrate-inhibition tutorial. Replaced obsolete Colab magics, a pinned install, wildcard imports, semicolon-compressed code, a large embedded GIF, inconsistent methanol flow units, unrelated TEG, ethane, and stirred-cell fragments, and mostly unexecuted calculations. Added a public synthetic water-saturated SRK-CPA gas, a NeqSim equilibrium endpoint, current transport properties, the documented Sherwood and finite-contact NTU model, hydrate-temperature calculations, contact-length and injection-rate sensitivities, conservation, interpretation, limitations, references, exercises, two plots, and focused assertions."
+    },
+    {
+      "path": "notebooks/process/gas_oil_separation.ipynb",
+      "verified_date": "2026-07-21",
+      "verified_at_utc": "2026-07-21T15:54:33Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean isolated environment created with python -m venv and the latest public PyPI neqsim installed using python -m pip install --upgrade --no-cache-dir; all 16 code cells executed sequentially in one shared Python namespace using the documented in-process fallback because a local Jupyter TCP kernel is unavailable",
+      "code_cells": 16,
+      "markdown_cells": 20,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit"
+      },
+      "key_checks": [
+        "all 16 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 25 focused engineering validation items passed",
+        "the normalized public synthetic wet gas-condensate used SRK-CPA with mixing rule 10 and multiphase checking at 60 bara, 40 degC, and 30000 kg/h",
+        "the three-phase separator produced 19779.557300 kg/h gas, 10047.474242 kg/h oil, and 172.968457 kg/h water",
+        "methane recovery to gas was 94.913684 percent, n-hexane recovery to oil was 86.118183 percent, and water recovery to the aqueous outlet was 86.477387 percent",
+        "the maximum component residual was 3.496e-12 mol/s and the total mass residual was 7.421e-10 kg/h",
+        "the independent circular-segment reconstruction matched the NeqSim gas-load factor of 0.114485 m/s within 2.776e-17 m/s",
+        "the 1.20 m diameter by 4.80 m vessel passed the five documented base screens: gas load, 41.279519 micrometre droplet cut, 1277.892120 Pa inlet momentum, 5.160541 min oil retention, and 217.963255 min water retention",
+        "the gas-load-limited screening capacity was 39306.376 kg/h and controlled before the oil-retention-limited capacity of 51605.406 kg/h",
+        "pressure and temperature sensitivity trends were finite and monotonic in the expected directions; the fixed vessel exceeded its gas-load limit at 20 bara",
+        "valid notebook JSON and nbformat, sequential execution counts, retained outputs, one Colab badge, and the single pre-existing examples-page link were verified",
+        "readability passed with descriptive names, conventional indentation, no magics, wildcard imports, semicolon chains, inline compound bodies, or code lines over 89 characters",
+        "five display equations and 16 inline expressions passed balanced single-backslash Colab math checks; all display equations and ten representative inline expressions were rendered through MathJax and visually inspected",
+        "three retained, unit-labelled engineering figures were visually inspected after the final clean execution",
+        "the current separator, process-package, process-design, thermodynamic-model, catalog, badge, Colab, and public PyPI 3.16.0 references were checked on 2026-07-21"
+      ],
+      "summary": "Rebuilt the nine-cell legacy gas-oil separation sketch as an executed three-phase gas-oil-water separation and capacity-screening tutorial. Replaced the NeqSim 2.5.35 pin, obsolete Colab magics, wildcard imports, embedded video, duplicated fluid definitions, minimal prose, ambiguous design inputs, and unvalidated calculations. Added a public synthetic SRK-CPA wet gas-condensate, current ThreePhaseSeparator API, named composable outlet streams, product recoveries, component and total mass closure, circular-segment gas-cap geometry, independent Souders-Brown reconstruction, five documented performance screens, throughput capacity, pressure and temperature sensitivities, limitations, references, exercises, three plots, and focused assertions."
     }
   ]
 }
