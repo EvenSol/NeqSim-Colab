@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-21T11:25:41Z",
+  "updated_at": "2026-07-21T12:31:05Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -2398,6 +2398,41 @@
         "the current mixer, PipeBeggsAndBrills, and pipeline-network documentation sources, catalog path, Colab badge target, and public PyPI 3.16.0 release were verified on 2026-07-21"
       ],
       "summary": "Rebuilt the empty three-cell manifolds-and-pipes placeholder as a complete production-manifold and parallel-pipeline tutorial. Corrected the badge that pointed to emptytemplate.ipynb and replaced the empty code cell with current SRK, Stream, Mixer, ThermodynamicOperations, and PipeBeggsAndBrills APIs. Added three public synthetic wells, explicit material, component, and enthalpy closure, equal-outlet-pressure flow splitting, segmented profiles, diameter and throughput sensitivities, one-branch availability screening, an independent Darcy-Weisbach reconstruction, limitations, references, exercises, three plots, and focused assertions."
+    },
+    {
+      "path": "notebooks/process/heatexchangerDescription.ipynb",
+      "verified_date": "2026-07-21",
+      "verified_at_utc": "2026-07-21T12:31:05Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean isolated environment created with python -m venv and the latest public PyPI neqsim installed using python -m pip install --upgrade --no-cache-dir; all code cells executed sequentially in one shared Python namespace using the documented in-process fallback because a local Jupyter TCP kernel is unavailable",
+      "code_cells": 16,
+      "markdown_cells": 24,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit"
+      },
+      "key_checks": [
+        "all 16 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 32 focused engineering validation items passed",
+        "the normalized synthetic natural gas and fresh-water CPA proxy were single phase at both exchanger inlets and outlets",
+        "the 50000 W/K counter-current base case transferred 2.029029 MW, cooled gas from 95.000000 to 39.532610 degC, and warmed water from 15.000000 to 35.008329 degC",
+        "the independently evaluated hot and cold duties closed to an energy residual of -0.011343 W while both side mass flows were conserved",
+        "both terminal temperature differences were positive, the minimum endpoint approach was 24.532610 K, and the full screening profile had no temperature cross",
+        "the 39.654398 K endpoint LMTD reconstructed process UA within 2.3357% and the observed effectiveness of 0.693342 agreed with the ideal counter-current value within 0.007443",
+        "the 196-tube candidate supplied 70.380472 m2 area and a NeqSim-rated UA of 50820.852478 W/K, 1.6417% above the process target",
+        "tube and shell velocities were 1.649106 and 7.600766 m/s; the independent tube velocity matched NeqSim and the tube Reynolds number was 26207.376075",
+        "tube-side and shell-side pressure drops were 0.332025 and 0.526682 bar",
+        "hot outlet temperature decreased and duty increased monotonically with available UA; overall U decreased monotonically with fouling resistance; hot outlet temperature and total duty increased monotonically with gas throughput",
+        "valid notebook JSON and nbformat, sequential execution counts, retained outputs, one corrected Colab badge, and the single preserved catalog link passed",
+        "readability passed with descriptive names, conventional indentation, no magics, wildcard imports, semicolon chains, inline compound bodies, or code lines over 100 characters",
+        "seven display equations and all inline symbols passed balanced single-backslash Colab math checks; fractions, subscripts, superscripts, Greek symbols, exponentials, and units were rendered and visually inspected",
+        "four retained SI-labelled engineering figures were visually inspected after the final clean execution",
+        "the current heat-exchanger equipment, thermal-hydraulic design, TEMA, physical-property, catalog, badge, and public PyPI 3.16.0 references were checked on 2026-07-21"
+      ],
+      "summary": "Rebuilt the nine-cell NeqSim 2.5.35 heat-exchanger sketch as an executed natural-gas cooling and shell-and-tube screening tutorial. Replaced obsolete Colab magics, shell installation, wildcard imports, two embedded videos, unrelated pump text, weak explanations, and unvalidated calculations. Added current SRK and SRK-CPA streams, two-stream HeatExchanger and ThermalDesignCalculator APIs, energy and mass closure, counter-current LMTD and effectiveness-NTU reconstruction, a temperature profile, preliminary tube-bundle geometry, independent velocity verification, fouling, UA-loss, and throughput sensitivities, limitations, references, exercises, four plots, and focused assertions."
     }
   ]
 }
