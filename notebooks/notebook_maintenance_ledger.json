@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-21T07:22:02Z",
+  "updated_at": "2026-07-21T08:26:52Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -2258,6 +2258,42 @@
         "the current H2S distribution guides, thermodynamic-model selection guide, separator documentation, catalog path, Colab badge target, and public PyPI 3.16.0 release were verified on 2026-07-21"
       ],
       "summary": "Rebuilt the four-cell unexecuted NeqSim 2.5.35 sketch as a focused, safety-conscious H2S distribution tutorial. Removed Colab magics, a pinned obsolete release, wildcard imports, an embedded video, misspelled prose, a hidden electrolyte-ion fragment, ambiguous units, and unverified calculations. Added a public synthetic sour gas-condensate-water feed, current SRK-CPA three-phase equilibrium, neutral-H2S model scope, fugacity and distribution theory, phase inventories and concentrations, independent component and mass closure, a three-stage separator train with flow-rate scaling, pressure, temperature, water, and sourness sensitivities, explicit safety context, limitations, references, exercises, four plots, and focused assertions."
+    },
+    {
+      "path": "notebooks/thermodynamics/mercury_in_gas.ipynb",
+      "verified_date": "2026-07-21",
+      "verified_at_utc": "2026-07-21T08:26:52Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean isolated environment created with python -m venv and the latest public PyPI neqsim installed using python -m pip install --upgrade --no-cache-dir; all code cells executed sequentially in one shared Python namespace using the documented in-process fallback because a local Jupyter TCP kernel is unavailable",
+      "code_cells": 17,
+      "markdown_cells": 20,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit"
+      },
+      "key_checks": [
+        "all 17 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 34 focused engineering validation items passed",
+        "NeqSim elemental-mercury vapour pressure agreed with the NIST Antoine reference within a maximum absolute deviation of 2.389132% over 298.15 to 723.15 K",
+        "the normalized gas-condensate feed contained 10 mol ppb mercury, equivalent to 84.834612 ug/Sm3 at the stated standard condition",
+        "the 30 degC and 60 bara base flash placed 92.981923% of feed mercury in gas and 7.018077% in oil while the oil mercury concentration was 84.130734 mol ppb",
+        "the gas-to-oil mercury distribution coefficient was 0.11145046",
+        "the independently reconstructed maximum component residual was 4.108e-14 mol and relative mass residual was 1.777e-13",
+        "gas-phase mercury inventory increased monotonically from 78.588874% to 99.532865% over 0 to 50 degC while the oil phase fraction decreased",
+        "the dry-gas solid screen predicted no solid mercury at 20 degC and 99.980914% of mercury in the solid phase at -80 degC with a maximum component residual of 1.654e-24 mol",
+        "the 2.0 m diameter by 5.0 m guard bed achieved 99.838697% removal, 0.339319 bar pressure drop, 0.136841 ug/Sm3 outlet mercury, and 5.320153 years estimated replacement life",
+        "independent sorbent-mass, Ergun pressure-drop, NTU-efficiency, and capacity-lifetime reconstructions matched the NeqSim unit model; the reported guard-bed mass residual was 5.536e-07 kg/h",
+        "bed-length sensitivities showed increasing removal, pressure drop, and lifetime, while bypass sensitivities showed decreasing removal",
+        "valid notebook JSON and nbformat, sequential execution counts, retained outputs, one Colab badge, and the single preserved catalog link passed",
+        "readability passed with descriptive names, conventional indentation, no magics, wildcard imports, semicolon chains, inline compound bodies, or code lines over 85 characters",
+        "five display equations and all inline symbols passed balanced single-backslash Colab math checks; fractions, subscripts, superscripts, Greek symbols, and units were rendered and visually inspected",
+        "four retained SI-labelled engineering figures were visually inspected after the final clean execution",
+        "the current mercury thermodynamics guide, mercury-removal guide, MercuryRemovalBed source, catalog path, Colab badge target, NIST Antoine reference, and public PyPI 3.16.0 release were verified on 2026-07-21"
+      ],
+      "summary": "Rebuilt the eleven-cell NeqSim 2.5.35 mercury sketch as a safety-conscious thermodynamics and guard-bed tutorial. Removed obsolete Colab magics, a pinned release, wildcard imports, semicolon-compressed code, an embedded video, misspelled prose, ambiguous units, and unvalidated calculations. Added the current SRK-TwuCoon mercury model, an independent NIST vapour-pressure comparison, a public synthetic gas-condensate feed, phase inventory and distribution analysis, independent component and mass closure, temperature partitioning, a component-specific solid-mercury screen, a composable MercuryRemovalBed model, independent Ergun, NTU, sorbent-mass, and lifetime reconstructions, length and bypass sensitivities, explicit safety context, limitations, references, exercises, four plots, and focused assertions."
     }
   ]
 }
