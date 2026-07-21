@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-21T00:27:50Z",
+  "updated_at": "2026-07-21T01:31:03Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -2048,6 +2048,41 @@
         "the current SRK-CPA source and tests, thermodynamic-model guidance, catalog path, and public PyPI 3.16.0 release were verified on 2026-07-21"
       ],
       "summary": "Replaced the empty two-cell absorption placeholder and its incorrect empty-template Colab badge with an executed SRK-CPA tutorial for physical CO2 absorption from methane-rich gas into water. Added a reusable equilibrium-contact model, gas and aqueous phase diagnostics, CO2 removal, methane recovery, distribution selectivity, independent component and mass closure, pressure, temperature, and solvent-rate sensitivities, a three-stage cross-current cascade, assumptions, limitations, references, exercises, tables, three plots, and focused validation."
+    },
+    {
+      "path": "notebooks/thermodynamics/flash_with_salt_water.ipynb",
+      "verified_date": "2026-07-21",
+      "verified_at_utc": "2026-07-21T01:31:03Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean isolated environment created with python -m venv and the latest public PyPI neqsim installed using python -m pip install --upgrade --no-cache-dir; all code cells executed sequentially in one shared Python namespace using the documented in-process fallback because a local Jupyter TCP kernel is unavailable",
+      "code_cells": 15,
+      "markdown_cells": 17,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit"
+      },
+      "key_checks": [
+        "all 15 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 28 focused engineering validation items passed",
+        "the 20 degree C and 50 bara base case formed gas, oil, and aqueous phases with densities of 36.676185, 645.113250, and 1071.482450 kg/m3",
+        "the base aqueous viscosity was 1.201213 cP",
+        "methane, n-heptane, water, and neutral NaCl component balances closed within 3.572e-12 mol",
+        "the independent molecular-weight mass balance closed within 2.540e-10 g",
+        "all NaCl remained in the aqueous phase within numerical precision and non-aqueous salt was below 1e-12 mol",
+        "brine density rose monotonically from 998.952012 to 1148.694143 kg/m3 as NaCl increased from 0 to 20 mass percent",
+        "aqueous methane and gas water content both decreased monotonically with salinity, confirming the expected salting-out direction",
+        "brine density and viscosity decreased while gas water content increased monotonically from 5 to 60 degree C",
+        "gas density and aqueous methane content increased monotonically from 10 to 70 bara",
+        "valid notebook JSON and nbformat, sequential execution counts, retained outputs, one Colab badge, and exactly one catalog link passed",
+        "readability passed with descriptive names, conventional indentation, no magics, wildcard imports, semicolon chains, inline compound bodies, or code lines over 93 characters",
+        "four display equations and all inline symbols passed balanced single-backslash Colab math checks, nbconvert HTML generation, and visual rendering",
+        "three retained SI-labelled engineering figures were visually inspected after the final execution",
+        "the current SRK-CPA source, SALT_WATER enum, thermodynamic-model guidance, catalog path, Colab badge asset, and public PyPI 3.16.0 release were verified on 2026-07-21"
+      ],
+      "summary": "Rebuilt the five-cell salt-water flash sketch as an executed three-phase gas-oil-brine engineering tutorial. Replaced Colab magics, shell syntax, plain SRK, semicolon-compressed calls, ambiguous salt mass basis, and an unverified density printout. Added a clean PyPI setup, explicit 10 mass percent brine conversion, SRK-CPA with the SALT_WATER physical-property model, reusable fresh-state flashes, phase and composition tables, independent component and mass closure, salt-location checks, salinity, temperature, and pressure sensitivities, limitations for the neutral NaCl pseudo-component, references, exercises, three plots, and focused assertions."
     }
   ]
 }
