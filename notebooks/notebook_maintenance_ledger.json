@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-21T12:31:05Z",
+  "updated_at": "2026-07-21T13:26:04Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -2433,6 +2433,40 @@
         "the current heat-exchanger equipment, thermal-hydraulic design, TEMA, physical-property, catalog, badge, and public PyPI 3.16.0 references were checked on 2026-07-21"
       ],
       "summary": "Rebuilt the nine-cell NeqSim 2.5.35 heat-exchanger sketch as an executed natural-gas cooling and shell-and-tube screening tutorial. Replaced obsolete Colab magics, shell installation, wildcard imports, two embedded videos, unrelated pump text, weak explanations, and unvalidated calculations. Added current SRK and SRK-CPA streams, two-stream HeatExchanger and ThermalDesignCalculator APIs, energy and mass closure, counter-current LMTD and effectiveness-NTU reconstruction, a temperature profile, preliminary tube-bundle geometry, independent velocity verification, fouling, UA-loss, and throughput sensitivities, limitations, references, exercises, four plots, and focused assertions."
+    },
+    {
+      "path": "notebooks/process/processreportsandunits.ipynb",
+      "verified_date": "2026-07-21",
+      "verified_at_utc": "2026-07-21T13:26:04Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean isolated environment created with python -m venv and the latest public PyPI neqsim installed using python -m pip install --upgrade --no-cache-dir; all code cells executed sequentially in one shared Python namespace using the documented in-process fallback because a local Jupyter TCP kernel is unavailable",
+      "code_cells": 16,
+      "markdown_cells": 18,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit"
+      },
+      "key_checks": [
+        "all 16 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 29 focused engineering validation items passed",
+        "the normalized public synthetic rich gas flashed at 25 bara into 14673.605698 kg/h gas and 5326.394302 kg/h hydrocarbon liquid",
+        "separator mass closure was -1.182e-11 kg/h and the maximum component residual was 5.640e-14 on the common NeqSim amount basis",
+        "the valve enthalpy residual was 0.001699 J, compressor stream enthalpy rise matched 640937.525378 W power, and cooler stream enthalpy change matched -759768.523775 W duty",
+        "the JSON report contained all five process units, the equipment key sets matched across default, field, and SI unit profiles, and all numeric report values were finite",
+        "the canonical 20640-character default JSON round trip was identical and report generation did not alter any process state",
+        "independent Celsius-to-Fahrenheit, Celsius-to-kelvin, bar-to-psi, bar-to-pascal, kilogram-to-pound, and watt-to-BTU-per-hour conversions agreed with the unit-labelled report values",
+        "NeqSim's default temperature unit was restored after the global unit profile changes",
+        "compressor power and cooling load increased monotonically from 50 to 150 percent throughput while gas recovery remained rate independent and every scenario closed mass balance",
+        "valid notebook JSON and nbformat, sequential execution counts, retained outputs, one corrected Colab badge, and the single preserved catalog link passed",
+        "readability passed with descriptive names, conventional indentation, no magics, wildcard imports, semicolon chains, inline compound bodies, or code lines over 85 characters",
+        "seven display equations and all inline symbols passed balanced single-backslash Colab math checks; fractions, subscripts, superscripts, symbols, and units were rendered and visually inspected",
+        "three retained SI-labelled engineering figures were visually inspected after the final clean execution",
+        "the current process-package, process JSON export, thermodynamic-model, catalog, badge, and public PyPI 3.16.0 references were verified on 2026-07-21"
+      ],
+      "summary": "Rebuilt the twelve-cell process-reporting sketch as a complete unit-safe process reporting tutorial. Replaced shell installation, semicolon-compressed Java calls, duplicate local JSON writes, unguarded global unit mutations, minimal outputs, and bare headings. Added a composable SRK valve-separator-compressor-aftercooler process, conservation and energy checks, current Report JSON generation, equipment-schema discovery, guarded default/field/SI reporting with guaranteed unit restoration, independent conversions, canonical JSON round-trip and finite-value checks, throughput sensitivity, interpretation, limitations, references, exercises, three plots, and focused assertions."
     }
   ]
 }
