@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-22T12:46:00Z",
+  "updated_at": "2026-07-22T17:27:59.662Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -3007,6 +3007,40 @@
         "the Colab badge, single catalog target, PyPI page, and current NeqSim process and thermodynamic-operation references were checked"
       ],
       "summary": "Replaced the obsolete NeqSim 2.5.35 pin, Colab magics, wildcard imports, compressed semicolon code, embedded video, inconsistent CO2/propane topic, syntax error, and unverified calculations with a self-contained propane refrigeration tutorial. Added SRK saturation theory, a composable process flowsheet, phase and state audits, energy closure, COP and Carnot checks, pressure-enthalpy plotting, three operating sensitivities, scale-up, limitations, troubleshooting, exercises, and references."
+    },
+    {
+      "path": "notebooks/power/Gas_fired_power_plants.ipynb",
+      "verified_date": "2026-07-22",
+      "verified_at_utc": "2026-07-22T17:27:59.662Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean Python 3.12 virtual environment with neqsim 3.16.0; all code cells executed sequentially from top to bottom, then independently re-executed in a separate validation process",
+      "code_cells": 14,
+      "markdown_cells": 14,
+      "publication": {
+        "branch": "fix/gas-fired-power-plants-20260722",
+        "mode": "pull request",
+        "notebook_commit": "b3427b983aad17594e69f570a3077d101327f20c",
+        "catalog_commit": "60d723c6f1535becec603c3fcebd467b5346bc6e",
+        "ledger_commit": "this ledger update commit"
+      },
+      "key_checks": [
+        "valid nbformat 4.5 JSON with execution counts 1-14, zero error outputs, complete retained tables, diagnostics, summary, and one retained sensitivity figure",
+        "all 14 code cells executed in order and all 16 focused engineering assertions passed again in a separate validation process",
+        "NeqSim ISO 6976 gave LHV 46.05177 MJ/kg and the atom balance gave stoichiometric AFR 15.73026 kg air/kg fuel",
+        "fuel and product compositions were normalized; total mass closed to 1.42e-6 relative error after rounded database molar masses, carbon closed exactly, and residual oxygen remained positive",
+        "combustor energy closed to 1.49e-14 relative error; turbine and HRSG energy identities passed their numerical tolerances",
+        "manual PS/PH states and NeqSim compressor and expander equipment objects agreed to better than 1e-8 relative error",
+        "base case produced 40.71401 MW net simple-cycle power at 34.06833 percent LHV efficiency and 56.69526 MW combined-cycle screening power at 47.44098 percent LHV efficiency",
+        "combined-cycle direct stack CO2 intensity was 431.367 kg/MWh on the documented fossil-fuel boundary",
+        "pressure-ratio and firing-temperature cases were finite; net simple-cycle power increased monotonically over the 1300-1700 K firing-temperature sweep",
+        "all 11 display equations and one representative inline expression passed Colab-safe source checks, rendered without clipping or malformed symbols, and were visually inspected",
+        "the three-panel sensitivity figure was rendered inline and visually inspected; code readability audit found zero semicolons and no non-URL lines over 100 characters",
+        "catalog relative path and the notebook Colab badge each point to the repaired notebook exactly once"
+      ],
+      "summary": "Replaced the obsolete seven-cell neqsim 2.5.35 sketch and inconsistent stored output with an executed NeqSim 3.16.0 natural-gas power tutorial covering ISO 6976 fuel quality, atom-derived stoichiometry, explicit combustion mass and energy balances, compressor and turbine PS/PH calculations, composable process equipment, HRSG and combined-cycle screening, direct CO2 intensity, validation tables, sensitivities, interpretation, limitations, references, and machine-readable results."
     }
   ]
 }
