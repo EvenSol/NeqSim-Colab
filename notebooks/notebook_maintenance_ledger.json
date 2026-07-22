@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-22T18:55:00Z",
+  "updated_at": "2026-07-22T21:52:03.952Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -3180,6 +3180,38 @@
         "the notebook Colab badge and exactly one active catalog entry point to the new notebook path"
       ],
       "summary": "Added an output-complete PVT workbook following the NeqSim lab-to-model workflow. It covers sample and assay QC, Pedersen heavy-end characterization, saturation pressure, CCE, DLE, multi-experiment regression packaging, a bounded identifiable viscosity fit, staged separator testing and optimization, auditable Markdown and CSV reporting, a validated DLE-derived black-oil include, E300 export and round trip, hashes, limitations, exercises, and machine-readable results."
+    },
+    {
+      "path": "notebooks/process/reservoirGORprocesstuning.ipynb",
+      "verified_date": "2026-07-22",
+      "verified_at_utc": "2026-07-22T21:52:03.952Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean Python 3.12 virtual environment with the latest public PyPI neqsim installed using python -m pip install --upgrade --no-cache-dir neqsim; all 19 code cells executed sequentially in one isolated shared namespace after final readability formatting",
+      "code_cells": 19,
+      "markdown_cells": 22,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "key_checks": [
+        "replaced the broken 6-code/7-Markdown legacy notebook while preserving its single catalog target",
+        "valid nbformat 4.5 JSON with execution counts 1 through 19, complete stored outputs, three embedded PNG figures, and zero error outputs or stderr",
+        "all 25 focused engineering assertions passed",
+        "Brent root solve tuned the gas-endmember multiplier to 1.746449763 for a 180.000000000 Sm3/m3 reference-process GOR",
+        "GOR residual was -2.045e-10 Sm3/m3; total mass residual was 1.115e-9 kg/h; maximum component residual was 1.072e-11 mol/s",
+        "maximum heater and separator energy residuals were 0.000e+00 W and 6.960e-7 W",
+        "the GOR response bracketed the target and was monotonic; target-GOR and first-stage-pressure sensitivities were finite and physically interpretable",
+        "tuning enriched the light component family and depleted the heavy pseudo-component family as expected",
+        "readability audit passed with one statement per line, no semicolon chains or inline compound bodies, conventional indentation, descriptive names, and a maximum code-line length of 69 characters",
+        "six display equations and six inline expressions passed Colab-safe source validation, rendered through MathJax, and passed visual inspection",
+        "all three stored engineering figures passed visual inspection",
+        "Colab badge, PyPI page, NeqSim documentation references, catalog path, and changed catalog link were validated"
+      ],
+      "summary": "Replaced captured installation, undefined calc_process and final-state variables, broad unused imports, compressed process construction, weak explanation, and unvalidated outputs. Added normalized synthetic gas and oil endmembers with TBP pseudo-components, a composable four-stage reference separation train, bounded Brent tuning, stream and energy audits, composition interpretation, operating sensitivities, validation, troubleshooting, limitations, references, and exercises."
     }
   ]
 }
