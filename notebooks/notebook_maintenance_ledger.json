@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-22T09:29:47Z",
+  "updated_at": "2026-07-22T10:55:52Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -2871,6 +2871,40 @@
         "the Colab badge, single catalog target, and current NeqSim model, flash, PVT, source, and PyPI references were validated"
       ],
       "summary": "Replaced obsolete Colab magics, wildcard imports, two downloaded fluid files, dense Java-style cells, stale phase-composition reuse, and an unrelated oversized offshore process model with a self-contained Python tutorial. Added an embedded synthetic Eclipse-style PVT deck, current readEclipseFluid workflow, component auditing, SRK equilibrium, staged gas removal, surface flashes, depletion-aware recombination, a deliberate frozen-composition error case, separator-pressure sensitivity, balance checks, three figures, limitations, troubleshooting, exercises, and executable validation."
+    },
+    {
+      "path": "notebooks/subseaequipment/subseaequipment.ipynb",
+      "verified_date": "2026-07-22",
+      "verified_at_utc": "2026-07-22T10:55:52Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean sequential in-process execution against the latest public PyPI neqsim release installed with python -m pip install --upgrade --no-cache-dir --target /tmp/neqsim-subsea-clean-20260722 neqsim; all 18 code cells executed in one shared Python namespace after the attempted standard Jupyter TCP/ZMQ kernel connection was blocked by the automation sandbox",
+      "code_cells": 18,
+      "markdown_cells": 19,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "ledger_commit": "this ledger update commit"
+      },
+      "key_checks": [
+        "the three-cell NeqSim 2.5.35 placeholder was replaced and its catalog label was updated while retaining exactly one subseaequipment target link",
+        "valid nbformat 4 JSON with sequential execution counts, complete stored outputs, four retained figures, and no hidden state",
+        "all 18 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 25 focused fluid, unit-operation, balance, hydraulic, thermal, pressure, and sensitivity checks passed",
+        "two synthetic wet gas-condensate wells closed to 20000 kg/h through cpa-srk fluids, production chokes, and a subsea manifold",
+        "the base flowline and riser arrived at 89.569058 bara and 17.875162 degrees Celsius with 10.430942 bar pressure drop and 0.462048 outlet liquid holdup",
+        "host three-phase separator mass closure was 1.965e-10 kg/h and maximum component closure was 9.948e-13 mol/s",
+        "the manifold total-enthalpy residual was 1.198e-05 J after an explicit PH flash and choke specific-enthalpy residuals remained below 2e-05 J/kg",
+        "tree-choke, overall heat-transfer coefficient, and throughput sensitivities produced finite, physically interpreted pressure, temperature, and holdup responses",
+        "external seawater pressure at 350 m was independently reconstructed as 36.194607 bara and compared with the internal design state",
+        "readability passed with descriptive names, conventional indentation, no magics, wildcard imports, semicolon chains, inline compound bodies, or code lines over 82 characters",
+        "nine display equations and 14 inline expressions passed balanced single-backslash Colab syntax; all 23 expressions rendered through MathJax and passed visual inspection",
+        "all four retained, unit-labelled engineering figures were extracted from the final execution and visually inspected",
+        "the Colab badge, single active-catalog target, and current NeqSim process, valve, mixer, pipeline, separator, flash, and PyPI references were validated"
+      ],
+      "summary": "Replaced the obsolete installation-only placeholder with a self-contained subsea production tutorial. Added cpa-srk well fluids, production chokes, manifold energy closure, Beggs-Brill flowline and riser profiles, host three-phase separation, external-pressure screening, operating and thermal sensitivities, balance checks, four figures, limitations, troubleshooting, exercises, and executable validation."
     }
   ]
 }
