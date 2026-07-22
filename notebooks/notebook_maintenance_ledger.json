@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-22T22:27:09.744Z",
+  "updated_at": "2026-07-22T23:05:21.215Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -3245,6 +3245,40 @@
         "Colab badge, single catalog target, PyPI page, NeqSim heat-exchanger and getting-started documentation, and MIT heat-exchanger reference were validated"
       ],
       "summary": "Rebuilt the foundational heat-exchanger notebook around current SRK gas, CPA water, named NeqSim streams, and the two-stream HeatExchanger API. Added bounded UA fitting, state tables, mass/component/energy audits, counter-current LMTD and effectiveness-NTU interpretation, area and tube-count screening, tube-side hydraulics, conductance/water-flow/fouling sensitivities, limitations, troubleshooting, references, and exercises."
+    },
+    {
+      "path": "notebooks/process/ProcessLogicIntegrated.ipynb",
+      "verified_date": "2026-07-22",
+      "verified_at_utc": "2026-07-22T23:05:21.215Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean Python 3.12 virtual environment with the latest public PyPI neqsim installed using python -m pip install --upgrade --no-cache-dir neqsim; all 18 code cells executed sequentially in one isolated shared namespace after final readability formatting",
+      "code_cells": 18,
+      "markdown_cells": 26,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "key_checks": [
+        "replaced the unexecuted Java/IJava draft, unsupported framework imports, stale assumptions, and absent outputs with a current Python tutorial while preserving its single catalog target",
+        "valid nbformat 4.5 JSON with execution counts 1 through 18, complete stored outputs, two embedded PNG figures, and zero exceptions, error outputs, or stderr",
+        "all 19 focused engineering assertions passed",
+        "the current NeqSim stream, throttling-valve, separator, ProcessSystem, and TPflash APIs executed against a normalized single-phase synthetic gas",
+        "the base process passed 25000.000000 kg/h with zero displayed mass residual and held the valve outlet at 50.000000 bara",
+        "the NeqSim upstream state gave molar mass 0.018546 kg/mol, compressibility factor 0.866127, and density 56.317702 kg/m3",
+        "truth-table priority, deadband, unsafe-reset rejection, safe-condition reset, trip latching, and the two-second delayed blowdown action all passed",
+        "the base upset tripped at 94 s, blowdown opened at 96 s, and reset occurred at 145 s after pressure fell below the permissive",
+        "discrete vessel inventory residual was -8.731e-11 mol and maximum NeqSim pressure-inventory round-trip error was 1.421e-14 bar",
+        "volume and trip-setpoint sensitivities were finite and showed the expected peak-pressure trends",
+        "readability audit passed with one statement per line, no semicolon chains, wildcard imports, magics, compressed compound bodies, or code lines over 89 characters",
+        "three display equations and nine inline expressions passed Colab-safe source validation; all 12 expressions rendered through MathJax and passed visual inspection",
+        "both stored, unit-labelled engineering figures were extracted from the final execution and passed visual inspection",
+        "the Colab badge, PyPI page, NeqSim documentation, source repository, catalog path, and changed catalog link were validated"
+      ],
+      "summary": "Rebuilt the process-logic catalog page as an executable tutorial coupling a current NeqSim gas, stream, valve, separator, and TP-flash workflow to explicit Python alarm and interlock logic. Added priority, deadband, latching, delayed blowdown, reset permissives, a NeqSim-backed real-gas vessel inventory, sequence-of-events reporting, command-to-process mapping, sensitivities, safety boundaries, troubleshooting, references, and engineering validation."
     }
   ]
 }
