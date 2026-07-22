@@ -2737,6 +2737,40 @@
         "the Colab badge and current NeqSim compressor-curve, compressor, process-recipe, process-package, public-source, catalog, and PyPI references were validated"
       ],
       "summary": "Implemented the missing compressor-curves catalog target as a current NeqSim tutorial. Added a public multi-speed map, dry Peng-Robinson gas, documented chart loading, surge and stone-wall boundaries, interpolated base case, exact map-node reconstruction, energy closure, map and operating-point plots, flow and speed sensitivities, a bounded target-pressure speed solve, a scenario envelope, troubleshooting, limitations, exercises, and executable acceptance checks."
+    },
+    {
+      "path": "notebooks/reservoir/reservoirsimulation.ipynb",
+      "verified_date": "2026-07-22",
+      "verified_at_utc": "2026-07-22T07:44:42Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean isolated target environment created with python -m pip install --upgrade --no-cache-dir --target .venv-reservoir-site neqsim; all 16 code cells executed sequentially in one shared Python namespace using the documented in-process fallback because the automation sandbox blocked the attempted standard Jupyter TCP/ZMQ kernel connection",
+      "code_cells": 16,
+      "markdown_cells": 18,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "ledger_commit": "this ledger update commit"
+      },
+      "key_checks": [
+        "the catalog-linked four-cell reservoir placeholder was replaced and its existing catalog link remained exactly once",
+        "valid nbformat 4 JSON with sequential execution counts and 16 complete user-facing outputs",
+        "all 16 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 12 focused thermodynamic, conservation, numerical, phase, and scenario-trend assertions passed",
+        "the normalized synthetic Peng-Robinson gas remained a single gas phase throughout every depletion scenario",
+        "initial gas in place was 4.156515 GSm3; base pressure declined from 250.000000 to 108.304741 bara over eight years",
+        "base eight-year recovery was 0.5605502 and 40 percent gas reinjection supported final pressure to 161.4693 bara",
+        "the maximum standard-volume residual was 4.065609 Sm3 and the maximum base relative mole residual was 9.705193e-10",
+        "the independent dry-gas p/z reconstruction agreed within 2.227252e-9 relative difference",
+        "0.5, 0.8, and 1.1 MSm3/day rate cases were finite and gave the expected ordered pressure response",
+        "readability passed with descriptive names, conventional indentation, no magics, wildcard imports, semicolon chains, inline compound bodies, or code lines over 88 characters",
+        "six display equations and 32 inline expressions passed balanced single-backslash Colab syntax; all 38 expressions rendered through MathJax and passed visual inspection",
+        "both retained, unit-labelled two-panel engineering figures were extracted from the final execution and visually inspected",
+        "the Colab badge, existing catalog target, current dynamic simulation, model, flash-operation, quickstart, source, and PyPI references were validated"
+      ],
+      "summary": "Replaced the obsolete four-cell video shell with a current, executed SimpleReservoir tutorial. Added a normalized dry gas, Peng-Robinson model, explicit fixed-volume transient stepping, named producer and injector streams, initial inventory diagnostics, annual depletion tables, independent p/z validation, standard-volume and mole closure, production-rate and reinjection sensitivities, two retained figures, limitations, troubleshooting, exercises, and executable acceptance checks."
     }
   ]
 }
