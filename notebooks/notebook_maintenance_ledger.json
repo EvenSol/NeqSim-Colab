@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-22T00:36:34Z",
+  "updated_at": "2026-07-22T01:34:31.672Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -2668,6 +2668,40 @@
         "the current NeqSim black-oil, PVT, thermodynamic-model, catalog, badge, Colab, and public PyPI references were checked on 2026-07-22"
       ],
       "summary": "Rebuilt the legacy black-oil-versus-compositional sketch as an executed PVT model-reduction tutorial. Removed obsolete Colab magics, duplicate and pinned installs, wildcard imports, semicolon-compressed code, incorrect sample PVT values, unexecuted legacy PVT wrappers, malformed equations, and a stored error. Added a public synthetic SRK oil, explicit differential-liberation bookkeeping, current BlackOilPVTTable and BlackOilFlash APIs, held-out EOS comparison, pressure-grid refinement, independent component and mass closure, EOS sensitivity, limitations, references, exercises, four plots, and focused assertions."
+    },
+    {
+      "path": "notebooks/PVT/GammaModel.ipynb",
+      "verified_date": "2026-07-22",
+      "verified_at_utc": "2026-07-22T01:34:31.672Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean sequential in-process execution against the latest public PyPI neqsim release; all code cells executed in one isolated Python namespace because the automation sandbox blocks local Jupyter TCP kernel connections",
+      "code_cells": 18,
+      "markdown_cells": 22,
+      "publication": {
+        "branch": "master",
+        "mode": "direct",
+        "ledger_commit": "this ledger update commit"
+      },
+      "key_checks": [
+        "valid nbformat 4.5 JSON with deterministic cell IDs and no error outputs",
+        "all 18 code cells executed in order with stored fresh outputs and zero stderr",
+        "all 25 focused engineering assertions passed",
+        "C7+ feed fraction and mean molecular weight reconstructed within floating-point precision",
+        "Soreide bulk specific-gravity reconstruction was within 1 percent of the input assay",
+        "base two-phase component balance residual was below 7e-18 mol/mol",
+        "phase fractions and phase-weighted molar mass closed within numerical precision",
+        "bubble pressure was finite and gas fraction increased monotonically on depletion",
+        "six heavy groups reproduced the 20-group bubble pressure within 0.16 percent",
+        "gamma-shape and four-to-twelve-group lumping sensitivities were finite and interpretable",
+        "code readability passed with no semicolons, magics, wildcard imports, inline compound bodies, or code lines longer than 93 characters",
+        "all 7 display equations and 20 inline expressions rendered through MathJax and passed visual inspection for Google Colab compatibility",
+        "all four retained engineering figures passed visual inspection",
+        "Colab badge, five NeqSim documentation references, and the single examples-page link were validated"
+      ],
+      "summary": "Replaced the three-code-cell unexecuted legacy sketch, obsolete Colab magics, wildcard and duplicate imports, embedded image payload, shared mutable examples, weak prose, and unvalidated vapor-pressure plotting with a current Whitson gamma and fluent-lumping PVT tutorial. Added explicit assay assumptions, gamma theory, detailed and reduced slates, target reconstruction, two-phase flash closure, bubble pressure and depletion, alpha sensitivity, lumping convergence, four figures, limitations, references, exercises, and executable checks."
     }
   ]
 }
