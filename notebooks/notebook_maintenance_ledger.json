@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-22T21:52:03.952Z",
+  "updated_at": "2026-07-22T22:27:09.744Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -3212,6 +3212,39 @@
         "Colab badge, PyPI page, NeqSim documentation references, catalog path, and changed catalog link were validated"
       ],
       "summary": "Replaced captured installation, undefined calc_process and final-state variables, broad unused imports, compressed process construction, weak explanation, and unvalidated outputs. Added normalized synthetic gas and oil endmembers with TBP pseudo-components, a composable four-stage reference separation train, bounded Brent tuning, stream and energy audits, composition interpretation, operating sensitivities, validation, troubleshooting, limitations, references, and exercises."
+    },
+    {
+      "path": "notebooks/process/heatexchanger.ipynb",
+      "verified_date": "2026-07-22",
+      "verified_at_utc": "2026-07-22T22:27:09.744Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "fresh Python 3.12 virtual environment with the latest public PyPI neqsim installed using python -m pip install --upgrade --no-cache-dir neqsim; all 18 code cells executed sequentially in one isolated shared namespace after final readability and link formatting",
+      "code_cells": 18,
+      "markdown_cells": 22,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "key_checks": [
+        "replaced the obsolete NeqSim 2.5.35 five-code/five-Markdown sketch, magics, wildcard imports, embedded video, stale assumptions, and inconsistent two-stream calculations",
+        "valid nbformat 4.5 JSON with execution counts 1 through 18, complete stored outputs, three embedded PNG figures, and zero exceptions, error outputs, or stderr",
+        "all 18 focused engineering assertions passed",
+        "bounded Brent solve fitted 47.474473 kW/K effective conductance for a 30.000000000 degC gas outlet and 30.843436 degC water outlet",
+        "transferred duty was 1.898271 MW and exchanger energy residual was 5.082e-3 W",
+        "hot- and cold-side mass residuals and maximum gas-component residual were zero at displayed precision",
+        "counter-current terminal differences remained positive and LMTD duty differed from the NeqSim result by 4.948751 percent",
+        "screening area was 210.997659 m2 with 588 tubes, 1.465998 m/s tube velocity, turbulent flow, and 0.818916 bar screened tube-side pressure drop",
+        "conductance, cooling-water-flow, and fouling sensitivities were finite, monotonic, and physically interpretable",
+        "readability audit passed with one statement per line, no semicolon chains, no wildcard imports or magics, conventional indentation, descriptive names, and a maximum code-line length of 89 characters",
+        "five display equations and 24 inline expressions passed Colab-safe source validation; all 29 expressions rendered through MathJax and passed visual inspection",
+        "all three stored engineering figures passed visual inspection",
+        "Colab badge, single catalog target, PyPI page, NeqSim heat-exchanger and getting-started documentation, and MIT heat-exchanger reference were validated"
+      ],
+      "summary": "Rebuilt the foundational heat-exchanger notebook around current SRK gas, CPA water, named NeqSim streams, and the two-stream HeatExchanger API. Added bounded UA fitting, state tables, mass/component/energy audits, counter-current LMTD and effectiveness-NTU interpretation, area and tube-count screening, tube-side hydraulics, conductance/water-flow/fouling sensitivities, limitations, troubleshooting, references, and exercises."
     }
   ]
 }
