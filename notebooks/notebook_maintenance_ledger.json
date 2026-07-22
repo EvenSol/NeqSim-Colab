@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-22T23:05:21.215Z",
+  "updated_at": "2026-07-22T23:23:45.398Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -3279,6 +3279,41 @@
         "the Colab badge, PyPI page, NeqSim documentation, source repository, catalog path, and changed catalog link were validated"
       ],
       "summary": "Rebuilt the process-logic catalog page as an executable tutorial coupling a current NeqSim gas, stream, valve, separator, and TP-flash workflow to explicit Python alarm and interlock logic. Added priority, deadband, latching, delayed blowdown, reset permissives, a NeqSim-backed real-gas vessel inventory, sequence-of-events reporting, command-to-process mapping, sensitivities, safety boundaries, troubleshooting, references, and engineering validation."
+    },
+    {
+      "path": "notebooks/process/singlecomponent.ipynb",
+      "verified_date": "2026-07-22",
+      "verified_at_utc": "2026-07-22T23:23:45.398Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean Python 3.12 virtual environment with the latest public PyPI neqsim installed using python -m pip install --upgrade --no-cache-dir neqsim; all 17 code cells executed sequentially in one isolated shared namespace after final readability formatting",
+      "code_cells": 17,
+      "markdown_cells": 24,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "key_checks": [
+        "replaced the fully unexecuted 12-code/eight-Markdown legacy notebook, duplicated pip magics, Java-style semicolons, reused mutable states, unrelated hydrogen fragment, stale outputs, and missing validation",
+        "valid nbformat 4.5 JSON with execution counts 1 through 17, complete stored outputs, two embedded PNG figures, and zero exceptions, error outputs, or stderr",
+        "all 19 focused engineering checks passed",
+        "current SRK, TPflash, bubp, bubt, Stream, ThrottlingValve, Separator, Compressor, and ProcessSystem APIs executed against pure propane",
+        "NeqSim calculated the 1.01325 bara normal boiling point as -41.881786 degC, 0.228214 degC above the NIST reference",
+        "the property-based Clapeyron slope and finite-difference saturation slope differed by only -0.000310 percent",
+        "the 10-to-3 bara isenthalpic flash cooled propane from 5.000000 to -14.177747 degC and produced vapour fraction 0.122354",
+        "separator outlets were 122.353769 and 877.646231 kg/h with zero displayed mass residual",
+        "valve enthalpy residual was 7.276e-12 J/mol and compressor power residual was -4.441e-16 kW",
+        "the vapour compressor raised pressure from 3 to 8 bara, reached 31.424076 degC, and consumed 2.082476 kW",
+        "saturation pressure, flash-pressure, and feed-temperature sensitivities were finite, monotonic, and physically interpretable",
+        "readability audit passed with one statement per line, no semicolon chains, wildcard imports, magics, compressed compound bodies, or code lines over 98 characters",
+        "six display equations and seven inline expressions passed Colab-safe source validation; all 13 expressions rendered through MathJax and passed visual inspection",
+        "both stored, unit-labelled figures were extracted from the final execution and passed visual inspection",
+        "the Colab badge, single catalog target, PyPI page, NeqSim documentation, source repository, and NIST propane reference were validated"
+      ],
+      "summary": "Rebuilt the pure-component operations notebook around an auditable propane case. Added SRK fluid construction, a saturation curve, NIST normal-boiling comparison, Clapeyron consistency check, isenthalpic valve flash, equilibrium separator, vapour compressor and energy audit, independent scenario builders, pressure and temperature sensitivities, engineering assertions, limitations, troubleshooting, references, and exercises."
     }
   ]
 }
