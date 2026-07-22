@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-22T12:00:38Z",
+  "updated_at": "2026-07-22T12:46:00Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -2974,6 +2974,39 @@
         "the Colab badge, single catalog target, PyPI page, and four current rendered NeqSim documentation references were checked"
       ],
       "summary": "Replaced the unexecuted five-code-cell property sketch, Colab magic, compatibility import fallback, and unverified tables with a self-contained natural-gas property tutorial. Added SRK theory, TP flash and phase audit, thermodynamic and transport properties, SI identity checks, pressure and temperature maps, SRK/PR sensitivity, heat-capacity derivative validation, an isenthalpic valve application, two figures, limitations, troubleshooting, exercises, and authoritative references."
+    },
+    {
+      "path": "notebooks/process/MechanicalCooling.ipynb",
+      "verified_date": "2026-07-22",
+      "verified_at_utc": "2026-07-22T12:46:00Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean sequential in-process execution against the latest public PyPI neqsim release installed with python -m pip install --upgrade --no-cache-dir --target /tmp/neqsim-cooling-clean-20260722 neqsim; all 17 code cells executed in one shared Python namespace after the standard Jupyter TCP/ZMQ kernel path was unavailable",
+      "code_cells": 17,
+      "markdown_cells": 18,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "ledger_commit": "this ledger update commit"
+      },
+      "key_checks": [
+        "the five-cell NeqSim 2.5.35 mechanical-cooling placeholder was rebuilt while retaining exactly one catalog target",
+        "valid nbformat 4 JSON with sequential execution counts, complete tables, two retained figures, and no hidden state",
+        "all 17 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 29 focused saturation, phase, equipment, mass, energy, COP, scale-up, and trend checks passed",
+        "the propane cycle operated between 2.915598 and 12.333774 bara",
+        "at 1 kg/s the cycle delivered 282.668815 kW cooling, required 93.138143 kW compressor power, rejected 375.806959 kW, and achieved COP 3.034941",
+        "cycle energy residual was -4.263256e-14 kW and valve enthalpy residual was -1.164153e-10 J/kg",
+        "the valve outlet vapour fraction was 0.315443 and a 3 MW duty required 10.613127 kg/s propane with 988.486930 kW compressor power",
+        "COP decreased with condensing temperature, increased with evaporating temperature, and subcooling reduced flash vapour while increasing refrigeration duty",
+        "readability passed with conventional indentation, no magics, wildcard imports, semicolon chains, inline compound bodies, or code lines over 86 characters",
+        "six display equations and 11 inline expressions passed balanced single-backslash Colab syntax; all 17 expressions rendered through MathJax and passed visual inspection",
+        "both retained, unit-labelled engineering figures were extracted from the final execution and visually inspected",
+        "the Colab badge, single catalog target, PyPI page, and current NeqSim process and thermodynamic-operation references were checked"
+      ],
+      "summary": "Replaced the obsolete NeqSim 2.5.35 pin, Colab magics, wildcard imports, compressed semicolon code, embedded video, inconsistent CO2/propane topic, syntax error, and unverified calculations with a self-contained propane refrigeration tutorial. Added SRK saturation theory, a composable process flowsheet, phase and state audits, energy closure, COP and Carnot checks, pressure-enthalpy plotting, three operating sensitivities, scale-up, limitations, troubleshooting, exercises, and references."
     }
   ]
 }
