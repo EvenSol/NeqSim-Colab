@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-22T18:29:26.225Z",
+  "updated_at": "2026-07-22T18:49:50Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -3110,6 +3110,40 @@
         "the Colab badge, current NeqSim process and thermodynamics references, and the existing relative catalog path were checked"
       ],
       "summary": "Replaced obsolete Colab magics, wildcard imports, embedded video, stale outputs, compressed code, inconsistent water/MEG content, unnormalized legacy feed data, ambiguous internal column setters, and an unstable unvalidated downstream column. Added a normalized synthetic NGL feed, current partial-condenser and reboiler APIs, composable feed conditioning, material and component closure, recovery and stage-profile tables, Fenske screening, pressure and temperature flash sensitivities, validation assertions, plots, troubleshooting, limitations, exercises, and authoritative references."
+    },
+    {
+      "path": "notebooks/process/oilrefineries.ipynb",
+      "verified_date": "2026-07-22",
+      "verified_at_utc": "2026-07-22T18:49:50Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean Python 3.12 virtual environment with the latest public PyPI neqsim installed using python -m pip install --upgrade --no-cache-dir neqsim; all 20 code cells executed sequentially in one shared Python namespace with complete retained outputs",
+      "code_cells": 20,
+      "markdown_cells": 24,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "ledger_commit": "this ledger update commit"
+      },
+      "key_checks": [
+        "the two-cell catalog placeholder was rebuilt as a focused crude-oil preflash and atmospheric flash-zone tutorial while retaining exactly one catalog target",
+        "valid nbformat 4 JSON with sequential execution counts 1-20, complete tables, three retained figures, and no hidden state",
+        "all 20 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 20 focused finite-state, total and component balance, cut-accounting, energy, enrichment, trend, and model-sensitivity checks passed",
+        "the 100000 kg/h synthetic crude split into 1776.477901 kg/h preflash vapor, 38966.657455 kg/h atmospheric vapor, and 59256.864645 kg/h atmospheric residue",
+        "mass residual was 2.321e-08 kg/h and the maximum component residual was 8.097e-12 mol/s",
+        "preheater and furnace duties were 9.456718 MW and 14.931989 MW with numerical enthalpy closure",
+        "flash vapor fraction increased monotonically from 280 to 380 degC and decreased monotonically from 1.5 to 5.0 bara",
+        "at 350 degC and 2 bara the PR vapor fraction was 0.646788 and the SRK value was 0.744888, an absolute model spread of 0.098101",
+        "atmospheric residue was enriched in the heavy cut and preflash vapor was enriched in light ends relative to the feed",
+        "readability passed with descriptive names, conventional indentation, no magics, wildcard imports, semicolon chains, inline compound bodies, or code lines over 84 characters",
+        "eight display equations and seven inline expressions passed balanced single-backslash Colab syntax; all 15 expressions rendered through MathJax and passed visual inspection",
+        "all three retained, unit-labelled engineering figures were extracted from the final execution and visually inspected",
+        "the Colab badge, current NeqSim getting-started, process, and thermodynamics references, PyPI package link, and single relative catalog target were checked"
+      ],
+      "summary": "Replaced the one-badge/one-setup-cell placeholder and obsolete Colab magic with a self-contained refinery front-end tutorial. Added a synthetic TBP assay, Peng-Robinson pseudo-component characterization, broad boiling-range yields, composable preheater, preflash, furnace, and atmospheric flash-zone calculations, total and component closure, heater energy checks, cut-flow reporting, temperature, pressure, and EOS sensitivities, heat-recovery screening, validation assertions, troubleshooting, limitations, exercises, and authoritative references."
     }
   ]
 }
