@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-22T10:55:52Z",
+  "updated_at": "2026-07-22T11:29:03Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -2905,6 +2905,41 @@
         "the Colab badge, single active-catalog target, and current NeqSim process, valve, mixer, pipeline, separator, flash, and PyPI references were validated"
       ],
       "summary": "Replaced the obsolete installation-only placeholder with a self-contained subsea production tutorial. Added cpa-srk well fluids, production chokes, manifold energy closure, Beggs-Brill flowline and riser profiles, host three-phase separation, external-pressure screening, operating and thermal sensitivities, balance checks, four figures, limitations, troubleshooting, exercises, and executable validation."
+    },
+    {
+      "path": "notebooks/process/fluidsandneqsim.ipynb",
+      "verified_date": "2026-07-22",
+      "verified_at_utc": "2026-07-22T11:29:03Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean sequential in-process execution against the latest public PyPI neqsim and fluids releases installed with python -m pip install --upgrade --no-cache-dir --target /tmp/neqsim-fittings-clean-20260722 neqsim fluids; all 16 code cells executed in one shared Python namespace after the attempted standard Jupyter TCP/ZMQ kernel connection was blocked by the automation sandbox",
+      "code_cells": 16,
+      "markdown_cells": 15,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "ledger_commit": "this ledger update commit"
+      },
+      "key_checks": [
+        "the catalog-linked six-cell NeqSim 2.5.35 notebook was rebuilt while retaining exactly one fluidsandneqsim target link",
+        "valid nbformat 4 JSON with sequential execution counts, complete HTML tables, three retained figures, and no hidden state",
+        "all 16 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 30 focused composition, phase, property, valve, unit-conversion, balance, hydraulic, orifice, and trend checks passed",
+        "the synthetic SRK gas at 50 bara and 25 degrees Celsius had density 42.013965 kg/m3, viscosity 1.241179e-05 Pa s, and compressibility factor 0.892417",
+        "the IEC 60534 NeqSim valve sized to Kv 49.142665 m3/h and Cv 56.808921 with a 35 bara outlet and 17.353317 degrees Celsius outlet temperature",
+        "the valve molar-enthalpy residual was 8.944e-09 J/mol and mass flow closed within 1e-9 kg/s",
+        "the independent fluids IEC 60534 implementation returned Kv 47.581827 m3/h, differing by 3.176136 percent and agreeing on non-choked flow",
+        "the 0.20 m, 30 m piping system produced 0.052581 bar straight-plus-minor loss at Reynolds number 4.656e6",
+        "the ISO 5167 0.12 m orifice in a 0.20 m pipe produced 0.182373 bar differential pressure at beta 0.60",
+        "valve outlet-pressure, pipe-diameter, and orifice-bore sensitivities produced finite values and the expected engineering trends",
+        "readability passed with descriptive names, conventional indentation, no magics, wildcard imports, semicolon chains, inline compound bodies, or code lines over 91 characters",
+        "seven display equations and 32 inline expressions passed balanced single-backslash Colab syntax; all 39 expressions rendered through MathJax and passed visual inspection",
+        "all three retained, unit-labelled engineering figures were extracted from the final execution and visually inspected",
+        "the Colab badge, single catalog target, current NeqSim source guides, rendered documentation pages, and fluids implementation references were checked"
+      ],
+      "summary": "Replaced the obsolete NeqSim 2.5.35 installation sketch, shell magics, incorrect valve units, missing Kv_to_Cv import, and unverified calculation with a self-contained gas-flow tutorial. Added SRK property generation, NeqSim IEC 60534 valve sizing, independent fluids reconstruction, Darcy and minor losses, ISO 5167 orifice screening, three sensitivity studies, balance checks, three figures, limitations, troubleshooting, and exercises."
     }
   ]
 }
