@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-21T23:30:32Z",
+  "updated_at": "2026-07-22T00:36:34Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -2635,6 +2635,39 @@
         "the current NeqSim flash guide, thermodynamic-model guide, PyPI package page, API source, Colab target syntax, and catalog target were checked on 2026-07-22"
       ],
       "summary": "Rebuilt the unexecuted composition-gradient video shell as a complete reservoir engineering tutorial. Removed the GitHub-source package installation, obsolete Colab magics, wildcard imports, embedded video, Python 3.7 metadata, malformed equation delimiters, and commit-pinned source reference. Added a public synthetic gas, current SRK TPgradientFlash workflow, isothermal fugacity-potential and hydrostatic validation, phase and composition checks, geothermal and pressure sensitivities, lean-versus-rich scenarios, deterministic outputs, limitations, current references, exercises, tables, and four retained figures."
+    },
+    {
+      "path": "notebooks/PVT/blackoilvscomp.ipynb",
+      "verified_date": "2026-07-22",
+      "verified_at_utc": "2026-07-22T00:36:34Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean isolated target environment created with python -m pip install --upgrade --no-cache-dir; all 17 code cells executed sequentially in one shared Python namespace using the documented in-process fallback because the automation sandbox blocks local Jupyter TCP/ZMQ kernel connections",
+      "code_cells": 17,
+      "markdown_cells": 20,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit"
+      },
+      "key_checks": [
+        "all 17 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 24 focused PVT, interpolation, conservation, and physical assertions passed",
+        "the normalized public synthetic oil used a current SRK EOS at 90 degC and predicted a bubble pressure of 122.332207 bara",
+        "differential liberation closed every component within 1.830e-12 mol and total mass within 2.058e-13 kg",
+        "Bo, Rs, Bg, oil viscosity, and gas viscosity were finite and followed the expected saturated and undersaturated pressure trends",
+        "BlackOilPVTTable recovered every coarse anchor exactly and the held-out coarse-table maximum errors were 0.586 percent for Bo, 7.420 percent for Rs, and 1.071 percent for oil viscosity",
+        "pressure-grid refinement reduced the held-out maximum errors for Bo, Rs, and oil viscosity; refined maximum Rs error was 5.516060 percent",
+        "the independent three-pseudo-component BlackOilFlash mass residual was 2.274e-13 kg and free gas appeared only below bubble pressure",
+        "SRK and Peng-Robinson sensitivity results were finite; their bubble-pressure spread was 1.088 percent",
+        "valid JSON and nbformat, sequential execution counts, retained tables, four PNG figures, one Colab badge, and the single examples-page link were verified",
+        "readability passed with descriptive names, conventional indentation, no magics, wildcard imports, semicolon chains, inline compound bodies, or code lines over 83 characters",
+        "six display equations and 32 inline expressions passed balanced single-backslash Colab syntax; all 38 expressions were rendered through MathJax and visually inspected",
+        "all four retained, unit-labelled engineering figures were extracted from the final execution and visually inspected",
+        "the current NeqSim black-oil, PVT, thermodynamic-model, catalog, badge, Colab, and public PyPI references were checked on 2026-07-22"
+      ],
+      "summary": "Rebuilt the legacy black-oil-versus-compositional sketch as an executed PVT model-reduction tutorial. Removed obsolete Colab magics, duplicate and pinned installs, wildcard imports, semicolon-compressed code, incorrect sample PVT values, unexecuted legacy PVT wrappers, malformed equations, and a stored error. Added a public synthetic SRK oil, explicit differential-liberation bookkeeping, current BlackOilPVTTable and BlackOilFlash APIs, held-out EOS comparison, pressure-grid refinement, independent component and mass closure, EOS sensitivity, limitations, references, exercises, four plots, and focused assertions."
     }
   ]
 }
