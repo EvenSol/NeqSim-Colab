@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-22T18:49:50Z",
+  "updated_at": "2026-07-22T18:55:00Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -3144,6 +3144,42 @@
         "the Colab badge, current NeqSim getting-started, process, and thermodynamics references, PyPI package link, and single relative catalog target were checked"
       ],
       "summary": "Replaced the one-badge/one-setup-cell placeholder and obsolete Colab magic with a self-contained refinery front-end tutorial. Added a synthetic TBP assay, Peng-Robinson pseudo-component characterization, broad boiling-range yields, composable preheater, preflash, furnace, and atmospheric flash-zone calculations, total and component closure, heater energy checks, cut-flow reporting, temperature, pressure, and EOS sensitivities, heat-recovery screening, validation assertions, troubleshooting, limitations, exercises, and authoritative references."
+    },
+    {
+      "path": "notebooks/PVT/pvt_workflow_from_lab_to_simulator.ipynb",
+      "verified_date": "2026-07-22",
+      "verified_at_utc": "2026-07-22T18:55:00Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean Python 3.12 virtual environment with neqsim 3.16.0; all 27 code cells executed sequentially in one shared Python namespace with complete retained outputs after the standard Jupyter TCP/ZMQ kernel path was blocked by the automation sandbox",
+      "code_cells": 27,
+      "markdown_cells": 28,
+      "publication": {
+        "branch": "agent/complete-pvt-workflow-notebook",
+        "mode": "pull request",
+        "notebook_commit": "4ac078b744b7d02397fc1e68f17a1276b412a5d0",
+        "catalog_commit": "b29f80ac9eff8a8d9d0df6bf0429d6fffa5135e9",
+        "ledger_commit": "this ledger update commit"
+      },
+      "key_checks": [
+        "valid nbformat 4.5 JSON with 55 unique cells, sequential execution counts 1-27, complete HTML tables, Markdown report output, three retained figures, and no hidden state",
+        "all 27 code cells executed top to bottom with zero exceptions, error outputs, or stderr",
+        "all 29 focused assay, characterization, phase-behaviour, experiment, regression, separator, reporting, export, and round-trip checks passed",
+        "the 100 mol synthetic assay characterized to 22 SRK components and closed to unity within 1e-12",
+        "the calculated bubble pressure was 193.240934 bara and the synthetic CCE comparison AARD was 0.124950 percent",
+        "the bounded PFCT viscosity regression recovered a hidden factor of 1.30 as 1.300275 and reduced independent viscosity AARD to 0.274892 percent",
+        "the three-stage separator gave total GOR 137.789521 Sm3/Sm3 and Bo 1.429012 rm3/Sm3",
+        "the built-in separator optimizer matched an independently reconstructed grid optimum at 40 bara and 30 degrees Celsius",
+        "the DLE-derived Eclipse black-oil include contained DENSITY, PVTO, PVTG, and PVTW with no NaN or infinity tokens",
+        "the E300 export and import retained all 22 components with maximum composition difference 9.778e-11",
+        "readability passed with descriptive names, conventional indentation, no magics, wildcard imports, semicolon chains, inline compound bodies, or non-URL code lines over 100 characters",
+        "six display equations and seven inline expressions passed balanced single-backslash Colab syntax; all 13 expressions rendered through MathJax 3 SVG and passed visual inspection",
+        "all three retained, unit-labelled figures were extracted from the final execution and visually inspected at original resolution",
+        "the notebook Colab badge and exactly one active catalog entry point to the new notebook path"
+      ],
+      "summary": "Added an output-complete PVT workbook following the NeqSim lab-to-model workflow. It covers sample and assay QC, Pedersen heavy-end characterization, saturation pressure, CCE, DLE, multi-experiment regression packaging, a bounded identifiable viscosity fit, staged separator testing and optimization, auditable Markdown and CSV reporting, a validated DLE-derived black-oil include, E300 export and round trip, hashes, limitations, exercises, and machine-readable results."
     }
   ]
 }
