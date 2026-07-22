@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-22T07:08:20Z",
+  "updated_at": "2026-07-22T09:06:48Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -2804,6 +2804,39 @@
         "the Colab badge, catalog target, PVT guide, thermodynamics recipes, viscosity-model guide, and unique-link preservation were validated"
       ],
       "summary": "Rebuilt the obsolete PVT-report sketch as a self-contained reporting workflow. Added explicit fluid and experiment paths, CCE, differential liberation, viscosity, corrected constant-volume depletion, CO2 swelling, EOS sensitivity, traceable metadata, executive and QC tables, deterministic JSON with SHA-256, CSV round-trip validation, limitations, troubleshooting, references, exercises, and executable acceptance checks."
+    },
+    {
+      "path": "notebooks/PVT/oilassay.ipynb",
+      "verified_date": "2026-07-22",
+      "verified_at_utc": "2026-07-22T09:06:48Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean sequential in-process execution against the latest public PyPI neqsim release already installed with python -m pip install --upgrade --no-cache-dir --target .venv-reservoir-site neqsim; all 17 code cells executed in one shared Python namespace because the automation sandbox blocked standard Jupyter TCP/ZMQ kernel connections",
+      "code_cells": 17,
+      "markdown_cells": 19,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "ledger_commit": "this ledger update commit"
+      },
+      "key_checks": [
+        "the catalog-linked Java and IJava legacy notebook was replaced with an executed Python and Google Colab tutorial and its catalog label was updated while retaining exactly one target link",
+        "valid nbformat 4 JSON with sequential execution counts, stored outputs, and no hidden state",
+        "all 17 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 25 focused assay, conversion, conservation, EOS, numerical, and sensitivity checks passed",
+        "eight pseudo-components reconstructed the 1.000 kg assay with a 2.220e-16 kg residual",
+        "the volume-additive bulk-density benchmark was 859.910968 kg/m3 and PR predicted 834.886871 kg/m3 at 50 degrees Celsius and 10 bara",
+        "density increased monotonically from 834.886871 to 854.352766 kg/m3 over 10 to 300 bara with an apparent compressibility of 8.040e-10 Pa-1",
+        "four volume-preserving cuts reproduced the eight-cut PR density within 0.181136 percent",
+        "uniform API-gravity shifts gave the expected inverse density trend and every scenario retained exact displayed mass closure",
+        "readability passed with descriptive names, conventional indentation, no magics, wildcard imports, semicolon chains, inline compound bodies, or code lines over 96 characters",
+        "six display equations and 21 inline expressions passed balanced single-backslash Colab syntax; all 27 expressions rendered through MathJax and passed visual inspection",
+        "all three retained, unit-labelled engineering figures were extracted from the final execution and visually inspected",
+        "the Colab badge, single catalog link, and current NeqSim PVT, oil-assay source, thermodynamic-model, and API reference links were validated"
+      ],
+      "summary": "Replaced the unexecuted Java and IJava oil-assay sketch, local checkout JAR path, Java semicolons, and unsupported field-specific attribution with a self-contained Python tutorial. Added a transparent synthetic eight-cut assay, API-density conversion, current OilAssayCharacterisation workflow, resolved pseudo-component properties, component and mass audit, volume-additive density benchmark, PR and SRK comparison, pressure response, cut-resolution and API-gravity sensitivities, three figures, limitations, troubleshooting, references, exercises, and executable validation checks."
     }
   ]
 }
