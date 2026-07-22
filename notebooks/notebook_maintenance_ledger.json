@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-22T17:56:00Z",
+  "updated_at": "2026-07-22T18:29:26.225Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -3076,6 +3076,40 @@
         "the Colab badge, single catalog target, PyPI package, and current NeqSim process, recipe, heat-exchanger, and thermodynamic-operation references were checked"
       ],
       "summary": "Replaced the obsolete Colab setup, wildcard imports, embedded video, compressed semicolon code, incomplete execution, and unverified loop with a self-contained propane heat-pump tutorial. Added SRK saturation theory, composable NeqSim equipment, state and phase audits, energy closure, heating COP and Carnot checks, a pressure-enthalpy map, source, sink, and efficiency sensitivities, 1 MW refrigerant and water sizing, transparent seasonal bins, limitations, troubleshooting, exercises, and authoritative references."
+    },
+    {
+      "path": "notebooks/process/distillationoilgas.ipynb",
+      "verified_date": "2026-07-22",
+      "verified_at_utc": "2026-07-22T18:29:26.225Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean Python 3.12 virtual environment with the latest public PyPI neqsim installed using python -m pip install --upgrade --no-cache-dir neqsim; all 19 code cells executed sequentially in one shared Python namespace with complete retained outputs",
+      "code_cells": 19,
+      "markdown_cells": 23,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "ledger_commit": "this ledger update commit"
+      },
+      "key_checks": [
+        "the catalog-linked legacy sketch was rebuilt as a focused natural-gas-liquids deethanizer tutorial while preserving the existing catalog target exactly once",
+        "valid nbformat 4 JSON with sequential execution counts 1-19, complete tables, three retained figures, and no hidden state",
+        "all 19 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 16 focused finite-state, material-balance, stage-profile, recovery, relative-volatility, Fenske, and flash-trend checks passed",
+        "the 10000 kg/h feed split into 3808.597208 kg/h overhead gas and 6191.402792 kg/h NGL bottoms",
+        "mass residual was -2.102e-08 kg/h and the maximum component residual was 1.292e-10 mol/s",
+        "feed-flash C2/C3 relative volatility was 3.183946, the observed separation factor was 11.318498, and the Fenske minimum was 2.095151 stages versus 10 modeled stages",
+        "methane and ethane recovered mainly overhead while propane and n-hexane recovered mainly to the bottoms",
+        "stage temperature and pressure decreased smoothly from the reboiler to the partial condenser",
+        "feed vapor fraction decreased monotonically with pressure and increased monotonically with temperature over the documented sensitivity ranges",
+        "readability passed with descriptive names, conventional indentation, no magics, wildcard imports, semicolon chains, inline compound bodies, or code lines over 91 characters",
+        "seven display equations and nine inline expressions passed balanced single-backslash Colab syntax; all 16 expressions rendered through MathJax and passed visual inspection",
+        "all three retained, unit-labelled engineering figures were extracted from the final execution and visually inspected",
+        "the Colab badge, current NeqSim process and thermodynamics references, and the existing relative catalog path were checked"
+      ],
+      "summary": "Replaced obsolete Colab magics, wildcard imports, embedded video, stale outputs, compressed code, inconsistent water/MEG content, unnormalized legacy feed data, ambiguous internal column setters, and an unstable unvalidated downstream column. Added a normalized synthetic NGL feed, current partial-condenser and reboiler APIs, composable feed conditioning, material and component closure, recovery and stage-profile tables, Fenske screening, pressure and temperature flash sensitivities, validation assertions, plots, troubleshooting, limitations, exercises, and authoritative references."
     }
   ]
 }
