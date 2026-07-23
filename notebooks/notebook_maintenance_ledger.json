@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-23T00:04:32Z",
+  "updated_at": "2026-07-23T00:37:52Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -3348,6 +3348,40 @@
         "Colab badge, single catalog target, current NeqSim documentation, source repository, examples directory, and PyPI release page were validated"
       ],
       "summary": "Rebuilt the topside-process placeholder as an executable screening study for a synthetic offshore well fluid. Added Peng-Robinson fluid definition, connected cooling, high- and low-pressure separation, liquid letdown and conditioning, export compression and cooling, stream and utility tables, total and component balances, equipment energy audits, Souders-Brown separator-capacity screening, operating sensitivities, limitations, troubleshooting, references, and exercises."
+    },
+    {
+      "path": "notebooks/process/simulationTEG.ipynb",
+      "verified_date": "2026-07-23",
+      "verified_at_utc": "2026-07-23T00:37:52.536Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "fresh Python 3.12 virtual environment with the latest public PyPI neqsim installed using python -m pip install --upgrade --no-cache-dir neqsim; all 20 code cells executed sequentially in one isolated shared namespace after final readability formatting",
+      "code_cells": 20,
+      "markdown_cells": 29,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "key_checks": [
+        "replaced the eight-code/nine-Markdown NeqSim 2.5.12 legacy notebook, obsolete Colab magic, wildcard imports, Java-style semicolons, embedded process image, stale outputs, monolithic flow construction, ambiguous pressure units, and missing validation",
+        "valid nbformat 4.5 JSON with execution counts 1 through 20, complete meaningful outputs, three embedded PNG figures, and zero exceptions, error outputs, or stderr",
+        "all 20 focused engineering assertions passed",
+        "current CPA-SRK fluid, Stream, Heater, ThrottlingValve, Separator, Pump, ProcessSystem, and Java-backed SimpleTEGAbsorber APIs executed against normalized synthetic wet gas and lean TEG",
+        "base dry-gas water content was 20.877137 kg/MSm3 and 27.400981 ppm mol, giving 97.193919 percent water removal",
+        "the absorber removed 30.160351 kg/h water at 19.893668 kg lean TEG per kg water removed",
+        "overall mass residual was -3.187e-9 kg/h and maximum component residual was 7.788e-12 mol/s",
+        "valve, reboiler, regeneration flash, cooler, and pump energy residuals were below 1e-3 W; the absorber approximation residual was explicitly quantified and bounded below five percent of reboiler duty",
+        "TEG-circulation, effective-stage, and regeneration-temperature sensitivities were finite, monotonic, and physically interpretable",
+        "readability audit passed with one statement per line, no semicolon chains, wildcard imports, magics, compressed compound bodies, or code lines over 79 characters",
+        "six display equations and 14 inline expressions passed Colab-safe source validation; all 20 expressions rendered through MathJax and passed visual inspection",
+        "all three stored, unit-labelled engineering figures were extracted from the final execution and passed visual inspection",
+        "the Colab badge, single catalog target, current NeqSim documentation, absorber documentation, source repository, and PyPI release page were validated",
+        "the neqsim.process.simpleTEGAbsorber name-only wrapper defect was reproduced; the notebook uses the supported Java-backed class directly and documents the workaround pending the separate library fix"
+      ],
+      "summary": "Rebuilt the TEG-dehydration notebook as an auditable open-loop gas-drying and glycol-regeneration study. Added CPA-SRK wet-gas and aqueous-glycol fluids, current process equipment, explicit SI units and standard-volume basis, water-removal and glycol-purity calculations, total/component/energy audits, circulation-stage-temperature sensitivities, solver interpretation, limitations, troubleshooting, references, and exercises."
     }
   ]
 }
