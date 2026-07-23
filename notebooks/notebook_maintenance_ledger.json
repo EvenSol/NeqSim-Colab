@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-22T23:23:45.398Z",
+  "updated_at": "2026-07-23T00:04:32Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -3314,6 +3314,40 @@
         "the Colab badge, single catalog target, PyPI page, NeqSim documentation, source repository, and NIST propane reference were validated"
       ],
       "summary": "Rebuilt the pure-component operations notebook around an auditable propane case. Added SRK fluid construction, a saturation curve, NIST normal-boiling comparison, Clapeyron consistency check, isenthalpic valve flash, equilibrium separator, vapour compressor and energy audit, independent scenario builders, pressure and temperature sensitivities, engineering assertions, limitations, troubleshooting, references, and exercises."
+    },
+    {
+      "path": "notebooks/process/topsideprocess.ipynb",
+      "verified_date": "2026-07-23",
+      "verified_at_utc": "2026-07-23T00:04:32Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean Python 3.12 virtual environment with the latest public PyPI neqsim installed using python -m pip install --upgrade --no-cache-dir neqsim; all 16 code cells executed sequentially in one isolated shared namespace after final readability and reference-link formatting",
+      "code_cells": 16,
+      "markdown_cells": 25,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "key_checks": [
+        "replaced the six-code/six-Markdown placeholder, obsolete Colab magic, embedded video, duplicate and wildcard imports, commented-out recycles, Java-style semicolons, spelling errors, stale outputs, and missing validation",
+        "valid nbformat 4.5 JSON with execution counts 1 through 16, complete stored outputs, two embedded PNG figures, and zero exceptions, error outputs, or stderr",
+        "all 16 focused engineering checks passed",
+        "current Peng-Robinson fluid, Stream, Heater, Separator, Compressor, ThrottlingValve, and global ProcessSystem wrapper APIs executed on a normalized 13-component synthetic well fluid",
+        "base products were 16128.137278 kg/h export gas, 3323.316888 kg/h flash gas, and 5548.545834 kg/h stabilized oil",
+        "overall mass residual was -5.926e-9 kg/h and maximum component residual was 1.569e-11 mol/s",
+        "compressor power was 261.823017 kW and maximum unit energy residual was 2.529e-7 W",
+        "export gas methane fraction was 0.791734, liquid recovery was 22.194183 percent of feed mass, and the export stream remained single phase",
+        "Souders-Brown screening gave 0.615327 m capacity diameter and 0.707626 m after the stated 15 percent contingency",
+        "inlet-cooling and stabilization-pressure sensitivities were finite, monotonic, and physically interpretable",
+        "readability audit passed with one statement per line, no semicolon chains, wildcard imports, magics, compressed compound bodies, or code lines over 99 characters",
+        "six display equations and 12 inline expressions passed Colab-safe source validation; all 18 expressions rendered through MathJax and passed visual inspection",
+        "both stored, unit-labelled engineering figures passed visual inspection",
+        "Colab badge, single catalog target, current NeqSim documentation, source repository, examples directory, and PyPI release page were validated"
+      ],
+      "summary": "Rebuilt the topside-process placeholder as an executable screening study for a synthetic offshore well fluid. Added Peng-Robinson fluid definition, connected cooling, high- and low-pressure separation, liquid letdown and conditioning, export compression and cooling, stream and utility tables, total and component balances, equipment energy audits, Souders-Brown separator-capacity screening, operating sensitivities, limitations, troubleshooting, references, and exercises."
     }
   ]
 }
