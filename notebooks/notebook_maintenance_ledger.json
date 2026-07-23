@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-23T02:33:57Z",
+  "updated_at": "2026-07-23T02:59:51.674Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -3452,7 +3452,7 @@
       "summary": "Rebuilt the rich-MEG catalog notebook as an auditable gas-flash and vacuum flash-regeneration study. Added CPA theory, explicit SI units and absolute pressures, reusable current process objects, stream and component tables, purity-water-removal-solvent-recovery metrics, total/component/energy audits, three operating sensitivities, an explicit single-flash solvent-loss diagnostic, limitations, troubleshooting, references, and exercises."
     },
     {
-      "path": "notebooks/process/dynamiccompressor.ipynb",
+      "path": "notebooks/process/dynamic_compressor_discharge_volume_control.ipynb",
       "verified_date": "2026-07-23",
       "verified_at_utc": "2026-07-23T02:33:57.639Z",
       "neqsim_version": "3.16.0",
@@ -3483,7 +3483,36 @@
         "all four stored, unit-labelled engineering figures were extracted from the final execution and passed visual inspection",
         "the Colab badge, unique catalog target, current NeqSim documentation, Compressor source, CompressorChart source, source repository, and API Standard 617 reference were validated"
       ],
-      "summary": "Published as a new standalone real-gas compressor, aftercooler, lumped discharge-volume, and PI flow-control example while preserving all richer compressor examples. Corrected Colab equation-block spacing, re-executed every code cell, re-rendered all equations, and revalidated dynamics, inventory, energy, figures, links, and catalog uniqueness."
+      "summary": "Retained the validated current real-gas compressor, aftercooler, lumped discharge-volume, and PI flow-control tutorial under a dedicated path so the historical five-scenario dynamic-compressor workbook could be restored without deleting either example."
+    },
+    {
+      "path": "notebooks/process/dynamiccompressor.ipynb",
+      "verified_date": "2026-07-23",
+      "verified_at_utc": "2026-07-23T02:59:51.674Z",
+      "neqsim_version": "legacy snapshot; current API compatibility not claimed",
+      "python_version": "legacy snapshot",
+      "java_version": "legacy snapshot",
+      "execution_status": "restored_exact_historical_snapshot",
+      "execution_method": "Exact Git blob restored from preserved repository branches; intentionally not rewritten or re-executed so the original five-scenario teaching workbook, outputs, and context remain unchanged.",
+      "code_cells": 10,
+      "markdown_cells": 9,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "source_blob": "1aa423713046d44c5645ac1bd09c801104cfa0af",
+        "source_branch": "codex/lag-eksempel-i-google-colab",
+        "commit": "this atomic commit"
+      },
+      "key_checks": [
+        "recovered identical 333767-byte notebook content from multiple preserved branches",
+        "valid JSON and nbformat 4.0 with 19 cells",
+        "restored the exact historical blob at notebooks/process/dynamiccompressor.ipynb",
+        "preserved all five original scenarios: speed response, pressure control, anti-surge control, combined control, and depressurization/startup",
+        "retained the current validated discharge-volume and PI-control tutorial at a distinct path",
+        "catalog contains each dynamic-compressor notebook link exactly once",
+        "historical outputs include one obsolete processSimulation API error; retained unchanged because the requested artifact is an exact restoration"
+      ],
+      "summary": "Restored the original dynamic-compressor workbook exactly as preserved in historical branches. The legacy notebook retains its five scenarios, plots, outputs, prose, and historical API usage; the newer validated tutorial remains available separately."
     }
   ]
 }
