@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-23T02:59:51.674Z",
+  "updated_at": "2026-07-23T03:29:06.009Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -3488,31 +3488,39 @@
     {
       "path": "notebooks/process/dynamiccompressor.ipynb",
       "verified_date": "2026-07-23",
-      "verified_at_utc": "2026-07-23T02:59:51.674Z",
-      "neqsim_version": "legacy snapshot; current API compatibility not claimed",
-      "python_version": "legacy snapshot",
-      "java_version": "legacy snapshot",
-      "execution_status": "restored_exact_historical_snapshot",
-      "execution_method": "Exact Git blob restored from preserved repository branches; intentionally not rewritten or re-executed so the original five-scenario teaching workbook, outputs, and context remain unchanged.",
-      "code_cells": 10,
-      "markdown_cells": 9,
+      "verified_at_utc": "2026-07-23T03:29:06.009Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean sequential in-process execution in the existing isolated Python 3.12 environment created with python -m pip install --upgrade --no-cache-dir neqsim; all 27 code cells executed in order after final readability and Markdown corrections",
+      "code_cells": 27,
+      "markdown_cells": 36,
       "publication": {
         "branch": "master",
         "mode": "atomic direct-to-default-branch commit",
-        "source_blob": "1aa423713046d44c5645ac1bd09c801104cfa0af",
-        "source_branch": "codex/lag-eksempel-i-google-colab",
         "commit": "this atomic commit"
       },
       "key_checks": [
-        "recovered identical 333767-byte notebook content from multiple preserved branches",
-        "valid JSON and nbformat 4.0 with 19 cells",
-        "restored the exact historical blob at notebooks/process/dynamiccompressor.ipynb",
-        "preserved all five original scenarios: speed response, pressure control, anti-surge control, combined control, and depressurization/startup",
-        "retained the current validated discharge-volume and PI-control tutorial at a distinct path",
-        "catalog contains each dynamic-compressor notebook link exactly once",
-        "historical outputs include one obsolete processSimulation API error; retained unchanged because the requested artifact is an exact restoration"
+        "preserved all five original topics: speed increase, pressure control, anti-surge recycle, combined pressure and anti-surge control, and shutdown/depressurization/startup",
+        "replaced removed processSimulation classes, obsolete magics, semicolon-compressed code, stale outputs, mutable-state assumptions, and incorrect plot units with current APIs and explicit balances",
+        "valid nbformat 4 JSON with execution counts 1 through 27, meaningful stored outputs, six PNG figures, and zero exceptions, error outputs, or stderr",
+        "all 12 focused engineering checks passed against public PyPI NeqSim 3.16.0",
+        "current SRK fluid, Stream, Compressor, and ProcessSystem APIs executed for the synthetic dry natural gas",
+        "base compressor power was 29.377248 kW, discharge temperature was 123.581055 degC, and enthalpy-rate energy residual was 0 W",
+        "ten representative start/final compressor states were finite, required positive power, and closed energy within 1e-3 W",
+        "all five total-boundary mass residuals were below 7.4e-13 kg in magnitude",
+        "scenario 1 applied the 3000-to-3200 rpm step and ended at 100.267396 bara with 19.884678 percent illustrative surge margin",
+        "scenario 2 exposed the 1000 rpm lower-speed limit and ended at 92.436455 bara for an infeasible 90 bara target",
+        "scenario 3 opened recycle to 76.664435 percent and recovered to 25.907183 percent illustrative surge margin",
+        "scenario 4 reached 4500 rpm and 80.290813 percent recycle while retaining 18.794025 percent final illustrative surge margin",
+        "scenario 5 depressurized and restarted with bounded actuators, ending at 95.687456 bara and 17.940060 percent illustrative surge margin",
+        "readability passed with one statement per line, no semicolon chains, lambda expressions, magics, wildcard imports, inline compound bodies, or code lines over 79 characters",
+        "all 9 display equations and 22 inline expressions used Colab-compatible delimiters, rendered through MathJax, and passed visual inspection",
+        "all six unit-labelled engineering figures passed visual inspection",
+        "Colab badge, current official NeqSim and PyPI references, API digital catalog, and both unique dynamic-compressor catalog links were validated"
       ],
-      "summary": "Restored the original dynamic-compressor workbook exactly as preserved in historical branches. The legacy notebook retains its five scenarios, plots, outputs, prose, and historical API usage; the newer validated tutorial remains available separately."
+      "summary": "Modernized the restored historical workbook without deleting its five scenarios or the separate PI tutorial. Added current NeqSim thermodynamics, explicit real-gas two-volume balances, bounded pressure and anti-surge controllers, clean shutdown/startup logic, scenario interpretation, engineering audits, limitations, troubleshooting, references, exercises, and fully rendered equations."
     }
   ]
 }
