@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-23T07:06:18Z",
+  "updated_at": "2026-07-23T07:37:46Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -3811,6 +3811,63 @@
         "catalog target occurs exactly once and all introduced links were checked"
       ],
       "summary": "Replaced the four-Markdown-cell placeholder with a dated, source-qualified World Energy Outlook tutorial. Preserved all five original themes and added reproducible IEA evidence, explicit scenario semantics, LNG capacity-versus-supply analysis, real NeqSim gas-quality and process functionality, conservation checks, sensitivities, emissions boundaries, limitations, troubleshooting, exercises, references, and eight technical figures."
+    },
+    {
+      "path": "notebooks/process/MultiphaseflowMeasurement.ipynb",
+      "verified_date": "2026-07-23",
+      "verified_at_utc": "2026-07-23T07:37:46Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean sequential in-process execution in the isolated Python 3.12 environment created with python -m pip install --upgrade --no-cache-dir neqsim; all 21 code cells executed in order after the final readability, equation-rendering, and visual corrections",
+      "code_cells": 21,
+      "markdown_cells": 22,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "pre_existing_examples_preserved": 8,
+      "preservation_note": "Preserved and integrated all eight substantive legacy example groups: MPFM definition; continuity, differential-pressure, gamma, EIT, GVF, and OWR theory; public handbook and webinar; original C10+ composition and synthetic CME evidence; characterized-fluid separator and standard GOR calculations; CME simulation; the formerly unfinished tuning section; the original 5-by-5 property table and post-characterization composition update.",
+      "neqsim_capabilities_demonstrated": [
+        "fluid_df heavy-end characterization with lastIsPlusFraction and PR-EOS model assignment",
+        "TPflash, phase identification, and initialized density, viscosity, surface tension, and phase composition",
+        "separator-condition and standard-condition gas-oil-ratio calculations",
+        "bounded C10+ composition tuning against the preserved separator GOR",
+        "direct ConstantMassExpansion PVT simulation and retrieval of saturation pressure and result vectors",
+        "phase-aware 5-by-5 pressure-temperature property-table generation",
+        "setMolarComposition composition-update workflow with regenerated phase-property tables",
+        "Orifice.calculateMassFlowRate differential-pressure sizing and an Orifice inside ProcessSystem"
+      ],
+      "practical_application": "A reusable gas-leg differential-pressure metering workflow extracts the gas phase from the characterized multiphase fluid, creates a stable single-phase PR gas-leg model, calculates orifice mass flow and permanent pressure loss, then cross-checks the equipment inside a NeqSim ProcessSystem over pressure-ratio sensitivities.",
+      "retained_figures": {
+        "count": 7,
+        "purposes": [
+          "evidence-to-rate MPFM workflow overview",
+          "preserved synthetic constant-mass-expansion evidence",
+          "bounded C10+ tuning convergence to separator GOR",
+          "CME reference versus default and tuned NeqSim fluids",
+          "phase-aware gas and oil density maps over the original 5-by-5 grid",
+          "preserved post-characterization composition update",
+          "gas-leg orifice response and application operating point"
+        ],
+        "visual_inspection": "passed; titles, axes, units, legends, accessible colors, clipping, overlap, and scales were checked"
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 21 executed code cells, 22 Markdown cells, meaningful stored outputs, and zero exceptions, error outputs, or stderr",
+        "all eight substantive pre-existing example groups were preserved, repaired, documented, and integrated",
+        "all 18 focused composition, PVT, tuning, phase-property, metering, and process checks passed",
+        "tuned C10+ multiplier was 0.803026213 and tuned separator GOR was 58959.000008 Sm3/m3 with a 7.633163e-06 Sm3/m3 residual",
+        "default and tuned CME saturation pressures were 368.2863 and 357.2890 bara",
+        "gas-leg density was 71.027849 kg/m3 and calculated orifice mass flow was 9.498547 kg/s",
+        "readability passed with no semicolon chains, wildcard imports, obsolete magics, compressed compound bodies, or code lines over 85 characters",
+        "seven display equations and 15 inline expressions use Colab-safe delimiters and single-backslash LaTeX",
+        "all seven equations rendered through a Jupyter-compatible MathJax path and passed visual inspection for fractions, subscripts, superscripts, Greek symbols, and units",
+        "all seven retained technical figures passed visual inspection",
+        "the Colab badge and all introduced references were checked, and the target occurs exactly once in the front-page catalog"
+      ],
+      "summary": "Modernized the legacy multiphase-flow-measurement workbook without deleting examples. Replaced NeqSim 2.5.35 setup, wildcard imports, obsolete magics, malformed equations, compressed code, stale outputs, an ignored model-return value, and unfinished tuning. Added current characterization, CME, GOR tuning, phase-aware tables, engineering checks, metering interpretation, limitations, troubleshooting, references, exercises, and a complete NeqSim gas-leg orifice application."
     }
   ]
 }
