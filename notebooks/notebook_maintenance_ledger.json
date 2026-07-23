@@ -3622,6 +3622,61 @@
         "the Colab badge, unique front-page catalog link, current official NeqSim and process documentation, PyPI package, repository, and Separator source references were validated"
       ],
       "summary": "Rebuilt the dynamic separator example as a transparent level-control tutorial. Added a current NeqSim valve-and-separator flash, total and component balances, exact horizontal-cylinder inventory geometry, a bounded PI controller with anti-windup, controller and feed-step comparisons, plots, limitations, troubleshooting, references, and exercises while preserving the original functional topic."
+    },
+    {
+      "path": "notebooks/gasvaluechain/EneregyTransition.ipynb",
+      "verified_date": "2026-07-23",
+      "verified_at_utc": "2026-07-23T06:02:50.396Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean sequential in-process execution in the isolated Python 3.12 environment created with python -m pip install --upgrade --no-cache-dir neqsim; all 21 code cells executed in order after the final readability, data-provenance, and Markdown corrections",
+      "code_cells": 21,
+      "markdown_cells": 32,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "pre_existing_examples_preserved": 0,
+      "preservation_note": "The catalog target was a zero-byte file and contained no examples to preserve. The two adjacent statistics notebooks and all unrelated catalog links were retained unchanged.",
+      "neqsim_capabilities_demonstrated": [
+        "SRK natural-gas thermodynamic system and TP flash",
+        "ISO 6976 mass-basis LHV, HHV, and relative-density calculation",
+        "named streams with explicit mass flow, temperature, and pressure",
+        "three current compressor objects with isentropic efficiency",
+        "three current heater objects used as intercoolers",
+        "composable process execution with equipment-result retrieval",
+        "stream-enthalpy versus shaft-power energy closure"
+      ],
+      "practical_application": "A reusable natural-gas transition screen connects a dated IEA evidence snapshot to composition-specific fuel quality, three-stage 5-to-80 bara compression, direct carbon accounting, methane intensity, electricity efficiency, and carbon-capture sensitivities.",
+      "retained_figures": [
+        "near-term demand-growth and 2030 outlook comparison",
+        "WEO 2025 scenario warming outcomes",
+        "methane- and flaring-reduction gas-recovery potentials",
+        "evidence-to-NeqSim-to-decision workflow overview",
+        "NeqSim compression-stage power and temperature results",
+        "methane-intensity and carbon-capture lifecycle sensitivity"
+      ],
+      "key_checks": [
+        "replaced the zero-byte catalog target with valid nbformat 4 JSON",
+        "embedded current public IEA 2025–2026 evidence with definitions, source URLs, status labels, update date, and CC BY 4.0 provenance",
+        "kept forecasts, scenarios, observations, and transparent screening assumptions separate and did not invent WEO gas-demand volumes",
+        "all 21 code cells have execution counts 1 through 21, meaningful stored outputs, and zero exceptions, error outputs, or stderr",
+        "all 24 focused statistical, thermodynamic, process, energy, trend, and lifecycle assertions passed",
+        "the normalized synthetic gas LHV was 46.842412 MJ/kg and direct combustion factor was 56.357459 kg CO2/GJ LHV",
+        "three-stage compression required 2727.993210 kW for 5 kg/s from 5 to 80 bara, or 0.151555 kWh/kg",
+        "maximum compressor enthalpy-rate energy residual was 0 W",
+        "the boundary-limited 1.0% methane, unabated screen was 412.643505 kg CO2e/MWh net at 55% LHV efficiency",
+        "readability passed with one statement per line, no semicolon chains, wildcard imports, magics, compressed compound bodies, or code lines over 92 characters",
+        "six display equations and 17 inline expressions use Colab-safe delimiters and single-backslash LaTeX commands",
+        "all six display equations rendered through MathJax and passed visual inspection for fractions, subscripts, superscripts, and symbols",
+        "all six retained, unit-labelled technical figures passed visual inspection for readable labels, legends, scales, and clipping",
+        "the Colab badge, IEA, IPCC, NeqSim documentation, ISO 6976, and PyPI links were validated",
+        "the updated target is linked exactly once in the catalog; the other two Natural Gas Statistics notebooks remain linked exactly once"
+      ],
+      "summary": "Implemented the empty Natural Gas in the Energy Transition page as a current evidence-to-engineering tutorial. It combines IEA WEO 2025, Gas 2025, GER 2026, GMR Q1-2026, and GMT 2026 with a real NeqSim gas-quality and multi-stage compression application, explicit lifecycle boundaries, methane and capture sensitivities, validation, limitations, troubleshooting, references, and exercises."
     }
   ]
 }
