@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-23T13:07:45Z",
+  "updated_at": "2026-07-23T13:46:29Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -4447,6 +4447,75 @@
         "the catalog description was updated and its target path occurs exactly once"
       ],
       "summary": "Expanded the placeholder digital-twin notebook into a current, self-contained NeqSim compressor tutorial without deleting examples or figures. Added explicit model boundaries, fresh process construction, residual diagnostics, train/validation calibration, native parameter estimation, sensitivity analysis, 24-hour monitoring, conservation audits, troubleshooting, limitations, references, exercises, rendered equations, and seven inspected figures."
+    },
+    {
+      "path": "notebooks/process/TEGdehydration.ipynb",
+      "verified_date": "2026-07-23",
+      "verified_at_utc": "2026-07-23T13:46:29Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean sequential in-process execution in an isolated Python 3.12 environment created with python -m pip install --upgrade --no-cache-dir neqsim; all 28 code cells executed in order after final readability, equation-rendering, link, preservation, numerical, and visual checks",
+      "code_cells": 28,
+      "markdown_cells": 32,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "pre_existing_examples_preserved": 5,
+      "preservation_note": "Preserved and integrated all five substantive legacy examples: the public Kimray introductory TEG-dehydration video; the exact 13-component water-rich gas at 70 bara and 40 degrees Celsius; the methane-water-98.7 wt% TEG equilibrium case; Campbell Example 18.3 for a 1 MSm3/day gas, 117 kg/MSm3 target, and 1.5 theoretical stages; and the 1 bara, 204 degrees Celsius regeneration-water-activity case. Obsolete magics, wildcard imports, ambiguous dew-point labeling, dense expressions, and the SciPy-only scalar solve were repaired without removing useful content.",
+      "pre_existing_figures_preserved": 0,
+      "figure_preservation_note": "The legacy notebook had no reproducible technical plots. Its externally hosted Kimray video was preserved with its YouTube identifier and 23 July 2026 access date. Seven new technical figures were added; no prior figure was removed or replaced.",
+      "neqsim_capabilities_demonstrated": [
+        "SystemSrkCPAstatoil water-TEG-hydrocarbon fluids with CPA mixing rule 10, multiphase TP flashes, phase extraction, physical-property initialization, water dew-point flashes, hydrate-equilibrium calculations, and water activity coefficients",
+        "named Stream, SimpleTEGAbsorber, and ProcessSystem objects assembled into a reusable dehydration contactor workflow",
+        "current SimpleTEGAbsorber stage count and efficiency, NTU, dry-gas and rich-TEG product retrieval, Fs-factor capacity, minimum-diameter, utilization, and design-validation APIs",
+        "independent NeqSim cases for lean-TEG purity, circulation, regeneration temperature, pressure, and contactor-diameter sensitivities",
+        "total mass, per-component mass, enthalpy-rate, physical-trend, capacity, preservation, and deterministic JSON-snapshot validation"
+      ],
+      "practical_application": "A reusable end-to-end TEG contactor application builds compatible wet-gas and lean-TEG streams, configures six actual stages at 0.25 efficiency and a 1.2 m diameter, executes the ProcessSystem, retrieves dry gas and rich TEG, validates capacity and balances, varies seven circulation rates and eleven diameters with fresh objects, and exports a governed JSON result snapshot.",
+      "retained_figures": {
+        "count": 7,
+        "previous_count": 0,
+        "new_count": 7,
+        "numerically_refreshed_previous_count": 0,
+        "purposes": [
+          "NeqSim TEG-dehydration object and validation workflow",
+          "SRK-CPA lean-TEG purity sensitivity for equilibrium gas water and aqueous water activity",
+          "Campbell theoretical-stage and target-water circulation screening",
+          "SRK-CPA regeneration-temperature sensitivity for activity coefficient and aqueous density",
+          "SimpleTEGAbsorber circulation sensitivity for dry-gas water loading and dew point",
+          "contactor-diameter Fs-factor utilization and minimum-diameter capacity screen",
+          "wet-feed versus dry-product water loading, water dew point, and hydrate-equilibrium comparison"
+        ],
+        "visual_inspection": "passed; all seven stored figures were extracted and checked at original resolution for descriptive titles, readable labels, explicit units, legends where applicable, accessible colors, clipping, overlap, scales, and consistency with tables and nearby engineering interpretation"
+      },
+      "external_visuals": {
+        "count": 1,
+        "preserved_count": 1,
+        "provenance": "Public Kimray introductory TEG-dehydration video embedded from YouTube identifier HDBUS_ebFHQ; accessed 23 July 2026 and explicitly distinguished from NeqSim-calculated results."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 28 code cells and 32 Markdown cells",
+        "all 28 code cells executed sequentially with execution counts 1 through 28, meaningful stored outputs, zero exceptions, zero error outputs, and zero stderr",
+        "all 31 composition, phase, trend, preserved-result, contactor, mass, component, enthalpy-rate, capacity, and reporting assertions passed",
+        "all five substantive pre-existing examples and the one externally sourced video were preserved, repaired, documented, and integrated; no previous technical plots existed",
+        "wet-gas water loading was 986.201322 kg/MSm3, water dew point was 39.974593 degrees Celsius, and hydrate equilibrium was 19.542195 degrees Celsius",
+        "98.7 wt% lean-TEG equilibrium gave 81.341780 micromol/mol water, 61.975280 kg/MSm3 water loading, and a 0.659176 aqueous water activity coefficient",
+        "the refreshed Campbell screen gave absorption factor 7.312899, 1683.619192 kg/h TEG solution, and 36.701479 L/kg water using the exact current gas constant",
+        "the preserved regeneration case gave a 0.774557 water activity coefficient at 1 bara and 204 degrees Celsius",
+        "the base SimpleTEGAbsorber produced 106.385380 kg/MSm3 dry-gas water, 1.505038 degrees Celsius water dew point, 4.779692 degrees Celsius hydrate equilibrium, 3.249766 NTU, 36.189458 percent Fs utilization, and a 0.721892 m minimum diameter",
+        "base total mass residual was -0.194392 kg/h, relative mass residual was -5.286732e-6, maximum component residual was 0.223077 kg/h, and relative enthalpy-rate residual was -0.005293",
+        "readability passed with one statement per line, conventional indentation, no semicolons, wildcard imports, compressed compound bodies, shell magics, or code lines over 83 characters",
+        "five display equations and 15 inline expressions use Colab-safe delimiters and single-backslash LaTeX",
+        "all five display equations rendered through a Jupyter-compatible MathJax path and passed visual inspection",
+        "all seven stored technical figures passed visual and numerical inspection after the workflow diagram was widened to remove text clipping",
+        "the Colab badge, current official NeqSim TEG, absorber, process, thermodynamic-model, and PyPI references were checked",
+        "the existing catalog path notebooks/process/TEGdehydration.ipynb remained linked exactly once"
+      ],
+      "summary": "Modernized the legacy TEG-dehydration notebook without deleting examples or visuals. Replaced obsolete setup, wildcard helpers, ambiguous hydrate/dew-point terminology, a SciPy-only root solve, and sparse validation with current SRK-CPA thermodynamics, composable process equipment, preserved Campbell and regeneration studies, capacity screening, balances, sensitivities, rendered equations, seven inspected figures, limitations, troubleshooting, references, and exercises."
     }
   ]
 }
