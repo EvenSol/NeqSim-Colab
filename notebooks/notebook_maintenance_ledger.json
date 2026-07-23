@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-23T02:07:24Z",
+  "updated_at": "2026-07-23T02:33:57Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -3454,12 +3454,12 @@
     {
       "path": "notebooks/process/dynamiccompressor.ipynb",
       "verified_date": "2026-07-23",
-      "verified_at_utc": "2026-07-23T02:07:24.722Z",
+      "verified_at_utc": "2026-07-23T02:33:57.639Z",
       "neqsim_version": "3.16.0",
       "python_version": "3.12.13",
       "java_version": "openjdk 17.0.19",
       "execution_status": "passed",
-      "execution_method": "fresh Python 3.12 virtual environment with latest public PyPI neqsim installed using python -m pip install --upgrade --no-cache-dir neqsim; all 18 code cells executed sequentially in one isolated shared namespace after final readability formatting",
+      "execution_method": "fresh Python 3.12 virtual environment with the latest public PyPI NeqSim 3.16.0 previously installed using python -m pip install --upgrade --no-cache-dir neqsim; all 18 code cells re-executed sequentially in one isolated shared namespace after the final Markdown and readability correction",
       "code_cells": 18,
       "markdown_cells": 29,
       "publication": {
@@ -3468,22 +3468,22 @@
         "commit": "this atomic commit"
       },
       "key_checks": [
-        "replaced the zero-byte catalog target with a complete self-contained dynamic-compression notebook",
+        "corrected all 10 display-equation blocks by removing blank lines inside the standalone dollar delimiters while retaining blank lines around each block for Google Colab Markdown",
+        "kept every LaTeX command single-backslashed, retained balanced inline delimiters, and confirmed absence of obsolete delimiters, double escaping, code-span equations, and HTML-table equations",
+        "all 33 expressions rendered through the Jupyter-compatible MathJax path after the final source correction and passed visual inspection for fractions, subscripts, superscripts, integrals, symbols, and units",
+        "explicitly identified this notebook as a new standalone transient example that complements rather than replaces the existing compressor, compressor-map, turboexpander, and gas-compression-train notebooks",
+        "verified the catalog still contains unique links to GasCompressors.ipynb, TurboExpanderCompressor_Example.ipynb, compressor_curves_and_compressor_calculations.ipynb, and GasCompressorTrain.ipynb",
         "valid nbformat 4.5 JSON with execution counts 1 through 18, meaningful outputs, four embedded PNG figures, and zero exceptions, error outputs, or stderr",
-        "all 22 focused engineering assertions passed",
+        "all 22 focused engineering assertions passed after the Markdown change",
         "current SRK fluid, Stream, Compressor, Heater, and ProcessSystem APIs executed against normalized synthetic natural gas",
         "base compressor power was 381.590877 kW, discharge temperature was 65.137081 degC, and compressor and aftercooler energy residuals were zero within stored precision",
-        "a 100 m3 isothermal lumped discharge volume used NeqSim Z, density, molar mass, compressor power, and temperature at every two-second time step",
         "after the valve closure, PI peak pressure was 55.478663 bara, final pressure was 55.347182 bara, and minimum illustrative surge margin was 32.209605 percent",
-        "PI peak pressure was below P-only and open-loop peaks; the open-loop peak was 56.790304 bara",
         "EOS-versus-integrated final inventory residual was 2.818557 kg, or 6.38e-4 relative",
         "readability audit passed with one statement per line, no semicolon chains, wildcard imports, magics, compressed compound bodies, or code lines over 81 characters",
-        "10 display equations and 23 inline expressions passed Colab-safe source validation; all 33 expressions rendered through MathJax and passed visual inspection",
         "all four stored, unit-labelled engineering figures were extracted from the final execution and passed visual inspection",
-        "the Colab badge, unique catalog target, current NeqSim documentation, Compressor source, CompressorChart source, source repository, and API Standard 617 reference were validated",
-        "synthetic efficiency, valve, and surge relationships are explicitly identified as educational assumptions rather than vendor data or certified anti-surge design"
+        "the Colab badge, unique catalog target, current NeqSim documentation, Compressor source, CompressorChart source, source repository, and API Standard 617 reference were validated"
       ],
-      "summary": "Implemented the missing dynamic-compressor page as a reproducible real-gas compressor, aftercooler, lumped discharge-volume, and PI flow-control study. Added SRK and compressor theory, explicit SI units and absolute pressures, clean current APIs, local operating-point screening, transient pressure and inventory balances, controller comparison, numerical and energy checks, limitations, troubleshooting, references, and exercises."
+      "summary": "Published as a new standalone real-gas compressor, aftercooler, lumped discharge-volume, and PI flow-control example while preserving all richer compressor examples. Corrected Colab equation-block spacing, re-executed every code cell, re-rendered all equations, and revalidated dynamics, inventory, energy, figures, links, and catalog uniqueness."
     }
   ]
 }
