@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-23T04:20:28.289Z",
+  "updated_at": "2026-07-23T04:53:00.619Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -3553,6 +3553,41 @@
         "the existing unique front-page catalog link and Colab badge were preserved and the official ISO 6976, NeqSim documentation, PyPI, and source references were checked"
       ],
       "summary": "Rebuilt the natural-gas calorific-value example as an auditable ISO 6976 tutorial. Added explicit reference conditions and units, gross/net and mass/volume bases, Wobbe verification, elemental stoichiometry, combustion carbon factors, inert and richness sensitivities, reference-temperature effects, plots, engineering assertions, limitations, troubleshooting, references, and exercises."
+    },
+    {
+      "path": "notebooks/power/combined_cycle_power_plant.ipynb",
+      "verified_date": "2026-07-23",
+      "verified_at_utc": "2026-07-23T04:53:00.619Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean sequential in-process execution in the isolated Python 3.12 environment created with python -m pip install --upgrade --no-cache-dir neqsim; all 22 code cells executed in order after final readability and Markdown formatting",
+      "code_cells": 22,
+      "markdown_cells": 36,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "key_checks": [
+        "implemented the previously unlinked Combined cycle process catalog entry as a new notebook without changing or deleting the existing gas-fired, ammonia, compressor, or expander examples",
+        "valid nbformat 4 JSON with execution counts 1 through 22, meaningful stored outputs, two PNG figures, and zero exceptions, error outputs, or stderr",
+        "all 19 focused engineering assertions passed against the public PyPI NeqSim 3.16.0 release",
+        "current SRK gas systems, SRK-CPA water system, ISO 6976, TP/PS/PH flashes, Stream, Compressor, Expander, and ProcessSystem APIs executed for a normalized synthetic natural gas",
+        "fuel LHV was 46.051771 MJ/kg and the atom-balanced combustor used 2.595056 kg/s fuel for 100 kg/s dry air",
+        "gas-cycle, steam-cycle, and combined net electric powers were 40.714009, 17.487620, and 58.201629 MW",
+        "combined-cycle efficiency was 48.701469 percent LHV and direct carbon intensity was 420.203 kg CO2/MWh",
+        "the HRSG generated 16.364011 kg/s steam at 100 bara and 723.15 K; steam-turbine exhaust quality was 0.821697",
+        "gas mass, carbon, combustor energy, HRSG energy, Rankine energy, phase-fraction, and manual-versus-process-object checks closed within their documented tolerances",
+        "steam-pressure sensitivity explicitly flagged the 140 bara case below the illustrative 0.80 exhaust-quality screen instead of hiding the moisture limitation",
+        "gas-compressor pressure-ratio sensitivity remained finite and all selected cases retained more than the 30 K minimum hot-end temperature approach",
+        "readability passed with one statement per line, no semicolon chains, wildcard imports, magics, compressed compound bodies, or code lines over 85 characters",
+        "seven display equations and eight inline expressions used Colab-safe delimiters, rendered through MathJax, and passed visual inspection",
+        "both stored, unit-labelled engineering figures were extracted from the final execution and passed visual inspection",
+        "the Colab badge, unique catalog target, current NeqSim documentation, PyPI package, source repository, ISO 6976, and thermodynamics references were validated"
+      ],
+      "summary": "Added a self-contained combined-cycle power-plant screen that couples an atom-balanced SRK Brayton gas turbine to a single-pressure HRSG and an SRK-CPA Rankine water/steam cycle. Added explicit governing equations, SI units, process-equipment cross-checks, conservation audits, steam-quality and temperature-approach limits, two operating sensitivities, plots, limitations, troubleshooting, references, and exercises while preserving all existing functional examples."
     }
   ]
 }
