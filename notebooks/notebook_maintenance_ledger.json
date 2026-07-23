@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-23T00:37:52Z",
+  "updated_at": "2026-07-23T01:04:30Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -3382,6 +3382,40 @@
         "the neqsim.process.simpleTEGAbsorber name-only wrapper defect was reproduced; the notebook uses the supported Java-backed class directly and documents the workaround pending the separate library fix"
       ],
       "summary": "Rebuilt the TEG-dehydration notebook as an auditable open-loop gas-drying and glycol-regeneration study. Added CPA-SRK wet-gas and aqueous-glycol fluids, current process equipment, explicit SI units and standard-volume basis, water-removal and glycol-purity calculations, total/component/energy audits, circulation-stage-temperature sensitivities, solver interpretation, limitations, troubleshooting, references, and exercises."
+    },
+    {
+      "path": "notebooks/process/Simulationofanoilstabilizationprocess.ipynb",
+      "verified_date": "2026-07-23",
+      "verified_at_utc": "2026-07-23T01:04:30.995Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "fresh Python 3.12 virtual environment with latest public PyPI neqsim installed using python -m pip install --upgrade --no-cache-dir neqsim; all 18 code cells executed sequentially in one isolated shared namespace after final readability formatting",
+      "code_cells": 18,
+      "markdown_cells": 23,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "key_checks": [
+        "replaced the 10-code/eight-Markdown legacy notebook, incomplete execution, obsolete Colab magics, wildcard imports, semicolon-compressed statements, monolithic flowsheet, local-file save, ambiguous pressure units, duplicated imports, and unverified equipment sizing",
+        "valid nbformat 4.5 JSON with execution counts 1 through 18, complete meaningful outputs, two embedded PNG figures, and zero exceptions, error outputs, or stderr",
+        "all 24 focused engineering checks passed",
+        "current Peng-Robinson fluid, defined-component and TBP pseudo-component characterization, Stream, Heater, ThrottlingValve, Separator, Pump, and ProcessSystem APIs executed against a normalized 17-component synthetic reservoir fluid",
+        "base products were 7330.608292 kg/h HP gas, 7993.994511 kg/h stage-two gas, 3545.527387 kg/h stage-three gas, and 81129.869809 kg/h stabilized oil",
+        "overall mass residual was 1.979e-8 kg/h and maximum component residual was 1.013e-10 mol/s",
+        "maximum unit energy residual was 5.922e-4 W; heater, valve, separator, and pump sign conventions were independently audited",
+        "oil mass recovery was 81.129870 percent, stabilized-oil density was 753.482232 kg/m3, and TVP at 37.8 degC was 1.091297 bara",
+        "HP separator screening gave 0.441601 m capacity diameter and 0.507841 m after the stated 15 percent contingency",
+        "intermediate-pressure, oil-heater-temperature, and final-separator-pressure sensitivities were finite and physically interpreted; heater and final-pressure limiting trends were monotonic",
+        "readability audit passed with one statement per line, no semicolon chains, wildcard imports, magics, compressed compound bodies, or code lines over 89 characters",
+        "five display equations and 17 inline expressions passed Colab-safe source validation; all 22 expressions rendered through MathJax and passed visual inspection",
+        "both stored, unit-labelled engineering figures were extracted from the final execution and passed visual inspection",
+        "the Colab badge, updated single catalog target, NeqSim documentation source paths, source repository, and DOI reference were validated"
+      ],
+      "summary": "Rebuilt the oil-stabilization catalog page as an executable three-stage flash study for a synthetic reservoir fluid. Added Peng-Robinson and flash theory, explicit SI units and absolute pressures, TBP characterization, reusable process construction, stream and composition audits, total/component/energy closure, oil recovery and TVP interpretation, HP separator capacity screening, three operating sensitivities, limitations, troubleshooting, references, and exercises."
     }
   ]
 }
