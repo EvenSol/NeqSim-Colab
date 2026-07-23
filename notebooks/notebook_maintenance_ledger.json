@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-23T10:10:18Z",
+  "updated_at": "2026-07-23T11:07:45Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -4124,6 +4124,71 @@
         "the Colab badge, current official NeqSim documentation, process docs, PyPI release, and catalog path were checked"
       ],
       "summary": "Replaced the placeholder-grade flow-assurance screen with a current, fully executable NeqSim tutorial while preserving every legacy example and visual. The notebook now separates mechanism-specific fluid models, calculates real hydrate, ISO 18453 water-dew-point, and Pedersen wax thresholds, maps profile risk, integrates a hydrate analyser into ProcessSystem, verifies hydrate phase formation, sizes MEG, compares mitigation, validates trends and closure, and documents limitations, troubleshooting, exercises, and references."
+    },
+    {
+      "path": "notebooks/process/co2_chain_from_compression_to_pipeline.ipynb",
+      "verified_date": "2026-07-23",
+      "verified_at_utc": "2026-07-23T11:07:45Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean sequential in-process execution in an isolated Python 3.12 environment created with python -m pip install --upgrade --no-cache-dir neqsim; all 28 code cells executed in order after final readability, equation-rendering, documentation-link, and visual corrections",
+      "code_cells": 28,
+      "markdown_cells": 28,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "pre_existing_examples_preserved": 3,
+      "preservation_note": "Preserved and integrated all three substantive placeholder examples: the 96 mol% CO2, 3 mol% methane, and 1 mol% nitrogen SRK fluid at 25 degrees Celsius and 25 bara; the 100000 kg/h direct compression and aftercooling ProcessSystem to 110 bara and 25 degrees Celsius; and the 80 km, 0.08 bar/km arrival-pressure and density screen. The direct SRK chain and transparent legacy gradient now remain as named comparison cases beside the rigorous staged PR and pipeline workflow.",
+      "pre_existing_figures_preserved": 0,
+      "figure_preservation_note": "The original placeholder contained no stored or source-generated figures, plots, diagrams, maps, images, or other substantive visuals. Seven new technical figures were added; none replaces an earlier visual.",
+      "neqsim_capabilities_demonstrated": [
+        "SystemSrkEos and SystemPrEos CO2-rich fluids with classic mixing rule, TPflash, multiphase checking, and physical-property initialization",
+        "named Stream, Compressor, Cooler, and ProcessSystem objects assembled into direct and reusable four-stage intercooled compression flowsheets",
+        "Compressor outlet-pressure and isentropic-efficiency configuration with stage-by-stage pressure, temperature, enthalpy, cooling-duty, and shaft-power retrieval",
+        "PipeBeggsAndBrills geometry, roughness, isothermal mode, incremental solution, outlet state, pressure, density, velocity, and Reynolds profiles",
+        "CO2FlowCorrections CO2-dominance, mole-fraction, dense-phase, reduced-state, and friction-correction diagnostics",
+        "fresh independent PR phase-density state mapping plus mass-flow and inside-diameter scenario design",
+        "mass, component, compressor-energy, cooler-energy, hydraulic, trend, phase, and deterministic-report validation"
+      ],
+      "practical_application": "A reusable end-to-end workflow builds the CO2 fluid, compares the preserved direct SRK chain with PR direct and four-stage intercooled compression, runs an 80 km PipeBeggsAndBrills pipeline, validates pressure loss independently with Darcy-Haaland, maps phase and density, screens 12 flow-diameter designs, selects and reruns a 0.25 m line for 125000 kg/h, audits balances, and exports a fingerprinted JSON engineering report.",
+      "retained_figures": {
+        "count": 7,
+        "previous_count": 0,
+        "new_count": 7,
+        "numerically_refreshed_previous_count": 0,
+        "purposes": [
+          "integrated compression-to-pipeline workflow and object topology",
+          "four-stage pressure, discharge-temperature, aftercooling, and shaft-power results",
+          "legacy SRK direct, PR direct, and PR four-stage compression strategy comparison",
+          "NeqSim pressure and density profiles along the 80 km pipeline",
+          "NeqSim, Darcy-Haaland, and preserved legacy-gradient hydraulic comparison",
+          "fresh PR phase-count and density map with the pipeline inlet identified",
+          "arrival-pressure and feasibility map over mass-flow and inside-diameter designs"
+        ],
+        "visual_inspection": "passed after the final base-case annotation adjustment; all seven stored figures were extracted and checked for descriptive titles, readable axes, explicit units, legends or color scales, accessible colors, clipping, overlap, annotations, scales, and consistency with numerical tables and text"
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 28 code cells and 28 Markdown cells",
+        "all 28 code cells executed sequentially with execution counts 1 through 28, meaningful stored outputs, zero exceptions, zero error outputs, and zero stderr",
+        "all 37 focused composition, compression, thermodynamic, hydraulic, trend, phase, design, balance, and reporting assertions passed",
+        "all three substantive pre-existing examples were preserved, repaired, documented, and integrated; no pre-existing figures existed",
+        "four-stage PR compressor power was 2039.819991 kW versus 3110.052914 kW direct, a 34.412049 percent reduction",
+        "the 80 km, 0.30 m pipeline arrived at 106.690111 bara with a 3.309889 bar pressure loss, 701.841590 kg/m3 outlet density, and 0.559920 m/s maximum velocity",
+        "independent Darcy-Haaland pressure loss deviated by -0.073908 percent from the NeqSim PipeBeggsAndBrills result",
+        "the selected 0.25 m design passed at 125000 kg/h with 97.160039 bara arrival pressure, 1.048868 m/s maximum velocity, and one phase",
+        "mass, component, maximum compressor-energy, and maximum cooler-energy residuals were exactly zero at stored precision",
+        "readability passed with one statement per line, conventional indentation, no semicolon chains, wildcard imports, compressed compound bodies, or code lines over 77 characters",
+        "five display equations and 11 inline expressions use Colab-safe delimiters and single-backslash LaTeX",
+        "all five display equations rendered through a Jupyter-compatible MathJax path and passed visual inspection",
+        "all seven stored technical figures passed visual and numerical inspection",
+        "the Colab badge, current official NeqSim pipeline, phase-envelope, CO2 injection, process, and PyPI references were checked",
+        "the catalog target occurs exactly once in the CO2 removal and handling section, and every pre-existing unique notebook link target was preserved"
+      ],
+      "summary": "Replaced the explicit compact placeholder with a current, fully executable integrated CO2-chain tutorial while preserving every legacy example. The notebook now teaches real NeqSim compression, intercooling, process assembly, CO2-specific diagnostics, PipeBeggsAndBrills profiles, independent hydraulic validation, phase-density mapping, design screening, balance closure, troubleshooting, limitations, references, and reusable reporting."
     }
   ]
 }
