@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-23T03:29:06.009Z",
+  "updated_at": "2026-07-23T04:20:28.289Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -3521,6 +3521,38 @@
         "Colab badge, current official NeqSim and PyPI references, API digital catalog, and both unique dynamic-compressor catalog links were validated"
       ],
       "summary": "Modernized the restored historical workbook without deleting its five scenarios or the separate PI tutorial. Added current NeqSim thermodynamics, explicit real-gas two-volume balances, bounded pressure and anti-surge controllers, clean shutdown/startup logic, scenario interpretation, engineering audits, limitations, troubleshooting, references, exercises, and fully rendered equations."
+    },
+    {
+      "path": "notebooks/gasquality/CalorificValueNaturalGas.ipynb",
+      "verified_date": "2026-07-23",
+      "verified_at_utc": "2026-07-23T04:20:28.289Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean sequential in-process execution in the isolated Python 3.12 environment created with python -m pip install --upgrade --no-cache-dir neqsim; all 16 code cells executed in order after final readability and Markdown formatting",
+      "code_cells": 16,
+      "markdown_cells": 28,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "key_checks": [
+        "replaced the four-code/one-Markdown legacy notebook, obsolete Colab magics, wildcard imports, embedded videos, 38 semicolon-compressed statements, stale outputs, and missing validation",
+        "valid nbformat 4 JSON with execution counts 1 through 16, meaningful stored outputs, one PNG figure, and zero exceptions, error outputs, or stderr",
+        "all 15 focused engineering assertions passed against public PyPI NeqSim 3.16.0",
+        "current SRK, TP flash, component-element metadata, and ISO 6976 APIs executed for a normalized synthetic dry natural gas",
+        "gross and net calorific values were 41.522508 and 37.580673 MJ/Sm3 at the stated 15 degC volume reference",
+        "superior Wobbe index was 50.852796 MJ/Sm3 and relative density was 0.666711; the independent Wobbe identity closed",
+        "net mass-basis calorific value was 45.994178 MJ/kg, stoichiometric air demand was 15.686894 kg/kg fuel, and direct combustion carbon factor was 57.934971 kg CO2/GJ LHV",
+        "nitrogen and carbon-dioxide dilution, volume-reference temperature, and ethane-richness sensitivities were finite and passed expected trend checks",
+        "readability passed with one statement per line, no semicolon chains, wildcard imports, magics, compressed compound bodies, or code lines over 87 characters",
+        "two display equations and five inline expressions used Colab-safe delimiters, rendered through MathJax, and passed visual inspection",
+        "the stored unit-labelled sensitivity figure passed visual inspection",
+        "the existing unique front-page catalog link and Colab badge were preserved and the official ISO 6976, NeqSim documentation, PyPI, and source references were checked"
+      ],
+      "summary": "Rebuilt the natural-gas calorific-value example as an auditable ISO 6976 tutorial. Added explicit reference conditions and units, gross/net and mass/volume bases, Wobbe verification, elemental stoichiometry, combustion carbon factors, inert and richness sensitivities, reference-temperature effects, plots, engineering assertions, limitations, troubleshooting, references, and exercises."
     }
   ]
 }
