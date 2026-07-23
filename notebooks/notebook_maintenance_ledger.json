@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-23T22:10:54Z",
+  "updated_at": "2026-07-23T23:13:23Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -4880,6 +4880,73 @@
         "the Colab badge, current authoritative external references, unique catalog target, and changed catalog path were checked"
       ],
       "summary": "Rebuilt the obsolete hydrogen-production notebook as a current, self-contained SMR and syngas-process tutorial. Preserved every original example intention, removed the runtime-restarting dependency, added explicit current NeqSim equilibrium configuration, atom and mass audits, temperature and steam sensitivities, an end-to-end practical process, seven inspected figures, troubleshooting, limitations, and exercises."
+    },
+    {
+      "path": "notebooks/fluidflow/gaspipeline.ipynb",
+      "verified_date": "2026-07-23",
+      "verified_at_utc": "2026-07-23T23:13:23Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "all 28 code cells executed sequentially in one shared namespace with counts 1 through 28 in an isolated Python 3.12 environment installed from the latest public PyPI NeqSim release using python -m pip install --upgrade --no-cache-dir neqsim; a normal Jupyter kernel was attempted first but the sandbox disallowed local TCP, and no local checkout, editable install, unpublished wheel, or manually injected JAR was used",
+      "code_cells": 28,
+      "markdown_cells": 27,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "pre_existing_examples_preserved": 4,
+      "preservation_note": "Preserved and integrated all four substantive legacy calculation groups: the four-leg 700 km thermohydraulic route, the larger-diameter constant-friction-factor route, the simplified pressure-drop calculation, and the inverse inlet-pressure map. The original introductory video and route inputs were also retained. The 91 mol-part legacy gas was normalized without changing component ratios, obsolete global pipeline helpers were replaced with current objects, the disabled simplified pressure updates were repaired, and deterministic bisection replaced the random least-squares fallback.",
+      "pre_existing_figures_preserved": 9,
+      "figure_preservation_note": "Preserved and numerically refreshed all nine original figure purposes: pressure-temperature, density, velocity, and elevation for each of the two route assumptions, plus the required-inlet-pressure map. Corrected the legacy temperature-profile unit boundary from kelvin to degC before recomputing the fixed-factor property path. Added three separate figures; none replaces an original visual.",
+      "neqsim_capabilities_demonstrated": [
+        "SRK fluid construction, explicit composition normalization, classic mixing rule, TP flash, and real-gas density and viscosity retrieval",
+        "named Stream boundaries, four connected PipeBeggsAndBrills legs, ProcessSystem ordered execution, elevation, roughness, heat-transfer, and isothermal configuration",
+        "pressure, temperature, elevation, mixture-density, superficial-velocity, and Reynolds-number profile retrieval through current segment APIs",
+        "fresh-case inverse inlet-pressure solving and fresh-object diameter sensitivity with delivery-pressure and velocity constraints",
+        "independent segmented Darcy-Haaland validation using NeqSim real-gas properties and total and component conservation audits"
+      ],
+      "practical_application": "A reusable end-to-end export-pipeline workflow builds a normalized SRK gas, assigns a 60 MSm3/day inlet at 200 bara and 50.15 degC, connects four PipeBeggsAndBrills legs over the original 700 km elevation route, runs a ProcessSystem, retrieves and audits profiles, evaluates eight independent diameter candidates from 0.90 to 1.10 m, and selects the smallest candidate satisfying at least 100 bara delivery pressure and at most 10 m/s maximum velocity.",
+      "retained_figures": {
+        "count": 12,
+        "previous_count": 9,
+        "new_count": 3,
+        "numerically_refreshed_previous_count": 9,
+        "purposes": [
+          "added NeqSim fluid-stream-route-solver-verification workflow overview",
+          "preserved base-route pressure and temperature profiles",
+          "preserved base-route gas-density profile",
+          "preserved base-route gas-velocity profile",
+          "preserved base-route elevation profile",
+          "preserved second-route pressure and temperature comparison with explicit Darcy-factor interpretation",
+          "preserved fixed-factor gas-density profile",
+          "preserved fixed-factor gas-velocity profile",
+          "preserved second-route elevation profile",
+          "added NeqSim versus independent Darcy-Haaland pressure validation",
+          "preserved required-inlet-pressure map for three delivery constraints",
+          "added diameter screening against delivery-pressure and velocity constraints"
+        ],
+        "visual_inspection": "passed after the final full execution; all 12 stored PNG figures were extracted and inspected at original resolution and in two contact sheets for descriptive titles, readable labels, explicit units, legends, accessible colors, correct scales, clipping, overlap, and agreement with stored tables and nearby engineering interpretation"
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 28 executed code cells and 27 Markdown cells",
+        "all cells executed in order with counts 1 through 28, zero exceptions, zero error outputs, and zero stderr",
+        "all four original calculation groups, the introductory video, and all nine original figure purposes were preserved, repaired, integrated, and recomputed",
+        "the base 700 km route delivered 119.567533 bara at 3.077221 degC with 5.833629 m/s outlet velocity",
+        "base total-mass and maximum component-inventory residuals were zero at stored precision and minimum Reynolds number was 3.135e7",
+        "the 1.10 m roughness-based and explicit fixed-Darcy-factor outlet pressures were 127.834535 and 160.635627 bara, with convention and assumptions documented",
+        "the repaired 100 km simplified calculation agreed with the current NeqSim result within 0.001752 percent",
+        "all 15 inverse pressure cases closed within 1.182e-7 bar and required inlet pressure increased with flow",
+        "the diameter study used fresh process objects, showed increasing delivery pressure and decreasing velocity with diameter, and selected 0.96 m at 108.249886 bara and 6.771372 m/s",
+        "all 10 final engineering checks passed",
+        "maximum code-line length was 78 characters with no magics, wildcard imports, semicolons, inline compound bodies, or compressed teaching code",
+        "both display equations and representative inline fractions, subscripts, superscripts, Greek symbols, and units rendered through MathJax SVG and passed visual inspection",
+        "all 12 stored figures passed visual and numerical inspection after the kelvin-to-degC correction and final rerun",
+        "the Colab badge, current pipeline guide, thermodynamic-model documentation, PipeBeggsAndBrills source, and unique catalog target were checked on 2026-07-23"
+      ],
+      "summary": "Modernized the legacy gas-pipeline notebook without deleting any substantive example or figure. Replaced obsolete setup and global helpers, fixed the unnormalized composition, corrected a kelvin-versus-degC profile error, made the friction-factor convention explicit, repaired the commented-out pressure balance, and replaced random inverse solving with deterministic bisection. Added current NeqSim route composition, profile extraction, independent validation, a practical diameter workflow, conservation and trend checks, three new inspected figures, troubleshooting, limitations, references, and exercises."
     }
   ]
 }
