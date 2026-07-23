@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-23T20:24:00Z",
+  "updated_at": "2026-07-23T21:05:22Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -4758,6 +4758,67 @@
         "the Colab badge, current NeqSim documentation links, and unique catalog target were checked"
       ],
       "summary": "Modernized the foundational Rachford-Rice notebook without deleting any existing example, explanation, check, or figure. Retained the transparent solver and rigorous NeqSim TP/PH/PS benchmarks, then added a full Stream-Separator-ProcessSystem application, component recovery, fresh pressure scenarios, four new inspected figures, balance audits, troubleshooting, reuse guidance, and rendered equations."
+    },
+    {
+      "path": "notebooks/standards/standards_based_engineering_checks.ipynb",
+      "verified_date": "2026-07-23",
+      "verified_at_utc": "2026-07-23T21:05:22Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "all 23 code cells executed sequentially in one shared namespace with counts 1 through 23 in an isolated Python 3.12 environment installed from the public PyPI NeqSim release using python -m pip install --upgrade --no-cache-dir neqsim; the final package check confirmed NeqSim 3.16.0 and no local checkout, editable install, unpublished wheel, or injected JAR was used",
+      "code_cells": 23,
+      "markdown_cells": 28,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "pre_existing_examples_preserved": 4,
+      "preservation_note": "Preserved and integrated all four original teaching intentions: the six-component SRK gas definition, the exact original A-C design inputs, velocity and pressure-drop screening, and the combined review flag. Replaced only the undocumented placeholder pressure-gradient coefficient with a current NeqSim compressible pipe model and an independently derived Darcy-Haaland check.",
+      "pre_existing_figures_preserved": 0,
+      "figure_preservation_note": "The original notebook contained no plot, diagram, image, or other substantive visual output. Seven new figures were added; none replaced or removed previous visual content.",
+      "neqsim_capabilities_demonstrated": [
+        "SystemSrkEos construction, classic mixing rule, multiphase checking, TP flash, and thermodynamic and transport properties",
+        "Stream flow assignment, PipeBeggsAndBrills compressible pressure and property profiles, and ProcessSystem ordered execution",
+        "profile retrieval for pressure, velocity, density, viscosity, and Reynolds number with independent Darcy-Haaland verification",
+        "NeqSim Z-factor, molar mass, Cp, and Cv use in a documented single-phase critical-gas relief-area screening equation",
+        "fresh-object diameter sensitivity, explicit project limits, automated review flags, and reusable machine-readable validation"
+      ],
+      "practical_application": "A reusable workflow creates a fresh SRK gas and independent Stream-PipeBeggsAndBrills-ProcessSystem graph for every case, retrieves compressible profiles, calculates independent checks and review flags, evaluates five candidate diameters at 35000 kg/h and 60 bara over 10 km, and selects the smallest candidate satisfying both example project screens.",
+      "retained_figures": {
+        "count": 7,
+        "previous_count": 0,
+        "new_count": 7,
+        "numerically_refreshed_previous_count": 0,
+        "purposes": [
+          "NeqSim screening workflow and solver-object overview",
+          "compressible absolute-pressure profiles for cases A-D",
+          "gas-velocity profiles with the explicit project screen",
+          "NeqSim versus Darcy-Haaland pressure-loss comparison",
+          "case-by-check review matrix",
+          "critical-gas relief area and real-gas Z-factor sensitivity",
+          "diameter design window for pressure loss and velocity"
+        ],
+        "visual_inspection": "passed after final full execution; all seven retained PNG figures were extracted and inspected at original resolution for titles, labels, explicit units, legends or color scale, accessible colors, clipping, overlap, correct scales, and agreement with tables and nearby engineering interpretation"
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 23 executed code cells and 28 Markdown cells",
+        "all cells executed in order with counts 1 through 23, zero exceptions, zero error outputs, and zero stderr",
+        "all four original example intentions and all original A-C numerical inputs were preserved and integrated",
+        "all 12 pipeline and diameter cases used fresh NeqSim process objects with maximum mass residual 0 kg/h",
+        "manual inlet continuity and the first NeqSim profile point agreed within 2.103e-07 relative residual",
+        "maximum NeqSim versus Darcy-Haaland deviation for low-loss cases A-C was 0.080073 percent",
+        "stressed case D was correctly flagged at 10.629694 bara outlet and 65.930458 m/s maximum velocity",
+        "base preliminary relief area was 168.524144 mm2 at 12000 kg/h, 90 bara, and 25 degC and decreased monotonically with pressure",
+        "smallest passing diameter candidate was 0.22 m with 55.925255 bara outlet and about 5.215 m/s maximum velocity",
+        "maximum code-line length was 79 characters with no semicolons or inline compound bodies",
+        "all five display equations and all 25 unique inline expressions rendered through the Jupyter-compatible MathJax tex2svg path and passed visual inspection",
+        "all seven stored figures passed visual and numerical inspection",
+        "the Colab badge, external authoritative references, unique catalog target, and changed catalog path were checked"
+      ],
+      "summary": "Rebuilt the placeholder standards-screening notebook as a current, self-contained gas-line and relief tutorial. Preserved every existing example intention, replaced the magic pressure-drop factor with real NeqSim functionality, added independent verification, critical-gas screening, a reusable diameter application, seven inspected figures, limitations, troubleshooting, and assertions without claiming code compliance."
     }
   ]
 }
