@@ -4640,6 +4640,67 @@
         "the Colab badge, public video, official NeqSim documentation links, and unique catalog target were checked"
       ],
       "summary": "Modernized the NGL extraction and fractionation notebook without deleting legacy examples or visuals. Repaired obsolete installation and wildcard imports, an unexecuted property cell, an unresolved background recycle/thread pattern, ambiguous UA units, sparse explanation, duplicate output blocks, and weak validation. Added current NeqSim process and column functionality, six inspected figures, rendered equations, balances, product-quality checks, sensitivity, a reusable final application, limitations, troubleshooting, references, and exercises."
+    },
+    {
+      "path": "notebooks/process/oil_and_gas_Process_with_ngl_stabilizer_and_tex_process.ipynb",
+      "verified_date": "2026-07-23",
+      "verified_at_utc": "2026-07-23T19:50:06.850Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean sequential in-process execution in an isolated Python 3.12 environment created with python -m pip install --upgrade --no-cache-dir neqsim; standard Jupyter TCP kernel startup was blocked by the automation sandbox, so all 22 code cells were executed in order in one shared namespace with execution counts and complete stored outputs",
+      "code_cells": 22,
+      "markdown_cells": 28,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic fast-forward publication through a connector-backed staging branch",
+        "commit": "this atomic publication"
+      },
+      "pre_existing_examples_preserved": 9,
+      "preservation_note": "Preserved and integrated the Colab entry point, USN/NTNU reference, reusable input/output process-model intent, HP/LP feed split, four-stage stabilization, three-stage recompression, dew-point control, TEX turboexpansion, NGL column and routing, export products, quality calculations, and repeated-case workflow. Replaced only the inaccessible proprietary wellfluid.e300 input, obsolete namespaces, truncated builder, undefined feed, and timeout thread with documented synthetic data and supported NeqSim APIs.",
+      "pre_existing_figures_preserved": 0,
+      "figure_preservation_note": "The five-cell draft contained no technical figures. Six new executed technical figures were added; none replaces previous visual content.",
+      "neqsim_capabilities_demonstrated": [
+        "fluid_df characterization of a 15-component SRK rich fluid with six TBP fractions",
+        "Stream, ThreePhaseSeparator, ThrottlingValve, Mixer, Heater, Cooler, Pump, Compressor, Expander, Separator, Splitter, DistillationColumn, and ProcessSystem",
+        "four-stage oil stabilization with separate HP and LP feeds",
+        "three-stage flash-gas recompression with cooling, scrubbing, and liquid recovery",
+        "hydrocarbon-dew-point cooling, TEX turboexpansion, and five-tray MESH-residual NGL stabilization",
+        "gross calorific value, hydrocarbon dew point, true vapour pressure, total and component balances, and independent operating scenarios"
+      ],
+      "practical_application": "A reusable end-to-end workflow creates a fresh 100000 kg/h synthetic rich fluid, splits it 80/20 between HP and LP feeds, stabilizes oil at 70, 20, 6, and 1.7 bara, recompresses flash gas through three stages, cools and expands the rich gas, stabilizes NGL, exports gas at 126.5 bara and oil at 20.8 bara, solves four fresh TEX-pressure scenarios, and serializes the selected feasible case.",
+      "retained_figures": {
+        "count": 6,
+        "previous_count": 0,
+        "new_count": 6,
+        "numerically_refreshed_previous_count": 0,
+        "purposes": [
+          "integrated process and solver-order overview",
+          "four-stage separator pressure and released-gas/oil-flow profile",
+          "recompression, TEX generation, stabilizer-overhead, and export-compressor power",
+          "component partitioning among export gas, export oil, and NGL",
+          "final product mass allocation",
+          "TEX-pressure scenario comparison of NGL product and export-compressor power"
+        ],
+        "visual_inspection": "passed after final rerun; all six stored PNG outputs were extracted and checked at original resolution for titles, labels, explicit units, legends, accessible colors, clipping, overlap, scales, and consistency with stored tables and text"
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 22 code cells and 28 Markdown cells",
+        "all 22 code cells executed sequentially with counts 1 through 22, zero exceptions, zero error outputs, and zero stderr",
+        "all nine substantive legacy example intentions were preserved, repaired, documented, and integrated",
+        "all six technical figures passed visual and numerical inspection",
+        "four display equations use standalone Colab-safe delimiters and single-backslash LaTeX; all four rendered and passed visual inspection",
+        "maximum code-line length was 96 characters with no semicolon-compressed statements or inline compound bodies",
+        "base products were 16904.077064 kg/h export gas, 81145.163950 kg/h export oil, and 1950.758986 kg/h NGL",
+        "base export-compressor power was 0.531231 MW and TEX generation was 0.058489 MW",
+        "relative mass residual was 4.401954e-13 and every component residual was below 1e-8",
+        "export gas GCV was 48.792734 MJ/Sm3; hydrocarbon dew point was 39.176934 C at 126.5 bara",
+        "export-oil and NGL TVP at 37.8 C were 1.697872 and 3.472160 bara",
+        "four fresh TEX-pressure scenarios closed mass below 1e-4 kg/h and the constrained selection chose 50 bara",
+        "the Colab badge, original USN/NTNU reference, official NeqSim documentation links, and unique catalog target were checked"
+      ],
+      "summary": "Rebuilt the nonfunctional five-cell oil-and-gas draft into a current executable NeqSim tutorial without deleting its intended examples. Replaced obsolete setup, proprietary input, a 590-line truncated builder, undefined runtime data, and an unsafe timeout thread with modular supported APIs, complete outputs, balances, quality checks, scenarios, rendered equations, and six inspected figures."
     }
   ]
 }
