@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-23T09:29:38Z",
+  "updated_at": "2026-07-23T10:10:18Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -4058,6 +4058,72 @@
         "the Colab badge, current official NeqSim documentation, process source, PyPI release, and existing unique catalog link were checked"
       ],
       "summary": "Modernized the compact capacity-and-bottleneck notebook without deleting examples. Removed stale NeqSim 3.15 output and compressed legacy patterns, made repeated operating points order-independent with fresh process construction, added explicit units, balances, capacity constraints, schema-aware automation diagnostics, a bisection search, a 16-design debottlenecking map, a validated target application, troubleshooting, limitations, references, and exercises."
+    },
+    {
+      "path": "notebooks/flowassurance/hydrate_wax_and_water_margin_screening.ipynb",
+      "verified_date": "2026-07-23",
+      "verified_at_utc": "2026-07-23T10:10:18Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean sequential in-process execution in an isolated Python 3.12 environment created with python -m pip install --upgrade --no-cache-dir neqsim; all 29 code cells executed in order after final readability, equation-rendering, link, and visual validation",
+      "code_cells": 29,
+      "markdown_cells": 38,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "pre_existing_examples_preserved": 4,
+      "preservation_note": "Preserved and integrated all four legacy example groups: the original six-component SRK natural gas; warm export, normal export, and cold restart cases; hydrate, wax, water-dew-point, and density margin screening; and the grouped negative-margin risk chart. Placeholder correlations were replaced by current supported NeqSim calculations without removing the original teaching intent.",
+      "pre_existing_figures_preserved": 1,
+      "figure_preservation_note": "Preserved the original grouped hydrate, wax, and water operating-margin chart in recognizable form. Its numerical values, labels, units, colors, and interpretation were refreshed from NeqSim 3.16.0 results. Six additional technical figures were added; none replaces the previous visual.",
+      "neqsim_capabilities_demonstrated": [
+        "SystemSrkEos dry-gas TP flash and density calculation for the original operating cases",
+        "SystemSrkCPAstatoil hydrate equilibrium calculations with water and hydrate checks",
+        "Standard_ISO18453 trace-water dew-point calculation and water-content sensitivity",
+        "Pedersen heavy-end wax characterization and WaxCurveCalculator pressure-dependent wax curves",
+        "HydrateRiskMapper profile screening with risk levels and minimum-margin diagnostics",
+        "ProcessSystem, Stream, and HydrateEquilibriumTemperatureAnalyser integration with structured run status",
+        "hydrateTPflash phase identification and phase-fraction closure",
+        "hydrateInhibitorConcentration MEG sizing with an independent equilibrium-target verification"
+      ],
+      "practical_application": "A reusable cold-restart workflow screens the preserved 60 bara and 6 degrees Celsius case, confirms a hydrate phase with hydrateTPflash, embeds HydrateEquilibriumTemperatureAnalyser in a ProcessSystem, compares heating with MEG mitigation, verifies the MEG target independently, and exports a fingerprinted JSON engineering report.",
+      "retained_figures": {
+        "count": 7,
+        "previous_count": 1,
+        "new_count": 6,
+        "numerically_refreshed_previous_count": 1,
+        "purposes": [
+          "flow-assurance workflow and fluid-model separation",
+          "preserved grouped hydrate, wax, and water operating-margin chart with refreshed values",
+          "hydrate, wax, and ISO 18453 threshold-temperature sensitivity to pressure",
+          "HydrateRiskMapper result along the preserved warm-to-cold profile",
+          "Pedersen wax fraction curves for the synthetic C9+ condensate",
+          "ISO 18453 water-dew-point sensitivity to gas water content",
+          "cold-restart hydrate mitigation comparison for no action, heating, and MEG"
+        ],
+        "visual_inspection": "passed; all seven stored figures were extracted and checked for titles, readable axes, explicit units, legends, accessible colors, clipping, overlap, scales, annotations, and numerical consistency with the tables and text"
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 29 code cells and 38 Markdown cells",
+        "all 29 code cells executed sequentially with execution counts 1 through 29, meaningful stored outputs, zero exceptions, zero error outputs, and zero stderr",
+        "all 34 focused composition, threshold, trend, profile-risk, process, phase, inhibitor, and reporting assertions passed",
+        "all four substantive pre-existing example groups and the one pre-existing figure were preserved, repaired, documented, and integrated",
+        "hydrate equilibrium temperatures were 17.013888, 18.036903, and 18.867822 degrees Celsius at 60, 70, and 80 bara",
+        "ISO 18453 water dew points were -7.393140, -5.885873, and -4.614649 degrees Celsius at 60, 70, and 80 bara for 60 micromoles per mole water",
+        "cold-restart hydrate margin was -11.013888 degrees Celsius and hydrateTPflash returned a 0.034192 hydrate phase mole fraction with phase closure",
+        "aqueous MEG concentration was 33.336908 wt percent for a 6 degrees Celsius equilibrium target and the independent result was 5.999406 degrees Celsius",
+        "HydrateRiskMapper identified two critical profile points and matched the direct cold-case minimum margin",
+        "all wax flashes succeeded and the Pedersen wax curves were finite, nonnegative, and monotonic",
+        "readability passed with one statement per line, conventional indentation, no semicolon tokens, compressed compound bodies, or code lines over 75 characters",
+        "two display equations and three inline expressions use Colab-safe delimiters and single-backslash LaTeX",
+        "both display equations rendered through a Jupyter-compatible MathJax path and passed visual inspection",
+        "all seven stored technical figures passed visual and numerical inspection",
+        "the Colab badge, current official NeqSim documentation, process docs, PyPI release, and catalog path were checked"
+      ],
+      "summary": "Replaced the placeholder-grade flow-assurance screen with a current, fully executable NeqSim tutorial while preserving every legacy example and visual. The notebook now separates mechanism-specific fluid models, calculates real hydrate, ISO 18453 water-dew-point, and Pedersen wax thresholds, maps profile risk, integrates a hydrate analyser into ProcessSystem, verifies hydrate phase formation, sizes MEG, compares mitigation, validates trends and closure, and documents limitations, troubleshooting, exercises, and references."
     }
   ]
 }
