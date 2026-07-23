@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-23T07:37:46Z",
+  "updated_at": "2026-07-23T08:35:31Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -3868,6 +3868,70 @@
         "the Colab badge and all introduced references were checked, and the target occurs exactly once in the front-page catalog"
       ],
       "summary": "Modernized the legacy multiphase-flow-measurement workbook without deleting examples. Replaced NeqSim 2.5.35 setup, wildcard imports, obsolete magics, malformed equations, compressed code, stale outputs, an ignored model-return value, and unfinished tuning. Added current characterization, CME, GOR tuning, phase-aware tables, engineering checks, metering interpretation, limitations, troubleshooting, references, exercises, and a complete NeqSim gas-leg orifice application."
+    },
+    {
+      "path": "notebooks/process/comparesimulations.ipynb",
+      "verified_date": "2026-07-23",
+      "verified_at_utc": "2026-07-23T08:35:31Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean sequential in-process execution in an isolated Python 3.12 environment containing the latest public PyPI NeqSim 3.16.0; all 22 code cells executed in order after final readability, equation-rendering, and visual validation",
+      "code_cells": 22,
+      "markdown_cells": 24,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "pre_existing_examples_preserved": 0,
+      "preservation_note": "The catalog target was a zero-byte file, so it contained no code, Markdown examples, calculations, outputs, or learning objectives to preserve.",
+      "pre_existing_figures_preserved": 0,
+      "figure_preservation_note": "The zero-byte target contained no prior plots, diagrams, maps, images, or visual outputs. Six new technical figures were added; none replaces an earlier visual.",
+      "neqsim_capabilities_demonstrated": [
+        "SRK and Peng-Robinson multicomponent thermodynamic systems with classic mixing rule, multiphase checking, TP flash, and physical-property initialization",
+        "named Stream, ThrottlingValve, Cooler, Separator, Compressor, and ProcessSystem objects assembled into a reusable steady-state flowsheet",
+        "equipment result retrieval for phase split, density, signed cooler duty, compressor power, and outlet temperature",
+        "total-mass, component-molar-flow, cooler-energy, and compressor-energy balance reconstruction",
+        "fresh full-process temperature and pressure sensitivity calculations for both equations of state",
+        "model-form spread calculation, independent ideal-gas compressor screening, and fingerprinted simulator-result validation"
+      ],
+      "practical_application": "A reusable natural-gas conditioning workflow throttles a 10 kg/s synthetic feed from 70 to 30 bara, cools it to 5 degrees Celsius, separates condensate, recompresses gas to 70 bara, compares SRK and PR, then screens a temperature-pressure grid against liquid-recovery, cooling-load, and discharge-temperature constraints.",
+      "retained_figures": {
+        "count": 6,
+        "previous_count": 0,
+        "new_count": 6,
+        "numerically_refreshed_previous_count": 0,
+        "purposes": [
+          "process topology and unit specifications",
+          "base-case SRK versus PR condensate recovery and compressor power",
+          "separator-temperature sensitivity of liquid recovery and compressor power",
+          "separator-pressure sensitivity of phase split and compressor power",
+          "NeqSim real-gas compressor power versus an independent ideal-gas screen",
+          "SRK temperature-pressure operating envelope with recovery and feasibility annotations"
+        ],
+        "visual_inspection": "passed; all stored outputs were extracted and checked for titles, axes, units, legends or color scale, accessible colors, clipping, overlap, scales, annotations, and consistency with the numerical tables"
+      },
+      "key_checks": [
+        "replaced the zero-byte catalog target with valid nbformat 4 JSON while preserving the existing unique Process simulation catalog link",
+        "all 22 code cells executed sequentially with execution counts 1 through 22, meaningful stored outputs, zero exceptions, zero error outputs, and zero stderr",
+        "all 18 focused input, thermodynamic, process, balance, sensitivity, provenance, and operating-envelope assertions passed",
+        "base SRK and PR liquid flows were 2176.364214 and 2061.317443 kg/h from a 36000 kg/h feed",
+        "base SRK and PR compressor powers were 1145.927880 and 1117.512416 kW",
+        "maximum total-mass residual was below 2.1e-11 kg/h and maximum component residual was below 1.9e-14 mol/s",
+        "maximum absolute cooler and compressor energy residuals were below 3e-10 W",
+        "SRK-to-PR symmetric spread was 5.429703 percent for liquid flow and 2.510821 percent for compressor power",
+        "the independent ideal-gas compressor screen differed from the real-gas NeqSim results by less than 16 percent",
+        "UNISIM and DWSIM rows remain explicitly not supplied; the notebook provides a strict unit-labelled and case-fingerprinted import contract without inventing proprietary results",
+        "the constrained SRK screen selected minus 10 degrees Celsius and 45 bara within the tested grid, with 14.563951 wt percent liquid recovery and 477.796105 kW compressor power",
+        "readability passed with one statement per line, conventional indentation, no semicolons, wildcard imports, compressed compound bodies, or code lines over 84 characters",
+        "seven display equations and ten inline expressions use Colab-safe delimiters and single-backslash LaTeX",
+        "all 17 MathJax expressions rendered through a Jupyter-compatible MathJax path and passed visual inspection",
+        "all six stored technical figures passed visual and numerical inspection",
+        "the Colab badge, existing unique catalog link, current official NeqSim documentation links, and latest PyPI version were validated"
+      ],
+      "summary": "Implemented the empty process-simulator-comparison target as a transparent, reusable model-assurance tutorial. It freezes inputs with a SHA-256 fingerprint, builds and audits current NeqSim SRK and PR flowsheets, quantifies sensitivities and model spread, supplies a non-fabricated UNISIM/DWSIM result contract, performs an independent compressor screen, and closes with a constrained operating-envelope application."
     }
   ]
 }
