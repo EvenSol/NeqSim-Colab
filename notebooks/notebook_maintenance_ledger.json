@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-23T05:25:21.193Z",
+  "updated_at": "2026-07-23T06:42:13Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -3677,6 +3677,70 @@
         "the updated target is linked exactly once in the catalog; the other two Natural Gas Statistics notebooks remain linked exactly once"
       ],
       "summary": "Implemented the empty Natural Gas in the Energy Transition page as a current evidence-to-engineering tutorial. It combines IEA WEO 2025, Gas 2025, GER 2026, GMR Q1-2026, and GMT 2026 with a real NeqSim gas-quality and multi-stage compression application, explicit lifecycle boundaries, methane and capture sensitivities, validation, limitations, troubleshooting, references, and exercises."
+    },
+    {
+      "path": "notebooks/gasvaluechain/useOfNaturalGas.ipynb",
+      "verified_date": "2026-07-23",
+      "verified_at_utc": "2026-07-23T06:42:13Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean sequential in-process execution in the isolated Python 3.12 environment created with python -m pip install --upgrade --no-cache-dir neqsim; all 30 code cells executed in order after the final unit, readability, equation, and visual corrections",
+      "code_cells": 30,
+      "markdown_cells": 34,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "pre_existing_examples_preserved": 5,
+      "preservation_note": "Preserved and integrated the original history/present/future narrative, NCS production analysis, Norwegian crude/NGL/condensate delivery chart, 2019 net gas-exporter comparison, and Norwegian gas first-delivery-point analysis. Fragile live downloads were replaced by the notebook's original embedded historical snapshots, clearly dated and separated from current IEA and SODIR evidence.",
+      "neqsim_capabilities_demonstrated": [
+        "SRK natural-gas thermodynamic system with classic mixing rule and TP flash",
+        "ISO 6976 volume- and mass-reference LHV, HHV, relative-density, and Wobbe calculations",
+        "named material stream with explicit mass flow, temperature, and pressure",
+        "current compressor object with outlet pressure and isentropic efficiency",
+        "current cooler object with specified outlet temperature",
+        "composable ProcessSystem execution and equipment-result retrieval",
+        "stream mass closure and compressor enthalpy-rate energy closure",
+        "reusable composition sensitivity with repeated fluid creation, TP flash, and ISO 6976 calculation"
+      ],
+      "practical_application": "A representative 100 kg/s dry export gas is flashed at 70 bara, assessed with ISO 6976, compressed to 120 bara at 78% isentropic efficiency, and aftercooled to 30 degrees Celsius. The application retrieves gas quality, power, duty, temperatures, flow, and balances, then converts Norway's reported 2025 gas sales to an explicitly bounded energy and end-use screen.",
+      "retained_figures": [
+        "IEA 2024-2026 demand-change observations and forecast",
+        "illustrative useful output by natural-gas end use",
+        "preserved NCS production series plus current 2024-2025 gas observations",
+        "preserved historical crude/NGL/condensate delivery shares",
+        "preserved 2019 net gas-exporter comparison",
+        "preserved Norwegian gas first-delivery-point snapshot",
+        "illustrative 2025-2050 sensitivity pathways",
+        "representative export-gas composition",
+        "NeqSim ProcessSystem equipment workflow",
+        "NeqSim pressure and temperature process profiles",
+        "2025 Norwegian gas-sales end-use energy screen",
+        "ISO 6976 nitrogen-dilution sensitivity"
+      ],
+      "key_checks": [
+        "valid nbformat 4 JSON with execution counts 1 through 30 and meaningful stored outputs",
+        "zero exceptions, error outputs, or stderr across all 30 code cells",
+        "all five substantive pre-existing examples were preserved, repaired, documented, and integrated",
+        "current IEA 2024-2026 demand evidence and SODIR 2024-2025 gas observations are dated and labelled by evidence type",
+        "all ten final statistical, thermodynamic, process, balance, scale, and trend checks passed",
+        "representative LHV was 35.952598 MJ/Sm3 and HHV was 39.823921 MJ/Sm3",
+        "representative superior Wobbe index was 50.501989 MJ/Sm3 and relative density was 0.621829",
+        "100 kg/s compression from 70 to 120 bara required 8.494349 MW",
+        "compressor outlet temperature was 62.027243 degrees Celsius and aftercooler duty was -9.591168 MW",
+        "mass residual was 0 kg/s and compressor energy residual was 0 W",
+        "2025 Norwegian gas-sales screen represented 4379.026424 PJ/year LHV",
+        "nitrogen dilution reduced volumetric LHV monotonically over 0-8 mol%",
+        "readability passed with one statement per line, no semicolon chains, wildcard imports, magics, compressed compound bodies, or code lines over 83 characters",
+        "seven display equations and 23 inline expressions use Colab-safe delimiters and single-backslash LaTeX",
+        "all seven display equations rendered through MathJax and passed visual inspection",
+        "all 12 retained unit-labelled technical figures passed visual inspection for labels, legends, scales, color accessibility, and clipping",
+        "the Colab badge points to the published path and the existing catalog link remains unique"
+      ],
+      "summary": "Modernized Use of natural gas as a current evidence-to-engineering workbook. Preserved all legacy examples, removed obsolete magics and fragile data access, added current IEA/SODIR context, explicit evidence labels, scenario sensitivities, equations, validation, limitations, references, and a reusable NeqSim ISO 6976 export-compression application."
     }
   ]
 }
