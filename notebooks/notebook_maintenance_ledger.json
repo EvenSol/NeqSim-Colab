@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-23T21:05:22Z",
+  "updated_at": "2026-07-23T22:10:54Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -4819,6 +4819,67 @@
         "the Colab badge, external authoritative references, unique catalog target, and changed catalog path were checked"
       ],
       "summary": "Rebuilt the placeholder standards-screening notebook as a current, self-contained gas-line and relief tutorial. Preserved every existing example intention, replaced the magic pressure-drop factor with real NeqSim functionality, added independent verification, critical-gas screening, a reusable diameter application, seven inspected figures, limitations, troubleshooting, and assertions without claiming code compliance."
+    },
+    {
+      "path": "notebooks/thermodynamics/productionOfHydrogen.ipynb",
+      "verified_date": "2026-07-23",
+      "verified_at_utc": "2026-07-23T22:10:54Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "all 28 code cells executed sequentially in one shared namespace with counts 1 through 28 in an isolated Python 3.12 environment installed from the public PyPI NeqSim release using python -m pip install --upgrade --no-cache-dir neqsim; no local checkout, editable install, unpublished wheel, or manually injected JAR was used",
+      "code_cells": 28,
+      "markdown_cells": 23,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "pre_existing_examples_preserved": 5,
+      "preservation_note": "Preserved and integrated all five original teaching intentions: the methane/ethane/propane/steam pre-reforming equilibrium state, the explicit repeated solve, CO plus two H2 to methanol standard thermochemistry, the oxygen-rich 1000 degC and 1000 bara case, and the oxygen-limited 1000 degC and 100 bara partial-oxidation case. Replaced the runtime-restarting Conda/Reaktoro dependency with public NeqSim 3.16.0 calculations while retaining the original numerical inputs and documenting the extreme-case validity limits.",
+      "pre_existing_figures_preserved": 0,
+      "figure_preservation_note": "The original notebook contained no plot, diagram, image, animation snapshot, or other substantive visual output. Seven new figures were added; none replaced or removed previous visual content.",
+      "neqsim_capabilities_demonstrated": [
+        "SystemSrkEos construction with classic mixing rule, multiphase checking, explicit component flows, and named Stream boundaries",
+        "GibbsReactor isothermal equilibrium with seeded syngas species, inert nitrogen, explicit damping, convergence diagnostics, fresh objects, and independent C/H/O/N balance checks",
+        "NeqSim standard ideal-gas formation enthalpy and Gibbs-energy properties for reaction thermochemistry",
+        "Cooler, Separator, Compressor, and ProcessSystem integration for syngas cooling, water knockout, and 80 bara compression",
+        "fresh-object reformer-temperature and steam-to-carbon sensitivities, preserved oxygen scenarios, deterministic repeats, mass closure, and compressor-energy closure"
+      ],
+      "practical_application": "A reusable natural-gas-to-hydrogen screening workflow builds a rich natural-gas and steam feed, solves an 850 degC and 25 bara NeqSim Gibbs reformer, applies an explicit atom-balanced 80 percent WGS extent, creates a named 350 degC and 24.5 bara shift-outlet stream, cools it to 40 degC, removes condensed water, and compresses the hydrogen-rich gas to 80 bara at 75 percent isentropic efficiency.",
+      "retained_figures": {
+        "count": 7,
+        "previous_count": 0,
+        "new_count": 7,
+        "numerically_refreshed_previous_count": 0,
+        "purposes": [
+          "hydrogen-production workflow and NeqSim solver-object overview",
+          "reformer-temperature sensitivity for methane conversion and dry hydrogen composition",
+          "preserved oxygen-rich and oxygen-limited product-composition comparison",
+          "practical shift-cooling-knockout-compression process diagram with operating results",
+          "wet shift product versus knockout-gas composition comparison",
+          "steam-to-carbon conversion, hydrogen-yield, and outlet-water trade-off",
+          "log-scale independent element, mass, and compressor-energy residual comparison"
+        ],
+        "visual_inspection": "passed after the final full execution; all seven stored PNG figures were extracted and inspected at original resolution and in a contact sheet for descriptive titles, readable labels, explicit units, legends, accessible colors, correct scales, clipping, overlap, and agreement with tables and nearby interpretation"
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 28 executed code cells and 23 Markdown cells",
+        "all cells executed in order with counts 1 through 28, zero exceptions, zero error outputs, and zero stderr",
+        "all five original example intentions and their numerical inputs were preserved and integrated; the original had no figures to preserve",
+        "all base, repeat, temperature, steam-to-carbon, and oxygen Gibbs cases used fresh NeqSim objects and reported hasConverged true",
+        "base SMR methane conversion was 77.224374 percent and hydrogen yield was 2.980851 mol H2 per mol methane feed",
+        "maximum independent element residual was 2.835e-06 across the temperature cases and 1.452e-06 across the steam-to-carbon cases",
+        "explicit WGS extent was 1.557651 mol/s with exact C/H/O/N conservation at stored precision",
+        "knockout gas and liquid were 618.633237 and 381.379061 kg/h; process mass residual was 1.137e-13 kg/h",
+        "cooler duty was -495.914592 kW, compressor power was 78.509808 kW, and compressor energy residual was -1.455e-11 W",
+        "maximum code-line length was 82 characters with no semicolons or inline compound bodies",
+        "all seven display equations and 21 unique inline expressions rendered through the Jupyter-compatible MathJax tex2svg path; the display-equation contact sheet passed visual inspection",
+        "all seven stored figures passed visual and numerical inspection",
+        "the Colab badge, current authoritative external references, unique catalog target, and changed catalog path were checked"
+      ],
+      "summary": "Rebuilt the obsolete hydrogen-production notebook as a current, self-contained SMR and syngas-process tutorial. Preserved every original example intention, removed the runtime-restarting dependency, added explicit current NeqSim equilibrium configuration, atom and mass audits, temperature and steam sensitivities, an end-to-end practical process, seven inspected figures, troubleshooting, limitations, and exercises."
     }
   ]
 }
