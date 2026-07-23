@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-23T11:07:45Z",
+  "updated_at": "2026-07-23T11:30:07Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -4189,6 +4189,73 @@
         "the catalog target occurs exactly once in the CO2 removal and handling section, and every pre-existing unique notebook link target was preserved"
       ],
       "summary": "Replaced the explicit compact placeholder with a current, fully executable integrated CO2-chain tutorial while preserving every legacy example. The notebook now teaches real NeqSim compression, intercooling, process assembly, CO2-specific diagnostics, PipeBeggsAndBrills profiles, independent hydraulic validation, phase-density mapping, design screening, balance closure, troubleshooting, limitations, references, and reusable reporting."
+    },
+    {
+      "path": "notebooks/fluidflow/CO2pipeline.ipynb",
+      "verified_date": "2026-07-23",
+      "verified_at_utc": "2026-07-23T11:30:07Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean sequential in-process execution in an isolated Python 3.12 environment created with python -m pip install --upgrade --no-cache-dir neqsim; all 22 code cells executed in order after the final readability, equation-rendering, documentation-link, and visual checks",
+      "code_cells": 22,
+      "markdown_cells": 32,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "pre_existing_examples_preserved": 3,
+      "preservation_note": "Preserved and integrated all three substantive legacy examples: the original 98.9 mol% CO2, 0.5 mol% nitrogen, 0.5 mol% methane, and 0.1 mol% ethane fluid; the 100000 kg/h stream at 200 bara and 30.15 degrees Celsius in a flat 70 km, 0.40 m pipeline; and the node, friction, outlet-pressure, outlet-temperature, and velocity diagnostics. The original SRK intent remains as an EOS comparison while the engineering workflow uses PR and current composable NeqSim objects.",
+      "pre_existing_figures_preserved": 4,
+      "figure_preservation_note": "Preserved all four previous substantive visuals in recognizable form: combined pressure and temperature profiles, density profile, mixture-velocity profile, and flat-route elevation. Every plotted value was recomputed with NeqSim 3.16.0; titles, SI units, scales, legends, colors, and interpretations were refreshed. Four new figures were added and none replaces an earlier visual.",
+      "neqsim_capabilities_demonstrated": [
+        "SystemSrkEos and SystemPrEos CO2-rich fluids with classic mixing rule, multiphase checking, TP flash, and physical-property initialization",
+        "named Stream and PipeBeggsAndBrills objects assembled and executed through ProcessSystem",
+        "PipeBeggsAndBrills length, inside diameter, roughness, elevation, increment count, non-isothermal heat-transfer, and constant-surroundings configuration",
+        "pressure, temperature, density, mixture-velocity, viscosity, Reynolds-number, elevation, and flow-regime profile retrieval",
+        "CO2FlowCorrections CO2-dominance, mole-fraction, friction-correction, and pure-CO2 supercritical diagnostics",
+        "fresh independent diameter, thermal-coefficient, throughput, and design-grid scenarios",
+        "mass, component, hydraulic, thermal, phase, trend, design-selection, and deterministic-report validation"
+      ],
+      "practical_application": "A reusable pipeline case function constructs fresh PR fluids and process objects, runs the repaired 70 km non-isothermal base case, validates pressure loss against Darcy-Haaland and heat loss against a U-value integral, evaluates five diameters and five thermal coefficients, screens 15 flow-diameter designs, selects and reruns the smallest passing 0.35 m line for 200000 kg/h, and exports fingerprinted JSON.",
+      "retained_figures": {
+        "count": 8,
+        "previous_count": 4,
+        "new_count": 4,
+        "numerically_refreshed_previous_count": 4,
+        "purposes": [
+          "reusable NeqSim fluid-stream-pipeline-workflow topology",
+          "preserved combined pressure and temperature profiles with current values",
+          "preserved density profile with current PR properties",
+          "preserved mixture-velocity profile with current values",
+          "preserved flat-route elevation assumption",
+          "inside-diameter pressure-loss and velocity sensitivity",
+          "overall heat-transfer coefficient temperature and density sensitivity",
+          "arrival-pressure and feasibility design map over 15 flow-diameter cases"
+        ],
+        "visual_inspection": "passed; all eight stored figures were extracted and checked for descriptive titles, readable labels, explicit SI units, legends or color scales, accessible colors, clipping, overlap, annotations, scales, and numerical consistency with the tables and surrounding engineering interpretation"
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 22 code cells and 32 Markdown cells",
+        "all 22 code cells executed sequentially with execution counts 1 through 22, meaningful stored outputs, zero exceptions, zero error outputs, and zero stderr",
+        "all 35 focused composition, EOS, profile, hydraulic, thermal, balance, trend, phase, design-selection, and reporting assertions passed",
+        "all three substantive pre-existing examples and all four pre-existing figures were preserved, repaired, documented, and integrated",
+        "base arrival pressure was 199.380096 bara, pressure loss was 0.619904 bar, outlet temperature was 5.009651 degrees Celsius, outlet density was 975.691014 kg/m3, and maximum velocity was 0.261109 m/s",
+        "independent Darcy-Haaland pressure loss differed from NeqSim by -0.005015 percent",
+        "enthalpy-based heat loss was 1498.544461 kW and the independent U-value integral differed by 0.222539 percent",
+        "mass residual was 0 kg/h and maximum component mole-fraction residual was 0",
+        "the 15-case design grid contained finite passing and failing cases with monotonic diameter trends",
+        "the smallest tested passing design at 200000 kg/h was 0.35 m with 195.211975 bara arrival pressure and 0.682080 m/s maximum velocity",
+        "readability passed with one statement per line, conventional indentation, no semicolons, wildcard imports, compressed compound bodies, notebook magics, or code lines over 74 characters",
+        "five display equations and 12 inline expressions use Colab-safe delimiters and single-backslash LaTeX",
+        "all five display equations rendered through a Jupyter-compatible MathJax path and passed visual inspection",
+        "all eight stored technical figures passed visual and numerical inspection",
+        "the Colab badge, current official NeqSim pipeline, pressure-drop, CO2 injection, and PyPI references were checked",
+        "the existing catalog link resolves to the notebook path exactly once and the catalog was left unchanged"
+      ],
+      "summary": "Modernized the legacy CO2 pipeline notebook without deleting examples or figures. Removed the NeqSim 2.5.35 pin, duplicate installation, wildcard imports, obsolete global process helpers, compressed code, stale near-zero-loss outputs, and weak plot labeling. Added current PR/SRK comparison, composable pipeline APIs, CO2-specific diagnostics, non-isothermal profiles, independent hydraulic and thermal validation, sensitivities, a practical design study, troubleshooting, limitations, references, exercises, and deterministic reporting."
     }
   ]
 }
