@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-23T01:04:30Z",
+  "updated_at": "2026-07-23T01:31:42Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -3416,6 +3416,40 @@
         "the Colab badge, updated single catalog target, NeqSim documentation source paths, source repository, and DOI reference were validated"
       ],
       "summary": "Rebuilt the oil-stabilization catalog page as an executable three-stage flash study for a synthetic reservoir fluid. Added Peng-Robinson and flash theory, explicit SI units and absolute pressures, TBP characterization, reusable process construction, stream and composition audits, total/component/energy closure, oil recovery and TVP interpretation, HP separator capacity screening, three operating sensitivities, limitations, troubleshooting, references, and exercises."
+    },
+    {
+      "path": "notebooks/process/MEGprocess.ipynb",
+      "verified_date": "2026-07-23",
+      "verified_at_utc": "2026-07-23T01:31:42.914Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "fresh Python 3.12 virtual environment with latest public PyPI neqsim installed using python -m pip install --upgrade --no-cache-dir neqsim; all 17 code cells executed sequentially in one isolated shared namespace after final readability formatting",
+      "code_cells": 17,
+      "markdown_cells": 26,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "key_checks": [
+        "replaced the eight-code/nine-Markdown legacy notebook, obsolete Colab magic, wildcard imports, embedded video, duplicated imports, monolithic two-tray column sketch, ambiguous wt-percent output, stale outputs, and missing balance validation",
+        "valid nbformat 4.5 JSON with execution counts 1 through 17, complete meaningful outputs, two embedded PNG figures, and zero exceptions, error outputs, or stderr",
+        "all 22 focused engineering assertions passed",
+        "current CPA fluid, Stream, ThrottlingValve, Separator, Heater, Pump, and ProcessSystem APIs executed against a normalized synthetic methane-water-MEG feed",
+        "base lean-MEG purity was 91.918119 wt percent, water removal was 75.946463 percent, and MEG recovery was 89.363207 percent",
+        "base reboiler duty was 1104.332707 kW, specific duty was 0.989203 kWh per kg water removed, and lean-MEG pump power was 10.595795 kW",
+        "overall mass residual was -9.095e-13 kg/h and maximum component residual was 9.095e-13 kg/h",
+        "maximum unit energy residual was 9.699e-4 W; valves, separators, heater, cooler, and pump sign conventions were independently audited",
+        "temperature, pressure, and rich-feed-water sensitivities were finite and physically interpreted; required purity, recovery, and duty trends were monotonic",
+        "the single-equilibrium-flash solvent-loss limitation remained explicit: 478.516088 kg/h MEG left in the regenerator overhead and triggered a focused warning assertion",
+        "readability audit passed with one statement per line, no semicolon chains, wildcard imports, magics, compressed compound bodies, or code lines over 79 characters",
+        "seven display equations and four inline expressions passed Colab-safe source validation; all 11 expressions rendered through MathJax and passed visual inspection",
+        "both stored, unit-labelled sensitivity figures were extracted from the final execution and passed visual inspection",
+        "the Colab badge, unique catalog target, current NeqSim documentation, source repository, separator and CPA source files, and hydrate reference were validated"
+      ],
+      "summary": "Rebuilt the rich-MEG catalog notebook as an auditable gas-flash and vacuum flash-regeneration study. Added CPA theory, explicit SI units and absolute pressures, reusable current process objects, stream and component tables, purity-water-removal-solvent-recovery metrics, total/component/energy audits, three operating sensitivities, an explicit single-flash solvent-loss diagnostic, limitations, troubleshooting, references, and exercises."
     }
   ]
 }
