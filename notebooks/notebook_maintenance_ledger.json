@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-23T08:35:31Z",
+  "updated_at": "2026-07-23T09:15:00Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -3932,6 +3932,70 @@
         "the Colab badge, existing unique catalog link, current official NeqSim documentation links, and latest PyPI version were validated"
       ],
       "summary": "Implemented the empty process-simulator-comparison target as a transparent, reusable model-assurance tutorial. It freezes inputs with a SHA-256 fingerprint, builds and audits current NeqSim SRK and PR flowsheets, quantifies sensitivities and model spread, supplies a non-fabricated UNISIM/DWSIM result contract, performs an independent compressor screen, and closes with a constrained operating-envelope application."
+    },
+    {
+      "path": "notebooks/process/automatedprocessdesign.ipynb",
+      "verified_date": "2026-07-23",
+      "verified_at_utc": "2026-07-23T09:15:00Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean sequential in-process execution in an isolated Python 3.12 environment created with python -m pip install --upgrade --no-cache-dir neqsim; all 24 code cells executed in order after the final readability, equation-rendering, and visual validation",
+      "code_cells": 24,
+      "markdown_cells": 30,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "pre_existing_examples_preserved": 0,
+      "preservation_note": "The catalog target contained only a Colab badge, an invalid To be implemented code cell, and one literature link. It contained no working calculation or substantive example. The automated-process-design topic and original NTNU reference were preserved.",
+      "pre_existing_figures_preserved": 0,
+      "figure_preservation_note": "The placeholder contained no plot, diagram, image, map, or reproducible visual output. Five new technical figures were added; none replaces an earlier visual.",
+      "neqsim_capabilities_demonstrated": [
+        "SRK multicomponent natural-gas system with classic mixing rule, multiphase checking, TP flash, and physical-property initialization",
+        "named Stream, ThrottlingValve, Cooler, Separator, Compressor, and ProcessSystem objects in a reusable flowsheet",
+        "equipment retrieval for phase split, density, cooler duty, compressor power, outlet temperature, and named streams",
+        "total-mass, component-molar-flow, cooler-energy, and compressor-energy balance reconstruction",
+        "fresh independent ProcessSystem execution across a 42-point separator temperature-pressure design grid",
+        "constraint screening, equivalent-electric-demand ranking, Pareto-frontier extraction, and deterministic selected-case rerun",
+        "ProcessSystem automation facade unit discovery and structured JSON snapshot export"
+      ],
+      "practical_application": "A 10 kg/s synthetic rich gas at 45 degrees Celsius and 65 bara is throttled, cooled, separated, and recompressed to 80 bara. The application screens 42 separator temperature-pressure combinations, enforces recovery, cooling, power, and discharge-temperature constraints, selects the minimum equivalent-demand feasible point, reruns it, audits balances, and exports a fingerprinted result plus NeqSim automation snapshot.",
+      "retained_figures": {
+        "count": 5,
+        "previous_count": 0,
+        "new_count": 5,
+        "numerically_refreshed_previous_count": 0,
+        "purposes": [
+          "process topology and design-variable overview",
+          "base-case pressure and temperature profile",
+          "design-space equivalent-demand heatmap with recovery and feasibility annotations",
+          "energy-recovery Pareto trade-off",
+          "separator-pressure sensitivity of recovery and compressor power"
+        ],
+        "visual_inspection": "passed; all stored figures were extracted and checked for titles, axes, explicit units, legends or color scale, accessible colors, clipping, overlap, readable annotations, meaningful scales, and consistency with numerical tables"
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 24 code cells and 30 Markdown cells",
+        "all 24 code cells executed sequentially with execution counts 1 through 24, meaningful stored outputs, zero exceptions, zero error outputs, and zero stderr",
+        "all 26 focused input, thermodynamic, process, conservation, feasibility, trend, deterministic-rerun, and automation assertions passed",
+        "all 42 independent NeqSim design points produced finite gas and liquid flows, positive cooling loads, and positive compressor powers",
+        "selected design was 15 degrees Celsius and 50 bara, with 5.447618 wt percent liquid recovery",
+        "selected cooling load was 690.284765 kW, compressor power was 592.957432 kW, and equivalent demand was 823.052354 kW",
+        "selected compressor outlet temperature was 53.558387 degrees Celsius",
+        "selected total-mass residual was 1.37e-12 kg/h and maximum component residual was 6.36e-14 mol/s",
+        "selected rerun reproduced recovery, duty, power, and equivalent demand exactly at stored precision",
+        "compressor power decreased monotonically as separator pressure increased at 0 degrees Celsius",
+        "automation discovery returned all five named process units and snapshot schema 1.0",
+        "readability passed with one statement per line, conventional indentation, no semicolons, wildcard imports, compressed compound bodies, or code lines over 78 characters",
+        "four display equations and 12 inline expressions use Colab-safe delimiters and single-backslash LaTeX",
+        "all four display equations rendered through a Jupyter-compatible MathJax path and passed visual inspection",
+        "all five stored technical figures passed visual and numerical inspection",
+        "the Colab badge, existing unique catalog target, NeqSim documentation, process source, current PyPI release, and preserved NTNU reference were checked"
+      ],
+      "summary": "Implemented the nonfunctional automated-process-design placeholder as a state-of-the-art constrained NeqSim design tutorial. It builds and audits a real gas-conditioning flowsheet, screens a transparent design space, separates feasibility from ranking, derives a Pareto frontier, reruns the selected process, and exports a reusable automation snapshot and report."
     }
   ]
 }
