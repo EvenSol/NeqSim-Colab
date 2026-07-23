@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-23T14:40:56Z",
+  "updated_at": "2026-07-23T20:24:00Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -4701,6 +4701,63 @@
         "the Colab badge, original USN/NTNU reference, official NeqSim documentation links, and unique catalog target were checked"
       ],
       "summary": "Rebuilt the nonfunctional five-cell oil-and-gas draft into a current executable NeqSim tutorial without deleting its intended examples. Replaced obsolete setup, proprietary input, a 590-line truncated builder, undefined runtime data, and an unsafe timeout thread with modular supported APIs, complete outputs, balances, quality checks, scenarios, rendered equations, and six inspected figures."
+    },
+    {
+      "path": "notebooks/thermodynamics/RachRice.ipynb",
+      "verified_date": "2026-07-23",
+      "verified_at_utc": "2026-07-23T20:24:00Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "all 23 code cells executed sequentially in one shared namespace with counts 1 through 23 in an isolated Python 3.12 environment installed earlier the same day from the public PyPI NeqSim release using python -m pip install --upgrade --no-cache-dir neqsim; a fresh duplicate download attempt encountered a transient proxy timeout, and no local checkout, editable install, unpublished wheel, or injected JAR was used",
+      "code_cells": 23,
+      "markdown_cells": 26,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "pre_existing_examples_preserved": 15,
+      "preservation_note": "Preserved all 15 original executable examples and all 17 original Markdown cells in order: bounded Rachford-Rice solving, synthetic phase reconstruction, NeqSim TP flash, converged K-value extraction, independent comparison, Wilson estimates, initial-guess robustness, pressure classification, PH and PS flashes, flow accounting, the four-panel numerical figure, and 19 original acceptance checks. The material is integrated with a new stream-separator application rather than replaced or shortened.",
+      "pre_existing_figures_preserved": 1,
+      "figure_preservation_note": "Preserved and numerically refreshed the original four-panel figure covering the physical root, solver convergence, Wilson-versus-EOS K values, and pressure-driven condensation. Added four separate figures; none replaces the original visual.",
+      "neqsim_capabilities_demonstrated": [
+        "SystemSrkEos fluid construction, classic mixing rule, multiphase checking, and physical-property initialization",
+        "ThermodynamicOperations TP, PH, and PS flashes with phase, enthalpy, and entropy result retrieval",
+        "converged equilibrium-ratio extraction and independent Rachford-Rice phase-fraction and composition verification",
+        "Stream flow assignment, Separator product streams, and ProcessSystem ordered execution",
+        "fresh-case pressure sensitivity with total and component conservation audits"
+      ],
+      "practical_application": "A reusable function creates a fresh SRK gas-condensate fluid, assigns a 10000 kg/h feed with Stream, executes a two-product Separator in ProcessSystem, retrieves product rates and compositions, calculates component recoveries, and independently evaluates five pressure cases from 20 to 60 bara with conservation checks and reusable result tables.",
+      "retained_figures": {
+        "count": 5,
+        "previous_count": 1,
+        "new_count": 4,
+        "numerically_refreshed_previous_count": 1,
+        "purposes": [
+          "preserved four-panel Rachford-Rice root, convergence, K-value, and pressure-sensitivity comparison",
+          "NeqSim fluid-stream-separator solver workflow overview",
+          "component recovery into gas and liquid products",
+          "separator-pressure effect on product flow and liquid fraction",
+          "total-mass and maximum-component residuals across independent pressure cases"
+        ],
+        "visual_inspection": "passed after final execution; all five stored PNG figures were extracted and inspected at original resolution for titles, readable labels, explicit units, legends, accessible colors, clipping, overlap, correct scales, and agreement with tables and nearby engineering interpretation"
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 23 code cells and 26 Markdown cells",
+        "all 23 code cells executed in order with counts 1 through 23, zero exceptions, zero error outputs, and zero stderr",
+        "all 32 original cells and the original four-panel figure were preserved in order and recomputed",
+        "all 19 original flash checks and all eight new stream-separator checks passed",
+        "base separator products were 4564.617440 kg/h gas and 5435.382560 kg/h liquid from a 10000 kg/h feed",
+        "maximum five-scenario mass residual was 7.508e-08 kg/h and maximum component residual was 3.763e-10 mol/s",
+        "liquid flow increased and gas flow decreased monotonically from 20 to 60 bara at 260 K",
+        "maximum code-line length was 82 characters with no semicolons or inline compound bodies",
+        "all eight display equations use Colab-safe standalone delimiters and single-backslash LaTeX; each rendered through the Jupyter-compatible MathJax tex2svg path and passed visual inspection",
+        "all five stored figures passed visual and numerical inspection",
+        "the Colab badge, current NeqSim documentation links, and unique catalog target were checked"
+      ],
+      "summary": "Modernized the foundational Rachford-Rice notebook without deleting any existing example, explanation, check, or figure. Retained the transparent solver and rigorous NeqSim TP/PH/PS benchmarks, then added a full Stream-Separator-ProcessSystem application, component recovery, fresh pressure scenarios, four new inspected figures, balance audits, troubleshooting, reuse guidance, and rendered equations."
     }
   ]
 }
