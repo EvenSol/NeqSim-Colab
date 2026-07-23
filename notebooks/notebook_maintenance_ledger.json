@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-23T09:15:00Z",
+  "updated_at": "2026-07-23T09:29:38Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -3996,6 +3996,68 @@
         "the Colab badge, existing unique catalog target, NeqSim documentation, process source, current PyPI release, and preserved NTNU reference were checked"
       ],
       "summary": "Implemented the nonfunctional automated-process-design placeholder as a state-of-the-art constrained NeqSim design tutorial. It builds and audits a real gas-conditioning flowsheet, screens a transparent design space, separates feasibility from ranking, derives a Pareto frontier, reruns the selected process, and exports a reusable automation snapshot and report."
+    },
+    {
+      "path": "notebooks/process/capacity_and_bottleneck_analysis.ipynb",
+      "verified_date": "2026-07-23",
+      "verified_at_utc": "2026-07-23T09:29:38Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean sequential in-process execution in an isolated Python 3.12 environment created with python -m pip install --upgrade --no-cache-dir neqsim; all 25 code cells executed in order after the final readability, documentation-link, equation-rendering, and visual corrections",
+      "code_cells": 25,
+      "markdown_cells": 30,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "pre_existing_examples_preserved": 4,
+      "preservation_note": "Preserved and integrated all four substantive legacy examples: six-component SRK natural-gas creation; the Feed gas–Export compressor–Export pipe ProcessSystem; the automation utilization snapshot and bottleneck report; and the original seven-point throughput sweep at 6000, 9000, 12000, 15000, 18000, 25000, and 48000 kg/h. Every operating point now uses a fresh initialized process so results are order-independent and energy-consistent.",
+      "pre_existing_figures_preserved": 0,
+      "figure_preservation_note": "The original notebook contained no stored or source-generated plots, diagrams, maps, images, or other substantive visuals. Six new technical figures were added; none replaces an earlier visual.",
+      "neqsim_capabilities_demonstrated": [
+        "SRK multicomponent natural-gas system with classic mixing rule, multiphase checking, TP flash, and physical-property initialization",
+        "named Stream, Compressor, PipeBeggsAndBrills, and ProcessSystem objects assembled into a reusable compression-and-export flowsheet",
+        "equipment mechanical-design initialization, compressor design-power assignment, and supported compressor and pipe capacity constraints",
+        "ProcessSystem automation facade unit discovery, utilization snapshot retrieval, schema inspection, and bottleneck identification",
+        "fresh independent NeqSim process construction for throughput sweeps, bisection capacity search, design maps, and reproducible scenario comparison",
+        "mass and compressor enthalpy-balance reconstruction plus structured fingerprinted JSON engineering reporting"
+      ],
+      "practical_application": "A reusable capacity-and-debottlenecking workflow screens 16 pipe-diameter and compressor-power designs, locates each capacity limit with a feasibility bisection, compares bottleneck migration, selects a combined 0.18 m and 3500 kW modification for a 90000 kg/h target, reruns the selected case, audits balances, and exports an automation-backed report.",
+      "retained_figures": {
+        "count": 6,
+        "previous_count": 0,
+        "new_count": 6,
+        "numerically_refreshed_previous_count": 0,
+        "purposes": [
+          "process topology and active design variables",
+          "base-case equipment utilization against the capacity limit",
+          "preserved and extended throughput screen for compressor and pipe utilization",
+          "bisection-verified base-design capacity limit",
+          "capacity heatmap and limiting-equipment migration over the 16-design grid",
+          "debottlenecking candidate capacities and bottleneck migration"
+        ],
+        "visual_inspection": "passed; all stored outputs were extracted and checked for titles, readable axes, explicit units, legends or color scale, accessible colors, clipping, overlap, annotations, scales, and consistency with the numerical tables"
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 25 code cells and 30 Markdown cells",
+        "all 25 code cells executed sequentially with execution counts 1 through 25, meaningful stored outputs, zero exceptions, zero error outputs, and zero stderr",
+        "all 31 focused composition, process, capacity, trend, balance, automation, and target-design assertions passed",
+        "all four substantive pre-existing examples were preserved, repaired, documented, and integrated; no pre-existing figures existed",
+        "base compressor power was 444.014648 kW, base compressor utilization was 17.760586 percent, and base pipe velocity utilization was 14.187609 percent",
+        "base-design capacity was bracketed at 67561.645508 to 67568.054199 kg/h with the compressor power constraint limiting",
+        "all 16 pipe-diameter and compressor-power designs produced finite capacity results; combined modification capacity was 94587.097168 kg/h",
+        "the selected 0.18 m and 3500 kW design passed at 90000 kg/h with 95.145996 percent maximum utilization and 74.219503 percent pipe velocity utilization",
+        "target compressor power was 3330.109863 kW, pipe outlet pressure was 99.556032 bara, mass residual was 0 kg/h, and compressor energy residual magnitude was below 5e-10 W",
+        "readability passed with one statement per line, conventional indentation, no semicolons, wildcard imports, compressed compound bodies, or code lines over 74 characters",
+        "four display equations and seven inline expressions use Colab-safe delimiters and single-backslash LaTeX",
+        "all four display equations rendered through a Jupyter-compatible MathJax path and passed visual inspection",
+        "all six stored technical figures passed visual and numerical inspection",
+        "the Colab badge, current official NeqSim documentation, process source, PyPI release, and existing unique catalog link were checked"
+      ],
+      "summary": "Modernized the compact capacity-and-bottleneck notebook without deleting examples. Removed stale NeqSim 3.15 output and compressed legacy patterns, made repeated operating points order-independent with fresh process construction, added explicit units, balances, capacity constraints, schema-aware automation diagnostics, a bisection search, a 16-design debottlenecking map, a validated target application, troubleshooting, limitations, references, and exercises."
     }
   ]
 }
