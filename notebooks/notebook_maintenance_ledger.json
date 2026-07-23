@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-23T06:42:13Z",
+  "updated_at": "2026-07-23T07:06:18Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -3741,6 +3741,76 @@
         "the Colab badge points to the published path and the existing catalog link remains unique"
       ],
       "summary": "Modernized Use of natural gas as a current evidence-to-engineering workbook. Preserved all legacy examples, removed obsolete magics and fragile data access, added current IEA/SODIR context, explicit evidence labels, scenario sensitivities, equations, validation, limitations, references, and a reusable NeqSim ISO 6976 export-compression application."
+    },
+    {
+      "path": "notebooks/gasvaluechain/energystatistics.ipynb",
+      "verified_date": "2026-07-23",
+      "verified_at_utc": "2026-07-23T07:06:18Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean virtual environment with the latest public PyPI neqsim; every code cell executed sequentially in notebook order in an isolated Python process",
+      "code_cells": 27,
+      "markdown_cells": 31,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "preserved_examples": {
+        "count": 5,
+        "items": [
+          "global natural-gas demand and World Energy Outlook context",
+          "natural gas demand-growth discussion",
+          "natural gas in the low-carbon transition",
+          "LNG-market expansion and gas-supply shifts",
+          "energy-outlook literature and references"
+        ],
+        "integration": "All original themes were retained, dated, source-qualified, and integrated into a progression from evidence and scenarios to a practical NeqSim infrastructure workflow."
+      },
+      "neqsim_capabilities": [
+        "SRK multicomponent fluid construction and classic mixing rule",
+        "TP flash and physical-property inspection",
+        "ISO 6976 calorific value, relative density, and Wobbe index",
+        "standard-volume to mass and energy conversion",
+        "ProcessSystem streams, three compressor stages, and intercoolers",
+        "mass and compressor enthalpy-rate balance auditing",
+        "fresh-case pressure sensitivity with cloned fluids",
+        "composition-based direct carbon-dioxide and methane-boundary screening"
+      ],
+      "practical_application": "Converted a transparent 10 bcm/year scenario tranche into NeqSim gas quality, average flow, a 5-to-80 bara three-stage intercooled terminal-compression process, conservation checks, delivery-pressure sensitivity, and emissions boundaries.",
+      "retained_figures": {
+        "count": 8,
+        "purposes": [
+          "2025 regional gas-demand changes",
+          "conditional 2025-to-2050 scenario indices",
+          "gross LNG capacity versus net delivered-supply growth",
+          "representative NeqSim gas composition",
+          "NeqSim terminal-compression workflow",
+          "compressor-stage pressure and power profiles",
+          "delivery-pressure power and temperature sensitivity",
+          "combustion and upstream-methane emissions boundary"
+        ],
+        "visual_inspection": "passed; titles, axes, units, legends, accessible colors, clipping, overlap, scales, and stored outputs were checked"
+      },
+      "key_checks": [
+        "valid nbformat JSON with 27 code cells and 31 Markdown cells",
+        "all 27 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 10 consolidated engineering assertions passed",
+        "composition closed to 1.0 and the representative export gas remained one phase",
+        "ISO 6976 LHV was 36.954244 MJ/Sm3 and Wobbe index was 51.660802 MJ/Sm3",
+        "10 bcm/year converted to 243.543706 kg/s and 369.542441 PJ/year",
+        "three-stage 5-to-80 bara compression required 127.037196 MW",
+        "mass residual and maximum compressor energy residual were both 0 within displayed precision",
+        "compressor power increased monotonically with final delivery pressure",
+        "direct combustion screen was 351.034 kg CO2/MWhe before upstream methane",
+        "seven display equations and 20 inline expressions rendered through a Jupyter-compatible MathJax path and visually passed",
+        "eight distinct stored technical figures visually passed",
+        "readability audit passed with no semicolons or inline compound bodies and maximum code-line length 82 characters",
+        "catalog target occurs exactly once and all introduced links were checked"
+      ],
+      "summary": "Replaced the four-Markdown-cell placeholder with a dated, source-qualified World Energy Outlook tutorial. Preserved all five original themes and added reproducible IEA evidence, explicit scenario semantics, LNG capacity-versus-supply analysis, real NeqSim gas-quality and process functionality, conservation checks, sensitivities, emissions boundaries, limitations, troubleshooting, exercises, references, and eight technical figures."
     }
   ]
 }
