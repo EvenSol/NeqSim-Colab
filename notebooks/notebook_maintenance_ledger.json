@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-23T13:46:29Z",
+  "updated_at": "2026-07-23T14:07:20Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -4516,6 +4516,69 @@
         "the existing catalog path notebooks/process/TEGdehydration.ipynb remained linked exactly once"
       ],
       "summary": "Modernized the legacy TEG-dehydration notebook without deleting examples or visuals. Replaced obsolete setup, wildcard helpers, ambiguous hydrate/dew-point terminology, a SciPy-only root solve, and sparse validation with current SRK-CPA thermodynamics, composable process equipment, preserved Campbell and regeneration studies, capacity screening, balances, sensitivities, rendered equations, seven inspected figures, limitations, troubleshooting, references, and exercises."
+    },
+    {
+      "path": "notebooks/power/gas_turbine_emissions_and_process_power.ipynb",
+      "verified_date": "2026-07-23",
+      "verified_at_utc": "2026-07-23T14:07:20Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean sequential in-process execution in an isolated Python 3.12 environment created with python -m pip install --upgrade --no-cache-dir neqsim; all 28 code cells executed in order after final readability, equation-rendering, link, preservation, numerical, and visual checks",
+      "code_cells": 28,
+      "markdown_cells": 30,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "pre_existing_examples_preserved": 4,
+      "preservation_note": "Preserved and integrated all four substantive legacy examples: the exact six-component SRK gas; the 10000 kg/h compressor from 55 to 120 bara; the 0.32 thermal-efficiency, 48 MJ/kg LHV, 2.75 kg CO2/kg fuel, and 8000 h/year emissions screen; and the shaft-power, fuel-rate, and annual-CO2 results table. The implicit ideal compressor efficiency is now explicit, and a realistic 0.78 case is added without removing the original limiting case.",
+      "pre_existing_figures_preserved": 1,
+      "figure_preservation_note": "Preserved the original four-point 0.28, 0.32, 0.36, and 0.40 efficiency-versus-annual-CO2 line figure in recognizable form. All plotted values were recomputed with NeqSim 3.16.0 compressor power; title, units, accessible color, legend, table, and interpretation were refreshed. Five new technical figures were added and none replaces the previous visual.",
+      "neqsim_capabilities_demonstrated": [
+        "SystemSrkEos natural-gas fluid with classic mixing rule, multiphase checking, TP flash, physical-property initialization, and named Stream objects",
+        "Compressor outlet-pressure and explicit isentropic-efficiency configuration with power, discharge-temperature, mass, and enthalpy-rate retrieval",
+        "ProcessSystem assembly and staged steady-state execution for calculated power-consumer integration",
+        "GasTurbineCatalog access to 17 generic aeroderivative and industrial specifications with rated power, heat rate, efficiency, exhaust, and NOx fields",
+        "GasTurbineUnit native power demand, load, available power, heat rate, thermal efficiency, fuel flow, CO2, NOx, methane-slip-ready emissions, and exhaust-result APIs",
+        "ambient-temperature correction and GasTurbineDegradation effects on capacity, efficiency, and emissions intensity",
+        "native Compressor power-consumer connection to GasTurbineUnit in a reusable end-to-end workflow"
+      ],
+      "practical_application": "A reusable end-to-end workflow builds and flashes an 80000 kg/h SRK export gas, compresses it from 55 to 120 bara at 0.78 isentropic efficiency, creates a separate fuel-gas stream, connects the compressor as a native GasTurbineUnit power consumer, runs the shared ProcessSystem, retrieves power, load, fuel, CO2, NOx, and exhaust KPIs, and validates mass, energy, capacity, minimum-load, overload, and shortfall conditions.",
+      "retained_figures": {
+        "count": 6,
+        "previous_count": 1,
+        "new_count": 5,
+        "numerically_refreshed_previous_count": 1,
+        "purposes": [
+          "NeqSim process-power, fuel-gas, turbine, and emissions workflow overview",
+          "preserved turbine-efficiency versus annual direct-CO2 sensitivity with refreshed values",
+          "NeqSim turbine catalog rated-power, ISO-efficiency, and heat-rate comparison",
+          "CENTAUR 50 part-load efficiency and direct-CO2-intensity curves",
+          "ambient-temperature and degradation effects on available power and emissions intensity",
+          "integrated application compressor demand, turbine capacity, fuel rate, and direct CO2"
+        ],
+        "visual_inspection": "passed; all six stored outputs were extracted and checked at original resolution for descriptive titles, readable labels, explicit units, legends, accessible colors, clipping, overlap, scales, and consistency with tables and nearby engineering interpretation"
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 28 code cells and 30 Markdown cells",
+        "all 28 code cells executed sequentially with execution counts 1 through 28, meaningful stored outputs, zero exceptions, zero error outputs, and zero stderr",
+        "all eight final composition, compressor, conservation, sensitivity, ambient, capacity, and integration checks passed",
+        "all four substantive pre-existing examples and the one pre-existing figure were preserved, repaired, documented, and integrated",
+        "the preserved ideal compressor power was 276.889606 kW and reproduced 64.896001 kg/h fuel and 1427.712032 t/year direct CO2",
+        "the realistic 0.78 compressor power was 354.986674 kW with zero stored mass and energy residuals",
+        "the native 3 MW turbine case used a 2.6685 kg CO2/kg fuel composition factor and demonstrated part-load behavior",
+        "the integrated 80000 kg/h case demanded 2.839893 MW, had 4.600000 MW available, consumed 780.258 kg/h fuel, emitted 2082.110 kg/h direct CO2, and had zero power shortfall",
+        "readability passed with one statement per line, conventional indentation, no semicolons, wildcard imports, magics, compressed compound bodies, or code lines over 86 characters",
+        "four display equations and 11 inline expressions use Colab-safe delimiters and single-backslash LaTeX",
+        "all four display equations rendered through a Jupyter-compatible MathJax path and passed visual inspection after correcting a generated fraction escape",
+        "all six stored technical figures passed visual and numerical inspection",
+        "the Colab badge, official NeqSim documentation, process documentation, source APIs, PyPI 3.16.0 release, and all introduced links were checked",
+        "the catalog description was updated and its target path occurs exactly once"
+      ],
+      "summary": "Expanded the minimal gas-turbine emissions notebook into a current NeqSim power-generation tutorial without deleting examples or figures. Repaired stale setup, implicit ideal compressor efficiency, constant-only turbine treatment, sparse explanation, and weak validation; added native turbine catalog, performance-map, emissions, ambient, degradation, and compressor-consumer functionality, six inspected figures, rendered equations, balances, limitations, troubleshooting, references, and exercises."
     }
   ]
 }
