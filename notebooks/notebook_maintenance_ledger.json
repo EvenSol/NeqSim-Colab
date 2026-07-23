@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-23T04:53:00.619Z",
+  "updated_at": "2026-07-23T05:25:21.193Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -3588,6 +3588,40 @@
         "the Colab badge, unique catalog target, current NeqSim documentation, PyPI package, source repository, ISO 6976, and thermodynamics references were validated"
       ],
       "summary": "Added a self-contained combined-cycle power-plant screen that couples an atom-balanced SRK Brayton gas turbine to a single-pressure HRSG and an SRK-CPA Rankine water/steam cycle. Added explicit governing equations, SI units, process-equipment cross-checks, conservation audits, steam-quality and temperature-approach limits, two operating sensitivities, plots, limitations, troubleshooting, references, and exercises while preserving all existing functional examples."
+    },
+    {
+      "path": "notebooks/process/dynsep.ipynb",
+      "verified_date": "2026-07-23",
+      "verified_at_utc": "2026-07-23T05:25:21.193Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean sequential in-process execution in the isolated Python 3.12 environment created with python -m pip install --upgrade --no-cache-dir neqsim; all 19 code cells executed in order after final readability, documentation-link, and Markdown corrections",
+      "code_cells": 19,
+      "markdown_cells": 29,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "key_checks": [
+        "preserved the original dynamic separator level-control topic while replacing the six-code/seven-Markdown legacy sketch, obsolete source-install instruction, old magic, stale outputs, and missing engineering validation",
+        "valid nbformat 4 JSON with execution counts 1 through 19, meaningful stored outputs, four PNG figures, and zero exceptions, error outputs, or stderr",
+        "all 24 focused engineering assertions passed against public PyPI NeqSim 3.16.0, confirmed as the latest release on 2026-07-23",
+        "current Peng-Robinson fluid, Stream, ThrottlingValve, Separator, and ProcessSystem wrapper APIs executed for a normalized synthetic 14-component production fluid",
+        "steady products were 7670.613238 kg/h gas and 12329.386762 kg/h liquid from a 20000 kg/h feed",
+        "steady total-mass residual was 9.095e-12 kg/h and maximum component residual was 1.421e-14 mol/s",
+        "the explicit horizontal-vessel liquid inventory used exact segment geometry, consistent kg/h-to-kg/s conversion, bounded bisection, and a two-second time step",
+        "the PI-controlled 20 percent liquid-feed step peaked at 0.431708 level fraction and returned to 0.402693 with a final valve opening of 62.562485 percent",
+        "open-loop, proportional-only, and PI cases showed the expected ordering; 10, 20, and 30 percent feed-step sensitivities remained finite and below the illustrative 0.70 high-level alarm",
+        "dynamic inventory residual was -1.254e-06 kg and the final PI level was within the documented recovery tolerance",
+        "readability passed with one statement per line, no semicolon chains, wildcard imports, source-install magics, compressed compound bodies, or code lines over 88 characters",
+        "seven display equations and 19 inline expressions used Colab-safe delimiters, rendered through MathJax, and passed visual inspection",
+        "all four stored, unit-labelled engineering figures were extracted from the final execution and passed visual inspection",
+        "the Colab badge, unique front-page catalog link, current official NeqSim and process documentation, PyPI package, repository, and Separator source references were validated"
+      ],
+      "summary": "Rebuilt the dynamic separator example as a transparent level-control tutorial. Added a current NeqSim valve-and-separator flash, total and component balances, exact horizontal-cylinder inventory geometry, a bounded PI controller with anti-windup, controller and feed-step comparisons, plots, limitations, troubleshooting, references, and exercises while preserving the original functional topic."
     }
   ]
 }
