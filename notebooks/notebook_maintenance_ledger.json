@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-23T12:30:56Z",
+  "updated_at": "2026-07-23T13:07:45Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -4382,6 +4382,71 @@
         "the Colab badge, current official NeqSim documentation, process documentation, source APIs, PyPI 3.16.0 release, and unique catalog entry were checked"
       ],
       "summary": "Modernized the compact closed-loop optimization notebook without deleting examples or figures. Replaced obsolete compatibility imports and mutable repeated-process runs with current APIs and independent flowsheets, made compressor efficiency and constraints explicit, added separation, balances, feasibility mapping, a real NeqSim-in-the-loop search, independent validation, six inspected figures, rendered equations, limitations, troubleshooting, references, and exercises."
+    },
+    {
+      "path": "notebooks/process/digital_twin_model_vs_measurement.ipynb",
+      "verified_date": "2026-07-23",
+      "verified_at_utc": "2026-07-23T13:07:45Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "clean sequential in-process execution in an isolated Python 3.12 environment created with python -m pip install --upgrade --no-cache-dir neqsim; all 25 code cells executed in order after final readability, equation-rendering, link, numerical, preservation, and visual checks",
+      "code_cells": 25,
+      "markdown_cells": 37,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "pre_existing_examples_preserved": 4,
+      "preservation_note": "Preserved and integrated all four substantive legacy examples: the original six-component SRK natural gas; the exact four-row synthetic flow, suction-pressure, discharge-pressure, and package-power table; one independently constructed NeqSim compressor process per row; and the measured-versus-simulated power comparison. Obsolete setup and fallback imports were repaired, compressor efficiency was made explicit, and no useful calculation or learning objective was removed.",
+      "pre_existing_figures_preserved": 1,
+      "figure_preservation_note": "Preserved the original measured-versus-simulated compressor-power line chart in recognizable form and recomputed every model value with NeqSim 3.16.0. Titles, units, legend, colors, and interpretation were refreshed. Six new technical figures were added; none replaces the previous visual.",
+      "neqsim_capabilities_demonstrated": [
+        "SystemSrkEos natural-gas fluid with classic mixing rule, TP flash, and physical-property initialization",
+        "fresh named Stream, Compressor, and ProcessSystem objects for every operating point",
+        "explicit compressor outlet pressure and isentropic efficiency with shaft-power, outlet-temperature, mass, component, and energy retrieval",
+        "native BatchParameterEstimator calibration of compressor isentropic efficiency from multiple operating conditions",
+        "package-boundary affine calibration with separate training and validation data",
+        "24-hour model-versus-measurement monitoring with rolling residuals, thresholding, drift detection, and a reusable JSON snapshot",
+        "mass, component, energy, trend, calibration, preservation, and deterministic-report validation"
+      ],
+      "practical_application": "A reusable end-to-end compressor digital-twin workflow creates fresh NeqSim cases for 24 hourly operating points, converts compressor physics to a calibrated package-power baseline, compares it with deterministic synthetic measurements, detects sustained drift at hour 20, audits the process calculations, and exports a governed JSON snapshot. A separate native BatchParameterEstimator example recovers a known 0.76 isentropic efficiency from four outlet-temperature data points.",
+      "retained_figures": {
+        "count": 7,
+        "previous_count": 1,
+        "new_count": 6,
+        "numerically_refreshed_previous_count": 1,
+        "purposes": [
+          "measurement-to-model-to-calibration-to-monitoring workflow overview",
+          "preserved measured package power versus refreshed NeqSim compressor power",
+          "raw and calibrated parity with training and validation points distinguished",
+          "raw versus calibrated residuals for all four preserved operating points",
+          "compressor efficiency sensitivity of power and discharge temperature",
+          "native BatchParameterEstimator temperature fit across four pressures",
+          "24-hour baseline, measurement, rolling-residual, threshold, and first-alert monitoring view"
+        ],
+        "visual_inspection": "passed; all seven stored figures were extracted and checked at original resolution for descriptive titles, readable labels, explicit units, legends, accessible colors, clipping, overlap, scales, threshold annotations, and consistency with tables and text"
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 25 code cells and 37 Markdown cells",
+        "all 25 code cells executed sequentially with counts 1 through 25, meaningful stored outputs, zero exceptions, zero error outputs, and zero stderr",
+        "all 24 focused composition, data-quality, process, calibration, estimator, monitoring, conservation, trend, and reporting assertions passed",
+        "all four substantive pre-existing examples and the one pre-existing figure were preserved, repaired, documented, and integrated",
+        "raw package-boundary comparison RMSE was 792.957875 kW; the notebook explicitly explains why compressor-only shaft power and package measurement boundaries differ",
+        "three-point affine training RMSE was 5.829039 kW and the held-out validation residual magnitude was 16.384446 kW",
+        "native BatchParameterEstimator recovered the known 0.76 isentropic efficiency from an initial 0.65 guess with 0.001651 uncertainty, 0.000078 K RMSE, R-squared 1.0, and successful convergence",
+        "the 24-hour monitor used a 21.417256 kW rolling-residual threshold and first alerted at hour 20 after deterministic drift",
+        "maximum model-row mass residual was 0 kg/h, maximum component residual was 0 mol/s, and maximum compressor-energy residual was 5.820766e-11 W",
+        "readability passed with one statement per line, conventional indentation, no semicolons, wildcard imports, compressed compound bodies, or code lines over 81 characters",
+        "four display equations and six inline expressions use Colab-safe delimiters and single-backslash LaTeX",
+        "all four display equations rendered through a Jupyter-compatible MathJax path and passed visual inspection",
+        "all seven stored technical figures passed visual and numerical inspection",
+        "the Colab badge, current official NeqSim documentation, process and calibration documentation, PyPI 3.16.0 release, and all introduced links were checked",
+        "the catalog description was updated and its target path occurs exactly once"
+      ],
+      "summary": "Expanded the placeholder digital-twin notebook into a current, self-contained NeqSim compressor tutorial without deleting examples or figures. Added explicit model boundaries, fresh process construction, residual diagnostics, train/validation calibration, native parameter estimation, sensitivity analysis, 24-hour monitoring, conservation audits, troubleshooting, limitations, references, exercises, rendered equations, and seven inspected figures."
     }
   ]
 }
