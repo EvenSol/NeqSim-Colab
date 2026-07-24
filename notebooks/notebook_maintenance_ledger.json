@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-24T00:53:37Z",
+  "updated_at": "2026-07-24T01:46:27Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -790,7 +790,7 @@
         "three deterministic two-panel figures were rendered and visually inspected with readable SI-labelled axes, legends, and physically interpretable profiles",
         "the Fluid mechanics catalog contains exactly one relative link to the notebook"
       ],
-      "summary": "Created a self-contained finite-rate pipeline phase-transfer tutorial covering hydrocarbon droplet and wall-film evaporation, methane-bubble dissolution into oil, CO2-bubble dissolution into water, Maxwell–Stefan component fluxes, coupled heat transfer, specified and Schiller–Naumann terminal slip, tracked-inventory completion distance, explicit incomplete results, conservation, step sensitivity, model limits, independent comparison paths, references, plots, and machine-readable results."
+      "summary": "Created a self-contained finite-rate pipeline phase-transfer tutorial covering hydrocarbon droplet and wall-film evaporation, methane-bubble dissolution into oil, CO2-bubble dissolution into water, MaxwellâStefan component fluxes, coupled heat transfer, specified and SchillerâNaumann terminal slip, tracked-inventory completion distance, explicit incomplete results, conservation, step sensitivity, model limits, independent comparison paths, references, plots, and machine-readable results."
     },
     {
       "path": "notebooks/process/model_predictive_controller_examples.ipynb",
@@ -3661,7 +3661,7 @@
       ],
       "key_checks": [
         "replaced the zero-byte catalog target with valid nbformat 4 JSON",
-        "embedded current public IEA 2025–2026 evidence with definitions, source URLs, status labels, update date, and CC BY 4.0 provenance",
+        "embedded current public IEA 2025â2026 evidence with definitions, source URLs, status labels, update date, and CC BY 4.0 provenance",
         "kept forecasts, scenarios, observations, and transparent screening assumptions separate and did not invent WEO gas-demand volumes",
         "all 21 code cells have execution counts 1 through 21, meaningful stored outputs, and zero exceptions, error outputs, or stderr",
         "all 24 focused statistical, thermodynamic, process, energy, trend, and lifecycle assertions passed",
@@ -4014,7 +4014,7 @@
         "commit": "this atomic commit"
       },
       "pre_existing_examples_preserved": 4,
-      "preservation_note": "Preserved and integrated all four substantive legacy examples: six-component SRK natural-gas creation; the Feed gas–Export compressor–Export pipe ProcessSystem; the automation utilization snapshot and bottleneck report; and the original seven-point throughput sweep at 6000, 9000, 12000, 15000, 18000, 25000, and 48000 kg/h. Every operating point now uses a fresh initialized process so results are order-independent and energy-consistent.",
+      "preservation_note": "Preserved and integrated all four substantive legacy examples: six-component SRK natural-gas creation; the Feed gasâExport compressorâExport pipe ProcessSystem; the automation utilization snapshot and bottleneck report; and the original seven-point throughput sweep at 6000, 9000, 12000, 15000, 18000, 25000, and 48000 kg/h. Every operating point now uses a fresh initialized process so results are order-independent and energy-consistent.",
       "pre_existing_figures_preserved": 0,
       "figure_preservation_note": "The original notebook contained no stored or source-generated plots, diagrams, maps, images, or other substantive visuals. Six new technical figures were added; none replaces an earlier visual.",
       "neqsim_capabilities_demonstrated": [
@@ -4338,7 +4338,7 @@
         "commit": "this atomic commit"
       },
       "pre_existing_examples_preserved": 4,
-      "preservation_note": "Preserved and integrated all four substantive legacy examples: the original six-component SRK gas assay; the 7500 kg/h Feed gas–Inlet cooler–Compressor ProcessSystem; the 15-case 10/20/30 degrees Celsius by 80/90/100/110/120 bara setpoint sweep; and minimum-power selection subject to a 100 bara delivery target. Every repeated case now constructs fresh fluid and equipment objects so the result is independent of sweep order.",
+      "preservation_note": "Preserved and integrated all four substantive legacy examples: the original six-component SRK gas assay; the 7500 kg/h Feed gasâInlet coolerâCompressor ProcessSystem; the 15-case 10/20/30 degrees Celsius by 80/90/100/110/120 bara setpoint sweep; and minimum-power selection subject to a 100 bara delivery target. Every repeated case now constructs fresh fluid and equipment objects so the result is independent of sweep order.",
       "pre_existing_figures_preserved": 1,
       "figure_preservation_note": "Preserved the original compressor-power-versus-outlet-pressure line figure in recognizable form. All 15 plotted values were recomputed with NeqSim 3.16.0 and the delivery-pressure constraint, title, units, accessible colors, legend, and interpretation were refreshed. Five new technical figures were added and none replaces the previous visual.",
       "neqsim_capabilities_demonstrated": [
@@ -5070,6 +5070,70 @@
         "the Colab badge, current NeqSim safety documentation, unique catalog target, and changed catalog path were checked on 2026-07-24"
       ],
       "summary": "Modernized the unexecuted ESD and PSV draft as a current, self-contained process-safety tutorial. Preserved every legacy example, replaced obsolete Jython and unsupported helpers with NeqSim 3.16.0 APIs, corrected units and API boundaries, added native device demonstrations, blocked-outlet and ESD dynamics, relief and orifice screening, a practical diameter study, 27 checks, six inspected figures, troubleshooting, limitations, references, and exercises."
+    },
+    {
+      "path": "notebooks/process/ESD_Fire_Alarm_System_Tutorial.ipynb",
+      "verified_date": "2026-07-24",
+      "verified_at_utc": "2026-07-24T01:46:27Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "all 21 code cells executed sequentially in one shared namespace with counts 1 through 21 in an isolated Python 3.12 environment installed from the latest public PyPI NeqSim release using python -m pip install --upgrade --no-cache-dir neqsim; package metadata confirmed a normal non-editable PyPI installation, and no local checkout, unpublished wheel, or manually injected JAR was used",
+      "code_cells": 21,
+      "markdown_cells": 27,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "pre_existing_examples_preserved": 8,
+      "preservation_note": "Preserved and integrated all eight substantive legacy teaching groups: FireDetector configuration; AlarmConfig threshold, deadband, and delay metadata; staged two-detector activation; the 50 bara and 25 degC SRK separator-gas basis at 10000 kg/h; separator/splitter/blowdown/orifice/flare equipment intent; the 2oo2 dynamic ESD sequence; cumulative flare heat and CO2 reporting; and 2oo3 voting plus reliability scenarios. Replaced Java syntax in Python cells and unexecuted code with current supported Python-accessible APIs while retaining every original engineering objective.",
+      "pre_existing_figures_preserved": 0,
+      "figure_preservation_note": "The original notebook contained no plot, diagram, image, animation snapshot, or other substantive visual output. Eight new technical figures were added; none removed, merged, or replaced previous visual content.",
+      "neqsim_capabilities_demonstrated": [
+        "SystemSrkEos construction, classic mixing rule, TP flash, phase checking, and SI property retrieval",
+        "native FireDetector binary state and AlarmConfig threshold, deadband, delay, unit, location, and reset metadata",
+        "native BlowdownValve activation and five-second transient opening stroke",
+        "native Orifice ISO 5167 pressure-driven compressible-gas mass-flow calculation",
+        "native Flare heat duty, CO2 rate, radiation estimate, cumulative gas, cumulative heat, and cumulative CO2 calculations",
+        "fresh-case 2oo2 and 2oo3 voting, reliability, fire-to-ESD timeline, lumped vessel mass balance, and four-diameter blowdown trade-off calculations"
+      ],
+      "practical_application": "A reusable fire-to-flare workflow builds a 40 m3 SRK separator-gas inventory at 50 bara and 25 degC, stages two detector demands, latches a 2oo2 ESD at 10 s, opens a native blowdown valve over five seconds, computes ISO 5167 restriction flow, runs the native flare model, audits inventory and cumulative consequences, compares 1oo1/2oo2/2oo3 reliability, and screens 30-60 mm orifices against response time, heat, CO2, and radiation.",
+      "retained_figures": {
+        "count": 8,
+        "previous_count": 0,
+        "new_count": 8,
+        "numerically_refreshed_previous_count": 0,
+        "purposes": [
+          "fire detection, voting, SRK inventory, blowdown, orifice, and flare workflow overview",
+          "exact 1oo3, 2oo3, and 3oo3 voting truth-table heatmap",
+          "staged detector signals and 2oo2 ESD latch timeline",
+          "vessel pressure and native blowdown-valve opening response",
+          "native flare heat and CO2 rate response",
+          "cumulative flare gas, combustion CO2, and radiation consequence screen",
+          "1oo1, 2oo2, and 2oo3 spurious-trip versus failure-to-act probability comparison",
+          "blowdown-orifice response-time versus peak-flare-load trade-off"
+        ],
+        "visual_inspection": "passed after the final full execution; all eight stored PNG figures were extracted and inspected at original resolution for descriptive titles, readable labels, explicit units, legends or color scales, accessible colors, correct values and scales, clipping, overlap, and agreement with tables and nearby interpretation; the workflow labels and coincident detector/flare curves were repaired and the complete notebook was rerun"
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 21 executed code cells and 27 Markdown cells",
+        "all cells executed in order with counts 1 through 21, zero exceptions, zero error outputs, and zero stderr",
+        "all eight original example groups were preserved, repaired, and integrated; the original contained no figure to preserve",
+        "SRK basis returned 18.827825 kg/kmol molar mass, 43.166017 kg/m3 density, 0.881949 compressibility, 1.211663 heat-capacity ratio, and 1726.641 kg initial inventory",
+        "FD-101 activated at 5 s; FD-102 completed the 2oo2 ESD vote at 10 s; the native blowdown valve reached full opening at 14 s",
+        "the base case reached 7.975852 bara at 206 s with 808.924311 MW peak flare heat and 43.466538 kg/s peak CO2 rate",
+        "cumulative gas was 1451.212072 kg, cumulative combustion CO2 was 4002.801974 kg, and the lumped vessel mass residual was -1.59e-12 kg",
+        "the 30, 40, 50, and 60 mm fresh scenarios reached 8 bara in 9.250000, 5.283333, 3.433333, and 2.433333 minutes while peak heat increased monotonically from 294.121513 to 1157.204030 MW",
+        "1oo1, 2oo2, and 2oo3 truth tables and independent-channel reliability formulas passed exact limiting and ordering checks",
+        "all 26 stored fire-and-ESD engineering assertions passed",
+        "maximum code-line length was 89 characters with no magics, wildcard imports, semicolons, inline compound bodies, or compressed teaching code",
+        "all three display equations and 12 inline expressions used Colab-compatible syntax; the three equations and representative voting notation rendered through MathJax SVG and passed visual inspection",
+        "all eight stored figures passed visual and numerical inspection after the final rerun",
+        "the Colab badge, current official NeqSim fire-alarm, flare, blowdown, and measurement-device references, unique catalog target, and unchanged catalog path were checked on 2026-07-24"
+      ],
+      "summary": "Modernized the entirely unexecuted Java-in-Python fire-alarm draft as a current, self-contained NeqSim safety tutorial. Preserved every original teaching group, added a reproducible SRK inventory, native detector/alarm/blowdown/orifice/flare functionality, exact voting tables, reliability formulas, a mass-balanced fire-to-flare transient, fresh diameter scenarios, 26 checks, eight inspected figures, rendered equations, troubleshooting, limitations, references, and exercises."
     }
   ]
 }
