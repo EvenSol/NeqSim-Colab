@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-24T22:09:54Z",
+  "updated_at": "2026-07-24T23:13:31Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -6697,6 +6697,86 @@
         "colab_verified_commit": "this atomic publication commit",
         "source_rule": "Inline equations use $...$ and each display equation uses standalone $$ delimiter lines with blank lines around the block; LaTeX commands use one backslash.",
         "visual_inspection": "Passed through a Jupyter and Google-Colab-compatible MathJax SVG renderer. Fractions, subscripts, Greek lambda and rho, Delta variables, dotted mass flow, exponential temperature decay, and units displayed correctly."
+      }
+    },
+    {
+      "path": "notebooks/process/MultiphaseOptim.ipynb",
+      "verified_date": "2026-07-24",
+      "verified_at_utc": "2026-07-24T23:13:31Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "All 21 code cells were executed sequentially from a clean notebook state in a newly created Python 3.12 virtual environment using python -m pip install --upgrade --no-cache-dir neqsim. The public PyPI installation resolved NeqSim 3.16.0. The in-process executor retained stdout, HTML tables, and five PNG figures and failed on any cell exception or stored stderr.",
+      "code_cells": 21,
+      "markdown_cells": 27,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch fast-forward",
+        "commit": "this atomic publication commit"
+      },
+      "pre_existing_examples_preserved": 0,
+      "preservation_note": "The original three-cell placeholder contained a valid Colab badge, one blank code cell, and a PETEX GAP brochure link, but no substantive calculation or learning example. The badge and authoritative external reference were preserved and integrated into the complete tutorial.",
+      "pre_existing_figures_preserved": 0,
+      "figure_preservation_note": "The placeholder contained no figure, plot, diagram, image output, or animation. Five new reproducible engineering figures were generated from the final NeqSim 3.16.0 execution.",
+      "neqsim_capabilities_demonstrated": [
+        "SRK three-phase gas-condensate-water wellstream construction",
+        "Stream and PipeBeggsAndBrills branch-hydraulics composition",
+        "bounded fixed-flow bisection for branch capacity at a shared manifold pressure",
+        "pressure, temperature, liquid-holdup, phase-velocity, and flow-regime profiles",
+        "Mixer composition of independently solved branch outlet streams",
+        "thermal export-line and riser hydraulics with a specified overall heat-transfer coefficient",
+        "calculateLOF and calculateFRMS flow-induced-vibration screening",
+        "ThreePhaseSeparator product recovery and ProcessSystem integration",
+        "mass-balance closure and manifold-pressure/export-diameter scenario analysis"
+      ],
+      "practical_application": "A reusable gathering-network workflow builds two synthetic three-phase wellstreams, solves their maximum deliverability to a common manifold with bounded bisection, mixes the branch outlets, screens three export bores over manifold pressure, selects a 0.457200 m export line at 50.591797 bara, models a 25 km thermal export line plus 250 m riser, and separates the receiving fluid into gas, oil, and water products. The selected case delivers 68.457944 kg/s at 34.993507 bara with a separator mass residual of -4.562e-12 kg/s.",
+      "retained_figures": {
+        "count": 5,
+        "previous_count": 0,
+        "new_count": 5,
+        "numerically_refreshed_previous_count": 0,
+        "externally_sourced_previous_count": 0,
+        "purposes": [
+          "gathering-network and receiving-facility workflow topology",
+          "branch pressure and liquid-holdup profiles at the selected manifold pressure",
+          "receiving-pressure and total-production sensitivity versus manifold pressure for three export bores",
+          "discrete export-bore capacity/index trade-off and selected design",
+          "final export pressure and temperature profiles with separator product mass rates"
+        ],
+        "visual_inspection": "Passed after final clean execution. All five stored PNG figures were extracted and inspected together and individually for titles, readable labels, explicit SI and absolute-pressure units, legends or color scales, accessible colors, clipping, overlap, numerical scale, and agreement with stored tables and nearby interpretation."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 21 executed code cells and 27 substantive Markdown cells",
+        "all cells executed in order with counts 1 through 21, zero exceptions, zero error outputs, and zero stored stderr",
+        "fresh no-cache public-PyPI installation resolved NeqSim 3.16.0 in a newly created environment",
+        "all 32 focused engineering assertions passed",
+        "both inlet fluids contained gas, oil, and aqueous phases at their specified conditions",
+        "selected manifold pressure was 50.591797 bara and remained below both wellhead pressures",
+        "north and south branch capacities were 31.533643 and 36.924301 kg/s",
+        "selected total production was 68.457944 kg/s",
+        "selected export internal diameter was 0.457200 m",
+        "receiving pressure was 34.993507 bara against a 35 bara screening target",
+        "receiving temperature was 26.451608 degC",
+        "export mixture velocity was 6.856990 m/s and mean liquid holdup was 0.176601",
+        "export FIV likelihood-of-failure metric was 0.089576",
+        "separator gas, oil, and water rates were 33.377647, 34.348299, and 0.731997 kg/s",
+        "separator mass residual was -4.562e-12 kg/s",
+        "maximum Python code line length was 72 characters with no semicolon chains or compressed one-line compound teaching code",
+        "six display equations and 11 representative inline expressions used Colab-safe delimiters and rendered successfully through MathJax",
+        "all five stored PNG figures passed final visual and numerical-context review",
+        "the preserved Colab badge points to the intended notebook path",
+        "the active catalog contains the notebook path exactly once"
+      ],
+      "summary": "Replaced a blank three-cell placeholder with a current multiphase gathering-network and export-design tutorial. The notebook now develops two rich three-phase fluids, branch deliverability, shared-manifold backpressure, export-bore selection, thermal export and riser hydraulics, FIV screening, receiving separation, balances, sensitivity analysis, troubleshooting, limitations, exercises, and five inspected figures. A bounded fixed-flow bisection avoids invalid negative-pressure trials observed when applying unconstrained capacity bracketing to this rich three-phase case.",
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 6,
+        "inline_expressions": 11,
+        "representative_unique_inline_rendered": 11,
+        "colab_verified_commit": "this atomic publication commit",
+        "source_rule": "Inline equations use $...$ and each display equation uses standalone $$ delimiter lines with blank lines around the block; LaTeX commands use one backslash.",
+        "visual_inspection": "Passed through a Jupyter and Google-Colab-compatible MathJax SVG renderer. Fractions, subscripts, dotted mass flow, Greek rho and lambda, Delta variables, inequalities, superscripts, and SI units displayed correctly."
       }
     }
   ]
