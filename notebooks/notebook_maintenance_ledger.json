@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-24T12:10:39Z",
+  "updated_at": "2026-07-24T12:52:28Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -6150,6 +6150,88 @@
         "colab_verified_commit": "1dc8c07bd110d5359e282280b4feba61a9b11ce4",
         "source_rule": "Each display equation uses standalone $$ delimiter lines with no blank Markdown paragraph between a delimiter and its equation.",
         "visual_inspection": "Passed in the public Google Colab renderer. Fractions, integrals, overdots, subscripts, superscripts, brackets, Greek gamma, operators, and units were displayed correctly for all three display equations; representative inline expressions were also rendered."
+      }
+    },
+    {
+      "path": "notebooks/thermodynamics/phaseenvelopesofCO2richmixtures.ipynb",
+      "verified_date": "2026-07-24",
+      "verified_at_utc": "2026-07-24T12:52:28Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "All 24 code cells were executed sequentially from a clean notebook state in one isolated Python 3.12 environment containing the latest public PyPI-installed NeqSim 3.16.0 package, with execution counts 1 through 24. The in-process executor preserved stdout, HTML tables, execution results, and inline PNG outputs, and failed on cell exceptions.",
+      "code_cells": 24,
+      "markdown_cells": 28,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "pre_existing_examples_preserved": 6,
+      "preservation_note": "All six substantive original examples were preserved and integrated: pure-CO2 triple/critical points and vapor-pressure curve; a 95 mol% CO2 and 5 mol% methane envelope; a 90 mol% CO2, 5 mol% methane, and 5 mol% H2S envelope; density, enthalpy, entropy, and gas-fraction contour maps; a solid-CO2 boundary; and a 600 ppm-mol water hydrate boundary. The stale unexecuted calculations were rebuilt with current supported APIs, explicit units, independent states, and validation.",
+      "pre_existing_figures_preserved": 6,
+      "figure_preservation_note": "All six original calculated visual purposes were preserved in recognizable form and numerically refreshed with NeqSim 3.16.0: pure-CO2 vapor pressure, binary and ternary phase envelopes, the four-panel property map, the solid-CO2 boundary, and the hydrate boundary. Four new technical figures were added.",
+      "neqsim_capabilities_demonstrated": [
+        "pr-umr fluid construction and HV/UNIFAC_UMRPRU mixing rule",
+        "ThermodynamicOperations TPflash and PT phase-envelope calculations",
+        "critical-point, cricondenbar, and cricondentherm retrieval",
+        "density, enthalpy, entropy, and equilibrium gas-fraction mapping",
+        "supported SRK TPsolidflash screening for the solid-CO2 boundary",
+        "CPA hydrate-equilibrium screening for water-bearing CO2-rich fluid",
+        "Stream, Compressor, Cooler, ThrottlingValve, Separator, and ProcessSystem composition",
+        "mass, component-state, energy, isoenthalpic, range, and trend auditing",
+        "independent aftercooler-temperature sensitivity analysis"
+      ],
+      "practical_application": "A reusable end-to-end CO2-rich conditioning workflow builds a synthetic 90/5/5 mol% CO2/CH4/H2S feed at 100000 kg/h, 35 bara, and 30 degC; compresses it to 110 bara at 78% isentropic efficiency; cools it to 25 degC; throttles it to 50 bara; and separates gas and liquid. The workflow retrieves equipment and product results, closes the total mass balance to 1.94e-14 relative error, audits cooler energy and valve enthalpy, overlays the process path on the phase map, and repeats four independent aftercooler scenarios.",
+      "retained_figures": {
+        "count": 10,
+        "previous_count": 6,
+        "new_count": 4,
+        "numerically_refreshed_previous_count": 6,
+        "historical_previous_count": 0,
+        "purposes": [
+          "new CO2-rich thermodynamics-to-engineering workflow overview",
+          "preserved and refreshed pure-CO2 liquid-vapor coexistence curve",
+          "preserved and refreshed 95/5 mol% CO2/methane phase envelope",
+          "preserved and refreshed 90/5/5 mol% CO2/methane/H2S phase envelope",
+          "preserved and refreshed density, enthalpy, entropy, and gas-fraction property map",
+          "preserved and refreshed solid-CO2 screening boundary",
+          "preserved and refreshed 600 ppm-mol water hydrate boundary",
+          "new connected conditioning-process flow diagram",
+          "new aftercooler sensitivity and cooling-load comparison",
+          "new baseline process path over the ternary phase map"
+        ],
+        "visual_inspection": "Passed after the final clean execution. All ten stored PNG figures were extracted and inspected at original resolution and in a contact sheet for descriptive titles, readable labels, explicit units, legends or color scales, accessible colors, correct scales, clipping, overlap, and agreement with stored tables and nearby engineering interpretation."
+      },
+      "key_checks": [
+        "valid nbformat 4.5 JSON with 24 executed code cells and 28 Markdown cells",
+        "all cells executed in order with counts 1 through 24, zero exceptions, zero error outputs, and zero stored stderr",
+        "all six original examples and all six original figure purposes preserved and numerically refreshed",
+        "648 of 648 independent CO2-rich equilibrium property-grid flashes converged",
+        "pure-CO2 triple and critical points were -56.57 degC at 5.185 bara and 31.04 degC at 73.815 bara",
+        "binary critical point was 27.213193 degC at 76.667066 bara",
+        "ternary critical point was 28.530354 degC at 77.078044 bara",
+        "solid-CO2 screening boundary changed from -59.1127 degC at 5 bara to -60.6517 degC at 140 bara",
+        "hydrate boundary changed monotonically from -8.3556 degC at 5 bara to 11.2459 degC at 30 bara",
+        "baseline compressor power was 2257.583286 kW and cooler duty was -7.959004 MW",
+        "separator products were 20611.376700 kg/h gas and 79388.623300 kg/h liquid",
+        "relative process mass residual was 1.935405e-14 and cooler-energy residual was zero at stored precision",
+        "valve specific-enthalpy residual was 0.2294%, within the documented 0.5% numerical tolerance",
+        "four independent aftercooler scenarios were finite and followed the expected product-split and cooling-load trends",
+        "all 28 final engineering assertions passed",
+        "maximum Python code line length was 71 characters with no semicolons or compressed one-line compound teaching code",
+        "eight display equations and 14 inline expressions used Colab-safe standalone delimiters and single-backslash LaTeX; all 22 rendered through MathJax and were visually inspected",
+        "ten retained figures passed final visual and numerical-context review",
+        "the Colab badge, unique catalog link, notebook JSON, catalog JSON, ledger JSON, and introduced documentation references were checked on 2026-07-24"
+      ],
+      "summary": "Modernized the CO2-rich phase-behavior notebook for public PyPI NeqSim 3.16.0 while preserving all six original calculation and visualization purposes. Replaced the NeqSim 2.5.35 pin, removed fluid('umr') alias and obsolete imports, cleared stale unexecuted outputs, isolated thermodynamic states, and added current PR-UMR/UMR-PRU, solid and hydrate screening, a complete conditioning ProcessSystem, balances, scenario analysis, ten inspected figures, rendered equations, troubleshooting, limitations, references, and exercises.",
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 8,
+        "inline_expressions": 14,
+        "source_rule": "Inline equations use $...$ and each display equation uses standalone $$ delimiter lines with no blank line inside the display block; LaTeX commands use one backslash.",
+        "visual_inspection": "Passed through a Jupyter-compatible MathJax renderer. Fractions, subscripts, superscripts, fugacity symbols, phase fractions, overdots, Greek beta, phi, gamma, and mu, chemical-potential labels, and engineering units displayed correctly."
       }
     }
   ]
