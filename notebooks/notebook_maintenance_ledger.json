@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-24T04:03:08Z",
+  "updated_at": "2026-07-24T04:34:47Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -5320,6 +5320,65 @@
         "the Colab badge, all authoritative NeqSim references, the changed catalog label, and the unique catalog target were verified on 2026-07-24"
       ],
       "summary": "Completed the unverified property-chart tutorial without removing any original example or visual. Added current composable NeqSim process functionality, a realistic compression-cooling-throttling-separation application, fresh-case sensitivity, conservation and energy audits, three additional inspected figures, rendered equations, troubleshooting, limitations, references, and exercises."
+    },
+    {
+      "path": "notebooks/thermodynamics/EOSCG_vs_GERG2008.ipynb",
+      "verified_date": "2026-07-24",
+      "verified_at_utc": "2026-07-24T04:34:47Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "All 20 code cells were executed sequentially in one clean shared namespace with execution counts 1 through 20 in an isolated Python 3.12 environment containing the latest public PyPI NeqSim 3.16.0 installed with python -m pip install --upgrade --no-cache-dir neqsim. Package metadata confirmed a normal non-editable PyPI installation with no local checkout, unpublished wheel, or manually injected JAR.",
+      "code_cells": 20,
+      "markdown_cells": 23,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "pre_existing_examples_preserved": 2,
+      "preservation_note": "Preserved and integrated both original teaching examples: the 90 mol% CO2 and 10 mol% nitrogen density comparison at 298.15 K and 100 bara, and the GERG-2008 versus EOS-CG natural-gas phase-envelope comparison. Replaced the unexecuted phase-envelope pseudocode and catch-all exception with 1150 explicit TP flashes, finite-grid phase classification, stored results, and validation while retaining the original composition and engineering intent.",
+      "pre_existing_figures_preserved": 0,
+      "figure_preservation_note": "The original notebook contained no executed technical plot or other substantive figure. Five new figures were generated from the executed calculations and retained.",
+      "neqsim_capabilities_demonstrated": [
+        "SystemGERG2008Eos and SystemEOSCGEos construction with common-component natural-gas and CO2-rich fluids",
+        "ThermodynamicOperations TPflash, phase counting, equilibrium bulk density, phase density, compressibility, heat capacity, and viscosity retrieval",
+        "independent temperature-pressure phase screening with fresh fluid objects",
+        "SystemSrkEos, Stream, Compressor, Cooler, Separator, and ProcessSystem composition and execution",
+        "reference-EOS auditing at process states and independent fresh-case discharge-pressure sensitivity",
+        "overall mass, component, compressor-energy, finiteness, phase-classification, and trend validation"
+      ],
+      "practical_application": "A reusable CO2-conditioning workflow builds a 95 mol% CO2 SRK fluid at 60 bara, 25 degC, and 100000 kg/h; connects Stream, Compressor, Cooler, Separator, and ProcessSystem objects; compresses to 110 bara at 78% isentropic efficiency; cools to 35 degC; retrieves and audits process results; rebuilds each process state with GERG-2008 and EOS-CG; identifies the reference-EOS two-phase screen at the aftercooler; and reruns five fresh discharge-pressure scenarios.",
+      "retained_figures": {
+        "count": 5,
+        "previous_count": 0,
+        "new_count": 5,
+        "numerically_refreshed_previous_count": 0,
+        "purposes": [
+          "CO2 and nitrogen equilibrium bulk-density comparison from 20 to 200 bara",
+          "side-by-side GERG-2008 and EOS-CG TP-flash phase-region maps",
+          "fluid-to-compressor-to-cooler-to-separator workflow and audit-point overview",
+          "reference bulk density and phase-0 compressibility along the conditioning path",
+          "compressor-power and aftercooler-density discharge-pressure sensitivity"
+        ],
+        "visual_inspection": "Passed after the final full execution. All five stored PNG figures were extracted and inspected at original resolution for descriptive titles, readable labels, explicit units, legends or color scale, accessible colors, correct values and scales, clipping, overlap, and agreement with stored tables and nearby engineering interpretation."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 20 executed code cells and 23 Markdown cells",
+        "all cells executed in order with counts 1 through 20, zero exceptions, zero error outputs, and zero stderr",
+        "both original engineering examples were preserved and repaired; the original contained no figure to preserve",
+        "original phase-0 density was 212.109541 kg/m3 and equilibrium bulk density was 534.586496 kg/m3 for both models at 298.15 K and 100 bara",
+        "both 23 by 25 phase maps contained 263 two-phase points with zero model-classification mismatches",
+        "base compressor power was 0.875400 MW, discharge temperature was 77.836640 degC, and aftercooler duty was -3.988855 MW",
+        "overall mass residual was -2.0e-25 kg/h, maximum component residual was 9.73e-26 kg/h, and compressor-energy residual was 0 W",
+        "all five fresh pressure scenarios passed monotonic power and equilibrium bulk-density checks; the reference flashes identified two phases at 95 and 110 bara at 35 degC",
+        "maximum code-line length was 84 characters with no magics, wildcard imports, semicolons, one-line compound bodies, or compressed teaching code",
+        "all seven display equations used Colab-safe delimiters and single-backslash LaTeX; fractions, partial derivatives, subscripts, Greek symbols, and overdots rendered through MathJax and passed visual inspection",
+        "all five stored figures passed visual and numerical inspection after the final rerun",
+        "the Colab badge, latest PyPI release, authoritative NeqSim documentation, literature DOI links, and unique catalog target were verified on 2026-07-24"
+      ],
+      "summary": "Rebuilt the seven-cell, unexecuted EOS-CG versus GERG-2008 draft as a current NeqSim 3.16.0 engineering tutorial. Preserved both original examples, replaced phase-envelope pseudocode with an executed phase screen, distinguished equilibrium bulk from phase-specific properties, added a complete CO2 conditioning and reference-audit workflow, five fresh pressure scenarios, conservation and energy checks, five inspected figures, rendered equations, troubleshooting, limitations, references, and exercises."
     }
   ]
 }
