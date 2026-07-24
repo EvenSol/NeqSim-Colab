@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-24T10:38:21Z",
+  "updated_at": "2026-07-24T11:55:21Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -6058,6 +6058,91 @@
         "the Colab badge, unique catalog link, notebook JSON, ledger JSON, official documentation references, and retained outputs were checked on 2026-07-24"
       ],
       "summary": "Modernized the LNG cargo-ageing notebook for public PyPI NeqSim 3.16.0 while preserving every original calculation and figure. Replaced the stale 2.5.35 pin, removed and wildcard imports, obsolete jNeqSim namespace, semicolon, unlabeled table, unconditional Excel write, sparse narrative, and unfinished operations arrays. Added normalized inputs, SRK phase behavior, current LNGship and BOG-handling APIs, a complete BOG conditioning ProcessSystem, balances, scenario analysis, nine inspected figures, rendered equations, troubleshooting, limitations, references, and exercises."
+    },
+    {
+      "path": "notebooks/process/dynamicsimul.ipynb",
+      "verified_date": "2026-07-24",
+      "verified_at_utc": "2026-07-24T11:55:21Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "All 26 code cells were executed sequentially in a newly created Python 3.12 virtual environment after a no-cache installation from the public PyPI index of NeqSim 3.16.0 and the notebook runtime dependencies, with execution counts 1 through 26. The in-process executor preserved stdout, HTML tables, execution results, and inline PNG outputs and failed on cell exceptions.",
+      "code_cells": 26,
+      "markdown_cells": 25,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "pre_existing_examples_preserved": 6,
+      "preservation_note": "All six substantive original dynamic examples were preserved and integrated: gas-feed flow control with a throttling valve; simultaneous separator level and pressure control; inlet isolation followed by controlled separator depressurization; depressurization of a gas-only vessel; simple gas-vessel pressure relief; and gas-vessel filling against nearly closed outlets. The fifth example accidentally repeated the filling calculation in the original notebook and now performs the relief operation promised by its heading.",
+      "pre_existing_figures_preserved": 23,
+      "figure_preservation_note": "All 23 original plot purposes were preserved in recognizable form and numerically refreshed with NeqSim 3.16.0: two flow-control plots, four coupled separator-control plots, five separator-shutdown and depressurization plots, and four plots for each of the controlled gas-vessel depressurization, simple-relief, and restricted-outlet filling examples. Three new engineering figures were added.",
+      "neqsim_capabilities_demonstrated": [
+        "SystemSrkEos fluid construction and classic mixing rule",
+        "Stream, ThrottlingValve, Separator, and ProcessSystem composition",
+        "VolumeFlowTransmitter and LevelTransmitter measurements",
+        "ControllerDeviceBaseClass PI/PID controller configuration",
+        "dynamic equipment inventory and ProcessSystem.runTransient execution",
+        "inlet isolation, controlled depressurization, relief, and filling events",
+        "IEC 60534 gas-valve sizing coefficients",
+        "time-history, bounds, trend, and reporting-resolution auditing"
+      ],
+      "practical_application": "A reusable tutorial builds six current NeqSim dynamic cases and records bounded time histories for flows, valve positions, vessel pressure, temperature, and liquid level. The final feed-flow case settles at 2.307014 kg/h, coupled separator control ends at 4.885986 bara, separator shutdown reaches 1.318646 bara, controlled gas-vessel depressurization reaches 1.036100 bara, simple relief reaches 1.218455 bara, and restricted-outlet filling reaches 10.000202 bara. A separate sampling study limits reporting-resolution pressure deviation to 0.060530 bar.",
+      "retained_figures": {
+        "count": 26,
+        "previous_count": 23,
+        "new_count": 3,
+        "numerically_refreshed_previous_count": 23,
+        "historical_previous_count": 0,
+        "purposes": [
+          "new NeqSim dynamic-simulation, control, and validation workflow",
+          "preserved flow-loop response to setpoint and outlet restrictions",
+          "preserved separator pressure during flow control and restriction",
+          "preserved separator liquid-level response to a setpoint change",
+          "preserved final-control-element response in the separator",
+          "preserved separator pressure response to a lower target",
+          "preserved separator temperature during coupled control",
+          "preserved liquid level during isolation and depressurization",
+          "preserved control-valve actions during separator shutdown",
+          "preserved separator pressure during controlled depressurization",
+          "preserved separator temperature during depressurization",
+          "preserved separator gas-discharge rate during depressurization",
+          "preserved gas-valve response during gas-vessel depressurization",
+          "preserved gas-vessel pressure toward atmospheric conditions",
+          "preserved gas-vessel temperature during depressurization",
+          "preserved gas discharge during vessel depressurization",
+          "preserved inlet isolation before simple gas-vessel relief",
+          "preserved IEC 60534 gas-relief flow after isolation",
+          "preserved gas-vessel pressure during simple relief",
+          "preserved gas-vessel temperature during simple relief",
+          "preserved feed conditions during gas-vessel filling",
+          "preserved restricted outlet flow during filling",
+          "preserved gas-vessel pressure during restricted filling",
+          "preserved gas-vessel temperature during filling",
+          "new cross-scenario pressure and temperature comparison",
+          "new reporting-resolution comparison for filling pressure"
+        ],
+        "visual_inspection": "Passed after the final clean execution. All 26 stored PNG figures were extracted and inspected at original resolution and in a contact sheet for readable titles, labels, units, legends, event markers, colors, scales, clipping, overlap, and agreement with stored tables and the nearby interpretation."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 26 executed code cells and 25 Markdown cells",
+        "all cells executed in order with counts 1 through 26, zero exceptions, zero error outputs, and zero stored stderr",
+        "fresh no-cache installation from https://pypi.org/simple resolved NeqSim 3.16.0",
+        "all six original dynamic examples and all 23 original plot purposes were preserved",
+        "the original 23 figures were numerically refreshed and three new engineering figures were added",
+        "all 24 final engineering assertions passed",
+        "controlled gas-vessel depressurization ended at 1.036100 bara",
+        "simple relief ended at 1.218455 bara with a minimum temperature of -78.152681 degC",
+        "restricted-outlet filling ended at 10.000202 bara",
+        "maximum reporting-resolution pressure deviation was 0.060530 bar",
+        "maximum Python code line length was 89 characters with no semicolons or compressed one-line compound teaching code",
+        "three display equations and 11 inline expressions used Colab-safe delimiters and single-backslash LaTeX; all 14 rendered through MathJax and were inspected",
+        "all 26 technical figures passed final visual and numerical-context review",
+        "the Colab badge, unique catalog link, notebook JSON, ledger JSON, official documentation references, and retained outputs were checked on 2026-07-24"
+      ],
+      "summary": "Modernized the dynamic-process notebook into a fully executed NeqSim 3.16.0 engineering tutorial while preserving all six examples and all 23 original plot purposes. Replaced obsolete setup, semicolon-heavy cells, hidden state, duplicated relief/filling logic, sparse outputs, and weak validation with current streams, valves, separators, transmitters, controllers, ProcessSystem transients, IEC 60534 sizing, audited time histories, 26 inspected figures, rendered equations, troubleshooting guidance, limitations, references, and exercises."
     }
   ]
 }
