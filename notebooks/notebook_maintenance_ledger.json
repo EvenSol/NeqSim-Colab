@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-24T18:06:36Z",
+  "updated_at": "2026-07-24T20:01:11Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -6387,18 +6387,18 @@
     {
       "path": "notebooks/fluidflow/two_fluid_transient_slug_flow.ipynb",
       "verified_date": "2026-07-24",
-      "verified_at_utc": "2026-07-24T18:06:36Z",
+      "verified_at_utc": "2026-07-24T20:01:11Z",
       "neqsim_version": "3.16.0",
       "python_version": "3.12.13",
       "java_version": "openjdk 17.0.19",
-      "execution_status": "passed_with_documented_environment_exception",
-      "execution_method": "All 27 code cells were re-executed sequentially from an empty notebook namespace in the previously established isolated Python 3.12 environment with public-PyPI NeqSim 3.16.0. Three new, no-cache public-PyPI installation attempts failed through the configured proxy; the user explicitly requested publication after that blocker was disclosed. The executor retained stdout, tables, and 11 inline PNG outputs and failed on any cell exception or stored stderr.",
+      "execution_status": "passed",
+      "execution_method": "Fresh Python 3.12 virtual environment with public-PyPI NeqSim 3.16.0 installed using python -m pip install --upgrade --no-cache-dir neqsim; all 27 code cells were re-executed sequentially from an empty notebook namespace. The executor retained stdout, tables, and 11 inline PNG outputs and failed on any cell exception or stored stderr.",
       "code_cells": 27,
       "markdown_cells": 21,
       "publication": {
         "branch": "master",
-        "mode": "atomic direct-to-default-branch fast-forward",
-        "commit": "this publication sequence"
+        "mode": "direct-to-default-branch clean-environment audit",
+        "commit": "this audit commit"
       },
       "pre_existing_examples_preserved": 6,
       "preservation_note": "Extended the existing mechanistic TwoFluidPipe and Beggs-Brill tutorial in place. All original steady comparison, 30-case regime map, and deterministic transient content remains, followed by a new oil-and-gas wellstream S-riser application.",
@@ -6455,16 +6455,16 @@
         "six display equations and eight representative inline expressions used Colab-safe delimiters and rendered successfully through MathJax",
         "all 11 stored PNG figures passed final visual and numerical-context review",
         "the active catalog contains the notebook path exactly once",
-        "fresh no-cache PyPI installation was attempted three times but blocked by the configured proxy; publication used the prior isolated NeqSim 3.16.0 environment at the user's explicit request"
+        "fresh no-cache installation of public-PyPI NeqSim 3.16.0 succeeded in a newly created Python 3.12.13 environment; the complete notebook was then executed top-to-bottom with OpenJDK 17.0.19"
       ],
-      "summary": "Extended the existing two-fluid and Beggs-Brill tutorial with an oil-and-gas wellstream S-riser example, terrain-aware steady model comparison, pressure-recovery checks, and a time-step-screened turndown transient showing liquid accumulation and recovery.",
+      "summary": "Extended the existing two-fluid and Beggs-Brill tutorial with an oil-and-gas wellstream S-riser example, terrain-aware steady model comparison, pressure-recovery checks, and a time-step-screened turndown transient showing liquid accumulation and recovery. A subsequent fresh no-cache public-PyPI audit reproduced the complete stored notebook and removed the earlier environment exception.",
       "equation_rendering": {
         "status": "passed",
         "display_equations": 6,
         "inline_expressions": 8,
         "colab_verified_commit": "this publication sequence",
         "source_rule": "Inline equations use $...$ and each display equation uses standalone $$ delimiter lines with blank lines around the block and no blank line inside; LaTeX commands use one backslash.",
-        "visual_inspection": "Passed through a Jupyter and Google-Colab-compatible MathJax SVG renderer. Partial derivatives, fractions, phase subscripts, Greek symbols, absolute values, trigonometric functions, pressure-drop notation, and superficial-velocity notation displayed correctly."
+        "visual_inspection": "Passed after the fresh execution through a Jupyter and Google-Colab-compatible MathJax SVG renderer. Partial derivatives, fractions, phase subscripts, Greek symbols, absolute values, trigonometric functions, pressure-drop notation, and superficial-velocity notation displayed correctly."
       }
     }
   ]
