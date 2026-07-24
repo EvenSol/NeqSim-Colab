@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-24T03:15:00Z",
+  "updated_at": "2026-07-24T04:03:08Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -5264,6 +5264,62 @@
         "Colab badge, current PyPI release, authoritative NeqSim documentation, reference DOI, preserved video, and unique catalog target verified"
       ],
       "summary": "Modernized the incomplete CO2-properties notebook into a current NeqSim 3.16.0 engineering tutorial. Added rigorous model-selection guidance, pure and impurity-fluid properties, a refreshed phase envelope, energy-conserving depressurization and dry-ice screening, a complete export-conditioning ProcessSystem, independent sensitivity cases, 20 checks, seven inspected figures, troubleshooting, limitations, references, and exercises without removing any original example."
+    },
+    {
+      "path": "notebooks/thermodynamics/ThermoPropertyCharts.ipynb",
+      "verified_date": "2026-07-24",
+      "verified_at_utc": "2026-07-24T04:03:08Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "All 21 code cells were executed sequentially in one clean shared namespace with execution counts 1 through 21 in an isolated Python 3.12 environment containing the latest public PyPI NeqSim 3.16.0 installed with python -m pip install --upgrade --no-cache-dir neqsim. Package metadata confirmed a normal non-editable PyPI installation with no local checkout, unpublished wheel, or manually injected JAR.",
+      "code_cells": 21,
+      "markdown_cells": 23,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "pre_existing_examples_preserved": 10,
+      "preservation_note": "Preserved and integrated all ten original engineering example groups: reproducible base state; temperature isobars; pressure isotherms; finite-difference heat-capacity identity; hydrocarbon phase envelope; phase-aware property grid; ideal PS compression and cooling path; PH throttle path; interpolated dew-temperature margin; and the four-panel property/process chart with its original acceptance checks. Setup and helper functions were retained while the narrative was expanded around the existing calculation order.",
+      "pre_existing_figures_preserved": 1,
+      "figure_preservation_note": "The original four-panel figure was retained with its recognizable isobaric-enthalpy, real-gas Z, phase-aware P-T, and P-h process panels. All underlying values were recomputed with NeqSim 3.16.0. Three new technical figures were added; no previous visual was deleted, merged, hidden, or left numerically stale.",
+      "neqsim_capabilities_demonstrated": [
+        "SystemSrkEos construction, classic mixing rule, multiphase checking, property initialization, and SI-unit retrieval",
+        "TP, PS, and PH flashes; phase-envelope calculation; density, enthalpy, entropy, heat capacity, compressibility, and phase fraction retrieval",
+        "Stream, Compressor, Cooler, ThrottlingValve, Separator, and ProcessSystem composition and steady-state execution",
+        "fresh-object aftercooler sensitivity and total mass, component, compressor-energy, cooler-energy, and valve-enthalpy audits"
+      ],
+      "practical_application": "A reusable rich-gas workflow builds the documented SRK fluid at 100 degC, 20 bara, and 10000 kg/h; compresses it to 100 bara at 78% isentropic efficiency; cools it; throttles it to 40 bara; separates gas and liquid; maps every equipment outlet on P-h and T-s charts; and reruns six independent aftercooler scenarios.",
+      "retained_figures": {
+        "count": 4,
+        "previous_count": 1,
+        "new_count": 3,
+        "numerically_refreshed_previous_count": 1,
+        "purposes": [
+          "new fluid-to-flash-to-connected-equipment-to-validation workflow overview",
+          "preserved and numerically refreshed four-panel isobar, isotherm, phase-aware P-T, and P-h property chart",
+          "new connected compressor-cooler-valve process path on P-h and T-s coordinates",
+          "new aftercooler-temperature sensitivity for liquid recovery and cooling magnitude"
+        ],
+        "visual_inspection": "Passed after the final full execution. All four stored PNG figures were extracted and inspected at original resolution for descriptive titles, readable labels, explicit units, legends or color scale, accessible colors, correct values and scales, clipping, overlap, and agreement with stored tables and nearby interpretation. The compressor-outlet annotation was moved inside the T-s plot before the final rerun."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 21 executed code cells and 23 Markdown cells",
+        "all cells executed in order with counts 1 through 21, zero exceptions, zero error outputs, and zero stderr",
+        "all ten original engineering examples and the original four-panel figure were preserved and numerically refreshed",
+        "all 23 preserved property-chart assertions and 14 new integrated-process assertions passed",
+        "base compressor power was 933.053692 kW, aftercooler duty was -1847.546546 kW, separator gas was 7730.999004 kg/h, and separator liquid was 2269.000996 kg/h",
+        "base total-mass residual was 1.364e-12 kg/h and maximum component residual was 8.438e-15 mol/s",
+        "compressor energy relative residual was -1.248e-16, cooler energy residual was zero, and valve specific-enthalpy residual was 3.604e-05 J/kg",
+        "all six independent aftercooler scenarios closed mass below 1e-3 kg/h and liquid production decreased monotonically as aftercooler temperature increased",
+        "maximum code-line length was 83 characters with no magics, wildcard imports, semicolons, one-line compound bodies, or compressed teaching code",
+        "all nine display equations and representative inline expressions used Colab-safe delimiters and single-backslash LaTeX; fractions, derivatives, subscripts, overdots, and units rendered through MathJax and passed visual inspection",
+        "all four stored figures passed visual and numerical inspection after the final rerun",
+        "the Colab badge, all authoritative NeqSim references, the changed catalog label, and the unique catalog target were verified on 2026-07-24"
+      ],
+      "summary": "Completed the unverified property-chart tutorial without removing any original example or visual. Added current composable NeqSim process functionality, a realistic compression-cooling-throttling-separation application, fresh-case sensitivity, conservation and energy audits, three additional inspected figures, rendered equations, troubleshooting, limitations, references, and exercises."
     }
   ]
 }
