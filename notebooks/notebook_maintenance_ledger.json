@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-24T02:30:20Z",
+  "updated_at": "2026-07-24T03:15:00Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -5198,6 +5198,72 @@
         "all changed or introduced links verified"
       ],
       "summary": "Modernized an entirely unexecuted alarm-handling Java draft into a current NeqSim 3.16.0 Python/Colab tutorial. Added native detector and alarm lifecycle behavior, voting reliability, a mass-balanced SRK process-to-leak-to-ESD application, independent sensitivity studies, 39 focused checks, six technical figures, troubleshooting, limits, references, and reusable exercises without removing any original teaching intent."
+    },
+    {
+      "path": "notebooks/thermodynamics/ThermodynamicandphysicalpropertiesofCO2.ipynb",
+      "verified_date": "2026-07-24",
+      "verified_at_utc": "2026-07-24T03:15:00Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "All 24 code cells were executed sequentially in one clean shared namespace with execution counts 1 through 24 in an isolated Python 3.12 environment containing the latest public PyPI NeqSim 3.16.0 installed with python -m pip install --upgrade --no-cache-dir neqsim. Package metadata confirmed a normal non-editable PyPI installation with no local checkout, unpublished wheel, or manually injected JAR.",
+      "code_cells": 24,
+      "markdown_cells": 31,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "pre_existing_examples_preserved": 6,
+      "preservation_note": "Preserved and integrated the original setup intent, introductory CO2 video, pure-CO2 density calculation, PFCT viscosity calculation, impurity-mixture phase envelope and property case, and depressurization with solid-phase awareness. Replaced the obsolete 2.5.35 pin, duplicate setup, wildcard imports, stale outputs, compressed code, and physically unsafe depressurization endpoint while retaining every substantive teaching objective.",
+      "pre_existing_figures_preserved": 1,
+      "figure_preservation_note": "The original impurity-mixture phase-envelope figure was numerically recomputed with NeqSim 3.16.0, retained with recognizable dew and bubble branches, and improved with units, a critical-point marker, accessible colors, and interpretation. Six additional technical figures were generated and retained; the original video output was also preserved.",
+      "neqsim_capabilities_demonstrated": [
+        "SystemSrkEos, SystemPrEos, SystemEOSCGEos, and SystemSpanWagnerEos model selection",
+        "TPflash, property initialization, density, viscosity, heat capacity, speed of sound, and compressibility retrieval",
+        "ThermodynamicOperations phase-envelope calculation and critical-point extraction",
+        "PFCT viscosity and EOS-CG low-pressure reference verification",
+        "PHflash and TPsolidflash for energy-conserving depressurization and dry-ice screening",
+        "Stream, Cooler, ThrottlingValve, Separator, and ProcessSystem composition and execution",
+        "Independent fresh-case sensitivity evaluation with mass, component, and energy audits"
+      ],
+      "practical_application": "A reusable end-to-end CO2 export-conditioning workflow builds an EOS-CG impurity fluid at 150 bara, 80 °C, and 100000 kg/h; connects Stream, Cooler, ThrottlingValve, Separator, and ProcessSystem objects; cools to 50 °C; throttles to 100 bara; retrieves product state and density; closes total mass, component, cooler-energy, and valve-enthalpy balances; and reruns four independent cooler-target scenarios.",
+      "retained_figures": {
+        "count": 7,
+        "previous_count": 1,
+        "new_count": 6,
+        "numerically_refreshed_previous_count": 1,
+        "purposes": [
+          "NeqSim CO2 model-and-process workflow overview",
+          "density versus pressure for SRK, PR, and EOS-CG",
+          "heat-capacity and speed-of-sound comparison",
+          "preserved and refreshed impurity-mixture phase envelope",
+          "energy-conserving depressurization path with triple-pressure boundary",
+          "end-to-end export-conditioning flowsheet",
+          "cooler-target sensitivity for valve outlet temperature and product density"
+        ],
+        "visual_inspection": "Passed at original resolution: all seven retained figures have descriptive titles, readable labels, explicit units, legends where needed, accessible colors, correct scales and values, nearby engineering interpretation, and no clipping, overlap, or stale numerical content."
+      },
+      "key_checks": [
+        "valid nbformat notebook JSON",
+        "24 of 24 code cells executed in order with execution counts 1 through 24",
+        "zero exception outputs, error outputs, or stderr",
+        "all six original example intentions and the original video preserved and integrated",
+        "all 20 engineering assertions passed",
+        "original pure-CO2 density 64.202212 kg/m3 and PFCT viscosity 0.01656880 cP",
+        "EOS-CG low-pressure reference deviation 0.8054%",
+        "mixture critical point 29.648871 degC and 75.748319 bara",
+        "depressurization enthalpy residual below 6e-12 J and dry-ice phase detected",
+        "process mass residual 2e-25 kg/h and maximum component residual 6.247876e-28 mol/s",
+        "cooler energy residual 0 W and valve enthalpy residual 2.628863e-4 W",
+        "four independent cooler-target scenarios passed expected density and duty trends",
+        "maximum Python code line length 79 characters; no compressed teaching-code patterns",
+        "five display equations and representative inline expressions rendered and visually verified with MathJax",
+        "seven stored figures visually and numerically inspected",
+        "Colab badge, current PyPI release, authoritative NeqSim documentation, reference DOI, preserved video, and unique catalog target verified"
+      ],
+      "summary": "Modernized the incomplete CO2-properties notebook into a current NeqSim 3.16.0 engineering tutorial. Added rigorous model-selection guidance, pure and impurity-fluid properties, a refreshed phase envelope, energy-conserving depressurization and dry-ice screening, a complete export-conditioning ProcessSystem, independent sensitivity cases, 20 checks, seven inspected figures, troubleshooting, limitations, references, and exercises without removing any original example."
     }
   ]
 }
