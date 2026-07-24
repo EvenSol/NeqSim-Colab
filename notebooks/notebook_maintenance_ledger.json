@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-24T21:15:38Z",
+  "updated_at": "2026-07-24T22:09:54Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -6619,6 +6619,84 @@
         "colab_verified_commit": "this atomic publication commit",
         "source_rule": "Inline equations use $...$ and each display equation uses standalone $$ delimiter lines with blank lines around the block and no blank line inside; LaTeX commands use one backslash.",
         "visual_inspection": "Passed through a Jupyter and Google-Colab-compatible MathJax SVG renderer. Fractions, square roots, Greek rho, Delta variables, subscripts, superscripts, inequality, and units displayed correctly."
+      }
+    },
+    {
+      "path": "notebooks/fluidflow/flixiblepipes.ipynb",
+      "verified_date": "2026-07-24",
+      "verified_at_utc": "2026-07-24T22:09:54Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "All 26 code cells were executed sequentially from a clean notebook state in a newly created Python 3.12 virtual environment using python -m pip install --upgrade --no-cache-dir neqsim. The public PyPI installation resolved NeqSim 3.16.0. The in-process executor retained stdout, HTML tables, the preserved YouTube embed, and eight PNG figures and failed on any cell exception or stored stderr.",
+      "code_cells": 26,
+      "markdown_cells": 31,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch fast-forward",
+        "commit": "this atomic publication commit"
+      },
+      "pre_existing_examples_preserved": 3,
+      "preservation_note": "Preserved and integrated the public introductory multiphase-flow video/literature context, the methane-n-heptane-water SRK fluid and 100 km horizontal Beggs-Brill calculation, and the inlet/outlet fluid-property comparison. The pinned 2.5.35 setup, wildcard imports, global helpers, obsolete jNeqSim name, blank cell, and ambiguous pressure-drop output were repaired with current supported APIs.",
+      "pre_existing_figures_preserved": 0,
+      "pre_existing_visuals_preserved": 1,
+      "figure_preservation_note": "The original notebook stored no plotted figure output. Its public YouTube visual with identifier 7Tsomarcq30 was preserved with documented external provenance. Eight new reproducible engineering figures were generated from the final NeqSim 3.16.0 execution.",
+      "neqsim_capabilities_demonstrated": [
+        "SRK three-phase methane-n-heptane-water fluid construction",
+        "direct NeqSim Stream and PipeBeggsAndBrills composition",
+        "pressure, liquid-holdup, phase-velocity, density, and regime profiles",
+        "adiabatic, specified-U, and detailed-insulation thermal modes",
+        "connected flowline, sag, arch, and top-riser calculations",
+        "pressure recovery in a descending leg and hydrostatic loss in rises",
+        "API RP 14E mixture-velocity screening",
+        "diameter and standard-rate scenario analysis"
+      ],
+      "practical_application": "A reusable four-leg 11.75 km flexible flowline and lazy-wave riser workflow builds a common wellstream, connects hydraulic segments, retrieves stitched pressure, elevation, holdup, velocity, and temperature profiles, checks pressure and velocity constraints, screens nine diameter/rate scenarios, and selects the smallest tested bore satisfying a 75 bara outlet-pressure criterion and a nonnegative API RP 14E velocity margin at 4.0 MSm3/day.",
+      "retained_figures": {
+        "count": 8,
+        "previous_count": 0,
+        "new_count": 8,
+        "numerically_refreshed_previous_count": 0,
+        "externally_sourced_previous_visual_count": 1,
+        "purposes": [
+          "recalculated 100 km pressure, liquid-holdup, and phase-velocity profiles",
+          "adiabatic, specified-U, and detailed-insulation thermal comparison",
+          "idealized flexible flowline and lazy-wave-riser geometry",
+          "connected elevation and absolute-pressure profiles",
+          "stitched liquid-holdup and phase-superficial-velocity profiles",
+          "segment mixture velocity versus API RP 14E screening velocity",
+          "diameter/rate outlet-pressure and velocity-margin heatmaps",
+          "final target-flow diameter selection against the pressure criterion"
+        ],
+        "visual_inspection": "Passed after final clean execution. All eight stored PNG figures were extracted and inspected together and individually for titles, readable labels, explicit SI and absolute-pressure units, legends or color scales, accessible colors, clipping, overlap, numerical scale, and agreement with stored tables and nearby interpretation."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 26 executed code cells and 31 substantive Markdown cells",
+        "all cells executed in order with counts 1 through 26, zero exceptions, zero error outputs, and zero stored stderr",
+        "fresh no-cache public-PyPI installation resolved NeqSim 3.16.0 in a newly created environment",
+        "all 29 focused engineering assertions passed",
+        "the normalized three-component composition summed to 1.000000000000",
+        "the refreshed 100 km pressure drop was 36.141459 bar and matched the pressure-profile endpoint",
+        "the four connected legs closed pressure exactly: total and segment-sum pressure drop were both 16.926512 bar",
+        "the descending sag leg showed physically consistent pressure recovery",
+        "the detailed 50 mm insulation model calculated U = 0.941650 W/(m2 K)",
+        "the 0.30 m bore at 4.0 MSm3/day delivered 78.189863 bara with a 0.436830 m/s velocity margin",
+        "maximum Python code line length was 75 characters with no semicolon chains or compressed one-line compound teaching code",
+        "three display equations and ten representative unique inline expressions used Colab-safe delimiters and rendered successfully through MathJax",
+        "all eight stored PNG figures passed final visual and numerical-context review",
+        "the corrected Colab badge points to the intended notebook path",
+        "the active catalog contains the notebook path exactly once"
+      ],
+      "summary": "Modernized the flexible-pipe tutorial around the current released PipeBeggsAndBrills API. Preserved every original example and the public video, corrected stale installation and obsolete API usage, reconciled the old inconsistent pressure-drop output, and added profile retrieval, thermal modeling, a connected lazy-wave riser, API RP 14E screening, scenario analysis, engineering validation, limitations, troubleshooting, exercises, and eight inspected figures.",
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 3,
+        "inline_expressions": 11,
+        "representative_unique_inline_rendered": 10,
+        "colab_verified_commit": "this atomic publication commit",
+        "source_rule": "Inline equations use $...$ and each display equation uses standalone $$ delimiter lines with blank lines around the block; LaTeX commands use one backslash.",
+        "visual_inspection": "Passed through a Jupyter and Google-Colab-compatible MathJax SVG renderer. Fractions, subscripts, Greek lambda and rho, Delta variables, dotted mass flow, exponential temperature decay, and units displayed correctly."
       }
     }
   ]
