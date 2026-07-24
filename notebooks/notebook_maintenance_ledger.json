@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-24T13:44:43Z",
+  "updated_at": "2026-07-24T15:23:27Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -6310,6 +6310,78 @@
         "colab_verified_commit": "this atomic commit",
         "source_rule": "Inline equations use $...$ and each display equation uses standalone $$ delimiter lines with no blank line inside the display block; LaTeX commands use one backslash.",
         "visual_inspection": "Passed through a Jupyter/Google-Colab-compatible MathJax renderer. Fractions, subscripts, superscripts, phase labels, fugacity, approximate equality, logarithm, summation, overdots, Greek beta, reaction arrows, and engineering symbols displayed correctly. The exact staged commit is additionally checked in Google Colab before master is advanced."
+      }
+    },
+    {
+      "path": "notebooks/fluidflow/twophasepipeline.ipynb",
+      "verified_date": "2026-07-24",
+      "verified_at_utc": "2026-07-24T15:23:27Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "All 23 code cells were executed sequentially from a clean notebook state in a newly created isolated Python 3.12 environment using a fresh no-cache installation of the latest public PyPI NeqSim 3.16.0 package. The in-process executor retained stdout, HTML tables, the video embed, and seven inline PNG outputs and failed on any cell exception.",
+      "code_cells": 23,
+      "markdown_cells": 28,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch fast-forward",
+        "commit": "this publication sequence"
+      },
+      "pre_existing_examples_preserved": 6,
+      "preservation_note": "Preserved all six original teaching groups: the introductory multiphase-pipeline video; the 100 km Beggs-Brill pipeline and flow regime; the original pressure and mixture-velocity profiles; the 150 km elevated-line inverse inlet-pressure calculations; reconstruction of a three-phase production fluid from GOR and water cut; and the 12 km, 10 inch flow/delivery-pressure grid and inlet-pressure curves.",
+      "pre_existing_figures_preserved": 4,
+      "figure_preservation_note": "Preserved the original video and all three historical plots. The three reproducible plots were numerically refreshed with the current NeqSim 3.16.0 calculation, and four additional technical PNG figures were added.",
+      "neqsim_capabilities_demonstrated": [
+        "SRK multiphase fluid construction and normalization",
+        "PipeBeggsAndBrills pressure, velocity, and flow-regime profiles",
+        "deterministic Brent inverse-pressure design",
+        "GOR and water-cut reconstruction using NeqSim streams and a mixer",
+        "119-case gathering-line operating-envelope screening",
+        "diameter sensitivity with delivery-pressure residual auditing"
+      ],
+      "practical_application": "A reusable multiphase gathering-line workflow builds a normalized three-phase production fluid, executes a 100 km Beggs-Brill line, retrieves pressure, velocity, phase properties, and regime, solves 150 km delivery-pressure constraints deterministically, reconstructs a rate-consistent production fluid from GOR and water cut, and screens a 12 km, 10 inch line over 119 operating points plus five diameters.",
+      "retained_figures": {
+        "count": 8,
+        "previous_count": 4,
+        "new_count": 4,
+        "numerically_refreshed_previous_count": 3,
+        "externally_sourced_previous_count": 1,
+        "purposes": [
+          "preserved introductory multiphase-pipeline video",
+          "new reproducible NeqSim fluid-stream-pipe-validation workflow",
+          "preserved and refreshed 100 km pressure profile",
+          "preserved and refreshed 100 km mixture-velocity profile",
+          "preserved and refreshed 150 km inverse-pressure curves",
+          "new 12 km gathering-line operating envelope",
+          "new Beggs-Brill flow-regime map",
+          "new diameter sensitivity for pressure and inlet velocity"
+        ],
+        "visual_inspection": "Passed after the final clean execution. All seven stored PNG figures were extracted and inspected together at original-rendering resolution for descriptive titles, readable labels, explicit units, legends or color scales, accessible colors, correct values and scales, clipping, overlap, and consistency with stored tables and nearby interpretation. The preserved video embed was also present."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 23 executed code cells and 28 Markdown cells",
+        "all cells executed in order with counts 1 through 23, zero exceptions, zero error outputs, and zero stored stderr",
+        "all six original calculation groups, the original video, and all three original plots were preserved",
+        "normalized overall composition was 1.000000000 and the inlet contained gas, oil, and aqueous phases",
+        "the 100 km baseline dropped from 100.0 to 67.972448 bara with a 0.000e+00 bar pressure-balance residual",
+        "the 150 km inverse screen maximum delivery-pressure residual was 7.667e-06 bar",
+        "all 119 operating points solved with a maximum 12 km screen residual of 1.0e-05 bar",
+        "the five-diameter screen maximum residual was 4.0e-06 bar and required inlet pressure decreased monotonically with diameter",
+        "all 25 focused engineering assertions passed",
+        "maximum Python code line length was 97 characters with no semicolon chains or compressed one-line compound teaching code",
+        "three display equations and 11 inline expressions used Colab-safe standalone delimiters and single-backslash LaTeX and rendered successfully through MathJax",
+        "all seven stored PNG figures and the preserved video passed final visual and numerical-context review",
+        "the Colab badge, unique active-catalog link, notebook JSON, ledger JSON, retained outputs, and introduced references were checked on 2026-07-24"
+      ],
+      "summary": "Modernized the multiphase-pipeline notebook while preserving every original teaching group and visual purpose. Replaced obsolete imports, unnormalized composition, hidden state, deprecated array-to-scalar handling, nondeterministic penalties, and stale outputs with current NeqSim 3.16.0 APIs, deterministic inverse design, a complete 119-case operating screen, diameter sensitivity, explicit engineering limitations, stored validation evidence, and inspected Colab-safe equations and graphics.",
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 3,
+        "inline_expressions": 11,
+        "colab_verified_commit": "this publication sequence",
+        "source_rule": "Inline equations use $...$ and each display equation uses standalone $$ delimiter lines with blank lines around the block and no blank line inside; LaTeX commands use one backslash.",
+        "visual_inspection": "Passed through a Jupyter/Google-Colab-compatible MathJax SVG renderer. Fractions, partial derivatives, subscripts, Greek rho and theta, trigonometric functions, roman labels, and engineering symbols displayed correctly."
       }
     }
   ]
