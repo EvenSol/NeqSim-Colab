@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-24T04:34:47Z",
+  "updated_at": "2026-07-24T05:09:21Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -5379,6 +5379,68 @@
         "the Colab badge, latest PyPI release, authoritative NeqSim documentation, literature DOI links, and unique catalog target were verified on 2026-07-24"
       ],
       "summary": "Rebuilt the seven-cell, unexecuted EOS-CG versus GERG-2008 draft as a current NeqSim 3.16.0 engineering tutorial. Preserved both original examples, replaced phase-envelope pseudocode with an executed phase screen, distinguished equilibrium bulk from phase-specific properties, added a complete CO2 conditioning and reference-audit workflow, five fresh pressure scenarios, conservation and energy checks, five inspected figures, rendered equations, troubleshooting, limitations, references, and exercises."
+    },
+    {
+      "path": "notebooks/process/demo_field_process_model.ipynb",
+      "verified_date": "2026-07-24",
+      "verified_at_utc": "2026-07-24T05:09:21Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "All 24 code cells were executed sequentially in one clean shared namespace with execution counts 1 through 24 in an isolated Python 3.12 environment containing the latest public PyPI NeqSim 3.16.0, originally installed with python -m pip install --upgrade --no-cache-dir neqsim. Package metadata confirmed a normal non-editable PyPI installation with no local checkout, unpublished wheel, or manually injected JAR.",
+      "code_cells": 24,
+      "markdown_cells": 31,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "pre_existing_examples_preserved": 11,
+      "preservation_note": "Preserved and integrated all eleven original teaching intentions: structured field inputs, process-data ingestion, fluid creation, well-stream construction, staged separation, flash-gas recompression, gas injection, full-process composition, valve checks, mass-balance reporting, machine-readable result export, and the process-flow-diagram intent. The inaccessible site workbook and private data were replaced by an explicit synthetic assay, while every useful engineering objective remained operational.",
+      "pre_existing_figures_preserved": 0,
+      "figure_preservation_note": "The original notebook contained Graphviz code but no executed or stored substantive visual output. Its flowsheet-visualization intent was preserved in a new inline process diagram, and four additional technical figures were added. No previous figure was deleted, merged, hidden, or left numerically stale.",
+      "neqsim_capabilities_demonstrated": [
+        "fluid_df construction of an SRK rich field fluid with native components and characterized C7, C8, C10, and C12 fractions",
+        "TPflash, multiphase checking, property initialization, density, molar-mass, composition, and component-flow retrieval",
+        "Stream, ThrottlingValve, Heater, Separator, Pump, Cooler, Mixer, Compressor, Splitter, and ProcessSystem composition",
+        "three-stage oil stabilization and two-stage flash-gas recompression with explicit compressor efficiencies",
+        "export and injection gas routing, named-unit retrieval, machine-readable JSON export, and fresh-object scenario studies",
+        "total mass, 14-component, valve-pressure, state-finiteness, power, split, throughput, and trend validation"
+      ],
+      "practical_application": "A reusable end-to-end field workflow builds the documented synthetic fluid at 80 bara, 70 degC, and 75000 kg/h; connects 28 process units; stabilizes oil through HP, MP, and LP separation; recompresses flash gas; scrubs treated gas; splits it between 110 bara export and 160 bara injection services; retrieves products and duties; closes total and component balances; evaluates five injection fractions and five throughputs with fresh flowsheets; selects the lowest-power evaluated case meeting a 3500 kg/h injection requirement; and exports a JSON design snapshot.",
+      "retained_figures": {
+        "count": 5,
+        "previous_count": 0,
+        "new_count": 5,
+        "numerically_refreshed_previous_count": 0,
+        "purposes": [
+          "field-process workflow overview from synthetic well stream through stabilization, recompression, and gas routing",
+          "three-stage released-gas, liquid-outlet, and pressure profile",
+          "base-case compressor power allocation",
+          "injection-fraction sensitivity for export gas, injection gas, and total compressor power",
+          "field-throughput sensitivity for gas products and total compressor power"
+        ],
+        "visual_inspection": "Passed after the final full execution. All five stored PNG figures were extracted and inspected at original resolution for descriptive titles, readable labels, explicit units, legends, accessible colors, correct values and scales, clipping, overlap, and agreement with tables and nearby interpretation."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 24 executed code cells and 31 Markdown cells",
+        "all cells executed in order with counts 1 through 24, zero exceptions, zero error outputs, and zero stderr",
+        "all eleven original teaching intentions were preserved and integrated; no previous stored figure existed",
+        "feed TP-flash bulk density 301.946438 kg/m3 and molar mass 0.05864445 kg/mol were finite and physically bounded",
+        "base products were 57640.100885 kg/h export oil, 12139.333233 kg/h export gas, and 4046.444411 kg/h injection gas",
+        "base total compressor power was 0.693846 MW",
+        "total mass residual was 9.532e-09 kg/h, relative mass residual was 1.271e-13, and maximum component residual was 7.576e-09 kg/h",
+        "both valves passed positive-pressure-drop checks and all product flows, densities, and compressor powers were finite and physical",
+        "five independent injection-fraction cases passed split, power, and balance trends",
+        "five independent throughput cases passed product-flow, power, finiteness, and balance trends",
+        "selected 25% injection case met the 3500 kg/h requirement at the lowest power among evaluated feasible cases",
+        "maximum Python code line length was 85 characters with no semicolons, one-line compound bodies, wildcard imports, or compressed teaching code",
+        "four display equations and representative inline mathematics used Colab-safe delimiters and rendered successfully with MathJax",
+        "all five stored technical figures passed visual and numerical review",
+        "the Colab badge, unique active-catalog link, and every introduced documentation link were checked"
+      ],
+      "summary": "Replaced a 31-cell but entirely unexecuted field-workbook draft with a clean, self-contained, fully executed tutorial. Removed dependence on private Excel/site data and a partially wired thousand-line builder; added an explicit synthetic assay, modular supported APIs, a complete stabilization-recompression-injection workflow, conservation audits, independent scenarios, five inspected figures, rendered equations, troubleshooting, limitations, exercises, and current references. An uninitialized pre-flash density discovered during visual/data review was corrected before the final rerun."
     }
   ]
 }
