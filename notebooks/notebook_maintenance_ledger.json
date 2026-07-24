@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-24T00:10:10Z",
+  "updated_at": "2026-07-24T00:53:37Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -5007,6 +5007,69 @@
         "the Colab badge, current reference-manual Process Automation API entry, process guide, thermodynamic-model documentation, current source links, unique catalog target, and changed catalog path were checked"
       ],
       "summary": "Rebuilt the four-code-cell agentic placeholder as a current, self-contained ProcessAutomation tutorial. Preserved every original example intention, removed stale compatibility fallbacks, added safe discovery and diagnostics, atomic evaluations, malformed-candidate rejection, conservation and energy audits, a two-variable operating envelope, native constrained optimization, five inspected figures, troubleshooting, limitations, references, and exercises."
+    },
+    {
+      "path": "notebooks/process/ESD_PSV_Process_Safety_Demo.ipynb",
+      "verified_date": "2026-07-24",
+      "verified_at_utc": "2026-07-24T00:53:37Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "all 20 code cells executed sequentially in one shared namespace with counts 1 through 20 in an isolated Python 3.12 environment installed from the latest public PyPI NeqSim release using python -m pip install --upgrade --no-cache-dir neqsim; a normal Jupyter kernel was unavailable because the sandbox disallowed local TCP, and no local checkout, editable install, unpublished wheel, or manually injected JAR was used",
+      "code_cells": 20,
+      "markdown_cells": 25,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "pre_existing_examples_preserved": 8,
+      "preservation_note": "Preserved and integrated all eight substantive legacy examples: SRK separator-gas properties; blocked-outlet PSV relief; PSV opening and reseat hysteresis; manual ESD blowdown with a five-second valve stroke; ISO 5167 pressure-driven orifice flow; pressure buildup, PSHH trip, feed isolation, and blowdown; passive-versus-active protection comparison; and gas-PSV area plus 15-minute depressurization screening. Replaced unexecuted Jython, unsupported constructors, obsolete imports, mixed units, and unverified helper claims with current supported APIs.",
+      "pre_existing_figures_preserved": 0,
+      "figure_preservation_note": "The original notebook contained no plot, diagram, image, animation snapshot, or other substantive visual output. Six new figures were added; none removed or replaced previous visual content.",
+      "neqsim_capabilities_demonstrated": [
+        "SystemSrkEos construction, classic mixing rule, TP flash, multiphase checking, and SI property retrieval",
+        "Stream boundaries and current SafetyValve pressure-specification, full-open, blowdown, and transient hysteresis APIs",
+        "BlowdownValve five-second stroke, PushButton activation, reset logic, and transient opening",
+        "native Orifice pressure-driven compressible-gas flow and discharge-coefficient calculation",
+        "ReliefValveSizing public static gas-area calculation with API 520 correction factors and API 526 standard-orifice selection",
+        "fresh-case blocked-outlet, manual ESD, PSHH-triggered ESD, and four-diameter scenario calculations with mass, event, trend, and limiting checks"
+      ],
+      "practical_application": "A reusable separator-protection workflow builds a 40 m3 SRK gas inventory at 50 bara and 40 degC, tests native PSV hysteresis, sizes a gas relief area, simulates a finite blocked-outlet event, activates a five-second ESD blowdown, combines PSHH detection with feed isolation and blowdown, and screens 30-60 mm orifices against response-time and peak-flare-load trade-offs.",
+      "retained_figures": {
+        "count": 6,
+        "previous_count": 0,
+        "new_count": 6,
+        "numerically_refreshed_previous_count": 0,
+        "purposes": [
+          "NeqSim fluid-to-inventory-to-protection-to-validation workflow overview",
+          "native PSV opening and reseat hysteresis along an ordered pressure path",
+          "blocked-outlet vessel pressure and PSV relief-rate response",
+          "manual ESD pressure and conservative adiabatic temperature screening",
+          "integrated PSHH detection, isolation, and blowdown sequence",
+          "blowdown-orifice response-time versus peak-flare-load trade-off"
+        ],
+        "visual_inspection": "passed after the final full execution; all six stored PNG figures were extracted and inspected at original resolution for descriptive titles, readable labels, explicit units, legends, accessible colors, correct scales, clipping, overlap, and agreement with tables and nearby engineering interpretation; the workflow diagram label was repaired and the complete notebook was rerun"
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 20 executed code cells and 25 Markdown cells",
+        "all cells executed in order with counts 1 through 20, zero exceptions, zero error outputs, and zero stderr",
+        "all eight original examples were preserved, repaired, and integrated; the original contained no figure to preserve",
+        "SRK basis returned 19.036060 kg/kmol molar mass, 40.331469 kg/m3 density, 0.908461 compressibility, and 1.445268 heat-capacity ratio",
+        "native PSV path opened from 55 to 61 bara and reseated below 51.15 bara with the expected hysteresis state",
+        "required gas-PSV area was 117.401782 mm2 and the selected API 526 standard orifice was E at 126.451360 mm2",
+        "finite blocked-outlet event peaked at 55.483941 bara with 1.031408 kg/s maximum relief flow",
+        "manual ESD reached the 8.013250 bara example target in 160 s; the ideal adiabatic temperature screen reached -95.731 degC and is explicitly bounded as a non-design single-phase limit",
+        "integrated PSHH and ESD tripped at 159 s after a 58.045624 bara maximum pressure and finished at 7.987154 bara",
+        "all four fresh orifice scenarios showed decreasing response time and increasing peak flare load with diameter",
+        "all 27 stored process-safety engineering assertions passed",
+        "maximum code-line length was 91 characters with no magics, wildcard imports, semicolons, inline compound bodies, or compressed teaching code",
+        "both display equations and 48 inline delimiters used Colab-compatible syntax; representative fractions, subscripts, superscripts, Greek symbols, and units rendered through MathJax SVG and passed visual inspection",
+        "all six stored figures passed visual and numerical inspection after the final rerun",
+        "the Colab badge, current NeqSim safety documentation, unique catalog target, and changed catalog path were checked on 2026-07-24"
+      ],
+      "summary": "Modernized the unexecuted ESD and PSV draft as a current, self-contained process-safety tutorial. Preserved every legacy example, replaced obsolete Jython and unsupported helpers with NeqSim 3.16.0 APIs, corrected units and API boundaries, added native device demonstrations, blocked-outlet and ESD dynamics, relief and orifice screening, a practical diameter study, 27 checks, six inspected figures, troubleshooting, limitations, references, and exercises."
     }
   ]
 }
