@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-24T10:10:37Z",
+  "updated_at": "2026-07-24T10:38:21Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -5986,6 +5986,78 @@
         "the Colab badge, unique catalog link, notebook JSON, ledger JSON, equations, introduced official documentation links, and retained outputs were checked on 2026-07-24"
       ],
       "summary": "Modernized the hydrogen transport placeholder into a fully executed NeqSim 3.16.0 engineering tutorial. Replaced the stale pin, wildcard imports, legacy global process helpers, ambiguous property labels, dense stateful pipeline cells, and unvalidated fuel-quality output with current PR and Leachman property models, a composable compressor ProcessSystem, transparent 500 km property-coupled hydraulics, conservation and energy checks, diameter and throughput sensitivities, ISO 6976:2016, seven inspected figures, rendered equations, troubleshooting, limitations, references, and exercises."
+    },
+    {
+      "path": "notebooks/process/lngageing.ipynb",
+      "verified_date": "2026-07-24",
+      "verified_at_utc": "2026-07-24T10:38:21Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "All 23 code cells were executed sequentially in one isolated Python 3.12 environment containing the public PyPI-installed NeqSim 3.16.0 package, with execution counts 1 through 23. The in-process executor was used because the automation sandbox blocks local Jupyter TCP kernel connections; it preserved stdout, HTML tables, execution results, and inline PNG outputs and failed on cell exceptions.",
+      "code_cells": 23,
+      "markdown_cells": 38,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "pre_existing_examples_preserved": 9,
+      "preservation_note": "All nine original code examples were preserved and integrated: Colab setup and table support; fluid, flash, envelope, dataframe, and plotting imports; the exact nine-component inherited LNG assay; the 1.01325 bara, 125000 m3, 48 h, 0.1%/day base inputs; ISO 6976:2016 reference temperatures; LNGship construction and transient solution; dataframe conversion and export; cargo-volume and BOG-composition plots; and the unfinished pressure, volume, natural-BOG, and forced-vaporization arrays. The 101.1474 mol% assay is now transparently normalized, obsolete imports and namespace usage were removed, and the unfinished arrays became a documented synthetic operations-log reconciliation.",
+      "pre_existing_figures_preserved": 3,
+      "figure_preservation_note": "All three original calculated figures were preserved in recognizable form and numerically refreshed with NeqSim 3.16.0: the SRK pressure-temperature phase envelope, 48-hour LNG cargo-volume trend, and BOG methane/ethane/propane/nitrogen composition trend. Six new technical figures were added.",
+      "neqsim_capabilities_demonstrated": [
+        "SystemSrkEos LNG-fluid construction and classic mixing rule",
+        "bubble-point temperature flash at cargo-tank pressure",
+        "pressure-temperature phase-envelope calculation",
+        "LNGship steady-state initialization and transient ageing solver",
+        "ISO 6578 density and ISO 6976:2016 GCV/Wobbe tracking",
+        "LNGBOGHandlingNetwork fuel, reliquefaction, GCU, and vent allocation",
+        "Stream, Compressor, Cooler, and ProcessSystem BOG conditioning",
+        "independent fresh-fluid boil-off-rate scenario analysis",
+        "volume, mass, composition, process, and trend auditing"
+      ],
+      "practical_application": "A reusable end-to-end workflow normalizes the inherited LNG assay, builds an SRK cargo fluid, equilibrates it at 1.01325 bara, runs a 125000 m3 LNGship voyage for 48 hours at 0.1% initial volume/day, retrieves 100 inventory and quality states, reconstructs an average 3736.356470 kg/h BOG rate, allocates the gas through a current LNGBOGHandlingNetwork, and builds a Stream-Compressor-Cooler ProcessSystem from the final vapor composition. The train compresses BOG from 1.2 to 5 bara, cools it to 35 degC, requires 297.837340 kW, and closes mass to stored precision.",
+      "retained_figures": {
+        "count": 9,
+        "previous_count": 3,
+        "new_count": 6,
+        "numerically_refreshed_previous_count": 3,
+        "historical_previous_count": 0,
+        "purposes": [
+          "preserved SRK pressure-temperature phase envelope",
+          "new assay-to-ageing-to-BOG-process workflow overview",
+          "preserved 48-hour LNG cargo-volume trend",
+          "preserved equilibrium BOG composition trend",
+          "new cargo temperature, density, GCV, and Wobbe quality trends",
+          "new liquid-cargo fractionation trend",
+          "new average BOG handling-route allocation",
+          "new independent boil-off-rate mass-loss and GCV sensitivity",
+          "new inherited synthetic operations-log volume reconciliation"
+        ],
+        "visual_inspection": "Passed after the final complete execution. All nine stored PNG figures were extracted and inspected at original resolution for titles, readable labels, explicit units, legends, accessible colors, correct scales, clipping, overlap, and agreement with stored tables and nearby interpretation. The final workflow label was shortened and repositioned after the first inspection found right-edge clipping, then every figure was regenerated."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 23 executed code cells and 38 Markdown cells",
+        "all cells executed in order with counts 1 through 23, zero exceptions, zero error outputs, and zero stored stderr",
+        "all nine original code examples preserved and integrated",
+        "all three original numerical figures refreshed; six new technical figures added",
+        "inherited 101.1474 mol% assay normalized to unity with 1e-12 tolerance",
+        "bubble point was -164.874867 degC and initial table density was 452.082030 kg/m3",
+        "final cargo volume was 124749.999960 m3 with -4.0e-05 m3 limiting-case residual",
+        "maximum liquid and vapor composition closure errors were 2.0e-05 and 1.0e-05 mole fraction",
+        "reconstructed cargo mass loss was 179345.110562 kg and average BOG rate was 3736.356470 kg/h",
+        "final BOG GCV and Wobbe index were 39.556730 and 51.129650 MJ/Sm3",
+        "BOG handling allocation closed within 1e-8 kg/h",
+        "BOG ProcessSystem reached 5 bara and 35 degC with 297.837340 kW compressor power and zero stored mass residual",
+        "three independent boil-off scenarios were finite and followed expected mass-loss, BOG-rate, and GCV trends",
+        "all 25 final engineering assertions passed",
+        "maximum Python code line length was 74 characters with no semicolons or compressed one-line compound teaching code",
+        "five display and 11 inline equations used Colab-safe delimiters and single-backslash LaTeX; all 16 rendered through MathJax and were inspected",
+        "the Colab badge, unique catalog link, notebook JSON, ledger JSON, official documentation references, and retained outputs were checked on 2026-07-24"
+      ],
+      "summary": "Modernized the LNG cargo-ageing notebook for public PyPI NeqSim 3.16.0 while preserving every original calculation and figure. Replaced the stale 2.5.35 pin, removed and wildcard imports, obsolete jNeqSim namespace, semicolon, unlabeled table, unconditional Excel write, sparse narrative, and unfinished operations arrays. Added normalized inputs, SRK phase behavior, current LNGship and BOG-handling APIs, a complete BOG conditioning ProcessSystem, balances, scenario analysis, nine inspected figures, rendered equations, troubleshooting, limitations, references, and exercises."
     }
   ]
 }
