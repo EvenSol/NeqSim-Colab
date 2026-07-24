@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-24T09:35:10Z",
+  "updated_at": "2026-07-24T10:10:37Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -5917,6 +5917,75 @@
         "the Colab badge, unique catalog link, notebook JSON, ledger JSON, references, and all retained outputs were checked on 2026-07-24"
       ],
       "summary": "Modernized the hydrogen thermodynamics and transport notebook for NeqSim 3.16.0 while preserving every original calculation and both original plots. Replaced obsolete thermoTools wildcard imports, stale installation output, hidden state, dense code, unvalidated tables, and a failed/nonphysical pure-hydrogen saturation flash. Added current Leachman, GERG-2008-H2, Muzny_mod, phase-envelope, process-equipment, balance, energy, scenario, visualization, equation, troubleshooting, limitation, reference, and exercise coverage."
+    },
+    {
+      "path": "notebooks/hydrogen/transportOfHydrogen.ipynb",
+      "verified_date": "2026-07-24",
+      "verified_at_utc": "2026-07-24T10:10:37Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "All 24 code cells were executed sequentially in one isolated Python 3.12 environment containing the public PyPI-installed NeqSim 3.16.0 package, with execution counts 1 through 24. The in-process executor was used because the automation sandbox blocks local Jupyter TCP kernel connections; it preserved stdout, HTML tables, execution results, and inline PNG outputs and failed on cell exceptions.",
+      "code_cells": 24,
+      "markdown_cells": 36,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "pre_existing_examples_preserved": 7,
+      "preservation_note": "All seven original learning groups were preserved and integrated: the LsYq9jRkXsg video; pipeline materials, design, compression, and safety context; the 20 degC and 1.01325 bara pure-hydrogen property calculation; the 90-120-150 bara two-stage compressor train at 130 MSm3/day; the 500 km and 0.98 m line; the second 500 km and 1.00 m pressure/temperature profile; and the mass-basis ISO 6976 fuel-quality calculation. Obsolete wildcard imports, the NeqSim 2.5.35 pin, zero-amount methane, the bubble-point label, legacy global process helpers, dense code, and ambiguous units were repaired without removing the original engineering intent.",
+      "pre_existing_figures_preserved": 1,
+      "figure_preservation_note": "The original two-panel 500 km pipeline pressure and temperature profile was preserved in recognizable form and recomputed with NeqSim 3.16.0 PR density, viscosity, and heat capacity at every axial step. Six new technical figures were added. The external YouTube introduction was retained but is not counted as a calculated technical figure.",
+      "neqsim_capabilities_demonstrated": [
+        "PR pure-hydrogen TPflash and transport-property initialization",
+        "SystemLeachmanEos pure-hydrogen reference-property comparison",
+        "standard-volume to mass and actual-volume flow conversion",
+        "Stream, Compressor, Cooler, and ProcessSystem composition",
+        "compressor power, outlet-state, and cooler-duty retrieval",
+        "enthalpy-based compressor-energy and process-mass auditing",
+        "fresh-node property coupling for Darcy-Haaland pipeline hydraulics",
+        "fresh-case diameter and throughput scenario analysis",
+        "Standard_ISO6976_2016 mass and standard-volume fuel quality"
+      ],
+      "practical_application": "A reusable end-to-end workflow builds a 130 MSm3/day pure-H2 PR feed at 90 bara and 20.15 degC, connects two Compressor objects around an intercooler and export cooler in a ProcessSystem, runs to 150 bara, retrieves 111.416002 MW total power, audits mass and energy closure, then advances a 500 km hydraulic profile with fresh NeqSim properties at 101 axial nodes. It rebuilds six diameter cases and five throughput cases; the smallest sampled candidate meeting the illustrative 110 bara and 20 m/s screens is 1.10 m, delivering 113.766423 bara.",
+      "retained_figures": {
+        "count": 7,
+        "previous_count": 1,
+        "new_count": 6,
+        "numerically_refreshed_previous_count": 1,
+        "historical_previous_count": 0,
+        "purposes": [
+          "new PR versus Leachman pure-hydrogen density and deviation comparison",
+          "new fluid-to-compression-to-hydraulic-validation workflow overview",
+          "new compressor-train pressure and temperature profile",
+          "preserved and numerically refreshed 500 km pipeline pressure and temperature profile",
+          "new diameter sensitivity for delivery pressure and maximum velocity",
+          "new throughput sensitivity for delivery pressure and maximum velocity",
+          "new ISO 6976:2016 mass and standard-volume energy comparison"
+        ],
+        "visual_inspection": "Passed after the final complete execution. All seven stored PNG figures were extracted and inspected at original resolution for titles, readable labels, explicit units, legends, accessible colors, correct scales, clipping, overlap, and agreement with stored tables and nearby interpretation. The throughput legend was moved outside the axes after the first inspection found an overlap, and the complete notebook was rebuilt and re-executed."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 24 executed code cells and 36 Markdown cells",
+        "all cells executed in order with counts 1 through 24, zero exceptions, zero error outputs, and zero stored stderr",
+        "all seven original learning groups preserved and integrated",
+        "the original two-panel numerical figure was preserved and refreshed; six new technical figures were added",
+        "ambient PR density deviation from Leachman was 0.017297% and the maximum 10-150 bara deviation was below 0.41%",
+        "mass flow was 461834.602482 kg/h and total compressor power was 111.416002 MW",
+        "process mass residual was zero and maximum compressor-energy residual was 7.105e-15 MW",
+        "preserved 0.98 m and 1.00 m cases delivered 73.866731 and 84.169853 bara after 500 km",
+        "the selected 1.10 m case delivered 113.766423 bara with 14.768895 m/s maximum velocity",
+        "all six diameter cases and five throughput cases were finite, turbulent, and followed expected pressure and velocity trends",
+        "ISO 6976:2016 hydrogen GCV was 141.946525 MJ/kg and 12.102012 MJ/Sm3",
+        "all 16 final engineering assertions passed",
+        "maximum Python code line length was 68 characters with no semicolons or compressed one-line compound teaching code",
+        "five display equations and ten inline expressions used Colab-safe delimiters and single-backslash LaTeX; all 15 rendered successfully through MathJax and were inspected",
+        "all seven technical figures passed final visual and numerical-context review",
+        "the Colab badge, unique catalog link, notebook JSON, ledger JSON, equations, introduced official documentation links, and retained outputs were checked on 2026-07-24"
+      ],
+      "summary": "Modernized the hydrogen transport placeholder into a fully executed NeqSim 3.16.0 engineering tutorial. Replaced the stale pin, wildcard imports, legacy global process helpers, ambiguous property labels, dense stateful pipeline cells, and unvalidated fuel-quality output with current PR and Leachman property models, a composable compressor ProcessSystem, transparent 500 km property-coupled hydraulics, conservation and energy checks, diameter and throughput sensitivities, ISO 6976:2016, seven inspected figures, rendered equations, troubleshooting, limitations, references, and exercises."
     }
   ]
 }
