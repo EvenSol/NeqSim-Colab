@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-24T11:55:21Z",
+  "updated_at": "2026-07-24T12:10:39Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -6062,12 +6062,12 @@
     {
       "path": "notebooks/process/dynamicsimul.ipynb",
       "verified_date": "2026-07-24",
-      "verified_at_utc": "2026-07-24T11:55:21Z",
+      "verified_at_utc": "2026-07-24T12:10:39Z",
       "neqsim_version": "3.16.0",
       "python_version": "3.12.13",
       "java_version": "openjdk 17.0.19",
       "execution_status": "passed",
-      "execution_method": "All 26 code cells were executed sequentially in a newly created Python 3.12 virtual environment after a no-cache installation from the public PyPI index of NeqSim 3.16.0 and the notebook runtime dependencies, with execution counts 1 through 26. The in-process executor preserved stdout, HTML tables, execution results, and inline PNG outputs and failed on cell exceptions.",
+      "execution_method": "All 26 code cells were re-executed sequentially from a clean notebook state in an isolated Python 3.12 environment containing the public PyPI-installed NeqSim 3.16.0 package, with execution counts 1 through 26. The in-process executor preserved stdout, HTML tables, execution results, and inline PNG outputs and failed on cell exceptions.",
       "code_cells": 26,
       "markdown_cells": 25,
       "publication": {
@@ -6138,11 +6138,19 @@
         "restricted-outlet filling ended at 10.000202 bara",
         "maximum reporting-resolution pressure deviation was 0.060530 bar",
         "maximum Python code line length was 89 characters with no semicolons or compressed one-line compound teaching code",
-        "three display equations and 11 inline expressions used Colab-safe delimiters and single-backslash LaTeX; all 14 rendered through MathJax and were inspected",
+        "three display equations and 11 inline expressions use Colab-safe single-backslash LaTeX; all 14 rendered through MathJax, and all three display equations were visually verified in Google Colab at 1dc8c07bd110d5359e282280b4feba61a9b11ce4",
         "all 26 technical figures passed final visual and numerical-context review",
         "the Colab badge, unique catalog link, notebook JSON, ledger JSON, official documentation references, and retained outputs were checked on 2026-07-24"
       ],
-      "summary": "Modernized the dynamic-process notebook into a fully executed NeqSim 3.16.0 engineering tutorial while preserving all six examples and all 23 original plot purposes. Replaced obsolete setup, semicolon-heavy cells, hidden state, duplicated relief/filling logic, sparse outputs, and weak validation with current streams, valves, separators, transmitters, controllers, ProcessSystem transients, IEC 60534 sizing, audited time histories, 26 inspected figures, rendered equations, troubleshooting guidance, limitations, references, and exercises."
+      "summary": "Modernized the dynamic-process notebook into a fully executed NeqSim 3.16.0 engineering tutorial while preserving all six examples and all 23 original plot purposes. Replaced obsolete setup, semicolon-heavy cells, hidden state, duplicated relief/filling logic, sparse outputs, and weak validation with current streams, valves, separators, transmitters, controllers, ProcessSystem transients, IEC 60534 sizing, audited time histories, 26 inspected figures, rendered equations, troubleshooting guidance, limitations, references, and exercises. Corrected Google Colab display-math paragraph boundaries and verified all equations in Colab's live renderer.",
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 3,
+        "inline_expressions": 11,
+        "colab_verified_commit": "1dc8c07bd110d5359e282280b4feba61a9b11ce4",
+        "source_rule": "Each display equation uses standalone $$ delimiter lines with no blank Markdown paragraph between a delimiter and its equation.",
+        "visual_inspection": "Passed in the public Google Colab renderer. Fractions, integrals, overdots, subscripts, superscripts, brackets, Greek gamma, operators, and units were displayed correctly for all three display equations; representative inline expressions were also rendered."
+      }
     }
   ]
 }
