@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-24T05:09:21Z",
+  "updated_at": "2026-07-24T06:08:00Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -5441,6 +5441,76 @@
         "the Colab badge, unique active-catalog link, and every introduced documentation link were checked"
       ],
       "summary": "Replaced a 31-cell but entirely unexecuted field-workbook draft with a clean, self-contained, fully executed tutorial. Removed dependence on private Excel/site data and a partially wired thousand-line builder; added an explicit synthetic assay, modular supported APIs, a complete stabilization-recompression-injection workflow, conservation audits, independent scenarios, five inspected figures, rendered equations, troubleshooting, limitations, exercises, and current references. An uninitialized pre-flash density discovered during visual/data review was corrected before the final rerun."
+    },
+    {
+      "path": "notebooks/process/sepsioze.ipynb",
+      "verified_date": "2026-07-24",
+      "verified_at_utc": "2026-07-24T06:08:00Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "All 28 code cells were executed sequentially in one clean shared namespace with execution counts 1 through 28 in an isolated Python 3.12 environment containing the latest public PyPI NeqSim 3.16.0, originally installed with python -m pip install --upgrade --no-cache-dir neqsim. Package metadata confirmed a normal non-editable PyPI installation with no local checkout, unpublished wheel, or manually injected JAR.",
+      "code_cells": 28,
+      "markdown_cells": 44,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "pre_existing_examples_preserved": 8,
+      "preservation_note": "Preserved and integrated all eight original teaching groups: the multistage NeqSim process, independent vertical two-phase reference case, first-stage gas scrubber, horizontal two-phase separator, vertical three-phase separator, horizontal three-phase vessel without internals, horizontal three-phase vessel with a water boot, and horizontal three-phase vessel with a weir. The inaccessible fluid1.e300 assay, obsolete processSimulation namespaces, external image scraping, implicit field-unit conversions, and unsafe timeout execution were replaced without removing an engineering objective.",
+      "pre_existing_figures_preserved": 7,
+      "figure_preservation_note": "All seven original annotated vessel figures were retained exactly as dated historical attachments with source and validity warnings. Their external background repository had no LICENSE file when checked on 24 July 2026, and their red numbers depended on the unavailable fluid1.e300 input, so they are not presented as current NeqSim results. Every original visual purpose has a separate fresh, executable SI counterpart based on the validated NeqSim calculation.",
+      "neqsim_capabilities_demonstrated": [
+        "fluid_df construction of a synthetic water-containing rich hydrocarbon assay with characterized C7 and C10 fractions",
+        "classic mixing rule, multiphase checking, stream flow, pressure, temperature, density, viscosity, composition, and phase retrieval",
+        "Stream, ThrottlingValve, Heater, Cooler, ThreePhaseSeparator, Separator, Mixer, Compressor, Pump, and ProcessSystem composition",
+        "four-stage oil stabilization, three-stage flash-gas recompression, compressor scrubbing, export compression, and named-unit retrieval",
+        "fresh-object HP separator temperature scenarios and immutable phase-rate scaling for separator-capacity sensitivity",
+        "total mass, 13-component, gas-capacity, drag-settling, retention, aspect-ratio, state-finiteness, and trend validation"
+      ],
+      "practical_application": "A reusable end-to-end workflow creates a documented 100000 kg/h three-phase synthetic feed at 65 bara and 45 degC; connects 32 NeqSim process units; stabilizes oil through HP, MP, LP, and stabilizer separators; cools, scrubs, and recompresses flash gas; pumps export oil and compresses export gas; retrieves the HP separator by name; extracts gas, oil, and water rates and properties; screens vertical, horizontal-plain, and horizontal-weir three-phase candidates; checks capacity, residence, and geometry constraints; and selects the lightest passing evaluated screening candidate.",
+      "retained_figures": {
+        "count": 19,
+        "previous_count": 7,
+        "new_count": 12,
+        "numerically_refreshed_previous_count": 0,
+        "historical_previous_count": 7,
+        "purposes": [
+          "current NeqSim process workflow from well feed through four-stage separation, recompression, and export products",
+          "current phase-flow split through the stabilization train",
+          "fresh SI vertical two-phase reference geometry",
+          "fresh SI NeqSim first-stage gas-scrubber geometry",
+          "fresh SI horizontal two-phase reference geometry",
+          "fresh SI vertical three-phase NeqSim geometry",
+          "fresh SI horizontal three-phase geometry without internals",
+          "fresh SI horizontal three-phase geometry with water boot",
+          "fresh SI horizontal three-phase geometry with weir",
+          "preliminary geometry and steel-mass comparison",
+          "throughput-to-diameter sensitivity comparison",
+          "HP inlet-temperature phase-split and diameter sensitivity",
+          "seven exact historical attachments preserving the original vertical/horizontal two- and three-phase visual inventory"
+        ],
+        "visual_inspection": "Passed after the final full execution. All 12 current stored PNG figures and all seven preserved historical attachments were extracted and inspected at original resolution for descriptive titles, readable labels, explicit SI units, legends, accessible colors, correct values and scales, clipping, overlap, and agreement with tables and nearby interpretation. A boot-figure dimension-label overlap found during review was corrected and the complete notebook was rerun before final inspection."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 28 executed code cells and 44 Markdown cells",
+        "all cells executed in order with counts 1 through 28, zero exceptions, zero error outputs, and zero stderr",
+        "all eight original teaching groups and all seven original figures were preserved, documented, and integrated",
+        "the four-stage process contained 32 named units and returned finite gas, oil, and water rates, densities, and viscosities",
+        "base HP separation produced 15875.029904 kg/h gas, 82418.145538 kg/h oil, and 1706.824558 kg/h water",
+        "total mass residual was 1.652e-08 kg/h, relative mass residual was 1.652e-13, and maximum component residual was 1.294e-08 kg/h",
+        "all seven preserved current sizing cases passed Souders-Brown and independent drag-based droplet velocity limits",
+        "all 27 throughput/configuration scenario results were finite and selected diameters were monotonic non-decreasing",
+        "five independently rebuilt HP temperature cases produced a monotonic gas-flow increase and finite standard-diameter choices",
+        "the final application selected the horizontal three-phase vessel with weir at 2.000 m diameter and 11.200 m tangent length",
+        "maximum Python code line length was 87 characters with no semicolons, one-line compound bodies, wildcard imports, or compressed teaching code",
+        "three display equations and nine unique inline expressions used Colab-safe delimiters and rendered successfully with MathJax",
+        "all 19 current and historical figures passed final visual and numerical-context review",
+        "the Colab badge, unique active-catalog link, documentation links, notebook JSON, and maintenance-ledger JSON were checked"
+      ],
+      "summary": "Replaced a 29-cell but entirely unexecuted separator-sizing draft with a self-contained, fully executed tutorial. Removed the private fluid file, obsolete jNeqSim process namespaces, redundant third-party packages, network image scraping, mixed field units, unsafe timeout threading, and hidden process state. Added a current NeqSim ProcessSystem, transparent SI correlations, seven refreshed geometry examples, conservation and capacity audits, sensitivities, a reusable selection application, 12 new figures, preservation of all seven historical visuals, rendered equations, limitations, troubleshooting, exercises, and current references."
     }
   ]
 }
