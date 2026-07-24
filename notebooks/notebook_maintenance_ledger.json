@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-23T23:13:23Z",
+  "updated_at": "2026-07-24T00:10:10Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -4947,6 +4947,66 @@
         "the Colab badge, current pipeline guide, thermodynamic-model documentation, PipeBeggsAndBrills source, and unique catalog target were checked on 2026-07-23"
       ],
       "summary": "Modernized the legacy gas-pipeline notebook without deleting any substantive example or figure. Replaced obsolete setup and global helpers, fixed the unnormalized composition, corrected a kelvin-versus-degC profile error, made the friction-factor convention explicit, repaired the commented-out pressure balance, and replaced random inverse solving with deterministic bisection. Added current NeqSim route composition, profile extraction, independent validation, a practical diameter workflow, conservation and trend checks, three new inspected figures, troubleshooting, limitations, references, and exercises."
+    },
+    {
+      "path": "notebooks/AI/agentic_neqsim_workflow_demo.ipynb",
+      "verified_date": "2026-07-24",
+      "verified_at_utc": "2026-07-24T00:10:10Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "all 26 code cells executed sequentially in one shared namespace with counts 1 through 26 in an isolated Python 3.12 environment installed from the latest public PyPI NeqSim release using python -m pip install --upgrade --no-cache-dir neqsim; a normal Jupyter kernel was attempted first but the sandbox disallowed local TCP, and no local checkout, editable install, unpublished wheel, or manually injected JAR was used",
+      "code_cells": 26,
+      "markdown_cells": 32,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "pre_existing_examples_preserved": 4,
+      "preservation_note": "Preserved and integrated all four substantive placeholder examples: the reusable make_gas fluid builder, structured case dictionary, Stream-Compressor-ProcessSystem execution, and JSON-style result object displayed as a pandas table. Replaced stale 3.15.0 output and compatibility fallbacks with current NeqSim 3.16.0 APIs, expanded the original single compressor case into a complete guarded gas-conditioning application, and kept the original agent-facing input/output pattern.",
+      "pre_existing_figures_preserved": 0,
+      "figure_preservation_note": "The original notebook contained no plot, diagram, image, animation snapshot, or other substantive visual output; its matplotlib import was unused. Five new technical figures were added, so no previous visual was removed, replaced, or left numerically stale.",
+      "neqsim_capabilities_demonstrated": [
+        "SystemSrkEos construction, classic mixing rule, multiphase checking, explicit component fractions, and named Stream boundaries",
+        "Compressor, Cooler, Separator, and ProcessSystem composition with current steady-state execution and explicit efficiency and operating setpoints",
+        "cached ProcessAutomation discovery of units, variables, topology, and adjustable parameters",
+        "safe address recovery, runJson, structured diagnostics, rejected setpoints, and atomic evaluate calls",
+        "fresh-object operating-envelope evaluation and the native bounded AgenticProcessOptimizer with constraints and independent final recheck"
+      ],
+      "practical_application": "A reusable end-to-end rich-gas conditioning workflow builds a fresh SRK fluid and Stream-Compressor-Cooler-Separator-ProcessSystem graph, discovers its automation surface, safely evaluates candidate discharge pressures and aftercooler temperatures, maps a 20-case operating envelope, and uses AgenticProcessOptimizer to minimize compressor power while requiring at least 2165 kg/h liquid product.",
+      "retained_figures": {
+        "count": 5,
+        "previous_count": 0,
+        "new_count": 5,
+        "numerically_refreshed_previous_count": 0,
+        "purposes": [
+          "agent-facing case-to-model-to-automation-to-validated-JSON workflow overview",
+          "baseline compressor and cooler energy rates with separator product mass split",
+          "discharge-pressure sensitivity for power and liquid recovery",
+          "two-dimensional pressure and aftercooler-temperature liquid-recovery operating envelope",
+          "native AgenticProcessOptimizer objective and constraint trajectory"
+        ],
+        "visual_inspection": "passed after final full execution; all five stored PNG figures were extracted and inspected at original resolution for descriptive titles, readable labels, explicit units, legends or color scale, accessible colors, correct scales, clipping, overlap, and agreement with stored tables and nearby engineering interpretation; the sensitivity legend was repositioned before the final rerun"
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 26 executed code cells and 32 Markdown cells",
+        "all cells executed in order with counts 1 through 26, zero exceptions, zero error outputs, and zero stderr",
+        "all four original example intentions were preserved and integrated; the original notebook had no substantive figure to preserve",
+        "ProcessAutomation discovered 4 units, 42 variables, and 7 adjustable parameters",
+        "safe typo recovery returned a nearest valid address and an unknown candidate setpoint was rejected as an infeasible structured evaluation",
+        "baseline compressor power was 199.147529 kW, cooler duty was -585.740362 kW, gas product was 7911.721224 kg/h, and liquid product was 2088.278776 kg/h",
+        "baseline total-mass residual was -1.819e-12 kg/h, maximum component residual was 8.882e-16 mol/s, compressor energy residual was -2.910e-11 W, and cooler energy residual was 0 W",
+        "all 20 independent operating-envelope cases used fresh process objects; compressor power increased with pressure while liquid recovery was correctly treated as nonmonotonic",
+        "native optimization was feasible after 30 evaluations and selected 81.71875 bara at 129.639438 kW with 2165.027286 kg/h liquid product",
+        "the independently rebuilt final process closed total mass to -1.819e-12 kg/h and satisfied all 26 stored engineering assertions",
+        "maximum code-line length was 76 characters with no magics, wildcard imports, semicolons, inline compound bodies, or compressed teaching code",
+        "all three display equations and representative inline fractions, subscripts, Greek symbols, and units rendered through a Jupyter-compatible MathJax path and passed visual inspection",
+        "all five stored figures passed visual and numerical inspection after the final full rerun",
+        "the Colab badge, current reference-manual Process Automation API entry, process guide, thermodynamic-model documentation, current source links, unique catalog target, and changed catalog path were checked"
+      ],
+      "summary": "Rebuilt the four-code-cell agentic placeholder as a current, self-contained ProcessAutomation tutorial. Preserved every original example intention, removed stale compatibility fallbacks, added safe discovery and diagnostics, atomic evaluations, malformed-candidate rejection, conservation and energy audits, a two-variable operating envelope, native constrained optimization, five inspected figures, troubleshooting, limitations, references, and exercises."
     }
   ]
 }
