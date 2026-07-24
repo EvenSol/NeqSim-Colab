@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-24T09:03:56Z",
+  "updated_at": "2026-07-24T09:35:10Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -5847,6 +5847,76 @@
         "the Colab badge, unique active-catalog link, notebook JSON, ledger JSON, equations, introduced links, and retained figures were checked on 2026-07-24"
       ],
       "summary": "Completed the unexecuted CO2-dehydration placeholder as a fully executed NeqSim 3.16.0 engineering tutorial. Unsupported setup, invalid mixing-rule text, reused thermodynamic state, swallowed phase-envelope failures, mismatched absorber component sets, missing balances, and the incorrect implication that the original 5 t/h TEG case met 50 ppmv were replaced with current SRK-CPA and process APIs, honest base-case interpretation, independent design scenarios, hydraulic screening, conservation checks, seven figures, equations, troubleshooting, limitations, references, and exercises."
+    },
+    {
+      "path": "notebooks/thermodynamics/ThermodynamicsOfHydrogen.ipynb",
+      "verified_date": "2026-07-24",
+      "verified_at_utc": "2026-07-24T09:35:10Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "All 29 code cells were executed sequentially in one isolated Python 3.12 environment containing the public PyPI NeqSim 3.16.0 package, with execution counts 1 through 29. Package metadata and the current PyPI latest-release page were reverified. The in-process executor was used because the automation sandbox blocks local TCP kernel connections; it preserved stdout, HTML tables, execution results, and inline PNG outputs and failed on cell exceptions.",
+      "code_cells": 29,
+      "markdown_cells": 35,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "pre_existing_examples_preserved": 9,
+      "preservation_note": "All nine original learning groups were preserved and integrated: the introductory video; pure-H2 normal-boiling-point and density states; SRK/PR density comparison with GERG-2008; the 90/10 H2/methane PR envelope; pure-H2 GERG-2008 properties; the 90/5/5 H2/methane/ethane GERG-2008 properties; the pure-H2 Leachman property vector; direct SystemLeachmanEos use; and the Muzny_mod viscosity/property-frame example. Wildcard imports, state reuse, dense code, and the unsupported pure-H2 bubble/dew flash were repaired without removing their engineering intent.",
+      "pre_existing_figures_preserved": 2,
+      "figure_preservation_note": "Both original numerical figures were preserved in recognizable form and recomputed with NeqSim 3.16.0: the pure-hydrogen density/deviation comparison and the 90 mol% H2 / 10 mol% methane phase envelope. Their values, extrema, labels, units, legends, and interpretations were refreshed. Five new technical figures were added. The external YouTube introduction was also retained with its source identifier and was not counted as a calculated technical figure.",
+      "neqsim_capabilities_demonstrated": [
+        "PR and SRK pure-hydrogen TPflash calculations",
+        "NeqSim hydrogen-component normal-boiling-point data",
+        "GERG-2008 and Leachman phase property vectors",
+        "Leachman reference density and speed-of-sound calculations",
+        "SystemGERG2008Eos standard and hydrogen-enhanced model switching",
+        "PR phase-envelope calculation for a hydrogen/methane blend",
+        "SystemLeachmanEos with Muzny_mod pure-hydrogen viscosity",
+        "Stream, Compressor, Cooler, and ProcessSystem integration",
+        "compressor power and enthalpy-based energy auditing",
+        "fresh-process interstage-pressure scenario analysis"
+      ],
+      "practical_application": "A reusable end-to-end two-stage hydrogen compression workflow builds a 10000 kg/h Leachman feed at 20 bara and 25 degC, connects two Compressor objects around a 30 degC Cooler in a ProcessSystem, runs to 100 bara, retrieves stage power and temperature, audits mass and compressor-energy closure, and rebuilds six independent interstage-pressure cases. The sampled minimum is 45 bara at 8211.426983 kW.",
+      "retained_figures": {
+        "count": 7,
+        "previous_count": 2,
+        "new_count": 5,
+        "numerically_refreshed_previous_count": 2,
+        "historical_previous_count": 0,
+        "purposes": [
+          "preserved pure-hydrogen density and deviation comparison for SRK, PR, GERG-2008, and Leachman",
+          "preserved 90 mol% H2 / 10 mol% methane PR phase envelope with refreshed cricondenbar and cricondentherm",
+          "new pure-hydrogen Muzny_mod viscosity sensitivity",
+          "new GERG-2008-H2 versus standard GERG mixture-density comparison",
+          "new compression-process workflow overview",
+          "new compressor-train pressure and temperature profile",
+          "new interstage-pressure power and discharge-temperature scenario comparison"
+        ],
+        "visual_inspection": "Passed after the final complete execution. All seven stored PNG figures were extracted and inspected at original resolution for titles, readable labels, explicit units, legends, accessible colors, correct scales, clipping, overlap, and agreement with tables and nearby engineering interpretation. The final scenario legend was moved outside the axes after inspection found an overlap."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 29 executed code cells and 35 Markdown cells",
+        "all cells executed in order with counts 1 through 29, zero exceptions, zero error outputs, and zero stored stderr",
+        "all nine original learning groups preserved and integrated",
+        "both original numerical figures preserved and numerically refreshed; five new figures added",
+        "normal boiling point was 20.400000 K, 0.031000 K above the 20.369 K comparison value",
+        "PR bracketing densities were 71.819238 kg/m3 liquid-like and 1.313695 kg/m3 gas-like",
+        "refreshed phase-envelope cricondenbar was 992.123822 bara and cricondentherm was 125.769061 K",
+        "Leachman density at 20 degC and 20 bara was 1.634669580 kg/m3; Muzny_mod viscosity was 8.778558501346e-06 Pa s",
+        "official Leachman 300 K and 10 bara reference density was reproduced at 0.803472792022 kg/m3",
+        "standard and hydrogen-enhanced GERG density differences were finite and reached 0.249269% in magnitude",
+        "base compressor power was 8211.426983 kW with 125.178362 and 130.390022 degC stage discharge temperatures",
+        "base and all six scenarios had zero mass residual at stored precision; maximum compressor-energy residual was 9.095e-13 kW",
+        "all 14 final engineering assertions passed",
+        "maximum Python code line length was 74 characters with no semicolons or compressed one-line compound teaching code",
+        "four display equations and 11 inline equations used Colab-safe delimiters and single-backslash LaTeX; all 15 rendered successfully through MathJax and were inspected",
+        "the Colab badge, unique catalog link, notebook JSON, ledger JSON, references, and all retained outputs were checked on 2026-07-24"
+      ],
+      "summary": "Modernized the hydrogen thermodynamics and transport notebook for NeqSim 3.16.0 while preserving every original calculation and both original plots. Replaced obsolete thermoTools wildcard imports, stale installation output, hidden state, dense code, unvalidated tables, and a failed/nonphysical pure-hydrogen saturation flash. Added current Leachman, GERG-2008-H2, Muzny_mod, phase-envelope, process-equipment, balance, energy, scenario, visualization, equation, troubleshooting, limitation, reference, and exercise coverage."
     }
   ]
 }
