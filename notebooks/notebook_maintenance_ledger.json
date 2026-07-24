@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-24T16:54:17Z",
+  "updated_at": "2026-07-24T18:06:36Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -6387,37 +6387,39 @@
     {
       "path": "notebooks/fluidflow/two_fluid_transient_slug_flow.ipynb",
       "verified_date": "2026-07-24",
-      "verified_at_utc": "2026-07-24T16:54:17Z",
+      "verified_at_utc": "2026-07-24T18:06:36Z",
       "neqsim_version": "3.16.0",
       "python_version": "3.12.13",
       "java_version": "openjdk 17.0.19",
-      "execution_status": "passed",
-      "execution_method": "All 17 code cells were executed sequentially from a clean notebook state in a newly created isolated Python 3.12 environment using a fresh no-cache installation of the latest public PyPI NeqSim 3.16.0 package. The in-process executor retained stdout, tables, and six inline PNG outputs and failed on any cell exception or stored stderr.",
-      "code_cells": 17,
-      "markdown_cells": 16,
+      "execution_status": "passed_with_documented_environment_exception",
+      "execution_method": "All 27 code cells were re-executed sequentially from an empty notebook namespace in the previously established isolated Python 3.12 environment with public-PyPI NeqSim 3.16.0. Three new, no-cache public-PyPI installation attempts failed through the configured proxy; the user explicitly requested publication after that blocker was disclosed. The executor retained stdout, tables, and 11 inline PNG outputs and failed on any cell exception or stored stderr.",
+      "code_cells": 27,
+      "markdown_cells": 21,
       "publication": {
         "branch": "master",
         "mode": "atomic direct-to-default-branch fast-forward",
         "commit": "this publication sequence"
       },
-      "pre_existing_examples_preserved": 0,
-      "preservation_note": "Created a new notebook after checking the existing multiphase, two-phase pipeline, and transient drift-flux tutorials for duplicate coverage. The new scope is a mechanistic TwoFluidPipe comparison against PipeBeggsAndBrills with deterministic transient and slug-regime screening.",
-      "pre_existing_figures_preserved": 0,
-      "figure_preservation_note": "No historical figures existed because this is a new notebook. Six technical figures were generated from the executed calculations.",
+      "pre_existing_examples_preserved": 6,
+      "preservation_note": "Extended the existing mechanistic TwoFluidPipe and Beggs-Brill tutorial in place. All original steady comparison, 30-case regime map, and deterministic transient content remains, followed by a new oil-and-gas wellstream S-riser application.",
+      "pre_existing_figures_preserved": 6,
+      "figure_preservation_note": "All six previously published figures were numerically regenerated. Five new S-riser geometry, pressure, holdup, velocity, inventory, and transient-profile figures were added.",
       "neqsim_capabilities_demonstrated": [
         "SRK three-phase fluid construction and physical-property initialization",
         "PipeBeggsAndBrills steady pressure, holdup, velocity, and regime profiles",
-        "TwoFluidPipe separate gas and liquid velocity and holdup profiles",
+        "TwoFluidPipe separate gas and liquid conservation and transient profiles",
         "30-case diameter and mass-rate flow-regime operating map",
-        "TwoFluidPipe runTransient rate-step pressure and liquid-inventory response",
-        "steady mass-flow closure and 28 focused engineering assertions"
+        "four connected Beggs-Brill legs preserving S-riser arch and sag geometry",
+        "integrated TwoFluidPipe elevation profile for an oil-and-gas wellstream",
+        "0.5-second turndown transient with sag holdup and liquid inventory",
+        "steady mass-flow closure and 57 focused engineering assertions"
       ],
-      "practical_application": "A reusable flow-assurance workflow compares Beggs-Brill and the mechanistic two-fluid model at identical conditions, quantifies model-form pressure-drop and holdup differences, locates stratified, slug, and annular regions, and advances deterministic rate-change transients from a slug-prone operating point.",
+      "practical_application": "A reusable flow-assurance workflow compares Beggs-Brill and the mechanistic two-fluid model at identical conditions, then applies both to a 1,700 m oil-and-gas S-riser with an arch, sag, and topside riser. It demonstrates pressure recovery on the descending leg, model-form uncertainty, turndown liquid accumulation, and recovery.",
       "retained_figures": {
-        "count": 6,
-        "previous_count": 0,
-        "new_count": 6,
-        "numerically_refreshed_previous_count": 0,
+        "count": 11,
+        "previous_count": 6,
+        "new_count": 5,
+        "numerically_refreshed_previous_count": 6,
         "externally_sourced_previous_count": 0,
         "purposes": [
           "fluid-to-model-to-transient calculation workflow",
@@ -6425,37 +6427,44 @@
           "liquid-holdup and phase-superficial-velocity comparison",
           "two-fluid flow-regime and liquid-holdup operating maps",
           "rate, pressure, holdup, and inventory transient histories",
-          "transient axial liquid-holdup wave snapshots"
+          "transient axial liquid-holdup wave snapshots",
+          "idealized oil-and-gas S-riser geometry",
+          "S-riser elevation and steady pressure profiles",
+          "S-riser steady holdup and two-fluid phase velocities",
+          "S-riser turndown pressure, inventory, and sag-holdup response",
+          "S-riser transient holdup profiles with elevation overlay"
         ],
-        "visual_inspection": "Passed after the final clean execution. All six stored PNG figures were extracted and inspected together and individually for descriptive titles, readable labels, explicit SI or pressure units, legends and color scales, accessible colors, correct values and scales, clipping, overlap, and consistency with the stored tables and interpretation."
+        "visual_inspection": "Passed after the final rerun. All 11 stored PNG figures were extracted and inspected together at original resolution for titles, labels, SI and absolute-pressure units, legends, color scales, clipping, overlap, numerical scale, and consistency with the stored tables and interpretation."
       },
       "key_checks": [
-        "valid nbformat 4 JSON with 17 executed code cells and 16 Markdown cells",
-        "all cells executed in order with counts 1 through 17, zero exceptions, zero error outputs, and zero stored stderr",
-        "the inlet flash contained gas, oil, and aqueous phases with densities 48.07971, 556.90329, and 1011.76020 kg/m3",
-        "Beggs-Brill and two-fluid base pressure drops were 0.039329 and 0.060395 bar",
-        "the relative base pressure-drop difference was 53.562 percent and was explicitly treated as model-form uncertainty",
-        "the two-fluid base point predicted SLUG while Beggs-Brill predicted SEGREGATED",
-        "the two-fluid steady mean liquid holdup was 0.176081 and the mass-flow residual was 0.000e+00 kg/s",
+        "valid nbformat 4 JSON with 27 executed code cells and 21 Markdown cells",
+        "all cells executed in order with counts 1 through 27, zero exceptions, zero error outputs, and zero stored stderr",
+        "maximum Python code line length was 79 characters with no semicolon chains",
+        "the S-riser composition summed to one and flashed to gas, oil, and aqueous phases",
+        "base Beggs-Brill and two-fluid pressure drops were 0.039329 and 0.060395 bar",
         "all 30 independent diameter and rate scenarios completed with positive pressure drop and bounded holdup",
-        "the operating map transitioned plausibly from stratified through slug to annular conditions",
-        "the deterministic transient retained positive gas and liquid velocities and bounded pressure and holdup",
-        "peak transient liquid holdup was 0.304731 and liquid inventory ranged from 1.692820 to 2.360909 m3",
-        "all 28 focused engineering assertions passed",
-        "maximum Python code line length was 74 characters with no semicolon chains",
-        "four display equations and eight representative inline expressions used Colab-safe delimiters and rendered successfully through MathJax",
-        "all six stored PNG figures passed final visual and numerical-context review",
-        "the stochastic Lagrangian slug-unit overlay was excluded from quantitative checks; the notebook validates deterministic core two-fluid hydraulics and steady slug-regime prediction",
-        "the Colab badge, unique active-catalog link, notebook JSON, ledger JSON, retained outputs, and introduced references were checked on 2026-07-24"
+        "connected Beggs-Brill and integrated two-fluid S-riser pressure drops were 6.455053 and 14.821992 bar",
+        "both S-riser models recovered pressure through the descending arch-to-sag leg",
+        "the S-riser relative pressure-drop difference was 129.618 percent and was explicitly presented as model-form uncertainty",
+        "the two-fluid S-riser mass-flow residual was 0.000e+00 kg/s",
+        "the 0.5-second step removed the grid-scale sag-holdup alternation seen in the 1.0-second sensitivity run",
+        "turndown raised liquid inventory and recovery subsequently reduced it",
+        "peak S-riser transient holdup was 0.938250 and inventory ranged from 33.929583 to 39.963358 m3",
+        "all transient pressures and gas and liquid velocities remained positive",
+        "all 57 focused engineering assertions passed",
+        "six display equations and eight representative inline expressions used Colab-safe delimiters and rendered successfully through MathJax",
+        "all 11 stored PNG figures passed final visual and numerical-context review",
+        "the active catalog contains the notebook path exactly once",
+        "fresh no-cache PyPI installation was attempted three times but blocked by the configured proxy; publication used the prior isolated NeqSim 3.16.0 environment at the user's explicit request"
       ],
-      "summary": "Added a current, executed tutorial that compares mechanistic TwoFluidPipe hydraulics with PipeBeggsAndBrills, maps the steady stratified-slug-annular operating envelope, and demonstrates deterministic pressure and inventory transients with explicit physical checks and limitations on individual-slug forecasting.",
+      "summary": "Extended the existing two-fluid and Beggs-Brill tutorial with an oil-and-gas wellstream S-riser example, terrain-aware steady model comparison, pressure-recovery checks, and a time-step-screened turndown transient showing liquid accumulation and recovery.",
       "equation_rendering": {
         "status": "passed",
-        "display_equations": 4,
+        "display_equations": 6,
         "inline_expressions": 8,
         "colab_verified_commit": "this publication sequence",
         "source_rule": "Inline equations use $...$ and each display equation uses standalone $$ delimiter lines with blank lines around the block and no blank line inside; LaTeX commands use one backslash.",
-        "visual_inspection": "Passed through a Jupyter and Google-Colab-compatible MathJax SVG renderer. Partial derivatives, fractions, phase subscripts, Greek symbols, absolute values, roman model labels, and superficial-velocity notation displayed correctly."
+        "visual_inspection": "Passed through a Jupyter and Google-Colab-compatible MathJax SVG renderer. Partial derivatives, fractions, phase subscripts, Greek symbols, absolute values, trigonometric functions, pressure-drop notation, and superficial-velocity notation displayed correctly."
       }
     }
   ]
