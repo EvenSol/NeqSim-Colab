@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-24T07:44:30Z",
+  "updated_at": "2026-07-24T08:28:37Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -5715,6 +5715,71 @@
         "the Colab badge, unique active-catalog link, notebook JSON, catalog JSON, ledger JSON, and introduced official documentation links were checked on 2026-07-24"
       ],
       "summary": "Repaired an unexecuted Java-in-Python HIPPS draft into a production-quality safety tutorial using released NeqSim 3.16.0 APIs. Obsolete namespaces, nonexistent alarm and bypass helpers, stale setup, stored SyntaxError output, and missing validation were replaced with native HIPPSValve, PressureTransmitter, AlarmConfig, SafetyValve, ProcessSystem, transient protection scenarios, diagnostics, testing, conservation audits, sensitivity analysis, and explicit design-certification limitations."
+    },
+    {
+      "path": "notebooks/thermodynamics/formicacid_calculation.ipynb",
+      "verified_date": "2026-07-24",
+      "verified_at_utc": "2026-07-24T08:28:37Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "All 20 code cells were executed sequentially in one clean shared namespace with execution counts 1 through 20 in an isolated Python 3.12 environment containing the public pip-installed NeqSim 3.16.0 package. The in-process executor was used because the automation sandbox blocks local TCP kernel connections; it preserved normal counts, stdout, HTML tables, and PNG outputs and failed on cell exceptions.",
+      "code_cells": 20,
+      "markdown_cells": 20,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "pre_existing_examples_preserved": 2,
+      "preservation_note": "Both original calculations were preserved at their original 70 degC, 25 bara, and 1.0/0.1/100.0 kg/h methane/acid/water conditions: formic-acid partitioning and acetic-acid partitioning. They were repaired with current top-level NeqSim imports, fresh independent CPA systems, phase-specific mass accounting, and explicit balance checks.",
+      "pre_existing_figures_preserved": 0,
+      "figure_preservation_note": "The original notebook contained no stored technical figures or external substantive visual assets. Five new executed technical figures were added and retained.",
+      "neqsim_capabilities_demonstrated": [
+        "CPA fluid construction with mixing rule 10 and multiphase checking",
+        "TPflash equilibrium for methane-water-formic-acid and methane-water-acetic-acid systems",
+        "phase retrieval and mole-to-mass acid partition accounting",
+        "fresh-object temperature sensitivity for two acids",
+        "Stream, ThreePhaseSeparator, and ProcessSystem composition and execution",
+        "gas, oil, and aqueous product retrieval",
+        "fresh-process produced-water-rate scenario analysis",
+        "total-mass and acid-component conservation auditing"
+      ],
+      "practical_application": "A reusable end-to-end produced-fluid workflow builds a synthetic methane/n-heptane/water/formic-acid CPA feed, connects a Stream and native ThreePhaseSeparator inside a ProcessSystem, runs the process, retrieves gas/oil/aqueous products, calculates acid recovery in each phase, verifies total and acid mass closure, and rebuilds five produced-water scenarios for operating-envelope reuse.",
+      "retained_figures": {
+        "count": 5,
+        "previous_count": 0,
+        "new_count": 5,
+        "numerically_refreshed_previous_count": 0,
+        "historical_previous_count": 0,
+        "purposes": [
+          "fluid-to-flash-to-validation workflow overview",
+          "formic-versus-acetic equilibrium acid-recovery comparison",
+          "temperature sensitivity of gas-phase acid recovery",
+          "three-phase separator product-rate and acid-distribution comparison",
+          "produced-water-rate sensitivity of three-product formic-acid distribution"
+        ],
+        "visual_inspection": "Passed after the final full execution. All five stored PNG figures were extracted and inspected at original resolution for descriptive titles, readable labels, explicit units, legends, accessible colors, correct values and scales, clipping, overlap, and agreement with stored tables and nearby interpretation."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 20 executed code cells and 20 Markdown cells",
+        "all cells executed in order with counts 1 through 20, zero exceptions, zero error outputs, and zero stored stderr",
+        "both original formic-acid and acetic-acid calculations preserved and integrated",
+        "formic-acid outlet was 0.1000000000 kg/h with -1.527e-16 kg/h acid residual",
+        "both original total outlet rates were 101.1000000000 kg/h",
+        "base formic and acetic gas recoveries were 0.208952961 and 0.323707531",
+        "all 14 fresh temperature cases had finite bounded recoveries and acid residuals below 1e-8 kg/h",
+        "three-phase process feed and products were both 210.100000000 kg/h",
+        "three-phase total-mass residual was 2.120e-11 kg/h and acid residual was 1.771e-14 kg/h",
+        "all five fresh produced-water scenarios had acid residuals below 1e-8 kg/h",
+        "all 15 final engineering assertions passed",
+        "maximum Python code line length was 81 characters with no semicolons or compressed one-line compound teaching code",
+        "three display equations and representative inline expressions used Colab-safe delimiters and single-backslash LaTeX and passed MathJax visual inspection",
+        "all five technical figures passed final visual and numerical-context review",
+        "the Colab badge, unique active-catalog link, notebook JSON, ledger JSON, and introduced official NeqSim documentation links were checked on 2026-07-24"
+      ],
+      "summary": "Repaired the minimal acid-partition notebook into a fully executed NeqSim 3.16.0 engineering tutorial. Obsolete thermoTools imports, duplicate stateful code, sparse theory, phase-composition-only output, and missing validation were replaced with current CPA flashes, mass-based formic/acetic partition accounting, independent sensitivities, a native three-phase ProcessSystem application, conservation checks, five inspected figures, rendered equations, troubleshooting, limitations, references, and exercises."
     }
   ]
 }
