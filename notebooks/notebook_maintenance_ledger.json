@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-24T06:08:00Z",
+  "updated_at": "2026-07-24T06:41:15Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -5511,6 +5511,72 @@
         "the Colab badge, unique active-catalog link, documentation links, notebook JSON, and maintenance-ledger JSON were checked"
       ],
       "summary": "Replaced a 29-cell but entirely unexecuted separator-sizing draft with a self-contained, fully executed tutorial. Removed the private fluid file, obsolete jNeqSim process namespaces, redundant third-party packages, network image scraping, mixed field units, unsafe timeout threading, and hidden process state. Added a current NeqSim ProcessSystem, transparent SI correlations, seven refreshed geometry examples, conservation and capacity audits, sensitivities, a reusable selection application, 12 new figures, preservation of all seven historical visuals, rendered equations, limitations, troubleshooting, exercises, and current references."
+    },
+    {
+      "path": "notebooks/gasquality/hydrocarbon_dew_point_of_natural_gas.ipynb",
+      "verified_date": "2026-07-24",
+      "verified_at_utc": "2026-07-24T06:41:15Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "All 28 code cells were executed sequentially in one clean shared namespace with execution counts 1 through 28 in an isolated Python 3.12 environment containing the latest public PyPI NeqSim 3.16.0, originally installed with python -m pip install --upgrade --no-cache-dir neqsim. Package metadata confirmed a normal non-editable pip installation with no local checkout, unpublished wheel, or manually injected JAR.",
+      "code_cells": 28,
+      "markdown_cells": 34,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "pre_existing_examples_preserved": 4,
+      "preservation_note": "Preserved and integrated all four original teaching examples: SRK dew/bubble boundary flashes and phase envelope, the detailed C12-resolved UMR-PRU PhaseOpt-style envelope, the PhaseOpt online monitoring explanation and diagram, and the simplified process-GC envelope through n-hexane. Replaced the NeqSim 2.5.35 pin, wildcard imports, obsolete jNeqSim bridge name, repeated fluid blocks, hidden mutated flash state, ambiguous units, and sparse validation without removing an engineering objective.",
+      "pre_existing_figures_preserved": 4,
+      "figure_preservation_note": "All four original visual purposes were preserved. The SRK, detailed UMR-PRU, and simplified UMR-PRU phase-envelope plots were recomputed with NeqSim 3.16.0 and refreshed with explicit absolute-pressure and temperature units, accessible colors, legends, and interpretation. The embedded PhaseOpt component-grouping diagram was retained exactly as a dated historical visual with provenance and validity warnings. Six additional technical figures were added.",
+      "neqsim_capabilities_demonstrated": [
+        "SRK, PR, and UMR-PRU fluid construction with explicit classic and HV/UNIFAC_UMRPRU mixing rules",
+        "dew-point temperature, bubble-point temperature, dew-point pressure, bubble-point pressure, TP flash, and complete pressure-temperature phase-envelope operations",
+        "normalized detailed C12 composition, simplified process-GC composition, pressure scenarios, and model-sensitivity screening",
+        "Stream, ThrottlingValve, Heater, Separator, and ProcessSystem composition with named product streams and duty retrieval",
+        "fresh-object heater-setpoint scenarios and equilibrium liquid-dropout quantification",
+        "total mass, 28-component, heater-energy, boundary, finiteness, phase-limit, pressure-ordering, and trend validation"
+      ],
+      "practical_application": "A reusable end-to-end rich-gas conditioning workflow builds the documented detailed UMR-PRU fluid at 70 bara, 55 degC, and 10000 kg/h; connects a Stream, isenthalpic ThrottlingValve to 50 bara, temperature-control Heater, Separator, and ProcessSystem; retrieves valve temperature, heater duty, gas and liquid products; compares the outlet with the independently calculated 50 bara dew point; rebuilds seven setpoint scenarios; and verifies total mass, component, and heater-energy closure.",
+      "retained_figures": {
+        "count": 10,
+        "previous_count": 4,
+        "new_count": 6,
+        "numerically_refreshed_previous_count": 3,
+        "historical_previous_count": 1,
+        "purposes": [
+          "new fluid-to-model-to-boundary-to-process-to-validation workflow overview",
+          "refreshed original four-component SRK phase envelope",
+          "refreshed original detailed UMR-PRU PhaseOpt-style envelope",
+          "exact preserved historical PhaseOpt component-grouping diagram",
+          "refreshed original simplified PhaseOpt envelope",
+          "new detailed-versus-simplified composition-resolution dew-point comparison",
+          "new SRK, PR, and UMR-PRU model-sensitivity comparison",
+          "new 50 bara equilibrium liquid-dropout curve",
+          "new end-to-end rich-gas conditioning process overview",
+          "new heater-setpoint liquid-dropout and duty trade-off"
+        ],
+        "visual_inspection": "Passed after the final full execution. All nine current stored PNG figures and the preserved historical diagram were extracted and inspected at original resolution for descriptive titles, readable labels, explicit units, legends, accessible colors, correct values and scales, clipping, overlap, and agreement with tables and nearby interpretation. An overlapping workflow overview and a branch-sensitive simplified dew-point sweep were corrected before the final rerun and inspection."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 28 executed code cells and 34 Markdown cells",
+        "all cells executed in order with counts 1 through 28, zero exceptions, zero error outputs, and zero stderr",
+        "all four original examples and all four original visual purposes were preserved and integrated",
+        "the original reported composition summed to 99.950276582050 mol% and was explicitly normalized to unity",
+        "the detailed UMR-PRU dew point at 50 bara was 42.787300 degC, the cricondentherm screening value was 42.764137 degC, and the cricondenbar screening value was 142.966410 bara",
+        "the selected 48 degC process case had a 5.212700 degC modeled dew-point margin, 4.425337 kW heater duty, and 2.0e-26 kg/h knockout liquid",
+        "relative mass residual was -2.0e-30, maximum component residual was 0 kg/h, and heater-energy residual was 0 W",
+        "all seven fresh setpoint scenarios passed mass-balance, dropout-trend, and duty-trend checks",
+        "all 14 final engineering assertions passed, including boundary, finiteness, phase-limit, pressure-ordering, conservation, and trend checks",
+        "maximum Python code line length was 80 characters with no semicolons, one-line compound bodies, wildcard imports, obsolete bridges, or compressed teaching code",
+        "four display equations and eight unique inline expressions used Colab-safe delimiters and single-backslash LaTeX; fractions, subscripts, superscripts, fugacity coefficients, summation, overdots, and units rendered through MathJax and passed visual inspection",
+        "all ten current and historical figures passed final visual and numerical-context review",
+        "the Colab badge, unique active-catalog link, notebook JSON, ledger JSON, current PyPI release, and introduced official NeqSim documentation links were checked on 2026-07-24"
+      ],
+      "summary": "Modernized the 13-cell hydrocarbon-dew-point notebook as a fully executed NeqSim 3.16.0 engineering tutorial. Preserved all four original examples and visuals; replaced obsolete setup, wildcard imports, repeated stateful code, and ambiguous units; added explicit thermodynamic theory, normalized detailed and simplified compositions, model and pressure sensitivities, a complete gas-conditioning ProcessSystem, conservation and limiting-case checks, six new figures, rendered equations, troubleshooting, limitations, references, and exercises."
     }
   ]
 }
