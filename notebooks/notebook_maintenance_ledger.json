@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-24T01:46:27Z",
+  "updated_at": "2026-07-24T02:30:20Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -5134,6 +5134,70 @@
         "the Colab badge, current official NeqSim fire-alarm, flare, blowdown, and measurement-device references, unique catalog target, and unchanged catalog path were checked on 2026-07-24"
       ],
       "summary": "Modernized the entirely unexecuted Java-in-Python fire-alarm draft as a current, self-contained NeqSim safety tutorial. Preserved every original teaching group, added a reproducible SRK inventory, native detector/alarm/blowdown/orifice/flare functionality, exact voting tables, reliability formulas, a mass-balanced fire-to-flare transient, fresh diameter scenarios, 26 checks, eight inspected figures, rendered equations, troubleshooting, limitations, references, and exercises."
+    },
+    {
+      "path": "notebooks/process/Alarm_Handling_NeqSim.ipynb",
+      "verified_date": "2026-07-24",
+      "verified_at_utc": "2026-07-24T02:30:20Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "All 25 code cells were executed sequentially in one clean shared namespace with execution counts 1 through 25 in an isolated Python 3.12 environment installed from the latest public PyPI NeqSim release using python -m pip install --upgrade --no-cache-dir neqsim. Package metadata confirmed a normal non-editable PyPI installation; no local checkout, unpublished wheel, or manually injected JAR was used.",
+      "code_cells": 25,
+      "markdown_cells": 36,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "pre_existing_examples_preserved": 10,
+      "preservation_note": "Preserved and integrated all ten original executable teaching intentions: Colab setup; fire-detector configuration; four 2oo3 fire-voting scenarios; gas-detector configuration; staged leak progression; LEL conversion; combined fire-and-gas logic; H2S monitoring; 1oo2 voting; and spurious-trip analysis. Replaced unexecuted Java/Jython syntax, the obsolete 3.0.51 POM pin, the wrong AlarmConfig package, malformed equations, encoding damage, and unresolved exercise placeholders while retaining every useful objective and scenario.",
+      "pre_existing_figures_preserved": 0,
+      "figure_preservation_note": "The original notebook contained no plots or other substantive visual output. Six new technical figures were generated from the executed calculations and retained.",
+      "neqsim_capabilities_demonstrated": [
+        "SystemSrkEos fluid construction, classic mixing rule, TPflash, and property initialization",
+        "Stream, Separator, and ProcessSystem composition and execution",
+        "FireDetector and GasDetector measurement and alarm behavior",
+        "AlarmConfig and native AlarmState delay, escalation, acknowledgement, and clearing lifecycle",
+        "Combustible-gas, toxic-gas, and oxygen detector configuration",
+        "LEL conversion and 1oo1, 1oo2, 2oo2, and 2oo3 voting logic",
+        "Independent fresh-case sensitivity evaluation and conservation auditing"
+      ],
+      "practical_application": "A reusable end-to-end workflow builds a methane-rich SRK feed at 50 bara, 25 °C, and 5000 kg/h; composes Stream, Separator, and ProcessSystem objects; maps a 0.040 kg/s gas leak into a 300 m³ module with 6 h⁻¹ ventilation; applies two detector lags and spatial factors; uses native alarm lifecycle events and a 2oo2 HIHI ESD vote; models 8 s isolation; audits the room inventory; and reruns 12 independent leak-rate and ventilation scenarios.",
+      "retained_figures": {
+        "count": 6,
+        "previous_count": 0,
+        "new_count": 6,
+        "numerically_refreshed_previous_count": 0,
+        "purposes": [
+          "process-to-alarm workflow overview",
+          "native alarm lifecycle with delay, escalation, acknowledgement, and clearing",
+          "voting-architecture spurious-versus-dangerous failure comparison",
+          "fire and gas detector response profiles",
+          "end-to-end leak, detector, ESD, and ventilation response",
+          "ventilation and leak-rate trip-time sensitivity heatmap"
+        ],
+        "visual_inspection": "Passed at original resolution: all six retained figures have descriptive titles, readable labels, explicit units, legends or a color scale, accessible colors, correct values and scales, nearby interpretation, and no clipping or overlap."
+      },
+      "key_checks": [
+        "valid nbformat notebook JSON",
+        "25 of 25 code cells executed in order with execution counts 1 through 25",
+        "zero exception outputs, error outputs, or stderr",
+        "all ten original example intentions preserved and executed",
+        "all 39 engineering assertions passed",
+        "base methane source rate 1.805838 mol/s",
+        "2oo2 HIHI ESD vote at 272 s and leak isolation at 280 s",
+        "peak and final room concentrations 65.944779% LEL and 14.189990% LEL",
+        "maximum room molar-balance residual 4.732215e-12 mol",
+        "all 12 independent sensitivity cases tripped and passed expected trend checks",
+        "maximum Python code line length 83 characters; no compressed teaching-code patterns",
+        "seven display equations and representative inline expressions rendered and visually verified with MathJax",
+        "six stored figures visually and numerically inspected",
+        "Colab badge valid and catalog path present exactly once",
+        "all changed or introduced links verified"
+      ],
+      "summary": "Modernized an entirely unexecuted alarm-handling Java draft into a current NeqSim 3.16.0 Python/Colab tutorial. Added native detector and alarm lifecycle behavior, voting reliability, a mass-balanced SRK process-to-leak-to-ESD application, independent sensitivity studies, 39 focused checks, six technical figures, troubleshooting, limits, references, and reusable exercises without removing any original teaching intent."
     }
   ]
 }
