@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-24T20:55:58Z",
+  "updated_at": "2026-07-24T21:15:38Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -6538,6 +6538,87 @@
         "colab_verified_commit": "this atomic publication commit",
         "source_rule": "Inline equations use $...$ and each display equation uses standalone $$ delimiter lines with blank lines around the block and no blank line inside; LaTeX commands use one backslash.",
         "visual_inspection": "Passed through a Jupyter and Google-Colab-compatible MathJax SVG renderer. Fractions, subscripts, superscripts, proportionality, dotted mass-flow and power variables, branch labels, and the pipe-size index displayed correctly."
+      }
+    },
+    {
+      "path": "notebooks/process/water_hammer_simulation_tutorial.ipynb",
+      "verified_date": "2026-07-24",
+      "verified_at_utc": "2026-07-24T21:15:38Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "All 24 code cells were executed sequentially from a clean notebook state in a newly created Python 3.12 virtual environment using python -m pip install --upgrade --no-cache-dir neqsim. The public PyPI installation resolved NeqSim 3.16.0. The in-process executor retained stdout, HTML tables, and eight PNG figures and failed on any cell exception or stored stderr.",
+      "code_cells": 24,
+      "markdown_cells": 32,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch fast-forward",
+        "commit": "this atomic publication commit"
+      },
+      "pre_existing_examples_preserved": 6,
+      "preservation_note": "Preserved and repaired all six original teaching goals: rapid downstream-valve closure with Joukowsky comparison; pressure and velocity histories; closure-time sensitivity; cavitation screening; an inclined pipeline; and pipe-material wave-speed sensitivity. Unsupported setters and nonexistent history/elevation APIs were replaced with the current released WaterHammerPipe workflow.",
+      "pre_existing_figures_preserved": 6,
+      "figure_preservation_note": "All six pre-existing figure-producing examples were numerically regenerated with NeqSim 3.16.0. The original notebook stored no figure outputs. Two new figures were added for the solver workflow and final ESD closure-time application.",
+      "neqsim_capabilities_demonstrated": [
+        "SRK pressurized-water fluid state and physical-property initialization",
+        "direct NeqSim Stream and WaterHammerPipe composition",
+        "steady pressure and velocity profile initialization",
+        "released downstream VALVE and upstream RESERVOIR boundary conditions",
+        "explicit valve-opening schedule with Courant-limited runTransient stepping",
+        "native outlet-pressure time history and spatial pressure snapshots",
+        "maximum and minimum pressure-envelope retrieval",
+        "Korteweg wave-speed override and Joukowsky surge calculation",
+        "net-elevation hydraulic transient calculation",
+        "closure-time, inlet-pressure, and pipe-material sensitivity screening"
+      ],
+      "practical_application": "A reusable 1 km, 0.30 m internal-diameter pressurized-water workflow builds the liquid state and WaterHammerPipe, executes a downstream ESD-valve closure, retrieves temporal and spatial results, checks Joukowsky and hydrostatic limits, screens vapor-pressure validity, varies closure duration and wall material, and selects the shortest tested closure satisfying a 62 bara MAWP and 2 bara minimum-pressure criterion.",
+      "retained_figures": {
+        "count": 8,
+        "previous_count": 6,
+        "new_count": 2,
+        "numerically_refreshed_previous_count": 6,
+        "externally_sourced_previous_count": 0,
+        "purposes": [
+          "NeqSim stream-to-MOC-to-valve calculation workflow",
+          "rapid-closure initial, maximum, and minimum pressure envelopes",
+          "native outlet-pressure history and spatial wave snapshots",
+          "maximum and minimum pressure versus valve-closure duration",
+          "minimum-pressure profiles and vapor-pressure validity screen",
+          "inclined-line geometry, hydrostatic profile, and transient envelope",
+          "pipe-material wave-speed and Joukowsky-surge comparison",
+          "final ESD closure-time screen against the pressure criterion"
+        ],
+        "visual_inspection": "Passed after the final clean execution. All eight stored PNG figures were extracted and inspected together and individually for titles, labels, explicit SI and absolute-pressure units, legends, accessible colors, clipping, overlap, numerical scale, and agreement with the stored tables and nearby interpretation."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 24 executed code cells and 32 substantive Markdown cells",
+        "all cells executed in order with counts 1 through 24, zero exceptions, zero error outputs, and zero stored stderr",
+        "fresh no-cache public-PyPI installation resolved NeqSim 3.16.0 in a newly created environment",
+        "all 24 focused engineering assertions passed",
+        "NeqSim water density was 1002.498503 kg/m3 and dynamic viscosity was 0.000895 Pa s",
+        "Korteweg-corrected steel-pipe wave speed was 1293.438337 m/s and critical closure time was 1.546268 s",
+        "Courant number was 1.000000 with a 0.015463 s stable step on the 20 m grid",
+        "rapid-closure Joukowsky peak estimate was 65.617773 bara and NeqSim maximum was 65.493204 bara",
+        "base-case minimum pressure was 15.340743 bara and remained above water vapor pressure",
+        "the 15 bara inlet case was correctly flagged outside single-phase validity",
+        "closure durations of 1.60 s and longer met the 62 bara screening MAWP",
+        "the selected shortest tested closure duration was 1.60 s",
+        "simulated 100 m elevation contribution was 9.8374 bar versus a 9.8312 bar hydrostatic estimate",
+        "maximum Python code line length was 78 characters with no semicolon chains or compressed one-line compound teaching code",
+        "four display equations and ten representative inline expressions used Colab-safe delimiters and rendered successfully through MathJax",
+        "all eight stored PNG figures passed final visual and numerical-context review",
+        "the corrected Colab badge points to the intended notebook path",
+        "the active catalog contains the notebook path exactly once"
+      ],
+      "summary": "Replaced the nonfunctional water-hammer tutorial with a current WaterHammerPipe MOC workflow. Removed unsupported setters, corrected the broken badge, replaced nonexistent two-dimensional history and elevation-profile calls with released accessors and a net-rise case, made valve closure explicit, calibrated acoustic speed transparently, and added engineering validation, limitations, troubleshooting, exercises, and eight inspected figures.",
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 4,
+        "inline_expressions": 10,
+        "colab_verified_commit": "this atomic publication commit",
+        "source_rule": "Inline equations use $...$ and each display equation uses standalone $$ delimiter lines with blank lines around the block and no blank line inside; LaTeX commands use one backslash.",
+        "visual_inspection": "Passed through a Jupyter and Google-Colab-compatible MathJax SVG renderer. Fractions, square roots, Greek rho, Delta variables, subscripts, superscripts, inequality, and units displayed correctly."
       }
     }
   ]
