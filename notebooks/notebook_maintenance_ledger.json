@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-24T08:28:37Z",
+  "updated_at": "2026-07-24T09:03:56Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -5780,6 +5780,73 @@
         "the Colab badge, unique active-catalog link, notebook JSON, ledger JSON, and introduced official NeqSim documentation links were checked on 2026-07-24"
       ],
       "summary": "Repaired the minimal acid-partition notebook into a fully executed NeqSim 3.16.0 engineering tutorial. Obsolete thermoTools imports, duplicate stateful code, sparse theory, phase-composition-only output, and missing validation were replaced with current CPA flashes, mass-based formic/acetic partition accounting, independent sensitivities, a native three-phase ProcessSystem application, conservation checks, five inspected figures, rendered equations, troubleshooting, limitations, references, and exercises."
+    },
+    {
+      "path": "notebooks/process/CO2_Dehydration_Pipeline.ipynb",
+      "verified_date": "2026-07-24",
+      "verified_at_utc": "2026-07-24T09:03:56Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "All 21 code cells were executed sequentially in one clean shared namespace with execution counts 1 through 21 in an isolated Python 3.12 environment containing the public pip-installed NeqSim 3.16.0 package. The in-process executor was used because the automation sandbox blocks local TCP kernel connections; it preserved normal counts, stdout, HTML tables, and PNG outputs and failed on cell exceptions.",
+      "code_cells": 21,
+      "markdown_cells": 21,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "pre_existing_examples_preserved": 5,
+      "preservation_note": "All five original example intentions were preserved and integrated: saturated-water mapping against pressure and temperature; a CO2-rich impurity phase envelope; CO2 density versus pressure and temperature; the 500000 kg/h wet-CO2 and 5000 kg/h 99 wt% TEG absorber base case; and the original 500-14500 kg/h TEG-rate sensitivity. Unsupported mixing-rule text, state reuse, broad exception suppression, and mismatched absorber component sets were repaired while retaining the original engineering purpose.",
+      "pre_existing_figures_preserved": 0,
+      "figure_preservation_note": "The original notebook contained no stored technical figures or substantive external visual assets. Seven new executed technical figures were added and retained.",
+      "neqsim_capabilities_demonstrated": [
+        "SRK-CPA fluid construction with mixing rule 10 and multiphase checking",
+        "TPflash saturated-water calculations over pressure and temperature",
+        "CO2-rich impurity phase-envelope calculation",
+        "SRK transport-density mapping with Span-Wagner reference context",
+        "Stream, SimpleTEGAbsorber, and ProcessSystem construction and execution",
+        "absorber stage-efficiency, Fs-factor, and minimum-diameter methods",
+        "dry-CO2 and rich-TEG product retrieval",
+        "fresh-process TEG circulation and solvent-purity scenario studies",
+        "total-mass and component-mass conservation auditing"
+      ],
+      "practical_application": "A reusable end-to-end pipeline-conditioning workflow builds a saturated 500000 kg/h CO2-rich feed and 99 wt% lean TEG, connects Stream and SimpleTEGAbsorber objects inside a ProcessSystem, runs the calculation, retrieves dry CO2 and rich TEG, checks water specification and hydraulic loading, audits total and component balances, and rebuilds independent circulation and purity scenarios. The selected 22500 kg/h solvent case reaches 49.428514 ppmv water.",
+      "retained_figures": {
+        "count": 7,
+        "previous_count": 0,
+        "new_count": 7,
+        "numerically_refreshed_previous_count": 0,
+        "historical_previous_count": 0,
+        "purposes": [
+          "fluid-to-absorber-to-validation workflow overview",
+          "SRK-CPA saturated-water pressure and temperature map",
+          "CO2-rich impurity phase envelope",
+          "CO2 transport-density map with reference-property context",
+          "base-case feed and product water-rate comparison",
+          "TEG circulation sensitivity for dry-gas water and hydraulic utilization",
+          "solvent-purity and stage-efficiency design heatmap"
+        ],
+        "visual_inspection": "Passed after the final full execution. All seven stored PNG figures were extracted and inspected at original resolution for descriptive titles, readable labels, explicit units, legends or color scale where appropriate, accessible colors, correct values and scales, clipping, overlap, and agreement with stored tables and nearby interpretation."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 21 executed code cells and 21 Markdown cells",
+        "all cells executed in order with counts 1 through 21, zero exceptions, zero error outputs, and zero stored stderr",
+        "all five original engineering example intentions preserved and integrated",
+        "base saturated-water content was 3309.780339 ppmv",
+        "the original 5000 kg/h TEG case was retained and correctly shown to miss the specification at 427.9474 ppmv",
+        "the selected 22500 kg/h TEG case reached 49.428514 ppmv and removed 98.522557% of feed water",
+        "selected-case dry-CO2 and rich-TEG rates were 496280.920802 and 26219.079198 kg/h",
+        "selected-case total relative mass residual was 4.122e-15 and maximum component residual was 3.194e-09 kg/h",
+        "absorber Fs utilization was 25.313576% and the 3.0 m diameter exceeded the 1.509378 m NeqSim minimum",
+        "all 17 final engineering assertions passed",
+        "maximum Python code line length was 87 characters with no semicolons or compressed one-line compound teaching code",
+        "five display equations and the representative inline stage-efficiency equation used Colab-safe delimiters and single-backslash LaTeX and rendered correctly through MathJax",
+        "all seven technical figures passed final visual and numerical-context review",
+        "the Colab badge, unique active-catalog link, notebook JSON, ledger JSON, equations, introduced links, and retained figures were checked on 2026-07-24"
+      ],
+      "summary": "Completed the unexecuted CO2-dehydration placeholder as a fully executed NeqSim 3.16.0 engineering tutorial. Unsupported setup, invalid mixing-rule text, reused thermodynamic state, swallowed phase-envelope failures, mismatched absorber component sets, missing balances, and the incorrect implication that the original 5 t/h TEG case met 50 ppmv were replaced with current SRK-CPA and process APIs, honest base-case interpretation, independent design scenarios, hydraulic screening, conservation checks, seven figures, equations, troubleshooting, limitations, references, and exercises."
     }
   ]
 }
