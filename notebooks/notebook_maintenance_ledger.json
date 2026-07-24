@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-24T06:41:15Z",
+  "updated_at": "2026-07-24T07:15:45Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -5577,6 +5577,74 @@
         "the Colab badge, unique active-catalog link, notebook JSON, ledger JSON, current PyPI release, and introduced official NeqSim documentation links were checked on 2026-07-24"
       ],
       "summary": "Modernized the 13-cell hydrocarbon-dew-point notebook as a fully executed NeqSim 3.16.0 engineering tutorial. Preserved all four original examples and visuals; replaced obsolete setup, wildcard imports, repeated stateful code, and ambiguous units; added explicit thermodynamic theory, normalized detailed and simplified compositions, model and pressure sensitivities, a complete gas-conditioning ProcessSystem, conservation and limiting-case checks, six new figures, rendered equations, troubleshooting, limitations, references, and exercises."
+    },
+    {
+      "path": "notebooks/process/bowtie_lopa_sif_risk_analysis.ipynb",
+      "verified_date": "2026-07-24",
+      "verified_at_utc": "2026-07-24T07:15:45Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "All 21 code cells were executed sequentially in one clean shared namespace with execution counts 1 through 21 in an isolated Python 3.12 environment containing the public PyPI NeqSim 3.16.0 package. The in-process executor was used because the automation sandbox blocks local TCP kernel connections; it preserved normal counts, stdout, tables, SVG, and PNG outputs and failed on cell exceptions.",
+      "code_cells": 21,
+      "markdown_cells": 34,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "pre_existing_examples_preserved": 0,
+      "preservation_note": "This is a new notebook, so there were no pre-existing examples to preserve. The catalog and recent additions were inspected to confirm that bow-tie, LOPA, and SIL-verification teaching coverage was absent.",
+      "pre_existing_figures_preserved": 0,
+      "figure_preservation_note": "This is a new notebook with no pre-existing visuals. Six new technical figures were generated from the executed workflow.",
+      "neqsim_capabilities_demonstrated": [
+        "SRK fluid construction with classic mixing and multiphase checking",
+        "Stream, Cooler, Separator, and ProcessSystem composition and execution",
+        "process-topology-backed BowTieAnalyzer hazard discovery",
+        "native BowTieModel threat, consequence, prevention-barrier, and mitigation-barrier linkage",
+        "native BowTieSvgExporter rendering",
+        "SafetyInstrumentedFunction PFD calculations for 1oo1, 1oo2, and 2oo3 architectures",
+        "SILVerificationResult assessment with retained diagnostic-coverage warnings",
+        "LOPAResult layer construction, frequency reduction, target comparison, and independent multiplication check",
+        "fresh-object throughput and proof-test scenarios with conservation and capacity gates"
+      ],
+      "practical_application": "A reusable end-to-end gas-inlet safety workflow builds and runs an SRK feed, inlet cooler, and HP separator; retrieves phase products, gas density, inventory, and pressure margin; discovers the separator overpressure bow-tie; attaches a released 1oo2 SIF and PSV-to-flare mitigation barrier; verifies the SIF; performs a three-layer LOPA; varies architecture and proof-test interval; rebuilds six process-and-safeguard scenarios; and combines residual frequency with a stated relief-capacity screening gate.",
+      "retained_figures": {
+        "count": 6,
+        "previous_count": 0,
+        "new_count": 6,
+        "numerically_refreshed_previous_count": 0,
+        "historical_previous_count": 0,
+        "purposes": [
+          "process-to-bow-tie-to-LOPA workflow overview",
+          "HP-separator gas and liquid product mass rates",
+          "native NeqSim bow-tie with threats, linked prevention barriers, hazard, mitigation barriers, and consequences",
+          "logarithmic LOPA frequency reduction through credited layers",
+          "native 1oo1, 1oo2, and 2oo3 proof-test interval sensitivity",
+          "combined process-capacity and residual-frequency scenario screen"
+        ],
+        "visual_inspection": "Passed after the final full execution. Five stored PNG figures and the native SVG were extracted; the SVG was rasterized on a white background; all six were inspected for descriptive titles, readable labels, explicit units, legends or color scales, accessible colors, correct logarithmic scales, clipping, overlap, and consistency with the stored tables and interpretation."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 21 executed code cells and 34 Markdown cells",
+        "all cells executed in order with counts 1 through 21, zero exceptions, zero error outputs, and zero stored stderr",
+        "composition normalized to unity and base total mass residual was -5.57e-12 kg/h",
+        "base products were 14559.766 kg/h gas and 440.234 kg/h liquid",
+        "gas density was 79.370 kg/m3 and screened separator gas inventory was 1587.403 kg",
+        "one separator overpressure bow-tie, three native threats, two native consequences, one prevention barrier, and one mitigation barrier were retained",
+        "all threats were linked to the SIF and all consequences were linked to PSV-to-flare mitigation",
+        "native mitigated top-event frequency was 1.637e-5 /yr and screened consequence frequency was 3.274e-7 /yr",
+        "1oo2 annual PFDavg was 1.023168e-4; claimed and achieved SIL were both 3 with zero verification errors and one retained diagnostic-coverage warning",
+        "three-layer LOPA residual frequency was 1.023168e-7 /yr and independently matched direct frequency multiplication",
+        "all six fresh process-and-safeguard scenarios had finite outputs and mass residuals below 1e-6 kg/h",
+        "all 18 final engineering assertions passed, including conservation, topology, barrier linkage, SIL, LOPA, sensitivity, finiteness, and pass/fail limiting cases",
+        "maximum Python code line length was 90 characters with no semicolon-compressed or one-line compound teaching code",
+        "three display equations and representative inline expressions used Colab-safe delimiters and single-backslash LaTeX; five expressions rendered through MathJax and passed visual inspection",
+        "all six technical figures passed final visual and numerical-context review",
+        "the Colab badge, unique active-catalog link, notebook JSON, catalog JSON, ledger JSON, and introduced official documentation links were checked on 2026-07-24"
+      ],
+      "summary": "Created a new process-backed bow-tie, LOPA, and SIF risk-analysis tutorial using released NeqSim 3.16.0 APIs. The notebook links a solved SRK inlet-separation ProcessSystem to native hazard discovery, barrier diagrams, SIL/PFD verification, frequency reduction, proof-test sensitivity, conservation checks, and a reusable risk-and-capacity application without proprietary data or design-certification claims."
     }
   ]
 }
