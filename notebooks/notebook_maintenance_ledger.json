@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-25T16:16:21Z",
+  "updated_at": "2026-07-25T17:09:01Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -49,26 +49,84 @@
     },
     {
       "path": "notebooks/thermodynamics/readproperties.ipynb",
-      "verified_date": "2026-07-19",
+      "verified_date": "2026-07-25",
+      "verified_at_utc": "2026-07-25T17:09:01Z",
       "neqsim_version": "3.16.0",
-      "python_version": "3.13.5",
-      "java_version": "openjdk 21.0.10",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
       "execution_status": "passed",
-      "execution_method": "clean virtual environment with latest public PyPI neqsim; all code cells executed sequentially in one isolated Python process",
-      "code_cells": 9,
-      "markdown_cells": 13,
-      "key_checks": [
-        "all 9 code cells executed in order with zero unexpected exceptions",
-        "two-phase rich-gas TP flash produced identified gas and oil phases",
-        "phase fractions summed to unity within 1e-10",
-        "maximum component material-closure error was below 1e-10",
-        "all reported thermodynamic and transport properties were finite and positive where required",
-        "oil density and viscosity exceeded gas values at the selected state",
-        "gas density increased monotonically from 5 to 50 bara at 22.3 degC",
-        "all 11 focused notebook assertions passed",
-        "notebook JSON, nbformat, equations, Colab badge, catalog path, and introduced links were validated"
+      "execution_method": "All 22 code cells were executed sequentially from an empty namespace in a newly created Python 3.12 virtual environment after python -m pip install --upgrade --no-cache-dir neqsim resolved public PyPI NeqSim 3.16.0. The clean in-process executor retained sequential execution counts, engineering tables, diagnostics, and seven PNG figures and failed on any exception or stored stderr.",
+      "code_cells": 22,
+      "markdown_cells": 19,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic connector-backed fast-forward commit to the default branch",
+        "commit": "the commit containing this ledger entry",
+        "colab_validation_commit": "e323628b0dbaf517df0060ffafdf55d2657cacd2"
+      },
+      "pre_existing_examples_preserved": 6,
+      "preservation_note": "All six existing workflows remain: Colab setup and runtime identification, rich-gas construction and TP flash, phase-property extraction, phase-composition and component-closure analysis, pressure sensitivity, and focused validation assertions. They form the foundation of the expanded process application.",
+      "repairs_made": [
+        "used the current public PyPI package and supported fluid, TP-flash, property-initialization, Stream, Cooler, Separator, and Compressor APIs",
+        "made every property and state unit explicit and retrieved phases by identity rather than fixed index",
+        "formatted every display equation for Google Colab MathJax and reformatted all code as teaching-quality Python",
+        "added independent component and process material-balance closure, physical trend checks, interpretation, troubleshooting, and limitations"
       ],
-      "summary": "Replaced the minimal property-reading example and stale outputs with a current PyPI-compatible tutorial; clarified TP flash versus physical-property initialization; added explicit units, phase and composition tables, component closure, pressure sensitivity, engineering interpretation, limitations, references, exercises, and executable validation checks."
+      "pre_existing_figures_preserved": 1,
+      "pre_existing_visuals_preserved": 1,
+      "figure_preservation_note": "The existing gas-density pressure plot is retained within the three-panel pressure sensitivity figure and recalculated with NeqSim 3.16.0. Six additional reproducible figures provide workflow, composition, phase property, partitioning, temperature, and process-application views.",
+      "neqsim_capabilities_demonstrated": [
+        "public rich-gas fluid creation, SRK-EOS model identification, classic mixing rule, component inspection, and explicit state specification",
+        "multiphase TP flash, thermodynamic initialization, physical-property initialization, and phase identity retrieval",
+        "phase fractions, compositions, molar mass, density, Cp, Cv, heat-capacity ratio, enthalpy, entropy, viscosity, thermal conductivity, compressibility factor, and sound speed",
+        "independent pressure and temperature property sensitivities from cloned and reinitialized fluid states",
+        "named Stream, Cooler, Separator, Compressor, and process execution with state-table and balance retrieval"
+      ],
+      "practical_application": "A 20000 kg/h synthetic rich-gas stream at 22.3 degC and 10 bara is cooled to 5 degC, separated, compressed to 70 bara at 78 percent isentropic efficiency, and aftercooled to 25 degC. The separator recovers 25.850740 mass percent liquid, the relative mass residual is below 1e-10, compressor power is 1368.423958 kW, and the connected workflow supplies phase-aware properties at every state.",
+      "retained_figures": {
+        "count": 7,
+        "previous_count": 1,
+        "new_count": 6,
+        "numerically_refreshed_previous_count": 1,
+        "purposes": [
+          "NeqSim state-consistent property calculation workflow",
+          "synthetic rich-gas overall composition",
+          "phase-specific density, viscosity, conductivity, and sound speed",
+          "component partitioning between gas and oil phases",
+          "pressure sensitivity of gas density, oil fraction, and gas viscosity",
+          "temperature sensitivity of oil fraction, gas density, and sound speed",
+          "connected rich-gas cooling, separation, compression, and aftercooling"
+        ],
+        "visual_inspection": "Passed after final clean execution. All seven PNG figures were extracted and inspected at full resolution. The separator liquid outlet arrow was corrected to show flow leaving the vessel. Final titles, axes, units, legends, accessible colors, scales, annotations, and numerical context are readable with no clipping or overlap."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 6,
+        "inline_expressions": 23,
+        "unique_inline_expressions": 20,
+        "rendered_math_objects_in_colab": 29,
+        "colab_verified_commit": "e323628b0dbaf517df0060ffafdf55d2657cacd2",
+        "source_rule": "Inline equations use $...$ and display equations use standalone $$ delimiter lines without blank lines inside the block; all LaTeX commands use one backslash.",
+        "visual_inspection": "The exact staged revision was opened in Google Colab. All six display equations and 23 inline MathJax objects rendered with zero MathJax errors and zero visible raw delimiters. Fractions, summations, Greek symbols, subscripts, phase indices, absolute-value bars, and dotted mass-flow notation were visually confirmed."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 22 executed code cells and 19 Markdown cells",
+        "execution counts are sequential from 1 through 22",
+        "zero exceptions, zero error outputs, and zero stored stderr",
+        "fresh no-cache public-PyPI installation resolved NeqSim 3.16.0",
+        "all 21 focused engineering assertions passed",
+        "phase fractions close within 1e-12 and component residual is 2.220e-16",
+        "oil density and viscosity exceed gas values at the base two-phase state",
+        "gas density increases monotonically from 5 to 50 bara at 22.3 degC",
+        "gas density and oil dropout decrease monotonically from 0 to 70 degC",
+        "separator relative mass residual is below 1e-10",
+        "compressor reaches 70 bara and both coolers reject heat",
+        "maximum Python code-line length is 93 characters with no semicolon chains or compressed compound bodies",
+        "six display equations and 23 inline objects rendered without errors in Google Colab",
+        "seven figures passed full-resolution visual and numerical inspection",
+        "the Colab badge and active catalog target the notebook exactly once"
+      ],
+      "summary": "A standalone phase-aware property tutorial covering fluid and model definition, TP flash, thermodynamic and transport-property retrieval, component closure, pressure and temperature sensitivities, a connected cooling-separation-compression application, 21 engineering checks, six display equations, and seven inspected figures."
     },
     {
       "path": "notebooks/thermodynamics/interfacialtension.ipynb",
