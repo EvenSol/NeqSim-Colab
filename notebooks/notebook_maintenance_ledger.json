@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-25T10:56:27Z",
+  "updated_at": "2026-07-25T12:15:35Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -7701,6 +7701,90 @@
         "the Colab badge and active catalog target the notebook exactly once"
       ],
       "summary": "A self-contained NeqSim PVT API tutorial covering SRK, GERG-2008, CPA, unit-aware TP flashes, phase-property tables, heavy-fraction characterization, model comparison, pressure and temperature sweeps, engineering validation, five rendered equations, and six inspected figures."
+    },
+    {
+      "path": "notebooks/thermodynamics/ThermodynamicsOfMineralScale.ipynb",
+      "verified_date": "2026-07-25",
+      "verified_at_utc": "2026-07-25T12:15:35Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "All 23 code cells were executed sequentially from an empty namespace in a newly created Python 3.12 virtual environment after python -m pip install --upgrade --no-cache-dir neqsim resolved public PyPI NeqSim 3.16.0. The clean in-process executor retained sequential execution counts, tables, diagnostics, and seven compact PNG figures and failed on any exception or stored stderr.",
+      "code_cells": 23,
+      "markdown_cells": 31,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic connector-backed fast-forward commit to the default branch",
+        "commit": "the commit containing this ledger entry",
+        "colab_validation_commit": "39f1b9b12bc1be3c8f7168376f81619a7b0c62e7"
+      },
+      "pre_existing_examples_preserved": 1,
+      "preservation_note": "The existing Electrolyte-CPA gas-water-ion TP-flash, aqueous-ion-composition, pH, and scale-potential example remains fully represented and is integrated as the rigorous reference calculation. The optional mineral-scale primer and carbonate, barite, and celestite learning objectives are also retained in the teaching sequence.",
+      "repairs_made": [
+        "replaced the NeqSim 2.5.35 pin and wildcard imports with a current conditional PyPI setup and explicit supported imports",
+        "made temperature, pressure, flow, concentration, and phase-property units explicit",
+        "used the current log-space saturation-ratio implementation and documented its SR and SI meaning",
+        "corrected generated LaTeX escaping and compacted stored PNG outputs without reducing figure content"
+      ],
+      "pre_existing_figures_preserved": 0,
+      "pre_existing_visuals_preserved": 0,
+      "figure_preservation_note": "The source notebook contained no substantive plot, diagram, image, animation, or other visual output. Seven reproducible technical figures were generated from the final execution.",
+      "neqsim_capabilities_demonstrated": [
+        "Electrolyte-CPA gas-aqueous fluid construction, chemical-reaction initialization, TP flash, phase-property initialization, aqueous ion composition, pH, and mineral scale-potential retrieval",
+        "ScalePredictionCalculator saturation-ratio and saturation-index screening for carbonate and sulphate minerals",
+        "pH and sulphate concentration sensitivity sweeps",
+        "BrineMixingScaleEvaluator screening over 21 formation-water and injection-water mixing ratios",
+        "FlowlineScaleProfile temperature, pressure, and mineral-SI trajectories",
+        "ScaleInhibitorPerformance dose, efficiency, MIC, recommended-dose, and adequacy screening",
+        "Stream and PipeBeggsAndBrills process connection with ScaleDepositionAccumulator and ClosedLoopDepositionSolver hydraulic feedback"
+      ],
+      "practical_application": "A 25 kg/s CPA production stream is connected to a 10 km, 250 mm Beggs-Brill flowline cooling from 60 degC toward a 5 degC environment. The workflow calculates an 8.764 bar pressure drop, 16.563 degC outlet temperature, a one-year 14.452 kg carbonate-deposition scenario, 0.006291 mm maximum thickness, and closed-loop diameter convergence in three iterations.",
+      "retained_figures": {
+        "count": 7,
+        "previous_count": 0,
+        "new_count": 7,
+        "numerically_refreshed_previous_count": 0,
+        "purposes": [
+          "mineral-scale assessment workflow from water analyses to operating decision",
+          "Electrolyte-CPA aqueous speciation and mineral-equilibrium state",
+          "carbonate pH and barite sulphate sensitivity",
+          "formation-water and injection-water mixing saturation indices",
+          "20 km temperature, pressure, barite, and celestite scale profile",
+          "phosphonate dose and predicted inhibition-efficiency screen",
+          "coupled 10 km hydraulic, thermal, deposition, and convergence application"
+        ],
+        "visual_inspection": "Passed after final clean execution. All seven PNG figures were extracted and inspected at full resolution for descriptive titles, readable labels, explicit units, accessible colors, legends, clipping, overlap, appropriate scales, physical trends, and consistency with the retained tables and narrative."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 6,
+        "unique_inline_expressions": 17,
+        "rendered_inline_objects_in_colab": 22,
+        "colab_verified_commit": "39f1b9b12bc1be3c8f7168376f81619a7b0c62e7",
+        "source_rule": "Inline equations use $...$ and display equations use standalone $$ delimiter lines without blank lines inside the block; all LaTeX commands use one backslash.",
+        "visual_inspection": "The exact staged revision was opened in Google Colab. All six display equations and 22 inline MathJax objects rendered with products, fractions, logarithms, Greek symbols, subscripts, superscripts, and mixing and thickness expressions. No raw delimiters or MathJax errors were present."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 23 executed code cells and 31 substantive Markdown cells",
+        "execution counts are sequential from 1 through 23",
+        "zero exceptions, zero error outputs, and zero stored stderr",
+        "fresh no-cache public-PyPI installation resolved NeqSim 3.16.0",
+        "all 27 focused engineering assertions passed",
+        "the rigorous reference fluid produced gas and aqueous phases with finite pH and positive densities",
+        "all reported saturation ratios were finite and positive",
+        "carbonate SI increased with pH and barite SI increased with sulphate concentration",
+        "the incompatible-water sweep evaluated 21 points and found internal worst mixing at formation-water fraction 0.85",
+        "BaSO4 was the worst mixed-water mineral with SI 4.909",
+        "the 20 km profile cooled and depressurized monotonically while SrSO4 crossed SI zero",
+        "predicted inhibitor efficiency increased with dose and the highest screened dose was adequate",
+        "the connected process flowline cooled and depressurized and its closed-loop deposition solver converged",
+        "maximum Python code-line length was 84 characters with no semicolon chains or compressed compound bodies",
+        "six display equations and 22 inline objects rendered without errors in Google Colab",
+        "seven figures passed visual and numerical-context inspection",
+        "the Colab badge and active catalog target the notebook exactly once"
+      ],
+      "summary": "A standalone mineral-scale engineering tutorial covering rigorous Electrolyte-CPA aqueous speciation, SR and SI interpretation, water-chemistry sensitivities, incompatible-brine mixing, flowline risk profiles, inhibitor screening, connected multiphase hydraulics, deposition feedback, 27 engineering checks, six rendered equations, and seven inspected figures."
     }
   ]
 }
