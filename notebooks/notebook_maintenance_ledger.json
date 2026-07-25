@@ -7557,7 +7557,7 @@
     {
       "path": "notebooks/fluidflow/minimum_flow_long_multiphase_flowline.ipynb",
       "verified_date": "2026-07-25",
-      "verified_at_utc": "2026-07-25T10:22:44Z",
+      "verified_at_utc": "2026-07-25T10:26:27Z",
       "neqsim_version": "3.16.0",
       "python_version": "3.12.13",
       "java_version": "openjdk 17.0.19",
@@ -7567,8 +7567,9 @@
       "markdown_cells": 17,
       "publication": {
         "branch": "master",
-        "mode": "staged commits followed by verified fast-forward of the default branch",
-        "commit": "final staging-head commit fast-forwarded to master"
+        "mode": "atomic connector-backed fast-forward commit to the default branch",
+        "commit": "the commit containing this ledger entry",
+        "colab_validation_commit": "2fb37e6cff38e02759961d59493b38bf942207d2"
       },
       "pre_existing_examples_preserved": 0,
       "preservation_note": "This is a new standalone tutorial. It complements the existing general multiphase-flow and transient-slug notebooks without replacing their examples.",
@@ -7603,8 +7604,9 @@
         "display_equations": 6,
         "unique_inline_expressions": 8,
         "total_rendered_expressions": 14,
+        "colab_verified_commit": "2fb37e6cff38e02759961d59493b38bf942207d2",
         "source_rule": "Inline equations use $...$ and each display equation uses standalone $$ delimiter lines with single-backslash LaTeX commands.",
-        "visual_inspection": "All six display equations and eight unique inline expressions rendered through the Jupyter/Colab-compatible MathJax SVG path. Fractions, partial derivatives, integrals, subscripts, Greek symbols, inequalities, dotted mass rate, and force, velocity, density, volume, and area symbols were visually inspected with no malformed output or clipping."
+        "visual_inspection": "The exact staged notebook revision was opened in Google Colab. All six display equations and representative inline expressions rendered as MathJax objects. Fractions, partial derivatives, integrals, subscripts, Greek symbols, inequalities, dotted mass rate, and force, velocity, density, volume, and area symbols were visually inspected with no raw delimiters, malformed output, or clipping."
       },
       "key_checks": [
         "valid nbformat 4 JSON with 20 executed code cells and 17 substantive Markdown cells",
@@ -7621,7 +7623,7 @@
         "24-, 32-, and 40-section inventory spread was 4.91 percent",
         "mesh pressure-drop spread was 21.57 percent",
         "maximum Python code-line length was 83 characters with no semicolon chains",
-        "six display equations and eight unique inline expressions rendered correctly",
+        "six display equations and representative inline expressions rendered correctly in Google Colab at commit 2fb37e6cff38e02759961d59493b38bf942207d2",
         "six figures passed visual and numerical-context review",
         "the Colab badge and active catalog target the notebook exactly once"
       ],
