@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-25T08:21:41Z",
+  "updated_at": "2026-07-25T08:23:56Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -7470,6 +7470,89 @@
         "the Colab badge and active catalog target the notebook exactly once"
       ],
       "summary": "A standalone operational-flexibility tutorial combining NeqSim real-gas properties, native pipeline pressure profiles, inventory integration, pack-and-unpack dynamics, deliverability limits, engineering assertions, troubleshooting, limitations, references, exercises, and four inspected figures."
+    },
+    {
+      "path": "notebooks/process/neqsim_process_safety_design.ipynb",
+      "verified_date": "2026-07-25",
+      "verified_at_utc": "2026-07-25T08:23:56Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "A standard nbclient/Jupyter execution was attempted first, but the automation sandbox blocked local TCP kernel connections with Operation not permitted. The documented fallback executor then ran all 24 code cells sequentially from an empty shared namespace in a newly created Python 3.12 virtual environment after python -m pip install --upgrade --no-cache-dir neqsim resolved public PyPI NeqSim 3.16.0. It retained execution counts, stdout, tables, and six PNG figures and failed on any cell exception or stored stderr.",
+      "code_cells": 24,
+      "markdown_cells": 24,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch fast-forward",
+        "commit": "this atomic publication commit"
+      },
+      "pre_existing_examples_preserved": 11,
+      "preservation_note": "All 11 substantive source examples remain represented and integrated: thermodynamic properties, protected separator, blocked-outlet PSV response, ESD isolation and blowdown, dynamic depressurization, SIS set points, flare cases, two-phase relief, fire exposure, blowdown-time screening, and HAZOP-oriented reporting.",
+      "pre_existing_figures_preserved": 0,
+      "pre_existing_visuals_preserved": 0,
+      "figure_preservation_note": "The source notebook contained no substantive plot, diagram, image, animation, or other visual output. Six reproducible technical figures were generated from the final execution.",
+      "neqsim_capabilities_demonstrated": [
+        "SRK natural-gas and LPG fluid construction, TP flashes, bubble-point calculation, and physical-property initialization",
+        "Stream, Separator, transient SafetyValve, throttling Valve, Flare, and ProcessSystem workflows",
+        "pressure-driven PSV opening and reseat hysteresis",
+        "blocked-outlet pressure accumulation and relief-capacity screening",
+        "polytropic vessel depressurization with pressure and temperature tracking",
+        "SIS alarm and trip set-point layering",
+        "flare heat-release and CO2-emission scenario calculations",
+        "two-phase homogeneous-equilibrium and vapor-only relief comparisons",
+        "external-fire vapor-generation screening",
+        "HAZOP-oriented scenario register and end-to-end design selection"
+      ],
+      "practical_application": "A protected 50 bara separator is connected to native NeqSim process and protection objects. The application evaluates blocked-outlet, peak ESD blowdown, and fire loads, selects the largest screened relief flow, checks MAWP and depressurization time, ranks flare cases, and produces a reusable design-decision table.",
+      "retained_figures": {
+        "count": 6,
+        "previous_count": 0,
+        "new_count": 6,
+        "numerically_refreshed_previous_count": 0,
+        "purposes": [
+          "reproducible NeqSim safety-design workflow overview",
+          "native PSV opening and blowdown hysteresis",
+          "blocked-outlet vessel pressure, relief flow, and valve opening",
+          "blowdown vessel pressure and minimum-temperature trajectory",
+          "flare heat release and screening radiation by scenario",
+          "vapor-only and homogeneous-equilibrium relief-area comparison"
+        ],
+        "visual_inspection": "Passed after final clean execution. All six retained PNG figures were extracted and inspected at original resolution for descriptive titles, readable labels, explicit units, legends, accessible colors, clipping, overlap, correct scales, numerical trends, and agreement with stored result tables. The workflow box wrapping and PSV path presentation were corrected before the final execution."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 8,
+        "inline_rendered_objects": 29,
+        "total_mathjax_objects": 37,
+        "colab_verified_commit": "dd6f38c308e260585b700e7347862202146247af",
+        "source_rule": "Inline equations use $...$ and each display equation uses standalone $$ delimiter lines with no blank line inside the block; LaTeX commands use one backslash.",
+        "visual_inspection": "All eight display equations rendered as MathJax display objects in Google Colab. Fractions, square roots, dotted mass rates, subscripts, superscripts, Greek symbols, inequalities, pressure ratios, density mixing, and units were checked; no raw LaTeX delimiters or source commands were displayed."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 24 executed code cells and 24 substantive Markdown cells",
+        "all code cells executed in order with counts 1 through 24",
+        "zero exceptions, zero error outputs, and zero stored stderr",
+        "fresh no-cache public-PyPI installation resolved NeqSim 3.16.0",
+        "all 22 focused engineering assertions passed",
+        "gas composition closed to exactly 100 mol percent",
+        "the base fluid remained single-phase gas and returned finite positive properties",
+        "native PSV opening reached 100 percent and closed at the reseat pressure",
+        "blocked-outlet maximum pressure was 62.034 bara, below the 65 bara MAWP",
+        "blowdown pressure decreased monotonically and reached 6.9 bara in 201.5 seconds",
+        "minimum screened blowdown temperature was minus 119.5 degC",
+        "SIS alarm, trip, PSV, and MAWP thresholds were strictly ordered",
+        "flare heat release increased with relief flow",
+        "the two-phase flash found two phases and phase mass fractions closed to one",
+        "fire-case latent heat and vapor-generation rate were positive",
+        "five HAZOP scenarios were recorded",
+        "maximum Python code-line length was 81 characters with no semicolon chains or compressed compound bodies",
+        "eight display equations and 29 inline MathJax objects rendered in Google Colab",
+        "six figures passed visual and numerical-context review",
+        "the Colab badge and active catalog target the notebook exactly once",
+        "all introduced NeqSim documentation links resolved on 2026-07-25"
+      ],
+      "summary": "A self-contained process-safety design tutorial covering SRK relieving properties, protected separation, native PSV hysteresis, blocked-outlet dynamics, ESD depressurization, SIS set points, flare loads, two-phase relief, fire exposure, HAZOP reporting, design selection, 22 engineering checks, and six inspected figures."
     }
   ]
 }
