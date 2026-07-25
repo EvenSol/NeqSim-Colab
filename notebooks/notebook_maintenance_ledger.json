@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-25T05:43:18Z",
+  "updated_at": "2026-07-25T08:21:41Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -7396,6 +7396,80 @@
         "source_rule": "Inline equations use $...$ and each display equation uses standalone $$ delimiter lines with blank lines around the block; LaTeX commands use one backslash.",
         "visual_inspection": "All three display equations and 14 unique inline expressions rendered through the MathJax path. Mass-flow balances, water-removal fraction, compressor-power summation, subscripts, fractions, dotted rates, temperature, energy, power, and mass-flow units displayed correctly. Google Colab verification used the staged commit e2dd045078907b89132bc3754756d6a22c898e5a."
       }
+    },
+    {
+      "path": "notebooks/fluidflow/natural_gas_pipeline_linepack.ipynb",
+      "verified_date": "2026-07-25",
+      "verified_at_utc": "2026-07-25T08:21:41Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "All 17 code cells were executed sequentially from an empty notebook namespace in a newly created Python 3.12 virtual environment after python -m pip install --upgrade --no-cache-dir neqsim resolved the public PyPI NeqSim 3.16.0 release. The executor retained stdout, tables, and four PNG figures and failed on any cell exception, error output, or stored stderr.",
+      "code_cells": 17,
+      "markdown_cells": 16,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch fast-forward",
+        "commit": "this atomic publication commit"
+      },
+      "pre_existing_examples_preserved": 0,
+      "preservation_note": "This is a new standalone tutorial; no existing notebook content was replaced or removed.",
+      "pre_existing_figures_preserved": 0,
+      "figure_preservation_note": "Four reproducible technical figures were generated from the final clean execution and retained with their numerical context.",
+      "neqsim_capabilities_demonstrated": [
+        "SRK natural-gas construction, TP flashes, physical-property initialization, and volume-corrected density",
+        "native PipeBeggsAndBrills pressure-profile calculations across throughput cases",
+        "segment-wise real-gas density integration to linepack mass and standard volume",
+        "deliverability, velocity, and minimum-outlet-pressure screening",
+        "lumped pack-and-unpack inventory balance under a demand disturbance",
+        "operating-margin and demand-support scenario analysis"
+      ],
+      "practical_application": "A 100 km, 0.60 m internal-diameter gas pipeline at 15 degC and 100 bara inlet pressure carries 100 kg/s. The calculated outlet pressure is 88.39 bara, base linepack is 2.424 thousand t (3.233 million Sm3), and available withdrawal linepack to an 80 bara mean-pressure limit is 419.8 t. The transient scenario closes its mass balance exactly and demonstrates how demand deficits shorten support time.",
+      "retained_figures": {
+        "count": 4,
+        "previous_count": 0,
+        "new_count": 4,
+        "numerically_refreshed_previous_count": 0,
+        "purposes": [
+          "real-gas density and compressibility versus pressure",
+          "pipeline pressure profiles and deliverability limits",
+          "linepack inventory and demand-support duration",
+          "dynamic inlet and outlet flow with pressure and usable linepack"
+        ],
+        "visual_inspection": "Passed after final clean execution. All four retained PNG figures were inspected at original resolution for descriptive titles, readable labels, explicit units, accessible colors, correct trends and scales, legends, clipping, overlap, and agreement with stored tables and nearby interpretation."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 5,
+        "unique_inline_expressions": 17,
+        "rendered_expressions": 22,
+        "source_rule": "Inline equations use $...$ and display equations use standalone $$ delimiter lines with blank lines around each block; LaTeX commands use one backslash.",
+        "visual_inspection": "All five display equations and 17 unique inline expressions rendered through a Jupyter and Google-Colab-compatible MathJax 3.2.2 SVG path. Fractions, subscripts, superscripts, overdots, Greek symbols, an integral, a bold vector, units, and mappings were visually inspected with no clipping or malformed output."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 17 executed code cells and 16 substantive Markdown cells",
+        "all code cells executed in order with counts 1 through 17",
+        "zero exceptions, zero error outputs, and zero stored stderr",
+        "fresh no-cache public-PyPI installation resolved NeqSim 3.16.0",
+        "all 16 focused engineering assertions passed",
+        "gas composition mole fractions summed to exactly 1.0",
+        "the gas remained single phase from 60 to 110 bara and density increased monotonically",
+        "volume-corrected and uncorrected EOS densities differed by at most 0.510 percent",
+        "the 100 kg/s outlet pressure was 88.39 bara with an 11.61 bar pressure drop",
+        "the independent Darcy estimate differed from the native profile by 2.452 percent",
+        "the base linepack was 2.424 thousand t and 3.233 million Sm3",
+        "available withdrawal linepack to 80 bara was 419.8 t",
+        "all demand-support times decreased monotonically from 11.66 to 1.94 h",
+        "140 kg/s was the maximum demonstrated passing flow and 160 kg/s failed the outlet-pressure limit",
+        "the transient minimum mean pressure was 85.763 bara and minimum usable linepack was 167.849 t",
+        "the transient inventory change was minus 144 t with zero mass-balance error",
+        "maximum Python code-line length was 84 characters with no semicolon chains",
+        "five display equations and 17 unique inline expressions used Colab-safe syntax",
+        "four figures passed visual and numerical-context review",
+        "the Colab badge and active catalog target the notebook exactly once"
+      ],
+      "summary": "A standalone operational-flexibility tutorial combining NeqSim real-gas properties, native pipeline pressure profiles, inventory integration, pack-and-unpack dynamics, deliverability limits, engineering assertions, troubleshooting, limitations, references, exercises, and four inspected figures."
     }
   ]
 }
