@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-25T02:18:10Z",
+  "updated_at": "2026-07-25T03:12:00Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -7175,6 +7175,74 @@
         "source_rule": "Inline equations use $...$ and each display equation uses standalone $$ delimiter lines with blank lines around the block; LaTeX commands use one backslash.",
         "visual_inspection": "Passed through a Jupyter and Google-Colab-compatible MathJax SVG renderer. Fractions, subscripts, superscripts, dotted rates, Greek efficiency and residual symbols, interval notation, temperature, pressure, and mass-flow units displayed correctly."
       }
+    },
+    {
+      "path": "notebooks/process/NeqSim_Process_Logic_Demo.ipynb",
+      "verified_date": "2026-07-25",
+      "verified_at_utc": "2026-07-25T03:12:00Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "All 21 code cells were executed sequentially from an empty namespace in a newly created Python 3.12 virtual environment after python -m pip install --upgrade --no-cache-dir neqsim resolved the public PyPI NeqSim 3.16.0 release. The in-process executor retained stdout and six PNG figures and failed on any exception or stored stderr.",
+      "code_cells": 21,
+      "markdown_cells": 31,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch fast-forward",
+        "commit": "this atomic publication commit"
+      },
+      "pre_existing_examples_preserved": 8,
+      "preservation_note": "All eight substantive engineering intentions remain represented: the SRK hydrocarbon feed, separator heat input, three-phase split, HIPPS 2oo3 pressure voting and isolation, ESD action sequencing, fire detection, gas detection, and an integrated layered response. They are presented as one coherent current tutorial using supported NeqSim 3.16.0 APIs.",
+      "pre_existing_figures_preserved": 0,
+      "figure_preservation_note": "The source notebook contained no reproducible stored technical figure. Six executed figures were added; no previous substantive visual was removed or left numerically stale.",
+      "neqsim_capabilities_demonstrated": [
+        "SystemSrkCPAstatoil wellstream construction, mixing rule, multiphase checking, and named Stream execution",
+        "Separator and ThreePhaseSeparator heat-input calculations with gas, oil, and water outlet retrieval",
+        "Detector pressure channels, VotingLogic TWO_OUT_OF_THREE, fault states, and reusable scenario evaluation",
+        "HIPPSValve and HIPPSLogic isolation, ESDValve and ESDLogic sequencing, and valve actions",
+        "FireDetector and combustible GasDetector area safeguarding signals"
+      ],
+      "practical_application": "A reproducible 18000 kg/h wet wellstream at 80 bara and 30 degC is separated with explicit heat input, monitored by three high-high pressure detectors, protected by 2oo3 HIPPS voting, and combined with sequenced ESD and fire-and-gas causes. A pressure excursion, four-second valve travel, and 21 pressure/bias cases demonstrate configuration, execution, result retrieval, validity checks, and workflow reuse.",
+      "retained_figures": {
+        "count": 6,
+        "previous_count": 0,
+        "new_count": 6,
+        "numerically_refreshed_previous_count": 0,
+        "purposes": [
+          "process and safeguarding signal architecture",
+          "separator temperature and gas-rate heat-input sensitivity",
+          "three-phase separator outlet mass rates",
+          "pressure-voting scenarios and degraded-channel response",
+          "HIPPS response to a protected-pressure excursion",
+          "pressure and sensor-bias voting sensitivity"
+        ],
+        "visual_inspection": "Passed at original resolution after the final execution. All six figures have descriptive titles, readable labels, explicit units, appropriate legends or color scale, accessible colors, correct values and scales, nearby interpretation, and no clipping or overlap."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 5,
+        "unique_inline_expressions": 9,
+        "source_rule": "Inline equations use $...$ and display equations use standalone $$ delimiter lines with blank lines around each block; LaTeX commands use one backslash.",
+        "visual_inspection": "All five display equations and nine unique inline expressions rendered through a Jupyter and Google-Colab-compatible MathJax SVG path. Summation, subscripts, overdots, fractions, inequalities, maximum, units, and degree symbols were visually inspected.",
+        "colab_verification": "Passed in Google Colab using staged commit c9cad10b2bc21b1025ad3c49886f394ad8354392. All five display equations and representative inline mathematics were visually inspected; summations, fractions, subscripts, overdots, inequalities, symbols, and units rendered correctly."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 21 executed code cells and 31 substantive Markdown cells",
+        "all code cells executed in order with counts 1 through 21, zero exceptions, zero error outputs, and zero stored stderr",
+        "all eight pre-existing engineering intentions were retained",
+        "two-phase and three-phase separator mass balances closed below 1e-8 relative error",
+        "separator temperature and gas mass rate increased monotonically from -100 to 300 kW heat input",
+        "one high pressure channel did not trip and two high channels did trip",
+        "HIPPS closed the isolation valve and the sequenced ESD completed after its configured delay",
+        "fire detection requested area ESD while gas remained below high alarm",
+        "the pressure-excursion response remained finite and reached zero valve opening",
+        "all 11 focused engineering assertions passed",
+        "maximum Python code-line length was 81 characters with no semicolon chains, wildcard imports, or one-line compound bodies",
+        "six stored figures passed visual and numerical-context review",
+        "the Colab badge and the active catalog target were verified exactly once"
+      ],
+      "summary": "Completed the process-logic tutorial as a current NeqSim 3.16.0 engineering lesson covering wet-wellstream thermodynamics, separator heat input and phase split, pressure detector voting, HIPPS, ESD, fire-and-gas logic, integrated response scenarios, assertions, troubleshooting, limitations, references, exercises, and six inspected figures."
     }
   ]
 }
