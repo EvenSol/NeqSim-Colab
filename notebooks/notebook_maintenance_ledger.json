@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-25T03:12:00Z",
+  "updated_at": "2026-07-25T03:33:39Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -7243,6 +7243,83 @@
         "the Colab badge and the active catalog target were verified exactly once"
       ],
       "summary": "Completed the process-logic tutorial as a current NeqSim 3.16.0 engineering lesson covering wet-wellstream thermodynamics, separator heat input and phase split, pressure detector voting, HIPPS, ESD, fire-and-gas logic, integrated response scenarios, assertions, troubleshooting, limitations, references, exercises, and six inspected figures."
+    },
+    {
+      "path": "notebooks/process/process_automation_api_demo.ipynb",
+      "verified_date": "2026-07-25",
+      "verified_at_utc": "2026-07-25T03:33:39Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "All 18 code cells were executed sequentially from an empty notebook namespace in a newly created Python 3.12 virtual environment after python -m pip install --upgrade --no-cache-dir neqsim resolved the public PyPI NeqSim 3.16.0 release. The executor retained stdout and four PNG figures and failed on any cell exception or stored stderr.",
+      "code_cells": 18,
+      "markdown_cells": 28,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch fast-forward",
+        "commit": "this atomic publication commit"
+      },
+      "pre_existing_examples_preserved": 8,
+      "preservation_note": "All original substantive automation examples remain operational and integrated: equipment and variable discovery; unit conversion and delegates; snapshots and topology; batch reads and writes; safe access and diagnostics; manifests and adjustable parameters; evaluate trials and candidate scoring; utilization and multi-area addressing.",
+      "pre_existing_figures_preserved": 1,
+      "pre_existing_visuals_preserved": 1,
+      "figure_preservation_note": "The original pressure-candidate power plot was recalculated with the final NeqSim inputs and retained with explicit units, an accessible palette, and the selected candidate. Three additional technical figures were generated from the final execution.",
+      "neqsim_capabilities_demonstrated": [
+        "SRK natural-gas construction, TP flash, and phase-property initialization",
+        "named Stream, Heater, Separator, Compressor, and ProcessSystem objects",
+        "automation equipment and variable discovery with unit metadata",
+        "unit-aware scalar and batch reads and writes with dirty-aware execution",
+        "structured snapshots, topology, diagnostics, manifests, and safe accessors",
+        "adjustable-parameter discovery and evaluate-based setpoint trials",
+        "design-power utilization, feasibility, and bottleneck reporting",
+        "ProcessModel multi-area addresses and area-qualified setpoint control"
+      ],
+      "practical_application": "A reusable NeqSim builder evaluates 20 independent combinations of feed rate from 6000 to 12000 kg/h and compressor outlet pressure from 90 to 110 bara. The application retrieves power through the automation facade, maps utilization against a 500 kW design limit, checks trends, and demonstrates how a client can screen operating points.",
+      "retained_figures": {
+        "count": 4,
+        "previous_count": 1,
+        "new_count": 3,
+        "numerically_refreshed_previous_count": 1,
+        "purposes": [
+          "NeqSim process equipment and automation-address workflow overview",
+          "export-pressure candidate scoring by compressor power",
+          "compressor-power map across throughput and pressure scenarios",
+          "equipment-utilization comparison against the design limit"
+        ],
+        "visual_inspection": "Passed after final clean execution. All four retained PNG figures were extracted and inspected at original resolution for descriptive titles, readable labels, explicit units, legends or color scale, accessible colors, clipping, overlap, correct scales, numerical trends, and agreement with stored result tables."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 18 code and 28 substantive Markdown cells",
+        "all cells executed in order with counts 1 through 18",
+        "zero exceptions, zero error outputs, and zero stored stderr",
+        "fresh no-cache public-PyPI installation resolved NeqSim 3.16.0",
+        "all 14 engineering assertions passed",
+        "feed composition mole fractions summed to 1.0",
+        "separator mass residual was minus 2.0e-26 kg/h",
+        "temperature conversion between K and degC closed to numerical precision",
+        "ProcessSystem delegate and automation-facade power reads agreed",
+        "safe access returned suggestions and case-tolerant access succeeded",
+        "all pressure trials and the single structured trial were feasible",
+        "compressor power increased monotonically with outlet pressure",
+        "all 20 throughput and pressure scenarios returned finite power",
+        "maximum grid power was 236.027694 kW below the 500 kW design limit",
+        "multi-area cooler setpoint reached 10 degC",
+        "maximum code line length was 83 characters with no semicolon chains",
+        "four display equations and eight unique inline expressions used Colab-safe syntax",
+        "four figures passed visual and numerical-context review",
+        "the Colab badge and active catalog target the notebook exactly once"
+      ],
+      "summary": "A self-contained process automation tutorial covering a solved SRK gas conditioning process, discoverable unit-aware addresses, structured snapshots and topology, safe diagnostics, batch setpoints, manifests, evaluation trials, candidate scoring, utilization, multi-area models, scenario screening, engineering checks, limitations, and four figures.",
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 4,
+        "inline_expressions": 8,
+        "representative_unique_inline_rendered": 8,
+        "colab_verified_commit": "passed on provisional commit 6ed948925e51575735ecd177e378a5d35953e0b3",
+        "source_rule": "Inline equations use $...$ and each display equation uses standalone $$ delimiter lines with blank lines around the block; LaTeX commands use one backslash.",
+        "visual_inspection": "Passed through a Jupyter and Google-Colab-compatible MathJax SVG renderer. Mass and enthalpy rates, arg-min notation, fractions, subscripts, sets, degree symbols, and units rendered correctly."
+      }
     }
   ]
 }
