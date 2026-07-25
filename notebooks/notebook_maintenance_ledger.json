@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-25T10:22:44Z",
+  "updated_at": "2026-07-25T10:56:27Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -7628,6 +7628,79 @@
         "the Colab badge and active catalog target the notebook exactly once"
       ],
       "summary": "A self-contained two-fluid minimum-flow workbook for a long oil–gas–water flowline, covering three-phase fluid definition, undulating terrain, steady rate screening, sag accumulation diagnostics, multi-criterion boundary selection, operating margin, low-flow hold, restart recovery, mesh sensitivity, limitations, exercises, 24 engineering checks, six rendered equations, and six inspected figures."
+    },
+    {
+      "path": "notebooks/API/NeqSimPVTAPI.ipynb",
+      "verified_date": "2026-07-25",
+      "verified_at_utc": "2026-07-25T10:56:27Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "All 22 code cells were executed sequentially from an empty namespace in a newly created Python 3.12 virtual environment after python -m pip install --upgrade --no-cache-dir neqsim resolved public PyPI NeqSim 3.16.0. The in-process executor retained execution counts, tables, diagnostics, and six PNG figures and failed on any exception or stored stderr.",
+      "code_cells": 22,
+      "markdown_cells": 24,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic connector-backed fast-forward commit to the default branch",
+        "commit": "the commit containing this ledger entry",
+        "colab_validation_commit": "b3050524c8f04bbe4d97557ad2ea259f5c54fa81"
+      },
+      "pre_existing_examples_preserved": 6,
+      "preservation_note": "The pure-methane, defined-fluid, characterized SRK condensate, hybrid SRK/GERG, direct GERG-2008 gas, and CPA temperature-sweep use cases are all executable and integrated into a progressive PVT workflow.",
+      "pre_existing_figures_preserved": 0,
+      "figure_preservation_note": "The prior notebook contained no substantive visual outputs. Six reproducible engineering figures are retained from the final clean execution.",
+      "neqsim_capabilities_demonstrated": [
+        "SRK, GERG-2008, and CPA thermodynamic-system construction",
+        "unit-explicit TP flashes and physical-property initialization",
+        "named gas, oil, and aqueous phase-property retrieval",
+        "heavy-fraction characterization by molar mass and relative density",
+        "hybrid SRK equilibrium with normalized GERG-2008 gas-property evaluation",
+        "temperature and pressure sweeps with phase-closure and trend validation",
+        "phase interfacial-tension retrieval for the CPA fluid"
+      ],
+      "practical_application": "The final application compares representative results from six reusable PVT workflows and verifies composition closure, phase closure, model coverage, single-phase validity, density trends, and nonnegative interfacial tension.",
+      "retained_figures": {
+        "count": 6,
+        "previous_count": 0,
+        "new_count": 6,
+        "numerically_refreshed_previous_count": 0,
+        "purposes": [
+          "SRK methane density and compressibility at three pressure-temperature points",
+          "gas, oil, and aqueous phase split for the defined fluid",
+          "SRK gas-condensate phase split versus temperature at 50 bara",
+          "hybrid SRK and GERG-2008 gas-density comparison",
+          "GERG-2008 natural-gas density and heat capacity versus pressure",
+          "CPA phase split and maximum interfacial tension versus temperature"
+        ],
+        "visual_inspection": "Passed after final clean execution. All six PNG figures were inspected for titles, readable labels, explicit units, accessible colors, legends, clipping, overlap, physical trends, and agreement with stored tables."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 5,
+        "colab_verified_commit": "b3050524c8f04bbe4d97557ad2ea259f5c54fa81",
+        "source_rule": "Inline equations use $...$ and display equations use standalone $$ delimiter lines without blank lines inside the block; LaTeX commands use one backslash.",
+        "visual_inspection": "The exact staged notebook was opened in Google Colab. Composition closure, compressibility, phase closure, relative density difference, and interfacial tension rendered correctly with fractions, sums, subscripts, Greek symbols, inequalities, and units. No raw delimiters, malformed output, or clipping appeared."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 22 executed code cells and 24 substantive Markdown cells",
+        "execution counts are sequential from 1 through 22",
+        "zero exceptions, zero error outputs, and zero stored stderr",
+        "fresh no-cache public-PyPI installation resolved NeqSim 3.16.0",
+        "all six existing PVT use cases executed and remained independently documented",
+        "all 13 focused engineering assertions passed",
+        "the defined fluid resolved gas, oil, and aqueous phases and phase fractions closed",
+        "SRK condensate phase fractions closed throughout the temperature sweep",
+        "GERG mapping covered more than 98 percent of the SRK gas phase",
+        "SRK and GERG gas densities agreed within the stated 10 percent teaching bound",
+        "GERG gas density increased monotonically from 7.803 to 99.016 kg/m3 over 10 to 100 bara",
+        "the CPA sweep completed 100 TP flashes with finite nonnegative interfacial tension",
+        "maximum Python code-line length was 79 characters with no semicolon chains",
+        "five display equations rendered correctly in Google Colab",
+        "six figures passed visual and numerical-context inspection",
+        "the Colab badge and active catalog target the notebook exactly once"
+      ],
+      "summary": "A self-contained NeqSim PVT API tutorial covering SRK, GERG-2008, CPA, unit-aware TP flashes, phase-property tables, heavy-fraction characterization, model comparison, pressure and temperature sweeps, engineering validation, five rendered equations, and six inspected figures."
     }
   ]
 }
