@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-25T00:02:29Z",
+  "updated_at": "2026-07-25T00:45:40Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -6859,6 +6859,87 @@
         "colab_verified_commit": "this atomic publication commit",
         "source_rule": "Inline equations use $...$ and each display equation uses standalone $$ delimiter lines with blank lines around the block; LaTeX commands use one backslash.",
         "visual_inspection": "Passed through a Jupyter and Google-Colab-compatible MathJax SVG renderer. Fractions, sums, square roots, subscripts, superscripts, Greek symbols, dotted mass flow, pressure ratios, inequalities, and SI units displayed correctly."
+      }
+    },
+    {
+      "path": "notebooks/process/transient_multiphase_flow_tutorial.ipynb",
+      "verified_date": "2026-07-25",
+      "verified_at_utc": "2026-07-25T00:45:40Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "All 31 code cells were executed sequentially from a clean notebook state in a newly created Python 3.12 virtual environment using python -m pip install --upgrade --no-cache-dir neqsim. The public PyPI installation resolved NeqSim 3.16.0. The in-process executor retained stdout, tables, and nine SVG figures and failed on any cell exception or stored stderr.",
+      "code_cells": 31,
+      "markdown_cells": 25,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch fast-forward",
+        "commit": "this atomic publication commit"
+      },
+      "pre_existing_examples_preserved": 4,
+      "preservation_note": "Preserved all four substantive examples: the 1000 m horizontal transient flowline, terrain low-point liquid accumulation, Lagrangian slug-tracker statistics, and 200 m vertical-riser case. Unsupported top-level imports and obsolete TransientPipe construction were replaced with the current jneqsim TransientPipe, DriftFluxModel, LiquidAccumulationTracker, SlugTracker, Stream, Separator, and ProcessSystem APIs while retaining each example's engineering intent.",
+      "pre_existing_figures_preserved": 3,
+      "pre_existing_visuals_preserved": 3,
+      "figure_preservation_note": "All three original plot groups were retained and numerically refreshed with NeqSim 3.16.0: horizontal pressure/temperature/holdup/velocity profiles, terrain elevation/pressure/holdup diagnostics, and vertical-riser pressure/holdup profiles. Six new reproducible figures were added, for nine total stored SVG figures.",
+      "neqsim_capabilities_demonstrated": [
+        "SRK gas-condensate fluid construction, TP flash, and phase-property retrieval",
+        "named Stream objects with SI flow, temperature, and pressure specifications",
+        "TransientPipe mesh construction and incremental runTransient stepping",
+        "DriftFluxModel distribution coefficient, drift velocity, void fraction, slip ratio, and flow-regime retrieval",
+        "terrain profile specification and LiquidAccumulationTracker zone diagnostics",
+        "controlled Lagrangian SlugTracker injection, advancement, statistics, and mass bookkeeping",
+        "vertical-riser hydrostatic initial-state calculation",
+        "15, 30, and 60-section mesh sensitivity comparison",
+        "receiving Separator and ProcessSystem integration with phase-flow mass-balance checks"
+      ],
+      "practical_application": "A 300 m transient multiphase flowline feeds a receiving separator through a 3 to 5 to 3 kg/s inlet schedule. The model advances in 0.5 s increments to 6 s, retrieves inlet and outlet pressure plus liquid inventory, updates the separator with the pipe outlet, and verifies gas-plus-liquid outlet mass against the feed at every step.",
+      "retained_figures": {
+        "count": 9,
+        "previous_count": 3,
+        "new_count": 6,
+        "numerically_refreshed_previous_count": 3,
+        "purposes": [
+          "NeqSim transient multiphase workflow overview",
+          "horizontal pressure, temperature, holdup, and phase-velocity profiles",
+          "local drift-flux closure coefficients",
+          "synthetic terrain geometry and low point",
+          "terrain pressure and liquid-accumulation diagnostics",
+          "controlled slug-tracker advancement",
+          "vertical-riser initialized pressure and holdup profiles",
+          "three-mesh pressure-drop and holdup comparison",
+          "end-to-end flow-step and receiving-separator response"
+        ],
+        "visual_inspection": "Passed after the final clean vector-output execution. All nine SVG figures were rendered to 1200-pixel PNG inspection images and reviewed together and individually for descriptive titles, readable labels, explicit SI units, legends, accessible colors, clipping, overlap, scale, and consistency with stored numerical results and nearby interpretation."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 31 executed code cells and 25 substantive Markdown cells",
+        "all cells executed in order with counts 1 through 31, zero exceptions, zero error outputs, and zero stored stderr",
+        "fresh no-cache public-PyPI installation resolved NeqSim 3.16.0 in a newly created environment",
+        "all 33 focused engineering assertions passed",
+        "gas and oil phase fractions were 0.770105 and 0.229895 and summed to one",
+        "horizontal pressure decreased from 50.215594 to 49.895872 bara over 1000 m",
+        "horizontal mean liquid holdup was 0.021588 and all 50 cells were classified ANNULAR",
+        "terrain accumulation-zone volume remained finite, nonnegative, and below its maximum",
+        "controlled slug front and tail advanced downstream by 1.445268 m in 0.5 s with zero mass-bookkeeping error",
+        "vertical-riser pressure decreased by 1.867217 bar versus a 1.741736 bar mixture hydrostatic estimate",
+        "15, 30, and 60-section cases all returned finite positive pressure drop and bounded holdup",
+        "the high-rate application inlet pressure exceeded the baseline and separator mass residual stayed below 1e-8 kg/s",
+        "maximum Python code line length was 73 characters with no semicolon chains or compressed one-line compound teaching code",
+        "three display equations and 23 unique inline expressions used Colab-safe delimiters and rendered through MathJax",
+        "all nine retained SVG figures passed final visual and numerical-context review",
+        "the Colab badge points to the intended notebook path",
+        "the active catalog contains the notebook path exactly once"
+      ],
+      "summary": "Modernized the transient multiphase drift-flux tutorial into a self-contained NeqSim 3.16.0 lesson. It preserves the horizontal, terrain, slug-tracker, and riser examples while adding current APIs, explicit theory and validity limits, SI units, adaptive transient stepping, intermediate diagnostics, mesh sensitivity, an end-to-end pipe-to-separator application, 33 engineering checks, troubleshooting, exercises, references, and nine inspected figures.",
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 3,
+        "inline_expressions": 23,
+        "representative_unique_inline_rendered": 23,
+        "colab_verified_commit": "this atomic publication commit",
+        "source_rule": "Inline equations use $...$ and each display equation uses standalone $$ delimiter lines with blank lines around the block; LaTeX commands use one backslash.",
+        "visual_inspection": "Passed through a Jupyter and Google-Colab-compatible MathJax SVG renderer. Fractions, subscripts, superscripts, Greek symbols, drift terms, spatial and temporal derivatives, inequalities, and SI units displayed correctly."
       }
     }
   ]
