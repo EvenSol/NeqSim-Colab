@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-24T23:13:31Z",
+  "updated_at": "2026-07-25T00:02:29Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -6777,6 +6777,88 @@
         "colab_verified_commit": "this atomic publication commit",
         "source_rule": "Inline equations use $...$ and each display equation uses standalone $$ delimiter lines with blank lines around the block; LaTeX commands use one backslash.",
         "visual_inspection": "Passed through a Jupyter and Google-Colab-compatible MathJax SVG renderer. Fractions, subscripts, dotted mass flow, Greek rho and lambda, Delta variables, inequalities, superscripts, and SI units displayed correctly."
+      }
+    },
+    {
+      "path": "notebooks/template.ipynb",
+      "verified_date": "2026-07-25",
+      "verified_at_utc": "2026-07-25T00:02:29Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "All 19 code cells were executed sequentially from a clean notebook state in a newly created Python 3.12 virtual environment using python -m pip install --upgrade --no-cache-dir neqsim. The public PyPI installation resolved NeqSim 3.16.0. The in-process executor retained stdout, HTML video output, tables, and five PNG figures and failed on any cell exception or stored stderr.",
+      "code_cells": 19,
+      "markdown_cells": 22,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch fast-forward",
+        "commit": "this atomic publication commit"
+      },
+      "pre_existing_examples_preserved": 2,
+      "preservation_note": "Preserved both useful elements from the four-cell placeholder: the public NeqSim video introduction with identifier 3zU6pfFq9V0 and the ten-component ISO 6976 calorific-value calculation with its original reference settings. The wildcard setup and monolithic gas-quality cell were reorganized into explicit, reusable teaching steps without removing their engineering intent.",
+      "pre_existing_figures_preserved": 0,
+      "pre_existing_visuals_preserved": 1,
+      "figure_preservation_note": "The original notebook stored no plotted figure. Its externally hosted YouTube embed was preserved with the same identifier, direct-link fallback, privacy-enhanced embed, and explicit provenance. Five new reproducible engineering figures were generated from the final NeqSim 3.16.0 execution.",
+      "neqsim_capabilities_demonstrated": [
+        "SRK natural-gas fluid construction with classic mixing rule",
+        "TP flash and physical-property initialization",
+        "ISO 6976 gross and net calorific value, relative density, and Wobbe index",
+        "named Stream objects and explicit ProcessSystem composition",
+        "Mixer material and enthalpy-consistent gas blending",
+        "Compressor pressure and isentropic-efficiency specification",
+        "Cooler outlet-temperature specification and duty retrieval",
+        "nitrogen-dilution, pressure-ratio, and blend-fraction scenario analysis",
+        "mass-balance, standard-reconstruction, limiting-trend, pressure, and temperature checks"
+      ],
+      "practical_application": "A quality-controlled gas-export workflow preserves the original ten-component gas, adds a documented synthetic lean gas, selects the tested blend closest to a 50.0 MJ/Sm3 Wobbe target, mixes 10 kg/s at 50 bara, compresses to 100 bara at 78% isentropic efficiency, cools to 35 degC, and packages gas quality, power, duty, pressure, temperature, and balance results. The selected 0.40 rich-gas mass fraction gives 50.132126 MJ/Sm3 Wobbe, 1230.616535 kW power, and a -3.553e-15 kg/s mixer mass residual.",
+      "retained_figures": {
+        "count": 5,
+        "previous_count": 0,
+        "new_count": 5,
+        "numerically_refreshed_previous_count": 0,
+        "externally_sourced_previous_visual_count": 1,
+        "purposes": [
+          "NeqSim notebook calculation and validation workflow",
+          "grouped composition and ISO 6976 gas-quality comparison",
+          "gross calorific value and Wobbe response to nitrogen dilution",
+          "compressor power and discharge-temperature response to pressure target",
+          "rich/lean blend fraction, gas quality, target, and selected case"
+        ],
+        "visual_inspection": "Passed after final clean execution. All five stored PNG figures were extracted and inspected together and individually for descriptive titles, readable labels, explicit units, legends, accessible colors, clipping, overlap, numerical scale, and agreement with stored tables and nearby interpretation. The preserved video cell retained its HTML embed and direct-link fallback."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 19 executed code cells and 22 substantive Markdown cells",
+        "all cells executed in order with counts 1 through 19, zero exceptions, zero error outputs, and zero stored stderr",
+        "fresh no-cache public-PyPI installation resolved NeqSim 3.16.0 in a newly created environment",
+        "all 20 focused engineering assertions passed",
+        "the original input composition normalized to 1.000000000000",
+        "the original gas was single phase at 25 degC and 50 bara with finite positive density",
+        "original GCV, LCV, and Wobbe were 42.514968, 38.479513, and 52.825880 MJ/Sm3",
+        "independent Wobbe reconstruction matched the ISO 6976 result within 1e-9 MJ/Sm3",
+        "GCV and Wobbe both decreased monotonically over 0 to 12 mol% nitrogen",
+        "base and final mixer mass residuals were below 1e-9 kg/s",
+        "compressor power and outlet temperature increased monotonically from 70 to 120 bara",
+        "all blended Wobbe results remained between the lean and rich endmembers",
+        "selected rich-gas mass fraction was 0.40 and Wobbe was 50.132126 MJ/Sm3",
+        "the final application reached 100 bara and 35 degC at 10 kg/s",
+        "final compressor power was 1230.616535 kW and heat removal was 1.482783 MW",
+        "maximum Python code line length was 79 characters with no semicolon chains or compressed one-line compound teaching code",
+        "six display equations and 20 representative unique inline expressions used Colab-safe delimiters and rendered successfully through MathJax",
+        "all five stored PNG figures passed final visual and numerical-context review",
+        "the Colab badge points to the intended notebook path",
+        "the active catalog contains the notebook path exactly once",
+        "PyPI, NeqSim documentation, and ISO 6976 reference links resolved during validation"
+      ],
+      "summary": "Replaced the minimal contributor placeholder with a complete, current NeqSim Colab template. It preserves the original video and ISO 6976 example while adding explicit setup, audience and objectives, SRK theory, units, reusable fluid and quality helpers, streams and process equipment, gas blending, compression and cooling, three scenario studies, twenty engineering checks, troubleshooting, limitations, exercises, authoritative references, and five inspected figures.",
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 6,
+        "inline_expressions": 21,
+        "representative_unique_inline_rendered": 20,
+        "colab_verified_commit": "this atomic publication commit",
+        "source_rule": "Inline equations use $...$ and each display equation uses standalone $$ delimiter lines with blank lines around the block; LaTeX commands use one backslash.",
+        "visual_inspection": "Passed through a Jupyter and Google-Colab-compatible MathJax SVG renderer. Fractions, sums, square roots, subscripts, superscripts, Greek symbols, dotted mass flow, pressure ratios, inequalities, and SI units displayed correctly."
       }
     }
   ]
