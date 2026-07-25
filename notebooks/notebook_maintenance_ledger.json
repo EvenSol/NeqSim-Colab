@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-25T17:09:01Z",
+  "updated_at": "2026-07-25T18:23:25Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -1194,43 +1194,79 @@
     },
     {
       "path": "notebooks/PVT/readEclipseFormat.ipynb",
-      "verified_date": "2026-07-20",
-      "verified_at_utc": "2026-07-20T04:25:45.147Z",
+      "verified_date": "2026-07-25",
+      "verified_at_utc": "2026-07-25T18:23:25Z",
       "neqsim_version": "3.16.0",
       "python_version": "3.12.13",
       "java_version": "openjdk 17.0.19",
       "execution_status": "passed",
-      "execution_method": "isolated PyPI-only environment installed with python -m pip install --upgrade --no-cache-dir neqsim; all code cells executed sequentially in one isolated Python process after final formatting because the sandbox blocks local Jupyter kernel sockets; a redundant new-environment install attempt was blocked by a transient package-index proxy timeout",
-      "code_cells": 16,
-      "markdown_cells": 17,
+      "execution_method": "All 17 code cells were executed sequentially from an empty namespace in a newly created Python 3.12 virtual environment after python -m pip install --upgrade --no-cache-dir neqsim resolved public PyPI NeqSim 3.16.0. The clean in-process executor retained sequential execution counts, engineering tables, diagnostics, and four PNG figures and failed on any exception or stored stderr.",
+      "code_cells": 17,
+      "markdown_cells": 18,
       "publication": {
         "branch": "master",
-        "mode": "atomic direct-to-default-branch commit",
-        "commit": "this atomic commit"
+        "mode": "atomic connector-backed fast-forward publication to the default branch",
+        "commit": "the commit containing this ledger entry"
       },
       "key_checks": [
-        "replaced the 13-cell legacy Eclipse-fluid notebook with a 33-cell self-contained tutorial",
-        "all 16 code cells executed in order with zero exceptions, error outputs, or stderr",
-        "all 21 focused import, property, flash, balance, trend, serialization, and process assertions passed",
-        "valid nbformat 4 JSON, unique cell IDs, sequential execution counts, and no hidden state",
-        "teaching-readability gate passed with one statement per line, conventional indentation, descriptive names, no wildcard imports, Colab magics, semicolon tokens, or inline compound bodies, and code lines at most 79 characters",
-        "the complete notebook was re-executed after final formatting with NeqSim 3.16.0 from an isolated PyPI-only environment",
-        "Colab equation gate passed with four balanced display equations, standalone dollar delimiters, single-backslash LaTeX, no obsolete delimiters, successful nbconvert MathJax HTML generation, and a visually inspected equation render",
-        "three embedded SI-labelled engineering figures were visually inspected for readable axes, legends, and physically meaningful trends",
-        "removed shell magics, the external GitHub download, stale broad imports, unclosed file handling, overloaded cells, and unrestricted XStream deserialization",
-        "embedded the repository's public synthetic TEST Eclipse deck and verified all 12 required keyword groups and seven declared components",
-        "recovered component names, composition, molar masses, critical temperatures, and critical pressures exactly within 1e-10",
-        "the imported composition summed to exactly 1.0 mol/mol and the deck standard state was recovered at 15.0 degrees Celsius and 1.01325 bara",
-        "the 298.15 K and 100 bara TP flash produced 0.89132993 mol/mol gas with gas and oil densities of 98.96734 and 607.58398 kg/m3",
-        "phase fractions closed to one and the maximum flash component residual was below 1e-10 mol/mol",
-        "overall density increased monotonically across 20 to 200 bara while the phase split exposed physically plausible retrograde behaviour",
-        "gas fraction increased and overall density decreased monotonically from -10 to 100 degrees Celsius at 100 bara",
-        "the supported save_xml and open_xml round trip reproduced composition, density, and enthalpy exactly within reported precision without unrestricted permissions",
-        "the connected 10 kg/s stream-separator process produced 7.22574774 kg/s gas and 2.77425226 kg/s liquid with a -3.109e-15 kg/s mass residual",
-        "maximum separator pseudo-component residual was 2.132e-14 mol and light/heavy lump enrichment matched physical expectations",
-        "the Colab badge, four current NeqSim documentation links, original catalog path, and exactly-once front-page link were validated"
+        "valid nbformat 4 JSON with 17 executed code cells and 18 Markdown cells",
+        "execution counts are sequential from 1 through 17",
+        "zero exceptions, zero error outputs, and zero stored stderr",
+        "fresh no-cache public-PyPI installation resolved NeqSim 3.16.0",
+        "all 21 focused engineering assertions passed",
+        "teaching-code readability passed with a maximum code-line length of 79 characters",
+        "all seven pre-existing Eclipse import, flash, sensitivity, serialization, and process workflows remain",
+        "all 12 required Eclipse keyword groups and seven declared components were verified",
+        "component names, composition, molar masses, critical temperatures, and critical pressures were recovered with zero reported residual",
+        "the imported composition sums to 1.0 mol/mol and the standard state is 15.0 degrees Celsius and 1.01325 bara",
+        "the 298.15 K and 100 bara flash gives 0.89132993 mol/mol gas with gas and oil densities of 98.96734 and 607.58398 kg/m3",
+        "phase fractions close to one and the maximum flash component residual is 2.711e-20 mol/mol",
+        "overall density increases from 20 to 200 bara while the gas fraction captures the high-pressure retrograde response",
+        "gas fraction increases and overall density decreases monotonically from -10 to 100 degrees Celsius at 100 bara",
+        "XML serialization reproduces composition, density, and enthalpy with zero reported residual",
+        "the separator total mass residual is -3.109e-15 kg/s and maximum component residual is 2.132e-14 mol",
+        "four display equations and 13 inline expressions render correctly with MathJax",
+        "four embedded figures passed full-resolution visual inspection",
+        "the Colab badge, catalog target, and maintenance-ledger path are each present exactly once"
       ],
-      "summary": "Modernized the foundational Eclipse-fluid import notebook by replacing network-dependent and insecure legacy code with a self-contained current-API tutorial. It covers Eclipse keyword structure, SRK theory, synthetic deck provenance, exact property recovery, TP flashes, phase and component closure, pressure and temperature sensitivity, safe XML serialization, connected stream and separator integration, mass and component balances, phase enrichment, limitations, troubleshooting, references, exercises, assertions, and embedded outputs."
+      "summary": "A self-contained Eclipse compositional-fluid tutorial covering SRK deck structure and provenance, exact property recovery, TP flashes, phase and component closure, pressure and temperature sensitivities, supported XML serialization, connected high-pressure separation, 21 engineering checks, four display equations, 13 inline expressions, and four inspected figures.",
+      "pre_existing_examples_preserved": 7,
+      "preservation_note": "All seven existing workflows remain: Eclipse keyword recognition, current SRK import, component-property audit, phase-aware TP flash and closure, pressure sensitivity, temperature sensitivity, supported XML round-trip serialization, and connected stream/separator reuse.",
+      "repairs_made": [
+        "added explicit Eclipse section separators around OMEGAA and OMEGAB so the NeqSim 3.16.0 reader terminates each preceding property block correctly",
+        "kept the synthetic TEST deck embedded so clean Colab execution has no external data download",
+        "added a reproducible NeqSim object-and-solver workflow figure while retaining and recalculating the three existing engineering plots",
+        "aligned the final validation message with the repository notebook checker and refreshed every stored output"
+      ],
+      "neqsim_capabilities_demonstrated": [
+        "readEclipseFluid import of a seven-lump SRK compositional deck with exact source-property recovery",
+        "phase-aware TP flash, component closure, phase fractions, density, and enthalpy",
+        "independent pressure and temperature sensitivities from cloned fluid states",
+        "save_xml and open_xml round-trip identity for composition, density, and enthalpy",
+        "named Stream and Separator process integration with total and component material balances"
+      ],
+      "practical_application": "A 10 kg/s imported reservoir fluid at 298.15 K and 100 bara is separated into 7.22574774 kg/s gas and 2.77425226 kg/s liquid. The total mass residual is -3.109e-15 kg/s, the maximum pseudo-component residual is 2.132e-14 mol, and the light/heavy lump enrichments follow physical expectations.",
+      "retained_figures": {
+        "count": 4,
+        "previous_count": 3,
+        "new_count": 1,
+        "numerically_refreshed_previous_count": 3,
+        "purposes": [
+          "Eclipse-deck to NeqSim-fluid and process workflow",
+          "pressure sensitivity of gas fraction and overall density",
+          "temperature sensitivity of gas fraction and overall density",
+          "separator feed, gas, and liquid pseudo-component compositions"
+        ],
+        "visual_inspection": "Passed after final clean execution. All four PNG figures were extracted and inspected at full resolution; titles, axes, units, legends, labels, colors, logarithmic scaling, and physical trends are readable without clipping or overlap."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 4,
+        "inline_expressions": 13,
+        "rendered_math_objects": 17,
+        "source_rule": "Inline equations use $...$ and display equations use standalone $$ delimiter lines; all LaTeX commands use one backslash.",
+        "visual_inspection": "All four display equations and 13 inline expressions were rendered with MathJax to SVG and visually inspected with zero parser errors, raw delimiters, clipping, or malformed symbols."
+      }
     },
     {
       "path": "notebooks/power/ammonia_power_generation.ipynb",
