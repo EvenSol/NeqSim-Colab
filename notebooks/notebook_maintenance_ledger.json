@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-25T14:13:24Z",
+  "updated_at": "2026-07-25T15:26:22Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -7954,6 +7954,85 @@
         "the Colab badge and active catalog target the notebook exactly once"
       ],
       "summary": "A standalone food-waste-to-biomethane tutorial covering empirical anaerobic digestion, thermodynamic streams, four gas-upgrading technologies, mass closure, reactor and grid-pressure sensitivities, an integrated biomethane-to-grid module, sustainability metrics, 20 engineering checks, eight display equations, and six inspected figures."
+    },
+    {
+      "path": "notebooks/process/MEGwaterprocess.ipynb",
+      "verified_date": "2026-07-25",
+      "verified_at_utc": "2026-07-25T15:26:22Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "All 21 code cells were executed sequentially from an empty namespace in a newly created Python 3.12 virtual environment after python -m pip install --upgrade --no-cache-dir neqsim resolved public PyPI NeqSim 3.16.0. The clean in-process executor retained sequential execution counts, result tables, diagnostics, and six PNG figures and failed on any exception or stored stderr.",
+      "code_cells": 21,
+      "markdown_cells": 24,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic connector-backed fast-forward commit to the default branch",
+        "commit": "the commit containing this ledger entry",
+        "colab_validation_commit": "7ed073af03d9b2145f02d3392969cab964370583"
+      },
+      "pre_existing_examples_preserved": 1,
+      "preservation_note": "The original gas and 50 wt% water-MEG contact example, multiphase TP flash, phase-property table, hydrate-temperature calculation, and treated-gas cooling sweep are retained and integrated into the complete workflow.",
+      "repairs_made": [
+        "used the current public PyPI package and supported NeqSim CPA, flash, hydrate, stream, valve, heater, separator, and ProcessSystem APIs",
+        "made temperature, pressure, composition, flow, duty, and concentration units explicit",
+        "added independent total, water, and MEG material-balance closure and focused physical-trend checks",
+        "added hydrate-margin, contact-solution, cold-dropout, regeneration, and practical design sensitivities"
+      ],
+      "pre_existing_figures_preserved": 0,
+      "pre_existing_visuals_preserved": 0,
+      "figure_preservation_note": "The original notebook contained no figure, image, diagram, map, animation, or other substantive visual. Six reproducible technical figures were generated from the final calculation state.",
+      "neqsim_capabilities_demonstrated": [
+        "CPA fluid construction with water and monoethylene glycol and the CPA mixing rule",
+        "multiphase TP flash and gas-aqueous phase extraction",
+        "native hydrate-equilibrium temperature calculation",
+        "named Stream, Valve, Heater, Separator, and ProcessSystem configuration",
+        "rich-MEG pressure reduction, heating, regeneration separation, and lean/overhead stream retrieval",
+        "gas-cooling aqueous-dropout, MEG-concentration, pressure, and regeneration-temperature sensitivities"
+      ],
+      "practical_application": "A 50 bara wet gas is contacted with aqueous MEG, flashed into gas and aqueous phases, cooled to quantify residual liquid dropout, and connected to a rich-MEG regeneration train. MEG concentration and pressure define the hydrate boundary, while reboiler temperature defines lean-MEG strength, overhead loss, and specific duty. An illustrative 40 wt% contact solution gives a 1.468 degC hydrate boundary and a 3.532 K operating margin at 5 degC; a 135 degC reboiler produces 83.403 wt% lean MEG at 1143.497 kJ/kg rich solution.",
+      "retained_figures": {
+        "count": 6,
+        "previous_count": 0,
+        "new_count": 6,
+        "numerically_refreshed_previous_count": 0,
+        "purposes": [
+          "gas and aqueous phase mass allocation after MEG contact",
+          "connected gas-contact, cooling, and MEG-regeneration workflow",
+          "treated-gas cooling liquid dropout and aqueous composition",
+          "regeneration temperature, lean-MEG concentration, overhead loss, and specific-duty trade-offs",
+          "hydrate-equilibrium temperature versus MEG concentration",
+          "hydrate-equilibrium temperature versus pressure and MEG concentration"
+        ],
+        "visual_inspection": "Passed after final clean execution. All six PNG figures were extracted and inspected at full resolution. Titles, axes, explicit units, legends, accessible colors, scales, annotations, and numerical context are readable; no clipping, overlap, stale output, or misleading scale was found."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 6,
+        "unique_inline_expressions": 10,
+        "rendered_math_objects_in_colab": 16,
+        "colab_verified_commit": "7ed073af03d9b2145f02d3392969cab964370583",
+        "source_rule": "Inline equations use $...$ and display equations use standalone $$ delimiter lines without blank lines inside the block; all LaTeX commands use one backslash.",
+        "visual_inspection": "The exact staged revision was opened in Google Colab. All six display equations and ten inline MathJax objects rendered without MathJax errors or visible raw delimiters. Fractions, summations, dotted rates, Greek symbols, subscripts, phase superscripts, and hydrate-margin notation were visually confirmed."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 21 executed code cells and 24 substantive Markdown cells",
+        "execution counts are sequential from 1 through 21",
+        "zero exceptions, zero error outputs, and zero stored stderr",
+        "fresh no-cache public-PyPI installation resolved NeqSim 3.16.0",
+        "all 14 focused engineering assertions passed",
+        "all total, water, and MEG material-balance residuals are below 1.0e-10 relative",
+        "MEG lowers the hydrate-equilibrium temperature at every tested pressure",
+        "hydrate-equilibrium temperature increases with pressure at every tested MEG concentration",
+        "treated-gas aqueous dropout is finite and trends consistently over the cooling sweep",
+        "lean-MEG concentration and regeneration duty vary consistently with reboiler temperature",
+        "maximum Python code-line length is 88 characters with no semicolon chains or compressed compound bodies",
+        "six display equations and ten inline objects rendered without errors in Google Colab",
+        "six figures passed full-resolution visual and numerical-context inspection",
+        "the Colab badge and active catalog target the notebook exactly once"
+      ],
+      "summary": "A standalone MEG hydrate-inhibition and regeneration tutorial covering CPA phase equilibrium, gas-aqueous contact, treated-gas cooling and dropout, native hydrate envelopes, a connected rich-MEG regeneration process, material balances, design sensitivities, 14 engineering checks, six display equations, and six inspected figures."
     }
   ]
 }
