@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-25T12:15:35Z",
+  "updated_at": "2026-07-25T13:18:33Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -7785,6 +7785,93 @@
         "the Colab badge and active catalog target the notebook exactly once"
       ],
       "summary": "A standalone mineral-scale engineering tutorial covering rigorous Electrolyte-CPA aqueous speciation, SR and SI interpretation, water-chemistry sensitivities, incompatible-brine mixing, flowline risk profiles, inhibitor screening, connected multiphase hydraulics, deposition feedback, 27 engineering checks, six rendered equations, and seven inspected figures."
+    },
+    {
+      "path": "notebooks/process/process_control_with_neqsim_v2.ipynb",
+      "verified_date": "2026-07-25",
+      "verified_at_utc": "2026-07-25T13:18:33Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "All 24 code cells were executed sequentially from an empty namespace in a newly created Python 3.12 virtual environment after python -m pip install --upgrade --no-cache-dir neqsim resolved public PyPI NeqSim 3.16.0. The clean in-process executor retained sequential execution counts, tables, diagnostics, and eight compact PNG figures and failed on any exception or stored stderr.",
+      "code_cells": 24,
+      "markdown_cells": 22,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic connector-backed fast-forward commit to the default branch",
+        "commit": "the commit containing this ledger entry",
+        "colab_validation_commit": "56764fb885c6d7433baa7ccc3d7e12843358b830"
+      },
+      "pre_existing_examples_preserved": 8,
+      "preservation_note": "All eight substantive learning elements remain represented: two introductory control videos, native separator pressure and level control, two-stage separation with flash-gas recompression, cascade pressure-to-flow control, ratio control, PI step-response tuning, and measurement-noise filtering. They are integrated into one progression from feedback fundamentals to the end-to-end process application.",
+      "repairs_made": [
+        "used the current getControllerSetPoint API in the cascade workflow",
+        "provided physically valid valve pressure drops and bounded updates in the ratio-control case",
+        "removed the nonexistent valve setCalculate call from the tuning example",
+        "paired each two-stage level controller with its downstream liquid valve and applied throughput disturbances through the inlet-valve opening",
+        "used a current conditional PyPI setup and explicit supported NeqSim imports"
+      ],
+      "pre_existing_figures_preserved": 5,
+      "pre_existing_visuals_preserved": 5,
+      "figure_preservation_note": "The combined separator response, two separator-level trends, compressor-speed trend, and transmitter-noise plot were recomputed with the final supported model. A workflow diagram, cascade-and-ratio comparison, and PI-tuning comparison were added.",
+      "neqsim_capabilities_demonstrated": [
+        "SystemSrkEos fluid construction and named stream connections",
+        "ThrottlingValve, Separator, Compressor, Mixer, and generated CompressorChart equipment",
+        "LevelTransmitter, PressureTransmitter, and VolumeFlowTransmitter measurement devices",
+        "ControllerDeviceBaseClass setpoints, parameters, action, and actuator limits",
+        "ProcessSystem steady initialization and runTransient dynamic integration",
+        "native pressure and level feedback loops",
+        "supervisory cascade and ratio control",
+        "PI tuning comparison and transmitter-noise filtering"
+      ],
+      "practical_application": "A two-stage oil-and-gas separation train connects dynamic separator inventories, interstage and product liquid valves, flash-gas recompression, pressure measurement, compressor-speed control, and export-gas mixing. Inlet-valve disturbances produce verified feed steps from 200 to 140 and 260 kg/h while both liquid levels remain physical and the recompressor operates near 3011-3014 rpm.",
+      "retained_figures": {
+        "count": 8,
+        "previous_count": 5,
+        "new_count": 3,
+        "numerically_refreshed_previous_count": 5,
+        "purposes": [
+          "closed-loop NeqSim control workflow",
+          "separator level and pressure setpoint and disturbance response",
+          "stage-one separator level response",
+          "stage-two separator level response",
+          "flash-gas recompressor speed response",
+          "cascade pressure-to-flow and ratio-control performance",
+          "PI tuning response and integrated-absolute-error comparison",
+          "pressure-transmitter noise and moving-average filtering"
+        ],
+        "visual_inspection": "Passed after final clean execution. All eight PNG figures were extracted and inspected at full resolution for descriptive titles, readable labels, explicit units, accessible colors, legends, clipping, overlap, appropriate scales, physical trends, and consistency with the tables and narrative."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 6,
+        "unique_inline_expressions": 16,
+        "rendered_math_objects_in_colab": 22,
+        "colab_verified_commit": "56764fb885c6d7433baa7ccc3d7e12843358b830",
+        "source_rule": "Inline equations use $...$ and display equations use standalone $$ delimiter lines without blank lines inside the block; all LaTeX commands use one backslash.",
+        "visual_inspection": "The exact staged revision was opened in Google Colab. All six display equations and 22 total MathJax objects rendered without raw delimiters or MathJax errors. Fractions, integrals, Greek symbols, subscripts, superscripts, absolute values, and operator text were visually confirmed."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 24 executed code cells and 22 substantive Markdown cells",
+        "execution counts are sequential from 1 through 24",
+        "zero exceptions, zero error outputs, and zero stored stderr",
+        "fresh no-cache public-PyPI installation resolved NeqSim 3.16.0",
+        "all 14 focused engineering assertions passed",
+        "separator level and pressure remained finite, positive, physical, and bounded",
+        "liquid and gas valve openings remained within configured limits",
+        "both two-stage separator levels remained physical and compressor speed remained positive",
+        "the inlet valve delivered the intended 140 and 260 kg/h throughput disturbances",
+        "cascade pressure approached its target with a bounded inner flow setpoint",
+        "ratio control recovered the requested 0.5 flow ratio after disturbance",
+        "responsive PI tuning reduced integrated absolute error relative to conservative tuning",
+        "the filtered transmitter signal had lower standard deviation than the raw signal",
+        "maximum Python code-line length was 77 characters with no semicolon chains or compressed compound bodies",
+        "six display equations and 22 total math objects rendered without errors in Google Colab",
+        "eight figures passed visual and numerical-context inspection",
+        "the Colab badge and active catalog target the notebook exactly once"
+      ],
+      "summary": "A standalone dynamic process-control tutorial covering native NeqSim feedback loops, two-stage separation and flash-gas recompression, cascade and ratio control, PI tuning, transmitter noise and filtering, 14 engineering checks, six rendered equations, and eight inspected figures."
     }
   ]
 }
