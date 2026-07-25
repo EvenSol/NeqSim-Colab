@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-25T00:45:40Z",
+  "updated_at": "2026-07-25T01:14:24Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -6940,6 +6940,85 @@
         "colab_verified_commit": "this atomic publication commit",
         "source_rule": "Inline equations use $...$ and each display equation uses standalone $$ delimiter lines with blank lines around the block; LaTeX commands use one backslash.",
         "visual_inspection": "Passed through a Jupyter and Google-Colab-compatible MathJax SVG renderer. Fractions, subscripts, superscripts, Greek symbols, drift terms, spatial and temporal derivatives, inequalities, and SI units displayed correctly."
+      }
+    },
+    {
+      "path": "notebooks/process/GasCompressorTrain.ipynb",
+      "verified_date": "2026-07-25",
+      "verified_at_utc": "2026-07-25T01:14:24Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "All 34 code cells were executed sequentially from an empty notebook namespace in a newly created Python 3.12 virtual environment after python -m pip install --upgrade --no-cache-dir neqsim resolved the public PyPI NeqSim 3.16.0 release. The executor retained stdout, tables, the external video preview, and six SVG figures and failed on any cell exception or stored stderr.",
+      "code_cells": 34,
+      "markdown_cells": 26,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch fast-forward",
+        "commit": "this atomic publication commit"
+      },
+      "pre_existing_examples_preserved": 17,
+      "preservation_note": "Preserved all 17 substantive original calculations: two-stage export compression, ISO 6976 fuel-gas equivalent, isentropic/polytropic comparison, shortcut power, detailed EoS integration, alternate correction method, method comparison, Campbell SRK case, map setup and interpolation, map-based two-stage train, operating sensitivities, GERG-2008 calculation, property profiles, lift-curve inversion and grid, compressor-map antisurge setup, custom recycle calculator, and the connected recycle process. The SciPy optimizer input was repaired with explicit scalar extraction; no original example was removed.",
+      "pre_existing_figures_preserved": 3,
+      "pre_existing_visuals_preserved": 4,
+      "figure_preservation_note": "Preserved and numerically refreshed the original compressor-map plot plus separate density and temperature path plots. The externally hosted Asgard compression video was retained with its original YouTube identifier. Three new reproducible figures were added: process workflow, lift-curve pressure grid, and the three-panel export/recycle/power/surge-margin comparison.",
+      "neqsim_capabilities_demonstrated": [
+        "SRK multicomponent fluid construction and phase/property calculations",
+        "ISO 6976 calorific value, Wobbe index, and relative-density calculation",
+        "isentropic, polytropic, detailed EoS, Schultz, and simplified compressor methods",
+        "GERG-2008 compressor property calculation for a supported natural-gas mixture",
+        "compressor chart speed lines, surge curve, interpolation, and operating-point retrieval",
+        "two-stage compressors connected through coolers and phase separation",
+        "detailed compressor property-profile activation and retrieval",
+        "SciPy least-squares inversion around NeqSim compressor calculations",
+        "Stream, Mixer, Compressor, Cooler, Separator, Splitter, Valve, Recycle, and ProcessSystem integration",
+        "custom Python unit operation for recycle-based antisurge logic"
+      ],
+      "practical_application": "A fresh natural-gas stream and recycle stream are mixed, compressed from 55 to 90 bara, cooled to 30 degC, separated, split between export and recycle, throttled to suction pressure, and converged in a ProcessSystem. Six feed-rate scenarios quantify export, recycle, power, and surge margin; the notebook accepts 6.0 MSm3/day and above and explicitly rejects the prototype controller at 0.5 to 2.2 MSm3/day because calculated surge margin remains negative.",
+      "retained_figures": {
+        "count": 6,
+        "previous_count": 3,
+        "new_count": 3,
+        "numerically_refreshed_previous_count": 3,
+        "externally_sourced_previous_visual_count": 1,
+        "purposes": [
+          "compressor-train object and solver workflow",
+          "synthetic speed lines, surge curve, and calculated operating point",
+          "density along the detailed SRK compressor path",
+          "temperature along the detailed SRK compressor path",
+          "solved inlet-pressure heat map for the 320-case lift-curve grid",
+          "export, recycle, power, and surge-margin response across six feed rates"
+        ],
+        "visual_inspection": "Passed after final clean execution. All six stored SVG figures were rendered to 1200-pixel PNG images and reviewed together and individually for titles, readable labels, explicit units, legends, accessible colors, clipping, overlap, scale, and agreement with stored tables and nearby interpretation. The retained video preview was also verified."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 34 executed code cells and 26 substantive Markdown cells",
+        "all cells executed in order with counts 1 through 34, zero exceptions, zero error outputs, and zero stored stderr",
+        "fresh no-cache public-PyPI installation resolved NeqSim 3.16.0 in a newly created environment",
+        "all 11 final engineering assertions passed",
+        "two-stage compressor powers were 4.668918 and 2.905747 MW",
+        "total train power was 7.574665 MW and illustrative fuel-gas equivalent was 2403.892350 Sm3/hr",
+        "detailed, Schultz, and simple compressor powers were 4.654969, 4.668262, and 4.695651 MW",
+        "the lift-curve grid contained 320 finite solutions within the 3.5 pressure-ratio bound",
+        "normal-rate scenarios at 6.0 MSm3/day and above had positive calculated surge margin",
+        "deep-turndown scenarios at 0.5 to 2.2 MSm3/day were correctly detected below the surge line",
+        "the connected compressor reached its 90 bara outlet-pressure target",
+        "maximum Python code line length was 100 characters with no semicolon chains or compressed one-line compound teaching code",
+        "four display equations and six representative unique inline expressions rendered through MathJax",
+        "all three previous figures and three new figures passed visual and numerical-context review",
+        "the Colab badge points to the intended notebook path",
+        "the active catalog contains the notebook path exactly once"
+      ],
+      "summary": "Modernized the natural-gas compressor-train notebook into a self-contained NeqSim 3.16.0 tutorial. It preserves all original calculations and visuals while adding explicit setup, audience and objectives, governing equations, method selection, SI units, interpretation, an end-to-end recycle process, lift and turndown sensitivities, engineering acceptance checks, troubleshooting, limitations, exercises, authoritative references, and six figures.",
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 4,
+        "inline_expressions": 7,
+        "representative_unique_inline_rendered": 6,
+        "colab_verified_commit": "this atomic publication commit",
+        "source_rule": "Inline equations use $...$ and each display equation uses standalone $$ delimiter lines with blank lines around the block; LaTeX commands use one backslash.",
+        "visual_inspection": "Passed through a Jupyter and Google-Colab-compatible MathJax SVG renderer. Fractions, subscripts, superscripts, dotted mass flow, Greek efficiency, pressure ratios, and surge distance rendered correctly."
       }
     }
   ]
