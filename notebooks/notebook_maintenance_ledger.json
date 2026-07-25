@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-25T15:26:22Z",
+  "updated_at": "2026-07-25T16:16:21Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -8033,6 +8033,87 @@
         "the Colab badge and active catalog target the notebook exactly once"
       ],
       "summary": "A standalone MEG hydrate-inhibition and regeneration tutorial covering CPA phase equilibrium, gas-aqueous contact, treated-gas cooling and dropout, native hydrate envelopes, a connected rich-MEG regeneration process, material balances, design sensitivities, 14 engineering checks, six display equations, and six inspected figures."
+    },
+    {
+      "path": "notebooks/material/corrosionandthermo.ipynb",
+      "verified_date": "2026-07-25",
+      "verified_at_utc": "2026-07-25T16:16:21Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "All 22 code cells were executed sequentially from an empty namespace in a newly created Python 3.12 virtual environment after python -m pip install --upgrade --no-cache-dir neqsim resolved public PyPI NeqSim 3.16.0. The clean in-process executor retained sequential execution counts, engineering tables, diagnostics, and six PNG figures and failed on any exception or stored stderr.",
+      "code_cells": 22,
+      "markdown_cells": 22,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic connector-backed fast-forward commit to the default branch",
+        "commit": "the commit containing this ledger entry",
+        "colab_validation_commit": "812fcbd4cfa0c1fea688de976f080983638dbe4a"
+      },
+      "pre_existing_examples_preserved": 3,
+      "preservation_note": "All three original learning blocks remain: the four corrosion inhibitor families and corrosion-scale video, the five electrochemical and chemical reaction examples, and the Electrolyte-CPA gas-water-ion flash with aqueous pH, ion composition, relative salt solubility, and phase results. They are integrated into the progression from thermodynamics to integrity assessment.",
+      "repairs_made": [
+        "used the current public PyPI package and supported Electrolyte-CPA, reactive TP flash, corrosion, material, sour-service, Stream, and PipeBeggsAndBrills APIs",
+        "made temperature, pressure, flow, concentration, rate, density, viscosity, and corrosion-loss units explicit",
+        "reformatted every reaction and governing equation for Google Colab MathJax and removed code-fenced equations",
+        "added free-water applicability gating, model-factor diagnostics, physical trend checks, and a connected flowline-to-integrity application"
+      ],
+      "pre_existing_figures_preserved": 0,
+      "pre_existing_visuals_preserved": 0,
+      "figure_preservation_note": "The original notebook contained no figure, image, diagram, map, animation, or other substantive visual. Six reproducible technical figures were generated from the final calculation state.",
+      "neqsim_capabilities_demonstrated": [
+        "Electrolyte-CPA fluid construction, chemical reaction initialization, electrolyte mixing rule 10, multiphase TP flash, physical-property initialization, and aqueous pH",
+        "aqueous ion composition and thermodynamic relative salt solubility retrieval",
+        "CO2CorrosionAnalyzer free-water, pH, CO₂ partitioning, de Waard-Milliams rate, severity, and phase diagnostics",
+        "NorsokM506CorrosionRate baseline, pH, FeCO₃ scale, flow, glycol, inhibitor, fugacity, and wall-shear calculations",
+        "MechanisticCorrosionModel kinetic, mass-transfer, mixed control, Reynolds, Schmidt, Sherwood, and Langmuir inhibitor calculations",
+        "NorsokM001MaterialSelection and SourServiceAssessment screening",
+        "CPA Stream and PipeBeggsAndBrills pressure, temperature, velocity, and liquid-holdup profiles"
+      ],
+      "practical_application": "A 20 kg/s wet production fluid enters a 20 km, 0.30 m internal-diameter flowline at 120 bara and 60 degC. PipeBeggsAndBrills predicts 115.085 bara and 6.475 degC at the outlet. Segment-by-segment NORSOK M-506 screening couples the hydraulic temperature, pressure, and mixture-velocity profiles to uninhibited and 90%-inhibited rates. The maximum screened 25-year inhibited uniform loss is 69.079 mm at the inlet, so the material selector recommends 22Cr duplex stainless steel rather than treating the inhibitor assumption as a sufficient carbon-steel design basis.",
+      "retained_figures": {
+        "count": 6,
+        "previous_count": 0,
+        "new_count": 6,
+        "numerically_refreshed_previous_count": 0,
+        "purposes": [
+          "fluid-to-integrity NeqSim calculation workflow and object relationships",
+          "Electrolyte-CPA aqueous ion composition on a log concentration scale",
+          "NORSOK M-506 pH, scale, flow, and glycol correction factors",
+          "temperature, mixture-velocity, and gas-CO₂ corrosion-rate sensitivities",
+          "Langmuir inhibitor dose, temperature, inhibited rate, and surface-coverage response",
+          "coupled 20 km pressure, temperature, liquid-holdup, and inhibited/uninhibited corrosion profiles"
+        ],
+        "visual_inspection": "Passed after final clean execution. All six PNG figures were extracted and inspected at full resolution. Titles, axes, explicit units, legends, accessible colors, scales, and numerical context are readable; no clipping, overlap, stale output, or misleading scale was found."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 11,
+        "unique_inline_expressions": 15,
+        "rendered_math_objects_in_colab": 26,
+        "colab_verified_commit": "812fcbd4cfa0c1fea688de976f080983638dbe4a",
+        "source_rule": "Inline equations use $...$ and display equations use standalone $$ delimiter lines without blank lines inside the block; all LaTeX commands use one backslash.",
+        "visual_inspection": "The exact staged revision was opened in Google Colab. All 11 display equations and 15 inline MathJax objects rendered with zero MathJax errors and zero visible raw delimiters. Reaction arrows, charges, fractions, Greek symbols, subscripts, superscripts, mixed-control terms, and adsorption notation were visually confirmed."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 22 executed code cells and 22 substantive Markdown cells",
+        "execution counts are sequential from 1 through 22",
+        "zero exceptions, zero error outputs, and zero stored stderr",
+        "fresh no-cache public-PyPI installation resolved NeqSim 3.16.0",
+        "all 18 focused engineering assertions passed",
+        "Electrolyte-CPA produced gas and aqueous phases with finite pH 4.7937",
+        "the wet thermodynamic case contains free water and the single-phase dry-gas case is applicability-gated",
+        "the mechanistic mixed-control rate is below both limiting rates and inhibitor coverage remains between zero and one",
+        "CO₂ sensitivity increases from the lowest to highest tested concentration",
+        "flowline pressure and temperature decrease along the line and all hydraulic and corrosion arrays align",
+        "specified inhibition reduces every segment rate while all rates remain finite and non-negative",
+        "maximum Python code-line length is 83 characters with no semicolon chains or compressed compound bodies",
+        "11 display equations and 15 inline objects rendered without errors in Google Colab",
+        "six figures passed full-resolution visual and numerical-context inspection",
+        "the Colab badge and active catalog target the notebook exactly once"
+      ],
+      "summary": "A standalone CO₂-corrosion and inhibition tutorial covering Electrolyte-CPA aqueous chemistry, thermodynamic free-water screening, NORSOK M-506 correction factors, mechanistic mixed control, Langmuir inhibitor response, material and sour-service selection, a coupled Beggs-Brill flowline integrity profile, 18 engineering checks, 11 display equations, and six inspected figures."
     }
   ]
 }
