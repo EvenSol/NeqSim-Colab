@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-25T01:14:24Z",
+  "updated_at": "2026-07-25T01:43:30Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -7019,6 +7019,86 @@
         "colab_verified_commit": "this atomic publication commit",
         "source_rule": "Inline equations use $...$ and each display equation uses standalone $$ delimiter lines with blank lines around the block; LaTeX commands use one backslash.",
         "visual_inspection": "Passed through a Jupyter and Google-Colab-compatible MathJax SVG renderer. Fractions, subscripts, superscripts, dotted mass flow, Greek efficiency, pressure ratios, and surge distance rendered correctly."
+      }
+    },
+    {
+      "path": "notebooks/process/onlineprocesssimulation.ipynb",
+      "verified_date": "2026-07-25",
+      "verified_at_utc": "2026-07-25T01:43:30Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "All 18 code cells were executed sequentially from an empty notebook namespace in a newly created Python 3.12 virtual environment after python -m pip install --upgrade --no-cache-dir neqsim resolved the public PyPI NeqSim 3.16.0 release. The executor retained stdout, tables, and five SVG figures and failed on any cell exception or stored stderr.",
+      "code_cells": 18,
+      "markdown_cells": 31,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch fast-forward",
+        "commit": "this atomic publication commit"
+      },
+      "pre_existing_examples_preserved": 3,
+      "preservation_note": "Preserved all three substantive original examples: the base water-saturated three-stage oil-stabilization and recompression process, the second run after changing online setpoints, and the historian-driven repeated calculation. The unavailable Windows CSV and placeholder tags were replaced by a documented synthetic historian table. The medium-pressure separator gas was connected to the recompression train and the export cooler was reconnected to the second export-compressor discharge; no original use case was removed.",
+      "pre_existing_figures_preserved": 0,
+      "pre_existing_visuals_preserved": 0,
+      "figure_preservation_note": "The original notebook had no reproducible or stored visual output. Five new NeqSim-connected figures were executed, retained as SVG, and inspected.",
+      "neqsim_capabilities_demonstrated": [
+        "Peng-Robinson well-fluid construction with nine named components and eight TBP fractions",
+        "classic mixing rule, water saturation, and phase-equilibrium process calculations",
+        "named Stream, Heater, Valve, ThreePhaseSeparator, Separator, Mixer, Compressor, Cooler, Pump, Recycle, and ProcessSystem objects",
+        "three-stage oil stabilization and two-stage flash-gas recompression",
+        "two-stage export compression to 200 bara with intercooling",
+        "stable-oil true vapor pressure and export-gas cricondenbar calculation",
+        "in-place process setpoint updates and repeated recycle convergence",
+        "heater-temperature sensitivity and synthetic historian replay"
+      ],
+      "practical_application": "A characterized wet well fluid is conditioned from 180 bara to a 75/8.6/1.9 bara stabilization train. Low- and medium-pressure flash gas is recompressed, mixed with high-pressure gas, scrubbed, and compressed through 140 to 200 bara. The same named NeqSim objects are then reused for the original 11.1 MSm3/day input change, a five-point heater sensitivity, and six validated historian rows.",
+      "retained_figures": {
+        "count": 5,
+        "previous_count": 0,
+        "new_count": 5,
+        "numerically_refreshed_previous_count": 0,
+        "purposes": [
+          "oil-stabilization equipment and material-flow overview",
+          "oil and gas pressure paths through stabilization, recompression, and export",
+          "normalized base versus changed-input mass-rate and power comparison",
+          "oil-heater temperature effects on TVP and heater duty",
+          "historian feed trend with calculated compressor power and oil TVP"
+        ],
+        "visual_inspection": "Passed after final clean execution. All five stored SVG figures were rendered to 1400-pixel PNG images and reviewed together for descriptive titles, readable labels, explicit units, correct legends, accessible colors, clipping, overlap, scale, and agreement with stored tables and nearby interpretation."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 18 executed code cells and 31 substantive Markdown cells",
+        "all cells executed in order with counts 1 through 18, zero exceptions, zero error outputs, and zero stored stderr",
+        "fresh no-cache public-PyPI installation resolved NeqSim 3.16.0 in a newly created environment",
+        "all eight final application assertions passed",
+        "normalized characterization composition summed to 1.000000000000",
+        "base external mass residual was -0.094443 kg/h or 1.297e-07 relative",
+        "base stable-oil and export-gas rates were 439923.129167 and 285209.749421 kg/h",
+        "base stable-oil TVP was 0.971552 bara at 20 degC",
+        "base export-gas cricondenbar was 95.313676 bara",
+        "base total compressor power was 16.223381 MW",
+        "the intended export pressure was exactly 200.0 bara",
+        "heater duty increased from 17.1938 to 22.9850 MW over 65 to 85 degC",
+        "stable-oil TVP decreased monotonically over the heater-temperature sweep",
+        "all six synthetic historian rows produced finite results and solved recycle states",
+        "repeat power and TVP errors were both 0.000e+00",
+        "maximum Python code line length was 90 characters with no semicolon chains or compressed one-line compound teaching code",
+        "three display equations and four representative unique inline expressions rendered successfully through MathJax",
+        "all five stored figures passed visual and numerical-context inspection",
+        "the Colab badge points to the intended notebook path",
+        "the active catalog contains the notebook path exactly once",
+        "all five changed or introduced reference links were checked; the Colab path matches the catalog target"
+      ],
+      "summary": "Modernized the online oil-stabilization notebook into a self-contained NeqSim 3.16.0 lesson. It replaces the 2.5.35 pin, wildcard imports, unexecuted outputs, missing gas connection, export-stage bypass, inaccessible Windows CSV, and placeholder live tags while preserving all original examples and adding theory, SI units, validation, sensitivity, historian replay, troubleshooting, limitations, exercises, references, and five inspected figures.",
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 3,
+        "inline_expressions": 4,
+        "representative_unique_inline_rendered": 4,
+        "colab_verified_commit": "this atomic publication commit",
+        "source_rule": "Inline equations use $...$ and each display equation uses standalone $$ delimiter lines with blank lines around the block; LaTeX commands use one backslash.",
+        "visual_inspection": "Passed through a Jupyter and Google-Colab-compatible MathJax SVG renderer. Summation, fractions, dotted mass flow, Greek efficiency, subscripts, and specific-enthalpy symbols rendered correctly."
       }
     }
   ]
