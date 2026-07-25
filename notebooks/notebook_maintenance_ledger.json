@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-25T13:18:33Z",
+  "updated_at": "2026-07-25T14:13:24Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -7872,6 +7872,88 @@
         "the Colab badge and active catalog target the notebook exactly once"
       ],
       "summary": "A standalone dynamic process-control tutorial covering native NeqSim feedback loops, two-stage separation and flash-gas recompression, cascade and ratio control, PI tuning, transmitter noise and filtering, 14 engineering checks, six rendered equations, and eight inspected figures."
+    },
+    {
+      "path": "notebooks/bioprocesses/bioandneqsim.ipynb",
+      "verified_date": "2026-07-25",
+      "verified_at_utc": "2026-07-25T14:13:24Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "All 24 code cells were executed sequentially from an empty namespace in a newly created Python 3.12 virtual environment after python -m pip install --upgrade --no-cache-dir neqsim resolved public PyPI NeqSim 3.16.0. The clean in-process executor retained sequential execution counts, tables, diagnostics, and six PNG figures and failed on any exception or stored stderr.",
+      "code_cells": 24,
+      "markdown_cells": 30,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic connector-backed fast-forward commit to the default branch",
+        "commit": "the commit containing this ledger entry",
+        "colab_validation_commit": "0d520d27d4e8cafb846f7d6a21f96106bc3ffbb4"
+      },
+      "pre_existing_examples_preserved": 0,
+      "preservation_note": "The catalog target was a zero-byte notebook with no substantive example, use case, calculation, learning objective, or hidden dependency to preserve.",
+      "repairs_made": [
+        "implemented the empty catalog target as a complete current bioprocess engineering tutorial",
+        "used released PyPI 3.16.0 APIs rather than newer master-only methods",
+        "used supported JPype Java runtime introspection and released BiogasUpgrader outlet-stream getters",
+        "added a conditional Colab setup, unit-aware inputs, independent governing-equation checks, mass closure, sensitivities, troubleshooting, exercises, and references"
+      ],
+      "pre_existing_figures_preserved": 0,
+      "pre_existing_visuals_preserved": 0,
+      "figure_preservation_note": "The zero-byte notebook contained no visual assets or outputs. Six new reproducible technical figures were generated from the final calculation state.",
+      "neqsim_capabilities_demonstrated": [
+        "SystemSrkEos thermodynamic fluid construction and named Stream configuration",
+        "AnaerobicDigester substrate types, feed solids, temperature, vessel volume, methane production, organic loading, and hydraulic retention calculations",
+        "BiogasUpgrader water scrubbing, amine scrubbing, PSA, and membrane technologies",
+        "thermodynamic biomethane and offgas streams with total mass closure",
+        "BiogasToGridModule digestion, membrane upgrading, compression, cooling, and reusable result retrieval",
+        "SustainabilityMetrics process emissions, carbon intensity, fossil-gas displacement, net carbon balance, renewable fraction, and EROI"
+      ],
+      "practical_application": "A 5000 kg/h food-waste feed is converted in a 5000 m3 anaerobic digester, screened across five substrate types and six reactor volumes, upgraded with four technologies, and sent through an integrated membrane-upgrading, compression, and cooling module at 10-60 bara. The 40 bara design produces 311.970 Nm3/h biomethane with 73.633 kW compressor power and 79.805 kW cooling duty, followed by methane-slip sustainability sensitivity.",
+      "retained_figures": {
+        "count": 6,
+        "previous_count": 0,
+        "new_count": 6,
+        "numerically_refreshed_previous_count": 0,
+        "purposes": [
+          "connected wet-feed-to-gas-grid NeqSim workflow",
+          "substrate methane and total-biogas potential comparison",
+          "digester-volume organic-loading and retention-time sensitivity",
+          "upgrading-technology purity, recovery, and power comparison",
+          "gas-grid pressure effect on compressor power and cooler duty",
+          "methane-slip effect on process emissions and net carbon balance"
+        ],
+        "visual_inspection": "Passed after final clean execution. All six PNG figures were extracted and inspected at full resolution. The workflow canvas and compression label were adjusted to remove clipping and overlap, and the climate comparison was separated into two panels to avoid ambiguous curve overlay. Final titles, axes, units, legends, accessible colors, scales, and numerical context are readable and consistent."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 8,
+        "unique_inline_expressions": 11,
+        "rendered_math_objects_in_colab": 19,
+        "colab_verified_commit": "0d520d27d4e8cafb846f7d6a21f96106bc3ffbb4",
+        "source_rule": "Inline equations use $...$ and display equations use standalone $$ delimiter lines without blank lines inside the block; all LaTeX commands use one backslash.",
+        "visual_inspection": "The exact staged revision was opened in Google Colab. All eight display equations and 11 inline MathJax objects rendered without MathJax errors. Fractions, dotted normal-volume and mass rates, Greek symbols, subscripts, material-balance terms, and units were visually confirmed."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 24 executed code cells and 30 substantive Markdown cells",
+        "execution counts are sequential from 1 through 24",
+        "zero exceptions, zero error outputs, and zero stored stderr",
+        "fresh no-cache public-PyPI installation resolved NeqSim 3.16.0",
+        "all 20 focused engineering assertions passed",
+        "independent methane, organic-loading, and hydraulic-retention equations reproduce NeqSim results",
+        "the base food-waste case produces 7948.8 Nm3 CH4/day at 4.416 kg VS/(m3 day) and 41.67 day HRT",
+        "all substrate and design-sensitivity results are finite with expected trends",
+        "all four upgrading technologies exceed 95 vol% methane and 95% methane recovery",
+        "all four upgrader total-mass residuals are below 1.0e-10 relative",
+        "compressor power and cooling duty increase monotonically from 10 to 60 bara",
+        "biomethane flow is pressure independent across the compression sensitivity",
+        "process emissions and net carbon balance worsen monotonically with methane slip",
+        "maximum Python code-line length is 87 characters with no semicolon chains or compressed compound bodies",
+        "eight display equations and 11 inline objects rendered without errors in Google Colab",
+        "six figures passed visual and numerical-context inspection",
+        "the Colab badge and active catalog target the notebook exactly once"
+      ],
+      "summary": "A standalone food-waste-to-biomethane tutorial covering empirical anaerobic digestion, thermodynamic streams, four gas-upgrading technologies, mass closure, reactor and grid-pressure sensitivities, an integrated biomethane-to-grid module, sustainability metrics, 20 engineering checks, eight display equations, and six inspected figures."
     }
   ]
 }
