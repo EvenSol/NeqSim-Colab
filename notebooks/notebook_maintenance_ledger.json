@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-26T14:24:42Z",
+  "updated_at": "2026-07-26T15:15:27Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -9198,6 +9198,84 @@
         "Colab badge, active catalog target, and ledger path each occur exactly once"
       ],
       "summary": "Completed the natural-gas combustion tutorial as an executable Cantera and NeqSim workflow covering fuel and oxidizer blending, stoichiometry, equilibrium products, device archetypes, staged combustion, explicit species mapping, a custom Cantera process unit, downstream NeqSim heat recovery, limitations, and 22 stored engineering checks. No NeqSim or Cantera library defect was detected."
+    },
+    {
+      "path": "notebooks/process/topoflinecondensation.ipynb",
+      "verified_date": "2026-07-26",
+      "verified_at_utc": "2026-07-26T15:15:27Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "environment_resolution": {
+        "mode": "verified-snapshot-fallback",
+        "bootstrap": "scripts/bootstrap_neqsim_validation_env.py",
+        "requested_neqsim_version": "latest",
+        "verified_public_pypi_wheels": 51,
+        "snapshot_manifest_created_at_utc": "2026-07-26T14:16:45Z",
+        "note": "Four bounded public-PyPI refresh attempts encountered the transient proxy blocker. The fresh validation environment was then installed from the compatible immutable snapshot after inventory, size, platform, and SHA-256 verification of all 51 public-PyPI wheels, with pip caching disabled."
+      },
+      "execution_status": "passed",
+      "execution_method": "All 19 code cells were executed sequentially from an empty namespace with the fresh bootstrap-created Python. The in-process executor retained execution counts, stdout, seven HTML tables, and three PNG figures and failed on any exception, error output, or stored stderr.",
+      "code_cells": 19,
+      "markdown_cells": 22,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic connector-backed fast-forward commit to the default branch",
+        "commit": "the commit containing this ledger entry"
+      },
+      "pre_existing_cells_preserved": 14,
+      "pre_existing_examples_preserved": 3,
+      "preservation_note": "All 14 original cells remain in the notebook. The low-pressure CPA gas saturation, gas/aqueous activity analysis, and 20 degC cold-wall condensation examples preserve their original engineering intent. They were repaired with a current public-PyPI setup, descriptive names, named phase access, phase guards, tables, and validation.",
+      "pre_existing_figures_preserved": 0,
+      "figure_preservation_note": "The original notebook contained no figure-producing cells or stored figures, so no prior visual was available to refresh. Three new reproducible PNG figures were added and retained.",
+      "new_figures_added": 3,
+      "figures": [
+        {
+          "purpose": "NeqSim CPA saturation, gas extraction, and cold-wall flash workflow overview",
+          "inspection": "passed: titles, labels, flow basis, arrows, colors, and text were legible without clipping or overlap"
+        },
+        {
+          "purpose": "flowline temperature-pressure boundary profile and cumulative plus segment condensate potential",
+          "inspection": "passed: both axes use explicit units, legends are distinct, scales are non-misleading, and all data are visible"
+        },
+        {
+          "purpose": "bulk-MEG sensitivity for condensate flow and condensate MEG strength",
+          "inspection": "passed: accessible colors, markers, legends, units, inverted temperature direction, and trends are clear"
+        }
+      ],
+      "capabilities_demonstrated": [
+        "CPA fluid construction for gas, water, and monoethylene glycol",
+        "mixing rule 10 and current TPflash phase-equilibrium workflow",
+        "named gas and aqueous phase access with hasPhaseType guards",
+        "phaseToSystem gas extraction and clone-based independent wall flashes",
+        "component fugacity and activity-coefficient retrieval",
+        "low-pressure cold-surface condensation and flash mass closure",
+        "pressurized synthetic-natural-gas saturation and flowline screening",
+        "MEG-strength sensitivity and reusable station-profile functions"
+      ],
+      "practical_application": "A 1000 kmol/h synthetic natural gas is saturated against 10,000 kg/h of 60 wt% MEG solution at 35 degC and 70 bara. The 17,802.184 kg/h saturated gas is flashed along a 30-to-5 degC and 70-to-60 bara flowline profile. Cumulative equilibrium condensate reaches 8.766 kg/h at the cold end. Increasing bulk MEG from 30 to 70 wt% reduces cold-end condensate from 12.575 to 7.022 kg/h.",
+      "key_checks": [
+        "valid notebook JSON and nbformat with sequential counts for 19 cells",
+        "zero unexpected exceptions, error outputs, or stored stderr",
+        "all 14 original cells and all three original examples preserved",
+        "water and MEG fugacity equality within 1e-8 relative difference",
+        "low-pressure and profile flash mass residuals below acceptance limits",
+        "finite positive condensate and monotonic equilibrium potential",
+        "expected reduction in cold-end condensate with increasing bulk MEG",
+        "maximum code line length 84 with no compressed compound statements",
+        "four display and nine unique inline equations rendered by MathJax",
+        "three retained figures visually inspected for values, units, labels, scales, clipping, overlap, and narrative consistency",
+        "Colab badge and catalog path validated exactly once"
+      ],
+      "visual_validation": {
+        "result": "passed",
+        "stored_figures": 3,
+        "previous_figures_preserved": 0,
+        "numerically_refreshed_previous_figures": 0,
+        "mathjax_display_equations": 4,
+        "mathjax_unique_inline_expressions": 9
+      },
+      "summary": "Replaced the obsolete unconditional installation cell, corrected notation and terminology, removed hard-coded phase assumptions, added fugacity and balance checks, and expanded the short example into a self-contained CPA top-of-line-condensation tutorial with a realistic flowline application, sensitivity study, interpretation, limitations, troubleshooting, exercises, tables, and graphics."
     }
   ]
 }
