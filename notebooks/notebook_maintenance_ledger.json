@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-26T16:15:32Z",
+  "updated_at": "2026-07-26T16:33:19Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -9477,6 +9477,125 @@
         "stored_result_tables": 10
       },
       "summary": "Completed the zero-byte catalog placeholder as a self-contained educational field-and-area-development notebook. It now integrates current NeqSim SRK thermodynamics and process equipment with depletion, wells, SURF, capacity, brownfield, emissions, product-screening, sensitivity, and synthetic economic workflows, plus troubleshooting, limitations, exercises, references, retained outputs, seven inspected figures, and 18 passing assertions."
+    },
+    {
+      "path": "notebooks/statistics/worldOilandGasProduction.ipynb",
+      "verified_date": "2026-07-26",
+      "verified_at_utc": "2026-07-26T16:33:19Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "environment_resolution": {
+        "mode": "verified-snapshot-fallback",
+        "bootstrap": "scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-world-production-1818 --neqsim-version latest --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260726T141645Z-e2a34d314199",
+        "verified_public_pypi_wheels": 51,
+        "manifest_created_at_utc": "2026-07-26T14:16:45Z",
+        "integrity": "Complete inventory, wheel sizes, runtime/platform compatibility, and SHA-256 hashes passed before offline installation into a fresh environment."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 18 code cells sequentially from a clean state with execution counts 1 through 18, zero error outputs, and zero stored stderr streams. Seventeen code cells are substantive; one preserved empty cell is from the original placeholder.",
+      "code_cells": 18,
+      "substantive_code_cells": 17,
+      "markdown_cells": 22,
+      "publication": {
+        "branch": "master",
+        "mode": "direct atomic connector-backed fast-forward commit",
+        "commit": "the commit containing this ledger entry",
+        "files": [
+          "notebooks/statistics/worldOilandGasProduction.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "preservation": {
+        "pre_existing_cells": 3,
+        "preserved_cells": 3,
+        "pre_existing_substantive_examples": 0,
+        "preserved_substantive_examples": 0,
+        "pre_existing_figures": 0,
+        "preserved_figures": 0,
+        "repairs": "Preserved the original Colab badge, empty code cell, and literature cell; retained all four original links and integrated them into an authoritative reference section. The empty placeholder cell remains present and executed."
+      },
+      "public_data_provenance": {
+        "data_year": 2024,
+        "source": "Energy Institute Statistical Review of World Energy 2025, redistributed by Our World in Data under CC BY",
+        "retrieved_at_utc": "2026-07-26T16:00:00Z",
+        "oil_url": "https://ourworldindata.org/grapher/oil-production-by-country",
+        "gas_url": "https://ourworldindata.org/grapher/gas-production-by-country",
+        "energy_institute_url": "https://www.energyinst.org/statistical-review/resources-and-data-downloads",
+        "boundary": "Embedded 2024 values are rounded production energy in TWh. Named producers plus an explicit Other producers category close to the published world totals."
+      },
+      "neqsim_capabilities_demonstrated": [
+        "SystemSrkEos composition and single-phase fluid construction",
+        "ThermodynamicOperations TPflash and property initialization",
+        "ISO6976 gross/net calorific value, Wobbe index, and relative density",
+        "Stream, Compressor, and ProcessSystem connected process workflow",
+        "standard-density retrieval and energy-to-standard-volume conversion",
+        "component element inventory for direct-combustion carbon intensity",
+        "composition and export-pressure sensitivity workflows"
+      ],
+      "practical_application": "Connects world production statistics to a representative export gas, ISO 6976 quality, an independent 4,124-bcm volume benchmark, a 20-million-Sm3/d export compressor sensitivity, and an explicitly bounded complete-combustion scenario.",
+      "engineering_validation": {
+        "assertions_passed": 16,
+        "assertions_failed": 0,
+        "checks": [
+          "oil and gas country groups close exactly to world totals",
+          "production values are positive and producer shares are bounded",
+          "gas composition closes and the standard gas is single phase",
+          "standard density and calorific values are physically plausible",
+          "gross calorific value exceeds net calorific value",
+          "the independent Wobbe identity closes",
+          "energy-derived global gas volume is within ten percent of 4,124 bcm",
+          "compressor power and discharge temperature increase with export pressure",
+          "compressor power is positive",
+          "direct-combustion carbon intensity is physically plausible",
+          "all numerical result tables are finite"
+        ],
+        "key_results": {
+          "world_oil_production_2024_twh": 52830,
+          "world_gas_production_2024_twh": 41240,
+          "energy_derived_world_gas_bcm": 4080.729,
+          "energy_institute_world_gas_bcm": 4124,
+          "synthetic_gas_net_calorific_value_mj_sm3": 36.3817,
+          "synthetic_gas_wobbe_index_mj_sm3": 50.9321,
+          "direct_co2_kg_gj_lhv": 56.673
+        }
+      },
+      "figures": {
+        "previous_figures": 0,
+        "previous_figures_refreshed": 0,
+        "new_figures": 4,
+        "total_retained_figures": 4,
+        "purposes": [
+          "2024 oil and gas production by named and other producer groups",
+          "NeqSim ISO 6976 composition and interchangeability sensitivity",
+          "representative export-compressor power and discharge-temperature sensitivity",
+          "explicitly bounded energy-equivalent complete-combustion scenario"
+        ],
+        "visual_inspection": "Passed: titles, labels, units, legends, accessible colors, annotations, scales, and category names are readable with no clipping, overlap, stale values, or misleading axes.",
+        "numerical_refresh": "All figures were generated in the validated NeqSim 3.16.0 run; the original placeholder contained no visual output."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 6,
+        "unique_inline_expressions": 15,
+        "inline_expression_occurrences": 16,
+        "renderer": "Jupyter/Colab-compatible MathJax SVG path",
+        "visual_inspection": "Fractions, sums, square roots, subscripts, superscripts, dotted variables, CO2 notation, and units rendered correctly with balanced delimiters and single-backslash commands."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "maximum_code_line_length": 71,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "original_literature_links_preserved": 4
+      },
+      "summary": "Completed a three-cell nonfunctional placeholder as an educational, self-contained world production tutorial. It now connects authoritative public statistics to current NeqSim thermodynamics, ISO 6976, process compression, composition sensitivity, volume benchmarking, carbon accounting boundaries, verification, troubleshooting, limitations, exercises, and references."
     }
   ]
 }
