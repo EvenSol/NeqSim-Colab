@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-26T16:33:19Z",
+  "updated_at": "2026-07-26T17:12:25Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -9596,6 +9596,121 @@
         "original_literature_links_preserved": 4
       },
       "summary": "Completed a three-cell nonfunctional placeholder as an educational, self-contained world production tutorial. It now connects authoritative public statistics to current NeqSim thermodynamics, ISO 6976, process compression, composition sensitivity, volume benchmarking, carbon accounting boundaries, verification, troubleshooting, limitations, exercises, and references."
+    },
+    {
+      "path": "notebooks/standards/technicalsafetyP0001.ipynb",
+      "verified_date": "2026-07-26",
+      "verified_at_utc": "2026-07-26T17:12:25Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "environment_resolution": {
+        "mode": "verified-snapshot-fallback",
+        "bootstrap": "scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-technical-safety-1851 --neqsim-version latest --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260726T141645Z-e2a34d314199",
+        "verified_public_pypi_wheels": 51,
+        "manifest_created_at_utc": "2026-07-26T14:16:45Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, and requested-toolchain verification passed before offline installation into a fresh environment."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 21 code cells sequentially from a clean state with execution counts 1 through 21, zero error outputs, and zero stored stderr streams.",
+      "code_cells": 21,
+      "substantive_code_cells": 21,
+      "markdown_cells": 24,
+      "publication": {
+        "branch": "master",
+        "mode": "direct atomic connector-backed fast-forward commit",
+        "commit": "the commit containing this ledger entry",
+        "files": [
+          "notebooks/standards/technicalsafetyP0001.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "preservation": {
+        "pre_existing_cells": 4,
+        "preserved_cells": 4,
+        "pre_existing_substantive_examples": 1,
+        "preserved_substantive_examples": 1,
+        "pre_existing_figures": 0,
+        "preserved_figures": 0,
+        "repairs": "Preserved the original Colab badge, installation cell, NORSOK S-001 literature link, and introductory technical-safety text. Repaired the obsolete neqsim==2.5.35 setup to a conditional public-PyPI installation and corrected the catalog label from P-001 to S-001. No existing example, cell, link, or figure was removed."
+      },
+      "neqsim_capabilities_demonstrated": [
+        "SystemSrkEos composition, classic mixing rule, phase initialization, and physical properties",
+        "Stream construction for a composable high-pressure process state",
+        "native S001SecondaryPressureProtectionCriteria positive and negative evidence screens",
+        "VesselDepressurization geometry, carbon-steel material, discharge orifice, flare backpressure, and target pressure",
+        "ENERGY_BALANCE with TRANSIENT_WALL heat transfer and automatic external HTC",
+        "native API_POOL fire preset and wetted-surface configuration",
+        "independent BDV-bore scenarios with pressure, temperature, mass, wall, and flare-load histories"
+      ],
+      "practical_application": "A synthetic 80-bara high-pressure separator is screened from thermodynamic inventory and pressure hierarchy through S-001 evidence, 35-mm blowdown, 25–40-mm bore sensitivity, pool-fire response, flare-load capacity, metal-temperature screening, and an integrated decision dashboard.",
+      "engineering_validation": {
+        "assertions_passed": 20,
+        "assertions_failed": 0,
+        "checks": [
+          "composition sums to unity and initial state is single phase",
+          "all initial properties and transient histories are finite",
+          "alarm, trip, PSV, design, maximum-event, and test pressures are ordered",
+          "positive S-001 evidence case passes and deliberately weak case fails",
+          "base and pool-fire cases reach 7 bara",
+          "35-mm base case reaches the target within 900 s",
+          "contained inventory decreases monotonically",
+          "independent mass-discharge calculation closes below 1e-9 relative",
+          "target time decreases monotonically with BDV bore",
+          "peak flare load increases monotonically with BDV bore",
+          "pool fire raises maximum wall temperature relative to no-fire blowdown",
+          "all integrated screening gates pass under stated synthetic limits"
+        ],
+        "key_results": {
+          "initial_pressure_bara": 80,
+          "vessel_volume_m3": 41.88790204786391,
+          "initial_inventory_kg": 3306.342807657119,
+          "bdv_equivalent_bore_mm": 35,
+          "time_to_7_bara_s": 658,
+          "peak_flare_load_kg_s": 13.193892316264964,
+          "minimum_gas_temperature_deg_c": -23.83175481094628,
+          "minimum_wall_temperature_deg_c": 8.159739026067086,
+          "mass_discharged_kg": 3011.782851801141
+        }
+      },
+      "figures": {
+        "previous_figures": 0,
+        "previous_figures_refreshed": 0,
+        "new_figures": 6,
+        "total_retained_figures": 6,
+        "purposes": [
+          "technical-safety calculation-to-decision workflow overview",
+          "operating, alarm, trip, PSV, design, maximum-event, and test pressure hierarchy",
+          "base-case pressure, flare load, gas/wall temperature, and inventory histories",
+          "25–40-mm BDV pressure histories and speed-versus-flare-load trade-off",
+          "normal and API pool-fire pressure and wall-temperature comparison",
+          "integrated six-gate technical-safety screening dashboard"
+        ],
+        "visual_inspection": "Passed: all six executed figures have readable titles, SI-unit axes, legends, accessible colors, correct scales, and nearby interpretation, with no clipping, overlap, stale data, or misleading axes.",
+        "numerical_refresh": "The original notebook had no figures. All six visuals were generated from the validated NeqSim 3.16.0 execution."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 7,
+        "unique_inline_expressions": 16,
+        "inline_expression_occurrences": 18,
+        "renderer": "Jupyter/Colab-compatible MathJax SVG path",
+        "visual_inspection": "Pressure subscripts, sums, inequalities, derivatives, dotted mass and heat rates, fractions, square roots, Greek symbols, and units rendered correctly with balanced delimiters and single-backslash commands."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "maximum_code_line_length": 83,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "external_links_checked": true
+      },
+      "summary": "Expanded a four-cell standards note into a self-contained NORSOK S-001 technical-safety tutorial using current NeqSim thermodynamics, native secondary-pressure-protection screening, transient vessel blowdown, fire and bore sensitivities, traceable engineering checks, retained outputs, six inspected figures, troubleshooting, limitations, exercises, and authoritative references."
     }
   ]
 }
