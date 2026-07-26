@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-26T17:12:25Z",
+  "updated_at": "2026-07-26T18:19:54Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -9711,6 +9711,128 @@
         "external_links_checked": true
       },
       "summary": "Expanded a four-cell standards note into a self-contained NORSOK S-001 technical-safety tutorial using current NeqSim thermodynamics, native secondary-pressure-protection screening, transient vessel blowdown, fire and bore sensitivities, traceable engineering checks, retained outputs, six inspected figures, troubleshooting, limitations, exercises, and authoritative references."
+    },
+    {
+      "path": "notebooks/standards/API521_thermal_expansion.ipynb",
+      "verified_date": "2026-07-26",
+      "verified_at_utc": "2026-07-26T18:19:54Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "environment_resolution": {
+        "mode": "verified-snapshot-fallback",
+        "bootstrap": "scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-api521-1950 --neqsim-version latest --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260726T141645Z-e2a34d314199",
+        "verified_public_pypi_wheels": 51,
+        "manifest_created_at_utc": "2026-07-26T14:16:45Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, and requested-toolchain verification passed before offline installation into a fresh environment."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 23 code cells sequentially from a clean in-process IPython state with execution counts 1 through 23, zero error outputs, and zero stored stderr streams.",
+      "code_cells": 23,
+      "substantive_code_cells": 23,
+      "markdown_cells": 25,
+      "publication": {
+        "branch": "master",
+        "mode": "direct atomic connector-backed fast-forward commit",
+        "commit": "the commit containing this ledger entry",
+        "files": [
+          "notebooks/standards/API521_thermal_expansion.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "preservation": {
+        "pre_existing_cells": 7,
+        "preserved_cells": 7,
+        "pre_existing_substantive_examples": 2,
+        "preserved_substantive_examples": 2,
+        "pre_existing_figures": 0,
+        "preserved_figures": 0,
+        "original_literature_links_preserved": 2,
+        "repairs": "Preserved all seven original cell identities, the Colab badge, the synthetic Peng-Robinson composition, the 40-bara/-60-degC property workflow, the blocked-pipe calculation, and both references. Repaired the stale neqsim==2.5.35 setup, corrected the obsolete negative expansivity sign, made compressibility units explicit, retained and reproduced the original approximately 760-bar result, and converted the original empty cell into a runtime-version report. No existing cell, example, functionality, link, or figure was removed."
+      },
+      "neqsim_capabilities_demonstrated": [
+        "Peng-Robinson fluid construction, component normalization, and classic mixing rule",
+        "TPflash, phase identification, initProperties, and tabulated fluid properties",
+        "density, isothermal compressibility, isobaric thermal expansivity, and heat capacity",
+        "cloned-state temperature sensitivity and single-liquid phase checks",
+        "nonlinear blocked-liquid density closure using repeated NeqSim flashes",
+        "composable native Stream construction for the relieving state",
+        "native SafetyValve set pressure, full-open pressure, blowdown, and runTransient behavior"
+      ],
+      "practical_application": "A 5-m blocked liquid segment is carried from the original -60 degC, 40-bara state through nonlinear pressure buildup, a 100-bara illustrative set point, 20-80 kW heat-duty response times, thermal-relief mass-flow and preliminary area screening, native valve opening/reseat logic, and pipe-material/compliance sensitivity.",
+      "engineering_validation": {
+        "named_checks_passed": 16,
+        "named_checks_failed": 0,
+        "checks": [
+          "composition closes to unity",
+          "initial state is one liquid phase",
+          "base properties are finite and physically bounded",
+          "compressibility and expansivity are positive with verified units",
+          "original approximately 760-bara result is reproduced",
+          "nonlinear root remains bracketed",
+          "nonlinear mass/volume density residual closes below 1e-7 kg/m3",
+          "blocked pressure increases monotonically with temperature",
+          "linear and nonlinear final pressures agree within 15 percent",
+          "relief flow increases monotonically with heat duty",
+          "preliminary equivalent diameter increases monotonically with heat duty",
+          "native SafetyValve opening sequence matches NeqSim 3.16.0",
+          "native SafetyValve reseat pressure equals configured blowdown",
+          "blocked inventory is positive",
+          "illustrative set pressure is crossed within the heating interval",
+          "time to set decreases with increasing heat duty"
+        ],
+        "key_results": {
+          "base_density_kg_m3": 570.006377876671,
+          "base_compressibility_per_pa": 2.1655529052373874e-9,
+          "base_expansivity_per_k": 0.001976120843848179,
+          "base_heat_capacity_j_kg_k": 2171.313809970754,
+          "original_linear_final_pressure_bara": 760.0625287602811,
+          "representative_steel_linear_pressure_bara": 749.2057763957351,
+          "nonlinear_final_pressure_bara": 711.3865520752067,
+          "linear_to_nonlinear_difference_percent": 5.32,
+          "fifty_kw_relief_flow_kg_s": 0.0648,
+          "fifty_kw_equivalent_diameter_mm": 1.1689,
+          "fifty_kw_time_to_set_s": 6.644
+        }
+      },
+      "figures": {
+        "previous_figures": 0,
+        "previous_figures_refreshed": 0,
+        "new_figures": 6,
+        "total_retained_figures": 6,
+        "purposes": [
+          "blocked-liquid calculation-to-decision workflow overview",
+          "NeqSim density, compressibility, and expansivity temperature sensitivity",
+          "constant-property and nonlinear NeqSim pressure-temperature comparison",
+          "heat-duty relief-flow and preliminary diameter sensitivity",
+          "native SafetyValve opening and blowdown sequence",
+          "steel expansion and pipe-wall-compliance sensitivity map"
+        ],
+        "visual_inspection": "Passed after final execution: all six figures have readable titles, explicit units, legends or color scales, accessible colors, correct trends, and nearby interpretation, with no clipping, overlap, stale values, or misleading scales.",
+        "numerical_refresh": "The original notebook had no figures. All six visuals were generated from the validated NeqSim 3.16.0 execution."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 7,
+        "unique_inline_expressions": 43,
+        "inline_expression_occurrences": 58,
+        "renderer": "Fresh-environment Jupyter/Colab-compatible LaTeX source audit with matplotlib mathtext visual preview",
+        "visual_inspection": "Fractions, partial derivatives, subscripts, dotted rates, square roots, Greek symbols, superscripts, and units rendered correctly. Delimiters are balanced and all LaTeX commands use single backslashes."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "maximum_code_line_length": 76,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "external_links_checked": true
+      },
+      "summary": "Expanded the seven-cell API 521 note into a self-contained blocked-liquid thermal-expansion and relief-screening tutorial. It preserves both original calculations while adding current NeqSim thermodynamic derivatives, nonlinear mass/volume closure, heat-duty relief demand, native Stream and SafetyValve operation, scenario sensitivities, retained outputs, six inspected figures, troubleshooting, limitations, exercises, and authoritative references."
     }
   ]
 }
