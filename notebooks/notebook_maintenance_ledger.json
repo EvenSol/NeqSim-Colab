@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-26T01:04:14Z",
+  "updated_at": "2026-07-26T03:03:18Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -8240,6 +8240,94 @@
         "the Colab badge and active catalog target the notebook exactly once"
       ],
       "summary": "A standalone CO₂-corrosion and inhibition tutorial covering Electrolyte-CPA aqueous chemistry, thermodynamic free-water screening, NORSOK M-506 correction factors, mechanistic mixed control, Langmuir inhibitor response, material and sour-service selection, a coupled Beggs-Brill flowline integrity profile, 18 engineering checks, 11 display equations, and six inspected figures."
+    },
+    {
+      "path": "notebooks/thermodynamics/PVTtableGeneration.ipynb",
+      "verified_date": "2026-07-26",
+      "verified_at_utc": "2026-07-26T03:03:18Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "All 20 code cells were executed sequentially from an empty namespace in a newly created Python 3.12 virtual environment. The environment was installed with --no-index and --no-cache-dir from 49 SHA-256-verified wheels previously resolved from public PyPI. A forced proxy outage independently confirmed verified-snapshot fallback; execution retained sequential counts, tables, diagnostics, and five PNG figures and failed on any exception or stored stderr.",
+      "code_cells": 20,
+      "markdown_cells": 23,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic connector-backed fast-forward commit to the default branch",
+        "commit": "the commit containing this ledger entry"
+      },
+      "preservation_note": "All three original workflows remain integrated: component-defined wet-gas table generation, characterized gas-condensate table generation, and Eclipse-described well-fluid table generation.",
+      "repairs_made": [
+        "replaced legacy unexecuted snippets with current Python NeqSim APIs and explicit units",
+        "made NeqSim version discovery compatible with the installed Python package metadata",
+        "updated OLGA-table auditing for the named pressure and temperature vectors emitted by NeqSim 3.16.0",
+        "hardened the embedded Eclipse deck with section boundaries required by the current reader",
+        "added independent state-grid diagnostics, convergence analysis, retained figures, and engineering assertions"
+      ],
+      "neqsim_capabilities_demonstrated": [
+        "component-defined SRK wet-gas construction and OLGA-style property-table generation",
+        "gas-condensate heavy-fraction characterization with fluid_df",
+        "Eclipse-300 fluid-description import and connected well-stream rates",
+        "TP-flash phase, liquid-fraction, and bulk-density grids",
+        "off-grid interpolation convergence and exported-file structural audit"
+      ],
+      "practical_application": "Three simulator-ready property-table cases cover a 20 by 20 wet-gas grid, a 10 by 10 characterized-condensate grid, and a 10 by 10 Eclipse well-fluid grid. The notebook audits all 600 declared table points, compares phase and density behavior, and quantifies local interpolation error before downstream simulator import.",
+      "retained_figures": {
+        "count": 5,
+        "previous_count": 0,
+        "new_count": 5,
+        "numerically_refreshed_previous_count": 0,
+        "purposes": [
+          "end-to-end property-table workflow",
+          "wet-gas liquid-fraction and bulk-density maps",
+          "gas-condensate phase-count and total-liquid maps",
+          "wet-gas density interpolation convergence",
+          "measured table-generation runtime comparison"
+        ],
+        "visual_inspection": "Passed after final clean execution. All five PNG figures were extracted and inspected at full resolution; titles, axes, units, legends, color scales, and annotations are readable with no clipping, stale output, or misleading scale."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 4,
+        "inline_expression_occurrences": 17,
+        "unique_inline_expressions": 15,
+        "rendered_math_objects": 19,
+        "source_rule": "Inline equations use $...$ and display equations use standalone $$ delimiter lines with single-backslash LaTeX commands.",
+        "visual_inspection": "All four display equations and 15 unique inline expressions were rendered through MathJax to SVG and PNG and visually inspected. No raw delimiters, malformed symbols, clipping, or unsupported syntax was found."
+      },
+      "validation_environment": {
+        "resolution_mode_proof": [
+          "online-new-snapshot",
+          "verified-snapshot-fallback under forced proxy failure"
+        ],
+        "wheel_count": 49,
+        "artifact_origin": "https://pypi.org/simple",
+        "install_network_required": false,
+        "pip_cache_disabled": true,
+        "wheel_hashes_verified": true
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 20 executed code cells and 23 Markdown cells",
+        "execution counts are sequential from 1 through 20",
+        "zero exceptions, error outputs, or stored stderr",
+        "fresh environment installed NeqSim 3.16.0 from 49 hash-verified public-PyPI wheels",
+        "the same clean installation passed with the package proxy deliberately unreachable",
+        "all 19 engineering assertions passed",
+        "all three pressure and temperature grids match their declared dimensions",
+        "all 600 exported PVTTABLE points match the declared grids",
+        "all exported numeric tokens are finite and every file is substantive",
+        "wet-gas and condensate grid properties are finite and phase fractions are bounded",
+        "condensate and Eclipse well-fluid volume fractions close",
+        "well-fluid mass flow closes at 1100 kg/h",
+        "finest tested off-grid density interpolation error is below five percent",
+        "maximum Python code-line length is 78 characters",
+        "four display and 15 unique inline equations passed MathJax visual inspection",
+        "five technical figures passed full-resolution visual inspection",
+        "Colab badge, active catalog link, and ledger path each occur exactly once",
+        "repository notebook checker passed all gates"
+      ],
+      "summary": "Completed a self-contained NeqSim property-table tutorial for wet gas, characterized gas condensate, and an Eclipse-described well fluid. It generates OLGA-style tables, audits dimensions and all 600 table points, visualizes phase and density behavior, qualifies grid resolution, and retains 19 engineering checks. No NeqSim library defect was detected."
     }
   ]
 }

@@ -15,3 +15,7 @@ Please note we have a code of conduct, please follow it in all your interactions
    Pull Request would represent. The versioning scheme we use is [SemVer](http://semver.org/).
 4. You may merge the Pull Request in once you have the sign-off of two other developers, or if you 
    do not have permission to do that, you may request the second reviewer to merge it for you.
+
+## Notebook validation environments
+
+Use the [resilient NeqSim validation environment](docs/validation_environment.md) for clean notebook execution. The bootstrap resolves an immutable public-PyPI wheel snapshot when the index is healthy, verifies every artifact by SHA-256, and creates a fresh no-index environment for every run. This keeps transient package-index or proxy failures out of the notebook-publication critical path without weakening clean-environment validation.
