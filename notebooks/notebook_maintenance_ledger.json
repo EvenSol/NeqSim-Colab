@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-26T07:38:07Z",
+  "updated_at": "2026-07-26T07:52:03Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -8750,6 +8750,96 @@
         "the Colab badge and active catalog reference the notebook exactly once"
       ],
       "summary": "A self-contained multiscale tutorial and implementation proposal that runs a counterpoise-corrected CCSD(T) argon dimer scan with PySCF, maps a Mie potential with SciPy, evaluates second virial behavior, runs a transparent molecular Monte Carlo check, exports a FEASST hand-off record, solves independent SAFT-VR Mie critical and pressure calculations with teqp, injects literature-grade mapped methane parameters into NeqSim, cross-validates both EOS implementations, propagates the parameters to a compressor KPI, bootstraps mapping uncertainty, and defines a roadmap for mixtures, association, many-body physics, and production FEASST simulations."
+    },
+    {
+      "path": "notebooks/process/dynamiccompressor_dyn.ipynb",
+      "verified_date": "2026-07-26",
+      "verified_at_utc": "2026-07-26T07:52:03Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "environment_resolution": {
+        "mode": "verified-snapshot-fallback",
+        "bootstrap": "scripts/bootstrap_neqsim_validation_env.py",
+        "requested_version": "latest",
+        "verified_public_pypi_wheels": 49,
+        "snapshot_manifest_created_at_utc": "2026-07-26T07:15:55Z",
+        "note": "A new isolated environment was created from the compatible immutable public-PyPI wheel snapshot after the bounded online refresh could not resolve NeqSim. Manifest inventory, file sizes, and SHA-256 hashes passed before offline installation."
+      },
+      "execution_status": "passed",
+      "execution_method": "All 29 code cells were executed sequentially from an empty namespace with the fresh bootstrap-created Python environment. The in-process executor retained execution counts, stdout, five HTML result tables, and 36 PNG figures and failed on any exception, error output, or stored stderr.",
+      "code_cells": 29,
+      "markdown_cells": 39,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch fast-forward",
+        "commit": "this atomic publication commit"
+      },
+      "pre_existing_cells_preserved": 19,
+      "pre_existing_examples_preserved": 5,
+      "preservation_note": "All 19 original cells remain in their original order and all five substantive workflows execute: speed-step response, discharge-pressure PI control, recycle-valve anti-surge control, combined pressure and anti-surge control, and depressurization with restart. The original code was reformatted and integrated with setup, transitions, units, interpretation, and current API guidance without removing functionality.",
+      "pre_existing_figures_preserved": 30,
+      "pre_existing_visuals_preserved": 30,
+      "figure_preservation_note": "All 30 original reproducible figures were recalculated with NeqSim 3.16.0 and retained with corrected units, labels, legends, and explanatory transitions. Six additional figures teach the modern native compressor-map and AntiSurge workflow, for 36 figures in the final notebook.",
+      "neqsim_capabilities_demonstrated": [
+        "SRK dry-gas fluid construction and initialized NeqSim Stream",
+        "native Compressor with specified outlet pressure and polytropic calculation",
+        "CompressorChartGenerator EXPORT template and chart activation",
+        "generated speed curves, surge curve, and stone-wall curve",
+        "chart-based head, efficiency, power, temperature, and operating-limit retrieval",
+        "native getDistanceToSurge, getDistanceToStoneWall, and getSurgeFlowRate diagnostics",
+        "native AntiSurge ON_OFF, PROPORTIONAL, PID, and PREDICTIVE control strategies",
+        "valve-position, response-time, rate-limit, setpoint, and PID configuration",
+        "native operating-history recording and minimum-margin audit",
+        "native schema-versioned getOperatingPointJson snapshot",
+        "dynamic fresh-flow turndown, scheduled speed response, recycle response, and recovery",
+        "recycle-capacity sensitivity and reusable closed-loop simulation function"
+      ],
+      "practical_application": "A 35 bara, 25 degC synthetic export gas is compressed on a NeqSim-generated five-speed map. Fresh flow ramps from 12 to 5 kg/s while speed falls from 9000 to 8300 rpm and later recovers. Without recycle, the minimum surge margin is -36.496917%. Native proportional AntiSurge action raises the minimum margin to 9.058681%, reaches 3.661828 kg/s maximum recycle, records 261 operating points, and returns a schema-version 1.1 machine-readable compressor snapshot. A 2, 4, and 8 kg/s recycle-capacity study quantifies the margin-versus-power design tradeoff.",
+      "retained_figures": {
+        "count": 36,
+        "previous_count": 30,
+        "new_count": 6,
+        "numerically_refreshed_previous_count": 30,
+        "purposes": [
+          "dynamic compressor and antisurge calculation workflow overview",
+          "NeqSim-generated five-speed compressor map with sampled surge and stone-wall limits",
+          "native ON_OFF, PROPORTIONAL, PID, and PREDICTIVE AntiSurge strategy response",
+          "closed-loop flow, margin, speed, valve, power, and discharge-temperature history",
+          "controlled turndown trajectory on the generated compressor map",
+          "recycle-capacity margin and compressor-power sensitivity",
+          "30 recalculated legacy plots covering the original speed-step, pressure-control, recycle-control, combined-control, and depressurization/restart workflows"
+        ],
+        "visual_inspection": "Passed after the final clean execution. All 36 PNG figures, including all 30 recalculated previous figures, were extracted and inspected for descriptive titles, explicit units, readable labels, legends where applicable, accessible colors, correct trends and scales, clipping, overlap, and consistency with stored tables and nearby interpretation. A combined legend was added to the dual-axis power and discharge-temperature panel before the final rerun."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 5,
+        "unique_inline_expressions": 10,
+        "source_rule": "Inline equations use $...$ and each display equation uses standalone $$ delimiter lines with blank separation and single-backslash LaTeX commands.",
+        "visual_inspection": "All five display and ten unique inline expressions were rendered through MathJax using a Jupyter/Colab-compatible TeX input and SVG output path. Fractions, flow and enthalpy subscripts, dotted mass-flow and power symbols, inequalities, response time, and the recycle differential equation were visually inspected with no raw delimiters, clipping, malformed output, or rendering errors."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 29 executed code cells and 39 substantive Markdown cells",
+        "all 19 original cells, five substantive workflows, and 30 previous figures were preserved and integrated",
+        "zero exceptions, zero error outputs, and zero stored stderr",
+        "five result tables and 36 PNG figures retained",
+        "maximum Python code-line length remained within 100 characters with no semicolon chains or compressed compound bodies",
+        "all 22 engineering assertions passed",
+        "generated chart contained five speed curves with finite positive head and efficiency",
+        "base-case flow, head, efficiency, power, outlet temperature, and both operating-limit margins were finite",
+        "all four native AntiSurge strategies returned bounded valve positions",
+        "controlled minimum surge margin exceeded 5 percent and improved by more than 30 percentage points over the uncontrolled case",
+        "maximum controlled recycle stayed below the configured 8 kg/s capacity",
+        "surge margin improved monotonically as maximum recycle capacity increased",
+        "native operating history contained exactly 261 finite operating points",
+        "native operating snapshot reported schema version 1.1, an active chart, and a valid final point",
+        "all 36 figures passed visual and numerical-context inspection",
+        "five display equations and ten unique inline expressions passed strict source checks and MathJax visual rendering",
+        "the Colab badge occurs once and the active catalog title links to the target exactly once",
+        "all four introduced NeqSim documentation HTML links resolved; the Colab badge SVG endpoint returned its expected image content type"
+      ],
+      "summary": "Repaired and extended the existing dynamic-compressor notebook into a self-contained native NeqSim compressor-map and anti-surge tutorial while preserving all 19 prior cells, five workflows, and 30 recalculated figures. The added application covers generated maps, surge and stone-wall diagnostics, four native controller strategies, a reusable closed-loop turndown and recovery simulation, operating-history and JSON snapshots, capacity sensitivity, 22 engineering checks, limitations, troubleshooting, exercises, references, five tables, and six new figures. Python-Java boundary handling was corrected by explicitly converting the native JSON Java String and by treating the operating-history peak-power method as an OperatingPoint-returning API rather than a scalar."
     }
   ]
 }
