@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-26T05:19:03Z",
+  "updated_at": "2026-07-26T06:17:39Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -8497,6 +8497,92 @@
         "the Colab badge and active catalog reference the notebook exactly once"
       ],
       "summary": "A self-contained oil-quality tutorial covering characterized-fluid construction, API gravity, viscosity, boiling range, ASTM D6377 vapor pressure, light-end sensitivity, a connected stabilization flowsheet, an end-to-end export-quality decision, engineering assertions, limitations, troubleshooting, references, exercises, and six inspected figures."
+    },
+    {
+      "path": "notebooks/thermodynamics/CO2alkonolamines.ipynb",
+      "verified_date": "2026-07-26",
+      "verified_at_utc": "2026-07-26T06:17:39Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "environment_resolution": {
+        "mode": "verified-snapshot-fallback",
+        "bootstrap": "scripts/bootstrap_neqsim_validation_env.py",
+        "requested_version": "latest",
+        "verified_public_pypi_wheels": 81,
+        "snapshot_manifest_created_at_utc": "2026-07-26T05:55:33Z",
+        "note": "A new isolated environment was created from the compatible immutable public-PyPI wheel snapshot after the bounded online refresh could not resolve NeqSim. Manifest inventory, file sizes, and SHA-256 hashes passed before offline installation."
+      },
+      "execution_status": "passed",
+      "execution_method": "All 16 code cells were executed sequentially from an empty namespace with the fresh bootstrap-created Python environment. The executor retained execution counts, stdout, result tables, and five PNG figures and failed on any exception, error output, or stored stderr.",
+      "code_cells": 16,
+      "markdown_cells": 21,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch fast-forward",
+        "commit": "this atomic publication commit"
+      },
+      "pre_existing_cells_preserved": 9,
+      "pre_existing_examples_preserved": 3,
+      "preservation_note": "All nine source cells and all three calculations remain represented in their original order: the Electrolyte-CPA low-pressure bubble-point case, the high-pressure sour-gas reactive TP flash, and the Electrolyte-ScRK bubble-point case. Formatting, units, installation, and output handling were repaired. The CPA example now selects the incipient phase by minimum phase fraction because NeqSim 3.16.0 classifies that CO2-rich phase as OIL rather than exposing a GAS phase.",
+      "pre_existing_figures_preserved": 0,
+      "pre_existing_visuals_preserved": 0,
+      "figure_preservation_note": "The source notebook contained no plot, diagram, image, animation, or other substantive visual. Five reproducible technical figures were added and generated from the final clean execution.",
+      "neqsim_capabilities_demonstrated": [
+        "Electrolyte-CPA-EoS and Electrolyte-ScRK-EoS fluid construction",
+        "chemicalReactionInit and model-specific mixing rules 10 and 4",
+        "reactive TPflash and bubble-point pressure calculations",
+        "aqueous CO2, bicarbonate, carbonate, MDEA, and MDEA+ speciation",
+        "robust incipient-phase selection independent of phase labels",
+        "loading and temperature sensitivity with independent fluid systems",
+        "electrolyte model-form comparison in a screened pressure domain",
+        "connected streams, Mixer, Separator, and runProcess workflow",
+        "treated-gas and rich-solvent result retrieval",
+        "total and CO2 component mass-balance validation"
+      ],
+      "practical_application": "A synthetic sour gas at 313.15 K and 5.0 MPa is contacted with 20 mass% MDEA in a native NeqSim stream-mixer-separator process. Increasing MDEA circulation from 1 to 8 kg/s lowers treated-gas CO2 from 1.977293 to 1.946431 mol% and raises one-stage equilibrium removal from 0.255769 to 2.024552%. The maximum absolute CO2 balance residual is 3.03e-12. The notebook clearly limits this result to ideal equilibrium-stage screening.",
+      "retained_figures": {
+        "count": 5,
+        "previous_count": 0,
+        "new_count": 5,
+        "numerically_refreshed_previous_count": 0,
+        "purposes": [
+          "reactive MDEA stream-mixer-separator workflow overview",
+          "log-scale Electrolyte-CPA aqueous speciation",
+          "CPA loading and temperature sensitivity",
+          "CPA versus ScRK model-form sensitivity",
+          "equilibrium-contact treated-gas, removal, and balance response"
+        ],
+        "visual_inspection": "Passed after the final clean execution. All five PNG figures were extracted and inspected at original resolution for descriptive titles, explicit units, readable labels, legends, accessible colors, correct numerical trends and scales, clipping, overlap, and consistency with stored tables and nearby interpretation."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 5,
+        "unique_inline_expressions": 8,
+        "colab_verified_commit": "451d787761e676f690456eba05966327a0a93691",
+        "source_rule": "Inline equations use $...$ and display equations use standalone $$ delimiter lines with one nonblank equation line and single-backslash LaTeX.",
+        "visual_inspection": "The exact staged notebook was opened in Google Colab. Both reactions, the aqueous-loading fraction, gas partial pressure, and CO2 removal equations rendered correctly. Fractions, ionic charges, subscripts, superscripts, Greek symbols, and dotted mass-flow notation were visually inspected with no raw delimiters, clipping, or malformed MathJax output."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 16 executed code cells and 21 substantive Markdown cells",
+        "all nine source cells and all three original examples were preserved",
+        "zero exceptions, zero error outputs, and zero stored stderr",
+        "maximum Python code-line length was 83 characters with no semicolon chains or compressed compound bodies",
+        "all 25 engineering assertions passed",
+        "both preserved bubble-point calculations returned finite positive pressure",
+        "the high-pressure TP flash produced gas and aqueous phases",
+        "aqueous speciation and loading were finite and bounded",
+        "the CPA pressure contribution increased with loading at both temperatures",
+        "the warmer CPA curve required higher pressure at every shared loading",
+        "the CPA-ScRK comparison remained within the screened 0 to 10 MPa domain",
+        "four native process scenarios completed",
+        "treated-gas CO2 decreased and removal increased with MDEA circulation",
+        "total mass and CO2 component balances closed below 1e-8 relative residual",
+        "five figures passed visual and numerical-context inspection",
+        "five display equations and eight inline expressions passed source checks and live Google Colab rendering",
+        "the Colab badge and active catalog reference the notebook exactly once"
+      ],
+      "summary": "A self-contained CO2-MDEA tutorial covering preserved CPA and ScRK examples, reactive speciation, loading and temperature sensitivities, model-form comparison, a connected equilibrium contact process, balances, 25 engineering checks, limitations, troubleshooting, exercises, references, and five inspected figures."
     }
   ]
 }
