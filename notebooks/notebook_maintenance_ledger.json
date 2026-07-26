@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-26T08:21:30Z",
+  "updated_at": "2026-07-26T08:29:44Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -8926,6 +8926,98 @@
         "the Colab badge and active catalog reference the notebook exactly once"
       ],
       "summary": "A self-contained associating-fluid companion that calculates a counterpoise-corrected water-dimer radial/angular surface with PySCF, calibrates it at CCSD(T), maps 4C site topology, hydrogen-bond energy, and bonding geometry to NeqSim's SAFT-VR Mie Dufal kernel, reproduces a published Dufal site-fraction benchmark with teqp, verifies NeqSim's 4C mass action and association Helmholtz identity, compares mapped, packaged, and association-off water behavior, quantifies coarse-graining and parameter sensitivities, and propagates the association map to a native heater duty."
+    },
+    {
+      "path": "notebooks/process/singlecomponent_dyn.ipynb",
+      "verified_date": "2026-07-26",
+      "verified_at_utc": "2026-07-26T08:29:44Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "environment_resolution": {
+        "mode": "verified-snapshot-fallback",
+        "wheel_count": 81,
+        "wheel_manifest_created_at_utc": "2026-07-26T08:05:53Z",
+        "provenance": "Every wheel originated from public PyPI and passed manifest inventory, size, platform, and SHA-256 verification before no-index installation into a new environment."
+      },
+      "execution_status": "passed",
+      "execution_method": "All 18 code cells were executed sequentially from an empty shared namespace in the fresh validation environment. The in-process executor retained execution counts, stdout result tables, and ten PNG figures and failed on any exception, error output, or stored stderr.",
+      "code_cells": 18,
+      "markdown_cells": 16,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic default-branch fast-forward",
+        "commit": "this publication commit"
+      },
+      "pre_existing_cells_preserved": 20,
+      "pre_existing_examples_preserved": 4,
+      "preservation_note": "All 20 original cells remain represented in their original type sequence. The propane valve-separator-compressor dynamics, pure-component flash and saturation operations, hydrogen depressurization, and stream-quality specification workflows were repaired, executed, documented, and integrated.",
+      "repairs": [
+        "replaced malformed chained pip/apt setup and obsolete Java 25 installation with one conditional public-PyPI-compatible NeqSim setup cell",
+        "corrected the Colab badge from singlecomponent.ipynb to singlecomponent_dyn.ipynb",
+        "reformatted every original code workflow as teaching-quality Python with descriptive names, four-space indentation, one statement per line, and maximum line length 78",
+        "recorded separator pressure at every propane transient step so all histories contain 80 synchronized points",
+        "replaced printFrame on a zero-flow single-phase hydrogen liquid outlet with a phase-safe flow check, avoiding undefined J/kg conversion",
+        "stopped hydrogen depressurization above the 1.01325 bara downstream boundary instead of continuing into unphysical reverse pressure",
+        "reframed liquid-inventory recovery as a temporary 75 percent outlet opening because returning to the nominal 50 percent balance point does not drain accumulated inventory",
+        "improved time units, legends, axis labels, event annotations, temperature scaling, result tables, validation, and interpretation"
+      ],
+      "neqsim_capabilities_demonstrated": [
+        "SRK pure-propane and pure-hydrogen fluid construction",
+        "native Stream, ThrottlingValve, Separator, Compressor, and ProcessSystem composition",
+        "steady-state execution followed by equipment-level dynamic-mode configuration and ProcessSystem.runTransient",
+        "phase-fraction pressure and temperature flashes, TP and PH flashes, bubble point, and dew point operations",
+        "stream gas-quality, bubble-pressure, and dew-pressure specifications",
+        "phase-safe outlet interrogation and downstream-pressure boundary handling",
+        "reusable fresh-model liquid-outlet restriction and active-recovery scenario analysis"
+      ],
+      "practical_application": "Three independent dynamic propane separator models run ten minutes at 50 percent liquid-valve opening, twenty minutes at restrictions of 15, 30, or 45 percent, and twenty minutes at a temporary 75 percent recovery opening. The study compares maximum and final liquid level, pressure, temperature, and severity ordering without hidden cross-case state.",
+      "retained_figures": {
+        "count": 10,
+        "previous_count": 7,
+        "new_count": 3,
+        "numerically_refreshed_previous_count": 7,
+        "purposes": [
+          "preserved propane separator liquid-level response",
+          "preserved propane separator temperature response",
+          "preserved propane separator pressure response with completed history",
+          "preserved nominal hydrogen liquid-level history",
+          "preserved hydrogen vessel temperature during depressurization",
+          "preserved bounded hydrogen vessel pressure trajectory",
+          "preserved hydrogen gas-outlet flow trajectory",
+          "new NeqSim process and operability workflow overview",
+          "new restriction and active-recovery level and pressure trajectories",
+          "new inventory consequence and final-level sensitivity comparison"
+        ],
+        "visual_inspection": "Passed after the final clean execution. All ten PNG figures were extracted and inspected at original resolution and in contact sheets for titles, explicit units, readable labels, legends, accessible colors, correct scales and trends, clipping, overlap, and consistency with the stored tables and nearby interpretation."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 3,
+        "unique_inline_expressions": 1,
+        "source_rule": "Inline equations use $...$ and each display equation uses standalone $$ delimiter lines with blank separation and single-backslash LaTeX commands.",
+        "visual_inspection": "All three display equations and the unique inline expression were rendered through MathJax using a Jupyter/Colab-compatible TeX-to-SVG path. Fractions, subscripts, beta, derivative notation, mass-flow dots, and the valve coefficient rendered without clipping or malformed output."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 18 executed code cells and 16 substantive Markdown cells",
+        "zero exceptions, zero error outputs, and zero stored stderr",
+        "all 21 engineering assertions passed",
+        "nine result tables and ten PNG figures retained",
+        "all 20 original cells, four original workflows, and seven original figures preserved and recalculated",
+        "steady propane mass balance closed below 1e-6 kg/hr",
+        "PH flash preserved enthalpy within numerical tolerance",
+        "propane histories contain 80 synchronized finite points and bounded liquid level",
+        "hydrogen pressure remained finite, decreased after inlet closure, and stopped above the downstream boundary",
+        "single-phase hydrogen nominal liquid outlet remained at zero flow without querying undefined mass-specific liquid properties",
+        "all scenario levels remained finite and within zero to one",
+        "maximum separator level decreased monotonically as restricted opening increased",
+        "the temporary 75 percent recovery opening reduced accumulated inventory in every scenario",
+        "maximum code-line length was 78 with no semicolon compression or one-line compound bodies",
+        "three display equations and one unique inline expression passed strict source checks and MathJax visual rendering",
+        "all ten figures passed visual and numerical-context inspection",
+        "all introduced official NeqSim documentation links resolved; the active catalog and Colab badge reference the notebook exactly once"
+      ],
+      "summary": "Repaired and extended the pure-component dynamic-operations notebook into an executable NeqSim 3.16.0 tutorial while preserving all 20 original cells, four workflows, and seven recalculated figures. The modernization fixes setup, badge, pressure-history, phase-existence, downstream-boundary, code-readability, units, and visualization defects and adds an end-to-end restriction and active-recovery application with three new figures and 21 engineering checks. No NeqSim library defect was confirmed."
     }
   ]
 }
