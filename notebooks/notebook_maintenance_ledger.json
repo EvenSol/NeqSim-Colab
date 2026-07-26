@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-26T09:15:47Z",
+  "updated_at": "2026-07-26T14:24:42Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -9108,6 +9108,96 @@
         "all introduced documentation links resolved and catalog target occurs once"
       ],
       "summary": "Repaired and expanded the original wax notebook into a self-contained NeqSim tutorial covering heavy-end characterization, solid-wax phase equilibrium, WAT, wax content, model tuning, composable process equipment, flowline operability screening, insulation sensitivity, verification, limitations, troubleshooting, exercises, and references."
+    },
+    {
+      "path": "notebooks/reactions/natural_gas_combustion_with_cantera.ipynb",
+      "verified_date": "2026-07-26",
+      "verified_at_utc": "2026-07-26T14:24:42Z",
+      "neqsim_version": "3.16.0",
+      "cantera_version": "3.2.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "environment_resolution": {
+        "mode": "verified-snapshot-fallback",
+        "bootstrap": "scripts/bootstrap_neqsim_validation_env.py",
+        "requested_neqsim_version": "3.16.0",
+        "requested_extra_package": "cantera>=3.1",
+        "verified_public_pypi_wheels": 51,
+        "snapshot_manifest_created_at_utc": "2026-07-26T14:16:45Z",
+        "resolution_mode_proof": [
+          "online-new-snapshot",
+          "verified-snapshot-fallback under a deliberately unavailable proxy"
+        ],
+        "note": "A complete NeqSim 3.16.0 and Cantera 3.2.0 environment was resolved from public PyPI into an immutable snapshot. A second fresh environment was installed with the proxy deliberately unavailable; all 51 wheel sizes and SHA-256 hashes passed, pip cache was disabled, and installation required no network."
+      },
+      "execution_status": "passed",
+      "execution_method": "All 17 code cells were executed sequentially from an empty namespace with the fresh bootstrap-created Python. The in-process executor retained execution counts, stdout, tables, and two PNG figures and failed on any exception, error output, or stored stderr.",
+      "code_cells": 17,
+      "markdown_cells": 18,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic connector-backed fast-forward commit to the default branch",
+        "commit": "the commit containing this ledger entry"
+      },
+      "pre_existing_cells_preserved": 33,
+      "pre_existing_examples_preserved": 8,
+      "preservation_note": "All 33 original cells and their learning sequence remain represented. The four fuel definitions, elemental stoichiometry, reusable equilibrium calculation, fuel/lambda sweep, oxidizer blending, eight device archetypes, three staged two-zone cases, NeqSim-to-Cantera mapping, and custom Cantera unit inside a NeqSim ProcessSystem were retained. Only code readability, Colab-safe equation delimiters, verification, and stored execution outputs were added.",
+      "pre_existing_figures_preserved": 0,
+      "figure_preservation_note": "The remote notebook had no stored reproducible figures. Both existing plotting workflows were executed and their two PNG engineering figures were retained and inspected.",
+      "capabilities_demonstrated": [
+        "Cantera GRI-Mech 3.0 natural-gas equilibrium combustion with wet and dry reporting",
+        "elemental stoichiometric oxygen and air demand for four fuel blends",
+        "fuel composition, hydrogen blend, carbon-dioxide dilution, and excess-air sensitivity",
+        "dry air, humid air, exhaust-gas-recirculation proxy, and oxygen-enriched oxidizer screening",
+        "boiler, fired-heater, furnace, low-NOx, gas-turbine, duct-burner, and flare archetypes",
+        "two-zone primary and secondary-air staging",
+        "explicit NeqSim-to-Cantera species mapping with unsupported-species rejection",
+        "native NeqSim SRK Stream, valve, heater, cooler, and ProcessSystem integration",
+        "Python-defined CanteraCombustor unit operation with mass-flow and species handoff"
+      ],
+      "practical_application": "For the lean pipeline gas at lambda 1.15, the integrated example processes 1000 kg/h fuel with 18858.7523 kg/h oxidizer and closes the Cantera-to-NeqSim mass residual at 0.000e+00. The custom unit hands major flue-gas species to NeqSim at 900 degC, and the native cooler reaches 180 degC with 1.9722 MW recovered duty. At equal lambda, the 10 percent EGR proxy reduces equilibrium temperature from 1816.504 to 1631.577 degC and equilibrium NOx from 3724.560 to 2081.027 ppmv; the notebook explicitly warns that equilibrium emissions are not compliance predictions.",
+      "retained_figures": {
+        "count": 2,
+        "previous_count": 0,
+        "new_count": 2,
+        "numerically_refreshed_previous_count": 0,
+        "purposes": [
+          "fuel and lambda sensitivity of adiabatic temperature, dry carbon dioxide, dry oxygen, and equilibrium carbon monoxide",
+          "combustion-device comparison of adiabatic equilibrium temperature and dry product oxygen"
+        ],
+        "visual_inspection": "Passed after the final clean execution. Both PNG figures were extracted and inspected at full resolution for titles, axes, units, legends, colors, correct trends and scales, clipping, overlap, and agreement with stored tables."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 2,
+        "inline_expression_occurrences": 10,
+        "unique_inline_expressions": 8,
+        "rendered_math_objects": 10,
+        "source_rule": "Inline equations use $...$ and display equations use standalone $$ delimiter lines with blank separation and single-backslash LaTeX.",
+        "visual_inspection": "Both display equations and all eight unique inline expressions were rendered through MathJax to SVG and PNG and visually inspected. Lambda, equivalence ratio, stoichiometric oxygen demand, fractions, subscripts, inequalities, and chemical-formula subscripts were clear with no raw delimiters, clipping, or malformed output."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 17 sequentially executed code cells and 18 Markdown cells",
+        "all 33 original cells and eight substantive workflows remain represented",
+        "zero exceptions, zero error outputs, and zero stored stderr",
+        "maximum Python code-line length is 100 characters with no semicolon chains or compressed compound bodies",
+        "all 22 engineering assertions passed",
+        "all fuel and mapped compositions normalize to unity",
+        "stoichiometric oxygen demand is positive for all fuel blends",
+        "the complete 4 by 7 fuel and lambda sweep is finite",
+        "adiabatic temperature peaks near stoichiometric operation for every fuel",
+        "residual oxygen rises with excess air and rich equilibrium carbon monoxide exceeds the lean case",
+        "EGR lowers equilibrium temperature and NOx while oxygen enrichment raises temperature",
+        "all eight device cases and three staged-air cases executed with valid air ratios",
+        "Cantera-to-NeqSim relative mass residual is 0.000e+00",
+        "NeqSim cooler outlet is 180 degC and both reported heat-recovery duties are positive",
+        "omitted Cantera species fraction at the NeqSim handoff is below 1e-3",
+        "two figures passed visual and numerical-context inspection",
+        "two display and eight unique inline expressions passed source and MathJax checks",
+        "repository notebook checker passed all gates",
+        "Colab badge, active catalog target, and ledger path each occur exactly once"
+      ],
+      "summary": "Completed the natural-gas combustion tutorial as an executable Cantera and NeqSim workflow covering fuel and oxidizer blending, stoichiometry, equilibrium products, device archetypes, staged combustion, explicit species mapping, a custom Cantera process unit, downstream NeqSim heat recovery, limitations, and 22 stored engineering checks. No NeqSim or Cantera library defect was detected."
     }
   ]
 }
