@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-26T18:23:31Z",
+  "updated_at": "2026-07-26T21:14:21Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -9960,6 +9960,124 @@
         "external_links_checked": true
       },
       "summary": "Expanded the seven-cell API 521 note into a self-contained blocked-liquid thermal-expansion and relief-screening tutorial. It preserves both original calculations while adding current NeqSim thermodynamic derivatives, nonlinear mass/volume closure, heat-duty relief demand, native Stream and SafetyValve operation, scenario sensitivities, retained outputs, six inspected figures, troubleshooting, limitations, exercises, and authoritative references."
+    },
+    {
+      "path": "notebooks/process/process_flow_diagram.ipynb",
+      "verified_date": "2026-07-26",
+      "verified_at_utc": "2026-07-26T21:14:21Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-process-flow-diagram-release2-20260726 --neqsim-version latest --refresh --extra-package pyflowsheet --extra-package pathfinding==0.0.4 --extra-package nbclient --extra-package ipykernel",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260726T211318Z-ed33ad111df2",
+        "verified_public_pypi_wheels": 60,
+        "manifest_created_at_utc": "2026-07-26T21:13:18Z",
+        "integrity": "Complete public-PyPI wheel inventory, sizes, SHA-256 hashes, runtime/platform compatibility, and requested-toolchain verification passed before installation into a fresh environment."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 22 code cells sequentially from an empty in-process IPython state with execution counts 1 through 22, zero error outputs, and zero stored stderr. The local Jupyter TCP kernel was unavailable, so the same fresh-environment Python executed cells directly while retaining stdout, SVG, PNG, and table outputs.",
+      "code_cells": 22,
+      "substantive_code_cells": 22,
+      "markdown_cells": 27,
+      "publication": {
+        "branch": "master",
+        "mode": "direct atomic connector-backed fast-forward commit",
+        "commit": "the commit containing this ledger entry",
+        "files": [
+          "notebooks/process/process_flow_diagram.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "preservation": {
+        "pre_existing_cells": 6,
+        "preserved_cells": 6,
+        "pre_existing_substantive_examples": 5,
+        "preserved_substantive_examples": 5,
+        "pre_existing_figures": 1,
+        "preserved_figures": 1,
+        "repairs": "Preserved the Colab badge, 24-component wellstream with C7-C20 pseudo-components, stream conditions and execution, separator/compressor/valve topology, five named stream connections, and the original SVG with both embedded tables. Repaired installation, the NeqSim link, compressed imports and code, rounded composition closure, stale outputs, pandas-3 table rendering, invalid SVG stream identifiers, transparent-background inspection, and overlapping labels. No original example, connection, table, figure, or engineering intent was removed."
+      },
+      "neqsim_capabilities_demonstrated": [
+        "fluid_df construction with named components and characterized petroleum pseudo-components",
+        "ThermodynamicOperations TPflash and two-phase feed verification",
+        "Stream, Separator, Compressor, ThrottlingValve, and ProcessSystem connectivity",
+        "stream_table and equipment_table result retrieval",
+        "separator phase split, fixed-efficiency compression, and isenthalpic liquid letdown",
+        "mass-balance closure and pressure-direction assertions",
+        "five-case gas-export pressure sensitivity",
+        "reusable process-to-diagram engineering handoff"
+      ],
+      "practical_application": "Runs a 15.63-MSm3/day synthetic rich wellstream at 120 bara and 40 degC through inlet separation, 160-bara gas export compression, and 20-bara liquid letdown. The calculated streams populate the preserved pyflowsheet PFD and its tables, while a reusable scenario loop screens 125-200 bara gas export pressure.",
+      "engineering_validation": {
+        "assertions_passed": 15,
+        "assertions_failed": 0,
+        "checks": [
+          "24-component composition normalizes exactly to 100 percent",
+          "feed is two phase at separator conditions",
+          "gas and liquid product flows are positive",
+          "base-case normalized mass residual is below 1e-8",
+          "gas and liquid export pressures match specifications",
+          "compressor power is positive",
+          "all five original topology connections are retained",
+          "all five export-pressure scenarios converge",
+          "scenario mass residuals remain below 1e-5 kg/h",
+          "compressor power and discharge temperature increase monotonically with pressure",
+          "the calculated SVG renders with both refreshed tables"
+        ],
+        "key_results": {
+          "feed_mass_flow_kg_h": 891771.139071,
+          "gas_product_mass_flow_kg_h": 434444.764975,
+          "liquid_product_mass_flow_kg_h": 457326.374096,
+          "normalized_mass_residual": -4.5690380473485e-16,
+          "base_compressor_power_mw": 4.84011321889729,
+          "gas_export_temperature_deg_c": 63.300448,
+          "liquid_export_temperature_deg_c": 29.360235,
+          "pressure_scenario_range_bara": [
+            125,
+            200
+          ],
+          "compressor_power_range_mw": [
+            0.6529995757305287,
+            9.026157854024852
+          ]
+        }
+      },
+      "figures": {
+        "previous_figures": 1,
+        "previous_figures_refreshed": 1,
+        "new_figures": 3,
+        "total_retained_figures": 4,
+        "purposes": [
+          "normalized 24-component wellstream composition on a logarithmic scale",
+          "preserved process flow diagram with refreshed composition and NeqSim stream tables",
+          "base-case pressure and temperature profile across gas and liquid branches",
+          "gas-export pressure sensitivity of compressor power and discharge temperature"
+        ],
+        "visual_inspection": "Passed after final execution: all four figures have readable titles, explicit units, accessible colors, legends where needed, correct scales, and nearby interpretation. The SVG background, stream labels, equipment symbols, topology, and both embedded tables were checked with no clipping, overlap, stale values, or misleading axes.",
+        "numerical_refresh": "The original SVG's composition and property tables were recalculated with NeqSim 3.16.0 and pandas 3.0.5. Three additional figures were generated from the same validated execution."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 5,
+        "unique_inline_expressions": 15,
+        "renderer": "Jupyter/Colab-compatible MathJax SVG path",
+        "visual_inspection": "Mass-balance and specific-work fractions, dotted rates, subscripts, Greek symbols, EOS terms, superscripts, and units rendered correctly with balanced delimiters and single-backslash commands."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "maximum_code_line_length": 74,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "external_links_checked": true
+      },
+      "summary": "Expanded the six-cell process-flow-diagram example into a self-contained, executed tutorial that preserves every original workflow and visual while connecting the diagram to real NeqSim separation, compression, throttling, balances, scenario analysis, validation, troubleshooting, limitations, exercises, and references."
     }
   ]
 }
