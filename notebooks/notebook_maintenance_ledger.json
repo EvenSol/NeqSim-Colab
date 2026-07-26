@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-26T15:15:27Z",
+  "updated_at": "2026-07-26T15:41:45Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -9276,6 +9276,90 @@
         "mathjax_unique_inline_expressions": 9
       },
       "summary": "Replaced the obsolete unconditional installation cell, corrected notation and terminology, removed hard-coded phase assumptions, added fugacity and balance checks, and expanded the short example into a self-contained CPA top-of-line-condensation tutorial with a realistic flowline application, sensitivity study, interpretation, limitations, troubleshooting, exercises, tables, and graphics."
+    },
+    {
+      "path": "notebooks/power/ncs_wind_battery_gas_electrification.ipynb",
+      "verified_date": "2026-07-26",
+      "verified_at_utc": "2026-07-26T15:41:45Z",
+      "neqsim_version": "3.16.0 from pinned repository source",
+      "neqsim_commit": "77f4b5b1d225372947a69864b47940fe0f86430a",
+      "python_version": "3.12.13",
+      "java_version": "Temurin 21.0.11",
+      "environment_resolution": {
+        "mode": "pinned-repository-source-build",
+        "repository": "equinor/neqsim",
+        "commit": "77f4b5b1d225372947a69864b47940fe0f86430a",
+        "build": "Maven package with freshly compiled classes placed before the shaded NeqSim 3.16.0 JAR",
+        "note": "The notebook does not substitute the packaged Python NeqSim release; it fetches and verifies the exact repository commit before starting JPype."
+      },
+      "public_data_provenance": {
+        "source": "Equinor Hywind Tampen public project page",
+        "url": "https://www.equinor.com/energy/hywind-tampen",
+        "values": [
+          "94.6 MW total wind capacity",
+          "11 turbines rated at 8.6 MW",
+          "about 35 percent of estimated annual electricity demand for five Snorre and Gullfaks platforms"
+        ],
+        "boundary": "Only public project values are used. The hourly wind profile and both process-load archetypes are synthetic and explicitly labelled."
+      },
+      "execution_status": "passed",
+      "execution_method": "GitHub Actions run 30208408418 executed all 21 code cells sequentially from a clean Python 3.12 kernel with Java 21, built the pinned NeqSim repository source, retained stdout, tables, and six PNG figures, and failed on any exception, error output, missing output collection, or non-sequential execution count.",
+      "code_cells": 21,
+      "markdown_cells": 24,
+      "publication": {
+        "branch": "master",
+        "mode": "connector-backed pull request #59 after clean-kernel validation",
+        "commit": "the merge commit containing this ledger entry"
+      },
+      "capabilities_demonstrated": [
+        "pinned NeqSim repository source build and JPype startup",
+        "SRK export-gas compression from 55 to 120 bara with flow sensitivity and material-energy closure",
+        "native OffshoreEnergyReferenceCase acceptance benchmark",
+        "EnergyTimeSeriesProfile and EnergyTimeSeriesSimulator chronological wind and gas dispatch",
+        "typed EnergyPort producers and consumers connected through an electrical EnergyBus",
+        "native BatteryStorage state of charge, efficiencies, power limits, and bidirectional bus allocation",
+        "direct gas-turbine CO2 accounting, curtailment, ramping, N+1 firm-capacity, and spinning-reserve screens",
+        "battery capacity and field-maturity sensitivity plus an explicit battery-only gas-charging counterexample"
+      ],
+      "practical_application": "For the 135.143 MW mean reference cluster, the annualised synthetic screening case falls from 532.733 kt/y direct CO2 with gas turbines only to 346.277 kt/y with Hywind-scale wind, a 35.000 percent reduction. No wind is curtailed, so a 100 MWh battery adds no energy-only CO2 benefit. For the 74.329 MW mean compact mature hub, wind plus gas reduces direct CO2 from 293.003 to 108.180 kt/y; the 100 MWh battery captures 258.429 MWh of otherwise-surplus wind over 30 days, delivers 233.232 MWh, and reduces the annualised value further to 106.903 kt/y. Gas turbines remain installed: the N+1 screen retains 175 MW firm capacity and all cases have zero unmet energy.",
+      "retained_figures": {
+        "count": 6,
+        "previous_count": 0,
+        "new_count": 6,
+        "purposes": [
+          "NeqSim export-compressor power and discharge-temperature sensitivity",
+          "synthetic wind chronology and process-derived reference and mature-hub loads",
+          "reference-cluster wind and balancing-gas chronological dispatch",
+          "mature-hub wind, native battery discharge, gas dispatch, charging demand, and state of charge",
+          "battery-capacity and demand-scale sensitivity of additional direct CO2 reduction",
+          "annualised direct offshore CO2 comparison for reference and mature-hub archetypes"
+        ],
+        "visual_inspection": "Passed after the final clean execution. All six PNG figures were extracted and inspected at full resolution for titles, axes, explicit units, legends, accessible colors, charging and discharging balance, correct trends and scales, clipping, overlap, and agreement with stored tables."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 5,
+        "inline_expression_occurrences": 5,
+        "source_rule": "Inline equations use $...$ and display equations use standalone $$ delimiter lines with blank separation and single-backslash LaTeX.",
+        "visual_inspection": "All five display equations from the final executed notebook were rendered through MathJax to SVG and PNG and visually inspected. Fractions, summation, overbars, mass-flow dots, subscripts, superscripts, efficiencies, time increments, and CO2 notation were clear with no raw delimiters, clipping, or malformed output."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 21 sequentially executed code cells and 24 Markdown cells",
+        "zero exceptions and zero stored error outputs",
+        "repository notebook checker passed with five display equations and five inline expressions",
+        "all 26 engineering assertions passed",
+        "native offshore benchmark reproduced 312 MWh served, 144 MWh wind, 168 MWh gas, zero unmet energy, and 75600 kg CO2",
+        "compressor mass and energy residuals were within tolerance and power increased monotonically from 14.513 to 36.281 MW",
+        "synthetic wind capacity factor equals 50 percent and the reference annual wind-energy share equals 35 percent",
+        "gas-only and wind-plus-gas native time-series cases served all load with exact chronological power balance",
+        "battery state of charge stayed within capacity and its EnergyBus allocation matched the controller request",
+        "100 MWh mature-hub battery reduced 30-day gas generation from 19758.823 to 19525.591 MWh",
+        "battery-only gas charging showed 90.25 percent round-trip efficiency and increased direct CO2 under a constant gas emission factor",
+        "six retained figures passed visual and numerical-context inspection",
+        "five display and five inline expressions passed source and MathJax checks",
+        "Colab badge, catalog target, and ledger path each occur exactly once"
+      ],
+      "summary": "Created a source-pinned, executable NCS electrification screening notebook that connects a NeqSim oil-and-gas process load to chronological wind, balancing gas turbines, and native battery storage; distinguishes energy displacement from firm-capacity replacement; quantifies direct CO2, curtailment, storage, ramps, and reserve; and documents transparent public inputs, synthetic-data boundaries, limitations, and next-study extensions."
     }
   ]
 }
