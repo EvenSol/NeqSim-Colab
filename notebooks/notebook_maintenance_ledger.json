@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-26T17:12:25Z",
+  "updated_at": "2026-07-26T18:16:01Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -9360,6 +9360,133 @@
         "Colab badge, catalog target, and ledger path each occur exactly once"
       ],
       "summary": "Created a source-pinned, executable NCS electrification screening notebook that connects a NeqSim oil-and-gas process load to chronological wind, balancing gas turbines, and native battery storage; distinguishes energy displacement from firm-capacity replacement; quantifies direct CO2, curtailment, storage, ramps, and reserve; and documents transparent public inputs, synthetic-data boundaries, limitations, and next-study extensions."
+    },
+    {
+      "path": "notebooks/power/process_coupled_offshore_electrification_study.ipynb",
+      "verified_date": "2026-07-26",
+      "verified_at_utc": "2026-07-26T18:16:01Z",
+      "neqsim_version": "3.16.0 from pinned repository source",
+      "neqsim_commit": "77f4b5b1d225372947a69864b47940fe0f86430a",
+      "python_version": "3.12.13",
+      "java_version": "Temurin 17.0.19",
+      "environment_resolution": {
+        "mode": "pinned-repository-source-build",
+        "repository": "equinor/neqsim",
+        "commit": "77f4b5b1d225372947a69864b47940fe0f86430a",
+        "build": "Maven package with freshly compiled classes placed before the shaded NeqSim 3.16.0 JAR",
+        "note": "The notebook does not substitute the packaged Python NeqSim release; it fetches and verifies the exact repository commit before starting JPype."
+      },
+      "source_process": {
+        "notebook": "notebooks/process/comparesimulations.ipynb",
+        "retained_topology": [
+          "70 bara rich-gas feed",
+          "30 bara throttling",
+          "5 degC cooling",
+          "cold separation",
+          "30-to-70 bara recompression"
+        ],
+        "additions": [
+          "35 degC recompression aftercooling",
+          "70-to-160 bara export compression",
+          "35 degC export cooling",
+          "direct compressor-to-GasTurbineUnit power-consumer coupling",
+          "shaft-work EnergyBus balance"
+        ]
+      },
+      "public_data_provenance": {
+        "sources": [
+          {
+            "name": "Equinor Hywind Tampen public project page",
+            "url": "https://www.equinor.com/energy/hywind-tampen",
+            "values": [
+              "94.6 MW installed wind capacity",
+              "about 35 percent annual contribution"
+            ]
+          },
+          {
+            "name": "NVE Norwegian electricity-use emission factor",
+            "url": "https://www.nve.no/nytt-fra-nve/nyheter-energi/klimagassutslipp-knyttet-til-norsk-stroemforbruk-gaar-ned/",
+            "values": [
+              "11.9 g CO2e/kWh average physical electricity use in 2024"
+            ]
+          },
+          {
+            "name": "Norwegian Offshore Directorate, The shelf in 2025",
+            "url": "https://www.sodir.no/en/whats-new/publications/reports/the-shelf/the-shelf-in-2025/production-operating-fields-and-investments/",
+            "values": [
+              "gas-turbine combustion is the main offshore emission source",
+              "power from shore is the most important reduction measure since 2015"
+            ]
+          }
+        ],
+        "boundary": "Wind, production, outage, utility, cable, battery, and economic time series and assumptions are synthetic or illustrative and are explicitly labelled."
+      },
+      "execution_status": "passed",
+      "execution_method": "GitHub Actions run 30214264263 executed all 23 code cells sequentially from a clean Python 3.12 kernel with Java 17, built the pinned NeqSim repository source, retained stdout, tables, diagnostics, and eight PNG figures, and failed on any exception, stored error, missing execution count, insufficient figure count, or failed engineering gate.",
+      "code_cells": 23,
+      "markdown_cells": 15,
+      "publication": {
+        "branch": "master",
+        "mode": "connector-backed pull request #60 after clean-kernel validation",
+        "commit": "the merge commit containing this ledger entry"
+      },
+      "capabilities_demonstrated": [
+        "pinned NeqSim repository source build and JPype startup",
+        "SRK rich-gas throttling, cooling, separation, recompression, aftercooling, export compression, and export cooling",
+        "60 kg/s hub-scale flow with 70-to-160 bara export compression",
+        "direct GasTurbineUnit.addPowerConsumer coupling to both NeqSim compressors",
+        "shaft-work and electrical EnergyBus balances",
+        "EnergyTimeSeriesProfile and EnergyTimeSeriesSimulator chronological dispatch",
+        "native part-load LM2500PLUS_G4 fuel and CO2 calculation at process fuel composition",
+        "native BatteryStorage state of charge, efficiencies, and power limits",
+        "gas-only, partial-shore, full-shore, wind, battery, and hybrid scenarios",
+        "direct versus location-based CO2e, N+1 capacity, cost-proxy, and field-maturity sensitivities"
+      ],
+      "practical_application": "At 60 kg/s the solved process exports 202941.8 kg/h gas and 13058.2 kg/h liquid. Recompression requires 6.876 MW and the new 70-to-160 bara export compressor requires 7.210 MW; the process electrical equivalent including explicit cooling assumptions is about 14.94 MW. The synthetic chronology has 39.04 MW mean and 44.72 MW peak total load, while two available LM2500PLUS_G4 units provide 67.14 MW N+1 firm capacity. Annualised direct CO2 falls from 197.86 kt/y for gas turbines only to 85.44 kt/y with 25 MW shore power, 6.92 kt/y with 60 MW shore power and the staged outage, 21.12 kt/y with wind, 18.18 kt/y with wind plus 100 MWh storage, and 5.69 kt/y for the 25 MW shore-wind-battery hybrid. These are transparent screening results for the synthetic chronology, not asset forecasts.",
+      "retained_figures": {
+        "count": 8,
+        "previous_count": 0,
+        "new_count": 8,
+        "purposes": [
+          "real NeqSim separation, recompression, export-compression, and direct shaft-power topology",
+          "NeqSim compressor and process electrical duty versus gas flow",
+          "hourly production flow and process-coupled electrical load",
+          "native gas-turbine part-load efficiency and fuel-specific CO2 intensity",
+          "hybrid dispatch and battery inventory through the designed low-wind spell",
+          "annual direct and location-based emissions comparison",
+          "shore-power and gas-value operating-cost-proxy sensitivity",
+          "field-maturity effect on gas balancing energy and wind curtailment"
+        ],
+        "visual_inspection": "Passed after final clean execution. All eight PNG figures were extracted and inspected at full resolution for titles, axes, units, legends, accessible colors, process topology, low-wind battery depletion, gas balancing, physical trends, clipping, overlap, and agreement with tables."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 8,
+        "inline_expression_occurrences": 3,
+        "source_rule": "Inline equations use $...$ and display equations use standalone $$ delimiter lines with single-backslash LaTeX.",
+        "visual_inspection": "All eight display equations and all three inline expressions from the final executed notebook were rendered through MathJax to SVG and PNG and visually inspected. Fractions, dotted mass flow, vector composition, subscripts, superscripts, efficiencies, summations, inequalities, and CO2 notation rendered without raw delimiters, clipping, or malformed output."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 23 sequentially executed code cells and 15 Markdown cells",
+        "zero exceptions and zero stored error outputs",
+        "repository notebook checker passed with eight display equations and three inline expressions",
+        "all 48 engineering assertions passed",
+        "base process mass balance closed and the 160 bara, 35 degC export target was reached",
+        "the new export compressor has 7.2096 MW material duty at 60 kg/s",
+        "GasTurbineUnit direct demand equals the sum of both compressor powers",
+        "shaft-work EnergyBus residual is 0.0062 W on 14.085 MW, below 1e-9 relative",
+        "NeqSim process electrical duty rises monotonically from 8.219 to 18.680 MW over 33-to-75 kg/s",
+        "four independent process cases confirmed interpolation error below 0.5 percent",
+        "all hourly flows remained inside the solved NeqSim envelope",
+        "all six scenarios closed every hourly energy balance with zero unmet demand",
+        "two gas turbines provide N+1 firm capacity above the 44.716 MW peak load",
+        "battery state of charge and charge/discharge power remained inside native limits",
+        "wind plus 100 MWh battery reduced annualised gas generation from 33.09 to 29.37 GWh",
+        "eight retained figures passed visual and numerical-context inspection",
+        "eight display and three inline expressions passed source and MathJax checks",
+        "Colab badge, catalog target, and ledger path each occur exactly once"
+      ],
+      "summary": "Created a source-pinned, process-coupled offshore electrification study based on the real comparesimulations process, added hub-scale export compression, derived chronological demand from solved NeqSim equipment duties, coupled compressors directly to native gas-turbine performance, and compared shore, wind, battery, and hybrid concepts with transparent emissions, reliability, economic-boundary, maturity, validation, and limitation evidence."
     },
     {
       "path": "notebooks/fielddevelopment/norwegian_field_and_area_development_with_neqsim.ipynb",
