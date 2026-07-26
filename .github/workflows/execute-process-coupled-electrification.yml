@@ -2,6 +2,11 @@ name: Execute process-coupled electrification notebook
 
 on:
   workflow_dispatch:
+  pull_request:
+    paths:
+      - notebooks/power/process_coupled_offshore_electrification_study.ipynb
+      - scripts/check_notebook.py
+      - .github/workflows/execute-process-coupled-electrification.yml
   push:
     paths:
       - notebooks/power/process_coupled_offshore_electrification_study.ipynb
