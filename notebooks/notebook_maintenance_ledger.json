@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-25T18:23:25Z",
+  "updated_at": "2026-07-26T01:04:14Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -1311,41 +1311,73 @@
     },
     {
       "path": "notebooks/PVT/parameter_database.ipynb",
-      "verified_date": "2026-07-20",
-      "verified_at_utc": "2026-07-20T05:34:07.615Z",
+      "verified_date": "2026-07-26",
+      "verified_at_utc": "2026-07-26T01:04:14Z",
       "neqsim_version": "3.16.0",
       "python_version": "3.12.13",
       "java_version": "openjdk 17.0.19",
       "execution_status": "passed",
-      "execution_method": "isolated PyPI-only environment installed with python -m pip install --upgrade --no-cache-dir neqsim; all code cells executed sequentially in one isolated Python process after final formatting because the sandbox blocks local Jupyter kernel sockets",
-      "code_cells": 17,
-      "markdown_cells": 18,
+      "execution_method": "All 18 code cells were executed sequentially from an empty namespace in a newly created Python 3.12 virtual environment after a no-cache PyPI installation of NeqSim 3.16.0. The executor retained sequential counts, stdout, 13 HTML tables, diagnostics, and four PNG figures and failed on any exception or stored stderr.",
+      "code_cells": 18,
+      "markdown_cells": 19,
       "publication": {
         "branch": "master",
-        "mode": "atomic direct-to-default-branch commit",
-        "commit": "this atomic commit"
+        "mode": "atomic connector-backed fast-forward publication to the default branch",
+        "commit": "this atomic publication commit"
+      },
+      "preservation_note": "All substantive source workflows remain integrated: packaged-database inspection, component and binary-interaction auditing, SRK flash and sensitivities, and the stream/compressor application.",
+      "repairs_made": [
+        "made database access explicitly read-only and closed the connection deterministically",
+        "reconciled packaged constants and KIJSRK values against the live SRK model",
+        "kept sensitivity studies local so the packaged database and global model state are not mutated",
+        "retained complete tabular outputs and refreshed every technical figure",
+        "added a workflow diagram and engineering assertions with explicit units"
+      ],
+      "neqsim_capabilities_demonstrated": [
+        "packaged parameter-database discovery and read-only SQL inspection",
+        "component critical-property and binary-interaction auditing",
+        "SRK TP flash and local interaction-parameter sensitivity",
+        "pressure-dependent density and compressibility calculations",
+        "stream and compressor process simulation with balance checks"
+      ],
+      "practical_application": "A methane-CO2 SRK mixture at 300 K and 50 bara uses packaged KIJSRK 0.097300, has baseline density 53.693256 kg/m3, and feeds a 2 kg/s compressor to 100 bara. The calculated outlet temperature is 367.808770 K and power is 211.698321 kW; mass and energy residuals are zero.",
+      "retained_figures": {
+        "count": 4,
+        "previous_count": 3,
+        "new_count": 1,
+        "numerically_refreshed_previous_count": 3,
+        "visual_inspection_status": "passed",
+        "inspection_note": "All four figures were rendered from the executed notebook and inspected for legibility, units, legends, clipping, and physically coherent trends."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 3,
+        "inline_expressions": 27,
+        "rendered_math_objects": 30,
+        "mathjax_version": "3.2.2",
+        "inspection_note": "Every expression was rendered and visually inspected with no raw delimiters, malformed symbols, clipping, or unsupported syntax."
       },
       "key_checks": [
-        "replaced the catalog-linked zero-byte file with a 35-cell self-contained parameter-database tutorial",
-        "all 17 code cells executed in order with zero exceptions, error outputs, or stderr",
-        "all 19 focused database, unit, model, flash, phase, trend, mass, and energy assertions passed",
-        "valid nbformat 4 JSON, unique cell IDs, sequential execution counts, and no hidden state",
-        "teaching-readability gate passed with one statement per line, conventional indentation, descriptive names, no wildcard imports, Colab magics, semicolon tokens, or inline compound bodies, and code lines at most 89 characters",
-        "the complete notebook was re-executed after final formatting with NeqSim 3.16.0 from an isolated PyPI-only environment",
-        "Colab equation gate passed with balanced standalone dollar delimiters, single-backslash LaTeX, no obsolete delimiters, successful nbconvert MathJax HTML generation, and a visually inspected equation render",
-        "three embedded SI-labelled engineering figures were visually inspected for readable axes and physically meaningful trends",
-        "the packaged H2 database exposed more than 200 component names and all five selected components were available",
-        "methane and CO2 critical properties, molar masses, and acentric factors matched live SRK component objects with zero reported residual",
-        "the packaged methane-CO2 SRK binary-interaction parameter was 0.0973 and matched the live mixing-rule value exactly",
-        "the 280 K and 50 bara baseline remained single-phase with density 53.693256 kg/m3",
-        "density decreased and compressibility factor increased monotonically as KIJSRK changed from zero to 0.15 without global database mutation",
-        "density increased monotonically from 10 to 100 bara at 300 K and every pressure-sweep state remained single-phase",
-        "the connected 2 kg/s compressor raised pressure from 50 to 100 bara and outlet temperature to 367.808770 K",
-        "compressor power was 211.698321 kW with mass and enthalpy-flow energy residuals zero within reported precision",
-        "all SQL was hard-coded read-only SELECT logic and the embedded database connection was explicitly closed",
-        "the Colab badge, three current NeqSim documentation links, NeqSimDataBase source link, intended repository path, and exactly-once active-catalog link were validated"
+        "valid nbformat 4 JSON with 18 executed code cells and 19 Markdown cells",
+        "execution counts are sequential from 1 through 18",
+        "zero exceptions, error outputs, or stored stderr",
+        "fresh no-cache PyPI installation resolved NeqSim 3.16.0",
+        "all 19 engineering assertions passed",
+        "13 execute-result tables were retained with HTML representations",
+        "maximum code-line length is 85 characters",
+        "all SQL is hard-coded read-only SELECT and the database is explicitly closed",
+        "component constants matched the live SRK model with zero residual",
+        "database and runtime KIJSRK matched with zero residual",
+        "baseline mixture density is 53.693256 kg/m3",
+        "the KIJ sensitivity was physically consistent and did not mutate global state",
+        "density increased with pressure while compressibility factor decreased",
+        "compressor outlet is 100 bara and 367.808770 K at 211.698321 kW",
+        "compressor mass and energy residuals are zero",
+        "three display and 27 inline expressions passed MathJax rendering inspection",
+        "four technical figures passed visual inspection",
+        "Colab badge, catalog link, and maintenance-ledger path each occur exactly once"
       ],
-      "summary": "Rebuilt the empty parameter-database notebook as a safe, traceable tutorial using NeqSim's packaged H2 database. It covers component availability, JDBC ResultSet handling, explicit SI conversion, SRK theory, runtime parameter reconciliation, methane-CO2 binary-interaction lookup, read-only SQL boundaries, local per-fluid KIJSRK sensitivity, pressure trends, stream and compressor integration, mass and energy checks, limitations, troubleshooting, references, exercises, assertions, and embedded outputs without downloading or mutating parameter tables."
+      "summary": "Rebuilt the parameter-database tutorial as an executable, traceable engineering workflow spanning packaged data, live SRK reconciliation, sensitivities, and a compressor application. No NeqSim library defect was detected."
     },
     {
       "path": "notebooks/PVT/parameter_database2.ipynb",
