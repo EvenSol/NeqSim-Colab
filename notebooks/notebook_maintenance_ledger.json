@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-26T03:03:18Z",
+  "updated_at": "2026-07-26T04:09:06.588Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -8328,6 +8328,92 @@
         "repository notebook checker passed all gates"
       ],
       "summary": "Completed a self-contained NeqSim property-table tutorial for wet gas, characterized gas condensate, and an Eclipse-described well fluid. It generates OLGA-style tables, audits dimensions and all 600 table points, visualizes phase and density behavior, qualifies grid resolution, and retains 19 engineering checks. No NeqSim library defect was detected."
+    },
+    {
+      "path": "notebooks/process/CO2_compression.ipynb",
+      "verified_date": "2026-07-26",
+      "verified_at_utc": "2026-07-26T04:09:06.588Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "All 21 code cells were executed sequentially from an empty namespace in a newly created Python 3.12 virtual environment. The environment was installed with --no-index and --no-cache-dir from 49 SHA-256-verified wheels originating from public PyPI after the live refresh failed, and retained sequential execution counts, tables, six PNG figures, and zero exceptions or stored stderr.",
+      "code_cells": 21,
+      "markdown_cells": 19,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic connector-backed fast-forward commit to the default branch",
+        "commit": "the commit containing this ledger entry"
+      },
+      "preservation_note": "All original learning content remains integrated: the staged compression, cooling, and dense-phase pumping workflow; stage-by-stage state reporting; comparison of compression energy and low-temperature cooling duty; and the sourced CO2 reinjection operations video. The video is retained as a verified source link that renders reliably in Google Colab.",
+      "repairs_made": [
+        "made the Colab setup cell install the current public-PyPI NeqSim package only when needed",
+        "updated the process to use supported Python NeqSim stream, compressor, cooler, pump, and process APIs",
+        "kept every gas-compressor inlet single phase by transferring dense CO2 compression to a pump",
+        "replaced the failing embedded YouTube player with a verified source link",
+        "added explicit SI units, phase-feasibility screening, balances, assertions, sensitivities, and limitations"
+      ],
+      "neqsim_capabilities_demonstrated": [
+        "PR-EOS CO2-rich fluid construction and TP-flash property retrieval",
+        "three-stage equal-ratio compression with NeqSim Compressor equipment",
+        "interstage and final cooling with NeqSim Cooler equipment",
+        "dense-phase pressure boosting with NeqSim Pump equipment",
+        "connected ProcessSystem execution and stage-by-stage state extraction",
+        "phase-envelope, critical-point, stage-count, and intercooler-temperature diagnostics"
+      ],
+      "practical_application": "A 100000 kg/h CO2-rich stream is compressed from 20 to 85 bara in three cooled gas-compressor stages, pumped to 200 bara as a single dense phase, and conditioned to 30 degC for injection. The workflow retrieves equipment duties and stream states, checks phase feasibility, and screens design sensitivities for reuse.",
+      "retained_figures": {
+        "count": 6,
+        "previous_count": 0,
+        "new_count": 6,
+        "numerically_refreshed_previous_count": 0,
+        "purposes": [
+          "connected compression, intercooling, pumping, and injection workflow",
+          "compressor-stage pressure, temperature, and power profiles",
+          "CO2-rich phase envelope with the calculated operating path",
+          "stage-count power, temperature, and two-phase-feasibility comparison",
+          "intercooler-temperature power, density, and feasibility sensitivity",
+          "compression shaft-power and low-temperature cooling-duty comparison"
+        ],
+        "visual_inspection": "Passed after the final clean execution. All six PNG figures were extracted and inspected at full resolution; titles, axes, SI units, legends, annotations, accessible colors, and feasibility markers are readable with no clipping, stale values, overlap, or misleading scales."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 6,
+        "inline_expression_occurrences": 13,
+        "source_rule": "Inline equations use $...$ and display equations use standalone $$ delimiter lines with single-backslash LaTeX commands.",
+        "visual_inspection": "All six display equations and 13 inline expressions were inspected in Google Colab on the exact staged notebook revision. Fractions, subscripts, superscripts, mass-flow dots, efficiency symbols, and units render correctly, with no MathJax errors."
+      },
+      "validation_environment": {
+        "resolution_mode": "verified-snapshot-fallback",
+        "wheel_count": 49,
+        "artifact_origin": "https://pypi.org/simple",
+        "install_network_required": false,
+        "pip_cache_disabled": true,
+        "wheel_hashes_verified": true,
+        "snapshot_created_at_utc": "2026-07-26T02:55:27Z"
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 21 executed code cells and 19 Markdown cells",
+        "execution counts are sequential from 1 through 21",
+        "zero exceptions, error outputs, or stored stderr",
+        "fresh environment installed NeqSim 3.16.0 from 49 verified public-PyPI wheels",
+        "all 23 engineering assertions passed",
+        "feed and every compressor inlet are finite and single phase",
+        "stage pressures increase monotonically from 20 to 85 bara",
+        "dense pump inlet is single phase at 746.340364 kg/m3",
+        "injection stream reaches 200 bara and 30 degC",
+        "relative total mass residual is zero",
+        "maximum equipment energy residual is zero W",
+        "three-stage compressor power is 2347.485433 kW",
+        "dense-phase pump power is 495.825184 kW",
+        "maximum compressor discharge temperature is 69.102822 degC",
+        "maximum Python code-line length is 79 characters",
+        "six display equations and 13 inline expressions passed live Google Colab inspection",
+        "six technical figures passed full-resolution visual inspection",
+        "the target catalog path and ledger path each occur exactly once"
+      ],
+      "summary": "Self-contained CO2 compression, intercooling, dense-phase pumping, and injection tutorial using current NeqSim process equipment. It includes phase-envelope and operating-path analysis, design sensitivities, single-phase feasibility checks, mass and energy closure, six inspected figures, and 23 engineering assertions. No NeqSim library defect was detected."
     }
   ]
 }
