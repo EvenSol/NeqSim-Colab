@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-26T04:09:06.588Z",
+  "updated_at": "2026-07-26T05:19:03Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -8414,6 +8414,89 @@
         "the target catalog path and ledger path each occur exactly once"
       ],
       "summary": "Self-contained CO2 compression, intercooling, dense-phase pumping, and injection tutorial using current NeqSim process equipment. It includes phase-envelope and operating-path analysis, design sensitivities, single-phase feasibility checks, mass and energy closure, six inspected figures, and 23 engineering assertions. No NeqSim library defect was detected."
+    },
+    {
+      "path": "notebooks/gasquality/oilqualityspecifications.ipynb",
+      "verified_date": "2026-07-26",
+      "verified_at_utc": "2026-07-26T05:19:03Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "environment_resolution": {
+        "mode": "verified-snapshot-fallback",
+        "bootstrap": "scripts/bootstrap_neqsim_validation_env.py",
+        "requested_version": "latest",
+        "verified_public_pypi_wheels": 81,
+        "snapshot_manifest_created_at_utc": "2026-07-26T04:22:49Z",
+        "note": "A new isolated environment was created from the compatible immutable public-PyPI wheel snapshot after the bounded online refresh attempt was unavailable. Manifest inventory, file sizes, and SHA-256 hashes passed before installation."
+      },
+      "execution_status": "passed",
+      "execution_method": "All 19 code cells were executed sequentially from an empty namespace with the fresh bootstrap-created Python environment. The executor retained execution counts, stdout, ten result tables, and six PNG figures and failed on any cell exception, error output, or stored stderr.",
+      "code_cells": 19,
+      "markdown_cells": 25,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch fast-forward",
+        "commit": "this atomic publication commit"
+      },
+      "pre_existing_cells_preserved": 6,
+      "pre_existing_examples_preserved": 1,
+      "preservation_note": "All six source cells remain represented with their original cell IDs. The complete 21-component characterized-oil fluid, SRK classic mixing rule, TP flash, full fluid frame, density, API-gravity, and viscosity workflow was retained. The setup pin was modernized, imports and formatting were repaired, API gravity was corrected to the 60 degF reference temperature, and physical properties are explicitly initialized after flashes.",
+      "pre_existing_figures_preserved": 0,
+      "pre_existing_visuals_preserved": 0,
+      "figure_preservation_note": "The source notebook contained no plot, diagram, image, animation, or other substantive visual output. Six reproducible technical figures were added and generated from the final clean execution.",
+      "neqsim_capabilities_demonstrated": [
+        "fluid_df real-component and petroleum pseudo-component characterization",
+        "SRK equation of state with classic mixing rule and multiphase stability checks",
+        "TPflash and explicit physical-property initialization",
+        "oil density, API gravity, dynamic and kinematic viscosity calculations",
+        "normal-boiling-point and cumulative composition interrogation",
+        "Standard_ASTM_D6377 TVP, VPCR4, RVPE, and legacy D323-conversion calculations",
+        "light-end vapor-pressure sensitivity using independent fluid clones",
+        "connected stream, throttling valve, temperature conditioner, separator, and runProcess workflow",
+        "separator pressure-temperature screening with product-stream reuse and mass-balance validation"
+      ],
+      "practical_application": "A documented synthetic live-oil increment is added to the preserved characterized oil and processed at 100000 kg/h through a 10 bara feed stream, pressure-control valve, temperature conditioner, and equilibrium separator. The selected tested case is 2.0 bara and 60 degC, with 97.855 mass% oil yield, 0.5122 bara ASTM D6377 RVPE against a 0.5225 bara design limit, and a maximum grid mass-balance residual of 1.07e-11.",
+      "retained_figures": {
+        "count": 6,
+        "previous_count": 0,
+        "new_count": 6,
+        "numerically_refreshed_previous_count": 0,
+        "purposes": [
+          "reusable assay-to-quality NeqSim workflow overview",
+          "component and cumulative boiling-range distribution",
+          "density and apparent API-index temperature sensitivity",
+          "dynamic-viscosity temperature sensitivity",
+          "ASTM D6377 RVPE sensitivity to dissolved C1-C3 light ends",
+          "stabilization quality-yield operating window across pressure and temperature"
+        ],
+        "visual_inspection": "Passed after the final clean execution. All six PNG figures were extracted and inspected at original resolution for descriptive titles, explicit units, readable labels, legends, accessible colors, correct numerical trends and scales, clipping, overlap, and consistency with stored tables and nearby interpretation."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 6,
+        "unique_inline_expressions": 22,
+        "colab_verified_commit": "da30b39d44d1191c28bfc2f05226262a77795f36",
+        "source_rule": "Inline equations use $...$ and each display equation uses standalone $$ delimiter lines with one nonblank equation line; LaTeX commands use one backslash.",
+        "visual_inspection": "The exact staged notebook was opened in Google Colab. API gravity and viscosity, composition closure, phase-fugacity equilibrium, mass balance, and oil-yield equations rendered correctly. Fractions, summation, subscripts, superscripts, Greek symbols, absolute-value bars, units, and dotted mass-flow notation were visually inspected with no raw delimiters, clipping, malformed output, or MathJax errors."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 19 executed code cells and 25 substantive Markdown cells",
+        "all six pre-existing source cell IDs and the complete characterized-oil calculation were preserved",
+        "zero exceptions, zero error outputs, and zero stored stderr",
+        "maximum Python code-line length was 71 characters with no semicolon chains or compressed compound bodies",
+        "all 15 engineering assertions passed",
+        "normalized composition closed to within 1e-12",
+        "standard oil density was 858.982 kg/m3, API gravity was 33.068 degAPI, and viscosity was 16.112 cP at 15.56 degC",
+        "density and viscosity decreased strictly across the 5 to 60 degC sweep",
+        "ASTM D6377 RVPE increased monotonically with the controlled C1-C3 addition",
+        "all 15 stabilization cases were finite and the maximum relative mass-balance residual was 1.07e-11",
+        "the selected 2.0 bara and 60 degC case passed both the 0.5225 bara RVPE design limit and 97.0 mass% minimum oil-yield criterion",
+        "six figures passed visual and numerical-context inspection",
+        "six display equations and 22 inline expressions passed source checks and live Google Colab rendering",
+        "the Colab badge and active catalog reference the notebook exactly once"
+      ],
+      "summary": "A self-contained oil-quality tutorial covering characterized-fluid construction, API gravity, viscosity, boiling range, ASTM D6377 vapor pressure, light-end sensitivity, a connected stabilization flowsheet, an end-to-end export-quality decision, engineering assertions, limitations, troubleshooting, references, exercises, and six inspected figures."
     }
   ]
 }
