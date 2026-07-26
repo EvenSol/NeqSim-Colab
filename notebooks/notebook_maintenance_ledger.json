@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-26T15:41:45Z",
+  "updated_at": "2026-07-26T16:15:32Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -9360,6 +9360,123 @@
         "Colab badge, catalog target, and ledger path each occur exactly once"
       ],
       "summary": "Created a source-pinned, executable NCS electrification screening notebook that connects a NeqSim oil-and-gas process load to chronological wind, balancing gas turbines, and native battery storage; distinguishes energy displacement from firm-capacity replacement; quantifies direct CO2, curtailment, storage, ramps, and reserve; and documents transparent public inputs, synthetic-data boundaries, limitations, and next-study extensions."
+    },
+    {
+      "path": "notebooks/fielddevelopment/norwegian_field_and_area_development_with_neqsim.ipynb",
+      "verified_date": "2026-07-26",
+      "verified_at_utc": "2026-07-26T16:15:32Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "environment_resolution": {
+        "mode": "verified-snapshot-fallback",
+        "bootstrap": "scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-field-lifecycle-1748 --neqsim-version latest --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260726T141645Z-e2a34d314199",
+        "verified_public_pypi_wheels": 51,
+        "manifest_created_at_utc": "2026-07-26T14:16:45Z",
+        "integrity": "Complete inventory, wheel size, platform/runtime compatibility, and SHA-256 verification passed before offline installation into a fresh environment."
+      },
+      "execution_status": "passed",
+      "execution_method": "All 26 code cells executed sequentially in a fresh Python environment using NeqSim 3.16.0; execution counts are 1 through 26 with zero error outputs and zero stored stderr streams.",
+      "code_cells": 26,
+      "markdown_cells": 27,
+      "publication": {
+        "branch": "master",
+        "mode": "direct atomic connector-backed fast-forward commit",
+        "commit": "the commit containing this ledger entry",
+        "files": [
+          "notebooks/fielddevelopment/norwegian_field_and_area_development_with_neqsim.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "preservation": {
+        "pre_existing_cells": 0,
+        "pre_existing_examples": 0,
+        "pre_existing_figures": 0,
+        "reason": "The catalog-linked target on master was a zero-byte placeholder, so there were no prior cells, examples, outputs, or visuals to remove or repair.",
+        "preserved_cells": 0,
+        "preserved_examples": 0,
+        "preserved_figures": 0
+      },
+      "neqsim_capabilities_demonstrated": [
+        "SystemSrkEos fluid construction and composition handling",
+        "ThermodynamicOperations TPflash",
+        "Stream, ThrottlingValve, Cooler, Separator, Compressor, and ProcessSystem",
+        "independent yearly process cases with phase-property retrieval",
+        "separator products, compressor duty, discharge temperature, and gas density",
+        "mass-balance closure and pressure-boundary validation",
+        "reusable lifecycle and concept-screening workflow functions"
+      ],
+      "practical_application": "A 12-year synthetic Norwegian gas-condensate development screen connects reservoir depletion and well deliverability with process capacity, export compression, SURF hydraulics, emissions, brownfield tie-in allocation, product operating envelopes, and discounted pre-tax concept economics.",
+      "engineering_validation": {
+        "assertions_passed": 18,
+        "assertions_failed": 0,
+        "checks": [
+          "composition sums to unity",
+          "pressure ordering is physically consistent",
+          "all calculated results are finite",
+          "yearly and brownfield mass closure residuals are below 1e-8",
+          "gas and condensate product rates are positive",
+          "feed and export rates decline through the field life",
+          "compressor power is positive",
+          "power and discharge temperature increase with export pressure",
+          "compressor, separator, and export capacities are screened",
+          "direct emissions increase with export pressure",
+          "synthetic NPV decreases with higher export pressure",
+          "active-well requirement is positive and integral",
+          "SURF gas velocity and Darcy pressure-drop proxy are positive",
+          "brownfield area allocation respects shared capacity and host holdback",
+          "all modeled product and operating-envelope checks pass"
+        ],
+        "key_results": {
+          "initial_feed_mass_flow_kg_per_h": 80000,
+          "initial_export_gas_kg_per_h": 73711.64,
+          "initial_separator_condensate_kg_per_h": 6288.36,
+          "initial_compressor_power_kw": 1538.986,
+          "final_export_gas_kg_per_h": 31239.471,
+          "peak_compressor_power_kw": 1821.798,
+          "maximum_compressor_outlet_temperature_deg_c": 130.675,
+          "lifecycle_direct_compressor_co2_kt": 67.493,
+          "synthetic_pretax_npv_at_120_bara_million_usd": -380.858
+        }
+      },
+      "figures": {
+        "previous_figures": 0,
+        "previous_figures_refreshed": 0,
+        "new_figures": 7,
+        "total_retained_figures": 7,
+        "purposes": [
+          "field-lifecycle and NeqSim calculation-boundary workflow",
+          "pressure, separator products, compressor duty, and specific-energy lifecycle",
+          "year-8 export-pressure sensitivity",
+          "discounted cash-flow and cumulative-value screen",
+          "well deliverability and active-producer schedule",
+          "SURF velocity and Darcy pressure-drop screen",
+          "brownfield host and tie-in capacity allocation with host holdback"
+        ],
+        "visual_inspection": "Passed after execution and lossless/palette PNG optimization; titles, axes, units, legends, colors, annotations, scales, and layout are readable with no clipping, overlap, stale values, or misleading axes.",
+        "numerical_refresh": "Every reproducible figure was generated from the executed NeqSim 3.16.0 workflow; no pre-existing visual or stale numerical output existed."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 8,
+        "unique_inline_expressions": 24,
+        "renderer": "Jupyter/Colab-compatible MathJax path",
+        "visual_inspection": "Fractions, subscripts, superscripts, Greek symbols, equality signs, and units rendered correctly; delimiters are balanced and LaTeX commands use single backslashes."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "maximum_code_line_length": 84,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "stored_result_tables": 10
+      },
+      "summary": "Completed the zero-byte catalog placeholder as a self-contained educational field-and-area-development notebook. It now integrates current NeqSim SRK thermodynamics and process equipment with depletion, wells, SURF, capacity, brownfield, emissions, product-screening, sensitivity, and synthetic economic workflows, plus troubleshooting, limitations, exercises, references, retained outputs, seven inspected figures, and 18 passing assertions."
     }
   ]
 }
