@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-26T08:46:17Z",
+  "updated_at": "2026-07-26T09:15:47Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -9027,6 +9027,87 @@
         "all introduced official NeqSim documentation links resolved; the active catalog and Colab badge reference the notebook exactly once"
       ],
       "summary": "Repaired and extended the pure-component dynamic-operations notebook into an executable NeqSim 3.16.0 tutorial while preserving all 20 original cells, four workflows, and seven recalculated figures. The modernization fixes setup, badge, pressure-history, phase-existence, downstream-boundary, code-readability, units, and visualization defects and adds an end-to-end restriction and active-recovery application with three new figures and 21 engineering checks. No NeqSim library defect was confirmed."
+    },
+    {
+      "path": "notebooks/thermodynamics/thermodynamicsOfWax.ipynb",
+      "verified_date": "2026-07-26",
+      "verified_at_utc": "2026-07-26T09:15:47Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "environment_resolution": {
+        "mode": "verified-snapshot-fallback",
+        "bootstrap": "scripts/bootstrap_neqsim_validation_env.py",
+        "requested_version": "latest",
+        "verified_public_pypi_wheels": 79,
+        "snapshot_manifest_created_at_utc": "2026-07-26T08:48:11Z",
+        "note": "A new isolated environment was created from a compatible immutable public-PyPI wheel snapshot after the bounded online refresh could not resolve NeqSim. Manifest inventory, sizes, and SHA-256 hashes passed."
+      },
+      "execution_status": "passed",
+      "execution_method": "All 19 code cells were executed sequentially from an empty namespace with the fresh bootstrap-created Python. Execution counts, rich HTML tables, the retained video embed, stdout, and six PNG figures were stored; any exception, error output, or stderr failed the run.",
+      "code_cells": 19,
+      "markdown_cells": 20,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch fast-forward",
+        "commit": "this atomic publication commit"
+      },
+      "pre_existing_cells_preserved": 11,
+      "pre_existing_examples_preserved": 3,
+      "preservation_note": "All 11 original cells remain represented in their original learning sequence. The external introductory video, SRK C11+ characterization, wax-phase/WAT calculation, three-point wax-model tuning example, and gelling discussion were retained. The NeqSim 2.5.35 pin, imports, API names, output handling, units, and code formatting were modernized.",
+      "pre_existing_figures_preserved": 0,
+      "pre_existing_visuals_preserved": 1,
+      "figure_preservation_note": "The original notebook contained no reproducible plot. Its externally hosted YouTube teaching visual (video ID 9vne-gWFQBw) was preserved and documented as sourced content. Six new reproducible technical figures were generated from the final clean execution.",
+      "neqsim_capabilities_demonstrated": [
+        "SRK live-fluid construction and C11+ plus-fraction characterization",
+        "wax pseudo-component generation and complex solid-wax phase activation",
+        "multiphase TPflash, phase retrieval, WAT, and mass-basis wax conversion",
+        "tunewaxmodel calibration against the retained synthetic measurements",
+        "temperature and pressure sensitivity with independent fluid clones",
+        "native Stream, ProcessSystem, and Cooler segment composition",
+        "local flowline WAT, wax-margin, and equilibrium-wax diagnostics",
+        "base and improved-insulation scenario comparison"
+      ],
+      "practical_application": "A 10000 kg/h synthetic live fluid traverses a native NeqSim feed Stream and six Cooler segments over 30 km, with pressure declining from 80 to 25 bara. The base case first crosses below local WAT at 10 km and reaches 1.488 mass% equilibrium wax potential; the improved-insulation case delays the crossing to 20 km and limits the maximum to 1.035 mass%.",
+      "retained_figures": {
+        "count": 6,
+        "previous_count": 0,
+        "new_count": 6,
+        "numerically_refreshed_previous_count": 0,
+        "purposes": [
+          "characterized heavy-end and wax pseudo-component inventory",
+          "equilibrium wax content versus temperature with WAT and tuning points",
+          "pressure sensitivity of wax appearance temperature",
+          "reusable NeqSim stream-to-operability workflow overview",
+          "base flowline temperature and local WAT boundary",
+          "insulation scenario comparison of WAT margin and wax potential"
+        ],
+        "visual_inspection": "Passed after the final clean execution. All six PNG figures were extracted and inspected for titles, explicit units, readable labels, legends, accessible colors, correct trends and scales, clipping, overlap, and consistency with stored tables and nearby interpretation."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 4,
+        "unique_inline_expressions": 7,
+        "source_rule": "Inline equations use $...$ and display equations use standalone $$ delimiter lines with blank separation and single-backslash LaTeX.",
+        "visual_inspection": "All four display and seven unique inline expressions were rendered through MathJax using a Jupyter/Colab-compatible TeX-to-SVG path. Fugacity, WAT onset, mass-fraction summation, subscripts, superscripts, Greek symbols, and wax-temperature margin were clear."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 19 executed code and 20 Markdown cells",
+        "all 11 original cells, three substantive examples, and one sourced visual preserved",
+        "zero exceptions, zero error outputs, and zero stored stderr",
+        "maximum Python code-line length 84 with no semicolon chains or compressed bodies",
+        "all 12 engineering assertions passed",
+        "10 bara WAT refreshed to 27.000 degC with NeqSim 3.16.0",
+        "wax content was zero above WAT and increased with cooling",
+        "pressure-dependent WAT values were finite from 10 to 80 bara",
+        "segmented-process mass-flow closure was exact within 1e-10",
+        "improved insulation delayed the first negative WAT margin from 10 to 20 km",
+        "improved insulation reduced maximum wax potential from 1.488 to 1.035 mass%",
+        "six figures passed visual and numerical-context inspection",
+        "four display and seven inline expressions passed source and MathJax checks",
+        "all introduced documentation links resolved and catalog target occurs once"
+      ],
+      "summary": "Repaired and expanded the original wax notebook into a self-contained NeqSim tutorial covering heavy-end characterization, solid-wax phase equilibrium, WAT, wax content, model tuning, composable process equipment, flowline operability screening, insulation sensitivity, verification, limitations, troubleshooting, exercises, and references."
     }
   ]
 }
