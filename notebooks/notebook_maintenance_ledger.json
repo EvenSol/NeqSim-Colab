@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-27T12:08:19Z",
+  "updated_at": "2026-07-27T13:11:49Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -10905,6 +10905,127 @@
         "catalog_target_occurrences": 1
       },
       "summary": "Expanded a four-cell statistics placeholder into an executed, self-contained tutorial while preserving every original cell, source link, and video. Added transparent data contracts, schema checks, weighted statistics, concentration, deterministic bootstrap uncertainty, current SRK and process APIs, annual-to-design flow conversion, a reusable connected export-gas process, pressure and capacity sensitivities, electricity-emissions scenarios, figures, balances, interpretation, troubleshooting, limitations, exercises, and authoritative references."
+    },
+    {
+      "path": "notebooks/statistics/OilandGasPriceStatistics.ipynb",
+      "verified_date": "2026-07-27",
+      "verified_at_utc": "2026-07-27T13:11:49Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-oil-gas-price-20260727-1500 --neqsim-version latest --refresh --extra-package nbclient --extra-package ipykernel",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260727T130107Z-b1094542508e",
+        "verified_public_pypi_wheels": 57,
+        "manifest_created_at_utc": "2026-07-27T13:01:07Z",
+        "integrity": "Complete public-PyPI inventory, size, SHA-256, runtime, platform, and requested-toolchain verification passed before fresh-environment installation."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 20 code cells sequentially from an empty in-process IPython state in the fresh validation environment, with execution counts 1 through 20, zero error outputs, and zero stored stderr. Standard Jupyter execution was attempted first, but the automation sandbox blocked local TCP kernel startup; the permitted shared-namespace executor retained stdout, tables, the original video object, and six generated PNG figures.",
+      "code_cells": 20,
+      "substantive_code_cells": 20,
+      "markdown_cells": 24,
+      "publication": {
+        "branch": "master",
+        "mode": "direct atomic connector-backed fast-forward commit",
+        "commit": "the commit containing this ledger entry",
+        "files": [
+          "notebooks/statistics/OilandGasPriceStatistics.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "preservation": {
+        "pre_existing_cells": 6,
+        "preserved_cells": 6,
+        "pre_existing_substantive_examples": 2,
+        "preserved_substantive_examples": 2,
+        "pre_existing_figures": 2,
+        "preserved_figures": 2,
+        "repairs": "Preserved all six original cells in their original relative order, including the Colab badge, internal-transfer-price topic, four literature/resource links, YouTube identifier 66ueFfrts00, Brent workflow, and Henry Hub workflow. Repaired brittle fixed-row Excel reads with a dated embedded snapshot of official EIA monthly observations while retaining both EIA workbook URLs and a reusable online-refresh helper. Both original plot purposes remain and their numerical data were refreshed through June 2026. No original cell, example, figure, link, or intended functionality was removed."
+      },
+      "neqsim_capabilities_demonstrated": [
+        "SRK sales-gas fluid construction and classic mixing-rule selection",
+        "standard-condition TP flash and physical-property initialization",
+        "ISO 6976:2016 LCV, GCV, relative-density, and Wobbe calculation",
+        "unit-aware Stream creation at standard-volume flow",
+        "connected Compressor, Cooler, Separator, and ProcessSystem execution",
+        "compressor shaft power, aftercooler duty, and product-flow retrieval",
+        "total mass-balance closure across gas and liquid products",
+        "fresh independent export-pressure scenario construction",
+        "calorific-value conversion from physical gas flow to MMBtu per hour",
+        "market-price and electricity-cost propagation into operating netback"
+      ],
+      "practical_application": "Uses official EIA Brent and Henry Hub observations from January 2020 through June 2026; compares the benchmarks on a transparent energy basis; models a synthetic dry sales gas; calculates ISO 6976 quality; builds a 2.5 MSm3/day NeqSim export process from 35 to 100 bara with aftercooling and scrubbing; closes mass; translates 4.352 MW shaft power into a gas-processing netback; and varies historical gas-price quantiles, export pressure from 70 to 130 bara, and electricity price from 30 to 150 USD/MWh.",
+      "engineering_validation": {
+        "assertions_passed": 21,
+        "assertions_failed": 0,
+        "checks": [
+          "both official embedded EIA series contain 78 aligned monthly values",
+          "all prices are positive and 2025 annual means reproduce EIA rounding",
+          "gas composition closes exactly and SRK properties are physically plausible",
+          "ISO 6976 GCV exceeds LCV and relative density is bounded",
+          "compressor power is positive and aftercooler duty is negative",
+          "base and all pressure-case total mass balances close below 1e-10 relative",
+          "scrubber gas reaches the 30 degC aftercooler target",
+          "all pressure-case results are finite",
+          "compressor power increases monotonically with export pressure",
+          "netback increases monotonically with gas price",
+          "the two-dimensional netback map is finite",
+          "valid nbformat JSON and sequential execution",
+          "Colab badge, retained catalog link, introduced links, readability, equations, and stored outputs were verified"
+        ],
+        "key_results": {
+          "standard_density_kg_sm3": 0.7561,
+          "lcv_mj_sm3": 35.2559,
+          "gcv_mj_sm3": 39.0685,
+          "base_flow_msm3_day": 2.5,
+          "base_compressor_power_mw": 4.3522,
+          "base_aftercooler_duty_mw": -5.5999,
+          "base_mass_residual": 0.0,
+          "historical_gas_price_p10_usd_mmbtu": 1.874,
+          "historical_gas_price_p50_usd_mmbtu": 2.955,
+          "historical_gas_price_p90_usd_mmbtu": 5.569,
+          "median_price_netback_usd_mmbtu": 2.675,
+          "median_price_annual_margin_musd": 74.489
+        }
+      },
+      "figures": {
+        "previous_figures": 2,
+        "previous_figures_refreshed": 2,
+        "new_figures": 4,
+        "total_retained_figures": 6,
+        "purposes": [
+          "preserved and numerically refreshed EIA Brent monthly price history",
+          "preserved and numerically refreshed EIA Henry Hub monthly price history",
+          "common-energy benchmark comparison and rolling correlation",
+          "NeqSim compression, aftercooling, and scrubbing workflow overview",
+          "gas-price and electricity-price operating-netback comparison",
+          "NeqSim export-pressure power trend and netback sensitivity map"
+        ],
+        "visual_inspection": "Passed at original resolution after the final execution: all six figures have descriptive titles, explicit units, readable labels, accessible colors, appropriate legends or color scales, and nearby interpretation. No clipping, overlap, stale values, misleading scales, or unit inconsistencies were found.",
+        "numerical_refresh": "Both previous EIA figures were recomputed from the dated official monthly snapshot through June 2026. All four additions use values from the validated NeqSim 3.16.0 execution and the documented economic assumptions."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 6,
+        "unique_inline_expressions": 9,
+        "renderer": "Jupyter/Colab-compatible MathJax SVG path",
+        "visual_inspection": "Means, sums, coefficients of variation, energy conversion, gas energy rate, pressure ratios, efficiencies, shaft-power overdots, and netback notation rendered correctly with readable contrast. Delimiters are balanced and LaTeX commands use single backslashes."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "maximum_code_line_length": 77,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "changed_links_checked": true,
+        "catalog_target_occurrences": 1
+      },
+      "summary": "Expanded a six-cell price-statistics placeholder into an executed, self-contained tutorial while preserving every original cell, link, video, price workflow, and figure. Repaired brittle EIA acquisition, refreshed historical values, and added price statistics, SRK thermodynamics, ISO 6976 gas quality, connected export processing, mass closure, netback calculations, pressure and electricity sensitivities, figures, troubleshooting, limitations, exercises, and authoritative references."
     }
   ]
 }
