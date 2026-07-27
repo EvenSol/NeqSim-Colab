@@ -82,20 +82,50 @@ def sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
+def wheel_filename_identity(path: Path) -> tuple[str, str, str]:
+    """Return the wheel filename's project, version, and owning metadata path."""
+    if path.suffix != ".whl":
+        raise BootstrapError(f"Not a wheel filename: {path.name}")
+
+    try:
+        filename_prefix, _, _, _ = path.stem.rsplit("-", 3)
+    except ValueError as error:
+        raise BootstrapError(
+            f"Invalid wheel filename: {path.name}"
+        ) from error
+
+    identity_parts = filename_prefix.split("-")
+    if len(identity_parts) not in (2, 3):
+        raise BootstrapError(f"Invalid wheel filename: {path.name}")
+
+    distribution, version = identity_parts[:2]
+    if not distribution or not version:
+        raise BootstrapError(f"Invalid wheel filename: {path.name}")
+
+    project = re.sub(r"[-_.]+", "-", distribution.lower())
+    metadata_path = (
+        f"{distribution}-{version}.dist-info/METADATA"
+    )
+    return project, version, metadata_path
+
+
 def read_wheel_identity(path: Path) -> tuple[str, str]:
     """Read the normalized project name and version from wheel metadata."""
+    filename_project, filename_version, metadata_path = (
+        wheel_filename_identity(path)
+    )
     with zipfile.ZipFile(path) as archive:
-        metadata_names = [
+        owning_metadata_names = [
             name
             for name in archive.namelist()
-            if name.endswith(".dist-info/METADATA")
+            if name == metadata_path
         ]
-        if len(metadata_names) != 1:
+        if len(owning_metadata_names) != 1:
             raise BootstrapError(
-                f"Expected one METADATA file in {path.name}, "
-                f"found {len(metadata_names)}"
+                f"Expected one owning METADATA file at {metadata_path} "
+                f"in {path.name}, found {len(owning_metadata_names)}"
             )
-        metadata = archive.read(metadata_names[0]).decode(
+        metadata = archive.read(owning_metadata_names[0]).decode(
             "utf-8",
             errors="strict",
         )
@@ -106,7 +136,15 @@ def read_wheel_identity(path: Path) -> tuple[str, str]:
         raise BootstrapError(f"Missing project identity in {path.name}")
 
     project = re.sub(r"[-_.]+", "-", project_match.group(1).lower())
-    return project, version_match.group(1)
+    version = version_match.group(1)
+    wheel_version = re.sub(r"[^\w\d.]+", "_", version)
+    if project != filename_project or wheel_version != filename_version:
+        raise BootstrapError(
+            f"Wheel filename identity {filename_project}=="
+            f"{filename_version} does not match METADATA "
+            f"{project}=={version} in {path.name}"
+        )
+    return project, version
 
 
 def wheel_records(directory: Path) -> list[dict[str, Any]]:

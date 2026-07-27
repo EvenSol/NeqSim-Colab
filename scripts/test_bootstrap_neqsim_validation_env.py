@@ -129,6 +129,47 @@ class BootstrapManifestTest(unittest.TestCase):
             bootstrap.TransientBootstrapError,
         )
 
+    def test_bleach_6_4_0_uses_owning_metadata_deterministically(self):
+        with tempfile.TemporaryDirectory() as temp_directory:
+            wheel_path = (
+                Path(temp_directory)
+                / "bleach-6.4.0-py3-none-any.whl"
+            )
+            with zipfile.ZipFile(wheel_path, "w") as archive:
+                archive.writestr(
+                    "bleach/_vendor/html5lib-1.1.dist-info/METADATA",
+                    "Name: html5lib\nVersion: 1.1\n",
+                )
+                archive.writestr(
+                    "bleach-6.4.0.dist-info/METADATA",
+                    "Metadata-Version: 2.4\n"
+                    "Name: bleach\n"
+                    "Version: 6.4.0\n",
+                )
+
+            self.assertEqual(
+                bootstrap.read_wheel_identity(wheel_path),
+                ("bleach", "6.4.0"),
+            )
+
+    def test_non_owning_metadata_cannot_supply_wheel_identity(self):
+        with tempfile.TemporaryDirectory() as temp_directory:
+            wheel_path = (
+                Path(temp_directory)
+                / "bleach-6.4.0-py3-none-any.whl"
+            )
+            with zipfile.ZipFile(wheel_path, "w") as archive:
+                archive.writestr(
+                    "bleach/tests/fixture-6.4.0.dist-info/METADATA",
+                    "Name: bleach\nVersion: 6.4.0\n",
+                )
+
+            with self.assertRaisesRegex(
+                bootstrap.BootstrapError,
+                "owning METADATA",
+            ):
+                bootstrap.read_wheel_identity(wheel_path)
+
 
 if __name__ == "__main__":
     unittest.main()
