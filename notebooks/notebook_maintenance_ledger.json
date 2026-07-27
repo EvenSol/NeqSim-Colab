@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-27T15:02:25.583Z",
+  "updated_at": "2026-07-27T15:25:30Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -9912,7 +9912,7 @@
         ],
         "key_results": {
           "base_density_kg_m3": 570.006377876671,
-          "base_compressibility_per_pa": 2.1655529052373874e-9,
+          "base_compressibility_per_pa": 2.1655529052373874e-09,
           "base_expansivity_per_k": 0.001976120843848179,
           "base_heat_capacity_j_kg_k": 2171.313809970754,
           "original_linear_final_pressure_bara": 760.0625287602811,
@@ -10490,7 +10490,7 @@
           "plot_space_m2": 484.019,
           "lp_separator_inner_diameter_m": 2.961,
           "lp_separator_total_weight_kg": 78311.752,
-          "reusable_case_capacity_msm3_day": 10,
+          "reusable_case_capacity_msm3_day": 10.0,
           "reusable_case_total_weight_kg": 416243.246,
           "reusable_case_power_kw": 19300.677
         }
@@ -10854,7 +10854,7 @@
           "Colab badge, retained catalog link, introduced links, readability, equations, and stored outputs verified"
         ],
         "key_results": {
-          "scenario_gas_total_bcm_per_year": 4030,
+          "scenario_gas_total_bcm_per_year": 4030.0,
           "weighted_intensity_kg_co2e_per_boe": 20.4789,
           "bootstrap_95_percent_low_kg_co2e_per_boe": 18.26,
           "bootstrap_95_percent_high_kg_co2e_per_boe": 23.61,
@@ -10864,7 +10864,7 @@
           "europe_design_flow_msm3_per_day": 3.275759,
           "base_compressor_power_mw": 5.714683,
           "base_aftercooler_duty_mw": -7.310352,
-          "gas_turbine_electricity_emissions_t_co2e_per_year": 19343,
+          "gas_turbine_electricity_emissions_t_co2e_per_year": 19343.0,
           "wind_backed_electricity_emissions_t_co2e_per_year": 552.7,
           "maximum_linear_scaling_error": 2.56e-15
         }
@@ -10982,7 +10982,7 @@
           "base_flow_msm3_day": 2.5,
           "base_compressor_power_mw": 4.3522,
           "base_aftercooler_duty_mw": -5.5999,
-          "base_mass_residual": 0,
+          "base_mass_residual": 0.0,
           "historical_gas_price_p10_usd_mmbtu": 1.874,
           "historical_gas_price_p50_usd_mmbtu": 2.955,
           "historical_gas_price_p90_usd_mmbtu": 5.569,
@@ -11116,6 +11116,141 @@
         "execution_exception_disclosed": true
       },
       "summary": "Published the repaired CO2 trace-reaction notebook as a transparent source-only exception at the user's request. The Colab setup now reflects Reaktoro's conda-forge distribution, the Reaktoro-to-NeqSim calculation chain and limitations are explicit, and the catalog and ledger disclose that no fresh execution or numerical validation was performed."
+    },
+    {
+      "path": "notebooks/statistics/ProductionfromNorwegianContinentalShelf.ipynb",
+      "verified_date": "2026-07-27",
+      "verified_at_utc": "2026-07-27T15:25:30Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-ncs-production-repair-20260727-1722 --neqsim-version latest --refresh --extra-package nbclient --extra-package ipykernel --extra-package cairosvg --extra-package openpyxl --extra-package lxml",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260727T152442Z-28246c2c43ed",
+        "verified_public_pypi_wheels": 60,
+        "manifest_created_at_utc": "2026-07-27T15:24:42Z",
+        "integrity": "Complete public-PyPI inventory, size, SHA-256, runtime, platform, and requested-toolchain verification passed before fresh-environment installation."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 22 code cells sequentially from an empty in-process IPython state in the fresh validation environment, with execution counts 1 through 22, zero error outputs, and zero stored stderr. Standard Jupyter execution was attempted first, but the automation sandbox blocked local TCP kernel startup; the permitted shared-namespace executor retained stdout, tables, the original Johan Sverdrup video object, and six generated PNG figures.",
+      "code_cells": 22,
+      "substantive_code_cells": 22,
+      "markdown_cells": 23,
+      "publication": {
+        "branch": "master",
+        "mode": "direct atomic connector-backed fast-forward commit",
+        "commit": "the commit containing this ledger entry",
+        "files": [
+          "notebooks/statistics/ProductionfromNorwegianContinentalShelf.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "preservation": {
+        "pre_existing_cells": 8,
+        "preserved_cells": 8,
+        "pre_existing_substantive_examples": 3,
+        "preserved_substantive_examples": 3,
+        "pre_existing_figures": 3,
+        "preserved_figures": 3,
+        "other_pre_existing_visuals": 1,
+        "other_preserved_visuals": 1,
+        "repairs": "Preserved all eight original cells in their original relative order, the Norwegian Petroleum link, Johan Sverdrup video, annual NCS production workflow, Johan Sverdrup 2019 start-up workflow, and top-ten field-resource workflow. Replaced retired factpages.npd.no report-server downloads with dated official Norwegian Offshore Directorate snapshots while retaining public refresh URLs. Corrected source provenance, forecast separation, units, duplicated imports, compressed plotting code, and stale outputs. No original cell, example, figure, visual, link, or intended functionality was removed."
+      },
+      "neqsim_capabilities_demonstrated": [
+        "SRK sales-gas fluid construction and classic mixing-rule selection",
+        "standard-condition TP flash and property initialization",
+        "ISO 6976:2016 LCV, GCV, Wobbe-index, and density calculation",
+        "annual normalized standard-volume to design-day flow conversion",
+        "unit-aware Stream creation from a statistics-derived capacity",
+        "connected Compressor, Cooler, Separator, and ProcessSystem execution",
+        "compressor power, aftercooler duty, and product-flow retrieval",
+        "total mass-balance and dry-gas phase validation",
+        "fresh independent export-pressure sensitivity cases",
+        "official 2025-2030 gas-volume scenario execution"
+      ],
+      "practical_application": "Uses official NCS historical production through 2025 and the 2026-2030 outlook, assigns one percent of 2025 normalized gas to a representative train at 92 percent availability, models a synthetic dry Norwegian sales gas with SRK and ISO 6976, and builds a 3.588743 MSm3/day NeqSim export process from 35 to 100 bara with aftercooling and scrubbing. The application closes mass, retrieves 6.247610 MW shaft power and -8.038647 MW cooler duty, varies outlet pressure from 70 to 160 bara, and maps the 2025-2030 official gas scenario to representative train power.",
+      "engineering_validation": {
+        "assertions_passed": 28,
+        "assertions_failed": 0,
+        "checks": [
+          "61 annual rows span 1970-2030 with 1970-2025 historical and 2026-2030 forecast labels",
+          "the official 2025 total reproduces 239.20 MSm3 o.e.",
+          "the historical peak reproduces 264.19 MSm3 o.e. in 2004",
+          "the 2030 official total is below the 2025 historical total",
+          "Johan Sverdrup 2019 monthly output closes to 3.993728 MSm3 o.e.",
+          "Troll leads the current top-ten original-resource snapshot",
+          "all embedded source arrays are finite",
+          "gas composition closes exactly",
+          "SRK density, molar mass, compressibility, ISO 6976 LCV, and GCV are physically plausible",
+          "ISO 6976 GCV exceeds LCV",
+          "base compressor power is positive and cooler duty is negative",
+          "base and all scenario mass balances close below 1e-10 relative",
+          "aftercooler gas reaches 30 degC",
+          "dry-gas scrubber liquid is negligible",
+          "power and heat removal increase with export pressure",
+          "2030 representative power is below 2025 power",
+          "valid nbformat JSON and sequential execution",
+          "Colab badge, catalog link, introduced links, readability, equations, video, figures, and stored outputs verified"
+        ],
+        "key_results": {
+          "historical_peak_year": 2004,
+          "historical_peak_total_msm3_oe": 264.19,
+          "latest_total_msm3_oe": 239.2,
+          "latest_gas_bsm3_at_40_mj_sm3": 120.51,
+          "resource_table_total_bsm3_oe": 11.1191,
+          "johan_sverdrup_2019_total_msm3_oe": 3.993728,
+          "standard_density_kg_sm3": 0.7561,
+          "lcv_mj_sm3": 35.2559,
+          "gcv_mj_sm3": 39.0685,
+          "base_flow_msm3_day": 3.588743,
+          "base_compressor_power_mw": 6.24761,
+          "base_aftercooler_duty_mw": -8.038647,
+          "base_mass_residual": 0.0,
+          "pressure_160_bara_power_mw": 9.672283,
+          "forecast_2030_power_mw": 5.554468
+        }
+      },
+      "figures": {
+        "previous_figures": 3,
+        "previous_figures_refreshed": 3,
+        "new_figures": 3,
+        "total_retained_figures": 6,
+        "other_preserved_visuals": [
+          "Johan Sverdrup introductory YouTube video"
+        ],
+        "purposes": [
+          "preserved and numerically refreshed annual NCS oil, gas, NGL, and total production with forecast separation",
+          "preserved and numerically refreshed Johan Sverdrup 2019 monthly start-up profile",
+          "preserved and numerically refreshed top-ten original recoverable-resource pie chart",
+          "historical and forecast NCS liquids-versus-gas mix",
+          "statistics-to-NeqSim export-process workflow overview",
+          "export-pressure duty and 2025-2030 production-power sensitivity comparison"
+        ],
+        "visual_inspection": "Passed at original resolution after final execution: all six figures have descriptive titles, explicit units, readable labels, accessible colors, appropriate legends, and nearby interpretation. The original video object is retained. No clipping, overlap, stale values, misleading scales, or unit inconsistencies were found.",
+        "numerical_refresh": "All three previous figures were recomputed from official Norwegian Offshore Directorate data retrieved on 27 July 2026. The annual series extends through 2025 actuals and the 2026-2030 outlook, Johan Sverdrup start-up values agree with current FactPages, and field resources use the 2025 version. All three additions use values from the validated NeqSim 3.16.0 execution and documented scaling assumptions."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 4,
+        "unique_inline_expressions": 8,
+        "renderer": "Jupyter/Colab-compatible MathJax SVG path",
+        "visual_inspection": "Oil-equivalent summation, CAGR, design-flow conversion, compressor-power proportionality, subscripts, superscripts, fractions, overdots, Greek symbols, and units rendered correctly with readable contrast. Delimiters are balanced and LaTeX commands use single backslashes."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "maximum_code_line_length": 81,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "changed_links_checked": true,
+        "catalog_target_occurrences": 1
+      },
+      "summary": "Expanded an eight-cell NCS production placeholder into an executed, self-contained tutorial while preserving every original cell, example, figure, source link, and video. Repaired retired data downloads, refreshed official production and resource values, and added data contracts, statistics, SRK thermodynamics, ISO 6976 gas quality, statistics-to-design flow conversion, a connected export process, mass closure, pressure and production sensitivities, figures, interpretation, troubleshooting, limitations, exercises, and authoritative references."
     }
   ]
 }
