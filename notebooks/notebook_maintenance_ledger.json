@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-27T17:39:59.199Z",
+  "updated_at": "2026-07-27T21:17:06.206Z",
   "notebooks": [
     {
       "path": "notebooks/process/neqsim_compressor_capacity_bottleneck_optimization.ipynb",
@@ -11312,6 +11312,133 @@
         "catalog_target_occurrences": 1
       },
       "summary": "Expanded an eight-cell NCS production placeholder into an executed, self-contained tutorial while preserving every original cell, example, figure, source link, and video. Repaired retired data downloads, refreshed official production and resource values, and added data contracts, statistics, SRK thermodynamics, ISO 6976 gas quality, statistics-to-design flow conversion, a connected export process, mass closure, pressure and production sensitivities, figures, interpretation, troubleshooting, limitations, exercises, and authoritative references."
+    },
+    {
+      "path": "notebooks/reservoir/neqsim_opm_flow_blackoil_coupling.ipynb",
+      "verified_date": "2026-07-27",
+      "verified_at_utc": "2026-07-27T21:17:06.206Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17",
+      "opm_python_version": "2026.4",
+      "opm_flow_versions_validated": [
+        "2021.10",
+        "2026.04"
+      ],
+      "environment_resolution": {
+        "mode": "authenticated Google Colab run plus isolated local dual-version regression",
+        "colab_setup": "Public PyPI neqsim==3.16.0 and opm==2026.4; Ubuntu libopm-simulators-bin installed through the OPM PPA.",
+        "colab_flow_version": "2021.10",
+        "local_regression": "The same explicit-group deck completed with extracted Ubuntu Flow 2021.10 and current Flow 2026.04."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 26 code cells in order with stored outputs in the isolated local runtime, then ran the exact validation commit from top to bottom in the authenticated shared Google Colab runtime. Colab completed without traceback or simulator exception and printed 'All 25 engineering checks passed.'",
+      "code_cells": 26,
+      "substantive_code_cells": 26,
+      "markdown_cells": 19,
+      "publication": {
+        "branch": "master",
+        "mode": "direct atomic connector-backed fast-forward commit after exact-commit Colab validation",
+        "commit": "the commit containing this ledger entry",
+        "validation_commit": "f25bced12e66ab563ae6f283616980d947ffe7e7",
+        "files": [
+          "notebooks/reservoir/neqsim_opm_flow_blackoil_coupling.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "neqsim_capabilities_demonstrated": [
+        "SRK reservoir-fluid construction, classic mixing, volume correction, and Pedersen C20+ characterization",
+        "NeqSim DLE-derived live-oil PVTO, dry-gas PVDG, and water PVTW table generation",
+        "black-oil contract and saturation-pressure validation",
+        "surface oil and gas composition characterization",
+        "reconstruction of time-varying OPM well rates as 23-component NeqSim material streams",
+        "choke, three-phase separation, gas compression, aftercooling, and oil letdown process integration",
+        "snapshot and integrated-process mass-balance closure"
+      ],
+      "reservoir_capabilities_demonstrated": [
+        "10 × 10 × 3 Cartesian OPM Flow grid with 300 active cells and heterogeneous permeability layers",
+        "three-year depletion with an oil producer and water injector",
+        "explicit WELLS-to-FIELD group compatible with Flow 2021.10 and 2026.04",
+        "summary-vector extraction for pressure, rates, GOR, and BHP",
+        "EGRID, INIT, and UNRST reading for permeability, pressure, and saturation graphics",
+        "three-dimensional active-cell mesh and nine final-state layer maps"
+      ],
+      "practical_application": "Characterizes a synthetic C20+ reservoir oil in NeqSim, generates Flow-compatible black-oil PVT, simulates depletion and water injection, visualizes the spatial reservoir state, reconstructs characterized facility feeds from OPM surface components, and sizes a screening separation-and-compression load at the maximum surface mass case.",
+      "engineering_validation": {
+        "assertions_passed": 25,
+        "assertions_failed": 0,
+        "checks": [
+          "assay and characterized compositions close",
+          "22 hydrocarbon identities are retained and the initial state is single-phase oil",
+          "independent bubble-pressure methods agree within 0.1 bar",
+          "all PVT monotonicity and positivity contracts pass",
+          "all required OPM deck keywords parse",
+          "Flow returns success and finite summary values",
+          "grid dimensions and 300 active cells match the deck",
+          "restart output spans the complete 36-step schedule with finite cell states",
+          "cell oil, water, and gas saturations close",
+          "pressure declines through bubble pressure and the producer reaches its BHP limit",
+          "water breakthrough occurs and rates remain non-negative",
+          "reverse conversion retains 23 components and closes mass below 1e-10 kg/s",
+          "the late case is water-bearing",
+          "compression raises pressure and consumes positive power",
+          "aftercooling removes heat",
+          "the integrated process mass balance closes below 1e-10 kg/s",
+          "valid nbformat JSON, sequential execution, stored outputs, Colab badge, catalog target, and equations were verified"
+        ],
+        "key_results": {
+          "active_grid_cells": 300,
+          "restart_report_steps_colab": 36,
+          "bubble_pressure_bara": 193.18758583068848,
+          "initial_solution_gor_sm3_sm3": 224.67270997088377,
+          "final_field_pressure_bara": 89.47801971435547,
+          "peak_gas_rate_sm3_day": 581111.3125,
+          "final_water_rate_sm3_day": 43.917232513427734,
+          "maximum_final_water_saturation": 0.8137570023536682,
+          "maximum_final_gas_saturation": 0.6170608997344971,
+          "facility_feed_mass_kg_s": 7.723460675948833,
+          "compressor_power_mw": 0.6952577846275405,
+          "aftercooler_duty_mw": -1.9243095369185856,
+          "process_mass_residual_kg_s": 4.425793065365724e-12
+        }
+      },
+      "figures": {
+        "previous_figures": 0,
+        "new_figures": 6,
+        "total_retained_figures": 6,
+        "purposes": [
+          "NeqSim-generated black-oil PVT tables",
+          "OPM field forecast and operational events",
+          "three-dimensional active-cell mesh with permeability layers and completed wells",
+          "final pressure, water-saturation, and gas-saturation maps for all three layers",
+          "time-varying reconstructed NeqSim process feeds",
+          "integrated reservoir-to-surface process workflow and duties"
+        ],
+        "visual_inspection": "Passed at original resolution after final local execution. The Colab run regenerated all six outputs successfully. Titles, units, axes, well markers, legends, and color scales are readable; no clipping, overlap, stale values, or unit inconsistencies were found."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 5,
+        "inline_expressions": 12,
+        "renderer": "Jupyter/Colab-compatible MathJax 3",
+        "visual_inspection": "All 17 equations rendered with balanced delimiters and single-backslash LaTeX commands."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 45,
+        "maximum_code_line_length": 80,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "catalog_target_occurrences": 1
+      },
+      "summary": "Added an executable NeqSim–OPM Flow reservoir-to-facility coupling workbook with characterized black-oil table generation, a dual-version-compatible 300-cell forecast, direct grid/restart graphics, characterized well-stream reconstruction, surface-process integration, stored outputs, Colab validation, and engineering audit evidence."
     }
   ]
 }
