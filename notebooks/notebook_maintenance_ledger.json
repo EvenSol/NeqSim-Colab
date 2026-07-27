@@ -1,7 +1,40 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-27T15:25:30Z",
+  "updated_at": "2026-07-27T16:35:47.723Z",
   "notebooks": [
+    {
+      "path": "notebooks/power/neqsim_ecalc_integrated_energy_emissions.ipynb",
+      "verified_date": "2026-07-27",
+      "verified_at_utc": "2026-07-27T16:35:47.723Z",
+      "neqsim_version": "3.16.0",
+      "libecalc_version": "13.9.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "Clean Python 3.12 virtual environment with pinned public PyPI NeqSim and libecalc; all code cells executed sequentially from an empty namespace because the automation sandbox blocks local Jupyter TCP kernel connections. Outputs and optimized PNG figures were retained in the notebook.",
+      "code_cells": 41,
+      "markdown_cells": 29,
+      "retained_figures": 10,
+      "rendered_equations": 11,
+      "publication": {
+        "branch": "agent/neqsim-ecalc-field-life",
+        "mode": "connector-backed branch and draft pull request",
+        "commit": "the commit containing this ledger entry"
+      },
+      "key_checks": [
+        "all 41 code cells executed in order with sequential execution counts, no error outputs, and no stored stderr",
+        "all three compressor maps contain seven speed lines and five points per speed line, with explicit surge and stonewall boundaries",
+        "field-life cases cover two inlet-pressure strategies over 2027–2037 and quantify 0.8421 Mt cumulative incremental synthetic wellstream",
+        "the pressure-reduction case gives 34.6153 percent late-life production uplift while identifying a 2030 export-compressor discharge-head constraint and a 2032 map-envelope constraint",
+        "eCalc 13.9.0 ran successfully for the annual process model and the 336-hour hybrid dispatch model",
+        "eCalc marks the export compressor valid for 3 of 10 annual intervals, making the retrofit boundary explicit",
+        "NeqSim native wind and 40 MWh battery dispatch reduces direct study-period CO2 by 74.3136 percent versus gas-only generation with zero unmet load",
+        "all 38 engineering assertions passed, including balances, map completeness, field-life uplift, eCalc handoffs, battery state, and hourly dispatch",
+        "notebook JSON and nbformat validation, the NeqSim notebook checker, 100-character code-line audit, semicolon and inline-suite audit, and Colab badge check passed",
+        "MathJax rendered all 11 expressions with zero errors and all equation and figure renderings were visually inspected"
+      ],
+      "summary": "Created a standalone Colab study linking NeqSim multiphase separation, flash-gas recompression, generated compressor maps, field depletion and inlet-pressure reduction, native offshore wind and battery dispatch, TITAN 250 fuel curves, and eCalc component-level fuel, CO2, capacity, recirculation, and intensity accounting. The notebook retains all evaluations and explicitly separates valid annual results from post-constraint retrofit screening."
+    },
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
       "verified_date": "2026-07-19",
@@ -9912,7 +9945,7 @@
         ],
         "key_results": {
           "base_density_kg_m3": 570.006377876671,
-          "base_compressibility_per_pa": 2.1655529052373874e-09,
+          "base_compressibility_per_pa": 2.1655529052373874e-9,
           "base_expansivity_per_k": 0.001976120843848179,
           "base_heat_capacity_j_kg_k": 2171.313809970754,
           "original_linear_final_pressure_bara": 760.0625287602811,
@@ -10490,7 +10523,7 @@
           "plot_space_m2": 484.019,
           "lp_separator_inner_diameter_m": 2.961,
           "lp_separator_total_weight_kg": 78311.752,
-          "reusable_case_capacity_msm3_day": 10.0,
+          "reusable_case_capacity_msm3_day": 10,
           "reusable_case_total_weight_kg": 416243.246,
           "reusable_case_power_kw": 19300.677
         }
@@ -10854,7 +10887,7 @@
           "Colab badge, retained catalog link, introduced links, readability, equations, and stored outputs verified"
         ],
         "key_results": {
-          "scenario_gas_total_bcm_per_year": 4030.0,
+          "scenario_gas_total_bcm_per_year": 4030,
           "weighted_intensity_kg_co2e_per_boe": 20.4789,
           "bootstrap_95_percent_low_kg_co2e_per_boe": 18.26,
           "bootstrap_95_percent_high_kg_co2e_per_boe": 23.61,
@@ -10864,7 +10897,7 @@
           "europe_design_flow_msm3_per_day": 3.275759,
           "base_compressor_power_mw": 5.714683,
           "base_aftercooler_duty_mw": -7.310352,
-          "gas_turbine_electricity_emissions_t_co2e_per_year": 19343.0,
+          "gas_turbine_electricity_emissions_t_co2e_per_year": 19343,
           "wind_backed_electricity_emissions_t_co2e_per_year": 552.7,
           "maximum_linear_scaling_error": 2.56e-15
         }
@@ -10982,7 +11015,7 @@
           "base_flow_msm3_day": 2.5,
           "base_compressor_power_mw": 4.3522,
           "base_aftercooler_duty_mw": -5.5999,
-          "base_mass_residual": 0.0,
+          "base_mass_residual": 0,
           "historical_gas_price_p10_usd_mmbtu": 1.874,
           "historical_gas_price_p50_usd_mmbtu": 2.955,
           "historical_gas_price_p90_usd_mmbtu": 5.569,
@@ -11207,7 +11240,7 @@
           "base_flow_msm3_day": 3.588743,
           "base_compressor_power_mw": 6.24761,
           "base_aftercooler_duty_mw": -8.038647,
-          "base_mass_residual": 0.0,
+          "base_mass_residual": 0,
           "pressure_160_bara_power_mw": 9.672283,
           "forecast_2030_power_mw": 5.554468
         }
