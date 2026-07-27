@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-27T13:11:49Z",
+  "updated_at": "2026-07-27T15:02:25.583Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -9912,7 +9912,7 @@
         ],
         "key_results": {
           "base_density_kg_m3": 570.006377876671,
-          "base_compressibility_per_pa": 2.1655529052373874e-09,
+          "base_compressibility_per_pa": 2.1655529052373874e-9,
           "base_expansivity_per_k": 0.001976120843848179,
           "base_heat_capacity_j_kg_k": 2171.313809970754,
           "original_linear_final_pressure_bara": 760.0625287602811,
@@ -10490,7 +10490,7 @@
           "plot_space_m2": 484.019,
           "lp_separator_inner_diameter_m": 2.961,
           "lp_separator_total_weight_kg": 78311.752,
-          "reusable_case_capacity_msm3_day": 10.0,
+          "reusable_case_capacity_msm3_day": 10,
           "reusable_case_total_weight_kg": 416243.246,
           "reusable_case_power_kw": 19300.677
         }
@@ -10854,7 +10854,7 @@
           "Colab badge, retained catalog link, introduced links, readability, equations, and stored outputs verified"
         ],
         "key_results": {
-          "scenario_gas_total_bcm_per_year": 4030.0,
+          "scenario_gas_total_bcm_per_year": 4030,
           "weighted_intensity_kg_co2e_per_boe": 20.4789,
           "bootstrap_95_percent_low_kg_co2e_per_boe": 18.26,
           "bootstrap_95_percent_high_kg_co2e_per_boe": 23.61,
@@ -10864,7 +10864,7 @@
           "europe_design_flow_msm3_per_day": 3.275759,
           "base_compressor_power_mw": 5.714683,
           "base_aftercooler_duty_mw": -7.310352,
-          "gas_turbine_electricity_emissions_t_co2e_per_year": 19343.0,
+          "gas_turbine_electricity_emissions_t_co2e_per_year": 19343,
           "wind_backed_electricity_emissions_t_co2e_per_year": 552.7,
           "maximum_linear_scaling_error": 2.56e-15
         }
@@ -10982,7 +10982,7 @@
           "base_flow_msm3_day": 2.5,
           "base_compressor_power_mw": 4.3522,
           "base_aftercooler_duty_mw": -5.5999,
-          "base_mass_residual": 0.0,
+          "base_mass_residual": 0,
           "historical_gas_price_p10_usd_mmbtu": 1.874,
           "historical_gas_price_p50_usd_mmbtu": 2.955,
           "historical_gas_price_p90_usd_mmbtu": 5.569,
@@ -11026,6 +11026,96 @@
         "catalog_target_occurrences": 1
       },
       "summary": "Expanded a six-cell price-statistics placeholder into an executed, self-contained tutorial while preserving every original cell, link, video, price workflow, and figure. Repaired brittle EIA acquisition, refreshed historical values, and added price statistics, SRK thermodynamics, ISO 6976 gas quality, connected export processing, mass closure, netback calculations, pressure and electricity sensitivities, figures, troubleshooting, limitations, exercises, and authoritative references."
+    },
+    {
+      "path": "notebooks/thermodynamics/CO2reactions.ipynb",
+      "verified_date": "2026-07-27",
+      "verified_at_utc": "2026-07-27T15:02:25.583Z",
+      "neqsim_version": "not resolved; notebook not executed",
+      "python_version": "not resolved; notebook not executed",
+      "java_version": "not resolved; notebook not executed",
+      "environment_resolution": {
+        "mode": "not used",
+        "bootstrap": "not run",
+        "reason": "The user explicitly requested publication without execution to avoid making the unavailable public-PyPI Reaktoro dependency a blocker."
+      },
+      "execution_status": "not_run_user_requested",
+      "execution_method": "No setup, Reaktoro, NeqSim, notebook, checker, or equation-rendering command was executed. Existing outputs were retained from the pre-existing notebook and were not recalculated or claimed as current validation evidence.",
+      "code_cells": 10,
+      "substantive_code_cells": 9,
+      "markdown_cells": 18,
+      "publication": {
+        "branch": "master",
+        "mode": "direct atomic connector-backed fast-forward commit with explicit user-approved execution exception",
+        "commit": "the commit containing this ledger entry",
+        "files": [
+          "notebooks/thermodynamics/CO2reactions.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "preservation": {
+        "pre_existing_cells": 23,
+        "preserved_cells": 23,
+        "pre_existing_code_cells": 9,
+        "preserved_code_cells": 9,
+        "pre_existing_generated_plots": 3,
+        "preserved_generated_plots": 3,
+        "pre_existing_embedded_literature_figures": 1,
+        "preserved_embedded_literature_figures": 1,
+        "repairs": "Preserved all original cells in their original relative order. Added a clear title, scope, publication warning, modern two-stage CondaColab/Reaktoro setup, engineering interpretation, and limitations. Corrected headings, spelling, redundant imports, long import lines, and the nitric-acid sweep variable names without deleting the original Reaktoro, Peng-Robinson, solid-equilibrium, pressure-sweep, ideal-comparison, or Electrolyte-CPA workflows."
+      },
+      "capabilities_documented": [
+        "Reaktoro NASA-CEA gas-phase equilibrium for CO2 with sulfur, nitrogen, oxygen, and water trace species",
+        "transfer of Reaktoro equilibrium species amounts into a NeqSim Peng-Robinson fluid",
+        "NeqSim multiphase and elemental-sulfur solid equilibrium screening",
+        "sulfuric-acid and nitric-acid pressure sweeps",
+        "ideal nitric-acid comparison",
+        "Electrolyte-CPA aqueous-phase pH calculation"
+      ],
+      "static_validation": {
+        "status": "passed",
+        "checks": [
+          "valid nbformat JSON",
+          "28 total cells with 10 code and 18 Markdown cells",
+          "all 23 original cell identifiers retained in original relative order",
+          "all cell identifiers unique",
+          "zero stored error outputs",
+          "maximum code-line length 78 characters",
+          "valid Colab badge and target URL",
+          "catalog target occurs exactly once",
+          "publication metadata explicitly marks execution as not run",
+          "no Markdown math delimiters requiring equation rendering"
+        ]
+      },
+      "runtime_validation": {
+        "status": "not performed",
+        "reason": "Explicit user request to commit without running because Reaktoro is unavailable from public PyPI in the validation runtime.",
+        "stored_outputs": "Five stream outputs and three generated display outputs were retained from the original notebook. They were not refreshed or revalidated."
+      },
+      "figures": {
+        "generated_outputs_retained": 3,
+        "embedded_literature_figures_retained": 1,
+        "visual_inspection": "not repeated during this source-only publication",
+        "numerical_refresh": "not performed"
+      },
+      "equation_rendering": {
+        "status": "not applicable",
+        "display_equations": 0,
+        "inline_expressions": 0,
+        "reason": "The notebook contains no Markdown math delimiters."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "maximum_code_line_length": 78,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "catalog_target_occurrences": 1,
+        "execution_exception_disclosed": true
+      },
+      "summary": "Published the repaired CO2 trace-reaction notebook as a transparent source-only exception at the user's request. The Colab setup now reflects Reaktoro's conda-forge distribution, the Reaktoro-to-NeqSim calculation chain and limitations are explicit, and the catalog and ledger disclose that no fresh execution or numerical validation was performed."
     }
   ]
 }
