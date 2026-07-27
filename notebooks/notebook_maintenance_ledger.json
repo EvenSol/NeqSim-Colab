@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-27T10:09:35Z",
+  "updated_at": "2026-07-27T10:34:29Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -10531,6 +10531,133 @@
         "catalog_target_occurrences": 1
       },
       "summary": "Converted the inaccessible eight-cell offshore process note into an executed, self-contained process-weight tutorial while preserving every original cell, setting, workflow, and figure. Added current thermodynamic and process APIs, balances, native mechanical design, equipment and discipline reporting, separator dimensions, capacity sensitivity, a reusable application function, interpretation, troubleshooting, limitations, exercises, and authoritative references."
+    },
+    {
+      "path": "notebooks/excercise/calculationofphaseenvelopes.ipynb",
+      "verified_date": "2026-07-27",
+      "verified_at_utc": "2026-07-27T10:34:29Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-phase-envelope-20260727-1218 --neqsim-version latest --refresh --extra-package nbclient --extra-package ipykernel",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260727T102034Z-d136140b0500",
+        "verified_public_pypi_wheels": 57,
+        "manifest_created_at_utc": "2026-07-27T10:20:34Z",
+        "integrity": "Complete public-PyPI inventory, size, SHA-256, runtime, platform, and requested-toolchain verification passed before fresh-environment installation."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 18 code cells sequentially from an empty in-process IPython state with execution counts 1 through 18, zero error outputs, and zero stored stderr. Standard Jupyter execution was attempted first, but the automation sandbox blocked local TCP kernel startup; the permitted shared-namespace executor retained stdout, tables, diagnostics, and seven generated PNG figures.",
+      "code_cells": 18,
+      "substantive_code_cells": 18,
+      "markdown_cells": 31,
+      "publication": {
+        "branch": "master",
+        "mode": "direct atomic connector-backed fast-forward commit",
+        "commit": "the commit containing this ledger entry",
+        "files": [
+          "notebooks/excercise/calculationofphaseenvelopes.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "preservation": {
+        "pre_existing_cells": 6,
+        "preserved_cells": 6,
+        "pre_existing_substantive_examples": 4,
+        "preserved_substantive_examples": 4,
+        "pre_existing_figures": 3,
+        "preserved_figures": 3,
+        "repairs": "Preserved all six original cells in order and all four historical workflows: lean-gas envelope, TP flash and 21-bara dew point; exact fluidComposition perturbation and envelope; rich-gas envelope, TP flash and 21-bara dew point; and the rich-gas 61-bara dew point. Replaced the NeqSim 2.5.35 pin and wildcard imports, corrected kelvin values mislabeled as degrees Celsius, supplied a stable hydrocarbon-dew initial temperature, made solver sentinels explicit, and refreshed all three original envelope plots. No original cell, calculation, composition value, figure, or engineering intent was removed."
+      },
+      "neqsim_capabilities_demonstrated": [
+        "SRK fluid construction from pandas composition tables",
+        "automatic supported mixing-rule selection",
+        "TP flash and phase-aware property reporting",
+        "phase-envelope continuation with dew and bubble branch retrieval",
+        "cricondenbar and cricondentherm retrieval with explicit unit conversion",
+        "direct hydrocarbon dew-point temperature flashes",
+        "composition replacement through fluidComposition",
+        "independent Stream dewP specification",
+        "connected Stream, Cooler, Separator, and ProcessSystem execution",
+        "named gas and liquid product retrieval with cooler-duty reporting",
+        "reusable pressure and outlet-temperature sensitivity workflows"
+      ],
+      "practical_application": "Builds a reproducible 1.0 MSm3/day rich export-gas case at 61 bara, computes its pressure-specific hydrocarbon dew point, validates it through a Stream dewP specification, cools the gas through the boundary, separates equilibrium liquid, closes the gas-plus-liquid mass balance, and screens seven outlet temperatures for dropout and cooler duty.",
+      "engineering_validation": {
+        "assertions_passed": 25,
+        "assertions_failed": 0,
+        "checks": [
+          "current NeqSim, Python, and Java versions recorded",
+          "all six original cells and four workflows retained",
+          "all three original figure calculations refreshed",
+          "raw composition sums finite and within stated normalization bounds",
+          "each envelope has populated dew and bubble branches",
+          "finite envelope dew pressures are positive",
+          "cricondenbar and cricondentherm values are finite and positive",
+          "pressure-specific dew results stay below each cricondentherm",
+          "direct dewt and Stream dewP APIs agree at 61 bara",
+          "rich gas has a warmer 21-bara dew point than lean gas",
+          "cooling below the dew point creates positive liquid",
+          "an above-dew case has negligible liquid",
+          "deeper cooling increases liquid dropout",
+          "all process sensitivity cases close total mass below 1e-10 relative",
+          "valid nbformat JSON and sequential execution",
+          "Colab badge, changed links, readability, equations, and stored outputs verified"
+        ],
+        "key_results": {
+          "lean_cricondenbar_pressure_bara": 83.316,
+          "lean_cricondenbar_temperature_c": -39.19,
+          "modified_cricondenbar_pressure_bara": 98.917,
+          "modified_cricondenbar_temperature_c": -29.447,
+          "rich_cricondenbar_pressure_bara": 108.45,
+          "rich_cricondenbar_temperature_c": -10.83,
+          "lean_dew_temperature_at_21_bara_c": -3.354,
+          "rich_dew_temperature_at_21_bara_c": 24.175,
+          "rich_dew_temperature_at_61_bara_c": 28.958,
+          "base_outlet_temperature_c": 23.958,
+          "base_liquid_dropout_kg_h": 148.921,
+          "base_cooler_duty_kw": -289.357
+        }
+      },
+      "figures": {
+        "previous_figures": 3,
+        "previous_figures_refreshed": 3,
+        "new_figures": 4,
+        "total_retained_figures": 7,
+        "purposes": [
+          "refreshed original lean export-gas phase envelope",
+          "refreshed original composition-perturbed phase envelope",
+          "refreshed original rich export-gas phase envelope",
+          "normalized composition-group comparison",
+          "pressure sensitivity of hydrocarbon dew point for all three gases",
+          "connected NeqSim export-conditioning workflow overview",
+          "cooler-outlet sensitivity of liquid dropout and cooling duty"
+        ],
+        "visual_inspection": "Passed at original resolution after final execution: all seven figures have descriptive titles, explicit units, readable labels, accessible colors, appropriate legends, and nearby interpretation. Envelope branches and solver gaps are represented without false interpolation. No clipping, overlap, stale values, misleading scales, or unit inconsistencies were found.",
+        "numerical_refresh": "All three historical envelopes, annotations, cricondenbar values, and nearby numerical statements were recomputed with NeqSim 3.16.0. Four additional figures use the same validated execution."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 4,
+        "unique_inline_expressions": 9,
+        "renderer": "Jupyter/Colab-compatible MathJax SVG path",
+        "visual_inspection": "Fugacity superscripts, phase-fraction subscripts, kelvin-to-Celsius notation, dotted mass rates, vectors, symbols, and units rendered correctly with readable contrast. Delimiters are balanced and LaTeX commands use single backslashes."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "maximum_code_line_length": 89,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "changed_links_checked": true,
+        "catalog_target_occurrences": 1
+      },
+      "summary": "Expanded the six-cell phase-envelope exercise into an executed, self-contained export-gas dew-point tutorial while preserving every original cell, composition, calculation, and plot. Added current SRK and process APIs, solver diagnostics, corrected units, pressure and composition sensitivity, a reusable cooler-scrubber application, balances, interpretation, troubleshooting, limitations, exercises, and authoritative references."
     }
   ]
 }
