@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-26T21:14:21Z",
+  "updated_at": "2026-07-27T07:14:25.500Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -10078,6 +10078,96 @@
         "external_links_checked": true
       },
       "summary": "Expanded the six-cell process-flow-diagram example into a self-contained, executed tutorial that preserves every original workflow and visual while connecting the diagram to real NeqSim separation, compression, throttling, balances, scenario analysis, validation, troubleshooting, limitations, exercises, and references."
+    },
+    {
+      "path": "notebooks/process/exergyanalysisofoilprocess.ipynb",
+      "verified_date": "2026-07-27",
+      "verified_at_utc": "2026-07-27T07:14:25.500Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-exergy-oil-process-retry-20260727 --neqsim-version latest --refresh --extra-package nbclient --extra-package ipykernel",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260727T071111Z-1a35e7684a30",
+        "verified_public_pypi_wheels": 57,
+        "manifest_created_at_utc": "2026-07-27T07:11:11Z",
+        "integrity": "Complete public-PyPI inventory, size, SHA-256, runtime, platform, and requested-toolchain verification passed before fresh-environment installation."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 21 code cells sequentially from an empty in-process IPython state with execution counts 1 through 21, zero error outputs, and zero stored stderr streams. The in-process executor was used because the automation sandbox previously blocked local TCP kernel startup.",
+      "code_cells": 21,
+      "substantive_code_cells": 21,
+      "markdown_cells": 34,
+      "publication": {
+        "branch": "master",
+        "mode": "direct atomic connector-backed fast-forward commit",
+        "commit": "the commit containing this ledger entry",
+        "files": [
+          "notebooks/process/exergyanalysisofoilprocess.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "preservation": {
+        "pre_existing_cells": 10,
+        "preserved_cells": 10,
+        "pre_existing_substantive_examples": 4,
+        "preserved_substantive_examples": 4,
+        "pre_existing_figures": 1,
+        "preserved_figures": 1,
+        "repairs": "Preserved all ten original cells, four original workflows, and the embedded offshore process diagram. Replaced the obsolete neqsim==2.5.35 pin and inaccessible offshorePro.neqsim download with a public-PyPI setup and self-contained characterized fluid/process. Repaired current APIs, units, outputs, readability, equations, and validation without removing functionality."
+      },
+      "neqsim_capabilities_demonstrated": [
+        "Peng-Robinson fluid construction with named and petroleum pseudo-components",
+        "classic mixing rule, multiphase checking, TP flashes, and cloned dead states",
+        "Stream, Heater, ThrottlingValve, Separator, Compressor, Pump, and ProcessSystem composition",
+        "native process and equipment entropy-production, cooler-duty, heater-duty, and power APIs",
+        "composition-preserving stream physical-exergy calculation",
+        "total mass, component molar, and equipment energy balances",
+        "direct exergy balances and Gouy-Stodola cross-validation",
+        "five-case intermediate-separator-pressure sensitivity"
+      ],
+      "practical_application": "Runs a 12.23-MSm3/day synthetic reservoir fluid at 120 bara and 65 degC through conditioning, 51.21-bara HP separation, 15-bara MP and 1.8-bara LP stabilization, 20-bara oil export pumping, and 160-bara gas export compression/aftercooling. It ranks equipment irreversibility and screens 8-22 bara MP pressure against oil recovery, TVP, and throttling loss.",
+      "engineering_validation": {
+        "assertions_passed": 22,
+        "assertions_failed": 0,
+        "checks": [
+          "legacy composition and normalized composition verified",
+          "dead-state and feed physical exergy verified",
+          "all product flows and export pressures verified",
+          "total mass and every component molar balance closed",
+          "equipment energy balances and thermodynamic directions verified",
+          "Gouy-Stodola and direct exergy-destruction estimates cross-validated",
+          "pressure sensitivity remained finite and physically ordered",
+          "notebook JSON, sequential execution, links, badge, readability, and outputs verified"
+        ]
+      },
+      "figures": {
+        "previous_preserved": 1,
+        "previous_numerically_refreshed": 0,
+        "new_figures": 4,
+        "retained_total": 5,
+        "purposes": [
+          "preserved embedded offshore process diagram",
+          "connected stabilization and export-conditioning workflow",
+          "stream pressure and physical-exergy diagnostics",
+          "equipment irreversibility Pareto ranking",
+          "separator-pressure recovery, TVP, and throttling-loss trade-offs"
+        ],
+        "visual_inspection": "Passed: all five figures were inspected at original resolution for values, units, labels, legends, scales, clipping, overlap, and consistency with tables and narrative."
+      },
+      "equations": {
+        "display_equations": 4,
+        "unique_inline_expressions": 11,
+        "mathjax_rendering": "Passed through a Jupyter-compatible MathJax path and fresh-environment raster inspection; fractions, subscripts, superscripts, dotted rates, symbols, and units rendered correctly."
+      },
+      "links_and_catalog": {
+        "colab_badge": "passed",
+        "changed_links": "passed",
+        "catalog_target_occurrences": 1
+      },
+      "summary": "Modernized the offshore oil-and-gas exergy analysis into an executed, self-contained NeqSim workflow with mass, component, energy, entropy, exergy, irreversibility, and separator-pressure sensitivity checks."
     }
   ]
 }
