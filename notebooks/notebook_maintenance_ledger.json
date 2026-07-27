@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-27T10:34:29Z",
+  "updated_at": "2026-07-27T11:03:52Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -10658,6 +10658,130 @@
         "catalog_target_occurrences": 1
       },
       "summary": "Expanded the six-cell phase-envelope exercise into an executed, self-contained export-gas dew-point tutorial while preserving every original cell, composition, calculation, and plot. Added current SRK and process APIs, solver diagnostics, corrected units, pressure and composition sensitivity, a reusable cooler-scrubber application, balances, interpretation, troubleshooting, limitations, exercises, and authoritative references."
+    },
+    {
+      "path": "notebooks/emissions/CO2emsissionsinthevaluechain.ipynb",
+      "verified_date": "2026-07-27",
+      "verified_at_utc": "2026-07-27T11:03:52Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-co2-value-chain-20260727-1248 --neqsim-version latest --refresh --extra-package nbclient --extra-package ipykernel",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260727T105212Z-2a43135dcd73",
+        "verified_public_pypi_wheels": 57,
+        "manifest_created_at_utc": "2026-07-27T10:52:12Z",
+        "integrity": "Complete public-PyPI inventory, size, SHA-256, runtime, platform, and requested-toolchain verification passed before fresh-environment installation."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 28 code cells sequentially from an empty in-process IPython state with execution counts 1 through 28, zero error outputs, and zero stored stderr. Standard Jupyter execution was attempted first, but the automation sandbox blocked local TCP kernel startup; the permitted shared-namespace executor retained stdout, tables, diagnostics, and five generated PNG figures.",
+      "code_cells": 28,
+      "substantive_code_cells": 28,
+      "markdown_cells": 40,
+      "publication": {
+        "branch": "master",
+        "mode": "direct atomic connector-backed fast-forward commit",
+        "commit": "the commit containing this ledger entry",
+        "files": [
+          "notebooks/emissions/CO2emsissionsinthevaluechain.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "preservation": {
+        "pre_existing_cells": 14,
+        "preserved_cells": 14,
+        "pre_existing_substantive_examples": 6,
+        "preserved_substantive_examples": 6,
+        "pre_existing_figures": 0,
+        "preserved_figures": 0,
+        "repairs": "Preserved all 14 original cells in order and all six intended workflows: offshore process power, power generation alternatives, power emissions, onshore process power, total intensity, and downstream-use/cost screening. Replaced the obsolete NeqSim 2.5.35 pin, converted six comment-only code cells into executable teaching workflows, corrected headings and units, and added balances, gas quality, scenarios, interpretation, limitations, and checks. No original cell, section, example intent, or functionality was removed."
+      },
+      "neqsim_capabilities_demonstrated": [
+        "SRK fluid construction and mixing-rule selection",
+        "unit-aware Stream creation at standard flow",
+        "connected ProcessSystem execution",
+        "equilibrium Separator and scrubber operations",
+        "enthalpy-based Compressor power with isentropic efficiency",
+        "Cooler outlet-temperature specification and duty retrieval",
+        "Valve isenthalpic pressure reduction",
+        "named intermediate and product stream retrieval",
+        "ISO 6976:2016 mass-basis LCV, GCV, density, and molar mass",
+        "component molar and mass-flow reconstruction",
+        "independent export-pressure sensitivity cases"
+      ],
+      "practical_application": "Builds a synthetic 5.0 MSm3/day gas value chain from a 70-bara offshore feed through inlet separation, 140-bara export compression, aftercooling, export scrubbing, receiving-pressure letdown, onshore separation, and 100-bara transmission recompression. The application closes mass, retrieves power and duty, derives gas-specific fuel carbon and ISO 6976 energy, evaluates four power supplies, separates operational and potential use-phase emissions, screens CO2 removal and storage, reports kg CO2e/boe, and maps export pressure against electrification.",
+      "engineering_validation": {
+        "assertions_passed": 19,
+        "assertions_failed": 0,
+        "checks": [
+          "input and NeqSim-normalized compositions sum to one",
+          "offshore and onshore total mass balances close below 1e-8 relative",
+          "offshore export and transmission pressures are achieved",
+          "both compressor powers are positive",
+          "ISO 6976 LCV and composition-derived carbon factor are plausible",
+          "combined-cycle factor is below simple-cycle factor",
+          "shore power lowers operational emissions",
+          "potential use-phase CO2 exceeds operational CO2e",
+          "removed CO2 storage-plus-vent split closes",
+          "product carbon allocation closes",
+          "all five pressure cases close total mass",
+          "compressor power increases monotonically with export pressure",
+          "electrification lowers every pressure-case emission result",
+          "all reported arrays and avoided-cost results are finite",
+          "all three lower-carbon options avoid positive operational tonnes",
+          "valid nbformat JSON and sequential execution",
+          "Colab badge, changed links, readability, equations, and stored outputs verified"
+        ],
+        "key_results": {
+          "feed_rate_kg_h": 173596.3237,
+          "export_gas_rate_kg_h": 173596.3237,
+          "offshore_export_compressor_power_mw": 5.2598,
+          "offshore_total_power_mw": 6.606,
+          "onshore_total_power_mw": 4.6535,
+          "simple_cycle_operational_co2e_kg_h": 6702.1332,
+          "shore_power_operational_co2e_kg_h": 377.1681,
+          "potential_sales_gas_use_co2_kg_h": 468808.2997,
+          "co2_sent_to_storage_kg_h": 3315.4316,
+          "baseline_operational_intensity_kg_co2e_boe": 5.0348
+        }
+      },
+      "figures": {
+        "previous_figures": 0,
+        "previous_figures_refreshed": 0,
+        "new_figures": 5,
+        "total_retained_figures": 5,
+        "purposes": [
+          "NeqSim process and emissions-accounting workflow overview",
+          "offshore electrical-load and thermal-duty breakdown",
+          "operational emissions for four power-supply scenarios",
+          "operational versus potential downstream-use boundary comparison",
+          "export-pressure duty and electrification operating map"
+        ],
+        "visual_inspection": "Passed at original resolution after final execution: all five figures have descriptive titles, explicit units, readable labels, accessible colors, appropriate legends or color scales, and nearby interpretation. No clipping, overlap, stale values, misleading scales, or unit inconsistencies were found.",
+        "numerical_refresh": "The placeholder contained no previous figures. All five new figures use values produced by the validated NeqSim 3.16.0 execution and its documented accounting inputs."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 5,
+        "unique_inline_expressions": 9,
+        "renderer": "Jupyter/Colab-compatible MathJax SVG path",
+        "visual_inspection": "Mass-flow overdots, summation indices, CO2 subscripts, efficiency, calorific value, balance residual, capital recovery, and avoided-emissions notation rendered correctly with readable contrast. Delimiters are balanced and LaTeX commands use single backslashes."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "maximum_code_line_length": 67,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "changed_links_checked": true,
+        "catalog_target_occurrences": 1
+      },
+      "summary": "Expanded a 14-cell, comment-only CO2 value-chain placeholder into an executed, self-contained tutorial while preserving every original cell and intended topic. Added current SRK and process APIs, ISO 6976 fuel quality, composition-based carbon accounting, offshore/onshore power, scope boundaries, electrification and capture scenarios, pressure sensitivity, avoided-cost screening, figures, balances, troubleshooting, limitations, exercises, and authoritative references."
     }
   ]
 }
