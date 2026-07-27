@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-27T07:14:25.500Z",
+  "updated_at": "2026-07-27T09:05:00Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -10286,6 +10286,126 @@
         "changed_links_checked": true
       },
       "summary": "Expanded the six-cell hydrocarbon-emissions note into an executed, self-contained produced-water flash-emission tutorial while preserving every original cell and the depressurization objective. Added current NeqSim process APIs, CPA theory, component accounting, balances, sensitivities, mitigation scenarios, retained figures, interpretation, troubleshooting, limitations, exercises, and authoritative references."
+    },
+    {
+      "path": "notebooks/process/cemicalsconsumption.ipynb",
+      "verified_date": "2026-07-27",
+      "verified_at_utc": "2026-07-27T09:05:00Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-chemicals-consumption-20260727-1051 --neqsim-version latest --refresh --extra-package nbclient --extra-package ipykernel",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260727T085322Z-18d2fdf01b59",
+        "verified_public_pypi_wheels": 57,
+        "manifest_created_at_utc": "2026-07-27T08:53:22Z",
+        "integrity": "Complete public-PyPI inventory, size, SHA-256, runtime, platform, and requested-toolchain verification passed before fresh-environment installation."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 18 code cells sequentially from an empty in-process IPython state with execution counts 1 through 18, zero error outputs, and zero stored stderr. Standard Jupyter execution was attempted first, but the automation sandbox blocked local TCP kernel startup; the permitted shared-namespace executor retained stdout, tables, and four PNG figures.",
+      "code_cells": 18,
+      "substantive_code_cells": 18,
+      "markdown_cells": 21,
+      "publication": {
+        "branch": "master",
+        "mode": "direct atomic connector-backed fast-forward commit",
+        "commit": "the commit containing this ledger entry",
+        "files": [
+          "notebooks/process/cemicalsconsumption.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "preservation": {
+        "pre_existing_cells": 9,
+        "preserved_cells": 9,
+        "pre_existing_substantive_examples": 1,
+        "preserved_substantive_examples": 1,
+        "pre_existing_figures": 1,
+        "preserved_figures": 1,
+        "repairs": "Preserved all nine original cells, the five chemical-use categories, loss-pathway discussion, TEG-loss objective, 45 degC pressure sweep, ten pressure points, table, and original plot. Replaced neqsim 2.5.35, compressed code, reused mutable fluid state, brittle phase access, unlabeled axes, stale output, and the empty check cell with current public-PyPI setup, cloned CPA flashes, guarded phases, explicit units, and validation. No original cell, example, figure, or engineering intent was removed."
+      },
+      "neqsim_capabilities_demonstrated": [
+        "fluid_df construction with SRK-CPA Statoil and mixing rule 10",
+        "cloned TP flashes and phase-aware equilibrium TEG vapor-loss retrieval",
+        "wet-gas and lean-TEG fluid construction with a common component set",
+        "ProcessBuilder streams and connected SimpleTEGAbsorber",
+        "stage efficiency, packing diameter, Fs factor, utilization, and minimum diameter",
+        "stream and component mass-flow retrieval",
+        "total and component material-balance closure",
+        "three-case TEG circulation sensitivity",
+        "equilibrium, mist, maintenance, and fresh-make-up accounting",
+        "reusable end-to-end annual TEG planning function"
+      ],
+      "practical_application": "Runs 5 MSm3/day of synthetic wet gas at 70 bara and 35 degC against 4000 kg/h lean TEG in a five-stage, 50-percent-efficiency contactor. It retrieves dry gas and rich TEG, closes balances, checks packing capacity, varies circulation from 2500 to 5500 kg/h, and combines NeqSim equilibrium loss with explicit mist and maintenance scenarios.",
+      "engineering_validation": {
+        "assertions_passed": 19,
+        "assertions_failed": 0,
+        "checks": [
+          "current NeqSim version recorded",
+          "all nine original cells retained in order",
+          "ten original pressure points and pressure range retained",
+          "refreshed equilibrium losses finite and positive",
+          "base total and component balances close below 1e-10",
+          "dry-gas water finite and positive",
+          "water removal positive and bounded",
+          "equilibrium TEG loss positive",
+          "selected diameter meets the Fs design limit",
+          "all circulation cases finite and balanced",
+          "more circulation lowers dry-gas water",
+          "fresh make-up positive and foaming case highest",
+          "valid nbformat JSON and sequential execution",
+          "Colab badge, changed links, readability, and stored outputs verified"
+        ],
+        "key_results": {
+          "original_teg_loss_at_10_bara_l_per_msm3": 3.034437,
+          "original_teg_loss_at_190_bara_l_per_msm3": 77.971531,
+          "dry_gas_water_mol_ppm": 61.03469,
+          "water_removed_kg_h": 117.3043,
+          "equilibrium_teg_loss_kg_h": 0.213072,
+          "normalized_total_mass_residual": 8.382575e-16,
+          "maximum_component_residual": 1.473907e-15,
+          "fs_utilization": 0.8873948,
+          "minimum_diameter_m": 1.601428,
+          "selected_diameter_m": 1.7,
+          "base_annual_fresh_teg_t_per_year": 2.424644
+        }
+      },
+      "figures": {
+        "previous_figures": 1,
+        "previous_figures_refreshed": 1,
+        "new_figures": 3,
+        "total_retained_figures": 4,
+        "purposes": [
+          "refreshed original pressure dependence of equilibrium TEG vapor loss",
+          "connected NeqSim TEG-contacting and chemical-accounting boundary",
+          "circulation trade-off between dry-gas water and equilibrium TEG loss",
+          "equilibrium, mist, and maintenance loss breakdown for make-up planning"
+        ],
+        "visual_inspection": "Passed at original resolution after final execution: all four figures have descriptive titles, explicit units, readable labels, accessible colors, appropriate legends, and nearby interpretation. No clipping, overlap, stale values, misleading scales, or unit inconsistencies were found.",
+        "numerical_refresh": "The original equilibrium-loss plot and its ten values were recomputed with NeqSim 3.16.0. Three additional figures use the same validated execution."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 4,
+        "unique_inline_expressions": 9,
+        "renderer": "Jupyter/Colab-compatible MathJax SVG path",
+        "visual_inspection": "Fractions, dotted mass rates, subscripts, superscripts, Greek symbols, and units rendered correctly. Delimiters are balanced and LaTeX commands use single backslashes."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "maximum_code_line_length": 100,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "changed_links_checked": true,
+        "catalog_target_occurrences": 1
+      },
+      "summary": "Expanded the nine-cell chemical-consumption note into an executed, self-contained TEG tutorial while preserving every original cell and the original pressure-loss figure. Added current CPA and process APIs, a connected absorber, balances, hydraulic checks, sensitivity, annual make-up scenarios, interpretation, troubleshooting, limitations, exercises, and authoritative references."
     }
   ]
 }
