@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-27T09:05:00Z",
+  "updated_at": "2026-07-27T10:09:35Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/ThermalConductivityOfFluids.ipynb",
@@ -9912,7 +9912,7 @@
         ],
         "key_results": {
           "base_density_kg_m3": 570.006377876671,
-          "base_compressibility_per_pa": 2.1655529052373874e-9,
+          "base_compressibility_per_pa": 2.1655529052373874e-09,
           "base_expansivity_per_k": 0.001976120843848179,
           "base_heat_capacity_j_kg_k": 2171.313809970754,
           "original_linear_final_pressure_bara": 760.0625287602811,
@@ -10406,6 +10406,131 @@
         "catalog_target_occurrences": 1
       },
       "summary": "Expanded the nine-cell chemical-consumption note into an executed, self-contained TEG tutorial while preserving every original cell and the original pressure-loss figure. Added current CPA and process APIs, a connected absorber, balances, hydraulic checks, sensitivity, annual make-up scenarios, interpretation, troubleshooting, limitations, exercises, and authoritative references."
+    },
+    {
+      "path": "notebooks/process/weightofoilprocess.ipynb",
+      "verified_date": "2026-07-27",
+      "verified_at_utc": "2026-07-27T10:09:35Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-process-weight-20260727-1148 --neqsim-version latest --refresh --extra-package nbclient --extra-package ipykernel",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260727T095049Z-5136dff1705c",
+        "verified_public_pypi_wheels": 57,
+        "manifest_created_at_utc": "2026-07-27T09:50:49Z",
+        "integrity": "Complete public-PyPI inventory, size, SHA-256, runtime, platform, and requested-toolchain verification passed before fresh-environment installation."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 21 code cells sequentially from an empty in-process IPython state with execution counts 1 through 21, zero error outputs, and zero stored stderr. Standard Jupyter execution was attempted first, but the automation sandbox blocked local TCP kernel startup; the permitted shared-namespace executor retained stdout, tables, and five generated PNG figures.",
+      "code_cells": 21,
+      "substantive_code_cells": 21,
+      "markdown_cells": 30,
+      "publication": {
+        "branch": "master",
+        "mode": "direct atomic connector-backed fast-forward commit",
+        "commit": "the commit containing this ledger entry",
+        "files": [
+          "notebooks/process/weightofoilprocess.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "preservation": {
+        "pre_existing_cells": 8,
+        "preserved_cells": 8,
+        "pre_existing_substantive_examples": 2,
+        "preserved_substantive_examples": 2,
+        "pre_existing_figures": 1,
+        "preserved_figures": 1,
+        "repairs": "Preserved all eight original cells in order, the offshore HP/MP/LP separation and recompression workflow, the mechanical-weight objective, every original operating setting, and the embedded historical process schematic. Replaced the inaccessible offshorePro.neqsim download and retired openprocess dependency with an explicit current NeqSim model; replaced the misspelled getMechhanicalWeight call and unrelated entropy output with native mechanical-design and cost-report APIs. No original cell, example, figure, setting, topology, or engineering intent was removed."
+      },
+      "neqsim_capabilities_demonstrated": [
+        "Peng-Robinson fluid construction with defined TBP fractions and water",
+        "connected Stream, Heater, Valve, ThreePhaseSeparator, Compressor, Cooler, Mixer, Pump, and ProcessSystem objects",
+        "gas-to-oil-to-water entrainment configuration and three-phase retrieval",
+        "two-stage recompression, gas export compression, oil export pumping, and produced-water handling",
+        "whole-process execution and product stream property retrieval",
+        "native runMechanicalDesignAndCostEstimation workflow",
+        "system JSON mechanical-design and cost report retrieval",
+        "equipment mechanical-design retrieval for separator diameter, tangent length, wall thickness, weight, and plot space",
+        "equipment-type and discipline weight aggregation",
+        "reusable capacity-sensitivity workflow with independent fluid and process objects"
+      ],
+      "practical_application": "Builds a reproducible 12.23 MSm3/day offshore oil-and-gas process from wellstream characterization through HP, MP, and LP separation, gas recompression and export, stabilized-oil export, and produced-water handling. It closes the three-product mass balance, sizes native separator mechanical designs, aggregates equipment and discipline weights, reports utilities and plot space, and reruns the design at 75, 100, and 125 percent capacity.",
+      "engineering_validation": {
+        "assertions_passed": 18,
+        "assertions_failed": 0,
+        "checks": [
+          "current NeqSim, Python, and Java versions recorded",
+          "all eight original cells retained in order",
+          "all original process settings and topology retained",
+          "fluid composition normalized and molar mass finite",
+          "feed and product mass flows finite and positive",
+          "three-product total mass balance closes below 1e-9",
+          "native mechanical-design report returns positive system weight and plot space",
+          "equipment-type weights sum to total equipment weight",
+          "discipline weights sum to total process weight",
+          "discipline weight fractions sum to 100 percent",
+          "HP, MP, and LP separator dimensions and weights are finite and positive",
+          "capacity sensitivity returns finite, monotonic feed and separator size",
+          "higher capacity increases calculated plot space and total weight",
+          "reusable 10 MSm3/day workflow returns positive utilities and weight",
+          "valid nbformat JSON and sequential execution",
+          "Colab badge, changed links, readability, equations, and stored outputs verified"
+        ],
+        "key_results": {
+          "feed_mass_flow_kg_s": 450.925621,
+          "export_gas_mass_flow_kg_s": 93.658051,
+          "export_oil_mass_flow_kg_s": 356.444833,
+          "produced_water_mass_flow_kg_s": 0.822737,
+          "normalized_total_mass_residual": -5.057e-12,
+          "total_process_weight_kg": 467288.154,
+          "plot_space_m2": 484.019,
+          "lp_separator_inner_diameter_m": 2.961,
+          "lp_separator_total_weight_kg": 78311.752,
+          "reusable_case_capacity_msm3_day": 10.0,
+          "reusable_case_total_weight_kg": 416243.246,
+          "reusable_case_power_kw": 19300.677
+        }
+      },
+      "figures": {
+        "previous_figures": 1,
+        "previous_figures_refreshed": 0,
+        "new_figures": 5,
+        "total_retained_figures": 6,
+        "purposes": [
+          "preserved historical offshore process schematic with documented provenance and non-reproducible status",
+          "current executable NeqSim process topology and product boundaries",
+          "gas, oil, and water product mass-flow comparison",
+          "native equipment-type weight breakdown",
+          "separator diameter and mechanical-weight comparison",
+          "capacity sensitivity of process weight, plot space, and LP diameter"
+        ],
+        "visual_inspection": "Passed at original resolution after final execution: the historical schematic remains legible, and all five calculated figures have descriptive titles, explicit units, readable labels, accessible colors, appropriate legends, and nearby interpretation. The topology arrows were repositioned before final execution to remove label intersections. No clipping, overlap, stale values, misleading scales, or unit inconsistencies remain.",
+        "numerical_refresh": "The historical embedded schematic contains no reproducible numerical series and was preserved unchanged. All five added figures were generated from the validated NeqSim 3.16.0 execution."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 4,
+        "unique_inline_expressions": 13,
+        "renderer": "Jupyter/Colab-compatible MathJax SVG path",
+        "visual_inspection": "Fractions, dotted mass rates, superscripts, subscripts, summation, Greek symbols, and units rendered correctly with readable contrast. Delimiters are balanced and LaTeX commands use single backslashes."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "maximum_code_line_length": 77,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "changed_links_checked": true,
+        "catalog_target_occurrences": 1
+      },
+      "summary": "Converted the inaccessible eight-cell offshore process note into an executed, self-contained process-weight tutorial while preserving every original cell, setting, workflow, and figure. Added current thermodynamic and process APIs, balances, native mechanical design, equipment and discipline reporting, separator dimensions, capacity sensitivity, a reusable application function, interpretation, troubleshooting, limitations, exercises, and authoritative references."
     }
   ]
 }
