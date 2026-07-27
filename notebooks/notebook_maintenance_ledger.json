@@ -10168,6 +10168,124 @@
         "catalog_target_occurrences": 1
       },
       "summary": "Modernized the offshore oil-and-gas exergy analysis into an executed, self-contained NeqSim workflow with mass, component, energy, entropy, exergy, irreversibility, and separator-pressure sensitivity checks."
+    },
+    {
+      "path": "notebooks/emissions/Hydrocarbon_emissions.ipynb",
+      "verified_date": "2026-07-27",
+      "verified_at_utc": "2026-07-27T08:00:12Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-hydrocarbon-emissions-retry2-20260727 --neqsim-version latest --refresh --extra-package nbclient --extra-package ipykernel",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260727T075503Z-410cabd59f3b",
+        "verified_public_pypi_wheels": 57,
+        "manifest_created_at_utc": "2026-07-27T07:55:03Z",
+        "integrity": "Complete public-PyPI inventory, size, SHA-256, runtime, platform, and requested-toolchain verification passed before fresh-environment installation."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 17 code cells sequentially from an empty in-process IPython state with execution counts 1 through 17, zero error outputs, and zero stored stderr. The standard Jupyter kernel was attempted first but the automation sandbox prohibited local TCP startup; the permitted shared-namespace executor retained stdout, tables, and PNG figures.",
+      "code_cells": 17,
+      "substantive_code_cells": 17,
+      "markdown_cells": 22,
+      "publication": {
+        "branch": "master",
+        "mode": "direct atomic connector-backed fast-forward commit",
+        "commit": "the commit containing this ledger entry",
+        "files": [
+          "notebooks/emissions/Hydrocarbon_emissions.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "preservation": {
+        "pre_existing_cells": 6,
+        "preserved_cells": 6,
+        "pre_existing_substantive_examples": 1,
+        "preserved_substantive_examples": 1,
+        "pre_existing_figures": 0,
+        "preserved_figures": 0,
+        "repairs": "Preserved the Colab badge, emissions context, PetroWiki reference, NeqSim calculation heading, setup cell, and produced-water depressurization workflow. Replaced the obsolete neqsim==2.5.35 pin, duplicate/unused imports, manual unit-operation execution, brittle gas-phase access, and unlabeled single-number output with current guarded APIs, SI tables, and validation. No original cell, example, reference, or engineering intent was removed."
+      },
+      "neqsim_capabilities_demonstrated": [
+        "CPA fluid construction with water, methane, VOCs, and carbon dioxide",
+        "CPA mixing rule and multiphase checking",
+        "Stream, high-pressure Separator, ThrottlingValve, low-pressure Separator, and ProcessSystem composition",
+        "phase-aware gas and liquid outlet retrieval",
+        "component-resolved molar-to-mass emission accounting",
+        "total and component material-balance closure",
+        "six-case separator-pressure sensitivity",
+        "temperature-pressure operating map",
+        "capture and enclosed-flare mitigation accounting",
+        "reusable end-to-end produced-water flash-emission screening function"
+      ],
+      "practical_application": "Runs 100,000 kg/h of synthetic produced water at 70 bara and 60 degC through high-pressure gas removal, isenthalpic letdown to 1.5 bara, and low-pressure separation. It quantifies potential methane and VOC release, maps temperature and pressure effects, and compares open venting, vapor recovery, and enclosed flaring.",
+      "engineering_validation": {
+        "assertions_passed": 16,
+        "assertions_failed": 0,
+        "checks": [
+          "NeqSim runtime version reported",
+          "finite positive flash-gas and treated-water flows",
+          "total mass balance below 1e-10 normalized residual",
+          "all component balances below 1e-10 normalized residual",
+          "component rates reproduce flash-gas mass",
+          "methane is the largest hydrocarbon contributor",
+          "methane and VOC release decrease as discharge pressure rises",
+          "temperature-pressure map is finite and positive",
+          "mitigation arithmetic is nonnegative and reduces methane release",
+          "reusable practical case closes its mass balance"
+        ],
+        "key_results": {
+          "base_flash_gas_kg_h": 152.861695,
+          "base_methane_kg_h": 74.832243,
+          "base_voc_kg_h": 29.992555,
+          "base_total_hydrocarbon_kg_h": 104.824798,
+          "maximum_component_normalized_residual": 6.214037e-14,
+          "pressure_range_bara": [
+            1.2,
+            6
+          ],
+          "methane_range_kg_h": [
+            69.387455,
+            75.628
+          ]
+        }
+      },
+      "figures": {
+        "previous_figures": 0,
+        "previous_figures_refreshed": 0,
+        "new_figures": 5,
+        "total_retained_figures": 5,
+        "purposes": [
+          "NeqSim produced-water flash-emission workflow",
+          "base-case low-pressure flash-gas component breakdown",
+          "methane and VOC sensitivity to discharge pressure",
+          "methane temperature-pressure operating map",
+          "open-vent, vapor-recovery, and enclosed-flare comparison"
+        ],
+        "visual_inspection": "Passed at original resolution: all five figures have descriptive titles, explicit units, readable labels, accessible colors, legends or a color scale where applicable, and nearby interpretation. No clipping, overlap, unreadable text, stale values, or misleading axes were found.",
+        "numerical_refresh": "The original notebook had no figures. All five visuals were generated from the validated NeqSim 3.16.0 execution."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 4,
+        "unique_inline_expressions": 15,
+        "renderer": "Jupyter/Colab-compatible MathJax SVG path",
+        "visual_inspection": "Enthalpy, fugacity, component-rate, and release-factor equations rendered correctly, including fractions, dotted rates, subscripts, superscripts, Greek symbols, and units. Delimiters are balanced and commands use single backslashes."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "maximum_code_line_length": 66,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "changed_links_checked": true
+      },
+      "summary": "Expanded the six-cell hydrocarbon-emissions note into an executed, self-contained produced-water flash-emission tutorial while preserving every original cell and the depressurization objective. Added current NeqSim process APIs, CPA theory, component accounting, balances, sensitivities, mitigation scenarios, retained figures, interpretation, troubleshooting, limitations, exercises, and authoritative references."
     }
   ]
 }
