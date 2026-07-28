@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-28T01:06:00Z",
+  "updated_at": "2026-07-28T02:11:25Z",
   "notebooks": [
     {
       "path": "notebooks/process/neqsim_compressor_capacity_bottleneck_optimization.ipynb",
@@ -11750,6 +11750,136 @@
         "section": "NORSOK standards"
       },
       "summary": "Converted a standards-note placeholder into an executable P-002 early-design tutorial while preserving all original material. Added a realistic NeqSim process, design basis, hydraulics, flare, separator, energy, sensitivity, decision, troubleshooting, limitations, exercises, and authoritative references."
+    },
+    {
+      "path": "notebooks/process/producedwatertreatment.ipynb",
+      "verified_date": "2026-07-28",
+      "verified_at_utc": "2026-07-28T02:11:25Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-produced-water-20260728-0351 --neqsim-version latest --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260728T015415Z-c0df9665abeb",
+        "verified_public_pypi_wheels": 49,
+        "manifest_created_at_utc": "2026-07-28T01:54:15Z",
+        "integrity": "Complete public-PyPI inventory, size, SHA-256, runtime, platform, and toolchain verification passed."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 21 code cells sequentially from an empty in-process Python namespace using the fresh bootstrap environment. Stored tables, one YouTube object, and seven PNG figures; zero error outputs and zero stderr.",
+      "code_cells": 21,
+      "substantive_code_cells": 21,
+      "markdown_cells": 26,
+      "publication": {
+        "branch": "master",
+        "mode": "direct atomic connector-backed fast-forward commit",
+        "commit": "the commit containing this ledger entry",
+        "files": [
+          "notebooks/process/producedwatertreatment.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "preservation": {
+        "pre_existing_cells": 23,
+        "preserved_cells": 23,
+        "pre_existing_substantive_examples": 2,
+        "preserved_substantive_examples": 2,
+        "pre_existing_figures": 2,
+        "preserved_figures": 2,
+        "other_pre_existing_visuals": 1,
+        "other_preserved_visuals": 1,
+        "repairs": "Preserved both original CPA separation workflows, the flare and water composition outputs, the hydrocarbon and BTEX pressure sweeps, both numerical plots, the hydrocyclone video, and the reservoir-fluid table. Repaired the stored setup error, notebook magics, wildcard imports, compressed code, ambiguous ppm labels, stale outputs, typos, and CSV file side effects. No original cell, example, figure, video, or functionality was removed."
+      },
+      "neqsim_capabilities_demonstrated": [
+        "CPA gas-condensate and water fluid construction",
+        "Electrolyte-CPA ProducedWaterFluidBuilder formation-water preset",
+        "connected Stream, Mixer, ThrottlingValve, and ThreePhaseSeparator",
+        "gas, oil, and water phase-result retrieval",
+        "pressure and temperature operating-envelope execution",
+        "density and viscosity retrieval for water-treatment screening",
+        "native Hydrocyclone auto-sizing and liner count",
+        "native hydrocyclone d50 and droplet-distribution efficiency",
+        "pressure-drop ratio, capacity utilization, and overload checks",
+        "reject-flow, removed-oil, outlet-OIW, and compliance screening"
+      ],
+      "practical_application": "Models synthetic gas-condensate and produced water through inlet separation, isenthalpic water letdown, and degassing; screens nine pressures and twenty pressure-temperature combinations; converts BTEX concentration to kg/day; and connects the calculated water stream to NeqSim native hydrocyclone sizing and performance.",
+      "engineering_validation": {
+        "assertions_passed": 24,
+        "assertions_failed": 0,
+        "checks": [
+          "finite and positive flare, water, and oil-reject flows",
+          "complete process mass residual below 1e-5 relative",
+          "nine ordered and finite pressure cases",
+          "non-negative hydrocarbon and BTEX concentrations",
+          "finite pressure-temperature BTEX and flare grids",
+          "physically plausible water density and positive viscosity",
+          "droplet migration finite and faster for larger droplets",
+          "Electrolyte-CPA formation-water model active",
+          "native hydrocyclone liner count and d50 plausible",
+          "native efficiency bounded and outlet oil below inlet",
+          "native hydrocyclone within its calculated capacity",
+          "valid JSON, readable code, unique catalog link, figures, and math"
+        ],
+        "key_results": {
+          "base_flare_gas_kg_per_h": 153.905,
+          "base_water_outlet_kg_per_h": 43477.36,
+          "relative_process_mass_residual": 5.220954e-14,
+          "minimum_screened_total_btex_mg_per_kg": 41.10386,
+          "minimum_btex_pressure_bara": 1.0,
+          "minimum_btex_water_load_kg_per_day": 40.94899,
+          "native_hydrocyclone_feed_m3_per_h": 45.644934,
+          "native_hydrocyclone_active_liners": 10,
+          "native_hydrocyclone_capacity_utilization": 0.912899,
+          "native_hydrocyclone_d50_micrometre": 6.68312,
+          "native_hydrocyclone_removal_efficiency": 0.940416,
+          "native_hydrocyclone_outlet_oil_mg_per_l": 41.5473,
+          "native_hydrocyclone_reject_m3_per_h": 1.102304,
+          "native_hydrocyclone_compliance_screen": false
+        }
+      },
+      "figures": {
+        "previous_figures": 2,
+        "previous_figures_refreshed": 2,
+        "new_figures": 5,
+        "total_retained_figures": 7,
+        "other_preserved_visuals": [
+          "hydrocyclone educational YouTube video"
+        ],
+        "purposes": [
+          "connected produced-water process workflow",
+          "refreshed dissolved light-hydrocarbon and BTEX pressure sweep",
+          "refreshed detailed BTEX pressure sweep",
+          "pressure-temperature BTEX operating envelope",
+          "property-informed droplet migration screen",
+          "native NeqSim hydrocyclone grade-efficiency curve",
+          "BTEX-water-load versus flash-gas pressure trade-off"
+        ],
+        "visual_inspection": "Passed at original resolution after final execution. All seven figures have descriptive titles, explicit units, readable labels, accessible colors, appropriate legends or color scale, and nearby interpretation. No clipping, overlap, stale values, misleading scales, or unit inconsistencies were found.",
+        "numerical_refresh": "Both previous plots were recomputed with NeqSim 3.16.0. Five additional figures use the same validated streams and scenarios."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "expressions_verified": 22,
+        "renderer": "Jupyter/Colab-compatible single-backslash math source rendered through Matplotlib MathText in the fresh environment",
+        "visual_inspection": "Fugacity equality, isenthalpic valve relation, mass residual, mass-ppm conversion, centrifugal Stokes relation, fractions, subscripts, superscripts, Greek symbols, and units rendered correctly with balanced delimiters."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 47,
+        "maximum_code_line_length": 84,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "catalog_target_occurrences": 1
+      },
+      "summary": "Expanded the 23-cell produced-water notebook into an executed, self-contained CPA and water-treatment tutorial while preserving every original cell, example, output purpose, plot, and video. Added process closure, pressure-temperature screening, Electrolyte-CPA water construction, the released native hydrocyclone API, engineering decisions, limitations, troubleshooting, exercises, and authoritative references."
     }
   ]
 }
