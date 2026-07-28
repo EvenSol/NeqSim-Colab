@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-28T16:07:27.759Z",
+  "updated_at": "2026-07-28T17:11:55.049Z",
   "notebooks": [
     {
       "path": "notebooks/process/neqsim_compressor_capacity_bottleneck_optimization.ipynb",
@@ -13562,6 +13562,142 @@
         "figures_preserved": 10,
         "numerical_refresh": "All ten reproducible figures were regenerated from the current NeqSim 3.16.0 results; engineering values were unchanged by the Markdown repair."
       }
+    },
+    {
+      "path": "notebooks/thermodynamics/Asphaltene_Modeling_Tutorial.ipynb",
+      "verified_date": "2026-07-28",
+      "verified_at_utc": "2026-07-28T17:11:55.049Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-asphaltene-20260728t1854 --neqsim-version latest --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260728T165737Z-27ffb0a3a8af",
+        "verified_public_pypi_wheels": 49,
+        "manifest_created_at_utc": "2026-07-28T16:57:37Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, and toolchain verification passed."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 18 code cells sequentially from an empty in-process Python namespace using the fresh bootstrap environment. Stored tables and seven PNG figures; zero error outputs and zero stderr.",
+      "code_cells": 18,
+      "markdown_cells": 22,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic connector-backed fast-forward commit",
+        "files": [
+          "notebooks/thermodynamics/Asphaltene_Modeling_Tutorial.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "preservation": {
+        "pre_repair_cells": 23,
+        "cells_preserved": 23,
+        "pre_repair_code_cells": 13,
+        "code_cells_preserved": 13,
+        "pre_repair_markdown_cells": 10,
+        "markdown_cells_preserved": 10,
+        "substantive_examples_preserved": 6,
+        "examples": [
+          "SARA and colloidal-instability screening",
+          "pressure-density risk screening",
+          "Pedersen SRK pseudo-component characterization",
+          "pressure depletion and parameter tuning",
+          "CPA model-form comparison",
+          "complete TBP oil characterization"
+        ],
+        "integration": "All original examples remain in their original order and now share phase-aware helpers, explicit assumptions, validation, and interpretation."
+      },
+      "repairs_made": [
+        "replaced the unavailable neqsim.__version__ attribute with importlib.metadata package-version retrieval",
+        "corrected malformed display equations and used standalone Colab-safe delimiters with single backslashes",
+        "replaced fixed phase-index property retrieval that reported a zero-density gas phase as liquid",
+        "removed bare exception swallowing from CPA pressure scanning and rebuilt every sensitivity case independently",
+        "relabelled the unsupported numerical De Boer boundaries as a transparent qualitative teaching screen",
+        "made the CPA section a controlled model-form comparison using the same Pedersen pseudo-component and composition",
+        "added component closure, physical-property, phase-identity, and sensitivity validation"
+      ],
+      "neqsim_capabilities_demonstrated": [
+        "SystemSrkEos and SystemSrkCPAstatoil fluid construction",
+        "PedersenAsphalteneCharacterization molecular-weight and density characterization",
+        "addAsphalteneToSystem and applyAsphalteneKij with the classic mixing rule",
+        "multiphase TP flash and automatic asphaltene-rich liquid-phase marking",
+        "phase-aware density, beta, type, and composition retrieval",
+        "TBP pseudo-component oil construction",
+        "solubility-parameter calculation and native stability assessment",
+        "SRK/CPA, pressure, temperature, molecular-weight, and kij studies"
+      ],
+      "practical_application": "Builds a synthetic live oil at 50 degC and 150 bar, adds a 750 g/mol Pedersen asphaltene pseudo-component, applies the mixing rule and interaction parameters, detects and marks an asphaltene-rich liquid, proves phase and component closure, then evaluates pressure depletion, CPA model form, oil solvency, temperature, and interaction-parameter sensitivities.",
+      "engineering_validation": {
+        "assertions_passed": 13,
+        "assertions_failed": 0,
+        "key_results": {
+          "base_temperature_degC": 50,
+          "base_pressure_bar": 150,
+          "asphaltene_molecular_weight_g_per_mol": 750,
+          "asphaltene_critical_temperature_K": 996.121998,
+          "asphaltene_critical_pressure_bar": 16.263452,
+          "asphaltene_acentric_factor": 2.5,
+          "base_asphaltene_rich_phase_beta": 0.1128944232,
+          "phase_fraction_sum": 1,
+          "maximum_component_residual": 2.531e-14
+        },
+        "checks": [
+          "package version and finite SARA indicators",
+          "bounded transparent pressure-density scores",
+          "finite and ordered Pedersen pseudo-properties",
+          "significant heavy phase in the base flash",
+          "phase fractions and all six components close",
+          "positive physical TBP-oil phase densities",
+          "finite cold-case pressure scan",
+          "complete SRK and CPA comparison grids",
+          "finite interaction-parameter and temperature sensitivities"
+        ]
+      },
+      "figures": {
+        "previous_figures": 3,
+        "previous_figures_preserved": 3,
+        "numerically_refreshed_previous_figures": 3,
+        "new_figures": 4,
+        "total_retained_figures": 7,
+        "purposes": [
+          "screening-to-validation workflow",
+          "qualitative pressure-density screening map",
+          "pressure-depletion phase count and phase fractions",
+          "Pedersen pseudo-property molecular-weight sensitivity",
+          "SRK versus CPA phase-behaviour comparison",
+          "temperature and oil-solvency screening",
+          "interaction-parameter and temperature sensitivity"
+        ],
+        "visual_inspection": "Passed at original resolution after final execution. All seven figures have readable titles, labels, units, legends, accessible colors, and no clipping or material overlap."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 10,
+        "inline_expressions": 23,
+        "expressions_verified": 33,
+        "renderer": "Google Colab-safe standalone display blocks and single-backslash LaTeX rendered through Matplotlib MathText in the fresh validation environment",
+        "visual_inspection": "All 33 expressions rendered correctly, including fractions, radicals, summations, Greek symbols, subscripts, superscripts, arrows, and units."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 40,
+        "maximum_code_line_length": 83,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "catalog_target_occurrences": 1,
+        "notebook_sha256": "c523171e7c62c68dc4ca25c2060a849106951e5ebd1a3ba087d85ea933f86ff2",
+        "notebook_bytes": 687892
+      },
+      "limitations": "Synthetic data and untuned pseudo-component properties are for training only. Equilibrium phase split does not predict aggregation, transport, surface deposition, or production impact. Nearby phase topology must be validated against laboratory data.",
+      "neqsim_library_issue_detected": false,
+      "summary": "Repaired the unexecuted asphaltene tutorial into a phase-aware Pedersen SRK/CPA workflow with preserved screening, depletion, tuning, and TBP examples; complete closure checks; seven inspected figures; and 33 rendered equations."
     }
   ]
 }
