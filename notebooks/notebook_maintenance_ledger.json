@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-28T05:06:57Z",
+  "updated_at": "2026-07-28T05:21:17Z",
   "notebooks": [
     {
       "path": "notebooks/process/neqsim_compressor_capacity_bottleneck_optimization.ipynb",
@@ -12260,6 +12260,130 @@
         "catalog_target_occurrences": 1
       },
       "summary": "Expanded the nine-cell TEG exercise into an executed, self-contained dehydration design tutorial while preserving all original material. Added current CPA equilibrium, a dependency-free Campbell shortcut, a connected native absorber, balances, sensitivities, five figures, limitations, troubleshooting, exercises, and references."
+    },
+    {
+      "path": "notebooks/well/well_nodal_analysis_and_eclipse_vfp.ipynb",
+      "verified_date": "2026-07-28",
+      "verified_at_utc": "2026-07-28T05:21:17Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-well-flow-vfp-20260728 --neqsim-version latest --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260728T051019Z-1c39e218329a",
+        "verified_public_pypi_wheels": 49,
+        "manifest_created_at_utc": "2026-07-28T05:10:19Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, and toolchain verification passed."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 15 code cells sequentially from an empty in-process Python namespace using the fresh bootstrap environment. Stored tables and four PNG figures; zero error outputs and zero stderr.",
+      "code_cells": 15,
+      "substantive_code_cells": 14,
+      "markdown_cells": 16,
+      "publication": {
+        "branch": "agent/well-nodal-eclipse-vfp",
+        "mode": "draft pull request",
+        "commit": "the commit containing this ledger entry",
+        "files": [
+          "notebooks/well/well_nodal_analysis_and_eclipse_vfp.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "source_basis": {
+        "book": "https://equinor.github.io/neqsimhome/doc/field_development_and_operations/book_standalone.html",
+        "current_guides": [
+          "https://equinor.github.io/neqsim/simulation/well_simulation_guide",
+          "https://equinor.github.io/neqsim/process/optimization/flow-rate-optimization"
+        ]
+      },
+      "neqsim_capabilities_demonstrated": [
+        "SystemSrkEos synthetic wet-gas fluid construction",
+        "classic cubic-EOS mixing rule and stability checking",
+        "WellSystem production-index gas inflow model",
+        "WellSystem simplified hydrostatic and frictional VLP",
+        "integrated bisection operating-point solution",
+        "generateIPRCurve and generateVLPCurve APIs",
+        "independent IPR-VLP sign-change and bisection solve",
+        "tubing-head-pressure, diameter, and depletion sensitivity",
+        "rate and THP lift-curve family generation",
+        "EclipseVFPExporter five-dimensional BHP mapping",
+        "VFPPROD include-file generation"
+      ],
+      "practical_application": "Models a synthetic 250-bara, 85 degC gas reservoir and 2,800 m vertical producer with 4.5 inch tubing and 50 bara tubing-head pressure. It locates the IPR-VLP crossing, screens operating levers and depletion, builds a 10-rate by 5-THP lift surface, and exports ECLIPSE-style VFPPROD.",
+      "engineering_validation": {
+        "assertions_passed": 23,
+        "assertions_failed": 0,
+        "checks": [
+          "composition closes and reservoir gas is single phase",
+          "IPR rate grid rises while IPR pressure falls",
+          "VLP pressure rises with rate",
+          "exactly one IPR-VLP crossing is bracketed",
+          "independent pressure residual closes below 1e-8 bar",
+          "independent rate bracket closes below 1e-12 MSm3/day",
+          "independent solve agrees with WellSystem.run",
+          "operating BHP lies between THP and reservoir pressure",
+          "higher THP lowers operating rate",
+          "larger tubing raises operating rate",
+          "depletion lowers operating rate",
+          "BHP table uses flow, THP, WCT, GOR, ALQ axis order",
+          "VFP BHP rises monotonically with rate and THP",
+          "all VFP bottom-hole pressures exceed THP",
+          "VFPPROD keyword, gas type, indexed rows, and file identity",
+          "valid notebook JSON, execution, readable code, figures, math, and catalog"
+        ],
+        "key_results": {
+          "operating_rate_million_sm3_per_day": 3.329307,
+          "operating_bottom_hole_pressure_bara": 144.511799,
+          "integrated_wellsystem_rate_million_sm3_per_day": 3.328613,
+          "independent_pressure_residual_bar": 0.0,
+          "independent_rate_bracket_million_sm3_per_day": 1.776357e-15,
+          "vfpprod_flow_points": 10,
+          "vfpprod_thp_points": 5,
+          "vfpprod_bhp_shape": [
+            10,
+            5,
+            1,
+            1,
+            1
+          ],
+          "vfpprod_table_number": 11,
+          "vfpprod_datum_depth_m": 2800.0
+        }
+      },
+      "figures": {
+        "new_figures": 4,
+        "total_retained_figures": 4,
+        "purposes": [
+          "explicit IPR and VLP operating-point crossing plus residual",
+          "surface backpressure, tubing-size, and depletion sensitivities",
+          "NeqSim rate-THP lift-curve family used by VFPPROD",
+          "VFPPROD bottom-hole-pressure surface heatmap"
+        ],
+        "visual_inspection": "Passed at original resolution after final execution. All four figures have readable titles, units, labels, legends or color scales, and no clipping or overlap."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "expressions_verified": 14,
+        "renderer": "Jupyter/Colab-compatible single-backslash math source rendered through Matplotlib MathText in the fresh environment",
+        "visual_inspection": "IPR, inverse IPR, VLP pressure balance, root equation, and five-dimensional VFP mapping rendered correctly."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 31,
+        "maximum_code_line_length": 70,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "catalog_target_occurrences": 1
+      },
+      "summary": "Added an executed, self-contained well nodal-analysis tutorial that makes the IPR-VLP crossing explicit and reuses the calculated lift surface for ECLIPSE VFPPROD export. It complements the existing detailed Beggs-Brill well tutorial rather than replacing it."
     }
   ]
 }
