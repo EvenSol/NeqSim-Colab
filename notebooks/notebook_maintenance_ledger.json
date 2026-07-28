@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-28T13:07:33.925Z",
+  "updated_at": "2026-07-28T13:01:35Z",
   "notebooks": [
     {
       "path": "notebooks/process/neqsim_compressor_capacity_bottleneck_optimization.ipynb",
@@ -9973,7 +9973,7 @@
         ],
         "key_results": {
           "base_density_kg_m3": 570.006377876671,
-          "base_compressibility_per_pa": 2.1655529052373874e-09,
+          "base_compressibility_per_pa": 2.1655529052373874e-9,
           "base_expansivity_per_k": 0.001976120843848179,
           "base_heat_capacity_j_kg_k": 2171.313809970754,
           "original_linear_final_pressure_bara": 760.0625287602811,
@@ -11514,9 +11514,9 @@
         "key_results": {
           "hydrate_temperature_150_bara_c": 21.976059918952274,
           "hydrate_temperature_90_bara_c": 19.661828056184106,
-          "arrival_temperature_c": 6.0,
+          "arrival_temperature_c": 6,
           "uninhibited_arrival_margin_k": -13.661828056184106,
-          "minimum_screened_meg_mol_percent": 20.0,
+          "minimum_screened_meg_mol_percent": 20,
           "base_cooler_duty_kw": -276.433225873617,
           "relative_process_mass_residual": 1.9091828878988374e-16
         }
@@ -11711,7 +11711,7 @@
           "compressor_power_mw": 3.011030495764755,
           "cooler_duty_mw": -3.8442747781564055,
           "compressor_discharge_temperature_c": 93.19685152699782,
-          "relative_process_mass_residual": 2.158717486366976e-06,
+          "relative_process_mass_residual": 0.000002158717486366976,
           "screened_design_pressure_barg": 107.40062375,
           "candidate_gas_line_internal_diameter_m": 0.2,
           "candidate_flare_internal_diameter_m": 0.25,
@@ -11827,7 +11827,7 @@
           "base_water_outlet_kg_per_h": 43477.36,
           "relative_process_mass_residual": 5.220954e-14,
           "minimum_screened_total_btex_mg_per_kg": 41.10386,
-          "minimum_btex_pressure_bara": 1.0,
+          "minimum_btex_pressure_bara": 1,
           "minimum_btex_water_load_kg_per_day": 40.94899,
           "native_hydrocyclone_feed_m3_per_h": 45.644934,
           "native_hydrocyclone_active_liners": 10,
@@ -11954,7 +11954,7 @@
         "key_results": {
           "base_feed_mass_flow_kg_per_h": 170819.17483382375,
           "base_export_gas_million_sm3_per_day": 5.000000000000001,
-          "base_export_pressure_bara": 155.0,
+          "base_export_pressure_bara": 155,
           "base_compressor_power_mw": 6.923403328480437,
           "base_cooler_duty_mw": -11.753754821642897,
           "native_process_total_project_cost_usd": 18958346.0027132,
@@ -12092,7 +12092,7 @@
           "formation_1_pressure_2015_bara": 188.544884,
           "formation_2_pressure_2015_bara": 171.942956,
           "gas_product_2015_million_sm3_per_day": 3.991287,
-          "oil_product_2015_kg_per_day": 11258190.0,
+          "oil_product_2015_kg_per_day": 11258190,
           "late_life_500m_elevation_pressure_drop_bar": 26.74089
         }
       },
@@ -12220,9 +12220,9 @@
           "native_absorber_water_kg_per_million_sm3": 106.3874,
           "native_absorber_water_mol_ppm": 139.6321,
           "water_removed_from_gas_kg_per_h": 36.6652,
-          "total_mass_residual_relative": 5.286667161594575e-06,
+          "total_mass_residual_relative": 0.000005286667161594575,
           "water_mass_residual_relative": 0.00012014039247431167,
-          "maximum_scenario_mass_residual_relative": 6.80488359078756e-06
+          "maximum_scenario_mass_residual_relative": 0.00000680488359078756
         }
       },
       "figures": {
@@ -12337,7 +12337,7 @@
           "operating_rate_million_sm3_per_day": 3.329307,
           "operating_bottom_hole_pressure_bara": 144.511799,
           "integrated_wellsystem_rate_million_sm3_per_day": 3.328613,
-          "independent_pressure_residual_bar": 0.0,
+          "independent_pressure_residual_bar": 0,
           "independent_rate_bracket_million_sm3_per_day": 1.776357e-15,
           "vfpprod_flow_points": 10,
           "vfpprod_thp_points": 5,
@@ -12349,7 +12349,7 @@
             1
           ],
           "vfpprod_table_number": 11,
-          "vfpprod_datum_depth_m": 2800.0
+          "vfpprod_datum_depth_m": 2800
         }
       },
       "figures": {
@@ -12618,6 +12618,128 @@
         "sha256": "ad14b810f5ade3eec97dc79b40a2d01f70039cd0f7aa2b2d4ffda9fb54fb0cab"
       },
       "summary": "Added an executed Volve open-data full-field development tutorial coupling four OPM Flow well alternatives to NeqSim PVT, wells, SURF, topsides, capacity, schedule, economics, and uncertainty."
+    },
+    {
+      "path": "notebooks/process/reinforcement_learning_integration.ipynb",
+      "verified_date": "2026-07-28",
+      "verified_at_utc": "2026-07-28T13:01:35Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk version \"17.0.19\" 2026-04-21",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-rl-integration-20260728T1501 --neqsim-version latest --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260728T130627Z-711109691869",
+        "verified_public_pypi_wheels": 49,
+        "manifest_created_at_utc": "2026-07-28T13:06:27Z",
+        "integrity": "Complete public-PyPI inventory, size, SHA-256, runtime, platform, and toolchain verification passed."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 23 code cells sequentially from an empty in-process Python namespace using the fresh bootstrap environment. Stored tables and seven PNG figures; zero error outputs and zero stderr.",
+      "code_cells": 23,
+      "substantive_code_cells": 22,
+      "markdown_cells": 26,
+      "publication": {
+        "branch": "master",
+        "mode": "direct atomic connector-backed fast-forward commit",
+        "commit": "the commit containing this ledger entry",
+        "files": [
+          "notebooks/process/reinforcement_learning_integration.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "preservation": {
+        "pre_existing_cells": 6,
+        "preserved_cells": 6,
+        "pre_existing_substantive_examples": 1,
+        "preserved_substantive_examples": 1,
+        "pre_existing_figures": 0,
+        "preserved_figures": 0,
+        "repairs": "Preserved the RL objective, history, Gym-style environment idea, NeqSim valve example, random interaction, and reward-design example. Repaired duplicate installation, obsolete Gym returns, a fixed outlet pressure that could not be controlled, compressed class code, missing outputs, weak units, and absent validation. No original cell purpose or functionality was removed."
+      },
+      "neqsim_capabilities_demonstrated": [
+        "SRK gas construction with classic mixing rule",
+        "named Stream and native ThrottlingValve process objects",
+        "ProcessSystem execution through runProcess",
+        "ThrottlingValve.calculateMolarFlow capacity calculations",
+        "native Cv and valve-opening manipulation",
+        "TP flash and real-gas compressibility-factor retrieval",
+        "NeqSim-derived reduced valve map with direct off-grid validation",
+        "NeqSim-backed dynamic gas-inventory pressure environment"
+      ],
+      "practical_application": "Trains a deterministic tabular Q-learning policy on a NeqSim-derived inlet-valve and gas-vessel model, compares it with fixed-opening and PI control under four demand levels, and screens nine initial-pressure and high-demand scenarios.",
+      "engineering_validation": {
+        "assertions_passed": 29,
+        "assertions_failed": 0,
+        "checks": [
+          "single gas phase and plausible molar mass and compressibility",
+          "finite positive 11 by 13 valve-capacity grid",
+          "flow increases with opening and is non-increasing with pressure",
+          "choked-flow envelope and near-upstream capacity reduction verified",
+          "off-grid reduced-map values reproduce direct NeqSim calculations",
+          "modern two-value reset and five-value step signatures",
+          "finite Q table, improving reward, and disappearing late safety failures",
+          "160-step RL evaluation completes without safety termination",
+          "RL pressure remains inside the 30 to 40 bara envelope",
+          "RL RMSE improves on fixed-opening and PI benchmarks",
+          "dynamic pressure-balance residual below 1e-12 bar",
+          "all nine scenario cases complete without safety violation",
+          "valid JSON, readable code, figures, equations, and unique catalog link"
+        ],
+        "key_results": {
+          "gas_molar_mass_kg_per_mol": 0.01772624,
+          "gas_compressibility_factor": 0.9306085627,
+          "pressure_gain_bar_per_kg": 0.00264650167,
+          "maximum_valve_map_relative_error": 4.600354666384593e-16,
+          "fixed_pressure_rmse_bar": 1.1251946433,
+          "pi_pressure_rmse_bar": 0.4063750232,
+          "rl_pressure_rmse_bar": 0.06296123802,
+          "rl_pressure_minimum_bara": 34.980884552,
+          "rl_pressure_maximum_bara": 35.231658936,
+          "maximum_dynamic_balance_residual_bar": 3.535366444e-15,
+          "scenario_safety_violations": 0
+        }
+      },
+      "figures": {
+        "previous_figures": 0,
+        "previous_figures_refreshed": 0,
+        "new_figures": 7,
+        "total_retained_figures": 7,
+        "purposes": [
+          "NeqSim-backed pressure-control workflow",
+          "native NeqSim valve-capacity curves",
+          "direct-versus-reduced valve-map validation",
+          "Q-learning reward and safety convergence",
+          "learned action-policy heatmap",
+          "fixed, PI, and RL closed-loop comparison",
+          "initial-pressure and high-demand operating-envelope screen"
+        ],
+        "visual_inspection": "Passed at original resolution after final execution. All seven figures have descriptive titles, explicit units, readable labels, accessible colors, appropriate legends or color scales, adequate annotation contrast, and no clipping, overlap, stale values, or misleading scales.",
+        "numerical_refresh": "No previous numerical figures existed. All seven figures were newly computed with NeqSim 3.16.0 and the validated deterministic case."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "expressions_verified": 26,
+        "renderer": "Jupyter/Colab-compatible single-backslash math source rendered through Matplotlib MathText in the fresh environment",
+        "visual_inspection": "Return, reward, gas-inventory, and Q-learning equations plus all inline symbols rendered correctly with fractions, subscripts, superscripts, Greek symbols, operators, and units."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 49,
+        "maximum_code_line_length": 77,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "wildcard_imports": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "catalog_target_occurrences": 1,
+        "sha256": "5da17dcda2d8acd305c22bf5d5f5429dabc2d00f04c3b4a4664ff914b1d700c9"
+      },
+      "summary": "Expanded the six-cell placeholder into an executed, self-contained NeqSim RL pressure-control tutorial while preserving every original learning objective and example. Added a physically auditable valve map, gas-inventory dynamics, modern environment API, tabular Q-learning, controller comparison, envelope screening, limitations, and exercises."
     }
   ]
 }
