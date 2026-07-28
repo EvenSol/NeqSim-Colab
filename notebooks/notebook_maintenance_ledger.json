@@ -52,7 +52,7 @@
       "key_checks": [
         "all 41 code cells executed in order with sequential execution counts, no error outputs, and no stored stderr",
         "all three compressor maps contain seven speed lines and five points per speed line, with explicit surge and stonewall boundaries",
-        "field-life cases cover two inlet-pressure strategies over 2027\u20132037 and quantify 0.8421 Mt cumulative incremental synthetic wellstream",
+        "field-life cases cover two inlet-pressure strategies over 2027–2037 and quantify 0.8421 Mt cumulative incremental synthetic wellstream",
         "the pressure-reduction case gives 34.6153 percent late-life production uplift while identifying a 2030 export-compressor discharge-head constraint and a 2032 map-envelope constraint",
         "eCalc 13.9.0 ran successfully for the annual process model and the 336-hour hybrid dispatch model",
         "eCalc marks the export compressor valid for 3 of 10 annual intervals, making the retrofit boundary explicit",
@@ -909,7 +909,7 @@
         "three deterministic two-panel figures were rendered and visually inspected with readable SI-labelled axes, legends, and physically interpretable profiles",
         "the Fluid mechanics catalog contains exactly one relative link to the notebook"
       ],
-      "summary": "Created a self-contained finite-rate pipeline phase-transfer tutorial covering hydrocarbon droplet and wall-film evaporation, methane-bubble dissolution into oil, CO2-bubble dissolution into water, Maxwell\u00e2\u0080\u0093Stefan component fluxes, coupled heat transfer, specified and Schiller\u00e2\u0080\u0093Naumann terminal slip, tracked-inventory completion distance, explicit incomplete results, conservation, step sensitivity, model limits, independent comparison paths, references, plots, and machine-readable results."
+      "summary": "Created a self-contained finite-rate pipeline phase-transfer tutorial covering hydrocarbon droplet and wall-film evaporation, methane-bubble dissolution into oil, CO2-bubble dissolution into water, MaxwellâStefan component fluxes, coupled heat transfer, specified and SchillerâNaumann terminal slip, tracked-inventory completion distance, explicit incomplete results, conservation, step sensitivity, model limits, independent comparison paths, references, plots, and machine-readable results."
     },
     {
       "path": "notebooks/process/model_predictive_controller_examples.ipynb",
@@ -3848,7 +3848,7 @@
       ],
       "key_checks": [
         "replaced the zero-byte catalog target with valid nbformat 4 JSON",
-        "embedded current public IEA 2025\u00e2\u0080\u00932026 evidence with definitions, source URLs, status labels, update date, and CC BY 4.0 provenance",
+        "embedded current public IEA 2025â2026 evidence with definitions, source URLs, status labels, update date, and CC BY 4.0 provenance",
         "kept forecasts, scenarios, observations, and transparent screening assumptions separate and did not invent WEO gas-demand volumes",
         "all 21 code cells have execution counts 1 through 21, meaningful stored outputs, and zero exceptions, error outputs, or stderr",
         "all 24 focused statistical, thermodynamic, process, energy, trend, and lifecycle assertions passed",
@@ -4201,7 +4201,7 @@
         "commit": "this atomic commit"
       },
       "pre_existing_examples_preserved": 4,
-      "preservation_note": "Preserved and integrated all four substantive legacy examples: six-component SRK natural-gas creation; the Feed gas\u00e2\u0080\u0093Export compressor\u00e2\u0080\u0093Export pipe ProcessSystem; the automation utilization snapshot and bottleneck report; and the original seven-point throughput sweep at 6000, 9000, 12000, 15000, 18000, 25000, and 48000 kg/h. Every operating point now uses a fresh initialized process so results are order-independent and energy-consistent.",
+      "preservation_note": "Preserved and integrated all four substantive legacy examples: six-component SRK natural-gas creation; the Feed gasâExport compressorâExport pipe ProcessSystem; the automation utilization snapshot and bottleneck report; and the original seven-point throughput sweep at 6000, 9000, 12000, 15000, 18000, 25000, and 48000 kg/h. Every operating point now uses a fresh initialized process so results are order-independent and energy-consistent.",
       "pre_existing_figures_preserved": 0,
       "figure_preservation_note": "The original notebook contained no stored or source-generated plots, diagrams, maps, images, or other substantive visuals. Six new technical figures were added; none replaces an earlier visual.",
       "neqsim_capabilities_demonstrated": [
@@ -4525,7 +4525,7 @@
         "commit": "this atomic commit"
       },
       "pre_existing_examples_preserved": 4,
-      "preservation_note": "Preserved and integrated all four substantive legacy examples: the original six-component SRK gas assay; the 7500 kg/h Feed gas\u00e2\u0080\u0093Inlet cooler\u00e2\u0080\u0093Compressor ProcessSystem; the 15-case 10/20/30 degrees Celsius by 80/90/100/110/120 bara setpoint sweep; and minimum-power selection subject to a 100 bara delivery target. Every repeated case now constructs fresh fluid and equipment objects so the result is independent of sweep order.",
+      "preservation_note": "Preserved and integrated all four substantive legacy examples: the original six-component SRK gas assay; the 7500 kg/h Feed gasâInlet coolerâCompressor ProcessSystem; the 15-case 10/20/30 degrees Celsius by 80/90/100/110/120 bara setpoint sweep; and minimum-power selection subject to a 100 bara delivery target. Every repeated case now constructs fresh fluid and equipment objects so the result is independent of sweep order.",
       "pre_existing_figures_preserved": 1,
       "figure_preservation_note": "Preserved the original compressor-power-versus-outlet-pressure line figure in recognizable form. All 15 plotted values were recomputed with NeqSim 3.16.0 and the delivery-pressure constraint, title, units, accessible colors, legend, and interpretation were refreshed. Five new technical figures were added and none replaces the previous visual.",
       "neqsim_capabilities_demonstrated": [
@@ -5351,7 +5351,7 @@
         "LEL conversion and 1oo1, 1oo2, 2oo2, and 2oo3 voting logic",
         "Independent fresh-case sensitivity evaluation and conservation auditing"
       ],
-      "practical_application": "A reusable end-to-end workflow builds a methane-rich SRK feed at 50 bara, 25 \u00b0C, and 5000 kg/h; composes Stream, Separator, and ProcessSystem objects; maps a 0.040 kg/s gas leak into a 300 m\u00b3 module with 6 h\u207b\u00b9 ventilation; applies two detector lags and spatial factors; uses native alarm lifecycle events and a 2oo2 HIHI ESD vote; models 8 s isolation; audits the room inventory; and reruns 12 independent leak-rate and ventilation scenarios.",
+      "practical_application": "A reusable end-to-end workflow builds a methane-rich SRK feed at 50 bara, 25 °C, and 5000 kg/h; composes Stream, Separator, and ProcessSystem objects; maps a 0.040 kg/s gas leak into a 300 m³ module with 6 h⁻¹ ventilation; applies two detector lags and spatial factors; uses native alarm lifecycle events and a 2oo2 HIHI ESD vote; models 8 s isolation; audits the room inventory; and reruns 12 independent leak-rate and ventilation scenarios.",
       "retained_figures": {
         "count": 6,
         "previous_count": 0,
@@ -5415,7 +5415,7 @@
         "Stream, Cooler, ThrottlingValve, Separator, and ProcessSystem composition and execution",
         "Independent fresh-case sensitivity evaluation with mass, component, and energy audits"
       ],
-      "practical_application": "A reusable end-to-end CO2 export-conditioning workflow builds an EOS-CG impurity fluid at 150 bara, 80 \u00b0C, and 100000 kg/h; connects Stream, Cooler, ThrottlingValve, Separator, and ProcessSystem objects; cools to 50 \u00b0C; throttles to 100 bara; retrieves product state and density; closes total mass, component, cooler-energy, and valve-enthalpy balances; and reruns four independent cooler-target scenarios.",
+      "practical_application": "A reusable end-to-end CO2 export-conditioning workflow builds an EOS-CG impurity fluid at 150 bara, 80 °C, and 100000 kg/h; connects Stream, Cooler, ThrottlingValve, Separator, and ProcessSystem objects; cools to 50 °C; throttles to 100 bara; retrieves product state and density; closes total mass, component, cooler-energy, and valve-enthalpy balances; and reruns four independent cooler-target scenarios.",
       "retained_figures": {
         "count": 7,
         "previous_count": 1,
@@ -5852,7 +5852,7 @@
       "pre_existing_examples_preserved": 10,
       "preservation_note": "All ten original teaching intentions were retained: SRK gas and protected-vessel setup; HIPPS-versus-PSV architecture; three transmitters with 2oo3 voting and SIL metadata; blocked-outlet dynamics; pressure and release interpretation; diagnostics, partial-stroke testing, proof testing, and reset; HIPPS failure with PSV backup; failed-high and two-high sensor cases; standards-oriented checks; and a reusable final status report. Unexecutable Java/Jython fragments were translated to current supported Python/JPype calls and integrated into a progressive workflow.",
       "pre_existing_figures_preserved": 0,
-      "figure_preservation_note": "The original notebook contained no stored technical plot output. All four substantive text diagrams\u2014the HIPPS architecture, PSV sequence, HIPPS sequence, and defense-in-depth overview\u2014were preserved. Seven new numerically generated technical figures were added and retained.",
+      "figure_preservation_note": "The original notebook contained no stored technical plot output. All four substantive text diagrams—the HIPPS architecture, PSV sequence, HIPPS sequence, and defense-in-depth overview—were preserved. Seven new numerically generated technical figures were added and retained.",
       "neqsim_capabilities_demonstrated": [
         "SRK fluid construction with classic mixing and multiphase checking",
         "Stream, Separator, and ProcessSystem composition and execution",
@@ -7763,7 +7763,7 @@
       "pre_existing_figures_preserved": 0,
       "figure_preservation_note": "Six reproducible engineering figures were generated by the final clean execution and retained with their numerical context.",
       "neqsim_capabilities_demonstrated": [
-        "SRK three-phase oil\u2013gas\u2013water construction with mixing rule 2 and multiphase checking",
+        "SRK three-phase oil–gas–water construction with mixing rule 2 and multiphase checking",
         "native terrain-following TwoFluidPipe pressure, holdup, phase-velocity, inventory, and regime profiles",
         "separate oil and water holdup diagnostics at two terrain low points",
         "multi-criterion steady minimum-flow screening across seven total mass rates",
@@ -7814,7 +7814,7 @@
         "six figures passed visual and numerical-context review",
         "the Colab badge and active catalog target the notebook exactly once"
       ],
-      "summary": "A self-contained two-fluid minimum-flow workbook for a long oil\u2013gas\u2013water flowline, covering three-phase fluid definition, undulating terrain, steady rate screening, sag accumulation diagnostics, multi-criterion boundary selection, operating margin, low-flow hold, restart recovery, mesh sensitivity, limitations, exercises, 24 engineering checks, six rendered equations, and six inspected figures."
+      "summary": "A self-contained two-fluid minimum-flow workbook for a long oil–gas–water flowline, covering three-phase fluid definition, undulating terrain, steady rate screening, sag accumulation diagnostics, multi-criterion boundary selection, operating margin, low-flow hold, restart recovery, mesh sensitivity, limitations, exercises, 24 engineering checks, six rendered equations, and six inspected figures."
     },
     {
       "path": "notebooks/API/NeqSimPVTAPI.ipynb",
@@ -8252,8 +8252,8 @@
       "neqsim_capabilities_demonstrated": [
         "Electrolyte-CPA fluid construction, chemical reaction initialization, electrolyte mixing rule 10, multiphase TP flash, physical-property initialization, and aqueous pH",
         "aqueous ion composition and thermodynamic relative salt solubility retrieval",
-        "CO2CorrosionAnalyzer free-water, pH, CO\u2082 partitioning, de Waard-Milliams rate, severity, and phase diagnostics",
-        "NorsokM506CorrosionRate baseline, pH, FeCO\u2083 scale, flow, glycol, inhibitor, fugacity, and wall-shear calculations",
+        "CO2CorrosionAnalyzer free-water, pH, CO₂ partitioning, de Waard-Milliams rate, severity, and phase diagnostics",
+        "NorsokM506CorrosionRate baseline, pH, FeCO₃ scale, flow, glycol, inhibitor, fugacity, and wall-shear calculations",
         "MechanisticCorrosionModel kinetic, mass-transfer, mixed control, Reynolds, Schmidt, Sherwood, and Langmuir inhibitor calculations",
         "NorsokM001MaterialSelection and SourServiceAssessment screening",
         "CPA Stream and PipeBeggsAndBrills pressure, temperature, velocity, and liquid-holdup profiles"
@@ -8268,7 +8268,7 @@
           "fluid-to-integrity NeqSim calculation workflow and object relationships",
           "Electrolyte-CPA aqueous ion composition on a log concentration scale",
           "NORSOK M-506 pH, scale, flow, and glycol correction factors",
-          "temperature, mixture-velocity, and gas-CO\u2082 corrosion-rate sensitivities",
+          "temperature, mixture-velocity, and gas-CO₂ corrosion-rate sensitivities",
           "Langmuir inhibitor dose, temperature, inhibited rate, and surface-coverage response",
           "coupled 20 km pressure, temperature, liquid-holdup, and inhibited/uninhibited corrosion profiles"
         ],
@@ -8292,7 +8292,7 @@
         "Electrolyte-CPA produced gas and aqueous phases with finite pH 4.7937",
         "the wet thermodynamic case contains free water and the single-phase dry-gas case is applicability-gated",
         "the mechanistic mixed-control rate is below both limiting rates and inhibitor coverage remains between zero and one",
-        "CO\u2082 sensitivity increases from the lowest to highest tested concentration",
+        "CO₂ sensitivity increases from the lowest to highest tested concentration",
         "flowline pressure and temperature decrease along the line and all hydraulic and corrosion arrays align",
         "specified inhibition reduces every segment rate while all rates remain finite and non-negative",
         "maximum Python code-line length is 83 characters with no semicolon chains or compressed compound bodies",
@@ -8300,7 +8300,7 @@
         "six figures passed full-resolution visual and numerical-context inspection",
         "the Colab badge and active catalog target the notebook exactly once"
       ],
-      "summary": "A standalone CO\u2082-corrosion and inhibition tutorial covering Electrolyte-CPA aqueous chemistry, thermodynamic free-water screening, NORSOK M-506 correction factors, mechanistic mixed control, Langmuir inhibitor response, material and sour-service selection, a coupled Beggs-Brill flowline integrity profile, 18 engineering checks, 11 display equations, and six inspected figures."
+      "summary": "A standalone CO₂-corrosion and inhibition tutorial covering Electrolyte-CPA aqueous chemistry, thermodynamic free-water screening, NORSOK M-506 correction factors, mechanistic mixed control, Langmuir inhibitor response, material and sour-service selection, a coupled Beggs-Brill flowline integrity profile, 18 engineering checks, 11 display equations, and six inspected figures."
     },
     {
       "path": "notebooks/thermodynamics/PVTtableGeneration.ipynb",
@@ -9833,7 +9833,7 @@
         "native API_POOL fire preset and wetted-surface configuration",
         "independent BDV-bore scenarios with pressure, temperature, mass, wall, and flare-load histories"
       ],
-      "practical_application": "A synthetic 80-bara high-pressure separator is screened from thermodynamic inventory and pressure hierarchy through S-001 evidence, 35-mm blowdown, 25\u201340-mm bore sensitivity, pool-fire response, flare-load capacity, metal-temperature screening, and an integrated decision dashboard.",
+      "practical_application": "A synthetic 80-bara high-pressure separator is screened from thermodynamic inventory and pressure hierarchy through S-001 evidence, 35-mm blowdown, 25–40-mm bore sensitivity, pool-fire response, flare-load capacity, metal-temperature screening, and an integrated decision dashboard.",
       "engineering_validation": {
         "assertions_passed": 20,
         "assertions_failed": 0,
@@ -9872,7 +9872,7 @@
           "technical-safety calculation-to-decision workflow overview",
           "operating, alarm, trip, PSV, design, maximum-event, and test pressure hierarchy",
           "base-case pressure, flare load, gas/wall temperature, and inventory histories",
-          "25\u201340-mm BDV pressure histories and speed-versus-flare-load trade-off",
+          "25–40-mm BDV pressure histories and speed-versus-flare-load trade-off",
           "normal and API pool-fire pressure and wall-temperature comparison",
           "integrated six-gate technical-safety screening dashboard"
         ],
@@ -11357,7 +11357,7 @@
         "snapshot and integrated-process mass-balance closure"
       ],
       "reservoir_capabilities_demonstrated": [
-        "10 \u00d7 10 \u00d7 3 Cartesian OPM Flow grid with 300 active cells and heterogeneous permeability layers",
+        "10 × 10 × 3 Cartesian OPM Flow grid with 300 active cells and heterogeneous permeability layers",
         "three-year depletion with an oil producer and water injector",
         "explicit WELLS-to-FIELD group compatible with Flow 2021.10 and 2026.04",
         "summary-vector extraction for pressure, rates, GOR, and BHP",
@@ -11438,7 +11438,7 @@
         "stored_stderr_outputs": 0,
         "catalog_target_occurrences": 1
       },
-      "summary": "Added an executable NeqSim\u2013OPM Flow reservoir-to-facility coupling workbook with characterized black-oil table generation, a dual-version-compatible 300-cell forecast, direct grid/restart graphics, characterized well-stream reconstruction, surface-process integration, stored outputs, Colab validation, and engineering audit evidence."
+      "summary": "Added an executable NeqSim–OPM Flow reservoir-to-facility coupling workbook with characterized black-oil table generation, a dual-version-compatible 300-cell forecast, direct grid/restart graphics, characterized well-stream reconstruction, surface-process integration, stored outputs, Colab validation, and engineering audit evidence."
     },
     {
       "path": "notebooks/thermodynamics/thermodynamics_of_natural_gas_hydrates.ipynb",
