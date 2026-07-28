@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-28T00:13:18Z",
+  "updated_at": "2026-07-28T00:32:59Z",
   "notebooks": [
     {
       "path": "notebooks/process/neqsim_compressor_capacity_bottleneck_optimization.ipynb",
@@ -11564,6 +11564,75 @@
         "catalog_target_occurrences": 1
       },
       "summary": "Expanded the 13-cell natural-gas hydrate workbook into an executed, self-contained tutorial while preserving every original cell, example, plot, and video. Added theory, model and unit explanations, visual comparison, MEG screening, connected arrival cooling and separation, sensitivity analysis, engineering assertions, limitations, troubleshooting, exercises, and references."
+    },
+    {
+      "path": "notebooks/process/data_driven_control_strategies.ipynb",
+      "verified_date": "2026-07-28",
+      "verified_at_utc": "2026-07-28T00:32:59Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk version \"17.0.19\" 2026-04-21",
+      "environment_resolution": "online-new-snapshot",
+      "environment_wheel_count": 49,
+      "execution_status": "passed",
+      "execution_method": "All code cells were executed in order from an empty in-process namespace using the fresh Python returned by scripts/bootstrap_neqsim_validation_env.py.",
+      "code_cells": 21,
+      "markdown_cells": 27,
+      "pre_existing_cells_preserved": 9,
+      "pre_existing_examples_preserved": 2,
+      "pre_existing_figures_preserved": 1,
+      "figures_refreshed": 1,
+      "new_figures_added": 5,
+      "retained_figures": 6,
+      "math_expressions_verified": 24,
+      "capabilities_demonstrated": [
+        "SystemSrkEos fluid construction with classic mixing rule",
+        "connected Stream, Separator, ThrottlingValve, and PressureTransmitter",
+        "ProcessSystem execution",
+        "TPflash and initialized real-gas density",
+        "ThrottlingValve.calculateMolarFlow capacity screening",
+        "NeqSim-derived gas-inventory and valve-capacity interpolation",
+        "scalar Kalman estimation with deterministic sensor noise",
+        "bounded finite-horizon candidate-grid model-predictive control"
+      ],
+      "practical_application": "Closed-loop inlet-separator pressure control with a 25% gas-inflow disturbance, measurement noise, and a deliberate three-percent plant/model valve-capacity mismatch.",
+      "key_checks": [
+        "valid nbformat JSON with 48 cells",
+        "21 of 21 code cells executed with no errors or stored stderr",
+        "all 14 engineering assertions passed",
+        "composition normalization and phase-aware process setup verified",
+        "gas inventory and valve capacity increase monotonically over the tested range",
+        "measurement RMSE 0.09665 bar reduced to 0.04151 bar by the Kalman estimate",
+        "closed-loop pressure RMSE 0.09684 bar",
+        "maximum discrete mass residual 0.001267 kg per step",
+        "all valve openings stayed inside the 35-85% bounds",
+        "the final pressure was within 0.20 bar of the 10 bara setpoint",
+        "all nine original cells and both original example purposes were preserved",
+        "the original Kalman figure was recomputed; five additional figures were added",
+        "all six figures were visually inspected for labels, units, legends, scales, and clipping",
+        "24 display and inline expressions passed Colab-safe source checks and compatible rendering",
+        "maximum code-line length was 83 characters with no compressed statements",
+        "the catalog contains exactly one target link"
+      ],
+      "visual_inventory": {
+        "preserved": [
+          "Original Kalman true/measurement/estimate plot, recomputed with deterministic data and uncertainty band"
+        ],
+        "added": [
+          "grey-box process and control workflow",
+          "NeqSim valve-capacity and gas-inventory comparison",
+          "open-loop inflow-disturbance response",
+          "MPC candidate-cost landscape",
+          "closed-loop pressure, valve, and mass-flow response"
+        ],
+        "inspection_result": "passed; titles, axes, SI units, legends, accessible colors, scales, and layout were visually confirmed"
+      },
+      "summary": "Repaired the placeholder by normalizing its fluid, adding a functional equilibrium separator, replacing direct outlet-pressure assignment with a real-gas inventory balance, and extending the original Kalman and candidate-MPC examples into a deterministic, constrained closed-loop tutorial.",
+      "publication": {
+        "branch": "master",
+        "mode": "atomic connector-backed direct publication",
+        "commit": "the direct master commit containing this entry"
+      }
     }
   ]
 }
