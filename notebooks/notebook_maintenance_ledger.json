@@ -9973,7 +9973,7 @@
         ],
         "key_results": {
           "base_density_kg_m3": 570.006377876671,
-          "base_compressibility_per_pa": 2.1655529052373874e-9,
+          "base_compressibility_per_pa": 2.1655529052373874e-09,
           "base_expansivity_per_k": 0.001976120843848179,
           "base_heat_capacity_j_kg_k": 2171.313809970754,
           "original_linear_final_pressure_bara": 760.0625287602811,
@@ -11514,9 +11514,9 @@
         "key_results": {
           "hydrate_temperature_150_bara_c": 21.976059918952274,
           "hydrate_temperature_90_bara_c": 19.661828056184106,
-          "arrival_temperature_c": 6,
+          "arrival_temperature_c": 6.0,
           "uninhibited_arrival_margin_k": -13.661828056184106,
-          "minimum_screened_meg_mol_percent": 20,
+          "minimum_screened_meg_mol_percent": 20.0,
           "base_cooler_duty_kw": -276.433225873617,
           "relative_process_mass_residual": 1.9091828878988374e-16
         }
@@ -11711,7 +11711,7 @@
           "compressor_power_mw": 3.011030495764755,
           "cooler_duty_mw": -3.8442747781564055,
           "compressor_discharge_temperature_c": 93.19685152699782,
-          "relative_process_mass_residual": 0.000002158717486366976,
+          "relative_process_mass_residual": 2.158717486366976e-06,
           "screened_design_pressure_barg": 107.40062375,
           "candidate_gas_line_internal_diameter_m": 0.2,
           "candidate_flare_internal_diameter_m": 0.25,
@@ -11827,7 +11827,7 @@
           "base_water_outlet_kg_per_h": 43477.36,
           "relative_process_mass_residual": 5.220954e-14,
           "minimum_screened_total_btex_mg_per_kg": 41.10386,
-          "minimum_btex_pressure_bara": 1,
+          "minimum_btex_pressure_bara": 1.0,
           "minimum_btex_water_load_kg_per_day": 40.94899,
           "native_hydrocyclone_feed_m3_per_h": 45.644934,
           "native_hydrocyclone_active_liners": 10,
@@ -11954,7 +11954,7 @@
         "key_results": {
           "base_feed_mass_flow_kg_per_h": 170819.17483382375,
           "base_export_gas_million_sm3_per_day": 5.000000000000001,
-          "base_export_pressure_bara": 155,
+          "base_export_pressure_bara": 155.0,
           "base_compressor_power_mw": 6.923403328480437,
           "base_cooler_duty_mw": -11.753754821642897,
           "native_process_total_project_cost_usd": 18958346.0027132,
@@ -12092,7 +12092,7 @@
           "formation_1_pressure_2015_bara": 188.544884,
           "formation_2_pressure_2015_bara": 171.942956,
           "gas_product_2015_million_sm3_per_day": 3.991287,
-          "oil_product_2015_kg_per_day": 11258190,
+          "oil_product_2015_kg_per_day": 11258190.0,
           "late_life_500m_elevation_pressure_drop_bar": 26.74089
         }
       },
@@ -12220,9 +12220,9 @@
           "native_absorber_water_kg_per_million_sm3": 106.3874,
           "native_absorber_water_mol_ppm": 139.6321,
           "water_removed_from_gas_kg_per_h": 36.6652,
-          "total_mass_residual_relative": 0.000005286667161594575,
+          "total_mass_residual_relative": 5.286667161594575e-06,
           "water_mass_residual_relative": 0.00012014039247431167,
-          "maximum_scenario_mass_residual_relative": 0.00000680488359078756
+          "maximum_scenario_mass_residual_relative": 6.80488359078756e-06
         }
       },
       "figures": {
@@ -12337,7 +12337,7 @@
           "operating_rate_million_sm3_per_day": 3.329307,
           "operating_bottom_hole_pressure_bara": 144.511799,
           "integrated_wellsystem_rate_million_sm3_per_day": 3.328613,
-          "independent_pressure_residual_bar": 0,
+          "independent_pressure_residual_bar": 0.0,
           "independent_rate_bracket_million_sm3_per_day": 1.776357e-15,
           "vfpprod_flow_points": 10,
           "vfpprod_thp_points": 5,
@@ -12349,7 +12349,7 @@
             1
           ],
           "vfpprod_table_number": 11,
-          "vfpprod_datum_depth_m": 2800
+          "vfpprod_datum_depth_m": 2800.0
         }
       },
       "figures": {
