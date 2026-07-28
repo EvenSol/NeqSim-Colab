@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-27T21:17:06.206Z",
+  "updated_at": "2026-07-28T00:13:18Z",
   "notebooks": [
     {
       "path": "notebooks/process/neqsim_compressor_capacity_bottleneck_optimization.ipynb",
@@ -9973,7 +9973,7 @@
         ],
         "key_results": {
           "base_density_kg_m3": 570.006377876671,
-          "base_compressibility_per_pa": 2.1655529052373874e-9,
+          "base_compressibility_per_pa": 2.1655529052373874e-09,
           "base_expansivity_per_k": 0.001976120843848179,
           "base_heat_capacity_j_kg_k": 2171.313809970754,
           "original_linear_final_pressure_bara": 760.0625287602811,
@@ -11439,6 +11439,131 @@
         "catalog_target_occurrences": 1
       },
       "summary": "Added an executable NeqSim–OPM Flow reservoir-to-facility coupling workbook with characterized black-oil table generation, a dual-version-compatible 300-cell forecast, direct grid/restart graphics, characterized well-stream reconstruction, surface-process integration, stored outputs, Colab validation, and engineering audit evidence."
+    },
+    {
+      "path": "notebooks/thermodynamics/thermodynamics_of_natural_gas_hydrates.ipynb",
+      "verified_date": "2026-07-28",
+      "verified_at_utc": "2026-07-28T00:13:18Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-hydrates-repair-20260728-0159 --neqsim-version latest --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260728T000435Z-3d68cc4b13e8",
+        "verified_public_pypi_wheels": 49,
+        "manifest_created_at_utc": "2026-07-28T00:04:35Z",
+        "integrity": "Complete public-PyPI inventory, size, SHA-256, runtime, platform, and toolchain verification passed."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 17 code cells sequentially from an empty in-process Python state in the fresh environment. Stored tables, both YouTube display objects, and seven PNG figures; zero error outputs and zero stderr.",
+      "code_cells": 17,
+      "substantive_code_cells": 17,
+      "markdown_cells": 34,
+      "publication": {
+        "branch": "master",
+        "mode": "direct atomic connector-backed fast-forward commit",
+        "commit": "the commit containing this ledger entry",
+        "files": [
+          "notebooks/thermodynamics/thermodynamics_of_natural_gas_hydrates.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "preservation": {
+        "pre_existing_cells": 13,
+        "preserved_cells": 13,
+        "pre_existing_substantive_examples": 4,
+        "preserved_substantive_examples": 4,
+        "pre_existing_figures": 3,
+        "preserved_figures": 3,
+        "other_pre_existing_visuals": 2,
+        "other_preserved_visuals": 2,
+        "repairs": "Preserved the two hydrate videos, single-pressure CPA calculation, uninhibited pressure line, MEG-inhibited line, Electrolyte-CPA salt case, ion-composition output, and all three original plots. Repaired obsolete wildcard imports, unconditional installation, semicolon chains, ambiguous units and names, repeated function collisions, plot labels, interpretation, hidden state, and stale outputs. No original cell, example, figure, video, or intended functionality was removed."
+      },
+      "neqsim_capabilities_demonstrated": [
+        "CPA and Electrolyte-CPA fluid construction",
+        "classic CPA mixing rule 10",
+        "incipient hydrate-temperature calculation with hydt",
+        "pressure-dependent hydrate-equilibrium curves",
+        "MEG water-activity inhibition screening",
+        "saline-water ion composition and hydrate calculation",
+        "TP flash and electrolyte aqueous-phase initialization",
+        "connected Stream, Cooler, Separator, and ProcessSystem run",
+        "cooler-duty, phase-flow, and mass-balance retrieval",
+        "independent arrival-temperature sensitivity cases"
+      ],
+      "practical_application": "Models 0.5 MSm3/day of synthetic wet gas at 90 bara and 25 degC, cools it to 6 degC, separates condensed liquid, compares the operating state with the hydrate boundary, screens 0-30 mol% MEG, and varies cooler targets from 4-18 degC while checking duty, margin, and mass closure.",
+      "engineering_validation": {
+        "assertions_passed": 19,
+        "assertions_failed": 0,
+        "checks": [
+          "finite and plausible 150-bara hydrate temperature",
+          "monotonic uninhibited, MEG, and saline curves",
+          "MEG shifts the equilibrium boundary colder",
+          "aqueous ion table is populated",
+          "MEG screen is monotonic and identifies 20 mol%",
+          "cooler removes heat and scrubber removes liquid",
+          "base mass balance closes below 1e-12 relative",
+          "all temperature scenarios are finite",
+          "warmer targets require less cooling",
+          "warmer targets improve hydrate margin",
+          "scenario feed basis remains constant",
+          "valid JSON, sequential execution, readable code, Colab badge, catalog target, equations, and figures"
+        ],
+        "key_results": {
+          "hydrate_temperature_150_bara_c": 21.976059918952274,
+          "hydrate_temperature_90_bara_c": 19.661828056184106,
+          "arrival_temperature_c": 6.0,
+          "uninhibited_arrival_margin_k": -13.661828056184106,
+          "minimum_screened_meg_mol_percent": 20.0,
+          "base_cooler_duty_kw": -276.433225873617,
+          "relative_process_mass_residual": 1.9091828878988374e-16
+        }
+      },
+      "figures": {
+        "previous_figures": 3,
+        "previous_figures_refreshed": 3,
+        "new_figures": 4,
+        "total_retained_figures": 7,
+        "other_preserved_visuals": [
+          "hydrate-structure introductory YouTube video",
+          "oil-and-gas hydrate introductory YouTube video"
+        ],
+        "purposes": [
+          "hydrate-to-process workflow overview",
+          "refreshed uninhibited CPA equilibrium line",
+          "refreshed 20 mol% MEG equilibrium line",
+          "refreshed saline-water equilibrium line",
+          "combined comparison of all retained curves",
+          "MEG concentration versus operating margin",
+          "arrival cooler duty and hydrate-margin sensitivity"
+        ],
+        "visual_inspection": "Passed at original resolution after final execution. All seven figures have descriptive titles, explicit units, readable labels, accessible colors, appropriate legends, and nearby interpretation. No clipping, overlap, stale values, misleading scales, or unit inconsistencies were found.",
+        "numerical_refresh": "All three previous numerical plots were recomputed with NeqSim 3.16.0. Four additions use the same validated inputs and fresh process calculations."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 3,
+        "inline_expressions": 5,
+        "renderer": "Jupyter/Colab-compatible single-backslash math syntax previewed through Matplotlib MathText",
+        "visual_inspection": "Chemical potentials, aqueous MEG fraction, hydrate margin, subscripts, superscripts, Greek symbols, and fractions rendered correctly. Delimiters are balanced."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 51,
+        "maximum_code_line_length": 69,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "catalog_target_occurrences": 1
+      },
+      "summary": "Expanded the 13-cell natural-gas hydrate workbook into an executed, self-contained tutorial while preserving every original cell, example, plot, and video. Added theory, model and unit explanations, visual comparison, MEG screening, connected arrival cooling and separation, sensitivity analysis, engineering assertions, limitations, troubleshooting, exercises, and references."
     }
   ]
 }
