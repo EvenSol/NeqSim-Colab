@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-28T02:11:25Z",
+  "updated_at": "2026-07-28T03:05:16Z",
   "notebooks": [
     {
       "path": "notebooks/process/neqsim_compressor_capacity_bottleneck_optimization.ipynb",
@@ -9973,7 +9973,7 @@
         ],
         "key_results": {
           "base_density_kg_m3": 570.006377876671,
-          "base_compressibility_per_pa": 2.1655529052373874e-9,
+          "base_compressibility_per_pa": 2.1655529052373874e-09,
           "base_expansivity_per_k": 0.001976120843848179,
           "base_heat_capacity_j_kg_k": 2171.313809970754,
           "original_linear_final_pressure_bara": 760.0625287602811,
@@ -11880,6 +11880,129 @@
         "catalog_target_occurrences": 1
       },
       "summary": "Expanded the 23-cell produced-water notebook into an executed, self-contained CPA and water-treatment tutorial while preserving every original cell, example, output purpose, plot, and video. Added process closure, pressure-temperature screening, Electrolyte-CPA water construction, the released native hydrocyclone API, engineering decisions, limitations, troubleshooting, exercises, and authoritative references."
+    },
+    {
+      "path": "notebooks/fielddevelopment/economy.ipynb",
+      "verified_date": "2026-07-28",
+      "verified_at_utc": "2026-07-28T03:05:16Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-economy-20260728-0449 --neqsim-version latest --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260728T025337Z-c801012d0aa1",
+        "verified_public_pypi_wheels": 49,
+        "manifest_created_at_utc": "2026-07-28T02:53:37Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, and toolchain verification passed."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 21 code cells sequentially from an empty in-process Python namespace using the fresh bootstrap environment. Stored tables and five PNG figures; zero error outputs and zero stderr.",
+      "code_cells": 21,
+      "substantive_code_cells": 21,
+      "markdown_cells": 27,
+      "publication": {
+        "branch": "master",
+        "mode": "direct atomic connector-backed fast-forward commit",
+        "commit": "the commit containing this ledger entry",
+        "files": [
+          "notebooks/fielddevelopment/economy.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "preservation": {
+        "pre_existing_cells": 8,
+        "preserved_cells": 8,
+        "pre_existing_substantive_examples": 1,
+        "preserved_substantive_examples": 1,
+        "pre_existing_figures": 0,
+        "preserved_figures": 0,
+        "repairs": "Preserved the Colab badge, economy checklist, tax headings, one-period tax explanation, and original numerical tax example. Corrected the broken 'neqim' installation command and stored pip error, replaced obsolete additive 22% plus 56% tax algebra with the current 22% ordinary and 71.8% special-basis bridge, clarified units and scope, and retained the original example as an explicitly labelled historical comparison. No original cell, example, or functionality was removed."
+      },
+      "neqsim_capabilities_demonstrated": [
+        "SystemSrkEos synthetic sales-gas fluid construction",
+        "classic cubic-EOS mixing rule and thermodynamic state initialization",
+        "connected Stream, Separator, Compressor, Cooler, and ThrottlingValve",
+        "ProcessSystem sequential execution and equipment-result retrieval",
+        "separator gas and liquid mass-flow retrieval",
+        "compressor power and cooler-duty retrieval",
+        "native mechanical design and ProcessCostEstimate execution",
+        "North Sea location-factor cost estimation",
+        "independent annual flow-rate and inlet-pressure scenario execution"
+      ],
+      "practical_application": "Connects a 5.0 MSm3/day, 70-bara synthetic gas facility to separation, compression to 160 bara, cooling to 35 degC, and 155-bara export. It then models 2028-2042 plateau and decline with inlet pressure falling to 30 bara, converts NeqSim duties and native cost estimates into annual CAPEX/OPEX/revenue, and evaluates tax, discounted cash flow, NPV, IRR, payback, break-even price, and commercial sensitivities.",
+      "engineering_validation": {
+        "assertions_passed": 20,
+        "assertions_failed": 0,
+        "checks": [
+          "feed composition sums to unity",
+          "base and all annual process mass balances close below 1e-10 relative",
+          "compressor power is positive and cooler duty follows NeqSim sign convention",
+          "export pressure meets specification",
+          "native process CAPEX is finite and positive",
+          "corrected combined marginal tax bridge evaluates to approximately 78%",
+          "production and inlet pressure decline after the plateau",
+          "late-life compressor energy intensity rises",
+          "pre-tax and simplified after-tax NPV and IRR are finite",
+          "discounted payback and break-even price are positive",
+          "break-even NPV closes within 1e-3 million NOK",
+          "cash-flow NPV reconciles",
+          "NPV rises with gas price and falls with discount rate",
+          "valid nbformat JSON, readable code, unique catalog link, figures, and math"
+        ],
+        "key_results": {
+          "base_feed_mass_flow_kg_per_h": 170819.17483382375,
+          "base_export_gas_million_sm3_per_day": 5.000000000000001,
+          "base_export_pressure_bara": 155.0,
+          "base_compressor_power_mw": 6.923403328480437,
+          "base_cooler_duty_mw": -11.753754821642897,
+          "native_process_total_project_cost_usd": 18958346.0027132,
+          "total_development_capex_million_nok": 9199.063,
+          "pre_tax_npv8_million_nok": 11972.696,
+          "simplified_after_tax_npv8_million_nok": 2633.514,
+          "pre_tax_irr_percent": 31.396,
+          "discounted_pre_tax_payback_years_from_2026": 3.903,
+          "discounted_sales_gas_billion_sm3": 9.858,
+          "technical_unit_cost_nok_per_sm3": 1.286,
+          "break_even_gas_price_nok_per_sm3": 1.286
+        }
+      },
+      "figures": {
+        "previous_figures": 0,
+        "previous_figures_refreshed": 0,
+        "new_figures": 5,
+        "total_retained_figures": 5,
+        "purposes": [
+          "NeqSim process-to-economic-evaluation workflow",
+          "field-life production, pressure, power, and energy-intensity results",
+          "annual and cumulative discounted cash-flow profile",
+          "gas-price and discount-rate NPV sensitivity heatmap",
+          "commercial-variable NPV tornado comparison"
+        ],
+        "visual_inspection": "Passed at original resolution after final execution. All figures have descriptive titles, explicit units, readable labels, accessible colors, appropriate legends or color scales, and nearby interpretation. No clipping, overlap, stale values, misleading scales, or unit inconsistencies were found."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "expressions_verified": 22,
+        "renderer": "Jupyter/Colab-compatible single-backslash math source rendered through Matplotlib MathText in the fresh environment",
+        "visual_inspection": "NPV, IRR, discounted payback, tax-basis, mass-balance, energy-intensity, unit-cost, and break-even expressions rendered correctly with balanced delimiters, fractions, sums, subscripts, superscripts, Greek symbols, and units."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 48,
+        "maximum_code_line_length": 82,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "catalog_target_occurrences": 1
+      },
+      "summary": "Expanded the eight-cell economy placeholder into an executed, self-contained field-development economics tutorial while preserving every original cell and the tax example. Added a realistic NeqSim process, native cost estimation, field-life decline, corrected tax algebra, discounted economics, sensitivities, engineering decisions, limitations, troubleshooting, exercises, and authoritative references."
     }
   ]
 }
