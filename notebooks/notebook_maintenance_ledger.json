@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-28T15:05:16.579Z",
+  "updated_at": "2026-07-28T15:38:19.870Z",
   "notebooks": [
     {
       "path": "notebooks/process/neqsim_compressor_capacity_bottleneck_optimization.ipynb",
@@ -13234,6 +13234,152 @@
       "limitations": "The atom-balanced impurity conversion is a transparent screening calculation, not a kinetic or equilibrium chemistry model. Potential acid values are conservative availability screens. The historical embedded visuals lack traceable provenance.",
       "neqsim_library_issue_detected": false,
       "summary": "Repaired and expanded the CO2 recompression tutorial into an executed CPA-based three-stage process with reaction-aware impurity screening, non-reactive comparison, dense-phase pipeline cooling, design sensitivities, complete balances, and visually validated teaching graphics."
+    },
+    {
+      "path": "notebooks/process/dexpi_safety_study_workflow.ipynb",
+      "verified_date": "2026-07-28",
+      "verified_at_utc": "2026-07-28T15:38:19.870Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "Executed all 14 code cells sequentially from an empty in-process Python namespace because the sandbox blocks ZeroMQ socket creation. Tables, diagnostics, and three PNG figures are retained; zero error outputs and zero stderr streams.",
+      "code_cells": 14,
+      "markdown_cells": 19,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic connector-backed fast-forward commit to the default branch",
+        "commit": "the direct master commit containing this ledger entry",
+        "files": [
+          "notebooks/process/dexpi_safety_study_workflow.ipynb",
+          "notebooks/process/integrated_sil_esd_hipps_depressurization_study.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "neqsim_capabilities_demonstrated": [
+        "native calculated ProcessSystem and DEXPI 2.0 XML export",
+        "DEXPI equipment, piping, instrumentation, loop, and design-condition audit",
+        "HAZOP node and design-intent register",
+        "cause-and-effect and safety-function register",
+        "cross-study readiness and semantic-gap analysis"
+      ],
+      "engineering_validation": {
+        "focused_checks_passed": 8,
+        "focused_checks_failed": 0,
+        "key_results": {
+          "feed_pressure_bara": 90,
+          "protected_pressure_bara": 75,
+          "dexpi_export_bytes": 136175,
+          "physical_equipment_objects": 3,
+          "piping_network_segments": 4,
+          "process_instrumentation_functions": 3,
+          "instrumentation_loops": 3,
+          "missing_sis_semantics_detected": 4
+        }
+      },
+      "figures": {
+        "total_retained_figures": 3,
+        "visual_inspection": "Passed after separating edge labels from semantic-graph nodes and improving readiness-matrix contrast. Process topology, semantic graph, and study-readiness matrix are readable without material overlap."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "expressions_verified": 6,
+        "renderer": "MathJax SVG rendering followed by PNG inspection",
+        "visual_inspection": "Semantic graph and readiness-coverage notation rendered correctly."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 33,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "catalog_target_occurrences": 1,
+        "sha256": "c4d1f871d4874134e93aaacb57a70bfe5456dd3e4a262402831acdbc43c25d10",
+        "bytes": 294883
+      },
+      "neqsim_improvements": {
+        "issues_created": 1,
+        "issue": "https://github.com/equinor/neqsim/issues/2653",
+        "status": "Reproduced missing SIS/HIPPS semantics in DEXPI 2.0 export and filed a targeted enhancement request with acceptance criteria."
+      },
+      "limitations": "A DEXPI exchange model supports study preparation but does not replace multidisciplinary HAZOP, SRS, independence review, or lifecycle governance.",
+      "summary": "DEXPI 2.0 safety-study preparation tutorial covering calculated export, semantic audit, HAZOP nodes, C&E traceability, readiness, and known gaps."
+    },
+    {
+      "path": "notebooks/process/integrated_sil_esd_hipps_depressurization_study.ipynb",
+      "verified_date": "2026-07-28",
+      "verified_at_utc": "2026-07-28T15:38:19.870Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "Executed all 20 code cells sequentially from an empty in-process Python namespace because the sandbox blocks ZeroMQ socket creation. Tables, diagnostics, and five PNG figures are retained; zero error outputs and zero stderr streams.",
+      "code_cells": 20,
+      "markdown_cells": 22,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic connector-backed fast-forward commit to the default branch",
+        "commit": "the direct master commit containing this ledger entry",
+        "files": [
+          "notebooks/process/dexpi_safety_study_workflow.ipynb",
+          "notebooks/process/integrated_sil_esd_hipps_depressurization_study.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "neqsim_capabilities_demonstrated": [
+        "native LOPA, SIF PFD formulas, and SIL verification",
+        "native HIPPSValve architecture and 2oo3 voting study",
+        "native EsdResponseTimeSimulator response-time budgets",
+        "real-gas process safety time and HIPPS closure transient",
+        "native cold and fire DepressurizationSimulator studies",
+        "native MultiVesselBlowdownStudy simultaneous flare-header load"
+      ],
+      "engineering_validation": {
+        "focused_checks_passed": 11,
+        "focused_checks_failed": 0,
+        "key_results": {
+          "process_safety_time_s": 90.262008,
+          "hipps_pfdavg": 0.0008143296,
+          "residual_frequency_per_year": 8.143296e-7,
+          "achieved_sil": 3,
+          "healthy_total_response_s": 8.1,
+          "healthy_peak_pressure_bara": 82.839062,
+          "unavailable_hipps_time_to_mawp_s": 90.3,
+          "selected_orifice_mm": 45,
+          "cold_time_to_7_barg_s": 601.039386,
+          "cold_minimum_fluid_temperature_c": -76.890766,
+          "fire_maximum_wall_temperature_c": 422.09237,
+          "simultaneous_peak_flare_load_kg_per_s": 37.419643,
+          "selected_header_diameter_m": 0.6,
+          "selected_header_mach": 0.277539
+        }
+      },
+      "figures": {
+        "total_retained_figures": 5,
+        "visual_inspection": "Passed after expanding the architecture canvas. Barrier architecture, proof-interval sensitivity, HIPPS pressure response, cold/fire depressurization, and simultaneous flare/header sensitivity are readable."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "expressions_verified": 6,
+        "renderer": "MathJax SVG rendering followed by PNG inspection",
+        "visual_inspection": "LOPA, HIPPS PFD, response-time, and real-gas pressure-rise equations rendered correctly."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 42,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "catalog_target_occurrences": 1,
+        "sha256": "4d4592c7c877cb288a7ca530c86a90a31f23bb92db948990d959602e14c9794b",
+        "bytes": 611244
+      },
+      "neqsim_improvements": {
+        "issues_created": 0,
+        "status": "No additional reproducible NeqSim defect was found. Header Mach remained finite after explicitly initializing valid header gas properties."
+      },
+      "limitations": "Screening calculations do not replace certified subsystem data, detailed relief and flare hydraulics, fire structural response, metallurgy, QRA, or full IEC 61511 lifecycle verification.",
+      "summary": "Integrated LOPA/SIL, ESD, HIPPS, process transient, cold/fire blowdown, simultaneous flare-load, and header-Mach tutorial."
     }
   ]
 }
