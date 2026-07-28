@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-28T22:23:01Z",
+  "updated_at": "2026-07-28T23:11:33Z",
   "notebooks": [
     {
       "path": "notebooks/AI/agentic_neqsim_workflow_demo.ipynb",
@@ -1031,6 +1031,170 @@
         "changed_links_checked": true
       },
       "summary": "Expanded the six-cell hydrocarbon-emissions note into an executed, self-contained produced-water flash-emission tutorial while preserving every original cell and the depressurization objective. Added current NeqSim process APIs, CPA theory, component accounting, balances, sensitivities, mitigation scenarios, retained figures, interpretation, troubleshooting, limitations, exercises, and authoritative references."
+    },
+    {
+      "path": "notebooks/energyopt/ThermalEnergyAndNeqSim.ipynb",
+      "verified_date": "2026-07-29",
+      "verified_at_utc": "2026-07-28T23:11:33Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "additional_packages": {
+        "PyPSA": "1.2.4",
+        "TESPy": "0.11.0",
+        "pygmo": "2.19.8",
+        "HiGHS": "1.15.1"
+      },
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-thermal-energy-20260729t0056 --neqsim-version latest --refresh --extra-package pypsa --extra-package highspy --extra-package tespy --extra-package pygmo --extra-package nbclient --extra-package ipykernel --extra-package nbconvert",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260728T225815Z-e300e3b26ea6",
+        "verified_public_pypi_wheels": 108,
+        "manifest_created_at_utc": "2026-07-28T22:58:15Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, and requested toolchain verification passed."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 22 code cells sequentially from an empty in-process Python namespace because the sandbox blocks Jupyter transport sockets. Stored tables and eight PNG figures; zero error outputs and zero stderr streams. Exported the complete notebook through the classic nbconvert HTML/MathJax path and rendered every display equation separately.",
+      "code_cells": 22,
+      "markdown_cells": 21,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic connector-backed fast-forward commit",
+        "commit": "the direct master commit containing this ledger entry",
+        "files": [
+          "notebooks/energyopt/ThermalEnergyAndNeqSim.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "preservation": {
+        "pre_repair_cells": 23,
+        "cells_preserved": 23,
+        "pre_repair_code_cells": 13,
+        "code_cells_preserved": 13,
+        "pre_repair_markdown_cells": 10,
+        "markdown_cells_preserved": 10,
+        "substantive_examples_preserved": 5,
+        "examples": [
+          "three-bus PyPSA ring power-flow model",
+          "TESPy district-heating loop",
+          "simple Clausius-Rankine cycle",
+          "regenerative extraction-pressure optimization",
+          "Schaffer multi-objective pygmo example"
+        ],
+        "integration": "All 23 original cells retain stable IDs and all five examples retain their engineering intent. They now progress from power flow and process enthalpy through water and steam systems to optimization and the final composed energy-hub application."
+      },
+      "repairs_made": [
+        "replaced unconditional and repeated pip magics with conditional public-PyPI setup",
+        "removed the obsolete neqsim 2.5.35 pin",
+        "replaced removed TESPy HeatExchangerSimple with SimpleHeatExchanger",
+        "replaced deprecated TESPy kA with unit-explicit UA",
+        "replaced removed Network.set_attr unit configuration with units.set_defaults",
+        "removed obsolete TESPy Bus, Ref, design-directory, and LaTeX-report assumptions",
+        "added the previously missing PyPSA power-flow solve and voltage checks",
+        "added a real NeqSim SRK gas-heating ProcessSystem and enthalpy closure",
+        "made pygmo extraction and Schaffer examples deterministic",
+        "labelled the extraction-pressure surrogate and its detailed-design limitations",
+        "added compact equations, assumptions, interpretation, validation, and exercises",
+        "added descriptive alternative text to every retained figure output"
+      ],
+      "neqsim_capabilities_demonstrated": [
+        "SystemSrkEos dry-gas fluid construction",
+        "classic cubic-EOS mixing rule",
+        "named Stream inlet and outlet state retrieval",
+        "Heater specified-outlet-temperature operation and duty retrieval",
+        "ProcessSystem composition and execution",
+        "pressure- and composition-dependent specific enthalpy retrieval",
+        "heater outlet-temperature sensitivity",
+        "mass and enthalpy-flow closure"
+      ],
+      "practical_application": "Calculates a 2.0 MSm3/day, 60-bara natural-gas heater duty in NeqSim, calculates net power from an executed TESPy Rankine cycle, applies three heat-recovery scenarios and a COP-3 backup heat pump, and solves each resulting three-bus AC network in PyPSA.",
+      "engineering_validation": {
+        "assertions_passed": 26,
+        "assertions_failed": 0,
+        "checks": [
+          "gas composition, total mass, and enthalpy-flow duty closure",
+          "specified gas temperature and finite positive duty",
+          "monotonic gas-heater duty versus outlet temperature",
+          "initial and energy-hub PyPSA AC convergence",
+          "plausible bus-voltage bounds",
+          "TESPy district-loop convergence, positive flow, and monotonic profiles",
+          "TESPy Rankine convergence, plausible efficiency, and energy closure",
+          "monotonic Rankine pressure sensitivity",
+          "ordered bounded extraction-pressure optimum with screening improvement",
+          "complete Schaffer non-dominated population",
+          "finite integrated cases and monotonic heat-recovery benefits"
+        ],
+        "key_results": {
+          "gas_heater_duty_mw": 3.16456,
+          "gas_mass_flow_kg_per_s": 17.627254,
+          "district_mass_flow_kg_per_s": 0.07953,
+          "rankine_heat_input_mw": 31.700706,
+          "rankine_net_power_mw": 11.436484,
+          "rankine_thermal_efficiency_percent": 36.076435,
+          "rankine_energy_residual_mw": 3.858025e-15,
+          "screening_low_extraction_pressure_bara": 8.362442,
+          "screening_high_extraction_pressure_bara": 27.763595,
+          "screening_efficiency_percent": 37.958131
+        }
+      },
+      "figures": {
+        "previous_figures": 1,
+        "previous_figures_preserved": 1,
+        "numerically_refreshed_previous_figures": 1,
+        "new_figures": 7,
+        "total_retained_figures": 8,
+        "purposes": [
+          "integrated NeqSim-TESPy-PyPSA-pygmo workflow overview",
+          "three-bus AC line-flow and voltage diagram",
+          "NeqSim natural-gas heater-duty sensitivity",
+          "district-heating temperature and pressure profile",
+          "Rankine efficiency and net-power sensitivity",
+          "preserved and refreshed extraction-pressure optimization scatter",
+          "Schaffer Pareto-front comparison",
+          "integrated heat-recovery and grid-import scenarios"
+        ],
+        "visual_inspection": "Passed at original resolution after final execution. All eight figures have descriptive titles, readable labels, explicit units, appropriate legends or color scales, accessible colors, alternative text, and no clipping, overlap, blank panels, stale values, or misleading scales."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 5,
+        "inline_expressions": 13,
+        "expressions_verified": 18,
+        "renderer": "Google Colab-compatible compact $$expression$$ blocks with no whitespace touching either delimiter and single-backslash LaTeX. The complete executed notebook was exported through classic nbconvert HTML with MathJax, and all display equations were rendered separately through Matplotlib MathText in the fresh environment.",
+        "visual_inspection": "Heat balances, thermal efficiency, Schaffer objectives, and backup power rendered cleanly with dotted rates, fractions, subscripts, inequalities, roman labels, and units."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 43,
+        "maximum_code_line_length": 90,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "wildcard_imports": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "catalog_target_occurrences": 1,
+        "notebook_sha256": "ac49ba1308bcff4e45220574e091a2bce9091ce81188123e9b20028b9c6037c8",
+        "notebook_bytes": 742413
+      },
+      "links": {
+        "status": "passed",
+        "checked": [
+          "Google Colab badge target",
+          "NeqSim Python package and examples",
+          "NeqSim project documentation",
+          "PyPSA current AC power-flow example",
+          "TESPy current Rankine-cycle tutorial",
+          "pygmo user-defined-problem tutorial",
+          "front-page catalog target"
+        ]
+      },
+      "limitations": "The synthetic gas, steady thermal systems, extraction-pressure surrogate, and three-bus scenarios are educational. Detailed design requires governed fluid data, current equipment efficiencies and maps, material and moisture limits, dynamic demand, economics, emissions, and owner review.",
+      "neqsim_library_issue_detected": false,
+      "summary": "Repaired the legacy thermal-energy notebook into a current, executed NeqSim-TESPy-PyPSA-pygmo workflow. Preserved all 23 original cells, five examples, and the original extraction-pressure figure; added real NeqSim functionality, seven new visuals, compact equations, 26 engineering checks, and a reusable process-to-power energy-hub application."
     },
     {
       "path": "notebooks/excercise/Design_of_a_TEG_dehydration_process.ipynb",
