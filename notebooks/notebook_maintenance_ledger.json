@@ -5425,9 +5425,195 @@
           "NeqSim CO2 model-and-process workflow overview",
           "density versus pressure for SRK, PR, and EOS-CG",
           "heat-capacity and speed-of-sound comparison",
-          "preserved and refreshed 
-... 19159 bytes omitted ...
-reserved and integrated; no previous stored figure existed",
+          "preserved and refreshed impurity-mixture phase envelope",
+          "energy-conserving depressurization path with triple-pressure boundary",
+          "end-to-end export-conditioning flowsheet",
+          "cooler-target sensitivity for valve outlet temperature and product density"
+        ],
+        "visual_inspection": "Passed at original resolution: all seven retained figures have descriptive titles, readable labels, explicit units, legends where needed, accessible colors, correct scales and values, nearby engineering interpretation, and no clipping, overlap, or stale numerical content."
+      },
+      "key_checks": [
+        "valid nbformat notebook JSON",
+        "24 of 24 code cells executed in order with execution counts 1 through 24",
+        "zero exception outputs, error outputs, or stderr",
+        "all six original example intentions and the original video preserved and integrated",
+        "all 20 engineering assertions passed",
+        "original pure-CO2 density 64.202212 kg/m3 and PFCT viscosity 0.01656880 cP",
+        "EOS-CG low-pressure reference deviation 0.8054%",
+        "mixture critical point 29.648871 degC and 75.748319 bara",
+        "depressurization enthalpy residual below 6e-12 J and dry-ice phase detected",
+        "process mass residual 2e-25 kg/h and maximum component residual 6.247876e-28 mol/s",
+        "cooler energy residual 0 W and valve enthalpy residual 2.628863e-4 W",
+        "four independent cooler-target scenarios passed expected density and duty trends",
+        "maximum Python code line length 79 characters; no compressed teaching-code patterns",
+        "five display equations and representative inline expressions rendered and visually verified with MathJax",
+        "seven stored figures visually and numerically inspected",
+        "Colab badge, current PyPI release, authoritative NeqSim documentation, reference DOI, preserved video, and unique catalog target verified"
+      ],
+      "summary": "Modernized the incomplete CO2-properties notebook into a current NeqSim 3.16.0 engineering tutorial. Added rigorous model-selection guidance, pure and impurity-fluid properties, a refreshed phase envelope, energy-conserving depressurization and dry-ice screening, a complete export-conditioning ProcessSystem, independent sensitivity cases, 20 checks, seven inspected figures, troubleshooting, limitations, references, and exercises without removing any original example."
+    },
+    {
+      "path": "notebooks/thermodynamics/ThermoPropertyCharts.ipynb",
+      "verified_date": "2026-07-24",
+      "verified_at_utc": "2026-07-24T04:03:08Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "All 21 code cells were executed sequentially in one clean shared namespace with execution counts 1 through 21 in an isolated Python 3.12 environment containing the latest public PyPI NeqSim 3.16.0 installed with python -m pip install --upgrade --no-cache-dir neqsim. Package metadata confirmed a normal non-editable PyPI installation with no local checkout, unpublished wheel, or manually injected JAR.",
+      "code_cells": 21,
+      "markdown_cells": 23,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "pre_existing_examples_preserved": 10,
+      "preservation_note": "Preserved and integrated all ten original engineering example groups: reproducible base state; temperature isobars; pressure isotherms; finite-difference heat-capacity identity; hydrocarbon phase envelope; phase-aware property grid; ideal PS compression and cooling path; PH throttle path; interpolated dew-temperature margin; and the four-panel property/process chart with its original acceptance checks. Setup and helper functions were retained while the narrative was expanded around the existing calculation order.",
+      "pre_existing_figures_preserved": 1,
+      "figure_preservation_note": "The original four-panel figure was retained with its recognizable isobaric-enthalpy, real-gas Z, phase-aware P-T, and P-h process panels. All underlying values were recomputed with NeqSim 3.16.0. Three new technical figures were added; no previous visual was deleted, merged, hidden, or left numerically stale.",
+      "neqsim_capabilities_demonstrated": [
+        "SystemSrkEos construction, classic mixing rule, multiphase checking, property initialization, and SI-unit retrieval",
+        "TP, PS, and PH flashes; phase-envelope calculation; density, enthalpy, entropy, heat capacity, compressibility, and phase fraction retrieval",
+        "Stream, Compressor, Cooler, ThrottlingValve, Separator, and ProcessSystem composition and steady-state execution",
+        "fresh-object aftercooler sensitivity and total mass, component, compressor-energy, cooler-energy, and valve-enthalpy audits"
+      ],
+      "practical_application": "A reusable rich-gas workflow builds the documented SRK fluid at 100 degC, 20 bara, and 10000 kg/h; compresses it to 100 bara at 78% isentropic efficiency; cools it; throttles it to 40 bara; separates gas and liquid; maps every equipment outlet on P-h and T-s charts; and reruns six independent aftercooler scenarios.",
+      "retained_figures": {
+        "count": 4,
+        "previous_count": 1,
+        "new_count": 3,
+        "numerically_refreshed_previous_count": 1,
+        "purposes": [
+          "new fluid-to-flash-to-connected-equipment-to-validation workflow overview",
+          "preserved and numerically refreshed four-panel isobar, isotherm, phase-aware P-T, and P-h property chart",
+          "new connected compressor-cooler-valve process path on P-h and T-s coordinates",
+          "new aftercooler-temperature sensitivity for liquid recovery and cooling magnitude"
+        ],
+        "visual_inspection": "Passed after the final full execution. All four stored PNG figures were extracted and inspected at original resolution for descriptive titles, readable labels, explicit units, legends or color scale, accessible colors, correct values and scales, clipping, overlap, and agreement with stored tables and nearby interpretation. The compressor-outlet annotation was moved inside the T-s plot before the final rerun."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 21 executed code cells and 23 Markdown cells",
+        "all cells executed in order with counts 1 through 21, zero exceptions, zero error outputs, and zero stderr",
+        "all ten original engineering examples and the original four-panel figure were preserved and numerically refreshed",
+        "all 23 preserved property-chart assertions and 14 new integrated-process assertions passed",
+        "base compressor power was 933.053692 kW, aftercooler duty was -1847.546546 kW, separator gas was 7730.999004 kg/h, and separator liquid was 2269.000996 kg/h",
+        "base total-mass residual was 1.364e-12 kg/h and maximum component residual was 8.438e-15 mol/s",
+        "compressor energy relative residual was -1.248e-16, cooler energy residual was zero, and valve specific-enthalpy residual was 3.604e-05 J/kg",
+        "all six independent aftercooler scenarios closed mass below 1e-3 kg/h and liquid production decreased monotonically as aftercooler temperature increased",
+        "maximum code-line length was 83 characters with no magics, wildcard imports, semicolons, one-line compound bodies, or compressed teaching code",
+        "all nine display equations and representative inline expressions used Colab-safe delimiters and single-backslash LaTeX; fractions, derivatives, subscripts, overdots, and units rendered through MathJax and passed visual inspection",
+        "all four stored figures passed visual and numerical inspection after the final rerun",
+        "the Colab badge, all authoritative NeqSim references, the changed catalog label, and the unique catalog target were verified on 2026-07-24"
+      ],
+      "summary": "Completed the unverified property-chart tutorial without removing any original example or visual. Added current composable NeqSim process functionality, a realistic compression-cooling-throttling-separation application, fresh-case sensitivity, conservation and energy audits, three additional inspected figures, rendered equations, troubleshooting, limitations, references, and exercises."
+    },
+    {
+      "path": "notebooks/thermodynamics/EOSCG_vs_GERG2008.ipynb",
+      "verified_date": "2026-07-24",
+      "verified_at_utc": "2026-07-24T04:34:47Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "All 20 code cells were executed sequentially in one clean shared namespace with execution counts 1 through 20 in an isolated Python 3.12 environment containing the latest public PyPI NeqSim 3.16.0 installed with python -m pip install --upgrade --no-cache-dir neqsim. Package metadata confirmed a normal non-editable PyPI installation with no local checkout, unpublished wheel, or manually injected JAR.",
+      "code_cells": 20,
+      "markdown_cells": 23,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "pre_existing_examples_preserved": 2,
+      "preservation_note": "Preserved and integrated both original teaching examples: the 90 mol% CO2 and 10 mol% nitrogen density comparison at 298.15 K and 100 bara, and the GERG-2008 versus EOS-CG natural-gas phase-envelope comparison. Replaced the unexecuted phase-envelope pseudocode and catch-all exception with 1150 explicit TP flashes, finite-grid phase classification, stored results, and validation while retaining the original composition and engineering intent.",
+      "pre_existing_figures_preserved": 0,
+      "figure_preservation_note": "The original notebook contained no executed technical plot or other substantive figure. Five new figures were generated from the executed calculations and retained.",
+      "neqsim_capabilities_demonstrated": [
+        "SystemGERG2008Eos and SystemEOSCGEos construction with common-component natural-gas and CO2-rich fluids",
+        "ThermodynamicOperations TPflash, phase counting, equilibrium bulk density, phase density, compressibility, heat capacity, and viscosity retrieval",
+        "independent temperature-pressure phase screening with fresh fluid objects",
+        "SystemSrkEos, Stream, Compressor, Cooler, Separator, and ProcessSystem composition and execution",
+        "reference-EOS auditing at process states and independent fresh-case discharge-pressure sensitivity",
+        "overall mass, component, compressor-energy, finiteness, phase-classification, and trend validation"
+      ],
+      "practical_application": "A reusable CO2-conditioning workflow builds a 95 mol% CO2 SRK fluid at 60 bara, 25 degC, and 100000 kg/h; connects Stream, Compressor, Cooler, Separator, and ProcessSystem objects; compresses to 110 bara at 78% isentropic efficiency; cools to 35 degC; retrieves and audits process results; rebuilds each process state with GERG-2008 and EOS-CG; identifies the reference-EOS two-phase screen at the aftercooler; and reruns five fresh discharge-pressure scenarios.",
+      "retained_figures": {
+        "count": 5,
+        "previous_count": 0,
+        "new_count": 5,
+        "numerically_refreshed_previous_count": 0,
+        "purposes": [
+          "CO2 and nitrogen equilibrium bulk-density comparison from 20 to 200 bara",
+          "side-by-side GERG-2008 and EOS-CG TP-flash phase-region maps",
+          "fluid-to-compressor-to-cooler-to-separator workflow and audit-point overview",
+          "reference bulk density and phase-0 compressibility along the conditioning path",
+          "compressor-power and aftercooler-density discharge-pressure sensitivity"
+        ],
+        "visual_inspection": "Passed after the final full execution. All five stored PNG figures were extracted and inspected at original resolution for descriptive titles, readable labels, explicit units, legends or color scale, accessible colors, correct values and scales, clipping, overlap, and agreement with stored tables and nearby engineering interpretation."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 20 executed code cells and 23 Markdown cells",
+        "all cells executed in order with counts 1 through 20, zero exceptions, zero error outputs, and zero stderr",
+        "both original engineering examples were preserved and repaired; the original contained no figure to preserve",
+        "original phase-0 density was 212.109541 kg/m3 and equilibrium bulk density was 534.586496 kg/m3 for both models at 298.15 K and 100 bara",
+        "both 23 by 25 phase maps contained 263 two-phase points with zero model-classification mismatches",
+        "base compressor power was 0.875400 MW, discharge temperature was 77.836640 degC, and aftercooler duty was -3.988855 MW",
+        "overall mass residual was -2.0e-25 kg/h, maximum component residual was 9.73e-26 kg/h, and compressor-energy residual was 0 W",
+        "all five fresh pressure scenarios passed monotonic power and equilibrium bulk-density checks; the reference flashes identified two phases at 95 and 110 bara at 35 degC",
+        "maximum code-line length was 84 characters with no magics, wildcard imports, semicolons, one-line compound bodies, or compressed teaching code",
+        "all seven display equations used Colab-safe delimiters and single-backslash LaTeX; fractions, partial derivatives, subscripts, Greek symbols, and overdots rendered through MathJax and passed visual inspection",
+        "all five stored figures passed visual and numerical inspection after the final rerun",
+        "the Colab badge, latest PyPI release, authoritative NeqSim documentation, literature DOI links, and unique catalog target were verified on 2026-07-24"
+      ],
+      "summary": "Rebuilt the seven-cell, unexecuted EOS-CG versus GERG-2008 draft as a current NeqSim 3.16.0 engineering tutorial. Preserved both original examples, replaced phase-envelope pseudocode with an executed phase screen, distinguished equilibrium bulk from phase-specific properties, added a complete CO2 conditioning and reference-audit workflow, five fresh pressure scenarios, conservation and energy checks, five inspected figures, rendered equations, troubleshooting, limitations, references, and exercises."
+    },
+    {
+      "path": "notebooks/process/demo_field_process_model.ipynb",
+      "verified_date": "2026-07-24",
+      "verified_at_utc": "2026-07-24T05:09:21Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "All 24 code cells were executed sequentially in one clean shared namespace with execution counts 1 through 24 in an isolated Python 3.12 environment containing the latest public PyPI NeqSim 3.16.0, originally installed with python -m pip install --upgrade --no-cache-dir neqsim. Package metadata confirmed a normal non-editable PyPI installation with no local checkout, unpublished wheel, or manually injected JAR.",
+      "code_cells": 24,
+      "markdown_cells": 31,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "this atomic commit"
+      },
+      "pre_existing_examples_preserved": 11,
+      "preservation_note": "Preserved and integrated all eleven original teaching intentions: structured field inputs, process-data ingestion, fluid creation, well-stream construction, staged separation, flash-gas recompression, gas injection, full-process composition, valve checks, mass-balance reporting, machine-readable result export, and the process-flow-diagram intent. The inaccessible site workbook and private data were replaced by an explicit synthetic assay, while every useful engineering objective remained operational.",
+      "pre_existing_figures_preserved": 0,
+      "figure_preservation_note": "The original notebook contained Graphviz code but no executed or stored substantive visual output. Its flowsheet-visualization intent was preserved in a new inline process diagram, and four additional technical figures were added. No previous figure was deleted, merged, hidden, or left numerically stale.",
+      "neqsim_capabilities_demonstrated": [
+        "fluid_df construction of an SRK rich field fluid with native components and characterized C7, C8, C10, and C12 fractions",
+        "TPflash, multiphase checking, property initialization, density, molar-mass, composition, and component-flow retrieval",
+        "Stream, ThrottlingValve, Heater, Separator, Pump, Cooler, Mixer, Compressor, Splitter, and ProcessSystem composition",
+        "three-stage oil stabilization and two-stage flash-gas recompression with explicit compressor efficiencies",
+        "export and injection gas routing, named-unit retrieval, machine-readable JSON export, and fresh-object scenario studies",
+        "total mass, 14-component, valve-pressure, state-finiteness, power, split, throughput, and trend validation"
+      ],
+      "practical_application": "A reusable end-to-end field workflow builds the documented synthetic fluid at 80 bara, 70 degC, and 75000 kg/h; connects 28 process units; stabilizes oil through HP, MP, and LP separation; recompresses flash gas; scrubs treated gas; splits it between 110 bara export and 160 bara injection services; retrieves products and duties; closes total and component balances; evaluates five injection fractions and five throughputs with fresh flowsheets; selects the lowest-power evaluated case meeting a 3500 kg/h injection requirement; and exports a JSON design snapshot.",
+      "retained_figures": {
+        "count": 5,
+        "previous_count": 0,
+        "new_count": 5,
+        "numerically_refreshed_previous_count": 0,
+        "purposes": [
+          "field-process workflow overview from synthetic well stream through stabilization, recompression, and gas routing",
+          "three-stage released-gas, liquid-outlet, and pressure profile",
+          "base-case compressor power allocation",
+          "injection-fraction sensitivity for export gas, injection gas, and total compressor power",
+          "field-throughput sensitivity for gas products and total compressor power"
+        ],
+        "visual_inspection": "Passed after the final full execution. All five stored PNG figures were extracted and inspected at original resolution for descriptive titles, readable labels, explicit units, legends, accessible colors, correct values and scales, clipping, overlap, and agreement with tables and nearby interpretation."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 24 executed code cells and 31 Markdown cells",
+        "all cells executed in order with counts 1 through 24, zero exceptions, zero error outputs, and zero stderr",
+        "all eleven original teaching intentions were preserved and integrated; no previous stored figure existed",
         "feed TP-flash bulk density 301.946438 kg/m3 and molar mass 0.05864445 kg/mol were finite and physically bounded",
         "base products were 57640.100885 kg/h export oil, 12139.333233 kg/h export gas, and 4046.444411 kg/h injection gas",
         "base total compressor power was 0.693846 MW",
