@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-28T00:32:59Z",
+  "updated_at": "2026-07-28T01:06:00Z",
   "notebooks": [
     {
       "path": "notebooks/process/neqsim_compressor_capacity_bottleneck_optimization.ipynb",
@@ -11633,6 +11633,123 @@
         "mode": "atomic connector-backed direct publication",
         "commit": "the direct master commit containing this entry"
       }
+    },
+    {
+      "path": "notebooks/standards/norsokP0002.ipynb",
+      "verified_date": "2026-07-28",
+      "verified_at_utc": "2026-07-28T01:06:00Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-norsok-p002-20260728-0249 --neqsim-version latest --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260728T005320Z-f98378b0d6a5",
+        "verified_public_pypi_wheels": 49,
+        "manifest_created_at_utc": "2026-07-28T00:53:20Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, and toolchain verification passed."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 18 code cells sequentially from an empty in-process Python namespace using the fresh bootstrap environment. Stored tables and six PNG figures; zero error outputs and zero stderr.",
+      "code_cells": 18,
+      "substantive_code_cells": 18,
+      "markdown_cells": 80,
+      "publication": {
+        "branch": "master",
+        "mode": "direct atomic connector-backed fast-forward commit",
+        "commit": "the commit containing this ledger entry",
+        "files": [
+          "notebooks/standards/norsokP0002.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "preservation": {
+        "pre_existing_cells": 60,
+        "preserved_cells": 60,
+        "pre_existing_markdown_notes": 58,
+        "preserved_markdown_notes": 58,
+        "pre_existing_substantive_examples": 0,
+        "preserved_substantive_examples": 0,
+        "pre_existing_figures": 0,
+        "preserved_figures": 0,
+        "repairs": "Preserved every original standards note and heading. Replaced the obsolete NeqSim 2.5.35 installation pin with a conditional current public-PyPI setup and filled the original empty code cell with final engineering assertions. No original cell, note, figure, example, or intended topic was removed."
+      },
+      "neqsim_capabilities_demonstrated": [
+        "SystemSrkEos wet-gas fluid construction",
+        "classic cubic-EOS mixing rule and multiphase checking",
+        "connected Stream and ThrottlingValve calculation",
+        "three-phase separator gas, oil, and water outlets",
+        "compressor pressure and isentropic-efficiency specification",
+        "aftercooler temperature and duty calculation",
+        "ProcessSystem sequential execution",
+        "density, viscosity, actual volume, mass-flow, and phase retrieval",
+        "independent flow-rate and export-pressure scenario execution"
+      ],
+      "practical_application": "Screens a 2.5 MSm3/day wet-gas facility from 70 bara through a 45-bara inlet valve and three-phase separator, then compresses gas to 100 bara and cools it to 35 degC. NeqSim results drive design-pressure, gas-line, flare-momentum, separator-capacity, energy, and 12-case production/export-pressure evaluations.",
+      "engineering_validation": {
+        "assertions_passed": 11,
+        "assertions_failed": 0,
+        "checks": [
+          "feed composition sums to 100 mol",
+          "three-phase process mass residual is below 1e-5 relative",
+          "compressor power is positive",
+          "aftercooler duty is negative under the NeqSim sign convention",
+          "the separator removes a finite water stream",
+          "screened design pressure exceeds maximum operating pressure",
+          "a gas-line candidate meets velocity and pressure-loss screens",
+          "a flare diameter meets the retained rho-v-squared screen",
+          "the separator screening diameter is finite",
+          "compressor power rises monotonically with flow",
+          "compressor power rises monotonically with export pressure",
+          "valid nbformat JSON and sequential execution",
+          "all 60 original cells and all 58 original notes are preserved",
+          "readable code, catalog target, equations, and figures verified"
+        ],
+        "key_results": {
+          "feed_mass_flow_kg_per_h": 85805.45225582078,
+          "compressor_power_mw": 3.011030495764755,
+          "cooler_duty_mw": -3.8442747781564055,
+          "compressor_discharge_temperature_c": 93.19685152699782,
+          "relative_process_mass_residual": 2.158717486366976e-06,
+          "screened_design_pressure_barg": 107.40062375,
+          "candidate_gas_line_internal_diameter_m": 0.2,
+          "candidate_flare_internal_diameter_m": 0.25,
+          "screened_separator_internal_diameter_m": 1.47829
+        }
+      },
+      "figures": {
+        "previous_figures": 0,
+        "previous_figures_refreshed": 0,
+        "new_figures": 6,
+        "total_retained_figures": 6,
+        "purposes": [
+          "piecewise design-pressure screening envelope",
+          "NeqSim process and design-screening workflow",
+          "gas-line velocity and pressure-drop diameter comparison",
+          "flare-header rho-v-squared diameter screen",
+          "separator gas-capacity and liquid-holdup sensitivity",
+          "compressor power and discharge-temperature scenario results"
+        ],
+        "inspection_result": "Passed visual inspection for titles, labels, SI units, legends, accessible colors, scales, overlap, and clipping."
+      },
+      "equations": {
+        "expressions_verified": 33,
+        "source_validation": "Balanced dollar delimiters, standalone display blocks, single-backslash commands, and no obsolete delimiters.",
+        "rendering_validation": "All expressions rendered with Matplotlib MathText using the fresh Jupyter-compatible validation environment and were visually inspected for fractions, subscripts, superscripts, Greek symbols, and units."
+      },
+      "code_readability": {
+        "maximum_line_length": 77,
+        "semicolon_chains": 0,
+        "inline_compound_bodies": 0,
+        "result": "passed after complete clean re-execution"
+      },
+      "catalog": {
+        "path": "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+        "target_link_count": 1,
+        "section": "NORSOK standards"
+      },
+      "summary": "Converted a standards-note placeholder into an executable P-002 early-design tutorial while preserving all original material. Added a realistic NeqSim process, design basis, hydraulics, flare, separator, energy, sensitivity, decision, troubleshooting, limitations, exercises, and authoritative references."
     }
   ]
 }
