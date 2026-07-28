@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-28T17:11:55.049Z",
+  "updated_at": "2026-07-28T18:38:00Z",
   "notebooks": [
     {
       "path": "notebooks/process/neqsim_compressor_capacity_bottleneck_optimization.ipynb",
@@ -9973,7 +9973,7 @@
         ],
         "key_results": {
           "base_density_kg_m3": 570.006377876671,
-          "base_compressibility_per_pa": 2.1655529052373874e-9,
+          "base_compressibility_per_pa": 2.1655529052373874e-09,
           "base_expansivity_per_k": 0.001976120843848179,
           "base_heat_capacity_j_kg_k": 2171.313809970754,
           "original_linear_final_pressure_bara": 760.0625287602811,
@@ -11711,7 +11711,7 @@
           "compressor_power_mw": 3.011030495764755,
           "cooler_duty_mw": -3.8442747781564055,
           "compressor_discharge_temperature_c": 93.19685152699782,
-          "relative_process_mass_residual": 0.000002158717486366976,
+          "relative_process_mass_residual": 2.158717486366976e-06,
           "screened_design_pressure_barg": 107.40062375,
           "candidate_gas_line_internal_diameter_m": 0.2,
           "candidate_flare_internal_diameter_m": 0.25,
@@ -12220,9 +12220,9 @@
           "native_absorber_water_kg_per_million_sm3": 106.3874,
           "native_absorber_water_mol_ppm": 139.6321,
           "water_removed_from_gas_kg_per_h": 36.6652,
-          "total_mass_residual_relative": 0.000005286667161594575,
+          "total_mass_residual_relative": 5.286667161594575e-06,
           "water_mass_residual_relative": 0.00012014039247431167,
-          "maximum_scenario_mass_residual_relative": 0.00000680488359078756
+          "maximum_scenario_mass_residual_relative": 6.80488359078756e-06
         }
       },
       "figures": {
@@ -12824,7 +12824,7 @@
           "phase_mass_closure_percent": 1.79057e-12,
           "gas_actual_flow_m3_per_s": 0.375891,
           "gas_density_kg_per_m3": 59.7189,
-          "gas_dynamic_viscosity_pa_s": 0.0000135574,
+          "gas_dynamic_viscosity_pa_s": 1.35574e-05,
           "inlet_reynolds_number": 6916590,
           "gas_sound_speed_m_per_s": 379.438,
           "cad_gas_space_volume_m3": 29.5022,
@@ -13341,7 +13341,7 @@
         "key_results": {
           "process_safety_time_s": 90.262008,
           "hipps_pfdavg": 0.0008143296,
-          "residual_frequency_per_year": 8.143296e-7,
+          "residual_frequency_per_year": 8.143296e-07,
           "achieved_sil": 3,
           "healthy_total_response_s": 8.1,
           "healthy_peak_pressure_bara": 82.839062,
@@ -13632,14 +13632,14 @@
         "assertions_passed": 13,
         "assertions_failed": 0,
         "key_results": {
-          "base_temperature_degC": 50,
-          "base_pressure_bar": 150,
-          "asphaltene_molecular_weight_g_per_mol": 750,
+          "base_temperature_degC": 50.0,
+          "base_pressure_bar": 150.0,
+          "asphaltene_molecular_weight_g_per_mol": 750.0,
           "asphaltene_critical_temperature_K": 996.121998,
           "asphaltene_critical_pressure_bar": 16.263452,
           "asphaltene_acentric_factor": 2.5,
           "base_asphaltene_rich_phase_beta": 0.1128944232,
-          "phase_fraction_sum": 1,
+          "phase_fraction_sum": 1.0,
           "maximum_component_residual": 2.531e-14
         },
         "checks": [
@@ -13698,6 +13698,162 @@
       "limitations": "Synthetic data and untuned pseudo-component properties are for training only. Equilibrium phase split does not predict aggregation, transport, surface deposition, or production impact. Nearby phase topology must be validated against laboratory data.",
       "neqsim_library_issue_detected": false,
       "summary": "Repaired the unexecuted asphaltene tutorial into a phase-aware Pedersen SRK/CPA workflow with preserved screening, depletion, tuning, and TBP examples; complete closure checks; seven inspected figures; and 33 rendered equations."
+    },
+    {
+      "path": "notebooks/process/allocationoilandgas2.ipynb",
+      "verified_date": "2026-07-28",
+      "verified_at_utc": "2026-07-28T18:38:00Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-allocation-links-20260728t2034 --neqsim-version latest --refresh --extra-package nbclient --extra-package ipykernel --extra-package nbconvert",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260728T183658Z-d86b43514f47",
+        "verified_public_pypi_wheels": 66,
+        "manifest_created_at_utc": "2026-07-28T18:36:58Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, and toolchain verification passed."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 40 code cells sequentially from an empty in-process Python namespace because the sandbox blocks Jupyter transport sockets. Stored tables, eight PNG figures, and the original video preview; zero error outputs and zero stderr streams.",
+      "code_cells": 40,
+      "markdown_cells": 24,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic connector-backed fast-forward commit",
+        "commit": "the direct master commit containing this ledger entry",
+        "files": [
+          "notebooks/process/allocationoilandgas2.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "preservation": {
+        "pre_repair_cells": 47,
+        "cells_preserved": 47,
+        "pre_repair_code_cells": 30,
+        "code_cells_preserved": 30,
+        "pre_repair_markdown_cells": 17,
+        "markdown_cells_preserved": 17,
+        "substantive_examples_preserved": 8,
+        "examples": [
+          "single-well separation, recompression, and component oil recovery",
+          "second commingled well through the shared process",
+          "component K-value inspection",
+          "explicit well-origin component tagging and renaming",
+          "binary-interaction-parameter matrix inspection",
+          "well-rate allocation sensitivity",
+          "Well B routing to the second-stage separator",
+          "Eclipse 300 fluid-input allocation case"
+        ],
+        "integration": "All original examples retain their intent and order, share one documented process builder, and are connected to the final native multi-method custody-allocation workflow."
+      },
+      "repairs_made": [
+        "replaced the obsolete NeqSim 3.0.15 pin with a public-PyPI Colab setup",
+        "removed wildcard imports, semicolon chains, and compressed code",
+        "corrected the second export-cooler connection to compressor stage 2",
+        "made phase, stream, custody, and unit assumptions explicit",
+        "replaced the unavailable eclipsefluid.E300 input with synthetic E300 files written and read by NeqSim",
+        "used the producing separator oil outlet as the native oil custody boundary so the all-in allocation network has correct equipment identity",
+        "added closure, bounded-recovery, BIP, routing, E300, and allocation checks"
+      ],
+      "neqsim_capabilities_demonstrated": [
+        "Peng-Robinson fluid construction and heavy-end characterization",
+        "three-stage separation with gas recompression and two-stage export compression",
+        "oil pumping, recycle mixing, cricondenbar, and TVP calculations",
+        "component oil-recovery factors and K-values",
+        "explicit source-component tagging and binary-interaction inspection",
+        "EclipseFluidReadWrite E300 export and import",
+        "native SourceAllocator and MultiMethodAllocator",
+        "component-ratio, all-in network, and stand-alone allocation methods",
+        "AllocationComparison recommendation and JSON reporting"
+      ],
+      "practical_application": "Builds two synthetic wells, runs a 75/8.6/1.9 bara separation and recompression train, calculates export-gas and stabilized-oil custody products, tests routing and rate changes, round-trips E300 fluid files, and back-allocates both custody products to the wells with three native NeqSim methods.",
+      "engineering_validation": {
+        "assertions_passed": 22,
+        "assertions_failed": 0,
+        "checks": [
+          "NeqSim version recorded",
+          "finite single-well gas and oil products",
+          "positive produced water in the saturated single-well case",
+          "finite base-case gas and oil products",
+          "200 bara export pressure reached",
+          "bounded component oil-recovery factors",
+          "heavy-component recovery exceeds methane recovery",
+          "positive finite K-values",
+          "explicitly tagged source mass closes",
+          "symmetric BIP matrix with zero diagonal",
+          "finite rate-sensitivity results",
+          "tie-in routing changes gas export",
+          "E300 component count and both molar masses preserved",
+          "all three native allocation methods returned",
+          "native allocation residual below tolerance",
+          "hydrocarbon process mass closure",
+          "custody allocation closure"
+        ],
+        "key_results": {
+          "single_well_export_gas_million_sm3_per_day": 8.993672,
+          "single_well_stable_oil_m3_per_hour": 401.957416,
+          "single_well_produced_water_kg_per_hour": 30798.450851,
+          "base_export_gas_million_sm3_per_day": 12.915033,
+          "base_stable_oil_m3_per_hour": 845.517903,
+          "base_export_compressor_power_MW": 17.684802,
+          "base_oil_tvp_bara_at_30_degC": 0.985923,
+          "base_gas_cricondenbar_bara": 93.195259,
+          "well_a_allocated_export_gas_kg_per_hour": 292102.22936,
+          "well_a_allocated_export_oil_kg_per_hour": 327791.024082,
+          "well_b_allocated_export_gas_kg_per_hour": 140595.398946,
+          "well_b_allocated_export_oil_kg_per_hour": 362950.014308,
+          "recommended_method": "COMPONENT_RATIO",
+          "process_relative_mass_residual": 6.016e-08,
+          "custody_allocation_residual": 0.0
+        }
+      },
+      "figures": {
+        "previous_visuals": 2,
+        "previous_visuals_preserved": 2,
+        "numerically_refreshed_previous_figures": 1,
+        "new_figures": 7,
+        "total_retained_figures": 8,
+        "retained_video_previews": 1,
+        "purposes": [
+          "integrated well-to-custody process architecture",
+          "single-well component oil recovery",
+          "tagged-component binary-interaction matrix",
+          "commingled-well rate sensitivity",
+          "first-stage versus second-stage tie-in oil recovery",
+          "E300 round-trip property agreement",
+          "recommended custody allocation by source and product",
+          "three-method allocation comparison"
+        ],
+        "visual_inspection": "Passed at original resolution after final execution. All eight figures have readable titles, labels, explicit units, legends or color scales, accessible colors, and no clipping or material overlap. The original video preview is also retained."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 5,
+        "inline_expressions": 13,
+        "expressions_verified": 18,
+        "renderer": "Google Colab-safe standalone display blocks and single-backslash LaTeX rendered through Matplotlib MathText, with the complete notebook also exported through nbconvert HTML.",
+        "visual_inspection": "All 18 expressions rendered correctly, including fractions, dotted mass flows, summations, vectors, subscripts, and units."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 64,
+        "maximum_code_line_length": 79,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "catalog_target_occurrences": 1,
+        "notebook_sha256": "7568aaf87d1703e7ffb7282f3265c36aa81851b7f8da81ab3a79d469785a478b",
+        "notebook_bytes": 751332
+      },
+      "limitations": "Synthetic fluids and well rates are for training. Real fiscal or commercial use requires governed meter data, laboratory PVT, contract rules, uncertainty propagation, audit controls, and approved reconciliation procedures.",
+      "neqsim_library_issue_detected": false,
+      "summary": "Repaired the production-allocation tutorial into an executed two-well facility workflow with preserved examples, native three-method custody allocation, self-contained E300 fluids, closure checks, eight inspected figures, and 18 rendered equations."
     }
   ]
 }
