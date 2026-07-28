@@ -36,6 +36,44 @@
         "https://github.com/equinor/neqsim/issues/2657"
       ],
       "notes": "Public-data engineering study with synthetic representative compositions, assumed recovery factors, capacities, availability, and economics; not operator data or an operational nomination model."
+    },
+    {
+      "notebook": "notebooks/process/RL_Process_Control.ipynb",
+      "date": "2026-07-28",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "verified_public_pypi_wheels": 93,
+        "manifest_created_at_utc": "2026-07-28T21:40:22Z"
+      },
+      "execution": {
+        "code_cells": 16,
+        "unexecuted_code_cells": 0,
+        "error_outputs": 0,
+        "stderr_outputs": 0,
+        "stored_outputs": true,
+        "engineering_checks_passed": 22
+      },
+      "static_check": "PASS",
+      "render_review": {
+        "html_renderer": "nbconvert 7.17 JupyterLab template",
+        "figures_reviewed": 5,
+        "display_equations_checked": 7,
+        "inline_expressions_checked": 13,
+        "compact_display_delimiters": true,
+        "result": "PASS"
+      },
+      "validation": [
+        "all seven display equations use compact $$expression$$ delimiters",
+        "no whitespace touches the opening or closing display-math delimiters",
+        "all 20 mathematical expressions render correctly",
+        "all five regenerated figures pass visual inspection",
+        "all 22 engineering assertions pass",
+        "all 16 code cells execute with no stored errors or stderr"
+      ],
+      "notes": "Markdown-only equation-delimiter repair; calculations and engineering results are preserved."
     }
   ]
 }
