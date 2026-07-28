@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-28T07:48:25Z",
+  "updated_at": "2026-07-28T15:16:56Z",
   "notebooks": [
     {
       "path": "notebooks/process/neqsim_compressor_capacity_bottleneck_optimization.ipynb",
@@ -9973,7 +9973,7 @@
         ],
         "key_results": {
           "base_density_kg_m3": 570.006377876671,
-          "base_compressibility_per_pa": 2.1655529052373874e-09,
+          "base_compressibility_per_pa": 2.1655529052373874e-9,
           "base_expansivity_per_k": 0.001976120843848179,
           "base_heat_capacity_j_kg_k": 2171.313809970754,
           "original_linear_final_pressure_bara": 760.0625287602811,
@@ -11514,9 +11514,9 @@
         "key_results": {
           "hydrate_temperature_150_bara_c": 21.976059918952274,
           "hydrate_temperature_90_bara_c": 19.661828056184106,
-          "arrival_temperature_c": 6.0,
+          "arrival_temperature_c": 6,
           "uninhibited_arrival_margin_k": -13.661828056184106,
-          "minimum_screened_meg_mol_percent": 20.0,
+          "minimum_screened_meg_mol_percent": 20,
           "base_cooler_duty_kw": -276.433225873617,
           "relative_process_mass_residual": 1.9091828878988374e-16
         }
@@ -11711,7 +11711,7 @@
           "compressor_power_mw": 3.011030495764755,
           "cooler_duty_mw": -3.8442747781564055,
           "compressor_discharge_temperature_c": 93.19685152699782,
-          "relative_process_mass_residual": 2.158717486366976e-06,
+          "relative_process_mass_residual": 0.000002158717486366976,
           "screened_design_pressure_barg": 107.40062375,
           "candidate_gas_line_internal_diameter_m": 0.2,
           "candidate_flare_internal_diameter_m": 0.25,
@@ -11827,7 +11827,7 @@
           "base_water_outlet_kg_per_h": 43477.36,
           "relative_process_mass_residual": 5.220954e-14,
           "minimum_screened_total_btex_mg_per_kg": 41.10386,
-          "minimum_btex_pressure_bara": 1.0,
+          "minimum_btex_pressure_bara": 1,
           "minimum_btex_water_load_kg_per_day": 40.94899,
           "native_hydrocyclone_feed_m3_per_h": 45.644934,
           "native_hydrocyclone_active_liners": 10,
@@ -11954,7 +11954,7 @@
         "key_results": {
           "base_feed_mass_flow_kg_per_h": 170819.17483382375,
           "base_export_gas_million_sm3_per_day": 5.000000000000001,
-          "base_export_pressure_bara": 155.0,
+          "base_export_pressure_bara": 155,
           "base_compressor_power_mw": 6.923403328480437,
           "base_cooler_duty_mw": -11.753754821642897,
           "native_process_total_project_cost_usd": 18958346.0027132,
@@ -12092,7 +12092,7 @@
           "formation_1_pressure_2015_bara": 188.544884,
           "formation_2_pressure_2015_bara": 171.942956,
           "gas_product_2015_million_sm3_per_day": 3.991287,
-          "oil_product_2015_kg_per_day": 11258190.0,
+          "oil_product_2015_kg_per_day": 11258190,
           "late_life_500m_elevation_pressure_drop_bar": 26.74089
         }
       },
@@ -12220,9 +12220,9 @@
           "native_absorber_water_kg_per_million_sm3": 106.3874,
           "native_absorber_water_mol_ppm": 139.6321,
           "water_removed_from_gas_kg_per_h": 36.6652,
-          "total_mass_residual_relative": 5.286667161594575e-06,
+          "total_mass_residual_relative": 0.000005286667161594575,
           "water_mass_residual_relative": 0.00012014039247431167,
-          "maximum_scenario_mass_residual_relative": 6.80488359078756e-06
+          "maximum_scenario_mass_residual_relative": 0.00000680488359078756
         }
       },
       "figures": {
@@ -12337,7 +12337,7 @@
           "operating_rate_million_sm3_per_day": 3.329307,
           "operating_bottom_hole_pressure_bara": 144.511799,
           "integrated_wellsystem_rate_million_sm3_per_day": 3.328613,
-          "independent_pressure_residual_bar": 0.0,
+          "independent_pressure_residual_bar": 0,
           "independent_rate_bracket_million_sm3_per_day": 1.776357e-15,
           "vfpprod_flow_points": 10,
           "vfpprod_thp_points": 5,
@@ -12349,7 +12349,7 @@
             1
           ],
           "vfpprod_table_number": 11,
-          "vfpprod_datum_depth_m": 2800.0
+          "vfpprod_datum_depth_m": 2800
         }
       },
       "figures": {
@@ -12384,6 +12384,856 @@
         "catalog_target_occurrences": 1
       },
       "summary": "Added an executed, self-contained well nodal-analysis tutorial that makes the IPR-VLP crossing explicit and reuses the calculated lift surface for ECLIPSE VFPPROD export. It complements the existing detailed Beggs-Brill well tutorial rather than replacing it."
+    },
+    {
+      "path": "notebooks/fluidflow/neqsim_cadquery_gmsh_openfoam_workflow.ipynb",
+      "verified_date": "2026-07-28",
+      "verified_at_utc": "2026-07-28T12:33:57.071Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "environment_resolution": {
+        "mode": "clean pinned workflow validation",
+        "bootstrap": "Notebook setup uses pinned public PyPI packages and OpenFOAM Foundation 14; validation used the same versions in an isolated Python environment with a locally extracted OpenFOAM package.",
+        "integrity": "Pinned imports, reported versions, generated artifacts, mesh conversion, solver execution, and stored notebook outputs passed."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 15 code cells sequentially from an empty in-process Python namespace because the validation sandbox blocks Jupyter kernel TCP sockets. Stored tables and four PNG figures; zero error outputs and zero stderr.",
+      "code_cells": 15,
+      "substantive_code_cells": 14,
+      "markdown_cells": 18,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "the direct master commit containing this ledger entry",
+        "files": [
+          "notebooks/fluidflow/neqsim_cadquery_gmsh_openfoam_workflow.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "source_basis": {
+        "neqsim": "https://github.com/equinor/neqsim",
+        "cadquery": "https://cadquery.readthedocs.io/",
+        "gmsh": "https://gmsh.info/doc/texinfo/gmsh.html",
+        "openfoam": "https://openfoam.org/version/14/"
+      },
+      "neqsim_capabilities_demonstrated": [
+        "SystemSrkEos synthetic natural-gas construction",
+        "classic cubic-EOS mixing rule and TP flash",
+        "named Stream with standard volumetric flow",
+        "gas density, viscosity, heat capacity, conductivity, and sound speed",
+        "conversion of process flow and transport properties to CFD inputs",
+        "recovery of physical pressure loss from OpenFOAM kinematic pressure"
+      ],
+      "practical_application": "Builds a synthetic 3 m contraction spool with 0.60 m inlet and 0.30 m throat, transfers a 20 bara and 298.15 K NeqSim gas stream into a three-dimensional OpenFOAM k-epsilon RANS model, and packages the STEP master, named STL boundaries, Gmsh mesh, and complete CFD case.",
+      "engineering_validation": {
+        "assertions_passed": 22,
+        "assertions_failed": 0,
+        "checks": [
+          "NeqSim state is single-phase gas with positive transport properties",
+          "inlet Reynolds number is turbulent",
+          "CadQuery creates one valid solid with named CFD boundary exports",
+          "CAD volume matches the analytical piecewise-frustum volume",
+          "Gmsh imports STEP and retains fluid, inlet, outlet, and walls groups",
+          "triangulated inlet velocity preserves the NeqSim volume flow",
+          "OpenFOAM checkMesh reports Mesh OK",
+          "mesh aspect ratio, non-orthogonality, and skewness are reported",
+          "steady residual convergence is reported",
+          "inlet-outlet volume-flow closure passes",
+          "NeqSim and CFD mass flow agree",
+          "final k and epsilon remain positive",
+          "maximum Mach number remains below 0.10",
+          "pressure minimum lies within the throat",
+          "centerline velocity shows the expected contraction acceleration",
+          "valid notebook JSON, execution, readable code, figures, math, and catalog"
+        ],
+        "key_results": {
+          "neqsim_actual_flow_m3_per_s": 0.696119,
+          "neqsim_mass_flow_kg_per_s": 10.7702,
+          "cad_volume_m3": 0.645597,
+          "cad_analytical_relative_error": 3.43937e-16,
+          "gmsh_nodes": 5271,
+          "openfoam_cells": 24410,
+          "solver_iterations": 457,
+          "flow_closure_percent": 0.000847556,
+          "neqsim_cfd_mass_flow_difference_percent": 0.000890517,
+          "recovered_pressure_loss_pa": 273.019,
+          "maximum_speed_m_per_s": 12.7349,
+          "maximum_mach_number": 0.0311479
+        }
+      },
+      "figures": {
+        "new_figures": 4,
+        "total_retained_figures": 4,
+        "purposes": [
+          "CadQuery fluid-domain rendering with named inlet, outlet, and walls",
+          "actual Gmsh tetrahedral mesh cut with local cell-size scale",
+          "OpenFOAM velocity streamlines, static pressure, and turbulence fields",
+          "centerline velocity acceleration, throat pressure minimum, and recovery"
+        ],
+        "visual_inspection": "Passed at original resolution after final execution. All four figures have readable titles, units, labels, legends or color scales, geometry outlines, and no material clipping or overlap."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "expressions_verified": 7,
+        "renderer": "Jupyter/Colab-compatible single-backslash math source rendered through Matplotlib MathText in the validation environment",
+        "visual_inspection": "Viscosity conversion, velocity, Reynolds number, turbulence inputs, pressure recovery, and y-plus notation rendered correctly."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 33,
+        "maximum_code_line_length": 80,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "catalog_target_occurrences": 1,
+        "sha256": "03bd959f427fa02da86059cd31f4baaf763cd66207ae75b259395775419b40d4"
+      },
+      "summary": "Added an executed, self-contained CAD-to-CFD tutorial that uses NeqSim for process-state and boundary data, CadQuery for exact reusable CAD, Gmsh for named volume meshing, and OpenFOAM for solved local flow fields."
+    },
+    {
+      "path": "notebooks/fielddevelopment/volve_full_field_development_opm_neqsim.ipynb",
+      "verified_date": "2026-07-28",
+      "verified_at_utc": "2026-07-28T13:07:33.925Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12",
+      "java_version": "OpenJDK 17",
+      "opm_python_version": "2026.4",
+      "opm_flow_version": "2026.04",
+      "environment_resolution": {
+        "mode": "clean local NeqSim and official OPM Flow validation",
+        "notebook_setup": "Pins neqsim==3.16.0 and opm==2026.4 from public PyPI and installs the official OPM Flow binary through the OPM Ubuntu PPA.",
+        "validation_runtime": "NeqSim 3.16.0, OPM Python 2026.4, and official OPM Flow 2026.04."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 35 code cells sequentially from a fresh in-process Python namespace because the sandbox blocks Jupyter kernel sockets. All four OPM Flow cases returned success; 39 outputs and ten optimized PNG figures are stored, with zero error outputs or stderr streams.",
+      "code_cells": 35,
+      "substantive_code_cells": 35,
+      "markdown_cells": 31,
+      "publication": {
+        "branch": "agent/volve-full-field-development",
+        "mode": "connector-backed staging plus checksum-verified GitHub Actions assembly",
+        "commit": "the final assembly commit",
+        "files": [
+          "notebooks/fielddevelopment/volve_full_field_development_opm_neqsim.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "source_basis": {
+        "equinor_volve": "https://www.equinor.com/energy/volve-data-sharing",
+        "equinor_volve_license": "https://www.equinor.com/content/dam/statoil/documents/what-we-do/Equinor-HRS-Terms-and-conditions-for-licence-to-data-Volve.pdf",
+        "opm_flow": "https://opm-project.org/?page_id=19",
+        "opm_installation": "https://opm-project.org/?page_id=245"
+      },
+      "data_boundary": {
+        "field_context": "Volve open-data teaching study",
+        "model_scope": "Reduced Volve-inspired 16 x 16 x 3 sector; not a Volve history match or redistribution of the licensed full-field simulation package.",
+        "adapter": "VOLVE_DATA_ROOT inventories a user-downloaded Volve package for candidate decks, grids, wells, production files, and reports."
+      },
+      "neqsim_capabilities_demonstrated": [
+        "SRK classic oil characterization and DLE behavior",
+        "Flow-compatible PVTO, PVDG, and PVTW generation",
+        "surface-stream reconstruction from OPM rates",
+        "HP, MP, and LP separation with compression and cooling",
+        "oil, gas, water, power, cooling, and mass-balance reporting"
+      ],
+      "reservoir_capabilities_demonstrated": [
+        "16 x 16 x 3 heterogeneous OPM grid with 768 active cells",
+        "four producer/injector count and placement alternatives",
+        "32 quarterly report steps over a 2008-to-2016 field life",
+        "production, pressure, recovery, and breakthrough comparison",
+        "cell-level restart pressure and saturation maps"
+      ],
+      "practical_application": "Compares sparse, targeted, regular, and dense well alternatives and carries them through tubing, manifolds, flowlines, riser, hydrate margin, topside capacity, host-versus-lease concepts, schedule, CAPEX, OPEX, tax, NPV, break-even price, and uncertainty.",
+      "engineering_validation": {
+        "assertions_passed": 27,
+        "assertions_failed": 0,
+        "checks": [
+          "NeqSim, OPM Python, and OPM Flow versions resolve",
+          "fluid assay, saturation pressure, and PVT contracts pass",
+          "all four Flow alternatives return success with summary and restart files",
+          "reservoir rates are non-negative and pressure declines",
+          "placement changes recovery and restart saturations close",
+          "well and SURF hydraulic, thermal, and hydrate screens are finite",
+          "rate reconstruction and topside mass balances close",
+          "economics, break-even, and uncertainty results are finite",
+          "all 27 executable notebook checks pass"
+        ],
+        "key_results": {
+          "recommended_concept": "5P2I_regular | two_manifolds_10in | host_tieback",
+          "recommended_npv_million_usd": 81.88778362233278,
+          "recommended_capex_million_usd": 428.1988498045723,
+          "break_even_oil_price_usd_per_bbl": 59.378489610537166,
+          "npv_p10_million_usd": -40.580010822076204,
+          "npv_p50_million_usd": 73.14146586860568,
+          "npv_p90_million_usd": 179.89604627762864,
+          "probability_positive_npv": 0.7925,
+          "maximum_case_cumulative_oil_million_sm3": 3.832
+        }
+      },
+      "figures": {
+        "previous_figures": 0,
+        "new_figures": 10,
+        "total_retained_figures": 10,
+        "purposes": [
+          "well placement maps",
+          "NeqSim black-oil PVT",
+          "field forecast comparison",
+          "restart pressure and saturation maps",
+          "well tubing and lift screen",
+          "SURF architecture and hydraulics",
+          "topside field-life loads",
+          "NPV and cash flow",
+          "uncertainty and tornado",
+          "development schedule"
+        ],
+        "visual_inspection": "Passed at original displayed resolution after palette optimization. Titles, units, labels, markers, legends, color scales, annotations, and layouts remain readable without material clipping, overlap, stale values, or misleading axes."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 4,
+        "renderer": "Jupyter/Colab-compatible MathJax and Matplotlib MathText",
+        "visual_inspection": "Conservation, vertical-lift, Darcy-Weisbach, and NPV equations render with balanced delimiters, fractions, integrals, subscripts, and units."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 66,
+        "line_length_limit_100_passed": true,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "catalog_target_occurrences": 1,
+        "sha256": "ad14b810f5ade3eec97dc79b40a2d01f70039cd0f7aa2b2d4ffda9fb54fb0cab"
+      },
+      "summary": "Added an executed Volve open-data full-field development tutorial coupling four OPM Flow well alternatives to NeqSim PVT, wells, SURF, topsides, capacity, schedule, economics, and uncertainty."
+    },
+    {
+      "path": "notebooks/process/reinforcement_learning_integration.ipynb",
+      "verified_date": "2026-07-28",
+      "verified_at_utc": "2026-07-28T13:01:35Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk version \"17.0.19\" 2026-04-21",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-rl-integration-20260728T1501 --neqsim-version latest --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260728T130627Z-711109691869",
+        "verified_public_pypi_wheels": 49,
+        "manifest_created_at_utc": "2026-07-28T13:06:27Z",
+        "integrity": "Complete public-PyPI inventory, size, SHA-256, runtime, platform, and toolchain verification passed."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 23 code cells sequentially from an empty in-process Python namespace using the fresh bootstrap environment. Stored tables and seven PNG figures; zero error outputs and zero stderr.",
+      "code_cells": 23,
+      "substantive_code_cells": 22,
+      "markdown_cells": 26,
+      "publication": {
+        "branch": "master",
+        "mode": "direct atomic connector-backed fast-forward commit",
+        "commit": "the commit containing this ledger entry",
+        "files": [
+          "notebooks/process/reinforcement_learning_integration.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "preservation": {
+        "pre_existing_cells": 6,
+        "preserved_cells": 6,
+        "pre_existing_substantive_examples": 1,
+        "preserved_substantive_examples": 1,
+        "pre_existing_figures": 0,
+        "preserved_figures": 0,
+        "repairs": "Preserved the RL objective, history, Gym-style environment idea, NeqSim valve example, random interaction, and reward-design example. Repaired duplicate installation, obsolete Gym returns, a fixed outlet pressure that could not be controlled, compressed class code, missing outputs, weak units, and absent validation. No original cell purpose or functionality was removed."
+      },
+      "neqsim_capabilities_demonstrated": [
+        "SRK gas construction with classic mixing rule",
+        "named Stream and native ThrottlingValve process objects",
+        "ProcessSystem execution through runProcess",
+        "ThrottlingValve.calculateMolarFlow capacity calculations",
+        "native Cv and valve-opening manipulation",
+        "TP flash and real-gas compressibility-factor retrieval",
+        "NeqSim-derived reduced valve map with direct off-grid validation",
+        "NeqSim-backed dynamic gas-inventory pressure environment"
+      ],
+      "practical_application": "Trains a deterministic tabular Q-learning policy on a NeqSim-derived inlet-valve and gas-vessel model, compares it with fixed-opening and PI control under four demand levels, and screens nine initial-pressure and high-demand scenarios.",
+      "engineering_validation": {
+        "assertions_passed": 29,
+        "assertions_failed": 0,
+        "checks": [
+          "single gas phase and plausible molar mass and compressibility",
+          "finite positive 11 by 13 valve-capacity grid",
+          "flow increases with opening and is non-increasing with pressure",
+          "choked-flow envelope and near-upstream capacity reduction verified",
+          "off-grid reduced-map values reproduce direct NeqSim calculations",
+          "modern two-value reset and five-value step signatures",
+          "finite Q table, improving reward, and disappearing late safety failures",
+          "160-step RL evaluation completes without safety termination",
+          "RL pressure remains inside the 30 to 40 bara envelope",
+          "RL RMSE improves on fixed-opening and PI benchmarks",
+          "dynamic pressure-balance residual below 1e-12 bar",
+          "all nine scenario cases complete without safety violation",
+          "valid JSON, readable code, figures, equations, and unique catalog link"
+        ],
+        "key_results": {
+          "gas_molar_mass_kg_per_mol": 0.01772624,
+          "gas_compressibility_factor": 0.9306085627,
+          "pressure_gain_bar_per_kg": 0.00264650167,
+          "maximum_valve_map_relative_error": 4.600354666384593e-16,
+          "fixed_pressure_rmse_bar": 1.1251946433,
+          "pi_pressure_rmse_bar": 0.4063750232,
+          "rl_pressure_rmse_bar": 0.06296123802,
+          "rl_pressure_minimum_bara": 34.980884552,
+          "rl_pressure_maximum_bara": 35.231658936,
+          "maximum_dynamic_balance_residual_bar": 3.535366444e-15,
+          "scenario_safety_violations": 0
+        }
+      },
+      "figures": {
+        "previous_figures": 0,
+        "previous_figures_refreshed": 0,
+        "new_figures": 7,
+        "total_retained_figures": 7,
+        "purposes": [
+          "NeqSim-backed pressure-control workflow",
+          "native NeqSim valve-capacity curves",
+          "direct-versus-reduced valve-map validation",
+          "Q-learning reward and safety convergence",
+          "learned action-policy heatmap",
+          "fixed, PI, and RL closed-loop comparison",
+          "initial-pressure and high-demand operating-envelope screen"
+        ],
+        "visual_inspection": "Passed at original resolution after final execution. All seven figures have descriptive titles, explicit units, readable labels, accessible colors, appropriate legends or color scales, adequate annotation contrast, and no clipping, overlap, stale values, or misleading scales.",
+        "numerical_refresh": "No previous numerical figures existed. All seven figures were newly computed with NeqSim 3.16.0 and the validated deterministic case."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "expressions_verified": 26,
+        "renderer": "Jupyter/Colab-compatible single-backslash math source rendered through Matplotlib MathText in the fresh environment",
+        "visual_inspection": "Return, reward, gas-inventory, and Q-learning equations plus all inline symbols rendered correctly with fractions, subscripts, superscripts, Greek symbols, operators, and units."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 49,
+        "maximum_code_line_length": 77,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "wildcard_imports": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "catalog_target_occurrences": 1,
+        "sha256": "5da17dcda2d8acd305c22bf5d5f5429dabc2d00f04c3b4a4664ff914b1d700c9"
+      },
+      "summary": "Expanded the six-cell placeholder into an executed, self-contained NeqSim RL pressure-control tutorial while preserving every original learning objective and example. Added a physically auditable valve map, gas-inventory dynamics, modern environment API, tabular Q-learning, controller comparison, envelope screening, limitations, and exercises."
+    },
+    {
+      "path": "notebooks/fluidflow/pid_datasheet_to_cad_cfd_neqsim.ipynb",
+      "verified_date": "2026-07-28",
+      "verified_at_utc": "2026-07-28T14:12:29.956Z",
+      "neqsim_version": "3.16.0",
+      "cadquery_version": "2.6.1",
+      "gmsh_version": "4.15.0",
+      "openfoam_version": "Foundation 14",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "Executed all 17 code cells sequentially from an empty in-process Python namespace using pinned dependencies and OpenFOAM Foundation 14. Execution counts, tables, diagnostics, solver logs, and five PNG figures are retained; zero error outputs and zero stderr streams.",
+      "code_cells": 17,
+      "substantive_code_cells": 16,
+      "markdown_cells": 20,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "the direct master commit containing this ledger entry",
+        "files": [
+          "notebooks/fluidflow/pid_datasheet_to_cad_cfd_neqsim.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "source_basis": {
+        "document_inputs": "Synthetic, non-proprietary P&ID, process datasheet, mechanical datasheet, and calibrated-image QA record.",
+        "dimensional_authority": "The reviewed mechanical datasheet controls geometry; calibrated image measurement is an independent QA check only.",
+        "neqsim": "https://github.com/equinor/neqsim",
+        "cadquery": "https://cadquery.readthedocs.io/",
+        "gmsh": "https://gmsh.info/doc/texinfo/gmsh.html",
+        "openfoam": "https://openfoam.org/version/14/"
+      },
+      "workflow": [
+        "normalize reviewed P&ID, process, mechanical, and image-QA records",
+        "retain equipment, line, nozzle, and instrument tags",
+        "run a three-phase CPA TP flash in NeqSim",
+        "transfer gas density, viscosity, actual flow, and sound speed to CFD",
+        "create the exact gas-space STEP B-Rep with CadQuery",
+        "retain inlet, outlet, walls, and liquid-interface physical groups in Gmsh",
+        "convert and validate the named tetrahedral mesh in OpenFOAM",
+        "solve a steady incompressible k-epsilon gas-space RANS screen",
+        "recover pressure, continuity, residence time, and field diagnostics",
+        "package the design basis, CAD, mesh, OpenFOAM case, logs, VTK, and CSVs"
+      ],
+      "neqsim_capabilities_demonstrated": [
+        "CPA fluid creation with classic mixing rule and multiphase stability",
+        "three-phase TP flash with gas, oil, and aqueous phase identification",
+        "named NeqSim inlet stream and phase-resolved flow and transport properties",
+        "phase and total mass-balance closure",
+        "conversion of gas properties and actual volume flow into CFD boundaries",
+        "recovery of physical pressure loss from OpenFOAM kinematic pressure"
+      ],
+      "practical_application": "Builds the gas space of synthetic horizontal separator 20-VG-001 above a fixed liquid level, transfers a 65 bara and 45 degC three-phase NeqSim inlet to a named-boundary Gmsh/OpenFOAM model, solves the gas hydraulics, renders the actual fields, and exports a reusable digital thread package.",
+      "engineering_validation": {
+        "assertions_passed": 28,
+        "assertions_failed": 0,
+        "checks": [
+          "document tags and dimensional authority are preserved",
+          "calibrated-image diameter discrepancy remains below the QA limit",
+          "NeqSim returns gas, oil, and aqueous phases",
+          "phase mass flows close against the specified feed",
+          "gas properties and sound speed are finite and positive",
+          "inlet Reynolds number is turbulent and Mach number remains low",
+          "CadQuery creates one valid exact gas-space solid",
+          "CAD and Gmsh STEP volumes agree",
+          "Gmsh retains all four named physical boundary groups",
+          "OpenFOAM checkMesh reports acceptable topology and quality",
+          "the steady RANS solver converges",
+          "inlet-outlet flow closure passes",
+          "NeqSim and CFD gas mass flow agree",
+          "pressure loss and residence-time results are finite and plausible",
+          "valid notebook JSON, sequential execution, readable code, figures, equations, catalog link, and reusable artifacts"
+        ],
+        "key_results": {
+          "calibrated_image_diameter_difference_percent": 0.166667,
+          "neqsim_phase_count": 3,
+          "gas_mass_flow_kg_per_s": 22.4478,
+          "oil_mass_flow_kg_per_s": 10.3963,
+          "aqueous_mass_flow_kg_per_s": 0.489236,
+          "phase_mass_closure_percent": 1.79057e-12,
+          "gas_actual_flow_m3_per_s": 0.375891,
+          "gas_density_kg_per_m3": 59.7189,
+          "gas_dynamic_viscosity_pa_s": 0.0000135574,
+          "inlet_reynolds_number": 6916590,
+          "gas_sound_speed_m_per_s": 379.438,
+          "cad_gas_space_volume_m3": 29.5022,
+          "cad_gmsh_step_relative_volume_error": 4.0964e-10,
+          "gmsh_nodes": 8750,
+          "openfoam_cells": 47630,
+          "maximum_aspect_ratio": 7.99208,
+          "maximum_nonorthogonality_degrees": 65.0238,
+          "maximum_skewness": 0.994721,
+          "solver_iterations": 209,
+          "flow_closure_percent": 0.00125036,
+          "gas_pressure_loss_pa": 3432.82,
+          "nominal_gas_residence_time_s": 78.4861,
+          "maximum_speed_m_per_s": 11.6611,
+          "maximum_mach_number": 0.0307327
+        }
+      },
+      "figures": {
+        "new_figures": 5,
+        "total_retained_figures": 5,
+        "purposes": [
+          "document authority, P&ID traceability, and separator scope",
+          "exact CadQuery gas-space CAD and longitudinal level/nozzle schematic",
+          "actual Gmsh tetrahedral mesh cut and named geometry",
+          "solved OpenFOAM velocity, pressure, and turbulence fields",
+          "axial gas-jet profile and NeqSim three-phase mass split"
+        ],
+        "visual_inspection": "Passed at original resolution after final execution. Titles, units, labels, legends, color scales, annotations, CAD surfaces, mesh cells, and solved fields are readable with no clipping, overlap, blank output, stale values, or misleading axes."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "expressions_verified": 3,
+        "renderer": "Jupyter/Colab-compatible single-backslash math rendered through Matplotlib MathText in the validation environment.",
+        "visual_inspection": "Kinematic-viscosity conversion, inlet velocity and Reynolds number, and physical pressure recovery rendered correctly with fractions, subscripts, Greek symbols, operators, and units."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 37,
+        "maximum_code_line_length": 80,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "catalog_target_occurrences": 1,
+        "retained_png_figures": 5,
+        "sha256": "3504f18b3ccfaaa0f57aadbed0e6d26dc8fe30a8778c0a7169f91a45e7ac3da4"
+      },
+      "neqsim_improvements": {
+        "issues_created": 0,
+        "status": "No reproducible NeqSim bug, missing API, or actionable library gap was discovered; the notebook uses current public NeqSim APIs."
+      },
+      "limitations": "The CFD model is a single-gas-phase hydraulic screen above a fixed symmetry-plane liquid interface. It does not predict droplets, waves, entrainment, carryover, carryunder, or separator qualification.",
+      "summary": "Replaced the short unexecuted placeholder with a detailed, executed, self-contained P&ID and datasheet-to-CAD-to-CFD digital-thread tutorial. It preserves reviewed tags, calculates a three-phase CPA inlet with NeqSim, creates exact CadQuery geometry, meshes named physical groups with Gmsh, solves and renders OpenFOAM gas-space fields, validates 28 engineering checks, and packages all reusable artifacts."
+    },
+    {
+      "path": "notebooks/process/hazop_workshop_with_neqsim.ipynb",
+      "verified_date": "2026-07-28",
+      "verified_at_utc": "2026-07-28T15:00:06.003Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "Executed all 20 code cells sequentially from an empty in-process Python namespace because the sandbox blocks ZeroMQ socket creation. Tables, diagnostics, and five PNG figures are retained; zero error outputs and zero stderr streams.",
+      "code_cells": 20,
+      "markdown_cells": 18,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic connector-backed fast-forward commit to the default branch",
+        "commit": "the direct master commit containing this ledger entry",
+        "files": [
+          "notebooks/process/hazop_workshop_with_neqsim.ipynb",
+          "notebooks/process/loss_of_containment_consequence_analysis.ipynb",
+          "notebooks/process/barrier_performance_and_esd_response_time.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "neqsim_capabilities_demonstrated": [
+        "SRK rich-gas and condensate process simulation",
+        "native HAZOP node discovery and worksheet objects",
+        "facilitator-reviewed guide-word deviations",
+        "blocked-outlet pressure-rise quantification",
+        "compressor temperature and power sensitivity",
+        "high-pressure gas blow-by screening"
+      ],
+      "engineering_validation": {
+        "focused_checks_passed": 7,
+        "focused_checks_failed": 0,
+        "key_results": {
+          "feed_mass_flow_kg_per_h": 120000,
+          "separator_pressure_bara": 55,
+          "separator_temperature_c": 29.5417,
+          "compressor_power_mw": 1.6621,
+          "time_to_pshh_s": 26.3,
+          "response_time_after_pshh_s": 48.9,
+          "ten_percent_blowby_kg_per_s": 2.06,
+          "reviewed_deviations": 12,
+          "prioritized_actions": 8
+        }
+      },
+      "figures": {
+        "total_retained_figures": 5,
+        "visual_inspection": "Passed at original resolution. Risk matrix, process overview, pressure-response, compressor envelope, and blow-by results are readable with correct units, scales, labels, and no clipping or stale output."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "expressions_verified": 11,
+        "renderer": "MathJax SVG rendering followed by PNG inspection",
+        "visual_inspection": "Guide-word construction, risk ranking, real-gas pressure rise, and inline symbols rendered correctly."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 38,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "catalog_target_occurrences": 1,
+        "sha256": "11985f362255f599ca07a7abf1a99ac3cdcee558a0fab596e73a5ced22d6d20d"
+      },
+      "neqsim_improvements": {
+        "issues_created": 1,
+        "issue": "https://github.com/equinor/neqsim/issues/2652",
+        "status": "Reported equipment-unaware NO FLOW consequence auto-population; the tutorial keeps facilitator review explicit."
+      },
+      "summary": "Facilitator-ready IEC 61882 HAZOP tutorial for an inlet-separation and export-compression process, with native node discovery, reviewed deviations, quantified consequences, risk ranking, and an owned action register."
+    },
+    {
+      "path": "notebooks/process/loss_of_containment_consequence_analysis.ipynb",
+      "verified_date": "2026-07-28",
+      "verified_at_utc": "2026-07-28T15:00:06.003Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "Executed all 18 code cells sequentially from an empty in-process Python namespace because the sandbox blocks ZeroMQ socket creation. Tables, diagnostics, and six PNG figures are retained; zero error outputs and zero stderr streams.",
+      "code_cells": 18,
+      "markdown_cells": 15,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic connector-backed fast-forward commit to the default branch",
+        "commit": "the direct master commit containing this ledger entry",
+        "files": [
+          "notebooks/process/hazop_workshop_with_neqsim.ipynb",
+          "notebooks/process/loss_of_containment_consequence_analysis.ipynb",
+          "notebooks/process/barrier_performance_and_esd_response_time.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "neqsim_capabilities_demonstrated": [
+        "SRK sour-gas inventory characterization",
+        "native transient LeakModel source terms",
+        "native gas dispersion endpoints",
+        "native jet-fire radiation screening",
+        "native TNO VCE overpressure screening",
+        "integrated consequence envelopes"
+      ],
+      "engineering_validation": {
+        "focused_checks_passed": 7,
+        "focused_checks_failed": 0,
+        "key_results": {
+          "inventory_pressure_bara": 100,
+          "inventory_mass_kg": 2579.56,
+          "peak_25_mm_release_kg_per_s": 7.89389,
+          "native_analytical_choked_rate_difference_percent": 0.00278,
+          "selected_case_half_lfl_distance_m": 81.34,
+          "selected_case_h2s_100_ppm_distance_m": 84.61,
+          "selected_case_jet_fire_12_5_kw_m2_distance_m": 16,
+          "selected_case_vce_6_9_kpa_distance_m": 48.06
+        }
+      },
+      "figures": {
+        "total_retained_figures": 6,
+        "visual_inspection": "Passed after correcting unattained VCE contours. Source terms, diameter scaling, dispersion, jet-fire, VCE, and integrated envelopes are readable and use honest NaN/status handling above the class-4 plateau."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "expressions_verified": 3,
+        "renderer": "MathJax SVG rendering followed by PNG inspection",
+        "visual_inspection": "Choked-flow and point-source radiation equations plus discharge coefficient rendered correctly."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 33,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "catalog_target_occurrences": 1,
+        "sha256": "a7ebd3c53b5e28cd23a5ee4f603f78dbd712614731a0337d1877539217596d71"
+      },
+      "neqsim_improvements": {
+        "issues_created": 0,
+        "status": "No new reproducible NeqSim defect was found."
+      },
+      "limitations": "Screening-level free-field models do not replace validated CFD, detailed congestion geometry, emergency-response design, or project-specific QRA.",
+      "summary": "Loss-of-containment tutorial covering transient source terms, independent choked-flow validation, flammable and toxic dispersion, jet-fire radiation, VCE overpressure, and a combined effect envelope."
+    },
+    {
+      "path": "notebooks/process/barrier_performance_and_esd_response_time.ipynb",
+      "verified_date": "2026-07-28",
+      "verified_at_utc": "2026-07-28T15:00:06.003Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "Executed all 14 code cells sequentially from an empty in-process Python namespace because the sandbox blocks ZeroMQ socket creation. Tables, diagnostics, and four PNG figures are retained; zero error outputs and zero stderr streams.",
+      "code_cells": 14,
+      "markdown_cells": 15,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic connector-backed fast-forward commit to the default branch",
+        "commit": "the direct master commit containing this ledger entry",
+        "files": [
+          "notebooks/process/hazop_workshop_with_neqsim.ipynb",
+          "notebooks/process/loss_of_containment_consequence_analysis.ipynb",
+          "notebooks/process/barrier_performance_and_esd_response_time.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "neqsim_capabilities_demonstrated": [
+        "real-gas process safety time calculation",
+        "native EsdResponseTimeSimulator timing budgets",
+        "cause-and-effect matrix construction",
+        "evidence-linked performance standards",
+        "SafetyCriticalElement and SafetyBarrier objects",
+        "validated barrier register and impairment screening"
+      ],
+      "engineering_validation": {
+        "focused_checks_passed": 7,
+        "focused_checks_failed": 0,
+        "key_results": {
+          "pressure_rise_rate_bar_per_s": 0.291,
+          "time_to_pshh_s": 24.048,
+          "time_to_mawp_s": 68.709,
+          "available_response_time_s": 44.661,
+          "as_designed_total_response_s": 11.4,
+          "degraded_total_response_s": 26.6,
+          "unacceptable_total_response_s": 60,
+          "barrier_register_findings": 0
+        }
+      },
+      "figures": {
+        "total_retained_figures": 4,
+        "visual_inspection": "Passed after expanding the final-element sensitivity range. Process safety time, timing budgets, zero-margin response surface, and barrier register views are readable and correctly distinguish accepted from exceeded cases."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "expressions_verified": 2,
+        "renderer": "MathJax SVG rendering followed by PNG inspection",
+        "visual_inspection": "End-to-end timing inequality and multiplicative residual-frequency relation rendered correctly."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 29,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "catalog_target_occurrences": 1,
+        "sha256": "01d3633ab986911d9f871e2e67ad06dbb55ede70344a1ec6a0a97452de04bf0b"
+      },
+      "neqsim_improvements": {
+        "issues_created": 0,
+        "status": "No new reproducible NeqSim defect was found."
+      },
+      "limitations": "The timing screen verifies an illustrative SIF response budget; real projects require approved trip settings, certified subsystem data, proof-test assumptions, independence review, and lifecycle governance.",
+      "summary": "Barrier-management tutorial deriving available response time, verifying native ESD timing cases, linking cause-and-effect and evidence to performance standards and SCEs, and validating a barrier register."
+    },
+    {
+      "path": "notebooks/thermodynamics/Co2_recompression.ipynb",
+      "title": "CO2 recompression and reactive-impurity screening",
+      "verification_date": "2026-07-28",
+      "verified_at_utc": "2026-07-28T15:05:16.579Z",
+      "status": "passed",
+      "environment": {
+        "neqsim_package_version": "3.16.0",
+        "python_version": "3.12.13",
+        "java_version": "OpenJDK 17.0.19",
+        "resolution_mode": "verified-snapshot-fallback",
+        "bootstrap_command": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-co2-recompression-final5-20260728T1700 --neqsim-version latest --refresh",
+        "public_pypi_attempts": 4,
+        "verified_snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260728T140726Z-203c7558c5d9",
+        "snapshot_manifest_created_at_utc": "2026-07-28T14:07:26Z",
+        "verified_public_pypi_wheels": 49,
+        "integrity": "Manifest inventory, wheel sizes, SHA-256 digests, Python runtime, platform, and complete toolchain verified before offline installation."
+      },
+      "execution": {
+        "status": "passed",
+        "code_cells": 24,
+        "markdown_cells": 26,
+        "code_cells_executed": 24,
+        "unexpected_exceptions": 0,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "execution_order": "All code cells executed sequentially from a clean in-process namespace."
+      },
+      "preservation": {
+        "original_cells": 33,
+        "original_cells_preserved": 33,
+        "original_examples": 3,
+        "original_examples_preserved": 3,
+        "original_figures": 2,
+        "original_figures_preserved": 2,
+        "examples": [
+          "Three-stage reactive CO2 recompression with gas- and liquid-reaction screening",
+          "Equivalent recompression train with chemical reactions disabled",
+          "Downstream pipeline reaction and seabed-cooling calculation"
+        ],
+        "integration": "All original examples remain operational and are connected by a common CPA fluid definition, staged recompression narrative, reaction-screen interpretation, and shared engineering validation.",
+        "figure_refresh": "Both embedded historical visuals were retained byte-for-byte. Their missing original provenance and dates are now disclosed, and they are distinguished from current NeqSim-calculated results."
+      },
+      "repairs": [
+        "Replaced the obsolete Python 3.8 Miniconda/Reaktoro installation path, which has no compatible public-PyPI distribution, with a transparent atom-balanced reaction screen inside the original custom unit-operation interface.",
+        "Modernized imports, removed wildcard and compressed code patterns, and retained a public-PyPI-compatible Colab setup.",
+        "Corrected unit labels, phase-aware property retrieval, reaction accounting, compressor-energy reporting, and numerical validation.",
+        "Added explicit mass and elemental closure, finite-state checks, pressure ordering, sensitivity trends, and reaction-disabled comparison."
+      ],
+      "neqsim_capabilities_demonstrated": [
+        "SystemSrkCPAstatoil CO2-rich fluid construction from a pandas composition table",
+        "classic CPA mixing rule and TP flash",
+        "Stream, Saturator, Compressor, Cooler, Separator, and ProcessSystem",
+        "three-stage recompression with interstage cooling and phase knock-out",
+        "custom Python ProcessEquipmentInterface unit operations",
+        "phase-aware density, phase count, and aqueous-phase retrieval",
+        "compressor power, pressure, temperature, flow, and component retrieval",
+        "final-pressure, cooler-temperature, and seabed-temperature sensitivities"
+      ],
+      "practical_application": "Builds and validates an end-to-end three-stage CO2 recompression workflow, compares reactive and non-reactive cases, screens potential sulfuric and nitric acid formation in condensed water, and evaluates dense-phase pipeline cooling and design sensitivities.",
+      "engineering_validation": {
+        "assertions_passed": 13,
+        "assertions_failed": 0,
+        "checks": [
+          "finite temperatures, pressures, powers, densities, and phase results",
+          "strict stage-pressure ordering and target discharge pressure",
+          "positive compressor duties and physically plausible discharge temperatures",
+          "reactive and non-reactive process mass closure",
+          "carbon, hydrogen, oxygen, nitrogen, and sulfur atom closure",
+          "non-negative reaction extents and available-oxygen constraint",
+          "bounded potential acid-to-water mass fractions",
+          "dense-phase pipeline density range",
+          "increasing final pressure increases compressor power",
+          "warmer intercooling does not reduce compression power",
+          "colder seabed temperature increases dense-phase density",
+          "catalog link uniqueness",
+          "valid practical workflow with retained outputs"
+        ],
+        "key_results": {
+          "total_reaction_screen_power_MW": 3.2105,
+          "total_nonreactive_power_MW": 3.210555,
+          "reacted_discharge_temperatures_degC": [
+            170.316819,
+            135.092932,
+            146.95802
+          ],
+          "reacted_relative_mass_residual": 1.186e-11,
+          "nonreactive_relative_mass_residual": 3.499e-16,
+          "maximum_element_residual": 2.097e-16,
+          "stage_3_potential_h2so4_to_water_weight_percent": 1.542358,
+          "stage_3_potential_hno3_to_water_weight_percent": 0.826551,
+          "pipeline_density_at_65_bara_and_4_degC_kg_per_m3": 816.509878,
+          "screened_power_range_MW": [
+            2.92,
+            3.48
+          ]
+        }
+      },
+      "figures": {
+        "previous_figures": 2,
+        "previous_figures_preserved": 2,
+        "numerically_refreshed_previous_figures": 0,
+        "new_figures": 6,
+        "total_retained_figures": 8,
+        "purposes": [
+          "historical CO2 compression package context",
+          "historical dry-basis impurity context",
+          "three-stage process workflow",
+          "stage pressure, temperature, and compressor duty",
+          "reactive versus non-reactive comparison",
+          "reaction extent and potential acid screen",
+          "final-pressure and cooler-temperature sensitivity",
+          "seabed-temperature pipeline-density sensitivity"
+        ],
+        "provenance": "The two original embedded visuals have no recorded source date or provenance and are explicitly labelled as undated historical context rather than project specifications.",
+        "visual_inspection": "Passed at retained resolution after final execution. All generated figures have readable titles, labels, explicit units, accessible colors, suitable legends, and no material clipping or overlap."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "expressions_verified": 12,
+        "renderer": "Jupyter/Colab-compatible single-backslash math source rendered through Matplotlib MathText in the fresh validation environment",
+        "visual_inspection": "Compression work, reaction balances, mass closure, elemental residuals, acid-to-water ratios, and sensitivity symbols rendered correctly."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 50,
+        "maximum_code_line_length": 88,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "catalog_target_occurrences": 1,
+        "notebook_sha256": "f242a2d3248e4e52a8ea888c42e5f619f0e0d94bf48ae1d20c6b38ef84c97bd1",
+        "notebook_bytes": 1313675
+      },
+      "limitations": "The atom-balanced impurity conversion is a transparent screening calculation, not a kinetic or equilibrium chemistry model. Potential acid values are conservative availability screens. The historical embedded visuals lack traceable provenance.",
+      "neqsim_library_issue_detected": false,
+      "summary": "Repaired and expanded the CO2 recompression tutorial into an executed CPA-based three-stage process with reaction-aware impurity screening, non-reactive comparison, dense-phase pipeline cooling, design sensitivities, complete balances, and visually validated teaching graphics."
     },
     {
       "path": "notebooks/reservoir/reservoir_well_topside_market_system_curves.ipynb",
@@ -12479,8 +13329,8 @@
           "design_rate_million_sm3_per_day": 3.5,
           "design_feed_mass_kg_per_hour": 141149.927329,
           "design_relative_mass_residual": -2.259852e-13,
-          "market_pressure_bara": 160.0,
-          "screened_topside_capacity_million_sm3_per_day": 4.0,
+          "market_pressure_bara": 160,
+          "screened_topside_capacity_million_sm3_per_day": 4,
           "operating_rate_million_sm3_per_day": 2.703673,
           "operating_bottom_hole_pressure_bara": 169.3861,
           "required_operating_wellhead_pressure_bara": 87.71985,
@@ -12490,7 +13340,7 @@
             4,
             5
           ],
-          "larger_vessel_capacity_million_sm3_per_day": 4.0,
+          "larger_vessel_capacity_million_sm3_per_day": 4,
           "compressor_rerate_capacity_million_sm3_per_day": 4.25,
           "integrated_topside_capacity_million_sm3_per_day": 4.75,
           "best_initial_debottleneck_gain_million_sm3_per_day": 0.581,
