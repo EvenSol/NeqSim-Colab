@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-28T15:38:19.870Z",
+  "updated_at": "2026-07-28T16:07:27.759Z",
   "notebooks": [
     {
       "path": "notebooks/process/neqsim_compressor_capacity_bottleneck_optimization.ipynb",
@@ -13380,6 +13380,188 @@
       },
       "limitations": "Screening calculations do not replace certified subsystem data, detailed relief and flare hydraulics, fire structural response, metallurgy, QRA, or full IEC 61511 lifecycle verification.",
       "summary": "Integrated LOPA/SIL, ESD, HIPPS, process transient, cold/fire blowdown, simultaneous flare-load, and header-Mach tutorial."
+    },
+    {
+      "path": "notebooks/reservoir/reservoir_well_topside_market_system_curves.ipynb",
+      "verified_date": "2026-07-28",
+      "verified_at_utc": "2026-07-28T16:07:27.759Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-reservoir-market-equations-20260728T1800 --neqsim-version latest --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260728T160236Z-82de2b25c26f",
+        "verified_public_pypi_wheels": 49,
+        "manifest_created_at_utc": "2026-07-28T16:02:36Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, and toolchain verification passed."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 32 code cells sequentially from an empty in-process Python namespace using the fresh bootstrap environment. Stored tables and ten PNG figures; zero error outputs and zero stderr.",
+      "code_cells": 32,
+      "substantive_code_cells": 31,
+      "markdown_cells": 21,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct fast-forward commit",
+        "files": [
+          "notebooks/reservoir/reservoir_well_topside_market_system_curves.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "source_basis": {
+        "book": "https://equinor.github.io/neqsimhome/doc/field_development_and_operations/book_standalone.html",
+        "predecessor_notebook": "notebooks/well/well_nodal_analysis_and_eclipse_vfp.ipynb",
+        "current_guides": [
+          "https://equinor.github.io/neqsim/simulation/well_simulation_guide",
+          "https://equinor.github.io/neqsim/process/optimization/flow-rate-optimization"
+        ]
+      },
+      "neqsim_capabilities_demonstrated": [
+        "SystemSrkEos reservoir-to-market fluid identity",
+        "WellSystem gas production-index IPR and simplified VLP",
+        "PipeBeggsAndBrills flowline and riser pressure requirement",
+        "HP/MP/LP ThreePhaseSeparator train",
+        "flash-gas recompression and two-stage export compression",
+        "coolers and compressor suction scrubbers",
+        "native separator mechanical design",
+        "native gas, liquid, momentum, droplet, and retention constraints",
+        "CompressorChartGenerator complete seven-speed maps",
+        "surge, control-line, stonewall, speed, recycle, and driver screening",
+        "all-equipment utilization and limiting-equipment reporting",
+        "capacity-constrained HP-separator pressure optimization",
+        "reservoir-to-market system-curve intersection",
+        "reservoir-depletion operating-point migration",
+        "reservoir-pressure and tubing-head-pressure nodal matrix",
+        "native process and hydraulic debottleneck ranking",
+        "EclipseVFPExporter five-dimensional VFPPROD generation"
+      ],
+      "practical_application": "Connects a synthetic 250-bara gas-condensate reservoir and 2,800 m producer through a 25 km flowline, sized HP/MP/LP separation and scrubbing, four compressors, and a 160 bara market boundary. It calculates the full lift curve, capacity envelope, bottleneck, operating point, depletion response, debottlenecking response, and simulator exports.",
+      "engineering_validation": {
+        "assertions_passed": 37,
+        "assertions_failed": 0,
+        "checks": [
+          "composition closure and finite thermodynamic states",
+          "design process mass balance and market pressure",
+          "positive mechanical-design and installed vessel dimensions",
+          "installed length-to-diameter geometry",
+          "all design vessel constraints below 80.1%",
+          "four maps, seven speed lines, five points per line",
+          "surge below stonewall on every line",
+          "positive compressor driver ratings",
+          "feasible process pressure-rate cases and capacity",
+          "selected pressure belongs to bounded candidate set",
+          "positive flowline pressure losses",
+          "one feasible IPR-system crossing",
+          "operating residual below 1e-10 bar",
+          "operating rate respects topside capacity",
+          "operating pressure ordering",
+          "depletion does not increase deliverability",
+          "VFP flow grid below process capacity",
+          "monotonic VFP BHP response to rate and THP",
+          "five-dimensional VFP axis order",
+          "VFPPROD keyword, gas type, and file identity",
+          "reservoir-to-market CSV and finite system results",
+          "finite reservoir-pressure and THP nodal matrix",
+          "higher THP lowers nodal production rate",
+          "reservoir depletion lowers nodal production rate",
+          "topside upgrades do not reduce process capacity",
+          "debottlenecking does not reduce system production",
+          "topside-only upgrade has no gain when hydraulics limit",
+          "integrated upgrade recovers initial and depleted production"
+        ],
+        "key_results": {
+          "design_rate_million_sm3_per_day": 3.5,
+          "design_feed_mass_kg_per_hour": 141149.927329,
+          "design_relative_mass_residual": -2.259852e-13,
+          "market_pressure_bara": 160,
+          "screened_topside_capacity_million_sm3_per_day": 4,
+          "operating_rate_million_sm3_per_day": 2.703673,
+          "operating_bottom_hole_pressure_bara": 169.3861,
+          "required_operating_wellhead_pressure_bara": 87.71985,
+          "operating_pressure_residual_bar": 2.842171e-14,
+          "depleted_190_bara_rate_million_sm3_per_day": 1.5025,
+          "reservoir_pressure_thp_nodal_shape": [
+            4,
+            5
+          ],
+          "larger_vessel_capacity_million_sm3_per_day": 4,
+          "compressor_rerate_capacity_million_sm3_per_day": 4.25,
+          "integrated_topside_capacity_million_sm3_per_day": 4.75,
+          "best_initial_debottleneck_gain_million_sm3_per_day": 0.581,
+          "combined_hydraulic_gain_at_190_bara_million_sm3_per_day": 0.207,
+          "vfpprod_flow_points": 11,
+          "vfpprod_thp_points": 5,
+          "vfpprod_bhp_shape": [
+            11,
+            5,
+            1,
+            1,
+            1
+          ],
+          "vfpprod_table_number": 21
+        }
+      },
+      "figures": {
+        "new_figures": 10,
+        "total_retained_figures": 10,
+        "purposes": [
+          "reservoir IPR",
+          "connected system architecture",
+          "required and installed vessel dimensions and utilization",
+          "four complete compressor maps",
+          "process utilization pressure-rate surface and capacity",
+          "reservoir-to-market crossing and pressure contributions",
+          "all-equipment operating-point utilization",
+          "depletion operating-point migration",
+          "capacity-bounded VFP, reservoir IPR, BHP and nodal heatmaps",
+          "debottlenecked system curves and recovered production"
+        ],
+        "visual_inspection": "Passed at original resolution after final execution. All ten figures have readable labels, units, legends or color scales, and no material clipping or overlap."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "expressions_verified": 13,
+        "renderer": "Google Colab-safe standalone display blocks and single-backslash LaTeX rendered through Matplotlib MathText in the fresh environment",
+        "repairs": [
+          "isolated every display delimiter on its own line with blank-line separation",
+          "normalized engineering subscripts and mathematical spacing",
+          "kept punctuation outside display math",
+          "removed four standalone flow arrows from the equation audit"
+        ],
+        "visual_inspection": "All 13 genuine expressions rendered correctly, including fractions, subscripts, superscripts, Greek symbols, inequalities, and units."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 53,
+        "maximum_code_line_length": 67,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "catalog_target_occurrences": 1,
+        "notebook_sha256": "b6ebcc001802175d7e35c0373d22799a79ca57d164d1c3534c505f3212816d0d",
+        "notebook_bytes": 1851124
+      },
+      "summary": "Published the executed reservoir-to-market integration notebook with repaired Google Colab equation rendering. The complete well, flowline, topside, compressor-map, capacity, depletion, debottlenecking, and VFPPROD workflow remains numerically unchanged.",
+      "preservation": {
+        "pre_repair_cells": 53,
+        "cells_preserved": 53,
+        "pre_repair_code_cells": 32,
+        "code_cells_preserved": 32,
+        "pre_repair_markdown_cells": 21,
+        "markdown_cells_preserved": 21,
+        "substantive_examples_preserved": 1,
+        "example_description": "The complete reservoir-to-market workflow, capacity optimization, ECLIPSE export, depletion analysis, and debottlenecking study remain intact.",
+        "pre_repair_figures": 10,
+        "figures_preserved": 10,
+        "numerical_refresh": "All ten reproducible figures were regenerated from the current NeqSim 3.16.0 results; engineering values were unchanged by the Markdown repair."
+      }
     }
   ]
 }
