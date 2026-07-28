@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-28T06:29:31Z",
+  "updated_at": "2026-07-28T07:48:25Z",
   "notebooks": [
     {
       "path": "notebooks/process/neqsim_compressor_capacity_bottleneck_optimization.ipynb",
@@ -12388,23 +12388,23 @@
     {
       "path": "notebooks/reservoir/reservoir_well_topside_market_system_curves.ipynb",
       "verified_date": "2026-07-28",
-      "verified_at_utc": "2026-07-28T06:29:31Z",
+      "verified_at_utc": "2026-07-28T07:48:25Z",
       "neqsim_version": "3.16.0",
       "python_version": "3.12.13",
       "java_version": "OpenJDK 17.0.19",
       "environment_resolution": {
         "mode": "online-new-snapshot",
-        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-reservoir-market-vfp-20260728 --neqsim-version latest --refresh",
-        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260728T060736Z-7595ee7a0393",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-reservoir-market-debottleneck-20260728 --neqsim-version latest --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260728T073742Z-f6829cefedbe",
         "verified_public_pypi_wheels": 49,
-        "manifest_created_at_utc": "2026-07-28T06:07:36Z",
+        "manifest_created_at_utc": "2026-07-28T07:37:42Z",
         "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, and toolchain verification passed."
       },
       "execution_status": "passed",
-      "execution_method": "Executed all 29 code cells sequentially from an empty in-process Python namespace using the fresh bootstrap environment. Stored tables and nine PNG figures; zero error outputs and zero stderr.",
-      "code_cells": 29,
-      "substantive_code_cells": 28,
-      "markdown_cells": 19,
+      "execution_method": "Executed all 32 code cells sequentially from an empty in-process Python namespace using the fresh bootstrap environment. Stored tables and ten PNG figures; zero error outputs and zero stderr.",
+      "code_cells": 32,
+      "substantive_code_cells": 31,
+      "markdown_cells": 21,
       "publication": {
         "branch": "agent/reservoir-market-system-curves",
         "mode": "draft pull request",
@@ -12437,11 +12437,13 @@
         "capacity-constrained HP-separator pressure optimization",
         "reservoir-to-market system-curve intersection",
         "reservoir-depletion operating-point migration",
+        "reservoir-pressure and tubing-head-pressure nodal matrix",
+        "native process and hydraulic debottleneck ranking",
         "EclipseVFPExporter five-dimensional VFPPROD generation"
       ],
-      "practical_application": "Connects a synthetic 250-bara gas-condensate reservoir and 2,800 m producer through a 25 km flowline, sized HP/MP/LP separation and scrubbing, four compressors, and a 160 bara market boundary. It calculates the full lift curve, capacity envelope, bottleneck, operating point, depletion response, and simulator exports.",
+      "practical_application": "Connects a synthetic 250-bara gas-condensate reservoir and 2,800 m producer through a 25 km flowline, sized HP/MP/LP separation and scrubbing, four compressors, and a 160 bara market boundary. It calculates the full lift curve, capacity envelope, bottleneck, operating point, depletion response, debottlenecking response, and simulator exports.",
       "engineering_validation": {
-        "assertions_passed": 30,
+        "assertions_passed": 37,
         "assertions_failed": 0,
         "checks": [
           "composition closure and finite thermodynamic states",
@@ -12464,7 +12466,14 @@
           "monotonic VFP BHP response to rate and THP",
           "five-dimensional VFP axis order",
           "VFPPROD keyword, gas type, and file identity",
-          "reservoir-to-market CSV and finite system results"
+          "reservoir-to-market CSV and finite system results",
+          "finite reservoir-pressure and THP nodal matrix",
+          "higher THP lowers nodal production rate",
+          "reservoir depletion lowers nodal production rate",
+          "topside upgrades do not reduce process capacity",
+          "debottlenecking does not reduce system production",
+          "topside-only upgrade has no gain when hydraulics limit",
+          "integrated upgrade recovers initial and depleted production"
         ],
         "key_results": {
           "design_rate_million_sm3_per_day": 3.5,
@@ -12477,6 +12486,15 @@
           "required_operating_wellhead_pressure_bara": 87.71985,
           "operating_pressure_residual_bar": 2.842171e-14,
           "depleted_190_bara_rate_million_sm3_per_day": 1.5025,
+          "reservoir_pressure_thp_nodal_shape": [
+            4,
+            5
+          ],
+          "larger_vessel_capacity_million_sm3_per_day": 4.0,
+          "compressor_rerate_capacity_million_sm3_per_day": 4.25,
+          "integrated_topside_capacity_million_sm3_per_day": 4.75,
+          "best_initial_debottleneck_gain_million_sm3_per_day": 0.581,
+          "combined_hydraulic_gain_at_190_bara_million_sm3_per_day": 0.207,
           "vfpprod_flow_points": 11,
           "vfpprod_thp_points": 5,
           "vfpprod_bhp_shape": [
@@ -12490,8 +12508,8 @@
         }
       },
       "figures": {
-        "new_figures": 9,
-        "total_retained_figures": 9,
+        "new_figures": 10,
+        "total_retained_figures": 10,
         "purposes": [
           "reservoir IPR",
           "connected system architecture",
@@ -12501,9 +12519,10 @@
           "reservoir-to-market crossing and pressure contributions",
           "all-equipment operating-point utilization",
           "depletion operating-point migration",
-          "capacity-bounded VFP family and BHP heatmap"
+          "capacity-bounded VFP, reservoir IPR, BHP and nodal heatmaps",
+          "debottlenecked system curves and recovered production"
         ],
-        "visual_inspection": "Passed at original resolution after final execution. All nine figures have readable labels, units, legends or color scales, and no material clipping or overlap."
+        "visual_inspection": "Passed at original resolution after final execution. All ten figures have readable labels, units, legends or color scales, and no material clipping or overlap."
       },
       "equation_rendering": {
         "status": "passed",
@@ -12513,7 +12532,7 @@
       },
       "notebook_quality": {
         "valid_nbformat_json": true,
-        "total_cells": 48,
+        "total_cells": 53,
         "maximum_code_line_length": 67,
         "one_statement_per_line": true,
         "semicolon_chains": 0,
@@ -12525,7 +12544,7 @@
         "stored_stderr_outputs": 0,
         "catalog_target_occurrences": 1
       },
-      "summary": "Added an executed reservoir-to-market follow-up that integrates well nodal analysis with process design and all-equipment capacity, then exports a semantically correct capacity-bounded VFPPROD table plus a complementary surface-system curve."
+      "summary": "Added an executed reservoir-to-market follow-up that integrates well nodal analysis with process design and all-equipment capacity. It adds reservoir-pressure-aware nodal curves and a native process plus hydraulic debottlenecking study, then exports a semantically correct capacity-bounded VFPPROD table."
     }
   ]
 }
