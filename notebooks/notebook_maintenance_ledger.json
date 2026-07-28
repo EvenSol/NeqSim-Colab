@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-28T20:24:00Z",
+  "updated_at": "2026-07-28T21:25:00Z",
   "notebooks": [
     {
       "path": "notebooks/process/neqsim_compressor_capacity_bottleneck_optimization.ipynb",
@@ -14175,6 +14175,169 @@
       "limitations": "Synthetic fluid properties, rates, efficiencies, and installed limits are for training. Real design requires laboratory PVT, governed well data, validated compressor maps with surge and stonewall limits, ambient and availability derating, equipment and piping sizing, relief review, measurement uncertainty, and independent verification.",
       "neqsim_library_issue_detected": false,
       "summary": "Repaired the reusable oil-and-gas process-service tutorial into a self-contained current-API workflow with all original examples and its original histogram preserved, corrected process and material boundaries, typed timeout-protected execution, deterministic uncertainty and capacity screening, five inspected figures, and 14 rendered equations."
+    },
+    {
+      "path": "notebooks/process/RL_Process_Control.ipynb",
+      "verified_date": "2026-07-28",
+      "verified_at_utc": "2026-07-28T21:25:00Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-rl-process-control-final2-20260728t2255 --neqsim-version latest --refresh --extra-package tensorflow --extra-package nbclient --extra-package ipykernel --extra-package nbconvert",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260728T212058Z-cdfac3e2f1b7",
+        "verified_public_pypi_wheels": 93,
+        "manifest_created_at_utc": "2026-07-28T21:20:58Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, and requested toolchain verification passed."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 16 code cells sequentially from an empty in-process Python namespace because the sandbox blocks Jupyter transport sockets. Stored result tables and five PNG figures; zero error outputs and zero stderr streams. Exported the complete notebook through nbconvert HTML and rendered every mathematical expression separately.",
+      "code_cells": 16,
+      "markdown_cells": 19,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic connector-backed fast-forward commit",
+        "commit": "the direct master commit containing this ledger entry",
+        "files": [
+          "notebooks/process/RL_Process_Control.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "preservation": {
+        "pre_repair_cells": 32,
+        "cells_preserved": 32,
+        "pre_repair_code_cells": 15,
+        "code_cells_preserved": 15,
+        "pre_repair_markdown_cells": 17,
+        "markdown_cells_preserved": 17,
+        "substantive_examples_preserved": 6,
+        "examples": [
+          "dynamic NeqSim separator reinforcement-learning environment",
+          "TensorFlow/Keras deep Q-network agent",
+          "complete DQN training loop",
+          "nominal learned-policy deployment",
+          "dynamic setpoint, throughput, and editable custom scenarios",
+          "native NeqSim PI benchmark and RL comparison"
+        ],
+        "integration": "All 32 original cells retain their IDs, order, intent, and functionality. The six original examples now share one documented transient separator, simultaneous valve-action model, reusable high-fidelity rollout function, safety supervisor, current Keras agent, and common engineering metrics."
+      },
+      "repairs_made": [
+        "replaced the direct NeqSim-only installation with a conditional public-PyPI Colab setup for NeqSim and TensorFlow",
+        "updated imports, random seeds, current Keras interfaces, model serialization, and the documented state and action dimensions",
+        "replaced the incorrect nine-action one-valve-at-a-time encoding with 27 simultaneous feed, gas, and liquid valve actions",
+        "replaced per-transition Keras fit calls with vectorized train_on_batch replay and a target network, reducing the complete 12-episode training section to 21.9 seconds",
+        "added expert-guided replay initialization and a deterministic safety supervisor without bypassing NeqSim transient calculations",
+        "bounded all three valves physically and constrained feed actuation to a stable 30-70 percent deployment envelope",
+        "made level, pressure, and throughput schedules explicit and executed the formerly editable custom scenario",
+        "corrected Keras 3 weight-file naming and verified exact Q-vector save/load identity",
+        "added process-control theory, units, assumptions, interpretation, validation, limitations, references, and practical exercises"
+      ],
+      "neqsim_capabilities_demonstrated": [
+        "Peng-Robinson field-fluid construction with TBP pseudo-components",
+        "dynamic Separator inventory with liquid level",
+        "transient ThrottlingValve feed, gas-outlet, and liquid-outlet actuation",
+        "LevelTransmitter and PressureTransmitter measurements",
+        "ProcessSystem steady initialization and runTransient stepping",
+        "mass-flow, pressure, level, and valve-opening retrieval",
+        "high-fidelity nominal, scheduled-disturbance, custom, and PI-control rollouts",
+        "reusable NeqSim environment for DQN replay, target-network learning, and supervised safety action filtering"
+      ],
+      "practical_application": "Builds a dynamic PR separator with three manipulated valves and two transmitters, trains a 27-action DQN through real NeqSim transient calls, deploys it under nominal and changing setpoints and feed disturbances, executes a user-editable custom schedule, saves and reloads the learned weights, and compares the supervised policy against native NeqSim PI controllers on the same process.",
+      "engineering_validation": {
+        "assertions_passed": 22,
+        "assertions_failed": 0,
+        "checks": [
+          "NeqSim and TensorFlow versions recorded",
+          "eight-state vector and 27 simultaneous actions",
+          "finite training rewards, losses, states, and controller outputs",
+          "all valve openings within their declared physical bounds",
+          "positive and bounded dynamic feed flow",
+          "nominal, scheduled, custom, and PI scenarios complete",
+          "nominal liquid level moves toward its setpoint",
+          "nominal liquid-level MAE below 0.05 fraction",
+          "nominal pressure MAE below 1.0 bar",
+          "dynamic liquid level remains within plus or minus 0.05 for more than 40 percent of samples",
+          "dynamic pressure mean error below 0.50 bar",
+          "saved and reloaded Q values agree within 1e-7"
+        ],
+        "key_results": {
+          "training_episodes": 12,
+          "maximum_steps_per_episode": 80,
+          "training_time_seconds": 21.9,
+          "nominal_transitions": 140,
+          "nominal_level_MAE_fraction": 0.04797,
+          "nominal_pressure_MAE_bar": 0.2089,
+          "nominal_supervisor_interventions": 29,
+          "dynamic_transitions": 240,
+          "dynamic_mean_level_error_fraction": 0.05005,
+          "dynamic_maximum_level_error_fraction": 0.10488,
+          "dynamic_mean_pressure_error_bar": 0.3609,
+          "dynamic_maximum_pressure_error_bar": 1.722,
+          "dynamic_level_samples_within_0_05_percent": 48.3,
+          "dynamic_pressure_samples_within_0_5_bar_percent": 80.0,
+          "custom_transitions": 200,
+          "custom_mean_level_error_fraction": 0.067353,
+          "custom_mean_pressure_error_bar": 0.203345,
+          "custom_supervisor_interventions": 77,
+          "PI_transitions": 140,
+          "maximum_model_round_trip_Q_error": 0.0
+        }
+      },
+      "figures": {
+        "previous_figures": 4,
+        "previous_figures_preserved": 4,
+        "numerically_refreshed_previous_figures": 4,
+        "new_figures": 1,
+        "total_retained_figures": 5,
+        "purposes": [
+          "new connected NeqSim, DQN, safety-supervisor, and validation workflow overview",
+          "preserved and refreshed training reward, episode length, replay loss, and exploration diagnostics",
+          "preserved and refreshed nominal level, pressure, and simultaneous valve response",
+          "preserved and refreshed scheduled level, pressure, valve, and throughput response",
+          "preserved and refreshed DQN-versus-NeqSim-PI controller comparison"
+        ],
+        "visual_inspection": "Passed at original resolution after final execution. All five figures have descriptive titles, readable labels, explicit units, suitable legends, accessible colors, and no clipping, overlap, blank panels, stale values, or misleading scales."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 6,
+        "inline_expressions": 14,
+        "expressions_verified": 20,
+        "renderer": "Google Colab-safe standalone display blocks and single-backslash LaTeX rendered through Matplotlib MathText, with the complete executed notebook also exported through nbconvert HTML.",
+        "visual_inspection": "All 20 expressions rendered correctly, including state normalization, reward, Bellman target, epsilon-greedy actions, PI control, MAE, fractions, norms, integrals, Greek symbols, subscripts, and superscripts."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 35,
+        "maximum_code_line_length": 99,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "wildcard_imports": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "catalog_target_occurrences": 1,
+        "notebook_sha256": "380562f21675ea8f31d549ad0fe458e1fee0340380319764737bc32ece297219",
+        "notebook_bytes": 1092509
+      },
+      "links": {
+        "status": "passed",
+        "checked": [
+          "Google Colab badge target",
+          "NeqSim documentation",
+          "NeqSim Python package on public PyPI",
+          "preserved dynamic-separator notebook on master",
+          "NeqSim process source on master",
+          "front-page catalog target"
+        ]
+      },
+      "limitations": "The synthetic fluid, equipment dimensions, controller gains, reward weights, safety bounds, and disturbance schedules are educational. Real deployment requires governed plant data, instrumentation dynamics and noise, actuator travel and fail-safe logic, alarm and trip layers, constraint-aware offline validation, independent safety review, and hardware-in-the-loop testing.",
+      "neqsim_library_issue_detected": false,
+      "summary": "Repaired the dynamic separator DQN tutorial into a current, reproducible, high-fidelity NeqSim control workflow. All original examples and four figures are preserved and refreshed; the notebook now uses 27 simultaneous actions, efficient replay learning, explicit safety supervision, nominal and disturbance deployments, a custom scenario, a native PI benchmark, 22 engineering checks, five inspected figures, and 20 rendered expressions."
     }
   ]
 }
