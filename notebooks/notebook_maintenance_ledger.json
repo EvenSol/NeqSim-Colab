@@ -12388,7 +12388,7 @@
     {
       "path": "notebooks/reservoir/reservoir_well_topside_market_system_curves.ipynb",
       "verified_date": "2026-07-28",
-      "verified_at_utc": "2026-07-28T07:48:25Z",
+      "verified_at_utc": "2026-07-28T15:16:56Z",
       "neqsim_version": "3.16.0",
       "python_version": "3.12.13",
       "java_version": "OpenJDK 17.0.19",
@@ -12526,9 +12526,9 @@
       },
       "equation_rendering": {
         "status": "passed",
-        "expressions_verified": 17,
-        "renderer": "Jupyter/Colab-compatible single-backslash math source rendered through Matplotlib MathText in the fresh environment",
-        "visual_inspection": "IPR, assembled lift, pressure boundary, root, vessel utilization scaling, recycle power, VFP mapping, and inline symbols rendered correctly."
+        "expressions_verified": 13,
+        "renderer": "Google Colab-safe standalone display blocks and single-backslash LaTeX rendered through Matplotlib MathText in the fresh environment",
+        "visual_inspection": "IPR, assembled lift, pressure boundary, root, vessel utilization scaling, recycle power, VFP mapping, and inline symbols rendered correctly after delimiter, spacing, punctuation, and subscript repairs."
       },
       "notebook_quality": {
         "valid_nbformat_json": true,
