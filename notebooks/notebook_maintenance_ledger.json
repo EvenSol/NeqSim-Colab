@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-28T03:05:16Z",
+  "updated_at": "2026-07-28T04:10:35Z",
   "notebooks": [
     {
       "path": "notebooks/process/neqsim_compressor_capacity_bottleneck_optimization.ipynb",
@@ -12003,6 +12003,142 @@
         "catalog_target_occurrences": 1
       },
       "summary": "Expanded the eight-cell economy placeholder into an executed, self-contained field-development economics tutorial while preserving every original cell and the tax example. Added a realistic NeqSim process, native cost estimation, field-life decline, corrected tax algebra, discounted economics, sensitivities, engineering decisions, limitations, troubleshooting, exercises, and authoritative references."
+    },
+    {
+      "path": "notebooks/reservoir/fieldDevelopment1.ipynb",
+      "verified_date": "2026-07-28",
+      "verified_at_utc": "2026-07-28T04:10:35Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-catalog-20260728-0549 --neqsim-version latest --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260728T035030Z-d7eec70eb471",
+        "verified_public_pypi_wheels": 49,
+        "manifest_created_at_utc": "2026-07-28T03:50:30Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, and toolchain verification passed."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 20 code cells sequentially from an empty in-process Python namespace using the fresh bootstrap environment. Stored tables and six PNG figures; zero error outputs and zero stderr.",
+      "code_cells": 20,
+      "substantive_code_cells": 20,
+      "markdown_cells": 35,
+      "publication": {
+        "branch": "master",
+        "mode": "direct atomic connector-backed fast-forward commit",
+        "commit": "the commit containing this ledger entry",
+        "files": [
+          "notebooks/reservoir/fieldDevelopment1.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "preservation": {
+        "pre_existing_cells": 18,
+        "preserved_cells": 18,
+        "pre_existing_substantive_examples": 5,
+        "preserved_substantive_examples": 5,
+        "pre_existing_figures": 1,
+        "preserved_figures": 1,
+        "repairs": "Preserved the original characterized-fluid and phase-envelope example, two-reservoir well and injection setup, annual depletion calculation, subsea multiphase pipeline, topside three-phase separator, and separator-design example. Repaired the NeqSim 2.5.35 pin, wildcard imports, reversed helper signatures, obsolete Java package paths, semicolon-compressed code, two-increment hydraulics, saved reservoir.neqsim hidden state, direct design fields, stale outputs, broken data URL, typos, units, and missing interpretation. No original cell, example, figure, or functionality was removed."
+      },
+      "neqsim_capabilities_demonstrated": [
+        "fluid_df heavy-end characterization from a 24-component table",
+        "SRK cubic-EOS phase-envelope calculation",
+        "classical mixing rule and multiphase checking",
+        "water saturation and TP flash",
+        "two SimpleReservoir compositional tank models",
+        "oil and gas producers plus a water injector",
+        "ProcessSystem annual transient material-balance execution",
+        "named Mixer streams for subsea gathering",
+        "PipeBeggsAndBrills multiphase pressure-drop and flow-regime calculation",
+        "Cooler pressure and temperature arrival boundary",
+        "three-phase separator product and phase-flow retrieval",
+        "SeparatorMechanicalDesign screening dimensions and weights",
+        "repeated life-of-field coupling of reservoir and process objects"
+      ],
+      "practical_application": "Models a synthetic combined oil-and-gas field from two reservoir formations through annual depletion, imposed oil/gas production and water injection, subsea gathering, a 1 km line with 500 m elevation, an 85 bara and 45 degC arrival boundary, three-phase separation, separator screening design, a 2009-2015 decline forecast, and late-life elevation sensitivity.",
+      "engineering_validation": {
+        "assertions_passed": 18,
+        "assertions_failed": 0,
+        "checks": [
+          "rounded source composition closes within 0.02 mol percent",
+          "dew and bubble curves each contain more than 50 finite points",
+          "water-saturated flash contains at least two phases",
+          "both formations deplete after one year",
+          "pipeline pressure drop is positive",
+          "pipeline outlet pressure is below inlet pressure",
+          "separator relative mass residual is below 1e-10",
+          "gas and oil products are positive",
+          "separator diameter is finite and positive",
+          "separator length exceeds diameter",
+          "both reservoir pressures decline throughout the forecast",
+          "gas and oil products decline with the imposed schedule",
+          "pressure drop rises monotonically with elevation",
+          "valid nbformat JSON and complete sequential execution",
+          "all original cells, examples, and figure purpose are preserved",
+          "readable code, catalog target, equations, and figures verified"
+        ],
+        "key_results": {
+          "formation_1_pressure_after_one_year_bara": 197.586573,
+          "formation_2_pressure_after_one_year_bara": 194.142925,
+          "pipeline_pressure_drop_2009_bar": 23.486846,
+          "pipeline_flow_regime_2009": "TRANSITION",
+          "separator_gas_product_million_sm3_per_day": 8.827683,
+          "separator_oil_product_m3_per_day": 34346.247701,
+          "separator_relative_mass_residual": 3.479998e-14,
+          "separator_inner_diameter_m": 2.39458,
+          "separator_tan_tan_length_m": 5.400643,
+          "formation_1_pressure_2015_bara": 188.544884,
+          "formation_2_pressure_2015_bara": 171.942956,
+          "gas_product_2015_million_sm3_per_day": 3.991287,
+          "oil_product_2015_kg_per_day": 11258190.0,
+          "late_life_500m_elevation_pressure_drop_bar": 26.74089
+        }
+      },
+      "figures": {
+        "previous_figures": 1,
+        "previous_figures_refreshed": 1,
+        "new_figures": 5,
+        "total_retained_figures": 6,
+        "purposes": [
+          "connected reservoir-to-topside solver workflow",
+          "refreshed SRK dew- and bubble-point phase envelope",
+          "initialized reservoir-formation pressure comparison",
+          "separator screening geometry and shell weight",
+          "field-life reservoir, product, and hydraulic trends",
+          "late-life pipeline elevation sensitivity"
+        ],
+        "visual_inspection": "Passed at original resolution after final execution. All six figures have descriptive titles, explicit units, readable labels, accessible colors, appropriate legends, and nearby interpretation. The workflow overlap found in the first draft was corrected. No clipping, stale values, misleading scales, or unit inconsistencies remain.",
+        "numerical_refresh": "The original phase-envelope data were recomputed with NeqSim 3.16.0. Five additional figures use the same validated reservoir and process objects."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "expressions_verified": 24,
+        "renderer": "Jupyter-compatible single-backslash math source rendered through Matplotlib MathText in the fresh environment",
+        "visual_inspection": "SRK, tank material balance, Beggs-Brill pressure-gradient, separator mass-balance, and gas-capacity expressions rendered correctly with fractions, sums, subscripts, superscripts, Greek symbols, roots, and units."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 55,
+        "maximum_code_line_length": 96,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "catalog_target_occurrences": 1
+      },
+      "catalog": {
+        "path": "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+        "target_link_count": 1,
+        "section": "Field developement case studies",
+        "changed": false
+      },
+      "summary": "Expanded the 18-cell legacy field-development case into an executed, self-contained reservoir-to-topside tutorial while preserving every original cell, example, and figure purpose. Added current APIs, theory, clean state handling, process closure, mechanical-design screening, field-life coupling, sensitivity, verification, limitations, troubleshooting, exercises, and references."
     }
   ]
 }
