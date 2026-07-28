@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-28T13:01:35Z",
+  "updated_at": "2026-07-28T14:12:29.956Z",
   "notebooks": [
     {
       "path": "notebooks/process/neqsim_compressor_capacity_bottleneck_optimization.ipynb",
@@ -12740,6 +12740,148 @@
         "sha256": "5da17dcda2d8acd305c22bf5d5f5429dabc2d00f04c3b4a4664ff914b1d700c9"
       },
       "summary": "Expanded the six-cell placeholder into an executed, self-contained NeqSim RL pressure-control tutorial while preserving every original learning objective and example. Added a physically auditable valve map, gas-inventory dynamics, modern environment API, tabular Q-learning, controller comparison, envelope screening, limitations, and exercises."
+    },
+    {
+      "path": "notebooks/fluidflow/pid_datasheet_to_cad_cfd_neqsim.ipynb",
+      "verified_date": "2026-07-28",
+      "verified_at_utc": "2026-07-28T14:12:29.956Z",
+      "neqsim_version": "3.16.0",
+      "cadquery_version": "2.6.1",
+      "gmsh_version": "4.15.0",
+      "openfoam_version": "Foundation 14",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "Executed all 17 code cells sequentially from an empty in-process Python namespace using pinned dependencies and OpenFOAM Foundation 14. Execution counts, tables, diagnostics, solver logs, and five PNG figures are retained; zero error outputs and zero stderr streams.",
+      "code_cells": 17,
+      "substantive_code_cells": 16,
+      "markdown_cells": 20,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch commit",
+        "commit": "the direct master commit containing this ledger entry",
+        "files": [
+          "notebooks/fluidflow/pid_datasheet_to_cad_cfd_neqsim.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "source_basis": {
+        "document_inputs": "Synthetic, non-proprietary P&ID, process datasheet, mechanical datasheet, and calibrated-image QA record.",
+        "dimensional_authority": "The reviewed mechanical datasheet controls geometry; calibrated image measurement is an independent QA check only.",
+        "neqsim": "https://github.com/equinor/neqsim",
+        "cadquery": "https://cadquery.readthedocs.io/",
+        "gmsh": "https://gmsh.info/doc/texinfo/gmsh.html",
+        "openfoam": "https://openfoam.org/version/14/"
+      },
+      "workflow": [
+        "normalize reviewed P&ID, process, mechanical, and image-QA records",
+        "retain equipment, line, nozzle, and instrument tags",
+        "run a three-phase CPA TP flash in NeqSim",
+        "transfer gas density, viscosity, actual flow, and sound speed to CFD",
+        "create the exact gas-space STEP B-Rep with CadQuery",
+        "retain inlet, outlet, walls, and liquid-interface physical groups in Gmsh",
+        "convert and validate the named tetrahedral mesh in OpenFOAM",
+        "solve a steady incompressible k-epsilon gas-space RANS screen",
+        "recover pressure, continuity, residence time, and field diagnostics",
+        "package the design basis, CAD, mesh, OpenFOAM case, logs, VTK, and CSVs"
+      ],
+      "neqsim_capabilities_demonstrated": [
+        "CPA fluid creation with classic mixing rule and multiphase stability",
+        "three-phase TP flash with gas, oil, and aqueous phase identification",
+        "named NeqSim inlet stream and phase-resolved flow and transport properties",
+        "phase and total mass-balance closure",
+        "conversion of gas properties and actual volume flow into CFD boundaries",
+        "recovery of physical pressure loss from OpenFOAM kinematic pressure"
+      ],
+      "practical_application": "Builds the gas space of synthetic horizontal separator 20-VG-001 above a fixed liquid level, transfers a 65 bara and 45 degC three-phase NeqSim inlet to a named-boundary Gmsh/OpenFOAM model, solves the gas hydraulics, renders the actual fields, and exports a reusable digital thread package.",
+      "engineering_validation": {
+        "assertions_passed": 28,
+        "assertions_failed": 0,
+        "checks": [
+          "document tags and dimensional authority are preserved",
+          "calibrated-image diameter discrepancy remains below the QA limit",
+          "NeqSim returns gas, oil, and aqueous phases",
+          "phase mass flows close against the specified feed",
+          "gas properties and sound speed are finite and positive",
+          "inlet Reynolds number is turbulent and Mach number remains low",
+          "CadQuery creates one valid exact gas-space solid",
+          "CAD and Gmsh STEP volumes agree",
+          "Gmsh retains all four named physical boundary groups",
+          "OpenFOAM checkMesh reports acceptable topology and quality",
+          "the steady RANS solver converges",
+          "inlet-outlet flow closure passes",
+          "NeqSim and CFD gas mass flow agree",
+          "pressure loss and residence-time results are finite and plausible",
+          "valid notebook JSON, sequential execution, readable code, figures, equations, catalog link, and reusable artifacts"
+        ],
+        "key_results": {
+          "calibrated_image_diameter_difference_percent": 0.166667,
+          "neqsim_phase_count": 3,
+          "gas_mass_flow_kg_per_s": 22.4478,
+          "oil_mass_flow_kg_per_s": 10.3963,
+          "aqueous_mass_flow_kg_per_s": 0.489236,
+          "phase_mass_closure_percent": 1.79057e-12,
+          "gas_actual_flow_m3_per_s": 0.375891,
+          "gas_density_kg_per_m3": 59.7189,
+          "gas_dynamic_viscosity_pa_s": 0.0000135574,
+          "inlet_reynolds_number": 6916590,
+          "gas_sound_speed_m_per_s": 379.438,
+          "cad_gas_space_volume_m3": 29.5022,
+          "cad_gmsh_step_relative_volume_error": 4.0964e-10,
+          "gmsh_nodes": 8750,
+          "openfoam_cells": 47630,
+          "maximum_aspect_ratio": 7.99208,
+          "maximum_nonorthogonality_degrees": 65.0238,
+          "maximum_skewness": 0.994721,
+          "solver_iterations": 209,
+          "flow_closure_percent": 0.00125036,
+          "gas_pressure_loss_pa": 3432.82,
+          "nominal_gas_residence_time_s": 78.4861,
+          "maximum_speed_m_per_s": 11.6611,
+          "maximum_mach_number": 0.0307327
+        }
+      },
+      "figures": {
+        "new_figures": 5,
+        "total_retained_figures": 5,
+        "purposes": [
+          "document authority, P&ID traceability, and separator scope",
+          "exact CadQuery gas-space CAD and longitudinal level/nozzle schematic",
+          "actual Gmsh tetrahedral mesh cut and named geometry",
+          "solved OpenFOAM velocity, pressure, and turbulence fields",
+          "axial gas-jet profile and NeqSim three-phase mass split"
+        ],
+        "visual_inspection": "Passed at original resolution after final execution. Titles, units, labels, legends, color scales, annotations, CAD surfaces, mesh cells, and solved fields are readable with no clipping, overlap, blank output, stale values, or misleading axes."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "expressions_verified": 3,
+        "renderer": "Jupyter/Colab-compatible single-backslash math rendered through Matplotlib MathText in the validation environment.",
+        "visual_inspection": "Kinematic-viscosity conversion, inlet velocity and Reynolds number, and physical pressure recovery rendered correctly with fractions, subscripts, Greek symbols, operators, and units."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 37,
+        "maximum_code_line_length": 80,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "catalog_target_occurrences": 1,
+        "retained_png_figures": 5,
+        "sha256": "3504f18b3ccfaaa0f57aadbed0e6d26dc8fe30a8778c0a7169f91a45e7ac3da4"
+      },
+      "neqsim_improvements": {
+        "issues_created": 0,
+        "status": "No reproducible NeqSim bug, missing API, or actionable library gap was discovered; the notebook uses current public NeqSim APIs."
+      },
+      "limitations": "The CFD model is a single-gas-phase hydraulic screen above a fixed symmetry-plane liquid interface. It does not predict droplets, waves, entrainment, carryover, carryunder, or separator qualification.",
+      "summary": "Replaced the short unexecuted placeholder with a detailed, executed, self-contained P&ID and datasheet-to-CAD-to-CFD digital-thread tutorial. It preserves reviewed tags, calculates a three-phase CPA inlet with NeqSim, creates exact CadQuery geometry, meshes named physical groups with Gmsh, solves and renders OpenFOAM gas-space fields, validates 28 engineering checks, and packages all reusable artifacts."
     }
   ]
 }
