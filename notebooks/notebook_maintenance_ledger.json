@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-28T04:10:35Z",
+  "updated_at": "2026-07-28T05:06:57Z",
   "notebooks": [
     {
       "path": "notebooks/process/neqsim_compressor_capacity_bottleneck_optimization.ipynb",
@@ -12139,6 +12139,127 @@
         "changed": false
       },
       "summary": "Expanded the 18-cell legacy field-development case into an executed, self-contained reservoir-to-topside tutorial while preserving every original cell, example, and figure purpose. Added current APIs, theory, clean state handling, process closure, mechanical-design screening, field-life coupling, sensitivity, verification, limitations, troubleshooting, exercises, and references."
+    },
+    {
+      "path": "notebooks/excercise/Design_of_a_TEG_dehydration_process.ipynb",
+      "verified_date": "2026-07-28",
+      "verified_at_utc": "2026-07-28T05:06:57Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-catalog-20260728-0648 --neqsim-version latest --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260728T044916Z-5663cdd318d0",
+        "verified_public_pypi_wheels": 49,
+        "manifest_created_at_utc": "2026-07-28T04:49:16Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, and toolchain verification passed."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 19 code cells sequentially from an empty in-process Python namespace using the fresh bootstrap environment. Stored tables and five PNG figures; zero error outputs and zero stderr.",
+      "code_cells": 19,
+      "substantive_code_cells": 19,
+      "markdown_cells": 24,
+      "publication": {
+        "branch": "master",
+        "mode": "direct atomic connector-backed fast-forward commit",
+        "commit": "the commit containing this ledger entry",
+        "files": [
+          "notebooks/excercise/Design_of_a_TEG_dehydration_process.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "preservation": {
+        "pre_existing_cells": 9,
+        "preserved_cells": 9,
+        "pre_existing_substantive_examples": 3,
+        "preserved_substantive_examples": 3,
+        "pre_existing_figures": 0,
+        "preserved_figures": 0,
+        "repairs": "Preserved the Colab badge, wet-gas CPA equilibrium example, lean-TEG equilibrium example, Campbell Example 18.3 theory, and circulation calculation. Repaired the NeqSim 2.5.35 pin, invalid current database component name n-decane to nC10, wildcard imports, dense lines, ambiguous standard-volume conversion, hidden SciPy dependency, unbounded root solve, stale outputs, units, spelling, explanations, and equation layout. No original cell, example, or functionality was removed."
+      },
+      "neqsim_capabilities_demonstrated": [
+        "auto-selected CPA-SRK thermodynamic model for associating water and TEG",
+        "unit-aware TP flash and named phase extraction",
+        "water dew-point and hydrate-temperature calculations",
+        "aqueous-phase water activity-coefficient retrieval",
+        "named wet-gas and lean-TEG Stream objects",
+        "released SimpleTEGAbsorber connected to a ProcessSystem",
+        "physical-stage and overall stage-efficiency configuration",
+        "dry-gas and rich-TEG outlet retrieval",
+        "independent repeated absorber scenarios without hidden state"
+      ],
+      "practical_application": "Builds a 1.0 MSm3/day water-saturated gas at 70 bara and 40 degC, estimates 98.7 wt% TEG circulation from Campbell Example 18.3, connects gas and solvent to the native NeqSim absorber, retrieves dry gas and rich TEG, closes total and water balances, and screens TEG purity, circulation, and theoretical stages.",
+      "engineering_validation": {
+        "assertions_passed": 13,
+        "assertions_failed": 0,
+        "checks": [
+          "CPA model selected for water and TEG",
+          "saturated-gas water dew point returns the 40 degC flash temperature",
+          "hydrate boundary is below the saturated-gas water dew point",
+          "lean TEG reduces equilibrium gas water content",
+          "native absorber result lies between feed and equilibrium limits",
+          "total mass residual is below 1e-5 relative",
+          "water-component residual is below 2e-4 relative",
+          "gas water removed agrees with rich-TEG water gain within 0.02 kg/h",
+          "Campbell absorption-factor root closes below 1e-10",
+          "all nine native absorber scenario results are finite",
+          "all scenario mass residuals are below 1e-5 relative",
+          "additional contacting does not worsen dehydration",
+          "valid notebook JSON, readable code, unique catalog link, figures, and math"
+        ],
+        "key_results": {
+          "saturated_feed_water_kg_per_million_sm3": 986.2013,
+          "saturated_feed_water_mol_ppm": 1294.3769,
+          "wet_gas_hydrate_temperature_c": 19.5422,
+          "lean_teg_equilibrium_water_kg_per_million_sm3": 61.9766,
+          "lean_teg_water_activity_coefficient": 0.6592,
+          "campbell_teg_solution_rate_kg_per_h": 1683.6006,
+          "campbell_circulation_litre_per_kg_water": 36.7011,
+          "native_absorber_water_kg_per_million_sm3": 106.3874,
+          "native_absorber_water_mol_ppm": 139.6321,
+          "water_removed_from_gas_kg_per_h": 36.6652,
+          "total_mass_residual_relative": 5.286667161594575e-06,
+          "water_mass_residual_relative": 0.00012014039247431167,
+          "maximum_scenario_mass_residual_relative": 6.80488359078756e-06
+        }
+      },
+      "figures": {
+        "previous_figures": 0,
+        "previous_figures_refreshed": 0,
+        "new_figures": 5,
+        "total_retained_figures": 5,
+        "purposes": [
+          "equilibrium-to-absorber NeqSim workflow overview",
+          "lean-TEG concentration effect on gas water and hydrate temperature",
+          "Campbell theoretical-stage and circulation sensitivity",
+          "native absorber water reduction and component balance",
+          "native absorber purity, contacting, and circulation scenario screen"
+        ],
+        "visual_inspection": "Passed at original resolution after final execution. Every figure has a descriptive title, explicit units, readable labels, accessible colors, and appropriate legends or direct category labels. No clipping, overlap, stale values, misleading scales, or unit inconsistencies were found."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "expressions_verified": 40,
+        "renderer": "Jupyter/Colab-compatible single-backslash math source rendered through Matplotlib MathText in the fresh environment",
+        "visual_inspection": "Standard-gas conversion, water-content conversion, Kremser efficiency, lean-water mole fraction, equilibrium reference, absorption factor, theoretical-stage relation, and balance residuals rendered correctly across five inspected pages. Fractions, subscripts, superscripts, Greek symbols, and units were readable and unclipped."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 43,
+        "maximum_code_line_length": 83,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "catalog_target_occurrences": 1
+      },
+      "summary": "Expanded the nine-cell TEG exercise into an executed, self-contained dehydration design tutorial while preserving all original material. Added current CPA equilibrium, a dependency-free Campbell shortcut, a connected native absorber, balances, sensitivities, five figures, limitations, troubleshooting, exercises, and references."
     }
   ]
 }
