@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-28T14:12:29.956Z",
+  "updated_at": "2026-07-28T15:00:06.003Z",
   "notebooks": [
     {
       "path": "notebooks/process/neqsim_compressor_capacity_bottleneck_optimization.ipynb",
@@ -12882,6 +12882,217 @@
       },
       "limitations": "The CFD model is a single-gas-phase hydraulic screen above a fixed symmetry-plane liquid interface. It does not predict droplets, waves, entrainment, carryover, carryunder, or separator qualification.",
       "summary": "Replaced the short unexecuted placeholder with a detailed, executed, self-contained P&ID and datasheet-to-CAD-to-CFD digital-thread tutorial. It preserves reviewed tags, calculates a three-phase CPA inlet with NeqSim, creates exact CadQuery geometry, meshes named physical groups with Gmsh, solves and renders OpenFOAM gas-space fields, validates 28 engineering checks, and packages all reusable artifacts."
+    },
+    {
+      "path": "notebooks/process/hazop_workshop_with_neqsim.ipynb",
+      "verified_date": "2026-07-28",
+      "verified_at_utc": "2026-07-28T15:00:06.003Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "Executed all 20 code cells sequentially from an empty in-process Python namespace because the sandbox blocks ZeroMQ socket creation. Tables, diagnostics, and five PNG figures are retained; zero error outputs and zero stderr streams.",
+      "code_cells": 20,
+      "markdown_cells": 18,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic connector-backed fast-forward commit to the default branch",
+        "commit": "the direct master commit containing this ledger entry",
+        "files": [
+          "notebooks/process/hazop_workshop_with_neqsim.ipynb",
+          "notebooks/process/loss_of_containment_consequence_analysis.ipynb",
+          "notebooks/process/barrier_performance_and_esd_response_time.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "neqsim_capabilities_demonstrated": [
+        "SRK rich-gas and condensate process simulation",
+        "native HAZOP node discovery and worksheet objects",
+        "facilitator-reviewed guide-word deviations",
+        "blocked-outlet pressure-rise quantification",
+        "compressor temperature and power sensitivity",
+        "high-pressure gas blow-by screening"
+      ],
+      "engineering_validation": {
+        "focused_checks_passed": 7,
+        "focused_checks_failed": 0,
+        "key_results": {
+          "feed_mass_flow_kg_per_h": 120000,
+          "separator_pressure_bara": 55,
+          "separator_temperature_c": 29.5417,
+          "compressor_power_mw": 1.6621,
+          "time_to_pshh_s": 26.3,
+          "response_time_after_pshh_s": 48.9,
+          "ten_percent_blowby_kg_per_s": 2.06,
+          "reviewed_deviations": 12,
+          "prioritized_actions": 8
+        }
+      },
+      "figures": {
+        "total_retained_figures": 5,
+        "visual_inspection": "Passed at original resolution. Risk matrix, process overview, pressure-response, compressor envelope, and blow-by results are readable with correct units, scales, labels, and no clipping or stale output."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "expressions_verified": 11,
+        "renderer": "MathJax SVG rendering followed by PNG inspection",
+        "visual_inspection": "Guide-word construction, risk ranking, real-gas pressure rise, and inline symbols rendered correctly."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 38,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "catalog_target_occurrences": 1,
+        "sha256": "11985f362255f599ca07a7abf1a99ac3cdcee558a0fab596e73a5ced22d6d20d"
+      },
+      "neqsim_improvements": {
+        "issues_created": 1,
+        "issue": "https://github.com/equinor/neqsim/issues/2652",
+        "status": "Reported equipment-unaware NO FLOW consequence auto-population; the tutorial keeps facilitator review explicit."
+      },
+      "summary": "Facilitator-ready IEC 61882 HAZOP tutorial for an inlet-separation and export-compression process, with native node discovery, reviewed deviations, quantified consequences, risk ranking, and an owned action register."
+    },
+    {
+      "path": "notebooks/process/loss_of_containment_consequence_analysis.ipynb",
+      "verified_date": "2026-07-28",
+      "verified_at_utc": "2026-07-28T15:00:06.003Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "Executed all 18 code cells sequentially from an empty in-process Python namespace because the sandbox blocks ZeroMQ socket creation. Tables, diagnostics, and six PNG figures are retained; zero error outputs and zero stderr streams.",
+      "code_cells": 18,
+      "markdown_cells": 15,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic connector-backed fast-forward commit to the default branch",
+        "commit": "the direct master commit containing this ledger entry",
+        "files": [
+          "notebooks/process/hazop_workshop_with_neqsim.ipynb",
+          "notebooks/process/loss_of_containment_consequence_analysis.ipynb",
+          "notebooks/process/barrier_performance_and_esd_response_time.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "neqsim_capabilities_demonstrated": [
+        "SRK sour-gas inventory characterization",
+        "native transient LeakModel source terms",
+        "native gas dispersion endpoints",
+        "native jet-fire radiation screening",
+        "native TNO VCE overpressure screening",
+        "integrated consequence envelopes"
+      ],
+      "engineering_validation": {
+        "focused_checks_passed": 7,
+        "focused_checks_failed": 0,
+        "key_results": {
+          "inventory_pressure_bara": 100,
+          "inventory_mass_kg": 2579.56,
+          "peak_25_mm_release_kg_per_s": 7.89389,
+          "native_analytical_choked_rate_difference_percent": 0.00278,
+          "selected_case_half_lfl_distance_m": 81.34,
+          "selected_case_h2s_100_ppm_distance_m": 84.61,
+          "selected_case_jet_fire_12_5_kw_m2_distance_m": 16,
+          "selected_case_vce_6_9_kpa_distance_m": 48.06
+        }
+      },
+      "figures": {
+        "total_retained_figures": 6,
+        "visual_inspection": "Passed after correcting unattained VCE contours. Source terms, diameter scaling, dispersion, jet-fire, VCE, and integrated envelopes are readable and use honest NaN/status handling above the class-4 plateau."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "expressions_verified": 3,
+        "renderer": "MathJax SVG rendering followed by PNG inspection",
+        "visual_inspection": "Choked-flow and point-source radiation equations plus discharge coefficient rendered correctly."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 33,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "catalog_target_occurrences": 1,
+        "sha256": "a7ebd3c53b5e28cd23a5ee4f603f78dbd712614731a0337d1877539217596d71"
+      },
+      "neqsim_improvements": {
+        "issues_created": 0,
+        "status": "No new reproducible NeqSim defect was found."
+      },
+      "limitations": "Screening-level free-field models do not replace validated CFD, detailed congestion geometry, emergency-response design, or project-specific QRA.",
+      "summary": "Loss-of-containment tutorial covering transient source terms, independent choked-flow validation, flammable and toxic dispersion, jet-fire radiation, VCE overpressure, and a combined effect envelope."
+    },
+    {
+      "path": "notebooks/process/barrier_performance_and_esd_response_time.ipynb",
+      "verified_date": "2026-07-28",
+      "verified_at_utc": "2026-07-28T15:00:06.003Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "Executed all 14 code cells sequentially from an empty in-process Python namespace because the sandbox blocks ZeroMQ socket creation. Tables, diagnostics, and four PNG figures are retained; zero error outputs and zero stderr streams.",
+      "code_cells": 14,
+      "markdown_cells": 15,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic connector-backed fast-forward commit to the default branch",
+        "commit": "the direct master commit containing this ledger entry",
+        "files": [
+          "notebooks/process/hazop_workshop_with_neqsim.ipynb",
+          "notebooks/process/loss_of_containment_consequence_analysis.ipynb",
+          "notebooks/process/barrier_performance_and_esd_response_time.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "neqsim_capabilities_demonstrated": [
+        "real-gas process safety time calculation",
+        "native EsdResponseTimeSimulator timing budgets",
+        "cause-and-effect matrix construction",
+        "evidence-linked performance standards",
+        "SafetyCriticalElement and SafetyBarrier objects",
+        "validated barrier register and impairment screening"
+      ],
+      "engineering_validation": {
+        "focused_checks_passed": 7,
+        "focused_checks_failed": 0,
+        "key_results": {
+          "pressure_rise_rate_bar_per_s": 0.291,
+          "time_to_pshh_s": 24.048,
+          "time_to_mawp_s": 68.709,
+          "available_response_time_s": 44.661,
+          "as_designed_total_response_s": 11.4,
+          "degraded_total_response_s": 26.6,
+          "unacceptable_total_response_s": 60,
+          "barrier_register_findings": 0
+        }
+      },
+      "figures": {
+        "total_retained_figures": 4,
+        "visual_inspection": "Passed after expanding the final-element sensitivity range. Process safety time, timing budgets, zero-margin response surface, and barrier register views are readable and correctly distinguish accepted from exceeded cases."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "expressions_verified": 2,
+        "renderer": "MathJax SVG rendering followed by PNG inspection",
+        "visual_inspection": "End-to-end timing inequality and multiplicative residual-frequency relation rendered correctly."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 29,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "catalog_target_occurrences": 1,
+        "sha256": "01d3633ab986911d9f871e2e67ad06dbb55ede70344a1ec6a0a97452de04bf0b"
+      },
+      "neqsim_improvements": {
+        "issues_created": 0,
+        "status": "No new reproducible NeqSim defect was found."
+      },
+      "limitations": "The timing screen verifies an illustrative SIF response budget; real projects require approved trip settings, certified subsystem data, proof-test assumptions, independence review, and lifecycle governance.",
+      "summary": "Barrier-management tutorial deriving available response time, verifying native ESD timing cases, linking cause-and-effect and evidence to performance standards and SCEs, and validating a barrier register."
     }
   ]
 }
