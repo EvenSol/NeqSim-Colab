@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-28T19:34:20Z",
+  "updated_at": "2026-07-28T20:24:00Z",
   "notebooks": [
     {
       "path": "notebooks/process/neqsim_compressor_capacity_bottleneck_optimization.ipynb",
@@ -14011,6 +14011,170 @@
       "limitations": "The fluids, well rates, inflow scaling, compressor-map casing scales, and constraints are synthetic training data. Real field optimization requires history-matched reservoirs, laboratory PVT, validated vendor maps at the applicable reference conditions, flow-assurance limits, measurement uncertainty, and formal design review.",
       "neqsim_library_issue_detected": false,
       "summary": "Repaired the integrated gas-and-oil field optimization tutorial into an executed reservoir-to-market workflow with all original examples and figures preserved, modern APIs, physically consistent pressure and recycle boundaries, map-controlled export compression, native constrained production optimization, seven inspected figures, and 23 rendered equations."
+    },
+    {
+      "path": "notebooks/process/oilgasprocess1.ipynb",
+      "verified_date": "2026-07-28",
+      "verified_at_utc": "2026-07-28T20:24:00Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-oilgasprocess1-final-20260728t2202 --neqsim-version latest --refresh --extra-package nbclient --extra-package ipykernel --extra-package nbconvert",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260728T202126Z-3eda737d8161",
+        "verified_public_pypi_wheels": 66,
+        "manifest_created_at_utc": "2026-07-28T20:21:26Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, and requested toolchain verification passed."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 18 code cells sequentially from an empty in-process Python namespace because the sandbox blocks Jupyter transport sockets. Stored result tables and five PNG figures; zero error outputs and zero stderr streams. The complete notebook was exported through nbconvert HTML for Jupyter/MathJax-compatible inspection.",
+      "code_cells": 18,
+      "markdown_cells": 20,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic connector-backed fast-forward commit",
+        "commit": "the direct master commit containing this ledger entry",
+        "files": [
+          "notebooks/process/oilgasprocess1.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "preservation": {
+        "pre_repair_cells": 9,
+        "cells_preserved": 9,
+        "pre_repair_code_cells": 7,
+        "code_cells_preserved": 7,
+        "pre_repair_markdown_cells": 2,
+        "markdown_cells_preserved": 2,
+        "substantive_examples_preserved": 6,
+        "examples": [
+          "validated ProcessInput data contract",
+          "typed ProcessOutput service response",
+          "reusable cached three-stage process object",
+          "baseline process calculation protected by a timeout",
+          "ten-point stochastic operating-condition study",
+          "export-compressor-power distribution histogram"
+        ],
+        "integration": "All original examples retain their intent and original cell IDs. They now share one self-contained E300-compatible fluid, current NeqSim process builder, documented service boundary, typed result retrieval, closure checks, and final operating-envelope screen."
+      },
+      "repairs_made": [
+        "replaced direct pip and wget setup with a public-PyPI Colab setup",
+        "removed the unavailable asset-specific fluid dependency and generated a documented synthetic 22-component E300 round trip",
+        "replaced obsolete processSimulation Java package construction with current neqsim.process helper APIs",
+        "removed Pydantic as an unnecessary hidden dependency while preserving typed validation through standard dataclasses",
+        "removed semicolon chains, wildcard-style construction, compressed control flow, silent AttributeError handling, and malformed printing",
+        "corrected the external material boundary and added per-component closure instead of accepting only a one-sided total residual",
+        "made uncertainty deterministic, bounded, physically ordered, and fully executed rather than leaving two cells unexecuted",
+        "corrected the original histogram units from kW to MW and refreshed all values with NeqSim 3.16.0",
+        "added service repeatability, timeout recovery, driver utilization, feasibility, and expected-trend checks"
+      ],
+      "neqsim_capabilities_demonstrated": [
+        "Peng-Robinson field-fluid construction with TBP pseudo-components",
+        "EclipseFluidReadWrite E300 export and import",
+        "three-stage three-phase separation",
+        "LP and MP flash-gas compression with interstage cooling and scrubbers",
+        "scrubber-liquid mixing and recycle convergence",
+        "dew-point cooling and suction scrubbing",
+        "gas export compression and cooling",
+        "named ProcessSystem unit updates and threaded runAsThread execution",
+        "stream, component, duty, power, pressure, and product-rate retrieval",
+        "cached warm-state reuse across nearby operating cases"
+      ],
+      "practical_application": "Builds a self-contained 22-component HP/LP production fluid, writes and reads an E300 description, runs a 60/30/1.8 bara separation train with three recompressors and 126.5 bara gas export, returns a typed service response, verifies material closure and repeatability, executes ten bounded seeded cases, and screens them against export-driver and total-compression limits.",
+      "engineering_validation": {
+        "assertions_passed": 24,
+        "assertions_failed": 0,
+        "checks": [
+          "NeqSim version recorded",
+          "source and E300 round-trip fluids each contain 22 components",
+          "both original component-rate vectors contain 22 entries",
+          "positive finite gas and stabilized-oil products",
+          "external total mass residual below 0.001 percent",
+          "maximum component residual below 0.001 percent",
+          "all four compressor powers positive",
+          "export cooler removes heat",
+          "126.5 bara export target reached",
+          "export, HP, MP, recompression, and LP pressures are ordered",
+          "unchanged warm rerun preserves power and gas rate",
+          "all ten uncertainty scenarios execute with finite outputs",
+          "every scenario passes total and component closure",
+          "export power and gas rate have the expected feed-rate trends",
+          "all energy intensities and service times are positive",
+          "at least one case passes the installed-capacity screen"
+        ],
+        "key_results": {
+          "baseline_export_gas_million_sm3_per_day": 13.268164,
+          "baseline_stable_oil_sm3_per_day": 1941.469828,
+          "baseline_total_compressor_power_MW": 14.502524,
+          "baseline_export_cooler_duty_MW_removed": 12.915178,
+          "baseline_energy_intensity_kWh_per_1000_Sm3": 26.232761,
+          "baseline_mass_balance_residual_percent": 1.024e-05,
+          "maximum_component_residual_percent": 0.0001897,
+          "warm_repeat_power_relative_residual": 0.0,
+          "warm_repeat_gas_rate_relative_residual": 0.0,
+          "scenario_P10_gas_million_sm3_per_day": 12.41534,
+          "scenario_P50_gas_million_sm3_per_day": 12.70016,
+          "scenario_P90_gas_million_sm3_per_day": 14.67051,
+          "scenario_maximum_gas_million_sm3_per_day": 14.85806,
+          "scenario_maximum_total_power_MW": 15.77559,
+          "feasible_scenarios": 10
+        }
+      },
+      "figures": {
+        "previous_figures": 1,
+        "previous_figures_preserved": 1,
+        "numerically_refreshed_previous_figures": 1,
+        "new_figures": 4,
+        "total_retained_figures": 5,
+        "purposes": [
+          "connected NeqSim process and external service boundary",
+          "compression pressure ladder and compressor duty breakdown",
+          "external feed/product material closure and residual",
+          "preserved ten-case export-compressor-power distribution",
+          "throughput, export-power, gas-delivery, and energy sensitivity"
+        ],
+        "visual_inspection": "Passed at original resolution after final execution. All five figures have descriptive titles, readable labels, explicit units, legends or color scales, accessible colors, and no clipping, overlap, blank panels, or misleading scales."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 6,
+        "inline_expressions": 8,
+        "expressions_verified": 14,
+        "renderer": "Google Colab-safe standalone display blocks and single-backslash LaTeX rendered through Matplotlib MathText, with the complete executed notebook also exported through nbconvert HTML.",
+        "visual_inspection": "All 14 expressions rendered correctly, including the component rate vector, fractions, dotted molar and mass flows, subscripts, clip operator, utilization, and engineering units."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 38,
+        "maximum_code_line_length": 78,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "wildcard_imports": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "catalog_target_occurrences": 1,
+        "notebook_sha256": "d9e53f4022efe504530543f74f5906868cd17ee9e4e8c254a3346efdc7c19dfb",
+        "notebook_bytes": 527767
+      },
+      "links": {
+        "status": "passed",
+        "checked": [
+          "Google Colab badge target",
+          "NeqSim documentation",
+          "NeqSim Python package on public PyPI",
+          "NeqSim process examples on master",
+          "EclipseFluidReadWrite implementation on master",
+          "front-page catalog target"
+        ]
+      },
+      "limitations": "Synthetic fluid properties, rates, efficiencies, and installed limits are for training. Real design requires laboratory PVT, governed well data, validated compressor maps with surge and stonewall limits, ambient and availability derating, equipment and piping sizing, relief review, measurement uncertainty, and independent verification.",
+      "neqsim_library_issue_detected": false,
+      "summary": "Repaired the reusable oil-and-gas process-service tutorial into a self-contained current-API workflow with all original examples and its original histogram preserved, corrected process and material boundaries, typed timeout-protected execution, deterministic uncertainty and capacity screening, five inspected figures, and 14 rendered equations."
     }
   ]
 }
