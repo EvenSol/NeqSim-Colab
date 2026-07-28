@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-28T12:33:57.071Z",
+  "updated_at": "2026-07-28T13:07:33.925Z",
   "notebooks": [
     {
       "path": "notebooks/process/neqsim_compressor_capacity_bottleneck_optimization.ipynb",
@@ -9973,7 +9973,7 @@
         ],
         "key_results": {
           "base_density_kg_m3": 570.006377876671,
-          "base_compressibility_per_pa": 2.1655529052373874e-09,
+          "base_compressibility_per_pa": 2.1655529052373874e-9,
           "base_expansivity_per_k": 0.001976120843848179,
           "base_heat_capacity_j_kg_k": 2171.313809970754,
           "original_linear_final_pressure_bara": 760.0625287602811,
@@ -11514,9 +11514,9 @@
         "key_results": {
           "hydrate_temperature_150_bara_c": 21.976059918952274,
           "hydrate_temperature_90_bara_c": 19.661828056184106,
-          "arrival_temperature_c": 6.0,
+          "arrival_temperature_c": 6,
           "uninhibited_arrival_margin_k": -13.661828056184106,
-          "minimum_screened_meg_mol_percent": 20.0,
+          "minimum_screened_meg_mol_percent": 20,
           "base_cooler_duty_kw": -276.433225873617,
           "relative_process_mass_residual": 1.9091828878988374e-16
         }
@@ -11711,7 +11711,7 @@
           "compressor_power_mw": 3.011030495764755,
           "cooler_duty_mw": -3.8442747781564055,
           "compressor_discharge_temperature_c": 93.19685152699782,
-          "relative_process_mass_residual": 2.158717486366976e-06,
+          "relative_process_mass_residual": 0.000002158717486366976,
           "screened_design_pressure_barg": 107.40062375,
           "candidate_gas_line_internal_diameter_m": 0.2,
           "candidate_flare_internal_diameter_m": 0.25,
@@ -11827,7 +11827,7 @@
           "base_water_outlet_kg_per_h": 43477.36,
           "relative_process_mass_residual": 5.220954e-14,
           "minimum_screened_total_btex_mg_per_kg": 41.10386,
-          "minimum_btex_pressure_bara": 1.0,
+          "minimum_btex_pressure_bara": 1,
           "minimum_btex_water_load_kg_per_day": 40.94899,
           "native_hydrocyclone_feed_m3_per_h": 45.644934,
           "native_hydrocyclone_active_liners": 10,
@@ -11954,7 +11954,7 @@
         "key_results": {
           "base_feed_mass_flow_kg_per_h": 170819.17483382375,
           "base_export_gas_million_sm3_per_day": 5.000000000000001,
-          "base_export_pressure_bara": 155.0,
+          "base_export_pressure_bara": 155,
           "base_compressor_power_mw": 6.923403328480437,
           "base_cooler_duty_mw": -11.753754821642897,
           "native_process_total_project_cost_usd": 18958346.0027132,
@@ -12092,7 +12092,7 @@
           "formation_1_pressure_2015_bara": 188.544884,
           "formation_2_pressure_2015_bara": 171.942956,
           "gas_product_2015_million_sm3_per_day": 3.991287,
-          "oil_product_2015_kg_per_day": 11258190.0,
+          "oil_product_2015_kg_per_day": 11258190,
           "late_life_500m_elevation_pressure_drop_bar": 26.74089
         }
       },
@@ -12220,9 +12220,9 @@
           "native_absorber_water_kg_per_million_sm3": 106.3874,
           "native_absorber_water_mol_ppm": 139.6321,
           "water_removed_from_gas_kg_per_h": 36.6652,
-          "total_mass_residual_relative": 5.286667161594575e-06,
+          "total_mass_residual_relative": 0.000005286667161594575,
           "water_mass_residual_relative": 0.00012014039247431167,
-          "maximum_scenario_mass_residual_relative": 6.80488359078756e-06
+          "maximum_scenario_mass_residual_relative": 0.00000680488359078756
         }
       },
       "figures": {
@@ -12337,7 +12337,7 @@
           "operating_rate_million_sm3_per_day": 3.329307,
           "operating_bottom_hole_pressure_bara": 144.511799,
           "integrated_wellsystem_rate_million_sm3_per_day": 3.328613,
-          "independent_pressure_residual_bar": 0.0,
+          "independent_pressure_residual_bar": 0,
           "independent_rate_bracket_million_sm3_per_day": 1.776357e-15,
           "vfpprod_flow_points": 10,
           "vfpprod_thp_points": 5,
@@ -12349,7 +12349,7 @@
             1
           ],
           "vfpprod_table_number": 11,
-          "vfpprod_datum_depth_m": 2800.0
+          "vfpprod_datum_depth_m": 2800
         }
       },
       "figures": {
@@ -12496,6 +12496,128 @@
         "sha256": "03bd959f427fa02da86059cd31f4baaf763cd66207ae75b259395775419b40d4"
       },
       "summary": "Added an executed, self-contained CAD-to-CFD tutorial that uses NeqSim for process-state and boundary data, CadQuery for exact reusable CAD, Gmsh for named volume meshing, and OpenFOAM for solved local flow fields."
+    },
+    {
+      "path": "notebooks/fielddevelopment/volve_full_field_development_opm_neqsim.ipynb",
+      "verified_date": "2026-07-28",
+      "verified_at_utc": "2026-07-28T13:07:33.925Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12",
+      "java_version": "OpenJDK 17",
+      "opm_python_version": "2026.4",
+      "opm_flow_version": "2026.04",
+      "environment_resolution": {
+        "mode": "clean local NeqSim and official OPM Flow validation",
+        "notebook_setup": "Pins neqsim==3.16.0 and opm==2026.4 from public PyPI and installs the official OPM Flow binary through the OPM Ubuntu PPA.",
+        "validation_runtime": "NeqSim 3.16.0, OPM Python 2026.4, and official OPM Flow 2026.04."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 35 code cells sequentially from a fresh in-process Python namespace because the sandbox blocks Jupyter kernel sockets. All four OPM Flow cases returned success; 39 outputs and ten optimized PNG figures are stored, with zero error outputs or stderr streams.",
+      "code_cells": 35,
+      "substantive_code_cells": 35,
+      "markdown_cells": 31,
+      "publication": {
+        "branch": "agent/volve-full-field-development",
+        "mode": "connector-backed staging plus checksum-verified GitHub Actions assembly",
+        "commit": "the final assembly commit",
+        "files": [
+          "notebooks/fielddevelopment/volve_full_field_development_opm_neqsim.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "source_basis": {
+        "equinor_volve": "https://www.equinor.com/energy/volve-data-sharing",
+        "equinor_volve_license": "https://www.equinor.com/content/dam/statoil/documents/what-we-do/Equinor-HRS-Terms-and-conditions-for-licence-to-data-Volve.pdf",
+        "opm_flow": "https://opm-project.org/?page_id=19",
+        "opm_installation": "https://opm-project.org/?page_id=245"
+      },
+      "data_boundary": {
+        "field_context": "Volve open-data teaching study",
+        "model_scope": "Reduced Volve-inspired 16 x 16 x 3 sector; not a Volve history match or redistribution of the licensed full-field simulation package.",
+        "adapter": "VOLVE_DATA_ROOT inventories a user-downloaded Volve package for candidate decks, grids, wells, production files, and reports."
+      },
+      "neqsim_capabilities_demonstrated": [
+        "SRK classic oil characterization and DLE behavior",
+        "Flow-compatible PVTO, PVDG, and PVTW generation",
+        "surface-stream reconstruction from OPM rates",
+        "HP, MP, and LP separation with compression and cooling",
+        "oil, gas, water, power, cooling, and mass-balance reporting"
+      ],
+      "reservoir_capabilities_demonstrated": [
+        "16 x 16 x 3 heterogeneous OPM grid with 768 active cells",
+        "four producer/injector count and placement alternatives",
+        "32 quarterly report steps over a 2008-to-2016 field life",
+        "production, pressure, recovery, and breakthrough comparison",
+        "cell-level restart pressure and saturation maps"
+      ],
+      "practical_application": "Compares sparse, targeted, regular, and dense well alternatives and carries them through tubing, manifolds, flowlines, riser, hydrate margin, topside capacity, host-versus-lease concepts, schedule, CAPEX, OPEX, tax, NPV, break-even price, and uncertainty.",
+      "engineering_validation": {
+        "assertions_passed": 27,
+        "assertions_failed": 0,
+        "checks": [
+          "NeqSim, OPM Python, and OPM Flow versions resolve",
+          "fluid assay, saturation pressure, and PVT contracts pass",
+          "all four Flow alternatives return success with summary and restart files",
+          "reservoir rates are non-negative and pressure declines",
+          "placement changes recovery and restart saturations close",
+          "well and SURF hydraulic, thermal, and hydrate screens are finite",
+          "rate reconstruction and topside mass balances close",
+          "economics, break-even, and uncertainty results are finite",
+          "all 27 executable notebook checks pass"
+        ],
+        "key_results": {
+          "recommended_concept": "5P2I_regular | two_manifolds_10in | host_tieback",
+          "recommended_npv_million_usd": 81.88778362233278,
+          "recommended_capex_million_usd": 428.1988498045723,
+          "break_even_oil_price_usd_per_bbl": 59.378489610537166,
+          "npv_p10_million_usd": -40.580010822076204,
+          "npv_p50_million_usd": 73.14146586860568,
+          "npv_p90_million_usd": 179.89604627762864,
+          "probability_positive_npv": 0.7925,
+          "maximum_case_cumulative_oil_million_sm3": 3.832
+        }
+      },
+      "figures": {
+        "previous_figures": 0,
+        "new_figures": 10,
+        "total_retained_figures": 10,
+        "purposes": [
+          "well placement maps",
+          "NeqSim black-oil PVT",
+          "field forecast comparison",
+          "restart pressure and saturation maps",
+          "well tubing and lift screen",
+          "SURF architecture and hydraulics",
+          "topside field-life loads",
+          "NPV and cash flow",
+          "uncertainty and tornado",
+          "development schedule"
+        ],
+        "visual_inspection": "Passed at original displayed resolution after palette optimization. Titles, units, labels, markers, legends, color scales, annotations, and layouts remain readable without material clipping, overlap, stale values, or misleading axes."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 4,
+        "renderer": "Jupyter/Colab-compatible MathJax and Matplotlib MathText",
+        "visual_inspection": "Conservation, vertical-lift, Darcy-Weisbach, and NPV equations render with balanced delimiters, fractions, integrals, subscripts, and units."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 66,
+        "line_length_limit_100_passed": true,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "catalog_target_occurrences": 1,
+        "sha256": "ad14b810f5ade3eec97dc79b40a2d01f70039cd0f7aa2b2d4ffda9fb54fb0cab"
+      },
+      "summary": "Added an executed Volve open-data full-field development tutorial coupling four OPM Flow well alternatives to NeqSim PVT, wells, SURF, topsides, capacity, schedule, economics, and uncertainty."
     }
   ]
 }
