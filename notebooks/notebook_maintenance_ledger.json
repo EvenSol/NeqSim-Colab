@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-28T18:38:00Z",
+  "updated_at": "2026-07-28T19:34:20Z",
   "notebooks": [
     {
       "path": "notebooks/process/neqsim_compressor_capacity_bottleneck_optimization.ipynb",
@@ -13854,6 +13854,163 @@
       "limitations": "Synthetic fluids and well rates are for training. Real fiscal or commercial use requires governed meter data, laboratory PVT, contract rules, uncertainty propagation, audit controls, and approved reconciliation procedures.",
       "neqsim_library_issue_detected": false,
       "summary": "Repaired the production-allocation tutorial into an executed two-well facility workflow with preserved examples, native three-method custody allocation, self-contained E300 fluids, closure checks, eight inspected figures, and 18 rendered equations."
+    },
+    {
+      "path": "notebooks/reservoir/optimizationofoilandgasproduction.ipynb",
+      "verified_date": "2026-07-28",
+      "verified_at_utc": "2026-07-28T19:34:20Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-oil-gas-optimization-final-20260728t2055 --neqsim-version latest --refresh --extra-package nbclient --extra-package ipykernel --extra-package nbconvert",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260728T193106Z-1ec8ebaeab12",
+        "verified_public_pypi_wheels": 66,
+        "manifest_created_at_utc": "2026-07-28T19:31:06Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, and toolchain verification passed."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 21 code cells sequentially from an empty in-process Python namespace because the sandbox blocks Jupyter transport sockets. Stored tables and seven PNG figures; zero error outputs and zero stderr streams.",
+      "code_cells": 21,
+      "markdown_cells": 27,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic connector-backed fast-forward commit",
+        "commit": "the direct master commit containing this ledger entry",
+        "files": [
+          "notebooks/reservoir/optimizationofoilandgasproduction.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "preservation": {
+        "pre_repair_cells": 21,
+        "cells_preserved": 21,
+        "pre_repair_code_cells": 12,
+        "code_cells_preserved": 12,
+        "pre_repair_markdown_cells": 9,
+        "markdown_cells_preserved": 9,
+        "substantive_examples_preserved": 6,
+        "examples": [
+          "gas-reservoir definition with a producing well",
+          "oil-reservoir definition with production and water injection",
+          "HP/MP/LP separation, flash-gas recompression, and export process",
+          "fixed-discharge-pressure six-year field-life calculation",
+          "two original compressor-map examples and common-speed solution",
+          "map- and speed-controlled six-year field-life calculation"
+        ],
+        "integration": "Every original example remains in its original learning sequence and now shares explicit stream names, pressure bases, validation tables, reusable process/map helpers, and a final native ProductionOptimizer application."
+      },
+      "repairs_made": [
+        "replaced the obsolete NeqSim 2.5.35 pin with a public-PyPI Colab setup",
+        "removed wildcard imports, semicolon chains, and compressed code",
+        "updated simplereservoir and process-equipment helper argument order",
+        "raised the synthetic reservoir pressure above the 120 bara gas-feed boundary",
+        "initialized the HP recycle at the HP separator pressure instead of 15 bara",
+        "included MP produced water in the material balance",
+        "advanced both gas and oil reservoirs in every field-life time step",
+        "retained all original compressor-map data while applying documented stage-specific casing-flow scales",
+        "added stonewall boundaries, anti-surge control, speed limits, and map-state checks",
+        "removed confusing cricondenbar axis offsets and completed optimizer trial legends"
+      ],
+      "neqsim_capabilities_demonstrated": [
+        "SimpleReservoir gas and oil material-balance models",
+        "producer wells and pressure-controlled water injection",
+        "HP/MP/LP separation with flash-gas recompression",
+        "dew-point conditioning and two-stage export compression",
+        "oil stabilization, pumping, TVP, cricondenbar, and cricondentherm",
+        "transient reservoir depletion with ProcessSystem reuse",
+        "eight-line compressor charts with surge and stonewall boundaries",
+        "anti-surge control and setSolveSpeed map-speed solving",
+        "independent common-speed bisection to a 150 bara market boundary",
+        "native ProductionOptimizer with hard driver-power and speed limits"
+      ],
+      "practical_application": "Builds connected gas and oil reservoirs, produces through an HP/MP/LP offshore process, recompresses flash gas, conditions dew point, compresses export gas to 150 bara, advances a six-year field life, solves both compressors on their original performance maps, and maximizes gas feed subject to a 12 MW export-driver limit and 12,913 rpm map-speed limits.",
+      "engineering_validation": {
+        "assertions_passed": 32,
+        "assertions_failed": 0,
+        "checks": [
+          "NeqSim version and required model artifacts recorded",
+          "reservoir pressure exceeds the gas-feed boundary",
+          "finite positive gas and stabilized-oil products",
+          "150 bara export pressure reached",
+          "relative process material residual below 1e-6",
+          "finite positive TVP and phase-envelope extrema",
+          "gas and oil reservoir pressure decline through field life",
+          "market gas declines consistently with depletion",
+          "both compressor maps retain eight original speed lines",
+          "both current operating points avoid surge and stonewall",
+          "common-speed pressure residual below 1e-3 bar",
+          "map-controlled export pressure remains at its target",
+          "required stage speeds decline through field life",
+          "native optimizer returns a feasible conservative point",
+          "optimized export power and both speeds respect hard limits",
+          "optimization history contains feasible and infeasible trials"
+        ],
+        "key_results": {
+          "baseline_market_gas_million_sm3_per_day": 7.244968,
+          "baseline_stable_oil_m3_per_hour": 1016.715,
+          "baseline_export_pressure_bara": 150.0,
+          "baseline_export_compression_power_MW": 12.23338,
+          "baseline_total_process_power_MW": 25.37975,
+          "baseline_oil_tvp_bara_at_30_degC": 1.348687,
+          "baseline_gas_cricondenbar_bara": 1002.464,
+          "baseline_gas_cricondentherm_degC": 58.99414,
+          "process_relative_material_residual": -4.425442e-07,
+          "common_speed_operating_point_rpm": 12881.958,
+          "common_speed_pressure_residual_bar": 2.4e-05,
+          "optimized_gas_feed_kg_per_hour": 113178.474174,
+          "optimized_market_gas_million_sm3_per_day": 7.258036,
+          "optimized_export_power_MW": 11.157559,
+          "optimized_stage_1_speed_rpm": 12874.193639,
+          "optimized_stage_2_speed_rpm": 12909.219255
+        }
+      },
+      "figures": {
+        "previous_figures": 2,
+        "previous_figures_preserved": 2,
+        "numerically_refreshed_previous_figures": 2,
+        "new_figures": 5,
+        "total_retained_figures": 7,
+        "purposes": [
+          "reservoir-to-market workflow architecture",
+          "fixed-discharge field-life reference with five engineering trends",
+          "stage 1 compressor performance map and operating point",
+          "stage 2 compressor performance map and operating point",
+          "map- and speed-controlled field life with five engineering trends",
+          "required compressor speeds versus field-life year",
+          "native ProductionOptimizer trial rates and objective history"
+        ],
+        "visual_inspection": "Passed at original resolution after final execution. All seven figures have readable titles, labels, explicit units, legends, accessible colors, and no clipping or material overlap. Both pre-existing field-life figures were recomputed with the repaired current model."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 7,
+        "inline_expressions": 16,
+        "expressions_verified": 23,
+        "renderer": "Google Colab-safe standalone display blocks and single-backslash LaTeX rendered through Matplotlib MathText, with the complete executed notebook also exported through nbconvert HTML.",
+        "visual_inspection": "All 23 expressions rendered correctly, including fractions, maximum operators, dotted molar and mass flows, subscripts, inequalities, efficiencies, and engineering units."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 48,
+        "maximum_code_line_length": 72,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "wildcard_imports": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "catalog_target_occurrences": 1,
+        "notebook_sha256": "dca6e3eddca498794c1d1303611808c79ed9240e1b4a2c9edf542e1c252f8398",
+        "notebook_bytes": 1323402
+      },
+      "limitations": "The fluids, well rates, inflow scaling, compressor-map casing scales, and constraints are synthetic training data. Real field optimization requires history-matched reservoirs, laboratory PVT, validated vendor maps at the applicable reference conditions, flow-assurance limits, measurement uncertainty, and formal design review.",
+      "neqsim_library_issue_detected": false,
+      "summary": "Repaired the integrated gas-and-oil field optimization tutorial into an executed reservoir-to-market workflow with all original examples and figures preserved, modern APIs, physically consistent pressure and recycle boundaries, map-controlled export compression, native constrained production optimization, seven inspected figures, and 23 rendered equations."
     }
   ]
 }
