@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-28T23:11:33Z",
+  "updated_at": "2026-07-29T05:16:28Z",
   "notebooks": [
     {
       "path": "notebooks/AI/agentic_neqsim_workflow_demo.ipynb",
@@ -1276,9 +1276,9 @@
           "native_absorber_water_kg_per_million_sm3": 106.3874,
           "native_absorber_water_mol_ppm": 139.6321,
           "water_removed_from_gas_kg_per_h": 36.6652,
-          "total_mass_residual_relative": 5.286667161594575e-06,
+          "total_mass_residual_relative": 0.000005286667161594575,
           "water_mass_residual_relative": 0.00012014039247431167,
-          "maximum_scenario_mass_residual_relative": 6.80488359078756e-06
+          "maximum_scenario_mass_residual_relative": 0.00000680488359078756
         }
       },
       "figures": {
@@ -2637,7 +2637,7 @@
           "phase_mass_closure_percent": 1.79057e-12,
           "gas_actual_flow_m3_per_s": 0.375891,
           "gas_density_kg_per_m3": 59.7189,
-          "gas_dynamic_viscosity_pa_s": 1.35574e-05,
+          "gas_dynamic_viscosity_pa_s": 0.0000135574,
           "inlet_reynolds_number": 6916590,
           "gas_sound_speed_m_per_s": 379.438,
           "cad_gas_space_volume_m3": 29.5022,
@@ -5112,13 +5112,13 @@
           "dynamic_mean_pressure_error_bar": 0.3609,
           "dynamic_maximum_pressure_error_bar": 1.722,
           "dynamic_level_samples_within_0_05_percent": 48.3,
-          "dynamic_pressure_samples_within_0_5_bar_percent": 80.0,
+          "dynamic_pressure_samples_within_0_5_bar_percent": 80,
           "custom_transitions": 200,
           "custom_mean_level_error_fraction": 0.067353,
           "custom_mean_pressure_error_bar": 0.203345,
           "custom_supervisor_interventions": 77,
           "PI_transitions": 140,
-          "maximum_model_round_trip_Q_error": 0.0
+          "maximum_model_round_trip_Q_error": 0
         }
       },
       "figures": {
@@ -5598,8 +5598,8 @@
           "well_b_allocated_export_gas_kg_per_hour": 140595.398946,
           "well_b_allocated_export_oil_kg_per_hour": 362950.014308,
           "recommended_method": "COMPONENT_RATIO",
-          "process_relative_mass_residual": 6.016e-08,
-          "custody_allocation_residual": 0.0
+          "process_relative_mass_residual": 6.016e-8,
+          "custody_allocation_residual": 0
         }
       },
       "figures": {
@@ -6531,9 +6531,9 @@
           "base_liquid_mass_fraction": 0.324128,
           "base_cooler_duty_kW": -1383.71384,
           "base_valve_outlet_temperature_C": -0.966286,
-          "base_valve_outlet_pressure_bara": 30.0,
-          "base_total_mass_residual": 0.0,
-          "base_maximum_component_residual": 0.0,
+          "base_valve_outlet_pressure_bara": 30,
+          "base_total_mass_residual": 0,
+          "base_maximum_component_residual": 0,
           "metadata_xml_bytes": 70488,
           "application_xml_bytes": 139169,
           "application_tagged_items": 2,
@@ -7539,7 +7539,7 @@
         "key_results": {
           "process_safety_time_s": 90.262008,
           "hipps_pfdavg": 0.0008143296,
-          "residual_frequency_per_year": 8.143296e-07,
+          "residual_frequency_per_year": 8.143296e-7,
           "achieved_sil": 3,
           "healthy_total_response_s": 8.1,
           "healthy_peak_pressure_bara": 82.839062,
@@ -8014,25 +8014,27 @@
     },
     {
       "path": "notebooks/process/norwegian_ncs_gas_network_optimization.ipynb",
-      "verified_date": "2026-07-28",
-      "verified_at_utc": "2026-07-28T21:35:15Z",
+      "verified_date": "2026-07-29",
+      "verified_at_utc": "2026-07-29T05:16:28Z",
       "neqsim_version": "3.16.0",
-      "python_version": "not recorded in source validation entry",
+      "python_version": "3.12.13",
       "java_version": "not recorded in source validation entry",
       "environment_resolution": {
-        "mode": "not recorded in source validation entry",
-        "integrity": "Imported from the authoritative master ledger entry created by commit 89fe45583da9b7fe8f5c3b176b1978d61304e848."
+        "mode": "In-process IPython execution with the pinned NeqSim 3.16.0 environment.",
+        "integrity": "All cells were rerun after correcting the Polarled O1/P2 dew-point basis."
       },
       "execution_status": "passed",
-      "execution_method": "All 35 code cells executed with stored outputs, zero unexecuted cells, and zero error outputs.",
+      "execution_method": "All 35 code cells executed in order with stored outputs, zero unexecuted cells, and zero error outputs.",
       "code_cells": 35,
       "publication": {
         "branch": "master",
-        "commit": "89fe45583da9b7fe8f5c3b176b1978d61304e848"
+        "commit": "b423aa32b24d46a0b8656d3cc1287ea8c9cd683b"
       },
       "engineering_validation": {
         "checks": [
           "representative feed compositions close to unity",
+          "Aasta-Hansteen-like gas contains 15.15 mol% C2+",
+          "Aasta-Hansteen-like upper HCDP crossing is 106.29 barg at 0 C, below the 110 barg Polarled limit",
           "modeled dry-gas outlets satisfy selected normal Area D limits",
           "standalone rich-gas Beggs-Brill cases converged",
           "Kårstø product-capacity assumptions are respected",
@@ -8048,13 +8050,13 @@
       },
       "figures": {
         "total_retained_figures": 10,
-        "visual_inspection": "Passed across 39 rendered pages using nbconvert, WeasyPrint, and Poppler."
+        "visual_inspection": "Passed across 54 rendered A3 landscape pages using nbconvert, WeasyPrint, and Poppler; no table or figure clipping."
       },
       "equation_rendering": {
         "status": "passed",
         "display_equations": 8
       },
-      "summary": "Public-data Norwegian NCS gas-network study using synthetic representative compositions, assumed recovery factors, capacities, availability, and economics; not operator data or an operational nomination model."
+      "summary": "Public-data Norwegian NCS gas-network study with a richer synthetic Aasta-Hansteen-like composition and the Polarled O1/P2 upper HCDP pressure criterion at 0 C; assumptions are not operator chromatograph data."
     },
     {
       "path": "notebooks/process/oil_and_gas_Process_with_ngl_stabilizer_and_tex_process.ipynb",
@@ -8214,10 +8216,10 @@
           "baseline_total_compressor_power_MW": 14.502524,
           "baseline_export_cooler_duty_MW_removed": 12.915178,
           "baseline_energy_intensity_kWh_per_1000_Sm3": 26.232761,
-          "baseline_mass_balance_residual_percent": 1.024e-05,
+          "baseline_mass_balance_residual_percent": 0.00001024,
           "maximum_component_residual_percent": 0.0001897,
-          "warm_repeat_power_relative_residual": 0.0,
-          "warm_repeat_gas_rate_relative_residual": 0.0,
+          "warm_repeat_power_relative_residual": 0,
+          "warm_repeat_gas_rate_relative_residual": 0,
           "scenario_P10_gas_million_sm3_per_day": 12.41534,
           "scenario_P50_gas_million_sm3_per_day": 12.70016,
           "scenario_P90_gas_million_sm3_per_day": 14.67051,
@@ -10351,15 +10353,15 @@
         "key_results": {
           "baseline_market_gas_million_sm3_per_day": 7.244968,
           "baseline_stable_oil_m3_per_hour": 1016.715,
-          "baseline_export_pressure_bara": 150.0,
+          "baseline_export_pressure_bara": 150,
           "baseline_export_compression_power_MW": 12.23338,
           "baseline_total_process_power_MW": 25.37975,
           "baseline_oil_tvp_bara_at_30_degC": 1.348687,
           "baseline_gas_cricondenbar_bara": 1002.464,
           "baseline_gas_cricondentherm_degC": 58.99414,
-          "process_relative_material_residual": -4.425442e-07,
+          "process_relative_material_residual": -4.425442e-7,
           "common_speed_operating_point_rpm": 12881.958,
-          "common_speed_pressure_residual_bar": 2.4e-05,
+          "common_speed_pressure_residual_bar": 0.000024,
           "optimized_gas_feed_kg_per_hour": 113178.474174,
           "optimized_market_gas_million_sm3_per_day": 7.258036,
           "optimized_export_power_MW": 11.157559,
@@ -10725,7 +10727,7 @@
         ],
         "key_results": {
           "base_density_kg_m3": 570.006377876671,
-          "base_compressibility_per_pa": 2.1655529052373874e-09,
+          "base_compressibility_per_pa": 2.1655529052373874e-9,
           "base_expansivity_per_k": 0.001976120843848179,
           "base_heat_capacity_j_kg_k": 2171.313809970754,
           "original_linear_final_pressure_bara": 760.0625287602811,
@@ -10851,7 +10853,7 @@
           "compressor_power_mw": 3.011030495764755,
           "cooler_duty_mw": -3.8442747781564055,
           "compressor_discharge_temperature_c": 93.19685152699782,
-          "relative_process_mass_residual": 2.158717486366976e-06,
+          "relative_process_mass_residual": 0.000002158717486366976,
           "screened_design_pressure_barg": 107.40062375,
           "candidate_gas_line_internal_diameter_m": 0.2,
           "candidate_flare_internal_diameter_m": 0.25,
@@ -11818,14 +11820,14 @@
         "assertions_passed": 13,
         "assertions_failed": 0,
         "key_results": {
-          "base_temperature_degC": 50.0,
-          "base_pressure_bar": 150.0,
-          "asphaltene_molecular_weight_g_per_mol": 750.0,
+          "base_temperature_degC": 50,
+          "base_pressure_bar": 150,
+          "asphaltene_molecular_weight_g_per_mol": 750,
           "asphaltene_critical_temperature_K": 996.121998,
           "asphaltene_critical_pressure_bar": 16.263452,
           "asphaltene_acentric_factor": 2.5,
           "base_asphaltene_rich_phase_beta": 0.1128944232,
-          "phase_fraction_sum": 1.0,
+          "phase_fraction_sum": 1,
           "maximum_component_residual": 2.531e-14
         },
         "checks": [
