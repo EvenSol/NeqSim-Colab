@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-29T16:25:05Z",
+  "updated_at": "2026-07-29T18:20:11Z",
   "notebooks": [
     {
       "path": "notebooks/AI/agentic_neqsim_workflow_demo.ipynb",
@@ -1276,9 +1276,9 @@
           "native_absorber_water_kg_per_million_sm3": 106.3874,
           "native_absorber_water_mol_ppm": 139.6321,
           "water_removed_from_gas_kg_per_h": 36.6652,
-          "total_mass_residual_relative": 5.286667161594575e-06,
+          "total_mass_residual_relative": 0.000005286667161594575,
           "water_mass_residual_relative": 0.00012014039247431167,
-          "maximum_scenario_mass_residual_relative": 6.80488359078756e-06
+          "maximum_scenario_mass_residual_relative": 0.00000680488359078756
         }
       },
       "figures": {
@@ -2637,7 +2637,7 @@
           "phase_mass_closure_percent": 1.79057e-12,
           "gas_actual_flow_m3_per_s": 0.375891,
           "gas_density_kg_per_m3": 59.7189,
-          "gas_dynamic_viscosity_pa_s": 1.35574e-05,
+          "gas_dynamic_viscosity_pa_s": 0.0000135574,
           "inlet_reynolds_number": 6916590,
           "gas_sound_speed_m_per_s": 379.438,
           "cad_gas_space_volume_m3": 29.5022,
@@ -5598,7 +5598,7 @@
           "well_b_allocated_export_gas_kg_per_hour": 140595.398946,
           "well_b_allocated_export_oil_kg_per_hour": 362950.014308,
           "recommended_method": "COMPONENT_RATIO",
-          "process_relative_mass_residual": 6.016e-08,
+          "process_relative_mass_residual": 6.016e-8,
           "custody_allocation_residual": 0
         }
       },
@@ -7539,7 +7539,7 @@
         "key_results": {
           "process_safety_time_s": 90.262008,
           "hipps_pfdavg": 0.0008143296,
-          "residual_frequency_per_year": 8.143296e-07,
+          "residual_frequency_per_year": 8.143296e-7,
           "achieved_sil": 3,
           "healthy_total_response_s": 8.1,
           "healthy_peak_pressure_bara": 82.839062,
@@ -8216,7 +8216,7 @@
           "baseline_total_compressor_power_MW": 14.502524,
           "baseline_export_cooler_duty_MW_removed": 12.915178,
           "baseline_energy_intensity_kWh_per_1000_Sm3": 26.232761,
-          "baseline_mass_balance_residual_percent": 1.024e-05,
+          "baseline_mass_balance_residual_percent": 0.00001024,
           "maximum_component_residual_percent": 0.0001897,
           "warm_repeat_power_relative_residual": 0,
           "warm_repeat_gas_rate_relative_residual": 0,
@@ -10359,9 +10359,9 @@
           "baseline_oil_tvp_bara_at_30_degC": 1.348687,
           "baseline_gas_cricondenbar_bara": 1002.464,
           "baseline_gas_cricondentherm_degC": 58.99414,
-          "process_relative_material_residual": -4.425442e-07,
+          "process_relative_material_residual": -4.425442e-7,
           "common_speed_operating_point_rpm": 12881.958,
-          "common_speed_pressure_residual_bar": 2.4e-05,
+          "common_speed_pressure_residual_bar": 0.000024,
           "optimized_gas_feed_kg_per_hour": 113178.474174,
           "optimized_market_gas_million_sm3_per_day": 7.258036,
           "optimized_export_power_MW": 11.157559,
@@ -10727,7 +10727,7 @@
         ],
         "key_results": {
           "base_density_kg_m3": 570.006377876671,
-          "base_compressibility_per_pa": 2.1655529052373874e-09,
+          "base_compressibility_per_pa": 2.1655529052373874e-9,
           "base_expansivity_per_k": 0.001976120843848179,
           "base_heat_capacity_j_kg_k": 2171.313809970754,
           "original_linear_final_pressure_bara": 760.0625287602811,
@@ -10853,7 +10853,7 @@
           "compressor_power_mw": 3.011030495764755,
           "cooler_duty_mw": -3.8442747781564055,
           "compressor_discharge_temperature_c": 93.19685152699782,
-          "relative_process_mass_residual": 2.158717486366976e-06,
+          "relative_process_mass_residual": 0.000002158717486366976,
           "screened_design_pressure_barg": 107.40062375,
           "candidate_gas_line_internal_diameter_m": 0.2,
           "candidate_flare_internal_diameter_m": 0.25,
@@ -15075,7 +15075,7 @@
           "independent_rigorous_duty_kw": 3832.2086,
           "independent_hybrid_duty_kw": 3680.9379,
           "independent_duty_relative_error_percent": 3.9474,
-          "hybrid_energy_residual_fraction": 2.342e-08
+          "hybrid_energy_residual_fraction": 2.342e-8
         }
       },
       "figures": {
@@ -15390,6 +15390,144 @@
       },
       "documentation_impact": "The notebook is the documentation update. No NeqSim public API, default, or separate documentation page required a change.",
       "summary": "Modernized the weather/process tutorial on current NeqSim and Meteostat while preserving every original cell, example purpose, and figure. Added reproducible weather fallbacks, current APIs, air-property theory, compressor and native gas-turbine integration, weather sensitivity, a 136-point practical application, interpretations, limits, troubleshooting, references, exercises, equations, six figures, and focused assertions."
+    },
+    {
+      "path": "notebooks/process/online_process_simulation_demo1.ipynb",
+      "verified_date": "2026-07-29",
+      "verified_at_utc": "2026-07-29T18:20:11Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "pydantic_version": "2.12.5",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-online-process-finalshort-20260729t2010 --neqsim-version latest --extra-package pydantic --extra-package nbconvert --extra-package ipykernel --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260729T181021Z-1ad7a3ef76bd",
+        "verified_public_pypi_wheels": 70,
+        "manifest_created_at_utc": "2026-07-29T18:10:21Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, and requested toolchain verification passed."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 26 code cells sequentially from an empty in-process IPython namespace in the final fresh bootstrap environment. Stored tables and seven PNG figures; zero error outputs and zero stderr. Jupyter HTML conversion passed; local TCP and IPC kernel sockets are unavailable in the runner.",
+      "code_cells": 26,
+      "substantive_code_cells": 26,
+      "markdown_cells": 25,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch fast-forward",
+        "commit": "the direct master commit containing this ledger entry",
+        "files": [
+          "notebooks/process/online_process_simulation_demo1.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "existing_content_preservation": {
+        "pre_existing_cells": 26,
+        "pre_existing_code_cells": 17,
+        "pre_existing_markdown_cells": 9,
+        "pre_existing_examples": 8,
+        "pre_existing_figures": 3,
+        "preserved_examples": [
+          "optional Eclipse E300 deck presence and fluid-source selection",
+          "four-stage oil stabilization, flash-gas recompression, dew-point cooling, liquid recycle, and export process",
+          "validated base-case process update and calculation",
+          "30-point HP-feed increase and decrease profile",
+          "independent cold-start full-convergence simulation strategy",
+          "warm reused-process full-convergence simulation strategy",
+          "single-step reused-process simulation strategy",
+          "structured export-gas composition, properties, conditions, and export-oil property access"
+        ],
+        "repairs": "Preserved and mapped all 26 original cells, eight example purposes, and all three original figures. Replaced the obsolete NeqSim 2.5.35 and jNeqSim/processSimulation paths, inaccessible fluid1.e300 dependency, cached pseudo-cold builder, stale nested JSON decoding, incomplete water-excluding mass balance, heater-based oil pressure increase, semicolon-compressed code, ambiguous units, and missing validation. Added a deterministic public synthetic PR fluid, current APIs, an export-oil pump, produced-water export, output-only memoization for identical validated steady conditions, and explicit provisional-result quality gates."
+      },
+      "neqsim_capabilities_demonstrated": [
+        "Peng-Robinson multiphase fluid construction with classic mixing rule and TP flash",
+        "unit-aware Stream, ThreePhaseSeparator, Separator, Heater, Cooler, Compressor, Mixer, Recycle, Pump, and ThrottlingValve configuration",
+        "four-stage oil stabilization and three-stage flash-gas recompression",
+        "dew-point cooling and scrubber-liquid recycle",
+        "gas, stabilized-oil, and produced-water product reporting",
+        "ProcessSystem full-convergence and run-in-steps execution modes",
+        "named-unit updates for online measurements and equipment specifications",
+        "structured ProcessSystem JSON reporting and reusable quality classification"
+      ],
+      "practical_application": "Builds one reusable NeqSim oil-and-gas process, replays a 30-point HP-feed disturbance, independently solves 11 distinct cold-start conditions, solves the same 11 conditions with warm state reuse, performs all 30 sequential single-step updates, retrieves product reports, compares runtime and conservation, and classifies provisional points for acceptance or full recalculation.",
+      "engineering_validation": {
+        "named_assertions_passed": 21,
+        "assertions_failed": 0,
+        "checks": [
+          "finite positive gas, oil, water, and compressor-power outputs",
+          "specified 126.5 bara gas-export and 20.8 bara oil-export pressures",
+          "base relative total mass residual 9.04e-7 including produced water",
+          "all 30 cold and 30 warm reported cases below 1e-4 relative mass residual",
+          "maximum cold-warm converged export-gas deviation 1.454126e-7",
+          "export-gas flow and compressor power increase with the HP-feed ramp",
+          "all 30 sequential single-step outputs finite and within elapsed-time budget",
+          "maximum single-step export-gas deviation from warm reference 2.219175e-3",
+          "maximum single-step relative mass residual approximately 2.42e-3 and therefore screened as provisional",
+          "all three product streams present in the structured report",
+          "six step points accepted and 24 directed to full recalculation by the tutorial quality gate"
+        ],
+        "key_results": {
+          "base_export_gas_msm3_per_day": 5.762308,
+          "base_export_gas_kg_per_hour": 231642.655361,
+          "base_export_oil_kg_per_hour": 1059989.088935,
+          "base_produced_water_kg_per_hour": 8367.080946,
+          "base_total_compressor_power_mw": 18.543733,
+          "base_relative_mass_residual": 9.04e-7,
+          "maximum_cold_relative_mass_residual": 9.75e-7,
+          "maximum_warm_relative_mass_residual": 9.75e-7,
+          "maximum_cold_warm_gas_deviation": 1.454126e-7,
+          "maximum_step_warm_gas_deviation": 0.002219175,
+          "maximum_step_relative_mass_residual": 0.00242,
+          "cold_distinct_condition_runtime_s": 180.016581,
+          "warm_distinct_condition_runtime_s": 108.079579,
+          "sequential_step_runtime_s": 23.259034,
+          "provisional_points_accepted": 6,
+          "provisional_points_recalculate": 24
+        }
+      },
+      "figures": {
+        "previous_figures_preserved": 3,
+        "previous_figures_numerically_refreshed": 3,
+        "new_figures": 4,
+        "total_retained_figures": 7,
+        "purposes": [
+          "NeqSim process topology and material-flow workflow",
+          "30-point HP and LP feed replay inputs",
+          "refreshed independent cold-start export-gas response",
+          "refreshed warm full-convergence export-gas response",
+          "refreshed converged-versus-single-step export-gas comparison",
+          "HP-feed, export-gas, and compressor-power process response",
+          "cold, warm, and step runtime and worst mass-residual comparison"
+        ],
+        "visual_inspection": "Passed at original resolution after the final fresh execution. Titles, axes, labels, units, legends, accessible colors, process arrows, values, and scales are readable; no clipping, label overlap, stale data, mixed-unit axes, or misleading scales remain. The workflow arrow geometry was corrected and the complete notebook was rerun."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_expressions_verified": 3,
+        "inline_expressions_verified": 4,
+        "renderer": "Jupyter nbconvert HTML plus single-backslash Matplotlib MathText rendering in the final fresh environment",
+        "visual_inspection": "Mass-flow over-dots, subscripts, fractions, absolute values, maximum operator, delta, epsilon, and superscripts rendered correctly. All delimiters are balanced, display delimiters are standalone with surrounding blank lines, and no doubled or obsolete commands remain."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 51,
+        "maximum_code_line_length": 87,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "sequential_execution_counts": true,
+        "catalog_target_occurrences": 1,
+        "notebook_checker": "passed",
+        "original_cells_preserved": 26
+      },
+      "documentation_impact": "The notebook and catalog description are the documentation update. No NeqSim public API, default, or separate documentation page required a change.",
+      "summary": "Modernized the effective online-process simulation tutorial on current NeqSim while preserving every original cell, example purpose, and figure. Added a self-contained fluid, current process APIs, correct pressure equipment and product accounting, cold/warm/step strategy validation, structured reports, operational acceptance logic, theory, assumptions, troubleshooting, exercises, equations, and seven inspected engineering figures."
     }
   ]
 }
