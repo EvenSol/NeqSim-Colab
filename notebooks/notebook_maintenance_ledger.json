@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-29T18:20:11Z",
+  "updated_at": "2026-07-29T19:47:26Z",
   "notebooks": [
     {
       "path": "notebooks/AI/agentic_neqsim_workflow_demo.ipynb",
@@ -15528,6 +15528,135 @@
       },
       "documentation_impact": "The notebook and catalog description are the documentation update. No NeqSim public API, default, or separate documentation page required a change.",
       "summary": "Modernized the effective online-process simulation tutorial on current NeqSim while preserving every original cell, example purpose, and figure. Added a self-contained fluid, current process APIs, correct pressure equipment and product accounting, cold/warm/step strategy validation, structured reports, operational acceptance logic, theory, assumptions, troubleshooting, exercises, equations, and seven inspected engineering figures."
+    },
+    {
+      "path": "notebooks/process/Machine_learning_and_process_simulation.ipynb",
+      "verified_date": "2026-07-29",
+      "verified_at_utc": "2026-07-29T19:47:26Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "scikit_learn_version": "1.7.1",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-ml-teg-final2-20260729-2059 --neqsim-version latest --extra-package scikit-learn --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260729T193836Z-2192263aa749",
+        "verified_public_pypi_wheels": 54,
+        "manifest_created_at_utc": "2026-07-29T19:38:36Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, and requested scikit-learn toolchain verification passed."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 19 code cells sequentially from an empty in-process IPython namespace in the final fresh bootstrap environment. Stored tables and six PNG figures; zero error outputs and zero stderr.",
+      "code_cells": 19,
+      "substantive_code_cells": 19,
+      "markdown_cells": 23,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch fast-forward",
+        "commit": "the direct master commit containing this ledger entry",
+        "files": [
+          "notebooks/process/Machine_learning_and_process_simulation.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "existing_content_preservation": {
+        "pre_existing_cells": 18,
+        "pre_existing_code_cells": 9,
+        "pre_existing_markdown_cells": 9,
+        "pre_existing_examples": 4,
+        "pre_existing_figures": 0,
+        "preserved_examples": [
+          "public TEG operating-design data retrieval and inspection",
+          "complete CPA TEG absorber, regeneration, heat-recovery, make-up, and recycle flowsheet",
+          "NeqSim-generated multi-output surrogate training and held-out assessment",
+          "single-point process prediction with the trained model"
+        ],
+        "repairs": "Preserved all 18 original cells and four substantive purposes. Replaced the NeqSim 2.5.35 and wget pins, live raw-file dependency, obsolete processTools signatures, semicolon-compressed code, duplicate unit name, unsafe clearProcess plus runAsThread pattern, missing completion barrier, bare exception handling, nondeterministic split, and unqualified surrogate use. Embedded the unchanged 43-row public input table, executed 24 space-filling NeqSim cases, retained deterministic decision-tree training, compared a random forest, added domain and confirmation checks, and documented units and limitations."
+      },
+      "neqsim_capabilities_demonstrated": [
+        "CPA fluid construction with hydrocarbons, water, and TEG using mixing rule 10",
+        "Stream, StreamSaturatorUtil, Heater, SimpleTEGAbsorber, ThrottlingValve, HeatExchanger, Separator, Filter, DistillationColumn, WaterStripperColumn, Pump, SetPoint, Calculator, Mixer, and Recycle workflows",
+        "full absorber, rich-solvent flash, regeneration, stripping-gas, heat-recovery, make-up, and lean-solvent recycle process",
+        "ProcessSystem copy, deterministic sequential execution, named-unit result retrieval, and unit-level mass-balance reporting",
+        "dry-gas water, reboiler duty, flare rate, dry-gas rate, and operating-domain calculations"
+      ],
+      "practical_application": "Builds 24 complete TEG dehydration and regeneration flowsheets from a deterministic space-filling subset, trains and compares multi-output tree surrogates, screens 101 lean-TEG circulation settings under an illustrative water constraint, selects the lowest predicted duty, and independently rebuilds and reruns the recommended point in NeqSim.",
+      "engineering_validation": {
+        "assertions_passed": 26,
+        "assertions_failed": 0,
+        "checks": [
+          "43-row public input snapshot and all 17 original features retained",
+          "24 independent NeqSim process objects executed sequentially",
+          "all targets finite with positive dry-gas rates, positive duties, and nonnegative flare rates",
+          "all reportable unit mass balances below the 0.2 percent threshold",
+          "maximum reportable unit mass-balance residual 0.15958 percent",
+          "four held-out rows retained and all surrogate predictions finite",
+          "held-out water, duty, and flare MAE below 15 ppm(mol), 75 kW, and 20 kg/h",
+          "original prediction and optimization screen constrained to the training domain",
+          "recommended setting independently rerun in NeqSim",
+          "confirmation water, duty, and flare differences below 10 ppm(mol), 75 kW, and 15 kg/h",
+          "feature importance finite and normalized"
+        ],
+        "key_results": {
+          "simulated_neqsim_cases": 24,
+          "public_design_rows": 43,
+          "selected_model": "Random forest",
+          "selected_model_train_r_squared": 0.9523,
+          "selected_model_held_out_r_squared": 0.4326,
+          "held_out_water_mae_ppm_mol": 12.766,
+          "held_out_reboiler_duty_mae_kw": 37.464,
+          "held_out_flare_mae_kg_per_h": 10.282,
+          "maximum_unit_mass_balance_residual_percent": 0.15958,
+          "illustrative_water_limit_ppm_mol": 12.2,
+          "recommended_lean_teg_kg_per_h": 4300,
+          "confirmed_water_ppm_mol": 4.348,
+          "confirmed_reboiler_duty_kw": 180.807,
+          "confirmed_flare_kg_per_h": 185.231
+        }
+      },
+      "figures": {
+        "previous_figures_preserved": 0,
+        "previous_figures_numerically_refreshed": 0,
+        "new_figures": 6,
+        "total_retained_figures": 6,
+        "purposes": [
+          "complete gas, rich-TEG, regeneration, and lean-TEG recycle workflow",
+          "space-filling NeqSim design coverage across gas rate, TEG circulation, and absorber pressure",
+          "principal dehydration and regeneration-energy results",
+          "held-out water, duty, and flare parity comparison",
+          "surrogate water and duty sensitivities with independent NeqSim confirmation",
+          "tree-model input-importance diagnostic"
+        ],
+        "visual_inspection": "Passed at original resolution after final execution. All six figures have descriptive titles, explicit units, readable labels, legends or color scales, accessible colors, and no clipping, overlap, stale values, misleading scales, or inconsistent annotations."
+      },
+      "equations": {
+        "display_equations": 4,
+        "inline_equations": 5,
+        "delimiter_validation": "passed",
+        "renderer": "Jupyter-compatible single-backslash math source rendered through Matplotlib MathText in the final fresh environment because a local MathJax runtime was unavailable.",
+        "render_inspection": "Passed. Fractions, over-dots, subscripts, superscripts, inequality symbols, objective notation, and units rendered correctly."
+      },
+      "code_readability": {
+        "maximum_line_length": 87,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "syntax_validation": "passed"
+      },
+      "links": {
+        "colab_badge": "passed",
+        "catalog_occurrences": 1,
+        "changed_or_introduced_links": "passed"
+      },
+      "neqsim_defect": {
+        "repository": "equinor/neqsim-python",
+        "affected_release": "3.16.0",
+        "summary": "simpleTEGAbsorber(name) and waterStripperColumn(name) redundantly call setName before outlet streams exist, causing SimpleAbsorber.setName to throw NullPointerException.",
+        "validated_workaround": "Constructed the same released Java equipment classes with their name-taking constructors and added them through NeqSim's current process registry.",
+        "prepared_fix_commit": "EvenSol/neqsim-python@ab3ef7b3627fb8c4ac0ac9822c08ab701bd4dc17",
+        "pull_request_status": "Cross-repository draft PR creation was attempted through the installed GitHub connector and blocked by GitHub with HTTP 403 Resource not accessible by integration."
+      },
+      "documentation_impact": "The notebook is the documentation update. The confirmed Python-wrapper defect has a focused fix and regression prepared on the writable fork; upstream PR creation remains blocked by connector permission.",
+      "summary": "Modernized the complete NeqSim-to-machine-learning TEG tutorial while preserving every original cell and purpose. Added current APIs, reproducible public inputs, deterministic execution, mass and surrogate validation, six inspected visuals, rigorous screening confirmation, theory, interpretations, limitations, references, and exercises."
     }
   ]
 }
