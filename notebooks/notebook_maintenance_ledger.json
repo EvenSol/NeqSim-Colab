@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-29T15:41:09Z",
+  "updated_at": "2026-07-29T16:25:05Z",
   "notebooks": [
     {
       "path": "notebooks/AI/agentic_neqsim_workflow_demo.ipynb",
@@ -15247,6 +15247,149 @@
       },
       "documentation_impact": "The notebook is the documentation update. No NeqSim public API, default, or separate documentation page required a change.",
       "summary": "Modernized the complete integrated reservoir/process tutorial on current NeqSim while preserving all original cells and examples. Added architecture, theory, assumptions, interpretations, troubleshooting, exercises, assertions, three new visuals, stable gas-quality calculations, and a realistic distinction between validated mapped-compressor operation and long-term capacity screening."
+    },
+    {
+      "path": "notebooks/process/weatherandprocess.ipynb",
+      "verified_date": "2026-07-29",
+      "verified_at_utc": "2026-07-29T16:25:05Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "meteostat_version": "2.1.4",
+      "metno_locationforecast_version": "2.1.0",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-weather-process-release-20260729t1827 --neqsim-version latest --extra-package meteostat --extra-package metno-locationforecast --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260729T162301Z-9fce8a99c435",
+        "verified_public_pypi_wheels": 58,
+        "manifest_created_at_utc": "2026-07-29T16:23:01Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, and requested weather toolchain verification passed."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 25 code cells sequentially from an empty in-process Python namespace in the final fresh bootstrap environment. Stored tables and six PNG figures; zero error outputs and zero stderr.",
+      "code_cells": 25,
+      "substantive_code_cells": 25,
+      "markdown_cells": 23,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch fast-forward",
+        "commit": "the direct master commit containing this ledger entry",
+        "files": [
+          "notebooks/process/weatherandprocess.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "source_basis": {
+        "neqsim_repository": "https://github.com/equinor/neqsim",
+        "neqsim_javadoc": "https://equinor.github.io/neqsim/javadoc/index.html",
+        "neqsim_pypi": "https://pypi.org/project/neqsim/",
+        "meteostat_python": "https://dev.meteostat.net/python",
+        "meteostat_daily_api": "https://dev.meteostat.net/python/api/meteostat.daily",
+        "met_norway_locationforecast": "https://docs.api.met.no/doc/locationforecast/datamodel"
+      },
+      "existing_content_preservation": {
+        "pre_existing_cells": 18,
+        "pre_existing_code_cells": 11,
+        "pre_existing_markdown_cells": 7,
+        "pre_existing_examples": 7,
+        "pre_existing_figures": 1,
+        "preserved_examples": [
+          "Trondheim daily average, minimum, and maximum temperature retrieval and plot",
+          "daily weather-data table and summary",
+          "nearby weather-station search and WMO identifier extraction",
+          "hourly weather retrieval and tabular inspection",
+          "NeqSim ambient-air thermodynamic-property calculation",
+          "MET Norway Locationforecast client configuration and update",
+          "first forecast-interval inspection"
+        ],
+        "repairs": "Preserved all 18 original cells, seven example purposes, and the original temperature figure. Replaced the obsolete NeqSim 2.5.35 pin, Meteostat 1.x class API, hidden live-network dependency, inaccurate 72/28 air composition, missing power calculation, and unvalidated forecast path with current public-PyPI setup, Meteostat 2.1 functions, deterministic documented fallbacks, dry-air composition, and real NeqSim process-power integration."
+      },
+      "neqsim_capabilities_demonstrated": [
+        "SRK dry-air thermodynamic-system construction and TP flashes",
+        "near-ambient density and ideal-gas limiting comparison",
+        "SRK natural-gas fluid with classic mixing rule and multiphase check",
+        "unit-aware Stream construction and mass-flow specification",
+        "Compressor outlet-pressure and isentropic-efficiency calculation",
+        "ProcessSystem connected steady-state execution",
+        "GasTurbineCatalog CENTAUR_50 specification",
+        "GasTurbineUnit ambient temperature and pressure corrections",
+        "turbine available power, load, efficiency, fuel, CO2, NOx, and shortfall results",
+        "136-point weather-to-process application screen"
+      ],
+      "practical_application": "Builds a natural-gas export compressor, converts its calculated shaft power into GasTurbineUnit demand, evaluates every daily temperature and pressure boundary, checks capacity and emissions, identifies minimum and maximum capacity-margin days, and provides a reusable live-weather interface with deterministic fallback.",
+      "engineering_validation": {
+        "assertions_passed": 20,
+        "assertions_failed": 0,
+        "checks": [
+          "dry-air composition and finite SRK reference properties",
+          "maximum SRK versus ideal air-density difference below one percent",
+          "air density decreases with temperature and increases with atmospheric pressure",
+          "compressor mass and steady-flow enthalpy balances close",
+          "compressor outlet temperature and power direction are physical",
+          "turbine available power decreases with ambient temperature",
+          "turbine available power increases with atmospheric pressure",
+          "all 136 daily turbine results are finite with positive fuel and direct CO2",
+          "no daily point is below minimum load, overloaded, or power-short",
+          "minimum daily turbine capacity margin remains positive",
+          "valid notebook JSON, sequential execution, readable code, stored figures, equations, badge, and unique catalog link"
+        ],
+        "key_results": {
+          "daily_weather_points": 136,
+          "compressor_power_mw": 2.982955,
+          "compressor_outlet_temperature_deg_c": 96.019219,
+          "maximum_compressor_mass_residual_kg_h": 0,
+          "maximum_compressor_energy_residual_w": 0,
+          "maximum_srk_ideal_air_density_difference_percent": 0.072625,
+          "minimum_daily_capacity_margin_mw": 1.595265,
+          "maximum_daily_capacity_margin_mw": 2.11546,
+          "limiting_day_available_power_mw": 4.57822,
+          "limiting_day_temperature_deg_c": 14.61712,
+          "limiting_day_pressure_hpa": 1006.52549
+        }
+      },
+      "figures": {
+        "previous_figures_preserved": 1,
+        "previous_figures_numerically_refreshed": 1,
+        "new_figures": 5,
+        "total_retained_figures": 6,
+        "purposes": [
+          "refreshed original Trondheim daily minimum, average, and maximum temperature history",
+          "hourly temperature and atmospheric-pressure operating boundaries",
+          "weather-to-NeqSim process and turbine workflow overview",
+          "SRK dry-air density sensitivity to temperature and pressure",
+          "turbine available-power and direct-CO2-intensity sensitivity",
+          "daily integrated capacity margin, fuel use, and direct CO2 rate"
+        ],
+        "visual_inspection": "Passed at original resolution after final execution. All six figures have descriptive titles, explicit units, readable labels and legends, accessible colors, and no clipping, overlap, stale values, mixed-unit axes, or misleading scales. Final figure PNG hashes matched the inspected pre-release render exactly."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_expressions_verified": 3,
+        "inline_expressions_verified": 11,
+        "renderer": "Jupyter-compatible single-backslash math source rendered through Matplotlib MathText in the final fresh environment because a local MathJax runtime was unavailable.",
+        "visual_inspection": "Density, pressure, molar mass, compressibility, enthalpy-rate, mass-flow over-dots, fractions, subscripts, superscripts, and CO2 notation rendered correctly."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 48,
+        "maximum_code_line_length": 89,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "sequential_execution_counts": true,
+        "catalog_target_occurrences": 1,
+        "notebook_checker": "passed",
+        "original_cells_preserved": 18,
+        "original_cell_ids_preserved": 18
+      },
+      "documentation_impact": "The notebook is the documentation update. No NeqSim public API, default, or separate documentation page required a change.",
+      "summary": "Modernized the weather/process tutorial on current NeqSim and Meteostat while preserving every original cell, example purpose, and figure. Added reproducible weather fallbacks, current APIs, air-property theory, compressor and native gas-turbine integration, weather sensitivity, a 136-point practical application, interpretations, limits, troubleshooting, references, exercises, equations, six figures, and focused assertions."
     }
   ]
 }
