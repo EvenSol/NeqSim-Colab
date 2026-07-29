@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-29T05:16:28Z",
+  "updated_at": "2026-07-29T11:25:19Z",
   "notebooks": [
     {
       "path": "notebooks/AI/agentic_neqsim_workflow_demo.ipynb",
@@ -14717,6 +14717,141 @@
         "the current well-simulation guide, WellFlow source, pipeline guide, catalog, badge, and public PyPI 3.16.0 references were checked on 2026-07-21"
       ],
       "summary": "Rebuilt the legacy well-calculation sketch as an executed gas-well inflow, vertical-lift, and nodal-analysis tutorial. Replaced obsolete Colab magics, wildcard imports, double-escaped equations, duplicated imports, compressed code, stale video links, an inconsistent SI gas-deliverability equation that produced an implausible rate, and unverified standalone curve fits. Added a public synthetic SRK gas, current WellFlow Fetkovich and PipeBeggsAndBrills APIs, independent IPR reconstruction, segmented pressure and temperature profiles, an adaptive bracketed operating-point solve, mass and component closure, an independent hydraulic scale check, tubing, backpressure, and depletion sensitivities, limitations, references, exercises, five plots, and focused assertions."
+    },
+    {
+      "path": "notebooks/reservoir/ensamble_based_modelling.ipynb",
+      "verified_date": "2026-07-29",
+      "verified_at_utc": "2026-07-29T11:25:19Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-ensemble-reservoir-process-20260729 --neqsim-version latest --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260729T110559Z-49f5c9ac445a",
+        "verified_public_pypi_wheels": 49,
+        "manifest_created_at_utc": "2026-07-29T11:05:59Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, and toolchain verification passed."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 27 code cells sequentially from an empty in-process Python namespace using the fresh bootstrap environment. Stored tables and eight PNG figures; zero error outputs and zero stderr.",
+      "code_cells": 27,
+      "substantive_code_cells": 26,
+      "markdown_cells": 32,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch fast-forward",
+        "commit": "the direct master commit containing this ledger entry",
+        "files": [
+          "notebooks/reservoir/ensamble_based_modelling.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "source_basis": {
+        "ert_repository": "https://github.com/equinor/ert",
+        "ert_configuration": "https://ert.readthedocs.io/en/latest/getting_started/configuration/poly_new/guide.html",
+        "neqsim_documentation": "https://equinor.github.io/neqsim/",
+        "neqsim_javadoc": "https://equinor.github.io/neqsim/javadoc/index.html"
+      },
+      "existing_content_preservation": {
+        "pre_existing_cells": 7,
+        "pre_existing_code_examples": 3,
+        "pre_existing_markdown_cells": 4,
+        "pre_existing_figures": 0,
+        "preserved_examples": [
+          "Colab-compatible NeqSim and optional ERT environment setup",
+          "ERT and NeqSim import and role inspection",
+          "Reservoir-to-process initialization, data transfer, and integrated run"
+        ],
+        "repairs": "Retained all original teaching purposes and catalog path. Replaced nonexistent ert.load_model and neqsim.create_model calls with a typed, unit-labelled exchange contract, transparent ensemble-smoother workflow, ERT-compatible exports, and released NeqSim process APIs."
+      },
+      "neqsim_capabilities_demonstrated": [
+        "Peng-Robinson compositional wellstream construction",
+        "classic mixing rule and multiphase stability checking",
+        "unit-aware stream mass-flow specification",
+        "ThrottlingValve isenthalpic pressure letdown",
+        "Cooler separator-temperature specification",
+        "ThreePhaseSeparator gas, oil, and aqueous product streams",
+        "Compressor discharge-pressure and isentropic-efficiency calculation",
+        "ProcessSystem connection and ordered execution",
+        "rate-response calibration over seven independent process cases",
+        "separator mass closure and compressor-power trend validation"
+      ],
+      "practical_application": "Updates 80 synthetic reservoir realizations against five years of pressure and rate history, forecasts 15 years, transfers posterior wellstream rates through an explicit ERT-compatible table, runs a NeqSim choke-cooler-three-phase-separator-compressor process, computes facility-limit probabilities, constrains production, screens available compressor power, and exports reusable parameter and response tables.",
+      "engineering_validation": {
+        "assertions_passed": 12,
+        "assertions_failed": 0,
+        "checks": [
+          "composition closes to one",
+          "posterior normalized history RMSE improves and remains plausible",
+          "posterior parameters remain finite and within declared bounds",
+          "all seven NeqSim facility cases are finite",
+          "separator mass closes below 1e-8 kg/s",
+          "gas, oil, water, and compressor power increase monotonically with feed",
+          "compressor outlet is hotter than separator gas",
+          "bottleneck probabilities remain in [0, 1]",
+          "accepted rate never exceeds reservoir deliverability",
+          "curtailment remains nonnegative",
+          "power sensitivity raises capacity and lowers curtailment",
+          "parameter and response CSV files pass round-trip validation"
+        ],
+        "key_results": {
+          "prior_normalized_rmse": 2.2953,
+          "posterior_normalized_rmse": 0.8554,
+          "reference_feed_rate_kg_s": 75,
+          "reference_gas_rate_kg_s": 41.015414,
+          "reference_oil_rate_kg_s": 33.083403,
+          "reference_water_rate_kg_s": 0.901183,
+          "reference_compressor_power_mw": 4.255946,
+          "reference_compressor_outlet_temperature_k": 367.751547,
+          "relative_separator_mass_residual": 9.095e-15,
+          "facility_capacity_kg_s": 80.992,
+          "initial_any_bottleneck_probability": 0.95,
+          "p90_cumulative_curtailed_mass_mt_at_4_6_mw": 0.2324
+        }
+      },
+      "figures": {
+        "previous_figures_preserved": 0,
+        "previous_figures_numerically_refreshed": 0,
+        "new_figures": 8,
+        "total_retained_figures": 8,
+        "purposes": [
+          "ensemble-to-facility software and data workflow overview",
+          "prior rate and pressure uncertainty with observations",
+          "posterior rate forecast and standardized parameter update",
+          "NeqSim choke-cooler-separator-compressor process schematic",
+          "three-phase products and compressor-power response",
+          "posterior facility-bottleneck probabilities",
+          "reservoir deliverability, accepted rate, and curtailment",
+          "compressor-power capacity and P90-curtailment sensitivity"
+        ],
+        "visual_inspection": "Passed at original resolution after final execution. All eight figures have readable titles, units, labels, legends, accessible colors, and no clipping, overlap, stale values, or misleading axes."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_expressions_verified": 5,
+        "inline_expressions_verified": 37,
+        "renderer": "Jupyter-compatible single-backslash math source rendered through Matplotlib MathText in the fresh validation environment",
+        "visual_inspection": "Exponentials, subscripts, superscripts, covariance terms, inverse powers, Greek epsilon, over-dots, summation, delta, and units rendered correctly. Delimiters are balanced and Colab-safe."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 59,
+        "maximum_code_line_length": 82,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "sequential_execution_counts": true,
+        "catalog_target_occurrences": 1,
+        "notebook_checker": "passed"
+      },
+      "summary": "Repaired the nonfunctional ensemble-modeling placeholder without removing any original teaching purpose. Corrected ERT's role, removed invented APIs and missing proprietary-file assumptions, and added a complete ensemble update, real NeqSim facility workflow, engineering checks, ERT-compatible exports, uncertainty interpretation, limitations, references, exercises, and eight retained technical figures."
     }
   ]
 }
