@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-29T19:47:26Z",
+  "updated_at": "2026-07-29T20:31:39Z",
   "notebooks": [
     {
       "path": "notebooks/AI/agentic_neqsim_workflow_demo.ipynb",
@@ -15657,6 +15657,149 @@
       },
       "documentation_impact": "The notebook is the documentation update. The confirmed Python-wrapper defect has a focused fix and regression prepared on the writable fork; upstream PR creation remains blocked by connector permission.",
       "summary": "Modernized the complete NeqSim-to-machine-learning TEG tutorial while preserving every original cell and purpose. Added current APIs, reproducible public inputs, deterministic execution, mass and surrogate validation, six inspected visuals, rigorous screening confirmation, theory, interpretations, limitations, references, and exercises."
+    },
+    {
+      "path": "notebooks/process/syntheticdatageneration.ipynb",
+      "verified_date": "2026-07-29",
+      "verified_at_utc": "2026-07-29T20:31:39Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "sdv_version": "1.37.4",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-syntheticdata-final2-20260729-2154 --neqsim-version latest --extra-package sdv --extra-package nbformat --extra-package nbconvert --extra-package ipykernel --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260729T202623Z-0807189902a3",
+        "verified_public_pypi_wheels": 116,
+        "manifest_created_at_utc": "2026-07-29T20:26:23Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, NeqSim, SDV, notebook, renderer, and requested toolchain verification passed."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 29 code cells sequentially from an empty in-process IPython namespace in the final fresh bootstrap environment. Stored tables and seven PNG figures; zero error outputs and zero stderr. Jupyter nbconvert HTML conversion passed.",
+      "code_cells": 29,
+      "substantive_code_cells": 29,
+      "markdown_cells": 27,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch fast-forward",
+        "commit": "the direct master commit containing this ledger entry",
+        "files": [
+          "notebooks/process/syntheticdatageneration.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "existing_content_preservation": {
+        "pre_existing_cells": 41,
+        "pre_existing_code_cells": 25,
+        "pre_existing_markdown_cells": 16,
+        "pre_existing_examples": 5,
+        "pre_existing_figures": 5,
+        "preserved_examples": [
+          "public TimeSeries.csv preparation, process-tag filtering, timestamp conversion, and real analyser history",
+          "sequential metadata, PAR model fitting, persistence, reload, sequence sampling, and generated analyser history",
+          "SDV quality scoring and real-versus-synthetic analyser distribution comparison",
+          "conditioned analyser scenario and Gaussian-copula independent-row synthesis",
+          "synthetic-row-driven CPA TEG absorption, regeneration, heat recovery, separation, pumping, make-up, and recycle process"
+        ],
+        "repairs": "Preserved all 41 original cell purposes, five substantive examples, and five figure purposes. Replaced the SDV and wget installs plus manual restart, live raw-file dependency, deprecated metadata/load patterns, 150-epoch opaque training, unused condition, nonexistent positive-constraint column, NeqSim 2.5.35 pin, obsolete processTools signatures, semicolon-compressed process code, premature threaded result access, ambiguous absolute pressures and units, undefined regeneration duty, incomplete balance validation, and missing interpretations. Added a documented deterministic process-history fallback while retaining the public source option."
+      },
+      "neqsim_capabilities_demonstrated": [
+        "CPA hydrocarbon-water-TEG fluid construction with mixing rule 10",
+        "unit-aware Stream and StreamSaturatorUtil configuration",
+        "Heater boundary conditioning and energy-stream coupling",
+        "SimpleTEGAbsorber stage and efficiency configuration through the released Java constructor",
+        "ThrottlingValve, Separator, Filter, and two HeatExchanger operations",
+        "DistillationColumn reboiler, condenser, pressure, feed, and stripping-gas configuration",
+        "WaterStripperColumn, Pump, SetPoint, Calculator, Mixer, and Recycle integration",
+        "ProcessSystem copy, synchronous execution, named-unit retrieval, and unit-level mass-balance reporting",
+        "dry-gas water, TEG concentration, regeneration duty, flare, treatment-water, pump, and sensitivity results"
+      ],
+      "practical_application": "Trains and evaluates sequential and Gaussian-copula synthetic-data models, creates an exactly conditioned 120-row water-analyser scenario, maps a sampled lean-TEG rate into a complete NeqSim dehydration and regeneration flowsheet, retrieves engineering outputs, and reruns five sampled circulation settings to quantify the dry-gas-water versus regeneration-energy trade-off.",
+      "engineering_validation": {
+        "named_assertions_passed": 24,
+        "assertions_failed": 0,
+        "checks": [
+          "four deterministic operating campaigns and at least 90 prepared rows retained",
+          "required tags and ordered timestamps present",
+          "sequential metadata validates and PAR generates 48 finite rows",
+          "SDV quality score finite and within zero-to-one bounds",
+          "conditioned sample contains 120 rows with AIT-1x34 fixed exactly at 2 ppm(mol)",
+          "Gaussian-copula sample contains 500 finite rows",
+          "base NeqSim results finite with nonnegative dry-gas water and positive reboiler duty",
+          "base reportable unit mass balances below 0.2 percent",
+          "five complete NeqSim sensitivity scenarios with finite positive product and energy results",
+          "fitted dry-gas-water response decreases with increasing lean-TEG circulation",
+          "all sensitivity reportable unit mass balances below 0.2 percent",
+          "valid notebook JSON, sequential execution, readable code, stored outputs, equations, badge, HTML conversion, and unique catalog link"
+        ],
+        "key_results": {
+          "sdv_quality_score": 0.607,
+          "par_generated_rows": 48,
+          "conditioned_rows": 120,
+          "gaussian_copula_rows": 500,
+          "complete_neqsim_flowsheets": 6,
+          "base_dry_gas_water_ppm_mol": 5.51562,
+          "base_reboiler_duty_kw": 284.40713,
+          "base_maximum_unit_mass_residual_percent": 0.11613,
+          "water_versus_teg_slope_ppm_per_kg_per_h": -0.000527,
+          "maximum_sensitivity_unit_mass_residual_percent": 0.116377
+        }
+      },
+      "figures": {
+        "previous_figures_preserved": 5,
+        "previous_figures_numerically_refreshed": 5,
+        "new_figures": 2,
+        "total_retained_figures": 7,
+        "purposes": [
+          "refreshed prepared water-analyser histories by operating campaign",
+          "refreshed PAR-generated water-analyser sequence",
+          "refreshed real-versus-synthetic analyser distribution comparison",
+          "repaired conditioned high-water scenario across TEG circulation and pressure",
+          "refreshed Gaussian-copula analyser-versus-circulation relationship",
+          "new complete NeqSim TEG dehydration and regeneration workflow overview",
+          "new dry-gas-water and regeneration-duty sensitivity from five complete flowsheets"
+        ],
+        "visual_inspection": "Passed at original resolution after final execution. All seven figures have descriptive titles, explicit units, readable labels and legends or color scales, accessible colors, and no clipping, overlap, stale values, blank output, misleading scales, or inconsistent annotations."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_expressions_verified": 2,
+        "inline_expressions_verified": 6,
+        "renderer": "Jupyter nbconvert HTML plus single-backslash Matplotlib MathText rendering in the final fresh environment",
+        "visual_inspection": "Correlation, covariance fraction, sigmas, mass-flow over-dots, absolute values, maximum operator, subscripts, superscripts, epsilon, and units rendered correctly. Display delimiters are standalone with surrounding blank lines; no doubled or obsolete commands remain."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 56,
+        "maximum_code_line_length": 78,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "sequential_execution_counts": true,
+        "catalog_target_occurrences": 1,
+        "notebook_checker": "passed",
+        "original_cells_preserved": 41,
+        "original_examples_preserved": 5,
+        "original_figures_preserved": 5
+      },
+      "links": {
+        "colab_badge": "passed",
+        "catalog_occurrences": 1,
+        "changed_or_introduced_links": "passed"
+      },
+      "neqsim_defect": {
+        "new_defect_detected": false,
+        "existing_wrapper_limitation": "The previously confirmed NeqSim 3.16.0 Python convenience-wrapper construction defect for named SimpleTEGAbsorber and WaterStripperColumn instances was avoided with the released Java constructors and process registry.",
+        "prepared_fix_commit": "EvenSol/neqsim-python@ab3ef7b3627fb8c4ac0ac9822c08ab701bd4dc17",
+        "upstream_pull_request_status": "No new PR was created in this run; the already prepared cross-repository draft remains blocked by GitHub connector HTTP 403 permissions."
+      },
+      "documentation_impact": "The notebook is the user-facing documentation update. No NeqSim public API or default changed; the known Python-wrapper limitation and validated workaround are documented in the notebook.",
+      "summary": "Modernized the synthetic-process-data tutorial on current SDV and NeqSim while preserving every original cell purpose, five examples, and five figures. Added reproducible data fallback, current metadata and sampling APIs, a complete validated TEG process, conditioned scenarios, sensitivity analysis, theory, units, interpretations, limitations, equations, seven inspected figures, and 24 focused checks."
     }
   ]
 }
