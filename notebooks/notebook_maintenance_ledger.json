@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-29T12:23:58Z",
+  "updated_at": "2026-07-29T13:39:17Z",
   "notebooks": [
     {
       "path": "notebooks/AI/agentic_neqsim_workflow_demo.ipynb",
@@ -1276,9 +1276,9 @@
           "native_absorber_water_kg_per_million_sm3": 106.3874,
           "native_absorber_water_mol_ppm": 139.6321,
           "water_removed_from_gas_kg_per_h": 36.6652,
-          "total_mass_residual_relative": 0.000005286667161594575,
+          "total_mass_residual_relative": 5.286667161594575e-06,
           "water_mass_residual_relative": 0.00012014039247431167,
-          "maximum_scenario_mass_residual_relative": 0.00000680488359078756
+          "maximum_scenario_mass_residual_relative": 6.80488359078756e-06
         }
       },
       "figures": {
@@ -2637,7 +2637,7 @@
           "phase_mass_closure_percent": 1.79057e-12,
           "gas_actual_flow_m3_per_s": 0.375891,
           "gas_density_kg_per_m3": 59.7189,
-          "gas_dynamic_viscosity_pa_s": 0.0000135574,
+          "gas_dynamic_viscosity_pa_s": 1.35574e-05,
           "inlet_reynolds_number": 6916590,
           "gas_sound_speed_m_per_s": 379.438,
           "cad_gas_space_volume_m3": 29.5022,
@@ -5598,7 +5598,7 @@
           "well_b_allocated_export_gas_kg_per_hour": 140595.398946,
           "well_b_allocated_export_oil_kg_per_hour": 362950.014308,
           "recommended_method": "COMPONENT_RATIO",
-          "process_relative_mass_residual": 6.016e-8,
+          "process_relative_mass_residual": 6.016e-08,
           "custody_allocation_residual": 0
         }
       },
@@ -7539,7 +7539,7 @@
         "key_results": {
           "process_safety_time_s": 90.262008,
           "hipps_pfdavg": 0.0008143296,
-          "residual_frequency_per_year": 8.143296e-7,
+          "residual_frequency_per_year": 8.143296e-07,
           "achieved_sil": 3,
           "healthy_total_response_s": 8.1,
           "healthy_peak_pressure_bara": 82.839062,
@@ -8216,7 +8216,7 @@
           "baseline_total_compressor_power_MW": 14.502524,
           "baseline_export_cooler_duty_MW_removed": 12.915178,
           "baseline_energy_intensity_kWh_per_1000_Sm3": 26.232761,
-          "baseline_mass_balance_residual_percent": 0.00001024,
+          "baseline_mass_balance_residual_percent": 1.024e-05,
           "maximum_component_residual_percent": 0.0001897,
           "warm_repeat_power_relative_residual": 0,
           "warm_repeat_gas_rate_relative_residual": 0,
@@ -10359,9 +10359,9 @@
           "baseline_oil_tvp_bara_at_30_degC": 1.348687,
           "baseline_gas_cricondenbar_bara": 1002.464,
           "baseline_gas_cricondentherm_degC": 58.99414,
-          "process_relative_material_residual": -4.425442e-7,
+          "process_relative_material_residual": -4.425442e-07,
           "common_speed_operating_point_rpm": 12881.958,
-          "common_speed_pressure_residual_bar": 0.000024,
+          "common_speed_pressure_residual_bar": 2.4e-05,
           "optimized_gas_feed_kg_per_hour": 113178.474174,
           "optimized_market_gas_million_sm3_per_day": 7.258036,
           "optimized_export_power_MW": 11.157559,
@@ -10727,7 +10727,7 @@
         ],
         "key_results": {
           "base_density_kg_m3": 570.006377876671,
-          "base_compressibility_per_pa": 2.1655529052373874e-9,
+          "base_compressibility_per_pa": 2.1655529052373874e-09,
           "base_expansivity_per_k": 0.001976120843848179,
           "base_heat_capacity_j_kg_k": 2171.313809970754,
           "original_linear_final_pressure_bara": 760.0625287602811,
@@ -10853,7 +10853,7 @@
           "compressor_power_mw": 3.011030495764755,
           "cooler_duty_mw": -3.8442747781564055,
           "compressor_discharge_temperature_c": 93.19685152699782,
-          "relative_process_mass_residual": 0.000002158717486366976,
+          "relative_process_mass_residual": 2.158717486366976e-06,
           "screened_design_pressure_barg": 107.40062375,
           "candidate_gas_line_internal_diameter_m": 0.2,
           "candidate_flare_internal_diameter_m": 0.25,
@@ -14997,6 +14997,128 @@
         "original_cell_ids_preserved": 6
       },
       "summary": "Repaired the nonfunctional AI-in-gas-processing placeholder without removing any original cell or teaching purpose. Added a real NeqSim process, physics-led design of experiments, transparent surrogate construction, held-out validation, constrained screening, independent NeqSim verification, synthetic monitoring, engineering interpretations, limitations, troubleshooting, references, exercises, equations, plots, and focused assertions."
+    },
+    {
+      "path": "notebooks/process/heat_exchanger_ml_external_unit.ipynb",
+      "verified_date": "2026-07-29",
+      "verified_at_utc": "2026-07-29T13:39:17Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "scikit_learn_version": "1.9.0",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-ml-heat-exchanger-final3-20260729-1503 --neqsim-version latest --extra-package scikit-learn --extra-package nbclient --extra-package ipykernel --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260729T133516Z-cdc4e5e8d2a4",
+        "verified_public_pypi_wheels": 62,
+        "manifest_created_at_utc": "2026-07-29T13:35:16Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, and requested toolchain verification passed."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 18 code cells sequentially from an empty in-process Python namespace using the final fresh bootstrap environment. Stored tables and six PNG figures; zero error outputs and zero stderr. A normal Jupyter kernel was attempted but local TCP and IPC sockets are unavailable in the runner.",
+      "code_cells": 18,
+      "substantive_code_cells": 18,
+      "markdown_cells": 25,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch fast-forward",
+        "commit": "the direct master commit containing this ledger entry",
+        "files": [
+          "notebooks/process/heat_exchanger_ml_external_unit.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "existing_content_preservation": {
+        "pre_existing_cells": 34,
+        "pre_existing_code_cells": 16,
+        "pre_existing_markdown_cells": 18,
+        "pre_existing_examples": 2,
+        "pre_existing_figures": 0,
+        "preserved_examples": [
+          "rigorous NeqSim heat-exchanger sampling, multi-output random-forest training, parity, residual, and scenario-screening workflow",
+          "custom MachineLearningHeatExchanger Python unit operation, JSON output, and process-system validation"
+        ],
+        "repairs": "Preserved all 34 original cells and both substantive example groups. Repaired the obsolete NeqSim 2.5.35 setup, figure-before-import execution order, legacy processSimulation package paths, unexplained duty sign, unbalanced independent outlet predictions, compressed code, empty execution state, and missing validation. Retained all 324 factorial cases and added 96 seeded space-filling cases for real interpolation coverage."
+      },
+      "neqsim_capabilities_demonstrated": [
+        "SRK natural-gas and pure-water thermodynamic-system construction with the original mixing rule",
+        "unit-aware stream temperatures, pressures, standard gas flow, and water mass flow",
+        "two-stream HeatExchanger configuration with UA in W/K and coupled rigorous execution",
+        "hot-side and cold-side enthalpy-duty calculation, NeqSim signed-duty traceability, and energy closure",
+        "PH flashes that reconcile one predicted duty into energy-consistent hot and cold outlet streams",
+        "Python unitop proxy integrated directly into a current ProcessSystem with released package paths",
+        "factorial and space-filling case generation, held-out random-forest validation, range guards, and scenario use"
+      ],
+      "practical_application": "Builds a rigorous natural-gas-to-cooling-water exchanger, generates 420 audited NeqSim cases, trains a deterministic multi-output random forest, packages it as an external NeqSim unit operation, reconciles predicted duty through PH flashes, rejects the preserved 58 bara extrapolation case, and screens 18 in-envelope operating scenarios before requiring rigorous confirmation.",
+      "engineering_validation": {
+        "assertions_passed": 22,
+        "assertions_failed": 0,
+        "checks": [
+          "positive transferred duty and correct hot/cold direction",
+          "all 420 rigorous cases are finite, physically ordered, and close hot/cold enthalpy",
+          "maximum rigorous energy residual is 5.063e-8 of transferred duty",
+          "minimum held-out R-squared is 0.9629; hot and cold temperature MAE are 0.9684 and 1.2710 degC",
+          "held-out duty R-squared is 0.9808 and MAE is 55.8482 kW",
+          "independent validation duty error is 3.9474 percent; hot and cold absolute errors are 4.9397 and 0.4817 degC",
+          "PH-reconciled external-unit energy residual is 2.342e-8",
+          "58 bara pressure is rejected by the explicit training-envelope guard",
+          "18 application scenarios are in-range and have positive finite duty"
+        ],
+        "key_results": {
+          "rigorous_factorial_cases_preserved": 324,
+          "seeded_space_filling_cases_added": 96,
+          "total_training_cases": 420,
+          "held_out_minimum_r_squared": 0.9629,
+          "held_out_hot_temperature_mae_deg_c": 0.9684,
+          "held_out_cold_temperature_mae_deg_c": 1.271,
+          "held_out_duty_mae_kw": 55.8482,
+          "independent_rigorous_duty_kw": 3832.2086,
+          "independent_hybrid_duty_kw": 3680.9379,
+          "independent_duty_relative_error_percent": 3.9474,
+          "hybrid_energy_residual_fraction": 2.342e-08
+        }
+      },
+      "figures": {
+        "previous_figures_preserved": 0,
+        "previous_figures_numerically_refreshed": 0,
+        "new_figures": 6,
+        "total_retained_figures": 6,
+        "purposes": [
+          "hybrid rigorous-data-surrogate-process workflow overview",
+          "factorial and continuous design-space coverage",
+          "held-out parity for both temperatures and transferred duty",
+          "held-out residual distributions for all three targets",
+          "unit-specific rigorous-versus-hybrid validation comparison",
+          "UA, hot-temperature, and cooling-water scenario heatmaps"
+        ],
+        "visual_inspection": "Passed at original resolution after final execution. All six retained PNG figures have descriptive titles, readable labels, explicit units, legends or color scales, accessible colors, and no clipping, overlap, stale values, mixed-unit axes, or misleading scales. The workflow label positions and validation panels were corrected before the final run."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_expressions_verified": 8,
+        "inline_expressions_verified": 19,
+        "renderer": "Jupyter-compatible single-backslash math source rendered through Matplotlib MathText in the final fresh environment",
+        "visual_inspection": "Heat-duty and enthalpy-rate symbols, subscripts, fractions, absolute values, sums, hats, bars, R-squared, epsilon, superscripts, and units rendered correctly. All delimiters are balanced and Colab-safe."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 43,
+        "maximum_code_line_length": 80,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "sequential_execution_counts": true,
+        "catalog_target_occurrences": 2,
+        "catalog_occurrence_note": "The two pre-existing links in the process-simulation and machine-learning sections were preserved unchanged.",
+        "notebook_checker": "passed",
+        "original_cells_preserved": 34
+      },
+      "summary": "Repaired the unexecuted machine-learning heat-exchanger notebook without removing any original cell or example. Added current public-PyPI setup, explicit theory and units, 96 continuous interpolation cases, energy-consistent PH reconciliation, current ProcessSystem integration, range guards, focused assertions, troubleshooting, limits, references, exercises, and six inspected engineering figures."
     }
   ]
 }
