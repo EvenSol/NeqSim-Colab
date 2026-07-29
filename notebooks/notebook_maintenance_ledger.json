@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-29T13:39:17Z",
+  "updated_at": "2026-07-29T15:41:09Z",
   "notebooks": [
     {
       "path": "notebooks/AI/agentic_neqsim_workflow_demo.ipynb",
@@ -15119,6 +15119,134 @@
         "original_cells_preserved": 34
       },
       "summary": "Repaired the unexecuted machine-learning heat-exchanger notebook without removing any original cell or example. Added current public-PyPI setup, explicit theory and units, 96 continuous interpolation cases, energy-consistent PH reconciliation, current ProcessSystem integration, range guards, focused assertions, troubleshooting, limits, references, exercises, and six inspected engineering figures."
+    },
+    {
+      "path": "notebooks/reservoir/reservoirandprocess.ipynb",
+      "verified_date": "2026-07-29",
+      "verified_at_utc": "2026-07-29T15:41:09Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-reservoir-process-final-20260729-1725 --neqsim-version latest --extra-package scipy --extra-package nbclient --extra-package ipykernel --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260729T153356Z-34155f67da53",
+        "verified_public_pypi_wheels": 58,
+        "manifest_created_at_utc": "2026-07-29T15:33:56Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, and requested toolchain verification passed."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 18 code cells sequentially from an empty in-process Python namespace in the final fresh bootstrap environment. Stored tables and five PNG figures; zero error outputs and zero stderr.",
+      "code_cells": 18,
+      "substantive_code_cells": 18,
+      "markdown_cells": 16,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch fast-forward",
+        "commit": "the direct master commit containing this ledger entry",
+        "files": [
+          "notebooks/reservoir/reservoirandprocess.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "existing_content_preservation": {
+        "pre_existing_cells": 24,
+        "pre_existing_code_cells": 16,
+        "pre_existing_markdown_cells": 8,
+        "pre_existing_examples": 10,
+        "pre_existing_figure_cells": 2,
+        "pre_existing_stored_figures": 1,
+        "preserved_examples": [
+          "SRK SimpleReservoir with gas, oil, and water inventory, water injection, and oil production",
+          "staged HP/MP/LP oil, gas, and water separation",
+          "two-stage recompression, scrubbers, liquid recycles, and dew-point cooling",
+          "two-stage export compression and cooling",
+          "produced-water degassing and injection-water pumping",
+          "saved and reloaded .neqsim reservoir and process models",
+          "five-year coupled reservoir and fixed-facility lifetime study",
+          "two eight-speed compressor maps with surge curves and anti-surge control",
+          "facility power, fuel-gas, CO2 emissions, and emissions-intensity screening",
+          "shaft-speed setting, bounded bisection, and ten-year capacity screening"
+        ],
+        "repairs": "Preserved all 24 original cells and every substantive workflow. Updated the pinned NeqSim 2.5.35 setup, current name-first processTools factory signatures, valid Sm3/day units, generated-model paths, code formatting, execution order, energy and mass checks, and output persistence. Repaired the unstable raw cricondenbar lifetime panel with a reproducible 0 degC hydrocarbon dew-point flash. Kept the compressor-map solver at its validated operating point and used the pressure-specified facility for the full ten-year screen rather than extrapolating an unconverged map."
+      },
+      "neqsim_capabilities_demonstrated": [
+        "SRK multiphase reservoir-fluid construction and TP flash",
+        "SimpleReservoir material-balance decline with water injection and oil production",
+        "current Stream, Heater, ThrottlingValve, Separator, ThreePhaseSeparator, Mixer, Recycle, Compressor, Pump, and SetPoint workflows",
+        "ProcessSystem execution, transient reservoir stepping, and .neqsim persistence",
+        "hydrocarbon dew-point pressure and cricondentherm calculations",
+        "compressor charts, surge curves, anti-surge control, shaft speed, head, efficiency, and power",
+        "SciPy bisection around a real NeqSim mapped-compressor process",
+        "mass closure, TVP, gas/oil ratio, fuel-gas, and CO2-intensity calculations"
+      ],
+      "practical_application": "Builds and reuses a complete reservoir-to-export facility, advances the reservoir annually, connects changing wellstreams to the process, evaluates five- and ten-year production and power trends, validates two compressor maps, solves common export-compressor speed for 150 bara, and reports product, utility, emissions, and operating-envelope limitations.",
+      "engineering_validation": {
+        "assertions_passed": 25,
+        "assertions_failed": 0,
+        "checks": [
+          "normalized 15-component composition and multiphase reservoir state",
+          "generated reservoir, base-process, yearly-process, and charted-process persistence",
+          "finite declining reservoir pressure, gas rate, oil rate, and facility power",
+          "0 degC hydrocarbon dew-point pressures remained finite and between 1 and 500 bara",
+          "relative process mass residual 3.7964e-7",
+          "both mapped compressor operating points remained above surge",
+          "both mapped efficiencies remained between zero and one",
+          "positive LHV, fuel-gas rate, CO2 emissions intensity, flows, and power",
+          "150 bara pressure target bracketed and solved with 0.028699 bar residual",
+          "all ten yearly capacity-screen values finite with bounded speed indicators"
+        ],
+        "key_results": {
+          "baseline_rich_gas_million_sm3_per_day": 4.49178,
+          "baseline_stable_oil_kg_per_day": 44623680,
+          "baseline_water_to_treatment_kg_per_day": 1510596,
+          "baseline_facility_power_mw": 19.24946,
+          "year_5_rich_gas_million_sm3_per_day": 1.285707,
+          "year_5_oil_tvp_bara_at_30_deg_c": 0.974418,
+          "year_5_hc_dew_point_bara_at_0_deg_c": 156.676926,
+          "year_5_gas_cricondentherm_deg_c": 58.755727,
+          "year_5_facility_power_mw": 9.258418,
+          "relative_process_mass_residual": 3.796433827708e-7,
+          "mapped_speed_solution_rpm": 11346.191406,
+          "mapped_pressure_residual_bar": 0.028699,
+          "screening_co2_tonnes_per_year": 32982,
+          "screening_co2_intensity_kg_per_sm3_oe": 0.044
+        }
+      },
+      "figures": {
+        "previous_figure_cells_preserved": 2,
+        "previous_stored_figures_preserved": 1,
+        "previous_figure_cells_numerically_refreshed": 2,
+        "new_figures": 3,
+        "total_retained_figures": 5,
+        "purposes": [
+          "integrated reservoir-to-facility object and solver workflow",
+          "refreshed five-year GOR, hydrocarbon dew point, power, pressure, and gas-rate trends",
+          "both retained eight-speed compressor maps with surge curves and current operating points",
+          "last-year equipment power plus fuel and emissions screening",
+          "refreshed ten-year GOR, speed indicator, power, export pressure, and gas-rate trends"
+        ],
+        "visual_inspection": "Passed at original resolution after final execution. Titles, labels, units, legends, scales, colors, operating points, and trends are readable; no clipping, overlap, stale values, or misleading raw envelope extrema remain."
+      },
+      "equations": {
+        "display_equations": 6,
+        "inline_equations": 13,
+        "delimiter_validation": "passed",
+        "render_inspection": "Passed using the final fresh environment and a Jupyter-compatible Matplotlib math-rendering path; fractions, sums, subscripts, superscripts, Greek symbols, and units were visually inspected."
+      },
+      "code_readability": {
+        "maximum_line_length": 77,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "syntax_validation": "passed"
+      },
+      "links": {
+        "colab_badge": "passed",
+        "catalog_occurrences": 1,
+        "changed_or_introduced_links": "passed"
+      },
+      "documentation_impact": "The notebook is the documentation update. No NeqSim public API, default, or separate documentation page required a change.",
+      "summary": "Modernized the complete integrated reservoir/process tutorial on current NeqSim while preserving all original cells and examples. Added architecture, theory, assumptions, interpretations, troubleshooting, exercises, assertions, three new visuals, stable gas-quality calculations, and a realistic distinction between validated mapped-compressor operation and long-term capacity screening."
     }
   ]
 }
