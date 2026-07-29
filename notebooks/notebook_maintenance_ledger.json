@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-29T11:25:19Z",
+  "updated_at": "2026-07-29T12:23:58Z",
   "notebooks": [
     {
       "path": "notebooks/AI/agentic_neqsim_workflow_demo.ipynb",
@@ -14852,6 +14852,151 @@
         "notebook_checker": "passed"
       },
       "summary": "Repaired the nonfunctional ensemble-modeling placeholder without removing any original teaching purpose. Corrected ERT's role, removed invented APIs and missing proprietary-file assumptions, and added a complete ensemble update, real NeqSim facility workflow, engineering checks, ERT-compatible exports, uncertainty interpretation, limitations, references, exercises, and eight retained technical figures."
+    },
+    {
+      "path": "notebooks/process/AIgasprocessing.ipynb",
+      "verified_date": "2026-07-29",
+      "verified_at_utc": "2026-07-29T12:23:58Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-ai-gas-processing-final-20260729-1404 --neqsim-version latest --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260729T121845Z-4c04a8605977",
+        "verified_public_pypi_wheels": 49,
+        "manifest_created_at_utc": "2026-07-29T12:18:45Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, and toolchain verification passed."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 31 code cells sequentially from an empty in-process Python namespace using the final fresh bootstrap environment. Stored tables and six PNG figures; zero error outputs and zero stderr.",
+      "code_cells": 31,
+      "substantive_code_cells": 31,
+      "markdown_cells": 36,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch fast-forward",
+        "commit": "the direct master commit containing this ledger entry",
+        "files": [
+          "notebooks/process/AIgasprocessing.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "source_basis": {
+        "neqsim_documentation": "https://equinor.github.io/neqsim/",
+        "neqsim_process_documentation": "https://equinor.github.io/neqsim/process/",
+        "neqsim_javadoc": "https://equinor.github.io/neqsim/javadoc/index.html",
+        "nist_process_modelling": "https://www.itl.nist.gov/div898/handbook/pmd/pmd.htm"
+      },
+      "existing_content_preservation": {
+        "pre_existing_cells": 6,
+        "pre_existing_code_cells": 2,
+        "pre_existing_nonempty_code_cells": 1,
+        "pre_existing_markdown_cells": 4,
+        "pre_existing_figures": 0,
+        "preserved_examples": [
+          "the Google Colab badge and original catalog path",
+          "the original ChatGPT conceptual workflow covering data, training, validation, implementation, optimization, and continuous learning",
+          "the original Examples of use of AI technologies with NeqSim section",
+          "the original ChatGPT reference",
+          "the original NeqSim installation purpose, updated from pinned 2.5.35 to current public PyPI installation"
+        ],
+        "repairs": "Retained all six original cells and their teaching purposes. Replaced the obsolete pinned installation with a clean Colab-compatible setup and expanded the placeholder into an executable, unit-labelled NeqSim-to-surrogate-to-NeqSim workflow."
+      },
+      "neqsim_capabilities_demonstrated": [
+        "Peng-Robinson compositional wellstream construction",
+        "classic mixing rule and multiphase stability checking",
+        "unit-aware stream mass-flow specification",
+        "ThrottlingValve isenthalpic pressure letdown",
+        "Cooler separator-temperature specification",
+        "ThreePhaseSeparator gas, oil, and aqueous product streams",
+        "Compressor discharge-pressure and isentropic-efficiency calculation",
+        "ProcessSystem connected execution",
+        "60-case first-principles design of experiments",
+        "12 independent NeqSim validation cases",
+        "first-principles verification of an AI-screened operating candidate"
+      ],
+      "practical_application": "Builds a rich-gas choke, cooler, three-phase separator, and export compressor; generates an auditable three-input training design; fits a transparent multi-response quadratic surrogate; screens 13,125 constrained candidates; reruns the selected point in NeqSim; and demonstrates clearly labelled synthetic residual monitoring.",
+      "engineering_validation": {
+        "assertions_passed": 29,
+        "assertions_failed": 0,
+        "checks": [
+          "composition closes to one",
+          "reference gas, oil, and aqueous product rates are positive",
+          "compressor power and discharge-temperature direction are physical",
+          "all 60 training cases are finite and mass-balanced",
+          "12 held-out cases remain separate from coefficient fitting",
+          "minimum held-out R-squared exceeds 0.995",
+          "compressor-power RMSE remains below 0.08 MW",
+          "gas-rate RMSE remains below 0.25 kg/s",
+          "surrogate search remains inside sampled bounds",
+          "independent NeqSim rerun satisfies power, temperature, liquid-rate, and mass constraints",
+          "increasing feed raises gas rate, liquid rate, and compressor power",
+          "synthetic injected power and liquid anomalies are detected without false positives",
+          "valid notebook JSON, sequential execution, readable code, figures, math, and unique catalog link"
+        ],
+        "key_results": {
+          "training_cases": 60,
+          "held_out_cases": 12,
+          "candidates_screened": 13125,
+          "surrogate_feasible_candidates": 1191,
+          "minimum_held_out_r_squared": 0.999714,
+          "gas_rate_rmse_kg_s": 0.024592,
+          "compressor_power_rmse_mw": 0.022866,
+          "maximum_relative_mass_residual": 3.638e-14,
+          "selected_feed_rate_kg_s": 100,
+          "selected_separator_pressure_bara": 66,
+          "selected_separator_temperature_k": 310.15,
+          "verified_gas_export_kg_s": 61.511656,
+          "verified_compressor_power_mw": 4.72638,
+          "verified_power_margin_mw": 0.02362,
+          "verified_compressor_outlet_temperature_k": 359.091586,
+          "verified_temperature_margin_k": 15.908414,
+          "verified_liquid_rate_kg_s": 38.488344,
+          "verified_liquid_rate_margin_kg_s": 3.488344
+        }
+      },
+      "figures": {
+        "previous_figures_preserved": 0,
+        "previous_figures_numerically_refreshed": 0,
+        "new_figures": 6,
+        "total_retained_figures": 6,
+        "purposes": [
+          "hybrid NeqSim-AI training, screening, and verification workflow",
+          "connected choke-cooler-three-phase-separator-compressor process topology",
+          "raw NeqSim compressor-power and liquid-rate training responses",
+          "four-target held-out surrogate parity validation",
+          "constrained operating-envelope screening and selected candidate",
+          "synthetic compressor-power and separator-liquid residual monitoring"
+        ],
+        "visual_inspection": "Passed at original resolution after final execution. All six figures have readable titles, units, labels, legends or color scales, accessible colors, and no clipping, overlap, stale values, or misleading axes. The final residual figure uses a labelled symmetric-log scale so normal and injected deviations remain visible."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_expressions_verified": 6,
+        "inline_expressions_verified": 27,
+        "renderer": "Jupyter-compatible single-backslash math source rendered through Matplotlib MathText in the final fresh environment",
+        "visual_inspection": "Enthalpy, mass-flow over-dots and subscripts, ridge-regression matrix notation, RMSE fraction and summation, R-squared, residual scaling, Greek symbols, superscripts, and units rendered correctly."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 67,
+        "maximum_code_line_length": 79,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "sequential_execution_counts": true,
+        "catalog_target_occurrences": 1,
+        "notebook_checker": "passed",
+        "original_cell_ids_preserved": 6
+      },
+      "summary": "Repaired the nonfunctional AI-in-gas-processing placeholder without removing any original cell or teaching purpose. Added a real NeqSim process, physics-led design of experiments, transparent surrogate construction, held-out validation, constrained screening, independent NeqSim verification, synthetic monitoring, engineering interpretations, limitations, troubleshooting, references, exercises, equations, plots, and focused assertions."
     }
   ]
 }
