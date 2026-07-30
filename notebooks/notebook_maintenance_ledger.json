@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-29T20:31:39Z",
+  "updated_at": "2026-07-30T06:23:53.798Z",
   "notebooks": [
     {
       "path": "notebooks/AI/agentic_neqsim_workflow_demo.ipynb",
@@ -15800,6 +15800,126 @@
       },
       "documentation_impact": "The notebook is the user-facing documentation update. No NeqSim public API or default changed; the known Python-wrapper limitation and validated workaround are documented in the notebook.",
       "summary": "Modernized the synthetic-process-data tutorial on current SDV and NeqSim while preserving every original cell purpose, five examples, and five figures. Added reproducible data fallback, current metadata and sampling APIs, a complete validated TEG process, conditioned scenarios, sensitivity analysis, theory, units, interpretations, limitations, equations, seven inspected figures, and 24 focused checks."
+    },
+    {
+      "path": "notebooks/fielddevelopment/ncs_area_opening_licensing_exploration_to_discovery.ipynb",
+      "verified_date": "2026-07-30",
+      "verified_at_utc": "2026-07-30T06:23:53.798Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "Executed all 38 code cells sequentially from an empty in-process IPython namespace in a dedicated Python 3.12 environment with the public PyPI NeqSim 3.16.0 release. Stored 26 rich HTML table outputs and 11 compact PNG figures; zero error outputs and zero stderr. Jupyter nbconvert HTML conversion passed.",
+      "code_cells": 38,
+      "substantive_code_cells": 38,
+      "markdown_cells": 28,
+      "publication": {
+        "branch": "agent/ncs-exploration-to-discovery-notebook",
+        "mode": "draft pull request",
+        "commit": "the commit containing this ledger entry",
+        "files": [
+          "notebooks/fielddevelopment/ncs_area_opening_licensing_exploration_to_discovery.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "source_basis": {
+        "official": [
+          "Norwegian Petroleum Act sections 3-1, 3-3 and 3-5",
+          "Norwegian Petroleum Regulations sections 6a to 6c and work-obligation rules",
+          "Sodir licensing rounds, APA, pre-qualification, work commitments, open data, FactPages, FactMaps, Diskos, plays, well definitions, and discovery-evaluation guidance"
+        ],
+        "scientific": [
+          "Otis and Schneidermann (1997), AAPG Bulletin, DOI 10.1306/522B49F1-1727-11D7-8645000102C1865D",
+          "Milkov (2015), Earth-Science Reviews, DOI 10.1016/j.earscirev.2015.08.006",
+          "Quirk and Ruthrauff (2008), AAPG Bulletin, DOI 10.1306/06040808064",
+          "Suslick, Schiozer and Rodriguez (2009), Petroleum Science and Technology"
+        ]
+      },
+      "computational_scope": [
+        "opening-area and phased production-licence workflow diagrams",
+        "reusable CSV loader contract for public map layers without bundling proprietary seismic",
+        "synthetic source, reservoir, trap, seal, maturity, water-depth, infrastructure, environmental-sensitivity and 3D-coverage maps",
+        "play fairway multiplication, fictional lead triage and explicit separation of geology, evidence, access and environmental constraints",
+        "six-factor prospect chance with illustrative Bayesian calibration",
+        "50000-realization Monte Carlo STOIIP and recoverable-volume model with sensitivity analysis",
+        "pre-drill expected-monetary-value and break-even chance screening",
+        "hypothetical discovery-fluid characterization using Peng-Robinson with classic mixing rule in NeqSim",
+        "auditable handoff to the existing subsurface-to-OPM Flow and field-development workflows"
+      ],
+      "engineering_validation": {
+        "named_assertions_passed": 21,
+        "assertions_failed": 0,
+        "monte_carlo_realizations": 50000,
+        "key_results": {
+          "geological_chance_of_success": 0.247141,
+          "recoverable_p90_million_sm3": 12.58,
+          "recoverable_p50_million_sm3": 19.4,
+          "recoverable_p10_million_sm3": 29.26,
+          "mean_recoverable_million_sm3": 20.31,
+          "chance_weighted_expected_recoverable_million_sm3": 5.04,
+          "mean_success_value_musd": 702.7049,
+          "illustrative_well_cost_musd": 105,
+          "break_even_geological_chance": 0.149423,
+          "screening_emv_musd": 68.667,
+          "reservoir_oil_density_kg_per_m3": 499.336,
+          "oil_formation_volume_factor_rm3_per_sm3": 2.097972,
+          "solution_gor_sm3_per_sm3": 326.4477
+        }
+      },
+      "figures": {
+        "previous_figures_preserved": 0,
+        "new_figures": 11,
+        "total_retained_figures": 11,
+        "purposes": [
+          "NCS opening-to-later-licensing workflow",
+          "synthetic phased licence work programme",
+          "eight independent evidence and constraint layers",
+          "play-probability map",
+          "fictional leads with geology, 3D coverage and separate sensitivity constraint",
+          "lead-triage data-acquisition screen",
+          "illustrative Bayesian factor calibration",
+          "success-case volume distribution and exceedance",
+          "volume sensitivity ranking",
+          "chance-and-well-cost decision sensitivity",
+          "fluid-evidence update to standard-volume uncertainty"
+        ],
+        "visual_inspection": "Passed after the final complete rerun. All 11 stored figures were extracted and inspected at original resolution and in two contact sheets for titles, labels, units, legends or color scales, accessible colors, clipping, overlap, numerical agreement and nearby interpretation. The opening workflow was changed to a two-row layout and its final label shortened before the final rerun."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 6,
+        "inline_expressions": 8,
+        "total_rendered_expressions": 14,
+        "renderer": "Jupyter-compatible single-backslash math source rendered through Matplotlib MathText contact sheets; nbconvert HTML conversion also passed.",
+        "visual_inspection": "All probability-product, information-index, prospect-chance, volumetric, recovery and EMV expressions rendered correctly with products, fractions, subscripts, Greek symbols and units."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 66,
+        "maximum_code_line_length": 99,
+        "semicolon_chains": 0,
+        "hidden_local_dependencies": false,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "sequential_execution_counts": true,
+        "retained_output_count": 37,
+        "rich_html_outputs": 26,
+        "notebook_checker": "passed",
+        "colab_badge_valid": true
+      },
+      "links": {
+        "catalog_occurrences": 1,
+        "predecessor": "notebooks/reservoir/subsurface_data_to_opm_flow_production_forecast.ipynb",
+        "field_development_book": "https://equinor.github.io/neqsimhome/doc/field_development_and_operations/book_standalone.html"
+      },
+      "neqsim_defect": {
+        "new_defect_detected": false,
+        "issue_created": false,
+        "note": "NeqSim 3.16.0 Peng-Robinson construction, TP flashes and phase-property retrieval worked as documented; no actionable library defect was found."
+      },
+      "documentation_impact": "The new executed notebook and catalog entry are the documentation update. No NeqSim public API, default or separate reference page changed. The notebook links into the existing Field Development and Operations book and the downstream reservoir-to-OPM Flow tutorial.",
+      "summary": "Adds a source-based NCS exploration tutorial from area opening and company access through licensed work, public-data screening, play and prospect risking, probabilistic volumes, pre-drill value, discovery-fluid evidence in NeqSim and an auditable handoff to reservoir simulation and field development."
     }
   ]
 }
