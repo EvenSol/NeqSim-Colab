@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-31T08:15:00Z",
+  "updated_at": "2026-07-31T14:16:00Z",
   "notebooks": [
     {
       "path": "notebooks/AI/agentic_neqsim_workflow_demo.ipynb",
@@ -16121,6 +16121,120 @@
         "branch": "automation/repair-iot-industry4-notebook",
         "files": [
           "notebooks/AI/IoT_and_Industry4.0_with_NeqSim.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      }
+    },
+    {
+      "path": "notebooks/statistics/CO2inatm.ipynb",
+      "verified_date": "2026-07-31",
+      "verified_at_utc": "2026-07-31T14:16:00Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-co2-atmosphere-final-20260731-1557 --neqsim-version latest --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260731T141400Z-f58d87c1b765",
+        "verified_public_pypi_wheels": 48,
+        "manifest_created_at_utc": "2026-07-31T14:14:00Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, and requested validation-toolchain verification passed."
+      },
+      "cell_counts": {
+        "code": 17,
+        "markdown": 24,
+        "total": 41
+      },
+      "preservation": {
+        "original_cells": 6,
+        "original_cells_preserved": 6,
+        "pre_existing_examples": 4,
+        "pre_existing_examples_preserved": 4,
+        "pre_existing_figures": 1,
+        "pre_existing_figures_preserved": 1,
+        "external_visuals": 1,
+        "external_visuals_preserved": 1,
+        "details": "Preserved the Colab entry point and setup intent, NASA literature context, original carbon-dioxide video, and atmospheric CO2 chart. Repaired the setup, replaced the live Vega/JavaScript data dependency with embedded NOAA annual means, refreshed the original chart numerically, and retained the video iframe."
+      },
+      "repairs": [
+        "replaced the pinned NeqSim 2.5.35 installation and wildcard import with a public-PyPI-compatible conditional setup and explicit imports",
+        "removed the fragile live vega_datasets, Altair, and browser-JavaScript chart dependency by embedding selected NOAA Mauna Loa annual means through 2025",
+        "added explicit unit conversions and separated atmospheric concentration from facility mass-emission accounting",
+        "added complete-combustion carbon stoichiometry, mass-basis ISO 6976 lower heating value, and hydrogen-replacement sensitivity",
+        "added a reproducible export-gas compressor, aftercooler, pressure sensitivity, driver scenario, and validation workflow",
+        "corrected equation source and rendering, including explicit kWh-to-GJ and kg-to-tonne factors"
+      ],
+      "neqsim_capabilities": [
+        "SRK gas construction with classic mixing rule, multiphase checking, TP flash, and the sufficient init(1) level",
+        "ISO 6976 lower-heating-value calculation on a mass basis",
+        "Stream, Compressor, Cooler, and ProcessSystem composition and execution",
+        "unit-aware flow, pressure, temperature, power, cooler-duty, and molar-mass retrieval",
+        "fresh-object scenario evaluation with process mass-closure checks",
+        "hydrogen-blend and export-pressure sensitivity analysis"
+      ],
+      "practical_application": "A 100,000 Sm3/h export-gas workflow compresses a specified fuel gas from 30 to 100 bara at 78% polytropic efficiency, aftercools it to 35 degrees C, checks mass closure, evaluates 60-to-140 bara pressure cases, and compares base gas-turbine, hydrogen-blend/high-efficiency, and low-carbon electric-driver emissions.",
+      "figures": {
+        "previous_figures_preserved": 1,
+        "previous_figures_numerically_refreshed": 1,
+        "external_video_preserved": 1,
+        "new_figures": 4,
+        "total_retained_figures": 5,
+        "purposes": [
+          "NOAA Mauna Loa annual atmospheric CO2 history, preserving and refreshing the original chart",
+          "end-to-end measurement, thermodynamics, process, and carbon-accounting workflow",
+          "hydrogen-blend direct CO2 intensity and lower-heating-value comparison",
+          "compressor power and annual direct-emissions sensitivity to discharge pressure",
+          "operational carbon comparison for fuel, efficiency, and electric-driver scenarios"
+        ],
+        "visual_inspection": "Passed at original resolution and in a five-figure contact sheet. Titles, labels, units, legends, accessible colors, scales, clipping, overlap, twin axes, and numerical interpretation were verified."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 5,
+        "inline_expressions": 12,
+        "source_check": "Standalone display delimiters with surrounding blank lines, balanced inline delimiters, single-backslash commands, and absence of obsolete or doubled delimiters verified.",
+        "visual_preview": "Fractions, sums, subscripts, efficiencies, powers, carbon stoichiometry, and unit-conversion factors rendered correctly in a Jupyter-compatible MathJax preview."
+      },
+      "key_checks": [
+        "17/17 code cells executed sequentially with zero errors or stderr",
+        "16/16 named engineering assertions passed",
+        "all six original cells and four substantive examples were preserved and integrated",
+        "the original atmospheric CO2 chart was numerically refreshed and the external video retained",
+        "NOAA selected annual means increase from 315.98 ppm in 1959 to 427.35 ppm in 2025",
+        "feed composition closes to 1.0 and the flashed gas is single phase",
+        "lower heating value and direct CO2 intensity are finite and physically plausible",
+        "direct CO2 intensity decreases monotonically as hydrogen replacement increases",
+        "compressor power is positive and aftercooler duty is negative under the notebook sign convention",
+        "base and all sensitivity cases close process mass balance; maximum relative mass residual is 0.0",
+        "compressor power and annual direct emissions increase with discharge pressure",
+        "the low-carbon electric-driver scenario has the lowest operational carbon result",
+        "all five retained figures passed visual and numerical inspection",
+        "nbformat, JSON, code readability, equations, Colab badge, catalog occurrence, and changed links passed",
+        "maximum code-line length is 79 characters"
+      ],
+      "results": {
+        "atmospheric_co2_1959_ppm": 315.98,
+        "atmospheric_co2_2025_ppm": 427.35,
+        "base_gas_lhv_MJ_kg": 47.513305,
+        "base_gas_direct_co2_kg_GJ": 56.723322,
+        "hydrogen_20mol_direct_co2_kg_GJ": 53.46589,
+        "feed_flow_Sm3_h": 100000,
+        "compressor_power_kW": 5099.620439,
+        "aftercooler_duty_kW": -6191.835032,
+        "base_annual_direct_co2_t_y": 23802.5758,
+        "hydrogen_efficient_annual_direct_co2_t_y": 19631.214,
+        "low_carbon_electric_annual_co2e_t_y": 815.939,
+        "maximum_relative_process_mass_residual": 0
+      },
+      "summary": "Modernized a small atmospheric-CO2 notebook into an executed engineering tutorial that preserves its original learning material while connecting NOAA observations to NeqSim fuel characterization, combustion stoichiometry, export compression, hydrogen blending, pressure sensitivity, operational carbon scenarios, and clear limits on ppm-equivalent scaling.",
+      "documentation_impact": "The executed notebook is the user-facing documentation update. No NeqSim public API, default, or numerical implementation changed.",
+      "neqsim_defect_found": false,
+      "publication": {
+        "mode": "draft pull request",
+        "branch": "automation/repair-co2-atmosphere",
+        "files": [
+          "notebooks/statistics/CO2inatm.ipynb",
           "notebooks/notebook_maintenance_ledger.json"
         ]
       }
