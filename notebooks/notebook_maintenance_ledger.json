@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-30T06:23:53.798Z",
+  "updated_at": "2026-07-30T20:21:00Z",
   "notebooks": [
     {
       "path": "notebooks/AI/agentic_neqsim_workflow_demo.ipynb",
@@ -15920,6 +15920,105 @@
       },
       "documentation_impact": "The new executed notebook and catalog entry are the documentation update. No NeqSim public API, default or separate reference page changed. The notebook links into the existing Field Development and Operations book and the downstream reservoir-to-OPM Flow tutorial.",
       "summary": "Adds a source-based NCS exploration tutorial from area opening and company access through licensed work, public-data screening, play and prospect risking, probabilistic volumes, pre-drill value, discovery-fluid evidence in NeqSim and an auditable handoff to reservoir simulation and field development."
+    },
+    {
+      "path": "notebooks/AI/Real_Time_process_monitoring_for_operational_safety_and_compliance.ipynb",
+      "verified_date": "2026-07-30",
+      "verified_at_utc": "2026-07-30T20:21:00Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-realtime-safety-pr-exec-20260730-2159 --neqsim-version latest --extra-package plotly --extra-package nbconvert --extra-package ipykernel --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260730T201853Z-5b9d2d0929ce",
+        "verified_public_pypi_wheels": 68,
+        "manifest_created_at_utc": "2026-07-30T20:18:53Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, and requested toolchain verification passed."
+      },
+      "cell_counts": {
+        "code": 15,
+        "markdown": 23,
+        "total": 38
+      },
+      "preservation": {
+        "original_cells": 13,
+        "original_cells_preserved": 13,
+        "pre_existing_examples": 6,
+        "pre_existing_examples_preserved": 6,
+        "pre_existing_figures": 1,
+        "pre_existing_figures_preserved": 1,
+        "details": "Preserved the setup, SRK fluid, phase-boundary helper, deterministic sensor series, pressure plot, and alert example. The original pressure trend was recomputed and retained."
+      },
+      "neqsim_capabilities": [
+        "SRK natural-gas construction and classic mixing rule",
+        "TP flash and multiphase phase-count checks",
+        "bubble-point pressure and hydrocarbon dew-point temperature flashes",
+        "gas density and compressibility-factor retrieval",
+        "Stream, ThrottlingValve, Cooler, Separator, and ProcessSystem",
+        "cooler-setpoint sensitivity with phase and mass-balance checks"
+      ],
+      "practical_application": "A traceable monitoring workflow combines deterministic sensor data, quality gates, timestamped NeqSim equilibrium calculations, transparent alert rules, and a valve-cooler-scrubber scenario study.",
+      "figures": {
+        "retained": 6,
+        "previous_preserved": 1,
+        "previous_numerically_refreshed": 1,
+        "new": 5,
+        "purposes": [
+          "inlet-pressure limit monitoring",
+          "monitoring and response workflow",
+          "hydrocarbon dew-point margin",
+          "density model-versus-sensor validation",
+          "concurrent alert matrix",
+          "scrubber condensate and cooler-duty sensitivity"
+        ],
+        "visual_inspection": "passed"
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 3,
+        "inline_expressions": 8,
+        "source_check": "Standalone display delimiters, balanced inline delimiters, and single-backslash LaTeX commands verified.",
+        "visual_preview": "Fractions, subscripts, dotted mass flow, absolute values, symbols, and units rendered correctly."
+      },
+      "key_checks": [
+        "15/15 code cells executed sequentially with zero errors or stderr",
+        "16/16 named engineering assertions passed",
+        "composition sum equals 1.000000",
+        "cold-reference bubble pressure is finite and physically plausible",
+        "negative dew-point margins resolve as two equilibrium phases",
+        "base-process relative mass residual is below 1e-6",
+        "all five cooler-sensitivity mass residuals are below 1e-6",
+        "liquid removal decreases monotonically with warmer setpoint",
+        "cooling-duty magnitude decreases monotonically with warmer setpoint",
+        "all six retained figures passed visual and numerical inspection",
+        "nbformat, JSON, Markdown, equations, Colab badge, and links passed",
+        "maximum code-line length is 83 characters"
+      ],
+      "results": {
+        "cold_reference_bubble_pressure_bara": 49.55,
+        "base_valve_outlet_pressure_bara": 45,
+        "base_gas_product_kg_per_h": 20536.07279,
+        "base_liquid_removed_kg_per_h": 809.86351,
+        "base_cooler_duty_kw": -141.622685,
+        "base_relative_mass_residual": 6.39e-17,
+        "sensitivity_liquid_kg_per_h": {
+          "0_degC": 1665.192938,
+          "20_degC": 568.456758
+        }
+      },
+      "summary": "Corrected the temperature-independent and invalid bubble-point helper, replaced the stored function object with real NeqSim results, modernized the setup and APIs, added phase, density, trend, and mass-balance validation, and expanded the notebook into a realistic monitoring and inlet-scrubber workflow.",
+      "documentation_impact": "Notebook-only educational and API-usage correction; no NeqSim public API, default, or numerical implementation changed.",
+      "neqsim_defect_found": false,
+      "publication": {
+        "mode": "draft pull request",
+        "branch": "automation/repair-realtime-process-monitoring",
+        "files": [
+          "notebooks/AI/Real_Time_process_monitoring_for_operational_safety_and_compliance.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      }
     }
   ]
 }
