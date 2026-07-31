@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-30T20:21:00Z",
+  "updated_at": "2026-07-31T08:15:00Z",
   "notebooks": [
     {
       "path": "notebooks/AI/agentic_neqsim_workflow_demo.ipynb",
@@ -16016,6 +16016,111 @@
         "branch": "automation/repair-realtime-process-monitoring",
         "files": [
           "notebooks/AI/Real_Time_process_monitoring_for_operational_safety_and_compliance.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      }
+    },
+    {
+      "path": "notebooks/AI/IoT_and_Industry4.0_with_NeqSim.ipynb",
+      "verified_date": "2026-07-31",
+      "verified_at_utc": "2026-07-31T08:15:00Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-iot-industry4-final3-20260731-0959 --neqsim-version latest --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260731T081336Z-ca19f7dad53b",
+        "verified_public_pypi_wheels": 48,
+        "manifest_created_at_utc": "2026-07-31T08:13:36Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, and default validation-toolchain verification passed."
+      },
+      "cell_counts": {
+        "code": 12,
+        "markdown": 17,
+        "total": 29
+      },
+      "preservation": {
+        "original_cells": 23,
+        "original_cells_preserved": 23,
+        "pre_existing_examples": 7,
+        "pre_existing_examples_preserved": 7,
+        "pre_existing_figure_cells": 3,
+        "pre_existing_figure_cells_preserved": 3,
+        "pre_existing_stored_figures": 0,
+        "details": "Preserved and integrated the architecture diagram, NeqSim process and transmitters, baseline snapshot, transient heater and valve events, telemetry plot, rolling-KPI plot, and JSON payload example."
+      },
+      "repairs": [
+        "replaced the unpublished GitHub installation with a public-PyPI-compatible conditional setup",
+        "corrected the syntactically invalid architecture plotting cell and malformed multiline strings",
+        "initialized the process at steady state before enabling separator inventory dynamics",
+        "bounded the valve disturbance with an explicit 42 bara target after an initial open-loop formulation produced nonphysical late-time pressure",
+        "standardized pressure, temperature, flow, duty, and time field names with explicit units",
+        "added deterministic noise and drift, persistence-qualified alerts, payload quality fields, and focused engineering assertions"
+      ],
+      "neqsim_capabilities": [
+        "SRK rich-gas fluid construction with classic mixing rule and multiphase checking",
+        "Stream, Heater, ThrottlingValve, Separator, and ProcessSystem composition",
+        "steady-state initialization followed by separator transient inventory behavior",
+        "TemperatureTransmitter, PressureTransmitter, and VolumeFlowTransmitter measurements",
+        "heater-duty and valve-pressure disturbances with timestamped process telemetry",
+        "gas and liquid outlet retrieval with process mass-balance validation"
+      ],
+      "practical_application": "An end-to-end physics-informed IIoT workflow builds and initializes a rich-gas process, attaches unit-explicit transmitters, executes a 360-second disturbance scenario, creates soft-sensor residuals and persistence-qualified alerts, validates physical and data-contract behavior, and serializes a local historian or message-broker payload.",
+      "figures": {
+        "previous_figure_cells_preserved": 3,
+        "previous_figures_numerically_refreshed": 3,
+        "new_figures": 1,
+        "total_retained_figures": 4,
+        "purposes": [
+          "edge-to-enterprise physics-informed IIoT architecture",
+          "transient temperature, pressure, and actual-volume-flow response",
+          "rolling temperature and pressure KPIs",
+          "soft-sensor residual and persistence-qualified drift alert"
+        ],
+        "visual_inspection": "Passed at original resolution and in a four-panel contact sheet. Titles, labels, units, legends, accessible colors, event markers, limits, scales, clipping, overlap, and numerical interpretation were verified."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 3,
+        "inline_expressions": 7,
+        "source_check": "Standalone display delimiters, balanced inline delimiters, single-backslash commands, and absence of obsolete or doubled delimiters verified.",
+        "visual_preview": "State-transition, model-residual, moving-average fraction, summation, subscripts, bold vectors, and delta symbols rendered correctly."
+      },
+      "key_checks": [
+        "12/12 code cells executed sequentially with zero errors or stderr",
+        "13/13 named engineering assertions passed",
+        "all 180 transient telemetry rows are finite and strictly time ordered",
+        "feed composition closes to 1.0",
+        "initial process relative mass residual is 1.516e-16",
+        "initial downstream pressure equals the 45 bara target",
+        "heater duty increase raises the modeled outlet temperature",
+        "valve event reaches the bounded 42 bara target without nonphysical pressure",
+        "pre-drift rolling residual remains below the 1 degree C threshold",
+        "first persistence-qualified drift alert occurs at 280 seconds",
+        "five-record JSON payload has the complete schema and quality flag",
+        "all four retained figures passed visual and numerical inspection",
+        "nbformat, JSON, code readability, equations, Colab badge, catalog occurrence, and changed links passed",
+        "maximum code-line length is 77 characters"
+      ],
+      "results": {
+        "initial_heater_outlet_temperature_C": 45.485278,
+        "initial_downstream_pressure_bara": 45,
+        "initial_gas_flow_actual_m3_h": 1357.37552,
+        "initial_relative_mass_residual": 1.516e-16,
+        "minimum_event_pressure_bara": 42,
+        "first_persistent_temperature_alert_s": 280,
+        "telemetry_rows": 180
+      },
+      "summary": "Modernized a broken, unexecuted IoT tutorial into a reproducible NeqSim digital-twin workflow with current public APIs, bounded process disturbances, real virtual instruments, engineering validation, anomaly detection, retained figures, equations, deployment boundaries, and a reusable IIoT payload contract.",
+      "documentation_impact": "The executed notebook is the user-facing documentation update. No NeqSim public API, default, or numerical implementation changed.",
+      "neqsim_defect_found": false,
+      "publication": {
+        "mode": "draft pull request",
+        "branch": "automation/repair-iot-industry4-notebook",
+        "files": [
+          "notebooks/AI/IoT_and_Industry4.0_with_NeqSim.ipynb",
           "notebooks/notebook_maintenance_ledger.json"
         ]
       }
