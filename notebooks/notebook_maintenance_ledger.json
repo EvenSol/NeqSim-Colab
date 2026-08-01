@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-08-01T02:18:50Z",
+  "updated_at": "2026-08-01T08:25:04Z",
   "notebooks": [
     {
       "path": "notebooks/AI/agentic_neqsim_workflow_demo.ipynb",
@@ -16364,6 +16364,121 @@
         "branch": "automation/repair-neqsim-seeq",
         "files": [
           "notebooks/AI/NeqSim_and_Seeq.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      }
+    },
+    {
+      "path": "notebooks/excercise/Design_of_a_separation_process_in_HYSYS.ipynb",
+      "verified_date": "2026-08-01",
+      "verified_at_utc": "2026-08-01T08:25:04Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-separation-design-final-20260801-1000 --neqsim-version latest --extra-package nbclient --extra-package nbconvert --extra-package ipykernel --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260801T082504Z-92fab868cc72",
+        "verified_public_pypi_wheels": 65,
+        "manifest_created_at_utc": "2026-08-01T08:25:04Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, and requested notebook-execution toolchain verification passed."
+      },
+      "cell_counts": {
+        "code": 14,
+        "markdown": 20,
+        "total": 34
+      },
+      "preservation": {
+        "original_cells": 11,
+        "original_cells_preserved": 11,
+        "pre_existing_examples": 9,
+        "pre_existing_examples_preserved": 9,
+        "pre_existing_figures": 2,
+        "pre_existing_figures_preserved": 2,
+        "pre_existing_figures_numerically_refreshed": 0,
+        "details": "Preserved every original cell and all nine substantive teaching examples: the HYSYS process architecture, historical phase envelope, inlet and scrubber gas-to-liquid calculations, horizontal three-phase selection, vertical scrubber selection, Souders-Brown sizing, gas-oil disengagement, oil-water separation, and shell-weight screening. The original empty cell was retained and integrated as the vessel-dimension comparison. Both embedded historical HYSYS images were preserved byte-for-byte; their unavailable source data and date are documented, so they are not misrepresented as current NeqSim calculations."
+      },
+      "repairs": [
+        "replaced the misspelled title, sparse objectives, malformed equations, ambiguous variables, hard-coded property values, and absent setup with a public-PyPI-compatible NeqSim teaching workflow",
+        "implemented the intended three-stage separation, gas recompression and cooling, high-pressure gas mixing, dew-point cooling, and final scrubbing process with current supported NeqSim APIs",
+        "retained the original HYSYS flow basis while adding an explicit synthetic SRK composition whose inlet gas rate independently matches the legacy scale",
+        "refreshed gas, oil, water, and condensate densities and oil viscosity from the executed NeqSim case",
+        "corrected unit handling, Souders-Brown area conversion, Stokes gas-oil and oil-water terminal-velocity equations, wall-thickness units, and cylindrical shell-mass calculation",
+        "added explicit separation assumptions, screening limitations, reusable sizing functions, validation assertions, references, and practical exercises"
+      ],
+      "neqsim_capabilities": [
+        "SRK fluid construction with classic mixing rule, explicit component fractions, and multiphase checking",
+        "Stream, Heater, ThrottlingValve, ThreePhaseSeparator, Separator, Mixer, Compressor, Cooler, and connected process execution through current Python processTools",
+        "gas, oil, aqueous, and condensate mass-flow, actual-volume, density, viscosity, pressure, temperature, and compressor-power retrieval",
+        "current hydrocarbon PT phase-envelope calculation with dew and bubble curves",
+        "fresh-object inlet-pressure sensitivity with repeated phase splitting, property retrieval, mass closure, and gas-capacity sizing"
+      ],
+      "practical_application": "A reusable end-to-end facility model configures a synthetic rich wellstream, performs 90/20/3 bara staged separation, recompresses and cools flashed gas, scrubs compressor liquids, recombines high-pressure gas, cools to 17 °C, retrieves products and duties, screens horizontal and vertical vessels, validates conservation and physical trends, and repeats fresh NeqSim inlet flashes from 60 to 120 bara.",
+      "figures": {
+        "previous_figures_preserved": 2,
+        "previous_figures_numerically_refreshed": 0,
+        "external_visuals_preserved": 2,
+        "new_figures": 4,
+        "total_retained_figures": 6,
+        "purposes": [
+          "retained historical HYSYS/UniSim process architecture",
+          "retained historical HYSYS hydrocarbon phase envelope",
+          "executed NeqSim separation and recompression workflow overview",
+          "current NeqSim SRK hydrocarbon phase envelope and scrubber operating point",
+          "horizontal separator and vertical scrubber conceptual dimension comparison",
+          "inlet-pressure sensitivity of gas density and gas-capacity diameter"
+        ],
+        "visual_inspection": "Passed after the final clean execution. Both original embedded images matched their pre-edit SHA-256 hashes. All four stored PNG outputs and both retained historical visuals were inspected at original resolution for titles, readable labels, explicit units where applicable, accessible colors, legends, scales, clipping, overlap, physical trends, provenance, and agreement with the stored tables and nearby interpretation."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 5,
+        "inline_expressions": 22,
+        "source_check": "Standalone display delimiters with surrounding blank lines, balanced inline delimiters, single-backslash commands, and absence of obsolete or doubled delimiters verified.",
+        "visual_preview": "Mass closure, Souders-Brown velocity, gas-capacity diameter, Stokes terminal velocity, and shell-thickness equations rendered correctly with fractions, square roots, absolute values, summation, dotted rates, Greek symbols, subscripts, superscripts, and units in the fresh validation environment."
+      },
+      "key_checks": [
+        "valid nbformat 4.5 JSON with 14 code and 20 Markdown cells",
+        "14/14 code cells executed sequentially from cleared outputs with counts 1 through 14, zero exceptions, zero error outputs, and zero stderr",
+        "20/20 named engineering assertions passed",
+        "all 11 original cells and nine substantive original examples were preserved and integrated",
+        "both historical HYSYS visuals were retained byte-for-byte and clearly distinguished from current NeqSim calculations",
+        "the 2,150,000 kg/h synthetic feed produced 22,563.536 actual m3/h inlet gas versus the 22,563.3 actual m3/h legacy design basis",
+        "overall process relative mass residual was 4.940e-13",
+        "inlet gas, oil, and water phases were all positive and their densities were physically ordered",
+        "second- and third-stage compressor powers were finite and positive and the dew-point cooler reached 17 degree C",
+        "all five inlet-pressure cases closed mass below 1e-8; gas density increased and required gas-capacity diameter decreased monotonically with pressure",
+        "maximum code-line length was 88 characters with no semicolons, wildcard imports, compressed one-line compound bodies, or initialization above the sufficient level",
+        "five display equations and 22 inline expressions passed Colab-safe syntax and rendered-equation inspection",
+        "all six retained figures passed visual and numerical-context inspection",
+        "the Colab badge, public PyPI link, current NeqSim repository and examples links, and unique catalog target were checked"
+      ],
+      "results": {
+        "legacy_inlet_glr_m3_per_m3": 48.556,
+        "current_inlet_glr_m3_per_m3": 53.102,
+        "legacy_scrubber_glr_m3_per_m3": 208.124,
+        "current_scrubber_glr_m3_per_m3": 77.525,
+        "inlet_gas_actual_m3_per_h": 22563.536,
+        "export_gas_kg_per_h": 1837146.458,
+        "dew_point_liquid_kg_per_h": 117711.594,
+        "stabilized_oil_kg_per_h": 178693.583,
+        "second_stage_compressor_power_kw": 2696.766,
+        "third_stage_compressor_power_kw": 865.413,
+        "inlet_separator_diameter_m": 5.307,
+        "inlet_separator_length_m": 21.23,
+        "dew_point_scrubber_diameter_m": 5.693,
+        "dew_point_scrubber_height_m": 28.465,
+        "relative_process_mass_residual": 4.94e-13
+      },
+      "summary": "Modernized the legacy HYSYS separator-design exercise into an executed NeqSim tutorial while retaining every cell, calculation intent, and historical visual. The expanded notebook now teaches current phase behavior, staged separation and recompression, equipment selection, corrected hydraulic and mechanical screening equations, model-versus-legacy comparison, pressure sensitivity, engineering validation, limitations, and reusable next steps.",
+      "documentation_impact": "The executed notebook is the user-facing design and process-simulation documentation update. No NeqSim public API, default, or library implementation changed.",
+      "neqsim_defect_found": false,
+      "publication": {
+        "mode": "draft pull request",
+        "branch": "automation/repair-separation-design-exercise",
+        "files": [
+          "notebooks/excercise/Design_of_a_separation_process_in_HYSYS.ipynb",
           "notebooks/notebook_maintenance_ledger.json"
         ]
       }
