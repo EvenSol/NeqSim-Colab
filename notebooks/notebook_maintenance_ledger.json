@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-31T14:16:00Z",
+  "updated_at": "2026-08-01T02:18:50Z",
   "notebooks": [
     {
       "path": "notebooks/AI/agentic_neqsim_workflow_demo.ipynb",
@@ -16235,6 +16235,135 @@
         "branch": "automation/repair-co2-atmosphere",
         "files": [
           "notebooks/statistics/CO2inatm.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      }
+    },
+    {
+      "path": "notebooks/AI/NeqSim_and_Seeq.ipynb",
+      "verified_date": "2026-08-01",
+      "verified_at_utc": "2026-08-01T02:18:50Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-seeq-integration-final-20260801-0354 --neqsim-version latest --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260801T021533Z-0d682dd77f56",
+        "verified_public_pypi_wheels": 48,
+        "manifest_created_at_utc": "2026-08-01T02:15:33Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, and requested validation-toolchain verification passed."
+      },
+      "cell_counts": {
+        "code": 14,
+        "markdown": 23,
+        "total": 37
+      },
+      "preservation": {
+        "original_cells": 22,
+        "original_cells_preserved": 22,
+        "pre_existing_examples": 9,
+        "pre_existing_examples_preserved": 9,
+        "pre_existing_figures": 1,
+        "pre_existing_figures_preserved": 1,
+        "pre_existing_figures_numerically_refreshed": 0,
+        "details": "Preserved all original cells and workflows: PyPI/Java setup intent, Seeq search and pull, field-data mapping, multistage process construction, simulation result packaging, historical push, live model execution, and scheduled push. Retained the original NeqSim-Seeq illustration and process-comparison link; replaced unsafe or non-executable fragments with credential-free, bounded equivalents."
+      },
+      "repairs": [
+        "replaced unconditional pip and in-notebook JDK installation with a public-PyPI-compatible conditional NeqSim setup and runtime-version reporting",
+        "replaced the undefined wellfluid, commented NeqSim import, outdated process calls, and placeholder multistage model with a current executable SRK process",
+        "repaired invalid ellipses, duplicate mapping keys, undefined row variables, and inconsistent field names with a typed unit-explicit data contract",
+        "replaced credential-dependent repository execution with a LocalSeeqAdapter that preserves search, pull, and push semantics without external credentials",
+        "replaced the unbounded live scheduler with a bounded three-job demonstration and explicit deployment guidance",
+        "added hourly timezone-aware historian data, output quality gates, process mass closure, residual monitoring, and export-pressure sensitivity"
+      ],
+      "neqsim_capabilities": [
+        "SRK fluid construction with classic mixing rule and multiphase checking",
+        "Stream, Heater, Valve, two- and three-phase Separator, Mixer, Compressor, Cooler, Splitter, Pump, and ProcessSystem composition",
+        "threaded ProcessSystem execution with a bounded timeout",
+        "unit-aware process input updates and gas, oil, water, power, density, and temperature retrieval",
+        "three-stage separation with LP/MP gas recompression, export compression, fuel split, and oil export pumping",
+        "historian batch evaluation, live single-point evaluation, mass-balance validation, and export-pressure sensitivity"
+      ],
+      "practical_application": "A credential-free Seeq-style workflow searches and pulls 24 hourly operating points, validates and maps the signals into a reusable multistage NeqSim flowsheet, runs each case, retrieves and quality-checks products and compressor duty, compares modeled and illustrative measured power, pushes modeled signals locally, executes three bounded live jobs, and evaluates 90-to-150 bara export-pressure scenarios.",
+      "figures": {
+        "previous_figures_preserved": 1,
+        "previous_figures_numerically_refreshed": 0,
+        "external_visuals_preserved": 1,
+        "new_figures": 4,
+        "total_retained_figures": 5,
+        "purposes": [
+          "original NeqSim-Colab and Seeq integration illustration",
+          "search-pull-validation-simulation-quality-gate-push workflow",
+          "hourly historian feed-rate and pressure inputs",
+          "modeled-versus-illustrative measured compressor power and residual",
+          "export-pressure compressor-power and gas-density sensitivity"
+        ],
+        "visual_inspection": "Passed at original resolution. Titles, labels, units, legends, accessible colors, scales, clipping, overlap, timestamps, dual axes, and numerical interpretation were verified. The external original illustration was preserved and its repository provenance verified."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 2,
+        "inline_expressions": 3,
+        "source_check": "Standalone display delimiters with surrounding blank lines, balanced inline delimiters, single-backslash commands, and absence of obsolete or doubled delimiters verified.",
+        "visual_preview": "Residual, fraction, absolute-value, summation, dotted mass-flow, subscript, hat, and unit expressions rendered correctly in a Jupyter-compatible mathematical preview."
+      },
+      "key_checks": [
+        "14/14 code cells executed sequentially with zero errors or stderr",
+        "18/18 named engineering assertions passed",
+        "all 22 original cells and nine original code workflows were preserved and integrated",
+        "the 24 historian timestamps are unique, ordered, timezone-aware, and exactly hourly",
+        "all field inputs and modeled outputs are finite",
+        "base and sensitivity process cases close mass balance below 1e-8 relative residual",
+        "maximum relative process mass residual is 2.151e-13",
+        "sales gas, export oil, and compressor power remain positive",
+        "export temperature equals the 35 degree C target and export pressure matches each input",
+        "compressor power and gas density increase monotonically with export pressure",
+        "historical push returns all rows and each of three live jobs pushes one row",
+        "all five retained figures passed visual inspection",
+        "nbformat, JSON, code readability, equations, Colab badge, catalog occurrence, preserved links, and changed links passed",
+        "maximum code-line length is 87 characters"
+      ],
+      "results": {
+        "historian_rows": 24,
+        "initial_compressor_power_kW": 179.357829,
+        "live_compressor_power_kW": [
+          178.118502,
+          182.751051,
+          187.784035
+        ],
+        "export_pressure_sensitivity_bara": [
+          90,
+          105,
+          120,
+          135,
+          150
+        ],
+        "sensitivity_compressor_power_kW": [
+          130.540869,
+          161.080566,
+          188.626694,
+          213.849474,
+          237.214009
+        ],
+        "sensitivity_export_gas_density_kg_m3": [
+          102.129848,
+          123.26093,
+          144.046742,
+          163.764213,
+          181.942718
+        ],
+        "maximum_relative_process_mass_residual": 2.151e-13
+      },
+      "summary": "Modernized a broken, unexecuted Seeq integration notebook into a reproducible NeqSim process-data tutorial that preserves every original cell and workflow while adding a realistic multistage processing model, credential-free historian adapter, bounded live execution, quality gates, technical graphics, equations, and deployment guidance.",
+      "documentation_impact": "The executed notebook is the user-facing integration documentation update. No NeqSim public API, default, or numerical implementation changed.",
+      "neqsim_defect_found": false,
+      "publication": {
+        "mode": "draft pull request",
+        "branch": "automation/repair-neqsim-seeq",
+        "files": [
+          "notebooks/AI/NeqSim_and_Seeq.ipynb",
           "notebooks/notebook_maintenance_ledger.json"
         ]
       }
