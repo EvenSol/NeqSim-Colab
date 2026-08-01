@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-08-01T08:25:04Z",
+  "updated_at": "2026-08-01T14:24:44Z",
   "notebooks": [
     {
       "path": "notebooks/AI/agentic_neqsim_workflow_demo.ipynb",
@@ -16479,6 +16479,124 @@
         "branch": "automation/repair-separation-design-exercise",
         "files": [
           "notebooks/excercise/Design_of_a_separation_process_in_HYSYS.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      }
+    },
+    {
+      "path": "notebooks/statistics/CO2emissionsNorwegianContinentalShelf.ipynb",
+      "verified_date": "2026-08-01",
+      "verified_at_utc": "2026-08-01T14:24:44Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-ncs-co2-final-20260801-1555 --neqsim-version latest --extra-package nbclient --extra-package nbconvert --extra-package ipykernel --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260801T142232Z-8eece4f1ad88",
+        "verified_public_pypi_wheels": 65,
+        "manifest_created_at_utc": "2026-08-01T14:22:32Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, and requested notebook-execution toolchain verification passed."
+      },
+      "cell_counts": {
+        "code": 16,
+        "markdown": 14,
+        "total": 30
+      },
+      "preservation": {
+        "original_cells": 6,
+        "original_cells_preserved": 6,
+        "pre_existing_examples": 4,
+        "pre_existing_examples_preserved": 4,
+        "pre_existing_figures": 3,
+        "pre_existing_figures_preserved": 3,
+        "pre_existing_figures_numerically_refreshed": 1,
+        "details": "Preserved all six original cells and all four substantive teaching examples: the Colab setup, external NCS production video, sector emissions trend, and 2018 source-share calculation. Preserved the video embed, refreshed the trend with the official 11 June 2025 spreadsheet through 2029, and recomputed the 2018 historical donut from the original reported values while documenting its 99.7% category coverage."
+      },
+      "repairs": [
+        "replaced NeqSim 2.5.35, wildcard imports, notebook-installed Java assumptions, and obsolete pandas parse_cols usage with a current public-PyPI-compatible setup",
+        "replaced two dead 2019 spreadsheet dependencies with embedded, source-dated official 2025 Norwegian Offshore Directorate data and verified download links",
+        "retained the historical video and 2018 source split, added explicit provenance, and repaired overlapping labels without changing the original engineering message",
+        "added a reusable SRK export-gas compression and aftercooling process with named streams, pressure sensitivity, and mass and energy closure",
+        "added ISO 6976 lower-heating-value and compression-factor calculations, explicit fuel-carbon accounting, 2026 carbon-tax exposure, hydrogen blending, and electric driver scenarios",
+        "added learning objectives, theory, assumptions, units, interpretation, validation, limitations, primary references, and practical exercises"
+      ],
+      "neqsim_capabilities": [
+        "SRK fluid construction with classic mixing rule and normalized gas composition",
+        "named Stream, Compressor, and Cooler equipment composed and executed as an end-to-end export-compression process",
+        "compressor power, discharge temperature, cooler duty, mass flow, phase count, and enthalpy-based material and energy validation",
+        "fresh process execution across five outlet pressures from 60 to 140 bara with trend and phase checks",
+        "ISO 6976 lower heating value and standard compression factor for base natural gas and a 20 mol% hydrogen blend using only sufficient init(0) composition setup"
+      ],
+      "practical_application": "A reproducible offshore export-gas workflow configures an SRK gas at 30 °C and 30 bara, compresses 1,000,000 Sm3/day to 120 bara, cools the export to 40 °C, retrieves power, temperature, duty, flow, phase, and balance results, repeats the model from 60 to 140 bara, converts NeqSim ISO 6976 fuel properties into annual combustion emissions, and compares base and efficient turbines, 20 mol% hydrogen blending, and Norwegian grid electricity.",
+      "figures": {
+        "previous_figures_preserved": 3,
+        "previous_figures_numerically_refreshed": 1,
+        "external_visuals_preserved": 1,
+        "new_figures": 4,
+        "total_retained_figures": 7,
+        "purposes": [
+          "retained external NCS production video with a static contextual fallback",
+          "retained and refreshed observed and forecast NCS greenhouse-gas trend",
+          "retained 2018 CO2 source-share visual as a documented historical snapshot",
+          "new static production-to-emissions workflow overview",
+          "new official 2024 CO2 source-category comparison",
+          "new NeqSim export-pressure power and discharge-temperature sensitivity",
+          "new annual driver-emissions scenario comparison"
+        ],
+        "visual_inspection": "Passed after the final clean execution. The video embed and all six stored PNG outputs were inspected at original resolution for titles, readable labels, units, legends, accessible colors, scales, clipping, overlap, numerical consistency, and agreement with the nearby tables and interpretation. The only defect found, overlapping labels in the retained 2018 pie, was repaired and re-inspected."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 5,
+        "inline_expressions": 13,
+        "source_check": "Standalone display delimiters with surrounding blank lines, balanced inline delimiters, single-backslash commands, and absence of obsolete or doubled delimiters verified.",
+        "visual_preview": "Fuel-volume, carbon-per-mole, CO2 factor, annual emissions, and carbon-tax equations rendered with fractions, summation, dotted rates, Greek symbols, subscripts, and units in the fresh validation environment. A Jupyter nbconvert HTML/MathJax export completed successfully."
+      },
+      "key_checks": [
+        "valid nbformat 4.5 JSON with 16 code and 14 Markdown cells",
+        "16/16 code cells executed sequentially from cleared outputs with counts 1 through 16, zero exceptions, zero error outputs, and zero stderr",
+        "20/20 named engineering assertions passed",
+        "all six original cells and four substantive original examples were preserved",
+        "all three previous visuals were preserved; the reproducible trend was refreshed",
+        "official 2024 CO2 source total equals 10.58 Mt and 2024 GHG total equals 10.89 Mt CO2e",
+        "base compressor power is 1.866389 MW and aftercooler duty is -2.610898 MW",
+        "relative process mass, compressor energy, and cooler energy residuals are zero",
+        "all five 60-140 bara cases remain single phase and close mass exactly",
+        "compressor power and hot discharge temperature increase monotonically with pressure",
+        "ISO 6976 base-fuel lower heating value is 38,619.494 kJ/Sm3",
+        "base-fuel CO2 factor is 2.249677 kg/Sm3 and hydrogen blending lowers it",
+        "annual scenarios are 9,796.126 t CO2 for the base turbine, 8,163.439 t CO2 for the efficient turbine, 9,186.346 t CO2 for the hydrogen blend, and 194.560 t CO2e for Norwegian grid electricity",
+        "maximum code-line length is 90 characters with no semicolons or compressed bodies",
+        "five display equations and 13 inline expressions passed source and visual inspection",
+        "six PNG figures and one video embed passed final visual inspection",
+        "all seven introduced or retained external links returned HTTP 200 and the catalog contains one unique target link"
+      ],
+      "results": {
+        "reported_2024_ghg_mt_co2e": 10.89,
+        "reported_2024_co2_mt": 10.58,
+        "reported_2024_turbine_share_percent": 83.553875,
+        "base_compressor_power_mw": 1.866389,
+        "base_hot_discharge_temperature_c": 134.2514,
+        "base_aftercooler_duty_mw": -2.610898,
+        "maximum_relative_mass_residual": 0.0,
+        "base_fuel_lhv_kj_sm3": 38619.494472,
+        "base_fuel_co2_kg_sm3": 2.249677,
+        "base_turbine_annual_co2_tonnes": 9796.126256,
+        "efficient_turbine_annual_co2_tonnes": 8163.438547,
+        "hydrogen_blend_annual_co2_tonnes": 9186.346353,
+        "grid_electricity_annual_co2e_tonnes": 194.559851,
+        "base_carbon_tax_mnok_year": 10.756147
+      },
+      "summary": "Modernized the legacy NCS CO2 notebook into an executed, source-grounded NeqSim engineering tutorial while retaining every original cell, example, and visual. The expanded notebook now connects official sector evidence to reusable export-compression, ISO 6976 fuel quality, pressure sensitivity, driver decarbonization, carbon-tax screening, and conservation validation.",
+      "documentation_impact": "The executed notebook is the user-facing emissions, process-simulation, and standards documentation update. No NeqSim public API, default, or library implementation changed.",
+      "neqsim_defect_found": false,
+      "publication": {
+        "mode": "draft pull request",
+        "branch": "automation/repair-ncs-co2-emissions",
+        "files": [
+          "notebooks/statistics/CO2emissionsNorwegianContinentalShelf.ipynb",
           "notebooks/notebook_maintenance_ledger.json"
         ]
       }
