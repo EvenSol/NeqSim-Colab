@@ -1,9 +1,9 @@
-# Linnorm DG1 SURF and facilities notebook validation
+# Discovery 1 DG1 SURF and facilities notebook validation
 
 Validation date: 2026-08-02
 
 Artifact:
-`notebooks/fielddevelopment/linnorm_dg1_surf_facilities_design.ipynb`
+`notebooks/fielddevelopment/discovery_1_dg1_surf_facilities_design.ipynb`
 
 This ledger records reproducibility and presentation checks for the educational
 DG1 follow-up notebook. It is not an independent engineering verification or an
@@ -34,15 +34,15 @@ Python, Java, NeqSim, repository, and predecessor revisions during re-execution.
 | Standard-error streams | 0 |
 | Code lines over 100 characters | 0 |
 | `nbformat` validation | passed |
-| Catalog notebook `nbformat` validation | passed (catalog unchanged from PR #76) |
+| Catalog notebook `nbformat` validation | passed; neutral paths occur once |
 | Credential-pattern scan | no matches |
 
 Notebook SHA-256:
-`f6faea766946ccd3b5ec5d2dd48eed1cb4572c2f043aa5792a800a5cdd3e004e`
+`45bcfd1f24c4da97a86fe08562bdde9581d11795f45dcc79c42b62ac7c2c536d`
 
 The final notebook acceptance table contains 17 passing calculation and package
 gates. The generated 32-file educational handoff ZIP has SHA-256
-`a28ebab0fce808a79b21ea11554c9385abbf0adf19fdd14aa484c90b9c00d04e`.
+`fc7fde7566379e5d6c2ac73d4f1f062b670f2fa84e250878baef6cb86c474c27`.
 
 ## Representative reproduced results
 
@@ -65,20 +65,19 @@ They are not field-validated design values.
 
 ## Render and visual review
 
-- Exported with `nbconvert` to HTML.
-- Server-side MathJax converted all 30 notebook equations to self-contained SVG;
-  no MathJax conversion errors were present.
-- Rendered to a 66-page A3 landscape PDF.
-- Inspected all 66 rendered pages through 17 contact sheets.
-- Verified headings, equations, code, tabular results, and all 11 figures for
-  visibility and clipping after the final render correction.
+- Exported the final neutral-labelled notebook with `nbconvert` to HTML.
+- Server-side MathJax converted all 30 notebook equations (26 display and four
+  inline equations) to self-contained SVG; no conversion errors were present.
+- Inspected all 11 regenerated figures at original resolution. Labels, legends,
+  axes, units, colors, and layouts were readable and unclipped.
 - Inspected the numbered system-architecture drawing at full resolution and in
-  the complete notebook render. Wells, jumpers, four-slot manifold and spare,
+  the final HTML render. Wells, jumpers, four-slot manifold and spare,
   wet-gas flowline, MEG/service line, umbilical, local ESD/chemical system,
   flexible riser, and floating-host interface are readable and mapped to the
   scope table.
-- Extracted PDF text contained no raw `$$`, `\\frac`, MathJax error, or conversion
-  failure marker.
+- Searched Markdown, code, non-image outputs, metadata, paths, and OCR text from
+  every stored figure for the former asset names; no matches remained.
+- The NeqSim notebook checker passed after clean execution and rendering.
 
 ## Engineering boundary
 
@@ -88,8 +87,43 @@ propagation buckling, combined loading, fatigue, fracture, free spans, upheaval 
 lateral buckling, installation, trawl interaction, and material qualification.
 The process, amine, utility, emissions, brownfield, cost, and schedule models are
 educational screening models. The 50-deliverable matrix is an educational synthesis
-from public guidance, not an official Equinor internal checklist. RED and AMBER
+from public guidance, not an official internal company checklist. RED and AMBER
 items remain explicit hold points; passing notebook assertions does not close them.
 
 No missing NeqSim API capability was encountered during implementation, so no
 NeqSim issue was opened.
+
+## Neutral-label update
+
+The case now uses `Discovery 1`, `Host 1`, and `Host 2` throughout source, stored
+outputs, figures, package names, paths, catalog text, and interpretation. These labels
+identify a composite educational example and are not aliases for named NCS fields.
+
+## Merge-conflict resolution
+
+The system-architecture drawing and validation additions merged through PR #78
+were retained, regenerated with neutral labels, and included in the checks above.
+No newer `master` content was discarded while updating PR #79.
+
+## Reservoir-to-host companion validation
+
+The companion reservoir and tie-in notebook remains at
+`notebooks/reservoir/ncs_discovery_1_tie_in_opm_neqsim_master.ipynb`. It was run
+top to bottom with NeqSim master commit
+`ab314d6a0fceafe2f5f2a60213a70b7db3d7fccf` and OPM Flow 2026.04.
+
+| Check | Result |
+|---|---:|
+| Notebook cells | 103 |
+| Code cells executed | 47 / 47 |
+| Saved outputs | 51 |
+| Saved PNG figures | 8 |
+| Error outputs | 0 |
+| Standard-error streams | 0 |
+| Final acceptance gates | all passed |
+| MathJax equations rendered | 164 / 164 |
+| Former asset-name matches in source/output/OCR | 0 |
+| NeqSim notebook checker | passed |
+
+Companion notebook SHA-256:
+`f78284f83921ca9240e29c42f871c2f7ffe273771bf8f1e08c643630d4651e26`.
