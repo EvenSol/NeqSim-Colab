@@ -16580,7 +16580,7 @@
         "base_compressor_power_mw": 1.866389,
         "base_hot_discharge_temperature_c": 134.2514,
         "base_aftercooler_duty_mw": -2.610898,
-        "maximum_relative_mass_residual": 0,
+        "maximum_relative_mass_residual": 0.0,
         "base_fuel_lhv_kj_sm3": 38619.494472,
         "base_fuel_co2_kg_sm3": 2.249677,
         "base_turbine_annual_co2_tonnes": 9796.126256,
@@ -16694,12 +16694,12 @@
       "results": {
         "initial_gas_in_place_gsm3": 137.524,
         "produced_gas_gsm3": 80.725,
-        "recovery_percent": 58.7,
+        "recovery_percent": 58.70,
         "final_gas_rate_msm3_per_day": 6.666,
         "npv_before_tax_bn_nok": 22.77,
         "npv_after_tax_bn_nok": 4.91,
         "break_even_gas_price_nok_sm3": 0.651,
-        "maximum_relative_process_mass_residual": 0.00003135,
+        "maximum_relative_process_mass_residual": 3.135e-5,
         "fuel_lhv_mj_sm3": 37.931,
         "fuel_co2_kg_sm3": 2.157,
         "gas_turbine_compression_co2_tonnes": 1680360.333,
@@ -16802,8 +16802,8 @@
         "the Colab badge, public-PyPI setup, current ISO 6976 documentation, current NeqSim standards, phase-envelope and thermodynamic-model guides, and unique catalog target were checked"
       ],
       "results": {
-        "nominal_maximum_rich_gas_mol_percent": 47,
-        "uncertainty_aware_rich_gas_mol_percent": 42,
+        "nominal_maximum_rich_gas_mol_percent": 47.0,
+        "uncertainty_aware_rich_gas_mol_percent": 42.0,
         "uncertainty_aware_gcv_mj_m3": 41.601572,
         "uncertainty_aware_wobbe_mj_m3": 51.447621,
         "uncertainty_aware_dew_point_c_at_70_bara": 4.693335,
@@ -16812,7 +16812,7 @@
         "uncertainty_aware_mixer_outlet_temperature_c": 12.879959,
         "maximum_absolute_process_mass_residual_kg_s": 6.661e-16,
         "maximum_component_residual_mol_s": 2.132e-14,
-        "maximum_enthalpy_residual_j_s": 0.00002573
+        "maximum_enthalpy_residual_j_s": 2.573e-05
       },
       "summary": "Revalidated and extended the cataloged gas-blending notebook without removing any cell, calculation, or visual. The executed notebook now connects ISO 6976 energy quality, SRK dew-point constraints, nominal and heavy-end-aware blend optimization, pressure and standard-edition sensitivity, delivered energy, and a reusable metered NeqSim ProcessSystem with conservation and energy validation.",
       "documentation_impact": "The executed notebook is the user-facing gas-quality, blend-optimization, and process-integration documentation update. No NeqSim public API, default, or library implementation changed.",
@@ -16913,16 +16913,16 @@
         "the Colab badge, catalog target, and current NeqSim process, cost-estimation, and process-design documentation links were checked"
       ],
       "results": {
-        "base_feed_kg_h": 10000,
+        "base_feed_kg_h": 10000.0,
         "base_compressor_power_kw": 316.417,
-        "base_export_pressure_bara": 95,
-        "base_total_project_cost_usd": 1974477,
+        "base_export_pressure_bara": 95.0,
+        "base_total_project_cost_usd": 1974477.0,
         "base_annual_opex_usd": 1891507.019,
         "base_screening_npv_usd": 9303766.276,
         "capacity_scale_exponent": 0.642,
         "application_best_option": "North Sea 10 kt/h",
-        "application_best_npv_usd": 6471988,
-        "application_maximum_relative_mass_residual": 2e-30
+        "application_best_npv_usd": 6471988.0,
+        "application_maximum_relative_mass_residual": 2.0e-30
       },
       "summary": "Revalidated and extended the process-cost notebook without removing any cell, example, or visual. The notebook now connects a current NeqSim process model and mechanical design to auditable CAPEX/OPEX/economic calculations and a reusable, conservation-checked development-option selection workflow.",
       "documentation_impact": "The executed notebook is the user-facing process-cost, mechanical-design, and concept-screening documentation update. No NeqSim public API, default, or library implementation changed.",
@@ -17025,18 +17025,18 @@
         "the Colab badge, catalog target, Reaktoro reference, and current NeqSim home, thermodynamic-model, thermodynamics-index, thermodynamic-operations, and process documentation links were checked"
       ],
       "results": {
-        "reference_temperature_c": 10,
-        "reference_pressure_bara": 70,
-        "reference_solid_sulfur_ppm_mass": 14.57,
+        "reference_temperature_c": 10.0,
+        "reference_pressure_bara": 70.0,
+        "reference_solid_sulfur_ppm_mass": 14.570,
         "selective_s8_kg_per_kg_oxygen": 2.004,
-        "application_feed_kg_h": 10000,
-        "application_outlet_pressure_bara": 20,
+        "application_feed_kg_h": 10000.0,
+        "application_outlet_pressure_bara": 20.0,
         "application_unheated_outlet_temperature_c": -6.4451,
         "application_unheated_solid_sulfur_ppm_mass": 14.5766,
         "application_120c_heater_duty_kw": 730.9586,
         "application_120c_outlet_temperature_c": 107.7083,
-        "application_120c_solid_sulfur_ppm_mass": 0,
-        "application_maximum_relative_mass_residual": 0
+        "application_120c_solid_sulfur_ppm_mass": 0.0,
+        "application_maximum_relative_mass_residual": 0.0
       },
       "summary": "Modernized and expanded the elemental-sulfur notebook without removing any cell, example, or figure. The executed tutorial now connects corrected sulfur chemistry, current NeqSim S8 solid flashes, phase envelopes, enthalpy contours, deposition screening, and a reusable heater-valve mitigation process with conservation checks and five inspected figures.",
       "documentation_impact": "The executed notebook is the user-facing sulfur-chemistry, solid-equilibrium, phase-map, and pressure-station mitigation documentation update. No NeqSim public API, default, or library implementation changed.",
