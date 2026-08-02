@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-08-02T08:16:40Z",
+  "updated_at": "2026-08-02T14:15:40Z",
   "notebooks": [
     {
       "path": "notebooks/AI/agentic_neqsim_workflow_demo.ipynb",
@@ -16932,6 +16932,120 @@
         "branch": "automation/repair-process-cost-economics",
         "files": [
           "notebooks/fielddevelopment/process_cost_estimation_and_economics.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      }
+    },
+    {
+      "path": "notebooks/material/elemental_sulfur.ipynb",
+      "verified_date": "2026-08-02",
+      "verified_at_utc": "2026-08-02T14:15:40Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-elemental-sulfur-20260802 --neqsim-version latest --extra-package nbconvert --extra-package ipykernel --extra-package scipy --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260802T140218Z-30b88e830499",
+        "verified_public_pypi_wheels": 66,
+        "manifest_created_at_utc": "2026-08-02T14:02:18Z",
+        "integrity": "The complete public-PyPI wheel inventory, file sizes, SHA-256 hashes, Python runtime, Linux platform, and requested notebook toolchain passed verification."
+      },
+      "cell_counts": {
+        "code": 13,
+        "markdown": 30,
+        "total": 43
+      },
+      "preservation": {
+        "original_cells": 36,
+        "original_cells_preserved": 36,
+        "original_code_cells": 10,
+        "original_code_cells_preserved": 10,
+        "pre_existing_examples": 7,
+        "pre_existing_examples_preserved": 7,
+        "pre_existing_figures": 3,
+        "pre_existing_figures_preserved": 3,
+        "pre_existing_figures_numerically_refreshed": 3,
+        "details": "Preserved every original cell and all seven substantive examples: the reference solid-sulfur flash, temperature sensitivity, H2S/O2 reaction assessment, broad species screen, hydrocarbon phase envelope with sulfur contours, isenthalpy overlay, and oxygen-to-sulfur mass calculation. The two former Reaktoro examples retain their chemical intent as auditable stoichiometric and species-screening calculations without replacing the Colab runtime."
+      },
+      "repairs": [
+        "replaced the NeqSim 2.5.35 pin, deprecated jNeqSim and thermoTools imports, wildcard imports, and compressed code with current NeqSim 3.16.0 gateway classes and teaching-quality Python",
+        "removed the notebook-installed Miniconda and platform-specific Reaktoro runtime replacement while retaining both original chemistry learning objectives in self-contained public-PyPI-compatible calculations",
+        "normalized and documented the sour-gas composition and used a reproducible trace-S8 assay",
+        "corrected selective oxidation and Claus reaction equations and fixed the undefined molar-mass variable and double-counting in the oxygen-to-S8 calculation",
+        "replaced the stale post-envelope sulfur mutation and 40,000-flash plotting loops with consistent hydrocarbon-envelope, sulfur-grid, and enthalpy-grid calculations",
+        "expanded the phase-map domain after visual inspection so the calculated hydrocarbon envelope is visible and repaired clipped axes and color scales before the final full rerun",
+        "replaced expired literature URLs and a moved NeqSim page with current stable documentation targets"
+      ],
+      "neqsim_capabilities": [
+        "SystemSrkEos construction with classic mixing rule, multiphase checking, trace S8, and explicit solid-phase checking",
+        "ThermodynamicOperations TP solid flashes, ordinary TP flashes, property initialization, and PT phase-envelope calculation",
+        "phase-type, phase-fraction, phase-mass, total-mass, and enthalpy retrieval",
+        "named Stream, Heater, ThrottlingValve, and ProcessSystem composition",
+        "heater-duty, isenthalpic pressure-reduction, outlet-state, mass-closure, and deposition-risk sensitivity retrieval"
+      ],
+      "practical_application": "A reusable 10,000 kg/h sour-gas pressure station builds a fresh SRK fluid and Stream-Heater-ThrottlingValve-ProcessSystem graph, varies the preheater target from 20 to 120 degrees C, runs each process, retrieves valve outlet temperature, pressure, heater duty, and mass flow, evaluates post-valve S8 stability with a solid flash, checks finite values and exact mass closure, and quantifies the energy-versus-deposition trade-off.",
+      "figures": {
+        "previous_figures_preserved": 3,
+        "previous_figures_numerically_refreshed": 3,
+        "new_figures": 2,
+        "total_retained_figures": 5,
+        "purposes": [
+          "refreshed solid-sulfur mass fraction versus temperature at 70 bara",
+          "refreshed hydrocarbon dew and bubble envelope with equilibrium solid-sulfur contours",
+          "refreshed solid-sulfur map with NeqSim specific-enthalpy contours",
+          "new Stream-Heater-ThrottlingValve process workflow overview",
+          "new preheater-duty and post-valve sulfur-deposition sensitivity"
+        ],
+        "visual_inspection": "Passed after the final complete execution. All five retained PNG outputs were extracted and inspected at original resolution for descriptive titles, readable labels, explicit units, legends or color scale, accessible colors, correct scales and trends, clipping, overlap, and consistency with retained result tables and nearby interpretation. The first map domain omitted the hydrocarbon envelope and the first enthalpy map clipped labels and its color scale; both defects were corrected and every cell was rerun before publication."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 10,
+        "inline_expressions": 25,
+        "source_check": "Balanced inline delimiters, standalone display delimiters with surrounding blank lines, single-backslash commands, and absence of obsolete or doubled delimiters passed.",
+        "visual_preview": "All ten display equations rendered through a Jupyter-compatible MathText path and were visually inspected for fractions, subscripts, reaction arrows, approximate equality, and molar-mass notation. Jupyter nbconvert also produced a complete HTML/MathJax document with retained outputs."
+      },
+      "key_checks": [
+        "valid nbformat 4.5 JSON with 13 code and 30 Markdown cells",
+        "13/13 code cells executed sequentially from cleared outputs with counts 1 through 13, zero exceptions, zero error outputs, and zero stderr",
+        "all 36 original cells, ten original code cells, seven substantive examples, and three original figures were preserved",
+        "all three original figures were recomputed with the tested composition, NeqSim version, temperature-pressure grid, and supported API; two application figures were added",
+        "32/32 executed engineering assertion evaluations passed",
+        "the reference case at 10 degrees C and 70 bara predicted 14.570 ppm solid sulfur by mass and phase fractions closed to unity within 1e-8",
+        "the temperature sensitivity was finite and decreased from solid sulfur at low temperature to zero above the modeled dissolution boundary",
+        "the hydrocarbon phase envelope and both sulfur and enthalpy grids were finite and nonconstant",
+        "the corrected selective-oxidation balance conserved H, S, and O exactly and one kilogram O2 produced a 2.004 kg S8 upper bound",
+        "all six pressure-station scenarios reached 20 bara and closed mass with maximum relative residual 0.0",
+        "the 20 degrees C preheat case reached -6.4451 degrees C after the valve with 14.5766 ppm solid sulfur; the 120 degrees C target used 730.9586 kW and predicted zero solid sulfur at a 107.7083 degrees C valve outlet",
+        "maximum Python code-line length was 84 characters with no semicolons, wildcard imports, magics, or compressed one-line compound bodies",
+        "ten display equations and 25 inline expressions passed Colab-safe source and visual rendering inspection",
+        "all five figures passed final visual and numerical review",
+        "the Colab badge, catalog target, Reaktoro reference, and current NeqSim home, thermodynamic-model, thermodynamics-index, thermodynamic-operations, and process documentation links were checked"
+      ],
+      "results": {
+        "reference_temperature_c": 10.0,
+        "reference_pressure_bara": 70.0,
+        "reference_solid_sulfur_ppm_mass": 14.570,
+        "selective_s8_kg_per_kg_oxygen": 2.004,
+        "application_feed_kg_h": 10000.0,
+        "application_outlet_pressure_bara": 20.0,
+        "application_unheated_outlet_temperature_c": -6.4451,
+        "application_unheated_solid_sulfur_ppm_mass": 14.5766,
+        "application_120c_heater_duty_kw": 730.9586,
+        "application_120c_outlet_temperature_c": 107.7083,
+        "application_120c_solid_sulfur_ppm_mass": 0.0,
+        "application_maximum_relative_mass_residual": 0.0
+      },
+      "summary": "Modernized and expanded the elemental-sulfur notebook without removing any cell, example, or figure. The executed tutorial now connects corrected sulfur chemistry, current NeqSim S8 solid flashes, phase envelopes, enthalpy contours, deposition screening, and a reusable heater-valve mitigation process with conservation checks and five inspected figures.",
+      "documentation_impact": "The executed notebook is the user-facing sulfur-chemistry, solid-equilibrium, phase-map, and pressure-station mitigation documentation update. No NeqSim public API, default, or library implementation changed.",
+      "neqsim_defect_found": false,
+      "publication": {
+        "mode": "draft pull request",
+        "branch": "automation/repair-elemental-sulfur",
+        "files": [
+          "notebooks/material/elemental_sulfur.ipynb",
           "notebooks/notebook_maintenance_ledger.json"
         ]
       }
