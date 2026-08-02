@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-08-02T02:20:42Z",
+  "updated_at": "2026-08-02T08:16:40Z",
   "notebooks": [
     {
       "path": "notebooks/AI/agentic_neqsim_workflow_demo.ipynb",
@@ -16825,7 +16825,116 @@
           "notebooks/notebook_maintenance_ledger.json"
         ]
       }
+    },
+    {
+      "path": "notebooks/fielddevelopment/process_cost_estimation_and_economics.ipynb",
+      "verified_date": "2026-08-02",
+      "verified_at_utc": "2026-08-02T08:16:40Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-process-cost-20260802 --neqsim-version latest --extra-package nbclient --extra-package nbconvert --extra-package ipykernel --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260802T080710Z-f166c5751e2e",
+        "verified_public_pypi_wheels": 65,
+        "manifest_created_at_utc": "2026-08-02T08:07:10Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, Python runtime, Linux platform, and requested notebook-execution toolchain verification passed."
+      },
+      "cell_counts": {
+        "code": 17,
+        "markdown": 19,
+        "total": 36
+      },
+      "preservation": {
+        "original_cells": 31,
+        "original_cells_preserved": 31,
+        "pre_existing_examples": 9,
+        "pre_existing_examples_preserved": 9,
+        "pre_existing_figures": 4,
+        "pre_existing_figures_preserved": 4,
+        "pre_existing_figures_numerically_refreshed": 4,
+        "details": "Preserved all 31 original cell identities and nine substantive examples: process construction and base execution, mechanical design, CAPEX hierarchy and breakdowns, JSON estimate audit, OPEX, simple economics, project-basis scenarios, throughput scaling, and CEPCI sensitivity. All four original plots were recomputed with the tested release and retained."
+      },
+      "repairs": [
+        "recorded the previously unverified catalog notebook after a clean current-release execution",
+        "reformatted seven overlength code lines into teaching-quality Python without changing calculations",
+        "converted all six pre-existing display equations to standalone Colab-safe delimiters and added a seventh mass-closure equation",
+        "added an executable process-boundary diagram tied to the named NeqSim equipment",
+        "added a reusable three-option concept-screening function with fresh process construction, mechanical design, cost basis, OPEX, revenue, NPV, conservation, pressure, power, and finite-value checks",
+        "corrected clipping found during visual inspection and re-executed the complete notebook"
+      ],
+      "neqsim_capabilities": [
+        "SRK fluid construction with classic mixing rule",
+        "named Stream, Separator, Compressor, Cooler, ThrottlingValve, and ProcessSystem composition",
+        "steady-state process execution with phase split, compressor power, outlet temperature, pressure, and mass-flow retrieval",
+        "system mechanical-design execution and equipment weight, design pressure, and required-power retrieval",
+        "equipment-factored CAPEX hierarchy, equipment and discipline breakdowns, machine-readable estimate basis, OPEX, payback, ROI, and NPV",
+        "location, material, complexity, throughput, and CEPCI scenario configuration"
+      ],
+      "practical_application": "A reusable concept-selection workflow evaluates three 8,000-12,000 kg/h development options. Each option creates and connects a fresh NeqSim feed, separator, compressor, aftercooler, and export valve; runs the physical and mechanical calculations; applies location, material, and complexity assumptions; retrieves power, project cost, OPEX, revenue, and NPV; verifies finite values, 95 bara export pressure, positive power, and separator mass closure; and compares capacity duty with screening economics.",
+      "figures": {
+        "previous_figures_preserved": 4,
+        "previous_figures_numerically_refreshed": 4,
+        "new_figures": 2,
+        "total_retained_figures": 6,
+        "purposes": [
+          "refreshed purchased-equipment and discipline cost breakdown",
+          "refreshed location, material, and complexity estimate comparison",
+          "refreshed throughput and economy-of-scale sensitivity",
+          "refreshed CEPCI escalation sensitivity",
+          "new executable NeqSim equipment and material-flow overview",
+          "new development-option compressor-duty and NPV comparison"
+        ],
+        "visual_inspection": "Passed at original PNG resolution and in a six-figure contact sheet. Titles, labels, units, legends, colors, scales, and numerical trends were readable and consistent with retained tables. The initially clipped process-boundary boxes were corrected, the complete notebook was re-executed, and the final figure was re-inspected."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 7,
+        "inline_expressions": 11,
+        "source_check": "Balanced inline delimiters, standalone display blocks with surrounding blank lines, single-backslash commands, and absence of obsolete or doubled delimiters verified.",
+        "visual_preview": "All seven display equations rendered successfully with a Jupyter-compatible Matplotlib MathText path; fractions, summation limits, logarithms, subscripts, superscripts, arrows, epsilon, and mass-flow overdots were visually inspected. A Jupyter nbconvert HTML export with retained outputs also completed successfully."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 17 code and 19 Markdown cells",
+        "17/17 code cells executed sequentially from cleared outputs with counts 1 through 17, zero exceptions, zero error outputs, and zero stderr",
+        "14/14 original named validation checks and 14/14 final-application checks passed",
+        "all 31 original cells and nine substantive original examples were preserved",
+        "all four previous figures were preserved and numerically refreshed; two application figures were added",
+        "base process delivered 10,000 kg/h at 95 bara with 316.417 kW compressor power",
+        "base total project cost was 1,974,477 USD and annual OPEX was 1,891,507 USD/year",
+        "base screening NPV was 9,303,766 USD at the stated 3,000,000 USD/year revenue basis",
+        "all three application options met 95 bara export pressure, positive power, finite results, and relative mass residual of 2.00e-30",
+        "the North Sea 10 kt/h option had the highest application NPV at 6,471,988 USD for the stated 0.035 USD/kg netback",
+        "maximum code-line length was 100 characters or fewer with no chained statements, wildcard imports, or compressed compound bodies",
+        "seven display equations and 11 inline expressions passed Colab-safe source and visual rendering inspection",
+        "all six figures and 16 HTML table outputs passed final numerical and visual review",
+        "the Colab badge, catalog target, and current NeqSim process, cost-estimation, and process-design documentation links were checked"
+      ],
+      "results": {
+        "base_feed_kg_h": 10000.0,
+        "base_compressor_power_kw": 316.417,
+        "base_export_pressure_bara": 95.0,
+        "base_total_project_cost_usd": 1974477.0,
+        "base_annual_opex_usd": 1891507.019,
+        "base_screening_npv_usd": 9303766.276,
+        "capacity_scale_exponent": 0.642,
+        "application_best_option": "North Sea 10 kt/h",
+        "application_best_npv_usd": 6471988.0,
+        "application_maximum_relative_mass_residual": 2.0e-30
+      },
+      "summary": "Revalidated and extended the process-cost notebook without removing any cell, example, or visual. The notebook now connects a current NeqSim process model and mechanical design to auditable CAPEX/OPEX/economic calculations and a reusable, conservation-checked development-option selection workflow.",
+      "documentation_impact": "The executed notebook is the user-facing process-cost, mechanical-design, and concept-screening documentation update. No NeqSim public API, default, or library implementation changed.",
+      "neqsim_defect_found": false,
+      "publication": {
+        "mode": "draft pull request",
+        "branch": "automation/repair-process-cost-economics",
+        "files": [
+          "notebooks/fielddevelopment/process_cost_estimation_and_economics.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      }
     }
   ]
 }
-
