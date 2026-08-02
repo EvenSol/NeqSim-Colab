@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-08-01T20:31:41Z",
+  "updated_at": "2026-08-02T02:20:42Z",
   "notebooks": [
     {
       "path": "notebooks/AI/agentic_neqsim_workflow_demo.ipynb",
@@ -16716,6 +16716,116 @@
           "notebooks/notebook_maintenance_ledger.json"
         ]
       }
+    },
+    {
+      "path": "notebooks/gasquality/gas_blending_quality_optimization.ipynb",
+      "verified_date": "2026-08-02",
+      "verified_at_utc": "2026-08-02T02:20:42Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-gas-blending-20260802-final3 --neqsim-version latest --extra-package nbclient --extra-package nbconvert --extra-package ipykernel --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260802T021735Z-23308bb3d2b7",
+        "verified_public_pypi_wheels": 65,
+        "manifest_created_at_utc": "2026-08-02T02:17:35Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, Python runtime, Linux platform, and requested notebook-execution toolchain verification passed."
+      },
+      "cell_counts": {
+        "code": 18,
+        "markdown": 19,
+        "total": 37
+      },
+      "preservation": {
+        "original_cells": 33,
+        "original_cells_preserved": 33,
+        "pre_existing_examples": 9,
+        "pre_existing_examples_preserved": 9,
+        "pre_existing_figures": 4,
+        "pre_existing_figures_preserved": 4,
+        "pre_existing_figures_numerically_refreshed": 4,
+        "details": "Preserved all 33 original cells and nine substantive workflows: feed and model definition, ISO 6976 and dew-point helpers, feed/base diagnostics, simultaneous specification screening, nominal maximum selection, heavy-end sensitivity, uncertainty-aware selection, pressure and standard-edition sensitivity, and delivered-energy interpretation. All four original plots were recomputed with the tested NeqSim release and retained with their original engineering message."
+      },
+      "repairs": [
+        "recorded the previously unverified catalog notebook in the maintenance ledger after a clean current-release execution",
+        "closed the application-level teaching gap by adding reusable Stream, Mixer, ProcessSystem, and ThermodynamicOperations objects instead of stopping at isolated quality calculations",
+        "added an explicit adiabatic pressure-enthalpy flash so the process outlet closes energy rather than assuming an unchanged mixing temperature",
+        "added three metered operating cases, total and component mass closure, enthalpy closure, phase-state checks, direct quality reconciliation, and seven new regression assertions",
+        "split the wide final process result into readable operating and scientific-notation balance tables after visual inspection",
+        "extended the learning objectives and interpretation while preserving the existing public-PyPI setup, theory, limitations, references, and exercises"
+      ],
+      "neqsim_capabilities": [
+        "SRK fluid construction with classic mixing rule, normalized dry-gas compositions, and current hydrocarbon dew-point temperature flashes",
+        "ISO 6976:1995 and ISO 6976:2016 GCV, LCV, Wobbe index, relative-density, compressibility-factor, molar-mass, and undefined-component reporting",
+        "named Stream and Mixer equipment composed and executed in a reusable ProcessSystem",
+        "adiabatic PHflash on the mixed outlet with physical-property initialization, phase retrieval, and downstream-reusable outlet stream",
+        "fresh process execution for base, uncertainty-aware, and nominal-rich operating setpoints with quality, phase, mass, component, and energy audits"
+      ],
+      "practical_application": "A reproducible 100 mol/s metered blending station configures lean and conservative high-C6 rich SRK gases, sets stream rates at 70 bara and 15 °C, connects both streams through a NeqSim Mixer in a ProcessSystem, enforces the adiabatic enthalpy target with PHflash, retrieves the mixed stream, checks phase and balances, recalculates ISO 6976 quality and hydrocarbon dew point, and repeats the workflow at 30, 42, and 47 mol% rich gas for reuse in downstream pipeline, separation, compression, or control studies.",
+      "figures": {
+        "previous_figures_preserved": 4,
+        "previous_figures_numerically_refreshed": 4,
+        "new_figures": 1,
+        "total_retained_figures": 5,
+        "purposes": [
+          "refreshed lean, base-blend, and rich-gas component comparison",
+          "refreshed simultaneous GCV, Wobbe, and hydrocarbon-dew-point blend envelope",
+          "refreshed heavy-end uncertainty sensitivity at the nominal blend",
+          "refreshed pressure-path hydrocarbon-dew-point sensitivity",
+          "new executed Stream-Mixer-PHflash blending-station workflow overview"
+        ],
+        "visual_inspection": "Passed after the final clean execution. All five stored PNG outputs were extracted and inspected at original resolution for descriptive titles, readable labels, explicit units, appropriate legends, accessible colors, scales, clipping, overlap, physical trends, and agreement with all 11 retained result tables and nearby interpretation. The new wide process result was split into two readable tables and re-executed before publication."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 4,
+        "inline_expressions": 5,
+        "source_check": "Standalone display delimiters with surrounding blank lines, balanced inline delimiters, single-backslash commands, and absence of obsolete or doubled delimiters verified.",
+        "visual_preview": "Blend composition, ideal and volumetric gross calorific value, Wobbe index, and fugacity-equilibrium expressions rendered correctly with fractions, square roots, summation, subscripts, superscripts, degree symbols, and units. A Jupyter nbconvert HTML/MathJax export completed successfully."
+      },
+      "key_checks": [
+        "valid nbformat 4.5 JSON with 18 code and 19 Markdown cells",
+        "18/18 code cells executed sequentially from cleared outputs with counts 1 through 18, zero exceptions, zero error outputs, and zero stderr",
+        "35/35 named engineering assertions passed",
+        "all 33 original cells and nine substantive original workflows were preserved",
+        "all four previous figures were preserved and numerically refreshed; one process workflow figure was added",
+        "nominal and uncertainty-aware maximum rich-gas fractions were 47 and 42 mol%, respectively",
+        "the uncertainty-aware result was 41.601572 MJ/m3 GCV, 51.447621 MJ/m3 Wobbe, and 4.693335 °C hydrocarbon dew point at 70 bara",
+        "all three process cases remained single phase at 70 bara and closed total mass, every component, and enthalpy",
+        "maximum absolute process mass residual was 6.661e-16 kg/s, maximum component residual was 2.132e-14 mol/s, and maximum enthalpy residual was 2.573e-5 J/s",
+        "the adiabatic uncertainty-aware mixer outlet was 12.879959 °C and reproduced the direct ISO 6976 result",
+        "maximum code-line length was 88 characters with no semicolons, wildcard imports, or compressed one-line compound bodies",
+        "four display equations and five inline expressions passed Colab-safe source and visual rendering inspection",
+        "all five figures and 11 retained tables passed final visual inspection",
+        "the Colab badge, public-PyPI setup, current ISO 6976 documentation, current NeqSim standards, phase-envelope and thermodynamic-model guides, and unique catalog target were checked"
+      ],
+      "results": {
+        "nominal_maximum_rich_gas_mol_percent": 47.0,
+        "uncertainty_aware_rich_gas_mol_percent": 42.0,
+        "uncertainty_aware_gcv_mj_m3": 41.601572,
+        "uncertainty_aware_wobbe_mj_m3": 51.447621,
+        "uncertainty_aware_dew_point_c_at_70_bara": 4.693335,
+        "maximum_pressure_path_dew_point_c": 7.802984,
+        "uncertainty_aware_delivered_energy_gwh_day": 115.559922,
+        "uncertainty_aware_mixer_outlet_temperature_c": 12.879959,
+        "maximum_absolute_process_mass_residual_kg_s": 6.661e-16,
+        "maximum_component_residual_mol_s": 2.132e-14,
+        "maximum_enthalpy_residual_j_s": 2.573e-05
+      },
+      "summary": "Revalidated and extended the cataloged gas-blending notebook without removing any cell, calculation, or visual. The executed notebook now connects ISO 6976 energy quality, SRK dew-point constraints, nominal and heavy-end-aware blend optimization, pressure and standard-edition sensitivity, delivered energy, and a reusable metered NeqSim ProcessSystem with conservation and energy validation.",
+      "documentation_impact": "The executed notebook is the user-facing gas-quality, blend-optimization, and process-integration documentation update. No NeqSim public API, default, or library implementation changed.",
+      "neqsim_defect_found": false,
+      "publication": {
+        "mode": "draft pull request",
+        "branch": "automation/repair-gas-blending-quality",
+        "files": [
+          "notebooks/gasquality/gas_blending_quality_optimization.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      }
     }
   ]
 }
+
