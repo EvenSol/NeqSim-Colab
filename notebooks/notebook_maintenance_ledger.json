@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-08-03T02:22:02Z",
+  "updated_at": "2026-08-03T15:42:31Z",
   "notebooks": [
     {
       "path": "notebooks/AI/agentic_neqsim_workflow_demo.ipynb",
@@ -14257,23 +14257,24 @@
     },
     {
       "path": "notebooks/thermodynamics/solubility_of_gases_in_water.ipynb",
-      "verified_date": "2026-07-19",
-      "verified_at_utc": "2026-07-19T17:31:57.563Z",
+      "verified_date": "2026-08-03",
+      "verified_at_utc": "2026-08-03T15:42:31Z",
       "neqsim_version": "3.16.0",
       "python_version": "3.12.13",
       "java_version": "openjdk 17.0.19",
       "execution_status": "passed",
       "execution_method": "clean virtual environment with the latest public PyPI neqsim; all code cells executed sequentially in one isolated Python process because the automation sandbox blocks local Jupyter TCP kernel connections",
-      "code_cells": 15,
-      "markdown_cells": 16,
+      "code_cells": 17,
+      "markdown_cells": 18,
       "publication": {
-        "branch": "master",
-        "mode": "atomic direct-to-default-branch commit",
-        "commit": "this atomic commit"
+        "branch": "agent/issue-25-co2-brine-validation",
+        "mode": "pull request",
+        "pull_request": "https://github.com/EvenSol/NeqSim-Colab/pull/84",
+        "notebook_commit": "f52eb7e0025f1f2940b60bd1d4f50e46f3cf5d0f"
       },
       "key_checks": [
-        "all 15 code cells executed in order with zero unexpected exceptions",
-        "all 13 focused engineering assertions passed",
+        "all 17 code cells executed in order with zero unexpected exceptions",
+        "all 19 focused engineering assertions passed",
         "every code cell passed the teaching-readability gate: one statement per line, conventional indentation, no semicolons or inline compound bodies, and non-literal lines at most 100 characters",
         "methane, carbon-dioxide, and hydrogen-sulfide aqueous loadings were finite, positive, and physically ordered at the base state",
         "aqueous loading increased smoothly with pressure and decreased smoothly with temperature over the documented ranges",
@@ -14282,11 +14283,17 @@
         "the pressure-reduction study produced finite gas release and preserved every component inventory",
         "the produced-water release calculation was finite and positive with explicit molar and mass units",
         "CPA and SRK predictions were both finite and the large model spread was explicitly interpreted as model-form uncertainty",
-        "three deterministic plots were rendered and visually inspected with SI-labelled axes and smooth physical trends",
-        "all Markdown equations use Colab-compatible $...$ inline math and standalone $$ display blocks; delimiters are balanced, LaTeX commands use single backslashes, and an nbconvert MathJax HTML preview passed",
+        "10 mg/kg ions, 2 wt% NaCl, and molality were converted on explicit and dimensionally consistent solution and water bases",
+        "seven NeqSim Søreide-Whitson flashes reproduced the documented concentrated-brine underprediction against Chabab et al. 2019 Table 2 data",
+        "legacy Søreide-Whitson AAD was 6.80 percent at 1.13 mol/kg NaCl and 15.95 percent at 3.01 mol/kg NaCl; the latter underpredicted every selected experimental point",
+        "published modified Søreide-Whitson reference values improved the selected 3.01 mol/kg AAD to 5.79 percent and were explicitly labelled as non-NeqSim calculations",
+        "four deterministic plots were rendered and visually inspected with SI-labelled axes and smooth physical trends",
+        "13 MathJax expressions rendered correctly; delimiters were balanced and the ion-charge notation was visually verified",
+        "34 preformatted output blocks were inspected at a 1440-pixel viewport with zero overflow",
+        "upstream equinor/neqsim issue 2782 tracks a backward-compatible implementation of the missing Chabab modified correlation",
         "notebook JSON, nbformat, Colab badge, current documentation links, and the exactly-once front-page catalog link were validated"
       ],
-      "summary": "Replaced the stale minimal gas-solubility example, Colab magics, wildcard import, and embedded video output with a current CPA-based engineering tutorial. Added binary methane, carbon-dioxide, and hydrogen-sulfide cases; pressure and temperature sensitivities; Henry-law diagnostics; sour-gas phase partitioning; component closure; degassing; produced-water release; CPA-versus-SRK model sensitivity; plots; interpretation; limitations; references; exercises; and executable validation."
+      "summary": "Extended the gas-solubility tutorial with explicit salinity-basis conversions and a traceable CO2-NaCl-brine benchmark. Seven clean NeqSim 3.16.0 Soreide-Whitson flashes show that correct molality handling removes the reported orders-of-magnitude discrepancy while confirming material high-salinity model bias. The notebook distinguishes experimental data, NeqSim legacy predictions, and published modified-correlation reference values; links the actionable upstream model issue; retains all prior fresh-water studies; and records executable assertions and rendered evidence."
     },
     {
       "path": "notebooks/thermodynamics/thermodynamicsOfWax.ipynb",
