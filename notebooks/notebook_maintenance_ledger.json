@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-08-02T20:28:35.353Z",
+  "updated_at": "2026-08-03T02:22:02Z",
   "notebooks": [
     {
       "path": "notebooks/AI/agentic_neqsim_workflow_demo.ipynb",
@@ -1276,9 +1276,9 @@
           "native_absorber_water_kg_per_million_sm3": 106.3874,
           "native_absorber_water_mol_ppm": 139.6321,
           "water_removed_from_gas_kg_per_h": 36.6652,
-          "total_mass_residual_relative": 0.000005286667161594575,
+          "total_mass_residual_relative": 5.286667161594575e-06,
           "water_mass_residual_relative": 0.00012014039247431167,
-          "maximum_scenario_mass_residual_relative": 0.00000680488359078756
+          "maximum_scenario_mass_residual_relative": 6.80488359078756e-06
         }
       },
       "figures": {
@@ -2637,7 +2637,7 @@
           "phase_mass_closure_percent": 1.79057e-12,
           "gas_actual_flow_m3_per_s": 0.375891,
           "gas_density_kg_per_m3": 59.7189,
-          "gas_dynamic_viscosity_pa_s": 0.0000135574,
+          "gas_dynamic_viscosity_pa_s": 1.35574e-05,
           "inlet_reynolds_number": 6916590,
           "gas_sound_speed_m_per_s": 379.438,
           "cad_gas_space_volume_m3": 29.5022,
@@ -5598,7 +5598,7 @@
           "well_b_allocated_export_gas_kg_per_hour": 140595.398946,
           "well_b_allocated_export_oil_kg_per_hour": 362950.014308,
           "recommended_method": "COMPONENT_RATIO",
-          "process_relative_mass_residual": 6.016e-8,
+          "process_relative_mass_residual": 6.016e-08,
           "custody_allocation_residual": 0
         }
       },
@@ -7539,7 +7539,7 @@
         "key_results": {
           "process_safety_time_s": 90.262008,
           "hipps_pfdavg": 0.0008143296,
-          "residual_frequency_per_year": 8.143296e-7,
+          "residual_frequency_per_year": 8.143296e-07,
           "achieved_sil": 3,
           "healthy_total_response_s": 8.1,
           "healthy_peak_pressure_bara": 82.839062,
@@ -8216,7 +8216,7 @@
           "baseline_total_compressor_power_MW": 14.502524,
           "baseline_export_cooler_duty_MW_removed": 12.915178,
           "baseline_energy_intensity_kWh_per_1000_Sm3": 26.232761,
-          "baseline_mass_balance_residual_percent": 0.00001024,
+          "baseline_mass_balance_residual_percent": 1.024e-05,
           "maximum_component_residual_percent": 0.0001897,
           "warm_repeat_power_relative_residual": 0,
           "warm_repeat_gas_rate_relative_residual": 0,
@@ -10359,9 +10359,9 @@
           "baseline_oil_tvp_bara_at_30_degC": 1.348687,
           "baseline_gas_cricondenbar_bara": 1002.464,
           "baseline_gas_cricondentherm_degC": 58.99414,
-          "process_relative_material_residual": -4.425442e-7,
+          "process_relative_material_residual": -4.425442e-07,
           "common_speed_operating_point_rpm": 12881.958,
-          "common_speed_pressure_residual_bar": 0.000024,
+          "common_speed_pressure_residual_bar": 2.4e-05,
           "optimized_gas_feed_kg_per_hour": 113178.474174,
           "optimized_market_gas_million_sm3_per_day": 7.258036,
           "optimized_export_power_MW": 11.157559,
@@ -10727,7 +10727,7 @@
         ],
         "key_results": {
           "base_density_kg_m3": 570.006377876671,
-          "base_compressibility_per_pa": 2.1655529052373874e-9,
+          "base_compressibility_per_pa": 2.1655529052373874e-09,
           "base_expansivity_per_k": 0.001976120843848179,
           "base_heat_capacity_j_kg_k": 2171.313809970754,
           "original_linear_final_pressure_bara": 760.0625287602811,
@@ -10853,7 +10853,7 @@
           "compressor_power_mw": 3.011030495764755,
           "cooler_duty_mw": -3.8442747781564055,
           "compressor_discharge_temperature_c": 93.19685152699782,
-          "relative_process_mass_residual": 0.000002158717486366976,
+          "relative_process_mass_residual": 2.158717486366976e-06,
           "screened_design_pressure_barg": 107.40062375,
           "candidate_gas_line_internal_diameter_m": 0.2,
           "candidate_flare_internal_diameter_m": 0.25,
@@ -15075,7 +15075,7 @@
           "independent_rigorous_duty_kw": 3832.2086,
           "independent_hybrid_duty_kw": 3680.9379,
           "independent_duty_relative_error_percent": 3.9474,
-          "hybrid_energy_residual_fraction": 2.342e-8
+          "hybrid_energy_residual_fraction": 2.342e-08
         }
       },
       "figures": {
@@ -15206,7 +15206,7 @@
           "year_5_hc_dew_point_bara_at_0_deg_c": 156.676926,
           "year_5_gas_cricondentherm_deg_c": 58.755727,
           "year_5_facility_power_mw": 9.258418,
-          "relative_process_mass_residual": 3.796433827708e-7,
+          "relative_process_mass_residual": 3.796433827708e-07,
           "mapped_speed_solution_rpm": 11346.191406,
           "mapped_pressure_residual_bar": 0.028699,
           "screening_co2_tonnes_per_year": 32982,
@@ -15473,10 +15473,10 @@
           "base_export_oil_kg_per_hour": 1059989.088935,
           "base_produced_water_kg_per_hour": 8367.080946,
           "base_total_compressor_power_mw": 18.543733,
-          "base_relative_mass_residual": 9.04e-7,
-          "maximum_cold_relative_mass_residual": 9.75e-7,
-          "maximum_warm_relative_mass_residual": 9.75e-7,
-          "maximum_cold_warm_gas_deviation": 1.454126e-7,
+          "base_relative_mass_residual": 9.04e-07,
+          "maximum_cold_relative_mass_residual": 9.75e-07,
+          "maximum_warm_relative_mass_residual": 9.75e-07,
+          "maximum_cold_warm_gas_deviation": 1.454126e-07,
           "maximum_step_warm_gas_deviation": 0.002219175,
           "maximum_step_relative_mass_residual": 0.00242,
           "cold_distinct_condition_runtime_s": 180.016581,
@@ -16694,12 +16694,12 @@
       "results": {
         "initial_gas_in_place_gsm3": 137.524,
         "produced_gas_gsm3": 80.725,
-        "recovery_percent": 58.70,
+        "recovery_percent": 58.7,
         "final_gas_rate_msm3_per_day": 6.666,
         "npv_before_tax_bn_nok": 22.77,
         "npv_after_tax_bn_nok": 4.91,
         "break_even_gas_price_nok_sm3": 0.651,
-        "maximum_relative_process_mass_residual": 3.135e-5,
+        "maximum_relative_process_mass_residual": 3.135e-05,
         "fuel_lhv_mj_sm3": 37.931,
         "fuel_co2_kg_sm3": 2.157,
         "gas_turbine_compression_co2_tonnes": 1680360.333,
@@ -16922,7 +16922,7 @@
         "capacity_scale_exponent": 0.642,
         "application_best_option": "North Sea 10 kt/h",
         "application_best_npv_usd": 6471988.0,
-        "application_maximum_relative_mass_residual": 2.0e-30
+        "application_maximum_relative_mass_residual": 2e-30
       },
       "summary": "Revalidated and extended the process-cost notebook without removing any cell, example, or visual. The notebook now connects a current NeqSim process model and mechanical design to auditable CAPEX/OPEX/economic calculations and a reusable, conservation-checked development-option selection workflow.",
       "documentation_impact": "The executed notebook is the user-facing process-cost, mechanical-design, and concept-screening documentation update. No NeqSim public API, default, or library implementation changed.",
@@ -17027,7 +17027,7 @@
       "results": {
         "reference_temperature_c": 10.0,
         "reference_pressure_bara": 70.0,
-        "reference_solid_sulfur_ppm_mass": 14.570,
+        "reference_solid_sulfur_ppm_mass": 14.57,
         "selective_s8_kg_per_kg_oxygen": 2.004,
         "application_feed_kg_h": 10000.0,
         "application_outlet_pressure_bara": 20.0,
@@ -17170,6 +17170,111 @@
         "branch": "automation/repair-third-party-integrations",
         "files": [
           "notebooks/process/neqsimreaktoro.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      }
+    },
+    {
+      "path": "notebooks/energyopt/PyPSA-Earth_Norway.ipynb",
+      "verified_date": "2026-08-03",
+      "verified_at_utc": "2026-08-03T02:22:02Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-pypsa-norway-20260803 --neqsim-version latest --extra-package pypsa --extra-package highspy --extra-package PyYAML --extra-package scipy --extra-package nbconvert --extra-package ipykernel --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260803T020648Z-66bd447a36eb",
+        "verified_public_pypi_wheels": 99,
+        "manifest_created_at_utc": "2026-08-03T02:06:48Z",
+        "integrity": "The complete public-PyPI wheel inventory, file sizes, SHA-256 hashes, Python runtime, Linux platform, NeqSim, PyPSA, HiGHS, PyYAML, SciPy, and notebook toolchain passed verification."
+      },
+      "cell_counts": {
+        "code": 14,
+        "markdown": 25,
+        "total": 39
+      },
+      "preservation": {
+        "original_cells": 15,
+        "original_cells_preserved": 15,
+        "original_code_cells": 4,
+        "original_code_cells_preserved": 4,
+        "pre_existing_examples": 2,
+        "pre_existing_examples_preserved": 2,
+        "pre_existing_figures": 0,
+        "pre_existing_figures_preserved": 0,
+        "pre_existing_figures_numerically_refreshed": 0,
+        "details": "Preserved all 15 original cells and both substantive examples: the Norway PyPSA-Earth configuration/build workflow and the 100 MW offshore field supplied through a 95%-efficient link. The nonexistent CLI and unavailable network loader were repaired as a transparent synthetic teaching network without removing the original engineering intent. The original notebook had no figure."
+      },
+      "repairs": [
+        "replaced repository cloning, non-persistent shell directory changes, and the nonexistent pypsa-earth command with a documented current PyPSA-Earth Snakemake handoff and executable compact model",
+        "replaced the unavailable pypsa_earth.get_electricity_network call and removed n.lopf usage in favor of PyPSA 1.2.4 Network.optimize with the open HiGHS 1.15.1 solver",
+        "corrected the 100 MW offshore example because a 100 MW input link at 95% efficiency can deliver only 95 MW; the repaired input rating exceeds the required 105.263 MW",
+        "added a public-PyPI-compatible conditional setup, explicit units, assumptions, equations, result interpretation, limitations, references, and reusable exercises",
+        "added a fresh-object NeqSim rich-gas compression, aftercooling, separation, rate sensitivity, pressure sensitivity, and NeqSim-to-PyPSA load-coupling application"
+      ],
+      "neqsim_capabilities": [
+        "SystemSrkEos rich-gas construction, normalized component input, and classic mixing rule",
+        "Stream, Compressor, Cooler, Separator, and ProcessSystem composition and ordered execution",
+        "unit-aware standard flow, pressure, temperature, compressor power, cooler duty, phase-flow retrieval, and fresh-object scenario reuse"
+      ],
+      "practical_application": "A five-rate and five-export-pressure offshore compression study builds and executes fresh NeqSim processes, checks mass closure and trends, adds the calculated compressor power to 70 MW of auxiliary load, and solves a fresh PyPSA dispatch for every integrated production case.",
+      "figures": {
+        "previous_figures_preserved": 0,
+        "previous_figures_numerically_refreshed": 0,
+        "new_figures": 5,
+        "total_retained_figures": 5,
+        "purposes": [
+          "NeqSim-to-PyPSA process and data-handoff overview",
+          "synthetic Norway-like topology and peak corridor loading",
+          "24-hour generation dispatch and delivered load",
+          "production-rate process power and cable-utilization sensitivity",
+          "export-pressure compressor-power sensitivity"
+        ],
+        "visual_inspection": "Passed after the final complete execution. All five stored PNG outputs were extracted and inspected at original resolution for titles, readable labels, units, legends, accessible colors, correct trends and scales, clipping, overlap, and consistency with the stored tables and nearby interpretation."
+      },
+      "equation_rendering": {
+        "display_equations": 5,
+        "inline_expressions": 2,
+        "status": "Passed source, nbconvert HTML/MathJax-path, and visual rendering inspection. Delimiters are balanced and Colab-safe, display blocks are standalone, commands use single backslashes, and fractions, subscripts, summation, Greek symbols, rates, and units rendered."
+      },
+      "key_checks": [
+        "strict nbformat 4.5 JSON validation passed with unique cell IDs",
+        "14/14 code cells executed sequentially from cleared outputs in one fresh shared namespace with counts 1 through 14, zero exceptions, zero error outputs, and zero notebook stderr",
+        "all 15 original cells, four original code cells, two substantive workflows, and zero-figure visual inventory were preserved",
+        "maximum Python code-line length was 74 characters with no semicolons, obsolete imports, shell magics, or compressed compound bodies",
+        "PyPSA baseline optimization terminated ok and optimal",
+        "100 MW offshore delivery matched demand exactly; mainland cable input was 105.263158 MW and remained within its 120 MW rating",
+        "24-hour electrical residual was 0.0 MWh after explicit 126.315789 MWh cable loss",
+        "all three AC corridors remained within rating and the intended NO5-NO1 corridor reached 100% peak loading",
+        "base NeqSim compressor power at 5 MSm3/day and 120 bara was 9.175277 MW with finite duty and temperature",
+        "all ten NeqSim process scenarios had maximum relative mass residual 2.0e-30",
+        "compressor power increased strictly with production rate and export pressure",
+        "all five integrated PyPSA cases were optimal, finite, electrically closed within 1.0e-6 MWh, and within cable capacity",
+        "10/10 final engineering assertions passed",
+        "five display equations and two inline expressions passed Colab-safe source and visual rendering inspection",
+        "the Colab badge, catalog target, preserved source links, and current PyPSA, PyPSA-Earth, and NeqSim documentation targets were checked"
+      ],
+      "results": {
+        "baseline_offshore_load_mw": 100.0,
+        "baseline_cable_input_mw": 105.263158,
+        "baseline_cable_rating_mw": 120.0,
+        "baseline_electrical_residual_mwh": 0.0,
+        "base_compressor_power_mw": 9.175277,
+        "maximum_relative_mass_residual": 2e-30,
+        "final_engineering_checks_passed": 10,
+        "final_engineering_checks_total": 10,
+        "maximum_code_line_length": 74
+      },
+      "documentation_impact": "Substantial notebook documentation update: explains the official PyPSA-Earth workflow boundary, current PyPSA APIs, NeqSim process classes, assumptions, units, equations, validation, interpretation, limitations, current official references, and extension exercises. No catalog change was required because the unique existing link remains.",
+      "neqsim_defect_found": false,
+      "summary": "Repaired the Norway PyPSA-Earth and 100 MW offshore-electrification examples, added a current synthetic PyPSA dispatch model and real NeqSim process-power coupling, retained five inspected technical figures, and passed clean end-to-end execution and engineering checks.",
+      "publication": {
+        "mode": "draft pull request",
+        "branch": "automation/repair-pypsa-earth-norway",
+        "files": [
+          "notebooks/energyopt/PyPSA-Earth_Norway.ipynb",
           "notebooks/notebook_maintenance_ledger.json"
         ]
       }
