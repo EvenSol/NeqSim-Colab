@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-08-03T15:42:31Z",
+  "updated_at": "2026-08-03T20:03:50Z",
   "notebooks": [
     {
       "path": "notebooks/AI/agentic_neqsim_workflow_demo.ipynb",
@@ -10653,6 +10653,129 @@
         "three equations and two engineering plots were rendered and visually inspected"
       ],
       "summary": "Replaced the seven-cell legacy sketch, obsolete magics, wildcard imports, weak tank-model prose, and unverified annual stepping with an executed compositional Peng-Robinson tank-reservoir tutorial covering named producer/injector streams, monthly depletion, water-support sensitivity, component conservation, recovery metrics, phase-volume evolution, time-step refinement, and a reusable surface-separator handoff."
+    },
+    {
+      "path": "notebooks/reservoir/subsurface_data_to_opm_flow_production_forecast.ipynb",
+      "verified_date": "2026-08-03",
+      "verified_at_utc": "2026-08-03T15:40:47Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "opm_python_version": "2026.4",
+      "opm_flow_version": "2026.04",
+      "execution_status": "passed",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-subsurface-opm-private-20260803 --neqsim-version latest --extra-package opm==2026.4 --extra-package lasio==0.32 --extra-package segyio==1.9.13 --extra-package gstools==1.7.0 --extra-package nbconvert --extra-package ipykernel --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260803T152656Z-5e5f59ad60e3",
+        "verified_public_pypi_wheels": 81,
+        "manifest_created_at_utc": "2026-08-03T15:26:56Z",
+        "integrity": "The complete public-PyPI wheel inventory, file sizes, SHA-256 hashes, Python runtime, Linux platform, NeqSim, OPM parser bindings, LAS, SEG-Y, GSTools, and notebook toolchain passed verification."
+      },
+      "opm_flow_runner": {
+        "method": "The official signed OPM Ubuntu noble repository was configured in private apt state. The 89-package Flow closure was downloaded with apt signature and package-hash verification, extracted under /tmp, and executed through OPM_FLOW_EXECUTABLE without changing system apt state or the notebook dependency contract.",
+        "repository": "https://ppa.launchpadcontent.net/opm/ppa/ubuntu noble main",
+        "signing_key_fingerprint": "91121C48A10BAC661586B42A50BDC27473618B59",
+        "system_apt_modified": false,
+        "notebook_dependency": false
+      },
+      "execution_method": "All 38 code cells were executed sequentially from an empty in-process IPython namespace in the fresh bootstrap environment because the runner blocks local Jupyter TCP sockets. The three LOW, BASE, and HIGH decks ran with the extracted official OPM Flow 2026.04 executable. Counts 1 through 38, all user-facing tables, diagnostics, and 13 PNG figures were retained with zero exceptions, error outputs, or stderr.",
+      "cell_counts": {
+        "code": 38,
+        "markdown": 25,
+        "total": 63
+      },
+      "preservation": {
+        "original_cells": 63,
+        "original_cells_preserved": 63,
+        "original_code_cells": 38,
+        "original_code_cells_preserved": 38,
+        "pre_existing_examples": 12,
+        "pre_existing_examples_preserved": 12,
+        "pre_existing_figures": 13,
+        "pre_existing_figures_preserved": 13,
+        "pre_existing_figures_numerically_refreshed": 13,
+        "details": "Preserved all 63 cells, 38 code cells, 12 substantive workflow sections, and 13 figures: data governance and provenance, synthetic seismic/SEG-Y, well and LAS evidence, RCAL, petrophysics, SCAL, NeqSim PVT, fine geomodelling, upscaling, well placement, OPM deck generation and parsing, three Flow simulations, and forecast/KPI validation. No original cell, example, figure, link, or functionality was removed."
+      },
+      "repairs": [
+        "made the setup install the latest public-PyPI NeqSim release while retaining explicit compatible support-package versions and --no-cache-dir behavior",
+        "validated the existing Colab OPM PPA path with a signed private apt download-and-extract runner that works even when system apt state is read-only",
+        "re-executed all three OPM scenarios and refreshed every numerical table, statement, manifest, and reproducible figure with NeqSim 3.16.0 and OPM Flow 2026.04",
+        "repaired clipped workflow-node labels by enlarging the nodes while retaining the original evidence-chain visual and engineering message"
+      ],
+      "neqsim_capabilities": [
+        "SystemSrkEos recombined-oil construction, normalized composition, classic mixing rule, multiphase checking, and TP flash",
+        "NeqSim constant-composition expansion, differential-liberation, separator-stage, viscosity, density, saturation-pressure, and black-oil PVT table generation",
+        "unit-aware retrieval of oil and gas properties used to create OPM PVTO, PVDG, DENSITY, and surface-condition inputs",
+        "fresh NeqSim state reuse across the pressure schedule with monotonicity and finite-property checks"
+      ],
+      "practical_application": "A traceable public-synthetic reservoir workflow generates SEG-Y and LAS evidence, calibrates rock and fluid models, builds and upscales a 10,240-cell geomodel to a 1,280-cell Flow model, places two producers and one injector, writes complete LOW/BASE/HIGH OPM decks, runs all three forecasts, reads summary vectors, and validates volumes, pressure, production, injection, files, and trends.",
+      "figures": {
+        "previous_figures_preserved": 13,
+        "previous_figures_numerically_refreshed": 13,
+        "new_figures": 0,
+        "total_retained_figures": 13,
+        "purposes": [
+          "traceable seismic-to-forecast evidence-chain overview",
+          "synthetic seismic interpretation and quality control",
+          "measured well logs, reservoir interval, and oil-water contact",
+          "RCAL permeability transform and mineralogy consistency",
+          "interpreted petrophysical properties and net-pay decision",
+          "SCAL relative-permeability and capillary-pressure functions",
+          "NeqSim saturation pressure, formation-volume factor, and oil viscosity",
+          "seismic-guided facies, fine porosity, permeability, and kriging uncertainty maps",
+          "static three-dimensional sand-body porosity view",
+          "porosity and permeability upscaling with pore-volume preservation",
+          "well placement against quality and structure",
+          "LOW, BASE, and HIGH OPM forecast profiles",
+          "cumulative oil, recovery factor, and water-cut KPI comparison"
+        ],
+        "visual_inspection": "Passed after the final complete execution. All 13 stored PNG outputs were extracted and inspected at original resolution for titles, readable labels, explicit units, legends or color scales, accessible colors, correct trends and scales, clipping, overlap, and agreement with tables and nearby interpretation. The clipped workflow labels were repaired before the final rerun."
+      },
+      "equation_rendering": {
+        "display_equations": 8,
+        "inline_expressions": 20,
+        "status": "Passed balanced-delimiter and single-backslash source checks, final nbconvert HTML/MathJax-path conversion, and a fresh-environment visual render of all display equations. Fractions, logarithms, subscripts, superscripts, clip operators, Greek symbols, summation, and units rendered correctly."
+      },
+      "key_checks": [
+        "strict nbformat 4.5 JSON validation passed with 63 cells and unique cell IDs",
+        "38/38 code cells executed sequentially from cleared outputs with counts 1 through 38, zero exceptions, zero error outputs, and zero notebook stderr",
+        "all 63 original cells, 12 substantive workflow sections, and 13 original figures were preserved",
+        "maximum Python code-line length was 81 characters with no semicolons or compressed compound bodies",
+        "OPM Flow 2026.04 returned success and complete summary outputs for LOW, BASE, and HIGH cases",
+        "all 23 named data, thermodynamic, grid, parser, simulation, numerical, and trend validation checks passed",
+        "fine and flow grids contained 10,240 and 1,280 cells and upscaling preserved pore volume within the stored tolerance",
+        "base STOIIP was 3.525368 MSm3, cumulative oil was 0.909034 MSm3, and eight-year recovery was 0.257855",
+        "NeqSim bubble pressure was 191.829020 bara and generated saturated Rs and PVTO bubble pressure increased strictly",
+        "oil, gas, and water rates were finite and non-negative, cumulative oil was non-decreasing, pressure changed through the forecast, and HIGH STOIIP exceeded LOW",
+        "13/13 figures passed final visual and numerical inspection and all eight display equations passed MathJax-compatible visual rendering",
+        "the Colab badge points to the master notebook and the unchanged catalog contains exactly one target link"
+      ],
+      "results": {
+        "fine_grid_cells": 10240,
+        "flow_grid_cells": 1280,
+        "wells": 3,
+        "rock_samples": 24,
+        "scal_samples": 6,
+        "bubble_pressure_bara": 191.8290195465088,
+        "base_stoiip_msm3": 3.5253681478393815,
+        "base_cumulative_oil_msm3": 0.909033625,
+        "base_recovery_factor": 0.2578549492929203,
+        "engineering_checks_passed": 23,
+        "engineering_checks_total": 23,
+        "maximum_code_line_length": 81
+      },
+      "documentation_impact": "Substantial notebook documentation and execution refresh: the public-PyPI setup now follows latest NeqSim, the retained workflow figure is legible, and all stored tables, figures, scenario results, validation evidence, equations, assumptions, limitations, references, and manifest are current. No catalog edit was required because its unique link and description remain correct.",
+      "neqsim_defect_found": false,
+      "summary": "Completed the previously blocked subsurface-to-OPM workflow using a verified private apt extraction of the official signed Flow packages. Preserved every original cell, example, and figure; refreshed all three forecasts and 13 visuals; repaired setup and label clipping; and passed all 23 engineering checks with current NeqSim and OPM releases.",
+      "publication": {
+        "mode": "draft pull request",
+        "branch": "automation/repair-subsurface-opm-forecast",
+        "files": [
+          "notebooks/reservoir/subsurface_data_to_opm_flow_production_forecast.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      }
     },
     {
       "path": "notebooks/standards/API521_thermal_expansion.ipynb",
