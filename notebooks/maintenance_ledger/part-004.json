@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "shard": 4,
-  "updated_at": "2026-08-04T08:45:00Z",
+  "updated_at": "2026-08-04T14:04:16Z",
   "notebooks": [
     {
       "path": "notebooks/process/simulationTEG.ipynb",
@@ -3003,93 +3003,214 @@
     },
     {
       "path": "notebooks/thermodynamics/CO2reactions.ipynb",
-      "verified_date": "2026-07-27",
-      "verified_at_utc": "2026-07-27T15:02:25.583Z",
-      "neqsim_version": "not resolved; notebook not executed",
-      "python_version": "not resolved; notebook not executed",
-      "java_version": "not resolved; notebook not executed",
+      "verified_date": "2026-08-04",
+      "verified_at_utc": "2026-08-04T14:04:16Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
       "environment_resolution": {
-        "mode": "not used",
-        "bootstrap": "not run",
-        "reason": "The user explicitly requested publication without execution to avoid making the unavailable public-PyPI Reaktoro dependency a blocker."
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-co2-reactions-retry-20260804 --neqsim-version latest --extra-package nbconvert --extra-package ipykernel --refresh",
+        "wheelhouse_snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260804T140223Z-4ca6b8fe4100",
+        "wheel_count": 65,
+        "artifact_origin": "public-pypi",
+        "wheel_hashes_verified": true,
+        "fresh_environment": true
       },
-      "execution_status": "not_run_user_requested",
-      "execution_method": "No setup, Reaktoro, NeqSim, notebook, checker, or equation-rendering command was executed. Existing outputs were retained from the pre-existing notebook and were not recalculated or claimed as current validation evidence.",
-      "code_cells": 10,
-      "substantive_code_cells": 9,
-      "markdown_cells": 18,
+      "execution_status": "passed",
+      "execution_method": "Cleared stale outputs and executed all 13 code cells sequentially from an empty in-process IPython namespace using the fresh verified environment. The final rerun retained tables and six generated PNG figures with counts 1 through 13, zero exceptions, zero error outputs, and zero stderr.",
+      "code_cells": 13,
+      "markdown_cells": 22,
       "publication": {
-        "branch": "master",
-        "mode": "direct atomic connector-backed fast-forward commit with explicit user-approved execution exception",
-        "commit": "the commit containing this ledger entry",
+        "mode": "draft pull request",
+        "branch": "automation/repair-co2-reactions",
         "files": [
           "notebooks/thermodynamics/CO2reactions.ipynb",
           "notebooks/examples_of_NeqSim_in_Colab.ipynb",
-          "notebooks/notebook_maintenance_ledger.json"
+          "notebooks/notebook_maintenance_ledger.json",
+          "notebooks/maintenance_ledger/part-004.json"
         ]
       },
       "preservation": {
-        "pre_existing_cells": 23,
-        "preserved_cells": 23,
-        "pre_existing_code_cells": 9,
-        "preserved_code_cells": 9,
-        "pre_existing_generated_plots": 3,
-        "preserved_generated_plots": 3,
-        "pre_existing_embedded_literature_figures": 1,
-        "preserved_embedded_literature_figures": 1,
-        "repairs": "Preserved all original cells in their original relative order. Added a clear title, scope, publication warning, modern two-stage CondaColab/Reaktoro setup, engineering interpretation, and limitations. Corrected headings, spelling, redundant imports, long import lines, and the nitric-acid sweep variable names without deleting the original Reaktoro, Peng-Robinson, solid-equilibrium, pressure-sweep, ideal-comparison, or Electrolyte-CPA workflows."
+        "pre_existing_cells": 28,
+        "preserved_cells": 28,
+        "pre_existing_code_cells": 10,
+        "preserved_code_cells": 10,
+        "pre_existing_markdown_cells": 18,
+        "preserved_markdown_cells": 18,
+        "pre_existing_examples": 7,
+        "preserved_examples": 7,
+        "pre_existing_figures": 4,
+        "preserved_figures": 4,
+        "repairs": [
+          "retained the reaction, NeqSim transfer, H2SO4 and HNO3 pressure sweeps, sourced VLE comparison, ideal HNO3 comparison, and Electrolyte-CPA pH examples",
+          "replaced the runtime-replacing CondaColab and non-PyPI Reaktoro setup with a transparent oxygen-limited, element-balanced formation-bound adapter",
+          "updated deprecated neqsim.thermo.thermoTools imports to current public APIs",
+          "replaced fragile phase-index access with named gas and aqueous phases",
+          "refreshed all three reproducible prior plots with NeqSim 3.16.0",
+          "retained and documented the Boublick and Kuchynka 1960 sourced H2O-HNO3 VLE visual without presenting it as a current NeqSim calculation",
+          "rebuilt the electrolyte example with a physically interpretable CO2-water-acid mixture and documented model limits"
+        ]
       },
+      "neqsim_capabilities_demonstrated": [
+        "Peng-Robinson fluid construction, multiphase checking, TP flash, and solid-enabled flash",
+        "named gas and aqueous phase result retrieval and trace-acid partitioning",
+        "Electrolyte-CPA chemical-reaction initialization, mixing rule 10, aqueous pH, and phase fraction",
+        "Stream, Compressor, Cooler, Separator, and ProcessSystem composition",
+        "fresh-object oxygen-scenario execution, compressor-duty retrieval, liquid knock-out, and gas trace-acid reporting",
+        "total-mass, CO2-component, element, pressure, temperature, finiteness, and trend checks"
+      ],
+      "practical_application": "A reusable two-stage CO2 conditioning workflow compresses a 1,000,000 kg/h stream from 20 to 110 bara with 78% compressor efficiency, geometric-mean staging, 25 degC intercooling, aftercooling, and acid-rich liquid separation across five oxygen scenarios. It demonstrates model setup, connected equipment, execution, result retrieval, validation, sensitivity, and safe reuse with fresh process objects.",
+      "retained_figures": {
+        "count": 7,
+        "previous_count": 4,
+        "new_count": 3,
+        "numerically_refreshed_previous_count": 3,
+        "sourced_previous_count": 1,
+        "purposes": [
+          "new oxygen-limited H2SO4 and HNO3 formation sensitivity",
+          "refreshed H2SO4 gas-phase pressure partitioning",
+          "refreshed HNO3 gas-phase pressure partitioning",
+          "preserved historical H2O-HNO3 VLE comparison with source provenance",
+          "refreshed ideal-versus-NeqSim HNO3 pressure comparison",
+          "new two-stage conditioning process and calculation-order overview",
+          "new reaction, liquid knock-out, residual-acid, and absolute compressor-duty sensitivity dashboard"
+        ],
+        "visual_inspection": "Passed after the final clean execution. All six generated PNG outputs and the preserved sourced figure were extracted and inspected for titles, units, readable labels, legends, accessible colors, correct trends, clipping, overlap, and numerical consistency. The compressor panel's misleading automatic offset was corrected to a zero-based absolute-duty scale and the notebook was rerun before approval."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 4,
+        "unique_inline_expressions": 2,
+        "source_rule": "Inline expressions use $...$; display equations use standalone $$ delimiter lines with blank surrounding lines and single-backslash LaTeX.",
+        "validation": "Balanced-delimiter, blank-line, obsolete-delimiter, and double-escape checks passed. Jupyter nbconvert produced HTML with its MathJax path, and the exact four display and two inline expressions were rendered by MathJax 3.2.2 to SVG and visually inspected after rasterization."
+      },
+      "key_checks": [
+        "strict nbformat 4 JSON validation passed",
+        "13/13 code cells executed sequentially with counts 1 through 13",
+        "zero exceptions, zero error outputs, and zero stored stderr",
+        "all 28 original cells, seven examples, and four original visuals were preserved",
+        "maximum Python code-line length was 80 characters with no semicolon chains or compressed compound bodies",
+        "nine of nine named engineering checks passed",
+        "all reaction scenarios conserved C, H, N, O, and S to a maximum residual of 4.44e-16 mol",
+        "five process scenarios closed total mass below 5.47e-16 relative residual and CO2 below 1.00e-7",
+        "all outlets met 110 bara and 25 degC and all values were finite",
+        "the Electrolyte-CPA aqueous phase was acidic at pH 3.932644",
+        "seven figures passed visual and numerical inspection after one scale correction and complete rerun",
+        "four display equations and two inline expressions passed source, Jupyter HTML, MathJax SVG, and visual checks",
+        "the focused incoming notebook-integrity checker completed with zero errors and zero warnings",
+        "the Colab badge and catalog target resolve to the notebook exactly once"
+      ],
+      "results": {
+        "base_oxygen_mol_ppm": 30.0,
+        "base_h2so4_upper_bound_mol_ppm": 15.0,
+        "base_hno3_upper_bound_mol_ppm": 5.0,
+        "application_feed_kg_per_h": 1000000.0,
+        "application_inlet_pressure_bara": 20.0,
+        "application_outlet_pressure_bara": 110.0,
+        "application_outlet_temperature_degC": 25.0,
+        "compressor_power_range_mw": [
+          29.90322,
+          29.904281
+        ],
+        "maximum_separator_liquid_kg_per_h": 26.313105,
+        "maximum_gas_strong_acid_mol_ppm": 8.275975,
+        "maximum_relative_mass_residual": 5.47e-16,
+        "maximum_relative_co2_residual": 1e-07,
+        "aqueous_ph": 3.932644,
+        "engineering_checks_passed": 9,
+        "engineering_checks_total": 9
+      },
+      "documentation_impact": "Substantial update: executable public-PyPI setup, explicit reaction assumptions, balanced equations, engineering context, named-phase APIs, result interpretation, provenance, limitations, references, exercises, a reusable process application, and an accurate catalog description.",
+      "neqsim_defect_found": false,
+      "summary": "Converted the prior source-only CO2 reaction notebook into a fully executable NeqSim 3.16.0 tutorial, preserved every original example and visual, removed its runtime-replacing dependency path, refreshed numerical outputs, and added a validated two-stage CO2 conditioning application with seven inspected figures.",
+      "substantive_code_cells": 12,
       "capabilities_documented": [
-        "Reaktoro NASA-CEA gas-phase equilibrium for CO2 with sulfur, nitrogen, oxygen, and water trace species",
-        "transfer of Reaktoro equilibrium species amounts into a NeqSim Peng-Robinson fluid",
-        "NeqSim multiphase and elemental-sulfur solid equilibrium screening",
-        "sulfuric-acid and nitric-acid pressure sweeps",
-        "ideal nitric-acid comparison",
-        "Electrolyte-CPA aqueous-phase pH calculation"
+        "Peng-Robinson fluid construction, multiphase checking, TP flash, and solid-enabled flash",
+        "named gas and aqueous phase result retrieval and trace-acid partitioning",
+        "Electrolyte-CPA chemical-reaction initialization, mixing rule 10, aqueous pH, and phase fraction",
+        "Stream, Compressor, Cooler, Separator, and ProcessSystem composition",
+        "fresh-object oxygen-scenario execution, compressor-duty retrieval, liquid knock-out, and gas trace-acid reporting",
+        "total-mass, CO2-component, element, pressure, temperature, finiteness, and trend checks"
       ],
       "static_validation": {
         "status": "passed",
         "checks": [
-          "valid nbformat JSON",
-          "28 total cells with 10 code and 18 Markdown cells",
-          "all 23 original cell identifiers retained in original relative order",
-          "all cell identifiers unique",
-          "zero stored error outputs",
-          "maximum code-line length 78 characters",
-          "valid Colab badge and target URL",
-          "catalog target occurs exactly once",
-          "publication metadata explicitly marks execution as not run",
-          "no Markdown math delimiters requiring equation rendering"
+          "strict nbformat 4 JSON validation",
+          "all original cells, examples, and visuals preserved",
+          "maximum code-line length 80 characters",
+          "no semicolon chains or compressed compound bodies",
+          "valid Colab badge and one catalog target",
+          "balanced Colab-safe equations with single-backslash LaTeX"
         ]
       },
       "runtime_validation": {
-        "status": "not performed",
-        "reason": "Explicit user request to commit without running because Reaktoro is unavailable from public PyPI in the validation runtime.",
-        "stored_outputs": "Five stream outputs and three generated display outputs were retained from the original notebook. They were not refreshed or revalidated."
+        "status": "passed",
+        "method": "Cleared stale outputs and executed all 13 code cells sequentially from an empty in-process IPython namespace using the fresh verified environment. The final rerun retained tables and six generated PNG figures with counts 1 through 13, zero exceptions, zero error outputs, and zero stderr.",
+        "engineering_checks": [
+          "strict nbformat 4 JSON validation passed",
+          "13/13 code cells executed sequentially with counts 1 through 13",
+          "zero exceptions, zero error outputs, and zero stored stderr",
+          "all 28 original cells, seven examples, and four original visuals were preserved",
+          "maximum Python code-line length was 80 characters with no semicolon chains or compressed compound bodies",
+          "nine of nine named engineering checks passed",
+          "all reaction scenarios conserved C, H, N, O, and S to a maximum residual of 4.44e-16 mol",
+          "five process scenarios closed total mass below 5.47e-16 relative residual and CO2 below 1.00e-7",
+          "all outlets met 110 bara and 25 degC and all values were finite",
+          "the Electrolyte-CPA aqueous phase was acidic at pH 3.932644",
+          "seven figures passed visual and numerical inspection after one scale correction and complete rerun",
+          "four display equations and two inline expressions passed source, Jupyter HTML, MathJax SVG, and visual checks",
+          "the focused incoming notebook-integrity checker completed with zero errors and zero warnings",
+          "the Colab badge and catalog target resolve to the notebook exactly once"
+        ],
+        "results": {
+          "base_oxygen_mol_ppm": 30.0,
+          "base_h2so4_upper_bound_mol_ppm": 15.0,
+          "base_hno3_upper_bound_mol_ppm": 5.0,
+          "application_feed_kg_per_h": 1000000.0,
+          "application_inlet_pressure_bara": 20.0,
+          "application_outlet_pressure_bara": 110.0,
+          "application_outlet_temperature_degC": 25.0,
+          "compressor_power_range_mw": [
+            29.90322,
+            29.904281
+          ],
+          "maximum_separator_liquid_kg_per_h": 26.313105,
+          "maximum_gas_strong_acid_mol_ppm": 8.275975,
+          "maximum_relative_mass_residual": 5.47e-16,
+          "maximum_relative_co2_residual": 1e-07,
+          "aqueous_ph": 3.932644,
+          "engineering_checks_passed": 9,
+          "engineering_checks_total": 9
+        }
       },
       "figures": {
-        "generated_outputs_retained": 3,
-        "embedded_literature_figures_retained": 1,
-        "visual_inspection": "not repeated during this source-only publication",
-        "numerical_refresh": "not performed"
-      },
-      "equation_rendering": {
-        "status": "not applicable",
-        "display_equations": 0,
-        "inline_expressions": 0,
-        "reason": "The notebook contains no Markdown math delimiters."
+        "count": 7,
+        "previous_count": 4,
+        "new_count": 3,
+        "numerically_refreshed_previous_count": 3,
+        "sourced_previous_count": 1,
+        "purposes": [
+          "new oxygen-limited H2SO4 and HNO3 formation sensitivity",
+          "refreshed H2SO4 gas-phase pressure partitioning",
+          "refreshed HNO3 gas-phase pressure partitioning",
+          "preserved historical H2O-HNO3 VLE comparison with source provenance",
+          "refreshed ideal-versus-NeqSim HNO3 pressure comparison",
+          "new two-stage conditioning process and calculation-order overview",
+          "new reaction, liquid knock-out, residual-acid, and absolute compressor-duty sensitivity dashboard"
+        ],
+        "visual_inspection": "Passed after the final clean execution. All six generated PNG outputs and the preserved sourced figure were extracted and inspected for titles, units, readable labels, legends, accessible colors, correct trends, clipping, overlap, and numerical consistency. The compressor panel's misleading automatic offset was corrected to a zero-based absolute-duty scale and the notebook was rerun before approval."
       },
       "notebook_quality": {
         "valid_nbformat_json": true,
-        "maximum_code_line_length": 78,
+        "maximum_code_line_length": 80,
         "one_statement_per_line": true,
         "semicolon_chains": 0,
         "one_line_compound_bodies": 0,
         "colab_badge_valid": true,
         "catalog_target_occurrences": 1,
-        "execution_exception_disclosed": true
-      },
-      "summary": "Published the repaired CO2 trace-reaction notebook as a transparent source-only exception at the user's request. The Colab setup now reflects Reaktoro's conda-forge distribution, the Reaktoro-to-NeqSim calculation chain and limitations are explicit, and the catalog and ledger disclose that no fresh execution or numerical validation was performed."
+        "executed_outputs_retained": true
+      }
     },
     {
       "path": "notebooks/thermodynamics/CO2richandwater.ipynb",
