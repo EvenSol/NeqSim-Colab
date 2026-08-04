@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-08-03T20:03:50Z",
+  "updated_at": "2026-08-04T02:29:20Z",
   "notebooks": [
     {
       "path": "notebooks/AI/agentic_neqsim_workflow_demo.ipynb",
@@ -17405,6 +17405,123 @@
         "branch": "automation/repair-pypsa-earth-norway",
         "files": [
           "notebooks/energyopt/PyPSA-Earth_Norway.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      }
+    },
+    {
+      "path": "notebooks/gasvaluechain/GasProcessingChain.ipynb",
+      "verified_date": "2026-08-04",
+      "verified_at_utc": "2026-08-04T02:29:20Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-gas-processing-chain-visual-final-20260804 --neqsim-version latest --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260804T023009Z-362fba707c6a",
+        "verified_public_pypi_wheels": 61,
+        "manifest_created_at_utc": "2026-08-04T02:30:09Z",
+        "integrity": "The complete public-PyPI wheel inventory, file sizes, SHA-256 hashes, Python runtime, Linux platform, NeqSim, and notebook toolchain passed verification."
+      },
+      "cell_counts": {
+        "code": 44,
+        "markdown": 37,
+        "total": 81
+      },
+      "preservation": {
+        "original_cells": 75,
+        "original_cells_preserved": 75,
+        "original_code_cells": 41,
+        "original_code_cells_preserved": 41,
+        "pre_existing_examples": 11,
+        "pre_existing_examples_preserved": 11,
+        "pre_existing_figures": 9,
+        "pre_existing_figures_preserved": 9,
+        "pre_existing_figures_numerically_refreshed": 9,
+        "details": "Preserved all 75 original cells, all 11 question-driven examples, the integrated final calculations, both process-flow diagrams, four pipeline profiles, and three phase-envelope figures. No cell, example, figure, link, or useful functionality was removed."
+      },
+      "repairs": [
+        "replaced the unconditional quiet install with a conditional, public-PyPI-compatible python -m pip install --upgrade --no-cache-dir neqsim setup",
+        "retained NeqSim DOT export while replacing the hidden system Graphviz executable dependency with a portable Matplotlib renderer for both process diagrams",
+        "corrected the displayed LMTD equation, terminal-temperature calculations, Kaarstoe temperature unit, heat-exchanger UA comment, pipeline linepack unit, and ISO 6976 energy units",
+        "increased the export-pipeline diameter from 0.965 to 0.987 m after a NeqSim diameter sweep so the modeled arrival pressure satisfies the stated 110 bara minimum",
+        "reduced the expander outlet pressure from 47 to 46 bara after a NeqSim pressure sweep so sales-gas propane satisfies the stated 1 mol% maximum",
+        "relabelled the screening dehydration-temperature output so it is not presented as a rigorous water-dew-point calculation",
+        "updated the Norway electricity comparison to official SSB 2025 production data published on 19 January 2026 and documented the chemical-energy versus electricity boundary",
+        "expanded title, objectives, assumptions, theory, engineering interpretation, limitations, references, exercises, validation, and reusable application guidance"
+      ],
+      "neqsim_capabilities": [
+        "SRK and CPA fluid construction, component handling, mixing rules, multiphase checking, TP flash, and PT phase-envelope calculation",
+        "Stream, Separator, ThreePhaseSeparator, Compressor, Cooler, HeatExchanger, ThrottlingValve, Expander, Mixer, Recycle, SetPoint, and ProcessSystem composition",
+        "PipeBeggsAndBrills offshore export-pipeline pressure, temperature, density, velocity, elevation, linepack, and transport-time calculations",
+        "ISO 6976 gross calorific value and Wobbe-index calculation",
+        "fresh-object multistage-compression scenario construction with result retrieval, specification checks, mass closure, methane closure, and sensitivity analysis"
+      ],
+      "practical_application": "A reusable five-case export-compression workflow builds a fresh rich-gas Stream-Compressor-Cooler-Compressor-Cooler-ProcessSystem graph, varies interstage pressure, executes each case, retrieves power and outlet conditions, verifies exact total-mass and methane-fraction closure, compares two-stage against one-stage compression, and identifies the lowest-power tested staging pressure.",
+      "figures": {
+        "previous_figures_preserved": 9,
+        "previous_figures_numerically_refreshed": 9,
+        "new_figures": 1,
+        "total_retained_figures": 10,
+        "purposes": [
+          "refreshed offshore process-flow overview",
+          "refreshed pipeline pressure and temperature profile",
+          "refreshed pipeline density profile",
+          "refreshed pipeline velocity profile",
+          "refreshed pipeline terrain profile",
+          "refreshed rich-gas phase envelope",
+          "refreshed export-gas phase envelope",
+          "refreshed sales-gas phase envelope",
+          "refreshed onshore process-flow overview",
+          "new export-compressor staging sensitivity and one-stage comparison"
+        ],
+        "visual_inspection": "Passed after the final complete execution. All ten stored PNG outputs were inspected at original resolution for descriptive titles, readable labels, explicit units, legends, accessible colors, correct values and trends, clipping, overlap, and consistency with nearby interpretation. The initially dense process graph was widened and rerun before final approval."
+      },
+      "equation_rendering": {
+        "display_equations": 5,
+        "inline_expressions": 10,
+        "status": "Passed balanced-delimiter and single-backslash source checks, nbconvert HTML/MathJax-path conversion, and visual inspection. Fractions, logarithms, subscripts, superscripts, Delta symbols, dots, and units rendered correctly."
+      },
+      "key_checks": [
+        "strict nbformat 4.0 JSON validation passed",
+        "44/44 code cells executed sequentially from cleared outputs with counts 1 through 44, zero exceptions, zero error outputs, and zero notebook stderr",
+        "all 75 original cells, 11 substantive examples, and nine original figures were preserved",
+        "maximum Python code-line length was 99 characters with no statement-chain semicolons or compressed compound bodies",
+        "ten PNG figures passed final visual and numerical inspection",
+        "five display equations and ten inline expressions passed Colab-safe source, HTML, and visual-rendering inspection",
+        "export-pipeline arrival pressure was 111.052992 bara against the 110 bara minimum",
+        "sales-gas propane was 0.972645 mol% against the 1 mol% maximum",
+        "rich-gas cricondenbar was 89.969488 bara and condensate TVP was 0.971199 bara",
+        "two-stage export compression required 76.589 MW compared with 86.521 MW for one stage",
+        "five compression scenarios closed total mass and methane fraction exactly",
+        "onshore total-mass relative residual was 6.54e-5 within the documented 1e-4 screening tolerance",
+        "11/11 focused engineering assertions passed",
+        "the Colab badge, unique catalog target, SSB evidence, and all introduced NeqSim documentation links were verified"
+      ],
+      "results": {
+        "export_pipeline_diameter_m": 0.987,
+        "export_pipeline_arrival_pressure_bara": 111.052992,
+        "sales_gas_propane_mol_percent": 0.972645,
+        "rich_gas_cricondenbar_bara": 89.969488,
+        "condensate_tvp_bara": 0.971199,
+        "best_tested_two_stage_power_mw": 76.589,
+        "one_stage_power_mw": 86.521,
+        "modeled_gas_chemical_energy_twh_per_year": 171.217,
+        "norway_2025_electricity_production_twh": 161.8,
+        "final_engineering_checks_passed": 11,
+        "final_engineering_checks_total": 11,
+        "maximum_code_line_length": 99
+      },
+      "documentation_impact": "Substantial notebook documentation and engineering correction: current public-PyPI setup, portable process-diagram rendering, corrected equations and units, explicit specifications and model boundaries, current official references, result interpretation, limitations, exercises, validation, and a complete reusable NeqSim compression application. No catalog change was required because its unique existing link remains correct.",
+      "neqsim_defect_found": false,
+      "summary": "Modernized the complete gas-processing value-chain notebook, preserved every original cell, example, and figure, corrected pipeline and product-specification failures, removed a hidden Graphviz dependency, added a reusable export-compression application, and passed clean execution, rendering, visual, numerical, and engineering checks with NeqSim 3.16.0.",
+      "publication": {
+        "mode": "draft pull request",
+        "branch": "automation/repair-gas-processing-chain",
+        "files": [
+          "notebooks/gasvaluechain/GasProcessingChain.ipynb",
           "notebooks/notebook_maintenance_ledger.json"
         ]
       }
