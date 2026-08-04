@@ -1,0 +1,1869 @@
+{
+  "schema_version": 1,
+  "shard": 6,
+  "updated_at": "2026-08-04T08:45:00Z",
+  "notebooks": [
+    {
+      "path": "notebooks/process/online_process_simulation_demo1.ipynb",
+      "verified_date": "2026-07-29",
+      "verified_at_utc": "2026-07-29T18:20:11Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "pydantic_version": "2.12.5",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-online-process-finalshort-20260729t2010 --neqsim-version latest --extra-package pydantic --extra-package nbconvert --extra-package ipykernel --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260729T181021Z-1ad7a3ef76bd",
+        "verified_public_pypi_wheels": 70,
+        "manifest_created_at_utc": "2026-07-29T18:10:21Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, and requested toolchain verification passed."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 26 code cells sequentially from an empty in-process IPython namespace in the final fresh bootstrap environment. Stored tables and seven PNG figures; zero error outputs and zero stderr. Jupyter HTML conversion passed; local TCP and IPC kernel sockets are unavailable in the runner.",
+      "code_cells": 26,
+      "substantive_code_cells": 26,
+      "markdown_cells": 25,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch fast-forward",
+        "commit": "the direct master commit containing this ledger entry",
+        "files": [
+          "notebooks/process/online_process_simulation_demo1.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "existing_content_preservation": {
+        "pre_existing_cells": 26,
+        "pre_existing_code_cells": 17,
+        "pre_existing_markdown_cells": 9,
+        "pre_existing_examples": 8,
+        "pre_existing_figures": 3,
+        "preserved_examples": [
+          "optional Eclipse E300 deck presence and fluid-source selection",
+          "four-stage oil stabilization, flash-gas recompression, dew-point cooling, liquid recycle, and export process",
+          "validated base-case process update and calculation",
+          "30-point HP-feed increase and decrease profile",
+          "independent cold-start full-convergence simulation strategy",
+          "warm reused-process full-convergence simulation strategy",
+          "single-step reused-process simulation strategy",
+          "structured export-gas composition, properties, conditions, and export-oil property access"
+        ],
+        "repairs": "Preserved and mapped all 26 original cells, eight example purposes, and all three original figures. Replaced the obsolete NeqSim 2.5.35 and jNeqSim/processSimulation paths, inaccessible fluid1.e300 dependency, cached pseudo-cold builder, stale nested JSON decoding, incomplete water-excluding mass balance, heater-based oil pressure increase, semicolon-compressed code, ambiguous units, and missing validation. Added a deterministic public synthetic PR fluid, current APIs, an export-oil pump, produced-water export, output-only memoization for identical validated steady conditions, and explicit provisional-result quality gates."
+      },
+      "neqsim_capabilities_demonstrated": [
+        "Peng-Robinson multiphase fluid construction with classic mixing rule and TP flash",
+        "unit-aware Stream, ThreePhaseSeparator, Separator, Heater, Cooler, Compressor, Mixer, Recycle, Pump, and ThrottlingValve configuration",
+        "four-stage oil stabilization and three-stage flash-gas recompression",
+        "dew-point cooling and scrubber-liquid recycle",
+        "gas, stabilized-oil, and produced-water product reporting",
+        "ProcessSystem full-convergence and run-in-steps execution modes",
+        "named-unit updates for online measurements and equipment specifications",
+        "structured ProcessSystem JSON reporting and reusable quality classification"
+      ],
+      "practical_application": "Builds one reusable NeqSim oil-and-gas process, replays a 30-point HP-feed disturbance, independently solves 11 distinct cold-start conditions, solves the same 11 conditions with warm state reuse, performs all 30 sequential single-step updates, retrieves product reports, compares runtime and conservation, and classifies provisional points for acceptance or full recalculation.",
+      "engineering_validation": {
+        "named_assertions_passed": 21,
+        "assertions_failed": 0,
+        "checks": [
+          "finite positive gas, oil, water, and compressor-power outputs",
+          "specified 126.5 bara gas-export and 20.8 bara oil-export pressures",
+          "base relative total mass residual 9.04e-7 including produced water",
+          "all 30 cold and 30 warm reported cases below 1e-4 relative mass residual",
+          "maximum cold-warm converged export-gas deviation 1.454126e-7",
+          "export-gas flow and compressor power increase with the HP-feed ramp",
+          "all 30 sequential single-step outputs finite and within elapsed-time budget",
+          "maximum single-step export-gas deviation from warm reference 2.219175e-3",
+          "maximum single-step relative mass residual approximately 2.42e-3 and therefore screened as provisional",
+          "all three product streams present in the structured report",
+          "six step points accepted and 24 directed to full recalculation by the tutorial quality gate"
+        ],
+        "key_results": {
+          "base_export_gas_msm3_per_day": 5.762308,
+          "base_export_gas_kg_per_hour": 231642.655361,
+          "base_export_oil_kg_per_hour": 1059989.088935,
+          "base_produced_water_kg_per_hour": 8367.080946,
+          "base_total_compressor_power_mw": 18.543733,
+          "base_relative_mass_residual": 9.04e-07,
+          "maximum_cold_relative_mass_residual": 9.75e-07,
+          "maximum_warm_relative_mass_residual": 9.75e-07,
+          "maximum_cold_warm_gas_deviation": 1.454126e-07,
+          "maximum_step_warm_gas_deviation": 0.002219175,
+          "maximum_step_relative_mass_residual": 0.00242,
+          "cold_distinct_condition_runtime_s": 180.016581,
+          "warm_distinct_condition_runtime_s": 108.079579,
+          "sequential_step_runtime_s": 23.259034,
+          "provisional_points_accepted": 6,
+          "provisional_points_recalculate": 24
+        }
+      },
+      "figures": {
+        "previous_figures_preserved": 3,
+        "previous_figures_numerically_refreshed": 3,
+        "new_figures": 4,
+        "total_retained_figures": 7,
+        "purposes": [
+          "NeqSim process topology and material-flow workflow",
+          "30-point HP and LP feed replay inputs",
+          "refreshed independent cold-start export-gas response",
+          "refreshed warm full-convergence export-gas response",
+          "refreshed converged-versus-single-step export-gas comparison",
+          "HP-feed, export-gas, and compressor-power process response",
+          "cold, warm, and step runtime and worst mass-residual comparison"
+        ],
+        "visual_inspection": "Passed at original resolution after the final fresh execution. Titles, axes, labels, units, legends, accessible colors, process arrows, values, and scales are readable; no clipping, label overlap, stale data, mixed-unit axes, or misleading scales remain. The workflow arrow geometry was corrected and the complete notebook was rerun."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_expressions_verified": 3,
+        "inline_expressions_verified": 4,
+        "renderer": "Jupyter nbconvert HTML plus single-backslash Matplotlib MathText rendering in the final fresh environment",
+        "visual_inspection": "Mass-flow over-dots, subscripts, fractions, absolute values, maximum operator, delta, epsilon, and superscripts rendered correctly. All delimiters are balanced, display delimiters are standalone with surrounding blank lines, and no doubled or obsolete commands remain."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 51,
+        "maximum_code_line_length": 87,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "sequential_execution_counts": true,
+        "catalog_target_occurrences": 1,
+        "notebook_checker": "passed",
+        "original_cells_preserved": 26
+      },
+      "documentation_impact": "The notebook and catalog description are the documentation update. No NeqSim public API, default, or separate documentation page required a change.",
+      "summary": "Modernized the effective online-process simulation tutorial on current NeqSim while preserving every original cell, example purpose, and figure. Added a self-contained fluid, current process APIs, correct pressure equipment and product accounting, cold/warm/step strategy validation, structured reports, operational acceptance logic, theory, assumptions, troubleshooting, exercises, equations, and seven inspected engineering figures."
+    },
+    {
+      "path": "notebooks/process/Machine_learning_and_process_simulation.ipynb",
+      "verified_date": "2026-07-29",
+      "verified_at_utc": "2026-07-29T19:47:26Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "scikit_learn_version": "1.7.1",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-ml-teg-final2-20260729-2059 --neqsim-version latest --extra-package scikit-learn --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260729T193836Z-2192263aa749",
+        "verified_public_pypi_wheels": 54,
+        "manifest_created_at_utc": "2026-07-29T19:38:36Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, and requested scikit-learn toolchain verification passed."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 19 code cells sequentially from an empty in-process IPython namespace in the final fresh bootstrap environment. Stored tables and six PNG figures; zero error outputs and zero stderr.",
+      "code_cells": 19,
+      "substantive_code_cells": 19,
+      "markdown_cells": 23,
+      "publication": {
+        "branch": "master",
+        "mode": "atomic direct-to-default-branch fast-forward",
+        "commit": "the direct master commit containing this ledger entry",
+        "files": [
+          "notebooks/process/Machine_learning_and_process_simulation.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "existing_content_preservation": {
+        "pre_existing_cells": 18,
+        "pre_existing_code_cells": 9,
+        "pre_existing_markdown_cells": 9,
+        "pre_existing_examples": 4,
+        "pre_existing_figures": 0,
+        "preserved_examples": [
+          "public TEG operating-design data retrieval and inspection",
+          "complete CPA TEG absorber, regeneration, heat-recovery, make-up, and recycle flowsheet",
+          "NeqSim-generated multi-output surrogate training and held-out assessment",
+          "single-point process prediction with the trained model"
+        ],
+        "repairs": "Preserved all 18 original cells and four substantive purposes. Replaced the NeqSim 2.5.35 and wget pins, live raw-file dependency, obsolete processTools signatures, semicolon-compressed code, duplicate unit name, unsafe clearProcess plus runAsThread pattern, missing completion barrier, bare exception handling, nondeterministic split, and unqualified surrogate use. Embedded the unchanged 43-row public input table, executed 24 space-filling NeqSim cases, retained deterministic decision-tree training, compared a random forest, added domain and confirmation checks, and documented units and limitations."
+      },
+      "neqsim_capabilities_demonstrated": [
+        "CPA fluid construction with hydrocarbons, water, and TEG using mixing rule 10",
+        "Stream, StreamSaturatorUtil, Heater, SimpleTEGAbsorber, ThrottlingValve, HeatExchanger, Separator, Filter, DistillationColumn, WaterStripperColumn, Pump, SetPoint, Calculator, Mixer, and Recycle workflows",
+        "full absorber, rich-solvent flash, regeneration, stripping-gas, heat-recovery, make-up, and lean-solvent recycle process",
+        "ProcessSystem copy, deterministic sequential execution, named-unit result retrieval, and unit-level mass-balance reporting",
+        "dry-gas water, reboiler duty, flare rate, dry-gas rate, and operating-domain calculations"
+      ],
+      "practical_application": "Builds 24 complete TEG dehydration and regeneration flowsheets from a deterministic space-filling subset, trains and compares multi-output tree surrogates, screens 101 lean-TEG circulation settings under an illustrative water constraint, selects the lowest predicted duty, and independently rebuilds and reruns the recommended point in NeqSim.",
+      "engineering_validation": {
+        "assertions_passed": 26,
+        "assertions_failed": 0,
+        "checks": [
+          "43-row public input snapshot and all 17 original features retained",
+          "24 independent NeqSim process objects executed sequentially",
+          "all targets finite with positive dry-gas rates, positive duties, and nonnegative flare rates",
+          "all reportable unit mass balances below the 0.2 percent threshold",
+          "maximum reportable unit mass-balance residual 0.15958 percent",
+          "four held-out rows retained and all surrogate predictions finite",
+          "held-out water, duty, and flare MAE below 15 ppm(mol), 75 kW, and 20 kg/h",
+          "original prediction and optimization screen constrained to the training domain",
+          "recommended setting independently rerun in NeqSim",
+          "confirmation water, duty, and flare differences below 10 ppm(mol), 75 kW, and 15 kg/h",
+          "feature importance finite and normalized"
+        ],
+        "key_results": {
+          "simulated_neqsim_cases": 24,
+          "public_design_rows": 43,
+          "selected_model": "Random forest",
+          "selected_model_train_r_squared": 0.9523,
+          "selected_model_held_out_r_squared": 0.4326,
+          "held_out_water_mae_ppm_mol": 12.766,
+          "held_out_reboiler_duty_mae_kw": 37.464,
+          "held_out_flare_mae_kg_per_h": 10.282,
+          "maximum_unit_mass_balance_residual_percent": 0.15958,
+          "illustrative_water_limit_ppm_mol": 12.2,
+          "recommended_lean_teg_kg_per_h": 4300,
+          "confirmed_water_ppm_mol": 4.348,
+          "confirmed_reboiler_duty_kw": 180.807,
+          "confirmed_flare_kg_per_h": 185.231
+        }
+      },
+      "figures": {
+        "previous_figures_preserved": 0,
+        "previous_figures_numerically_refreshed": 0,
+        "new_figures": 6,
+        "total_retained_figures": 6,
+        "purposes": [
+          "complete gas, rich-TEG, regeneration, and lean-TEG recycle workflow",
+          "space-filling NeqSim design coverage across gas rate, TEG circulation, and absorber pressure",
+          "principal dehydration and regeneration-energy results",
+          "held-out water, duty, and flare parity comparison",
+          "surrogate water and duty sensitivities with independent NeqSim confirmation",
+          "tree-model input-importance diagnostic"
+        ],
+        "visual_inspection": "Passed at original resolution after final execution. All six figures have descriptive titles, explicit units, readable labels, legends or color scales, accessible colors, and no clipping, overlap, stale values, misleading scales, or inconsistent annotations."
+      },
+      "equations": {
+        "display_equations": 4,
+        "inline_equations": 5,
+        "delimiter_validation": "passed",
+        "renderer": "Jupyter-compatible single-backslash math source rendered through Matplotlib MathText in the final fresh environment because a local MathJax runtime was unavailable.",
+        "render_inspection": "Passed. Fractions, over-dots, subscripts, superscripts, inequality symbols, objective notation, and units rendered correctly."
+      },
+      "code_readability": {
+        "maximum_line_length": 87,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "syntax_validation": "passed"
+      },
+      "links": {
+        "colab_badge": "passed",
+        "catalog_occurrences": 1,
+        "changed_or_introduced_links": "passed"
+      },
+      "neqsim_defect": {
+        "repository": "equinor/neqsim-python",
+        "affected_release": "3.16.0",
+        "summary": "simpleTEGAbsorber(name) and waterStripperColumn(name) redundantly call setName before outlet streams exist, causing SimpleAbsorber.setName to throw NullPointerException.",
+        "validated_workaround": "Constructed the same released Java equipment classes with their name-taking constructors and added them through NeqSim's current process registry.",
+        "prepared_fix_commit": "EvenSol/neqsim-python@ab3ef7b3627fb8c4ac0ac9822c08ab701bd4dc17",
+        "pull_request_status": "Cross-repository draft PR creation was attempted through the installed GitHub connector and blocked by GitHub with HTTP 403 Resource not accessible by integration."
+      },
+      "documentation_impact": "The notebook is the documentation update. The confirmed Python-wrapper defect has a focused fix and regression prepared on the writable fork; upstream PR creation remains blocked by connector permission.",
+      "summary": "Modernized the complete NeqSim-to-machine-learning TEG tutorial while preserving every original cell and purpose. Added current APIs, reproducible public inputs, deterministic execution, mass and surrogate validation, six inspected visuals, rigorous screening confirmation, theory, interpretations, limitations, references, and exercises."
+    },
+    {
+      "path": "notebooks/fielddevelopment/ncs_area_opening_licensing_exploration_to_discovery.ipynb",
+      "verified_date": "2026-07-30",
+      "verified_at_utc": "2026-07-30T06:23:53.798Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "Executed all 38 code cells sequentially from an empty in-process IPython namespace in a dedicated Python 3.12 environment with the public PyPI NeqSim 3.16.0 release. Stored 26 rich HTML table outputs and 11 compact PNG figures; zero error outputs and zero stderr. Jupyter nbconvert HTML conversion passed.",
+      "code_cells": 38,
+      "substantive_code_cells": 38,
+      "markdown_cells": 28,
+      "publication": {
+        "branch": "agent/ncs-exploration-to-discovery-notebook",
+        "mode": "draft pull request",
+        "commit": "the commit containing this ledger entry",
+        "files": [
+          "notebooks/fielddevelopment/ncs_area_opening_licensing_exploration_to_discovery.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "source_basis": {
+        "official": [
+          "Norwegian Petroleum Act sections 3-1, 3-3 and 3-5",
+          "Norwegian Petroleum Regulations sections 6a to 6c and work-obligation rules",
+          "Sodir licensing rounds, APA, pre-qualification, work commitments, open data, FactPages, FactMaps, Diskos, plays, well definitions, and discovery-evaluation guidance"
+        ],
+        "scientific": [
+          "Otis and Schneidermann (1997), AAPG Bulletin, DOI 10.1306/522B49F1-1727-11D7-8645000102C1865D",
+          "Milkov (2015), Earth-Science Reviews, DOI 10.1016/j.earscirev.2015.08.006",
+          "Quirk and Ruthrauff (2008), AAPG Bulletin, DOI 10.1306/06040808064",
+          "Suslick, Schiozer and Rodriguez (2009), Petroleum Science and Technology"
+        ]
+      },
+      "computational_scope": [
+        "opening-area and phased production-licence workflow diagrams",
+        "reusable CSV loader contract for public map layers without bundling proprietary seismic",
+        "synthetic source, reservoir, trap, seal, maturity, water-depth, infrastructure, environmental-sensitivity and 3D-coverage maps",
+        "play fairway multiplication, fictional lead triage and explicit separation of geology, evidence, access and environmental constraints",
+        "six-factor prospect chance with illustrative Bayesian calibration",
+        "50000-realization Monte Carlo STOIIP and recoverable-volume model with sensitivity analysis",
+        "pre-drill expected-monetary-value and break-even chance screening",
+        "hypothetical discovery-fluid characterization using Peng-Robinson with classic mixing rule in NeqSim",
+        "auditable handoff to the existing subsurface-to-OPM Flow and field-development workflows"
+      ],
+      "engineering_validation": {
+        "named_assertions_passed": 21,
+        "assertions_failed": 0,
+        "monte_carlo_realizations": 50000,
+        "key_results": {
+          "geological_chance_of_success": 0.247141,
+          "recoverable_p90_million_sm3": 12.58,
+          "recoverable_p50_million_sm3": 19.4,
+          "recoverable_p10_million_sm3": 29.26,
+          "mean_recoverable_million_sm3": 20.31,
+          "chance_weighted_expected_recoverable_million_sm3": 5.04,
+          "mean_success_value_musd": 702.7049,
+          "illustrative_well_cost_musd": 105,
+          "break_even_geological_chance": 0.149423,
+          "screening_emv_musd": 68.667,
+          "reservoir_oil_density_kg_per_m3": 499.336,
+          "oil_formation_volume_factor_rm3_per_sm3": 2.097972,
+          "solution_gor_sm3_per_sm3": 326.4477
+        }
+      },
+      "figures": {
+        "previous_figures_preserved": 0,
+        "new_figures": 11,
+        "total_retained_figures": 11,
+        "purposes": [
+          "NCS opening-to-later-licensing workflow",
+          "synthetic phased licence work programme",
+          "eight independent evidence and constraint layers",
+          "play-probability map",
+          "fictional leads with geology, 3D coverage and separate sensitivity constraint",
+          "lead-triage data-acquisition screen",
+          "illustrative Bayesian factor calibration",
+          "success-case volume distribution and exceedance",
+          "volume sensitivity ranking",
+          "chance-and-well-cost decision sensitivity",
+          "fluid-evidence update to standard-volume uncertainty"
+        ],
+        "visual_inspection": "Passed after the final complete rerun. All 11 stored figures were extracted and inspected at original resolution and in two contact sheets for titles, labels, units, legends or color scales, accessible colors, clipping, overlap, numerical agreement and nearby interpretation. The opening workflow was changed to a two-row layout and its final label shortened before the final rerun."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 6,
+        "inline_expressions": 8,
+        "total_rendered_expressions": 14,
+        "renderer": "Jupyter-compatible single-backslash math source rendered through Matplotlib MathText contact sheets; nbconvert HTML conversion also passed.",
+        "visual_inspection": "All probability-product, information-index, prospect-chance, volumetric, recovery and EMV expressions rendered correctly with products, fractions, subscripts, Greek symbols and units."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 66,
+        "maximum_code_line_length": 99,
+        "semicolon_chains": 0,
+        "hidden_local_dependencies": false,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "sequential_execution_counts": true,
+        "retained_output_count": 37,
+        "rich_html_outputs": 26,
+        "notebook_checker": "passed",
+        "colab_badge_valid": true
+      },
+      "links": {
+        "catalog_occurrences": 1,
+        "predecessor": "notebooks/reservoir/subsurface_data_to_opm_flow_production_forecast.ipynb",
+        "field_development_book": "https://equinor.github.io/neqsimhome/doc/field_development_and_operations/book_standalone.html"
+      },
+      "neqsim_defect": {
+        "new_defect_detected": false,
+        "issue_created": false,
+        "note": "NeqSim 3.16.0 Peng-Robinson construction, TP flashes and phase-property retrieval worked as documented; no actionable library defect was found."
+      },
+      "documentation_impact": "The new executed notebook and catalog entry are the documentation update. No NeqSim public API, default or separate reference page changed. The notebook links into the existing Field Development and Operations book and the downstream reservoir-to-OPM Flow tutorial.",
+      "summary": "Adds a source-based NCS exploration tutorial from area opening and company access through licensed work, public-data screening, play and prospect risking, probabilistic volumes, pre-drill value, discovery-fluid evidence in NeqSim and an auditable handoff to reservoir simulation and field development."
+    },
+    {
+      "path": "notebooks/AI/Real_Time_process_monitoring_for_operational_safety_and_compliance.ipynb",
+      "verified_date": "2026-07-30",
+      "verified_at_utc": "2026-07-30T20:21:00Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-realtime-safety-pr-exec-20260730-2159 --neqsim-version latest --extra-package plotly --extra-package nbconvert --extra-package ipykernel --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260730T201853Z-5b9d2d0929ce",
+        "verified_public_pypi_wheels": 68,
+        "manifest_created_at_utc": "2026-07-30T20:18:53Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, and requested toolchain verification passed."
+      },
+      "cell_counts": {
+        "code": 15,
+        "markdown": 23,
+        "total": 38
+      },
+      "preservation": {
+        "original_cells": 13,
+        "original_cells_preserved": 13,
+        "pre_existing_examples": 6,
+        "pre_existing_examples_preserved": 6,
+        "pre_existing_figures": 1,
+        "pre_existing_figures_preserved": 1,
+        "details": "Preserved the setup, SRK fluid, phase-boundary helper, deterministic sensor series, pressure plot, and alert example. The original pressure trend was recomputed and retained."
+      },
+      "neqsim_capabilities": [
+        "SRK natural-gas construction and classic mixing rule",
+        "TP flash and multiphase phase-count checks",
+        "bubble-point pressure and hydrocarbon dew-point temperature flashes",
+        "gas density and compressibility-factor retrieval",
+        "Stream, ThrottlingValve, Cooler, Separator, and ProcessSystem",
+        "cooler-setpoint sensitivity with phase and mass-balance checks"
+      ],
+      "practical_application": "A traceable monitoring workflow combines deterministic sensor data, quality gates, timestamped NeqSim equilibrium calculations, transparent alert rules, and a valve-cooler-scrubber scenario study.",
+      "figures": {
+        "retained": 6,
+        "previous_preserved": 1,
+        "previous_numerically_refreshed": 1,
+        "new": 5,
+        "purposes": [
+          "inlet-pressure limit monitoring",
+          "monitoring and response workflow",
+          "hydrocarbon dew-point margin",
+          "density model-versus-sensor validation",
+          "concurrent alert matrix",
+          "scrubber condensate and cooler-duty sensitivity"
+        ],
+        "visual_inspection": "passed"
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 3,
+        "inline_expressions": 8,
+        "source_check": "Standalone display delimiters, balanced inline delimiters, and single-backslash LaTeX commands verified.",
+        "visual_preview": "Fractions, subscripts, dotted mass flow, absolute values, symbols, and units rendered correctly."
+      },
+      "key_checks": [
+        "15/15 code cells executed sequentially with zero errors or stderr",
+        "16/16 named engineering assertions passed",
+        "composition sum equals 1.000000",
+        "cold-reference bubble pressure is finite and physically plausible",
+        "negative dew-point margins resolve as two equilibrium phases",
+        "base-process relative mass residual is below 1e-6",
+        "all five cooler-sensitivity mass residuals are below 1e-6",
+        "liquid removal decreases monotonically with warmer setpoint",
+        "cooling-duty magnitude decreases monotonically with warmer setpoint",
+        "all six retained figures passed visual and numerical inspection",
+        "nbformat, JSON, Markdown, equations, Colab badge, and links passed",
+        "maximum code-line length is 83 characters"
+      ],
+      "results": {
+        "cold_reference_bubble_pressure_bara": 49.55,
+        "base_valve_outlet_pressure_bara": 45,
+        "base_gas_product_kg_per_h": 20536.07279,
+        "base_liquid_removed_kg_per_h": 809.86351,
+        "base_cooler_duty_kw": -141.622685,
+        "base_relative_mass_residual": 6.39e-17,
+        "sensitivity_liquid_kg_per_h": {
+          "0_degC": 1665.192938,
+          "20_degC": 568.456758
+        }
+      },
+      "summary": "Corrected the temperature-independent and invalid bubble-point helper, replaced the stored function object with real NeqSim results, modernized the setup and APIs, added phase, density, trend, and mass-balance validation, and expanded the notebook into a realistic monitoring and inlet-scrubber workflow.",
+      "documentation_impact": "Notebook-only educational and API-usage correction; no NeqSim public API, default, or numerical implementation changed.",
+      "neqsim_defect_found": false,
+      "publication": {
+        "mode": "draft pull request",
+        "branch": "automation/repair-realtime-process-monitoring",
+        "files": [
+          "notebooks/AI/Real_Time_process_monitoring_for_operational_safety_and_compliance.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      }
+    },
+    {
+      "path": "notebooks/AI/IoT_and_Industry4.0_with_NeqSim.ipynb",
+      "verified_date": "2026-07-31",
+      "verified_at_utc": "2026-07-31T08:15:00Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-iot-industry4-final3-20260731-0959 --neqsim-version latest --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260731T081336Z-ca19f7dad53b",
+        "verified_public_pypi_wheels": 48,
+        "manifest_created_at_utc": "2026-07-31T08:13:36Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, and default validation-toolchain verification passed."
+      },
+      "cell_counts": {
+        "code": 12,
+        "markdown": 17,
+        "total": 29
+      },
+      "preservation": {
+        "original_cells": 23,
+        "original_cells_preserved": 23,
+        "pre_existing_examples": 7,
+        "pre_existing_examples_preserved": 7,
+        "pre_existing_figure_cells": 3,
+        "pre_existing_figure_cells_preserved": 3,
+        "pre_existing_stored_figures": 0,
+        "details": "Preserved and integrated the architecture diagram, NeqSim process and transmitters, baseline snapshot, transient heater and valve events, telemetry plot, rolling-KPI plot, and JSON payload example."
+      },
+      "repairs": [
+        "replaced the unpublished GitHub installation with a public-PyPI-compatible conditional setup",
+        "corrected the syntactically invalid architecture plotting cell and malformed multiline strings",
+        "initialized the process at steady state before enabling separator inventory dynamics",
+        "bounded the valve disturbance with an explicit 42 bara target after an initial open-loop formulation produced nonphysical late-time pressure",
+        "standardized pressure, temperature, flow, duty, and time field names with explicit units",
+        "added deterministic noise and drift, persistence-qualified alerts, payload quality fields, and focused engineering assertions"
+      ],
+      "neqsim_capabilities": [
+        "SRK rich-gas fluid construction with classic mixing rule and multiphase checking",
+        "Stream, Heater, ThrottlingValve, Separator, and ProcessSystem composition",
+        "steady-state initialization followed by separator transient inventory behavior",
+        "TemperatureTransmitter, PressureTransmitter, and VolumeFlowTransmitter measurements",
+        "heater-duty and valve-pressure disturbances with timestamped process telemetry",
+        "gas and liquid outlet retrieval with process mass-balance validation"
+      ],
+      "practical_application": "An end-to-end physics-informed IIoT workflow builds and initializes a rich-gas process, attaches unit-explicit transmitters, executes a 360-second disturbance scenario, creates soft-sensor residuals and persistence-qualified alerts, validates physical and data-contract behavior, and serializes a local historian or message-broker payload.",
+      "figures": {
+        "previous_figure_cells_preserved": 3,
+        "previous_figures_numerically_refreshed": 3,
+        "new_figures": 1,
+        "total_retained_figures": 4,
+        "purposes": [
+          "edge-to-enterprise physics-informed IIoT architecture",
+          "transient temperature, pressure, and actual-volume-flow response",
+          "rolling temperature and pressure KPIs",
+          "soft-sensor residual and persistence-qualified drift alert"
+        ],
+        "visual_inspection": "Passed at original resolution and in a four-panel contact sheet. Titles, labels, units, legends, accessible colors, event markers, limits, scales, clipping, overlap, and numerical interpretation were verified."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 3,
+        "inline_expressions": 7,
+        "source_check": "Standalone display delimiters, balanced inline delimiters, single-backslash commands, and absence of obsolete or doubled delimiters verified.",
+        "visual_preview": "State-transition, model-residual, moving-average fraction, summation, subscripts, bold vectors, and delta symbols rendered correctly."
+      },
+      "key_checks": [
+        "12/12 code cells executed sequentially with zero errors or stderr",
+        "13/13 named engineering assertions passed",
+        "all 180 transient telemetry rows are finite and strictly time ordered",
+        "feed composition closes to 1.0",
+        "initial process relative mass residual is 1.516e-16",
+        "initial downstream pressure equals the 45 bara target",
+        "heater duty increase raises the modeled outlet temperature",
+        "valve event reaches the bounded 42 bara target without nonphysical pressure",
+        "pre-drift rolling residual remains below the 1 degree C threshold",
+        "first persistence-qualified drift alert occurs at 280 seconds",
+        "five-record JSON payload has the complete schema and quality flag",
+        "all four retained figures passed visual and numerical inspection",
+        "nbformat, JSON, code readability, equations, Colab badge, catalog occurrence, and changed links passed",
+        "maximum code-line length is 77 characters"
+      ],
+      "results": {
+        "initial_heater_outlet_temperature_C": 45.485278,
+        "initial_downstream_pressure_bara": 45,
+        "initial_gas_flow_actual_m3_h": 1357.37552,
+        "initial_relative_mass_residual": 1.516e-16,
+        "minimum_event_pressure_bara": 42,
+        "first_persistent_temperature_alert_s": 280,
+        "telemetry_rows": 180
+      },
+      "summary": "Modernized a broken, unexecuted IoT tutorial into a reproducible NeqSim digital-twin workflow with current public APIs, bounded process disturbances, real virtual instruments, engineering validation, anomaly detection, retained figures, equations, deployment boundaries, and a reusable IIoT payload contract.",
+      "documentation_impact": "The executed notebook is the user-facing documentation update. No NeqSim public API, default, or numerical implementation changed.",
+      "neqsim_defect_found": false,
+      "publication": {
+        "mode": "draft pull request",
+        "branch": "automation/repair-iot-industry4-notebook",
+        "files": [
+          "notebooks/AI/IoT_and_Industry4.0_with_NeqSim.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      }
+    },
+    {
+      "path": "notebooks/statistics/CO2inatm.ipynb",
+      "verified_date": "2026-07-31",
+      "verified_at_utc": "2026-07-31T14:16:00Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-co2-atmosphere-final-20260731-1557 --neqsim-version latest --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260731T141400Z-f58d87c1b765",
+        "verified_public_pypi_wheels": 48,
+        "manifest_created_at_utc": "2026-07-31T14:14:00Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, and requested validation-toolchain verification passed."
+      },
+      "cell_counts": {
+        "code": 17,
+        "markdown": 24,
+        "total": 41
+      },
+      "preservation": {
+        "original_cells": 6,
+        "original_cells_preserved": 6,
+        "pre_existing_examples": 4,
+        "pre_existing_examples_preserved": 4,
+        "pre_existing_figures": 1,
+        "pre_existing_figures_preserved": 1,
+        "external_visuals": 1,
+        "external_visuals_preserved": 1,
+        "details": "Preserved the Colab entry point and setup intent, NASA literature context, original carbon-dioxide video, and atmospheric CO2 chart. Repaired the setup, replaced the live Vega/JavaScript data dependency with embedded NOAA annual means, refreshed the original chart numerically, and retained the video iframe."
+      },
+      "repairs": [
+        "replaced the pinned NeqSim 2.5.35 installation and wildcard import with a public-PyPI-compatible conditional setup and explicit imports",
+        "removed the fragile live vega_datasets, Altair, and browser-JavaScript chart dependency by embedding selected NOAA Mauna Loa annual means through 2025",
+        "added explicit unit conversions and separated atmospheric concentration from facility mass-emission accounting",
+        "added complete-combustion carbon stoichiometry, mass-basis ISO 6976 lower heating value, and hydrogen-replacement sensitivity",
+        "added a reproducible export-gas compressor, aftercooler, pressure sensitivity, driver scenario, and validation workflow",
+        "corrected equation source and rendering, including explicit kWh-to-GJ and kg-to-tonne factors"
+      ],
+      "neqsim_capabilities": [
+        "SRK gas construction with classic mixing rule, multiphase checking, TP flash, and the sufficient init(1) level",
+        "ISO 6976 lower-heating-value calculation on a mass basis",
+        "Stream, Compressor, Cooler, and ProcessSystem composition and execution",
+        "unit-aware flow, pressure, temperature, power, cooler-duty, and molar-mass retrieval",
+        "fresh-object scenario evaluation with process mass-closure checks",
+        "hydrogen-blend and export-pressure sensitivity analysis"
+      ],
+      "practical_application": "A 100,000 Sm3/h export-gas workflow compresses a specified fuel gas from 30 to 100 bara at 78% polytropic efficiency, aftercools it to 35 degrees C, checks mass closure, evaluates 60-to-140 bara pressure cases, and compares base gas-turbine, hydrogen-blend/high-efficiency, and low-carbon electric-driver emissions.",
+      "figures": {
+        "previous_figures_preserved": 1,
+        "previous_figures_numerically_refreshed": 1,
+        "external_video_preserved": 1,
+        "new_figures": 4,
+        "total_retained_figures": 5,
+        "purposes": [
+          "NOAA Mauna Loa annual atmospheric CO2 history, preserving and refreshing the original chart",
+          "end-to-end measurement, thermodynamics, process, and carbon-accounting workflow",
+          "hydrogen-blend direct CO2 intensity and lower-heating-value comparison",
+          "compressor power and annual direct-emissions sensitivity to discharge pressure",
+          "operational carbon comparison for fuel, efficiency, and electric-driver scenarios"
+        ],
+        "visual_inspection": "Passed at original resolution and in a five-figure contact sheet. Titles, labels, units, legends, accessible colors, scales, clipping, overlap, twin axes, and numerical interpretation were verified."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 5,
+        "inline_expressions": 12,
+        "source_check": "Standalone display delimiters with surrounding blank lines, balanced inline delimiters, single-backslash commands, and absence of obsolete or doubled delimiters verified.",
+        "visual_preview": "Fractions, sums, subscripts, efficiencies, powers, carbon stoichiometry, and unit-conversion factors rendered correctly in a Jupyter-compatible MathJax preview."
+      },
+      "key_checks": [
+        "17/17 code cells executed sequentially with zero errors or stderr",
+        "16/16 named engineering assertions passed",
+        "all six original cells and four substantive examples were preserved and integrated",
+        "the original atmospheric CO2 chart was numerically refreshed and the external video retained",
+        "NOAA selected annual means increase from 315.98 ppm in 1959 to 427.35 ppm in 2025",
+        "feed composition closes to 1.0 and the flashed gas is single phase",
+        "lower heating value and direct CO2 intensity are finite and physically plausible",
+        "direct CO2 intensity decreases monotonically as hydrogen replacement increases",
+        "compressor power is positive and aftercooler duty is negative under the notebook sign convention",
+        "base and all sensitivity cases close process mass balance; maximum relative mass residual is 0.0",
+        "compressor power and annual direct emissions increase with discharge pressure",
+        "the low-carbon electric-driver scenario has the lowest operational carbon result",
+        "all five retained figures passed visual and numerical inspection",
+        "nbformat, JSON, code readability, equations, Colab badge, catalog occurrence, and changed links passed",
+        "maximum code-line length is 79 characters"
+      ],
+      "results": {
+        "atmospheric_co2_1959_ppm": 315.98,
+        "atmospheric_co2_2025_ppm": 427.35,
+        "base_gas_lhv_MJ_kg": 47.513305,
+        "base_gas_direct_co2_kg_GJ": 56.723322,
+        "hydrogen_20mol_direct_co2_kg_GJ": 53.46589,
+        "feed_flow_Sm3_h": 100000,
+        "compressor_power_kW": 5099.620439,
+        "aftercooler_duty_kW": -6191.835032,
+        "base_annual_direct_co2_t_y": 23802.5758,
+        "hydrogen_efficient_annual_direct_co2_t_y": 19631.214,
+        "low_carbon_electric_annual_co2e_t_y": 815.939,
+        "maximum_relative_process_mass_residual": 0
+      },
+      "summary": "Modernized a small atmospheric-CO2 notebook into an executed engineering tutorial that preserves its original learning material while connecting NOAA observations to NeqSim fuel characterization, combustion stoichiometry, export compression, hydrogen blending, pressure sensitivity, operational carbon scenarios, and clear limits on ppm-equivalent scaling.",
+      "documentation_impact": "The executed notebook is the user-facing documentation update. No NeqSim public API, default, or numerical implementation changed.",
+      "neqsim_defect_found": false,
+      "publication": {
+        "mode": "draft pull request",
+        "branch": "automation/repair-co2-atmosphere",
+        "files": [
+          "notebooks/statistics/CO2inatm.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      }
+    },
+    {
+      "path": "notebooks/AI/NeqSim_and_Seeq.ipynb",
+      "verified_date": "2026-08-01",
+      "verified_at_utc": "2026-08-01T02:18:50Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-seeq-integration-final-20260801-0354 --neqsim-version latest --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260801T021533Z-0d682dd77f56",
+        "verified_public_pypi_wheels": 48,
+        "manifest_created_at_utc": "2026-08-01T02:15:33Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, and requested validation-toolchain verification passed."
+      },
+      "cell_counts": {
+        "code": 14,
+        "markdown": 23,
+        "total": 37
+      },
+      "preservation": {
+        "original_cells": 22,
+        "original_cells_preserved": 22,
+        "pre_existing_examples": 9,
+        "pre_existing_examples_preserved": 9,
+        "pre_existing_figures": 1,
+        "pre_existing_figures_preserved": 1,
+        "pre_existing_figures_numerically_refreshed": 0,
+        "details": "Preserved all original cells and workflows: PyPI/Java setup intent, Seeq search and pull, field-data mapping, multistage process construction, simulation result packaging, historical push, live model execution, and scheduled push. Retained the original NeqSim-Seeq illustration and process-comparison link; replaced unsafe or non-executable fragments with credential-free, bounded equivalents."
+      },
+      "repairs": [
+        "replaced unconditional pip and in-notebook JDK installation with a public-PyPI-compatible conditional NeqSim setup and runtime-version reporting",
+        "replaced the undefined wellfluid, commented NeqSim import, outdated process calls, and placeholder multistage model with a current executable SRK process",
+        "repaired invalid ellipses, duplicate mapping keys, undefined row variables, and inconsistent field names with a typed unit-explicit data contract",
+        "replaced credential-dependent repository execution with a LocalSeeqAdapter that preserves search, pull, and push semantics without external credentials",
+        "replaced the unbounded live scheduler with a bounded three-job demonstration and explicit deployment guidance",
+        "added hourly timezone-aware historian data, output quality gates, process mass closure, residual monitoring, and export-pressure sensitivity"
+      ],
+      "neqsim_capabilities": [
+        "SRK fluid construction with classic mixing rule and multiphase checking",
+        "Stream, Heater, Valve, two- and three-phase Separator, Mixer, Compressor, Cooler, Splitter, Pump, and ProcessSystem composition",
+        "threaded ProcessSystem execution with a bounded timeout",
+        "unit-aware process input updates and gas, oil, water, power, density, and temperature retrieval",
+        "three-stage separation with LP/MP gas recompression, export compression, fuel split, and oil export pumping",
+        "historian batch evaluation, live single-point evaluation, mass-balance validation, and export-pressure sensitivity"
+      ],
+      "practical_application": "A credential-free Seeq-style workflow searches and pulls 24 hourly operating points, validates and maps the signals into a reusable multistage NeqSim flowsheet, runs each case, retrieves and quality-checks products and compressor duty, compares modeled and illustrative measured power, pushes modeled signals locally, executes three bounded live jobs, and evaluates 90-to-150 bara export-pressure scenarios.",
+      "figures": {
+        "previous_figures_preserved": 1,
+        "previous_figures_numerically_refreshed": 0,
+        "external_visuals_preserved": 1,
+        "new_figures": 4,
+        "total_retained_figures": 5,
+        "purposes": [
+          "original NeqSim-Colab and Seeq integration illustration",
+          "search-pull-validation-simulation-quality-gate-push workflow",
+          "hourly historian feed-rate and pressure inputs",
+          "modeled-versus-illustrative measured compressor power and residual",
+          "export-pressure compressor-power and gas-density sensitivity"
+        ],
+        "visual_inspection": "Passed at original resolution. Titles, labels, units, legends, accessible colors, scales, clipping, overlap, timestamps, dual axes, and numerical interpretation were verified. The external original illustration was preserved and its repository provenance verified."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 2,
+        "inline_expressions": 3,
+        "source_check": "Standalone display delimiters with surrounding blank lines, balanced inline delimiters, single-backslash commands, and absence of obsolete or doubled delimiters verified.",
+        "visual_preview": "Residual, fraction, absolute-value, summation, dotted mass-flow, subscript, hat, and unit expressions rendered correctly in a Jupyter-compatible mathematical preview."
+      },
+      "key_checks": [
+        "14/14 code cells executed sequentially with zero errors or stderr",
+        "18/18 named engineering assertions passed",
+        "all 22 original cells and nine original code workflows were preserved and integrated",
+        "the 24 historian timestamps are unique, ordered, timezone-aware, and exactly hourly",
+        "all field inputs and modeled outputs are finite",
+        "base and sensitivity process cases close mass balance below 1e-8 relative residual",
+        "maximum relative process mass residual is 2.151e-13",
+        "sales gas, export oil, and compressor power remain positive",
+        "export temperature equals the 35 degree C target and export pressure matches each input",
+        "compressor power and gas density increase monotonically with export pressure",
+        "historical push returns all rows and each of three live jobs pushes one row",
+        "all five retained figures passed visual inspection",
+        "nbformat, JSON, code readability, equations, Colab badge, catalog occurrence, preserved links, and changed links passed",
+        "maximum code-line length is 87 characters"
+      ],
+      "results": {
+        "historian_rows": 24,
+        "initial_compressor_power_kW": 179.357829,
+        "live_compressor_power_kW": [
+          178.118502,
+          182.751051,
+          187.784035
+        ],
+        "export_pressure_sensitivity_bara": [
+          90,
+          105,
+          120,
+          135,
+          150
+        ],
+        "sensitivity_compressor_power_kW": [
+          130.540869,
+          161.080566,
+          188.626694,
+          213.849474,
+          237.214009
+        ],
+        "sensitivity_export_gas_density_kg_m3": [
+          102.129848,
+          123.26093,
+          144.046742,
+          163.764213,
+          181.942718
+        ],
+        "maximum_relative_process_mass_residual": 2.151e-13
+      },
+      "summary": "Modernized a broken, unexecuted Seeq integration notebook into a reproducible NeqSim process-data tutorial that preserves every original cell and workflow while adding a realistic multistage processing model, credential-free historian adapter, bounded live execution, quality gates, technical graphics, equations, and deployment guidance.",
+      "documentation_impact": "The executed notebook is the user-facing integration documentation update. No NeqSim public API, default, or numerical implementation changed.",
+      "neqsim_defect_found": false,
+      "publication": {
+        "mode": "draft pull request",
+        "branch": "automation/repair-neqsim-seeq",
+        "files": [
+          "notebooks/AI/NeqSim_and_Seeq.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      }
+    },
+    {
+      "path": "notebooks/excercise/Design_of_a_separation_process_in_HYSYS.ipynb",
+      "verified_date": "2026-08-01",
+      "verified_at_utc": "2026-08-01T08:25:04Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-separation-design-final-20260801-1000 --neqsim-version latest --extra-package nbclient --extra-package nbconvert --extra-package ipykernel --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260801T082504Z-92fab868cc72",
+        "verified_public_pypi_wheels": 65,
+        "manifest_created_at_utc": "2026-08-01T08:25:04Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, and requested notebook-execution toolchain verification passed."
+      },
+      "cell_counts": {
+        "code": 14,
+        "markdown": 20,
+        "total": 34
+      },
+      "preservation": {
+        "original_cells": 11,
+        "original_cells_preserved": 11,
+        "pre_existing_examples": 9,
+        "pre_existing_examples_preserved": 9,
+        "pre_existing_figures": 2,
+        "pre_existing_figures_preserved": 2,
+        "pre_existing_figures_numerically_refreshed": 0,
+        "details": "Preserved every original cell and all nine substantive teaching examples: the HYSYS process architecture, historical phase envelope, inlet and scrubber gas-to-liquid calculations, horizontal three-phase selection, vertical scrubber selection, Souders-Brown sizing, gas-oil disengagement, oil-water separation, and shell-weight screening. The original empty cell was retained and integrated as the vessel-dimension comparison. Both embedded historical HYSYS images were preserved byte-for-byte; their unavailable source data and date are documented, so they are not misrepresented as current NeqSim calculations."
+      },
+      "repairs": [
+        "replaced the misspelled title, sparse objectives, malformed equations, ambiguous variables, hard-coded property values, and absent setup with a public-PyPI-compatible NeqSim teaching workflow",
+        "implemented the intended three-stage separation, gas recompression and cooling, high-pressure gas mixing, dew-point cooling, and final scrubbing process with current supported NeqSim APIs",
+        "retained the original HYSYS flow basis while adding an explicit synthetic SRK composition whose inlet gas rate independently matches the legacy scale",
+        "refreshed gas, oil, water, and condensate densities and oil viscosity from the executed NeqSim case",
+        "corrected unit handling, Souders-Brown area conversion, Stokes gas-oil and oil-water terminal-velocity equations, wall-thickness units, and cylindrical shell-mass calculation",
+        "added explicit separation assumptions, screening limitations, reusable sizing functions, validation assertions, references, and practical exercises"
+      ],
+      "neqsim_capabilities": [
+        "SRK fluid construction with classic mixing rule, explicit component fractions, and multiphase checking",
+        "Stream, Heater, ThrottlingValve, ThreePhaseSeparator, Separator, Mixer, Compressor, Cooler, and connected process execution through current Python processTools",
+        "gas, oil, aqueous, and condensate mass-flow, actual-volume, density, viscosity, pressure, temperature, and compressor-power retrieval",
+        "current hydrocarbon PT phase-envelope calculation with dew and bubble curves",
+        "fresh-object inlet-pressure sensitivity with repeated phase splitting, property retrieval, mass closure, and gas-capacity sizing"
+      ],
+      "practical_application": "A reusable end-to-end facility model configures a synthetic rich wellstream, performs 90/20/3 bara staged separation, recompresses and cools flashed gas, scrubs compressor liquids, recombines high-pressure gas, cools to 17 °C, retrieves products and duties, screens horizontal and vertical vessels, validates conservation and physical trends, and repeats fresh NeqSim inlet flashes from 60 to 120 bara.",
+      "figures": {
+        "previous_figures_preserved": 2,
+        "previous_figures_numerically_refreshed": 0,
+        "external_visuals_preserved": 2,
+        "new_figures": 4,
+        "total_retained_figures": 6,
+        "purposes": [
+          "retained historical HYSYS/UniSim process architecture",
+          "retained historical HYSYS hydrocarbon phase envelope",
+          "executed NeqSim separation and recompression workflow overview",
+          "current NeqSim SRK hydrocarbon phase envelope and scrubber operating point",
+          "horizontal separator and vertical scrubber conceptual dimension comparison",
+          "inlet-pressure sensitivity of gas density and gas-capacity diameter"
+        ],
+        "visual_inspection": "Passed after the final clean execution. Both original embedded images matched their pre-edit SHA-256 hashes. All four stored PNG outputs and both retained historical visuals were inspected at original resolution for titles, readable labels, explicit units where applicable, accessible colors, legends, scales, clipping, overlap, physical trends, provenance, and agreement with the stored tables and nearby interpretation."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 5,
+        "inline_expressions": 22,
+        "source_check": "Standalone display delimiters with surrounding blank lines, balanced inline delimiters, single-backslash commands, and absence of obsolete or doubled delimiters verified.",
+        "visual_preview": "Mass closure, Souders-Brown velocity, gas-capacity diameter, Stokes terminal velocity, and shell-thickness equations rendered correctly with fractions, square roots, absolute values, summation, dotted rates, Greek symbols, subscripts, superscripts, and units in the fresh validation environment."
+      },
+      "key_checks": [
+        "valid nbformat 4.5 JSON with 14 code and 20 Markdown cells",
+        "14/14 code cells executed sequentially from cleared outputs with counts 1 through 14, zero exceptions, zero error outputs, and zero stderr",
+        "20/20 named engineering assertions passed",
+        "all 11 original cells and nine substantive original examples were preserved and integrated",
+        "both historical HYSYS visuals were retained byte-for-byte and clearly distinguished from current NeqSim calculations",
+        "the 2,150,000 kg/h synthetic feed produced 22,563.536 actual m3/h inlet gas versus the 22,563.3 actual m3/h legacy design basis",
+        "overall process relative mass residual was 4.940e-13",
+        "inlet gas, oil, and water phases were all positive and their densities were physically ordered",
+        "second- and third-stage compressor powers were finite and positive and the dew-point cooler reached 17 degree C",
+        "all five inlet-pressure cases closed mass below 1e-8; gas density increased and required gas-capacity diameter decreased monotonically with pressure",
+        "maximum code-line length was 88 characters with no semicolons, wildcard imports, compressed one-line compound bodies, or initialization above the sufficient level",
+        "five display equations and 22 inline expressions passed Colab-safe syntax and rendered-equation inspection",
+        "all six retained figures passed visual and numerical-context inspection",
+        "the Colab badge, public PyPI link, current NeqSim repository and examples links, and unique catalog target were checked"
+      ],
+      "results": {
+        "legacy_inlet_glr_m3_per_m3": 48.556,
+        "current_inlet_glr_m3_per_m3": 53.102,
+        "legacy_scrubber_glr_m3_per_m3": 208.124,
+        "current_scrubber_glr_m3_per_m3": 77.525,
+        "inlet_gas_actual_m3_per_h": 22563.536,
+        "export_gas_kg_per_h": 1837146.458,
+        "dew_point_liquid_kg_per_h": 117711.594,
+        "stabilized_oil_kg_per_h": 178693.583,
+        "second_stage_compressor_power_kw": 2696.766,
+        "third_stage_compressor_power_kw": 865.413,
+        "inlet_separator_diameter_m": 5.307,
+        "inlet_separator_length_m": 21.23,
+        "dew_point_scrubber_diameter_m": 5.693,
+        "dew_point_scrubber_height_m": 28.465,
+        "relative_process_mass_residual": 4.94e-13
+      },
+      "summary": "Modernized the legacy HYSYS separator-design exercise into an executed NeqSim tutorial while retaining every cell, calculation intent, and historical visual. The expanded notebook now teaches current phase behavior, staged separation and recompression, equipment selection, corrected hydraulic and mechanical screening equations, model-versus-legacy comparison, pressure sensitivity, engineering validation, limitations, and reusable next steps.",
+      "documentation_impact": "The executed notebook is the user-facing design and process-simulation documentation update. No NeqSim public API, default, or library implementation changed.",
+      "neqsim_defect_found": false,
+      "publication": {
+        "mode": "draft pull request",
+        "branch": "automation/repair-separation-design-exercise",
+        "files": [
+          "notebooks/excercise/Design_of_a_separation_process_in_HYSYS.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      }
+    },
+    {
+      "path": "notebooks/statistics/CO2emissionsNorwegianContinentalShelf.ipynb",
+      "verified_date": "2026-08-01",
+      "verified_at_utc": "2026-08-01T14:24:44Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-ncs-co2-final-20260801-1555 --neqsim-version latest --extra-package nbclient --extra-package nbconvert --extra-package ipykernel --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260801T142232Z-8eece4f1ad88",
+        "verified_public_pypi_wheels": 65,
+        "manifest_created_at_utc": "2026-08-01T14:22:32Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, and requested notebook-execution toolchain verification passed."
+      },
+      "cell_counts": {
+        "code": 16,
+        "markdown": 14,
+        "total": 30
+      },
+      "preservation": {
+        "original_cells": 6,
+        "original_cells_preserved": 6,
+        "pre_existing_examples": 4,
+        "pre_existing_examples_preserved": 4,
+        "pre_existing_figures": 3,
+        "pre_existing_figures_preserved": 3,
+        "pre_existing_figures_numerically_refreshed": 1,
+        "details": "Preserved all six original cells and all four substantive teaching examples: the Colab setup, external NCS production video, sector emissions trend, and 2018 source-share calculation. Preserved the video embed, refreshed the trend with the official 11 June 2025 spreadsheet through 2029, and recomputed the 2018 historical donut from the original reported values while documenting its 99.7% category coverage."
+      },
+      "repairs": [
+        "replaced NeqSim 2.5.35, wildcard imports, notebook-installed Java assumptions, and obsolete pandas parse_cols usage with a current public-PyPI-compatible setup",
+        "replaced two dead 2019 spreadsheet dependencies with embedded, source-dated official 2025 Norwegian Offshore Directorate data and verified download links",
+        "retained the historical video and 2018 source split, added explicit provenance, and repaired overlapping labels without changing the original engineering message",
+        "added a reusable SRK export-gas compression and aftercooling process with named streams, pressure sensitivity, and mass and energy closure",
+        "added ISO 6976 lower-heating-value and compression-factor calculations, explicit fuel-carbon accounting, 2026 carbon-tax exposure, hydrogen blending, and electric driver scenarios",
+        "added learning objectives, theory, assumptions, units, interpretation, validation, limitations, primary references, and practical exercises"
+      ],
+      "neqsim_capabilities": [
+        "SRK fluid construction with classic mixing rule and normalized gas composition",
+        "named Stream, Compressor, and Cooler equipment composed and executed as an end-to-end export-compression process",
+        "compressor power, discharge temperature, cooler duty, mass flow, phase count, and enthalpy-based material and energy validation",
+        "fresh process execution across five outlet pressures from 60 to 140 bara with trend and phase checks",
+        "ISO 6976 lower heating value and standard compression factor for base natural gas and a 20 mol% hydrogen blend using only sufficient init(0) composition setup"
+      ],
+      "practical_application": "A reproducible offshore export-gas workflow configures an SRK gas at 30 °C and 30 bara, compresses 1,000,000 Sm3/day to 120 bara, cools the export to 40 °C, retrieves power, temperature, duty, flow, phase, and balance results, repeats the model from 60 to 140 bara, converts NeqSim ISO 6976 fuel properties into annual combustion emissions, and compares base and efficient turbines, 20 mol% hydrogen blending, and Norwegian grid electricity.",
+      "figures": {
+        "previous_figures_preserved": 3,
+        "previous_figures_numerically_refreshed": 1,
+        "external_visuals_preserved": 1,
+        "new_figures": 4,
+        "total_retained_figures": 7,
+        "purposes": [
+          "retained external NCS production video with a static contextual fallback",
+          "retained and refreshed observed and forecast NCS greenhouse-gas trend",
+          "retained 2018 CO2 source-share visual as a documented historical snapshot",
+          "new static production-to-emissions workflow overview",
+          "new official 2024 CO2 source-category comparison",
+          "new NeqSim export-pressure power and discharge-temperature sensitivity",
+          "new annual driver-emissions scenario comparison"
+        ],
+        "visual_inspection": "Passed after the final clean execution. The video embed and all six stored PNG outputs were inspected at original resolution for titles, readable labels, units, legends, accessible colors, scales, clipping, overlap, numerical consistency, and agreement with the nearby tables and interpretation. The only defect found, overlapping labels in the retained 2018 pie, was repaired and re-inspected."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 5,
+        "inline_expressions": 13,
+        "source_check": "Standalone display delimiters with surrounding blank lines, balanced inline delimiters, single-backslash commands, and absence of obsolete or doubled delimiters verified.",
+        "visual_preview": "Fuel-volume, carbon-per-mole, CO2 factor, annual emissions, and carbon-tax equations rendered with fractions, summation, dotted rates, Greek symbols, subscripts, and units in the fresh validation environment. A Jupyter nbconvert HTML/MathJax export completed successfully."
+      },
+      "key_checks": [
+        "valid nbformat 4.5 JSON with 16 code and 14 Markdown cells",
+        "16/16 code cells executed sequentially from cleared outputs with counts 1 through 16, zero exceptions, zero error outputs, and zero stderr",
+        "20/20 named engineering assertions passed",
+        "all six original cells and four substantive original examples were preserved",
+        "all three previous visuals were preserved; the reproducible trend was refreshed",
+        "official 2024 CO2 source total equals 10.58 Mt and 2024 GHG total equals 10.89 Mt CO2e",
+        "base compressor power is 1.866389 MW and aftercooler duty is -2.610898 MW",
+        "relative process mass, compressor energy, and cooler energy residuals are zero",
+        "all five 60-140 bara cases remain single phase and close mass exactly",
+        "compressor power and hot discharge temperature increase monotonically with pressure",
+        "ISO 6976 base-fuel lower heating value is 38,619.494 kJ/Sm3",
+        "base-fuel CO2 factor is 2.249677 kg/Sm3 and hydrogen blending lowers it",
+        "annual scenarios are 9,796.126 t CO2 for the base turbine, 8,163.439 t CO2 for the efficient turbine, 9,186.346 t CO2 for the hydrogen blend, and 194.560 t CO2e for Norwegian grid electricity",
+        "maximum code-line length is 90 characters with no semicolons or compressed bodies",
+        "five display equations and 13 inline expressions passed source and visual inspection",
+        "six PNG figures and one video embed passed final visual inspection",
+        "all seven introduced or retained external links returned HTTP 200 and the catalog contains one unique target link"
+      ],
+      "results": {
+        "reported_2024_ghg_mt_co2e": 10.89,
+        "reported_2024_co2_mt": 10.58,
+        "reported_2024_turbine_share_percent": 83.553875,
+        "base_compressor_power_mw": 1.866389,
+        "base_hot_discharge_temperature_c": 134.2514,
+        "base_aftercooler_duty_mw": -2.610898,
+        "maximum_relative_mass_residual": 0.0,
+        "base_fuel_lhv_kj_sm3": 38619.494472,
+        "base_fuel_co2_kg_sm3": 2.249677,
+        "base_turbine_annual_co2_tonnes": 9796.126256,
+        "efficient_turbine_annual_co2_tonnes": 8163.438547,
+        "hydrogen_blend_annual_co2_tonnes": 9186.346353,
+        "grid_electricity_annual_co2e_tonnes": 194.559851,
+        "base_carbon_tax_mnok_year": 10.756147
+      },
+      "summary": "Modernized the legacy NCS CO2 notebook into an executed, source-grounded NeqSim engineering tutorial while retaining every original cell, example, and visual. The expanded notebook now connects official sector evidence to reusable export-compression, ISO 6976 fuel quality, pressure sensitivity, driver decarbonization, carbon-tax screening, and conservation validation.",
+      "documentation_impact": "The executed notebook is the user-facing emissions, process-simulation, and standards documentation update. No NeqSim public API, default, or library implementation changed.",
+      "neqsim_defect_found": false,
+      "publication": {
+        "mode": "draft pull request",
+        "branch": "automation/repair-ncs-co2-emissions",
+        "files": [
+          "notebooks/statistics/CO2emissionsNorwegianContinentalShelf.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      }
+    },
+    {
+      "path": "notebooks/fielddevelopment/npv.ipynb",
+      "verified_date": "2026-08-01",
+      "verified_at_utc": "2026-08-01T20:31:41Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-npv-final-20260801-2200 --neqsim-version latest --extra-package nbclient --extra-package nbconvert --extra-package ipykernel --extra-package openpyxl --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260801T202910Z-01ce2eaa5c72",
+        "verified_public_pypi_wheels": 67,
+        "manifest_created_at_utc": "2026-08-01T20:29:10Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, Python runtime, Linux platform, and requested notebook-execution toolchain verification passed."
+      },
+      "cell_counts": {
+        "code": 14,
+        "markdown": 19,
+        "total": 33
+      },
+      "preservation": {
+        "original_cells": 28,
+        "original_cells_preserved": 28,
+        "pre_existing_examples": 13,
+        "pre_existing_examples_preserved": 13,
+        "pre_existing_figures": 3,
+        "pre_existing_figures_preserved": 3,
+        "pre_existing_figures_numerically_refreshed": 3,
+        "details": "Preserved all 28 original cells and all 13 substantive teaching intentions: setup, source basis, technical and economic inputs, reservoir-fluid construction, economic helper, subsea concept inputs, reservoir-to-host forecast, production export, OPEX and tariff, CAPEX, discounted cash flow, break-even sensitivity, and CO2 accounting. The three intended production, cumulative-NPV, and NPV-build-up figures were recomputed using the current model and retained in recognizable form with corrected units and presentation."
+      },
+      "repairs": [
+        "replaced the unconditional installation and Colab-only import with a conditional public-PyPI-compatible setup and recorded runtime versions",
+        "corrected the invalid technical-special-tax assignment, updated the 2026 Norwegian tax basis, implemented six-year ordinary-tax depreciation and immediate special-tax investment deduction, and made consolidation assumptions explicit",
+        "removed duplicated butane component names, normalized the synthetic composition, and replaced wildcard, deprecated, unused, dense, and undefined code",
+        "repaired the pressure-constrained production loop using current SimpleReservoir, WellFlow, PipeBeggsAndBrills, Adjuster, Compressor, Cooler, ThrottlingValve, and ProcessSystem APIs",
+        "captured initial gas in place before depletion, replaced the unstable repeated intra-year process solves with the model's annual screening step, and ensured the compressor only raises pressure",
+        "replaced the side-effecting SciPy root solve with a bounded deterministic break-even calculation and completed the previously empty CO2 section with ISO 6976 fuel and driver scenarios",
+        "added learning objectives, theory, assumptions, explicit units, interpretation, validation, limitations, primary references, reusable functions, and exercises"
+      ],
+      "neqsim_capabilities": [
+        "SRK reservoir-fluid construction with classic mixing, normalized composition, multiphase checking, TPflash, and standard density and molar-mass retrieval",
+        "SimpleReservoir depletion and gas-in-place accounting with an aggregated WellFlow productivity model",
+        "three connected PipeBeggsAndBrills segments for vertical well, subsea gathering, and host transport pressure loss",
+        "Adjuster-based minimum arrival-pressure control with bounded production rate",
+        "Compressor, Cooler, and ThrottlingValve export conditioning composed in a reusable ProcessSystem",
+        "ISO 6976 lower heating value and compression factor combined with composition-aware stoichiometric CO2 accounting"
+      ],
+      "practical_application": "A reproducible 25-year six-well subsea tie-back configures a synthetic SRK reservoir gas, connects reservoir, well, vertical pipe, 10 km flowline, 80 km host pipeline, export compressor, aftercooler, delivery valve, and pressure controller, retrieves pressure, production, power, recovery, and delivery results, checks process validity and mass closure, converts sales gas into Norwegian after-tax discounted cash flow, solves gas-price break-even, and compares gas-turbine with Norwegian-grid compression emissions.",
+      "figures": {
+        "previous_figures_preserved": 3,
+        "previous_figures_numerically_refreshed": 3,
+        "new_figures": 3,
+        "total_retained_figures": 6,
+        "purposes": [
+          "new NeqSim reservoir-to-market equipment and pressure-feedback workflow overview",
+          "refreshed reservoir pressure, constrained production, compressor power, and cumulative-sales forecast",
+          "refreshed discounted annual cash flow and cumulative after-tax NPV",
+          "refreshed discounted NPV component build-up",
+          "new gas-price sensitivity and after-tax break-even comparison",
+          "new gas-turbine and Norwegian-grid export-compression emissions comparison"
+        ],
+        "visual_inspection": "Passed after the final clean execution. All six stored PNG outputs were extracted and inspected at original resolution for descriptive titles, readable labels, explicit units, legends, accessible colors, correct scales, clipping, overlap, numerical consistency, and agreement with stored tables and nearby interpretation. The workflow overview was widened and changed to labeled boxes after the initial inspection found clipped node text."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 5,
+        "inline_expressions": 15,
+        "source_check": "Standalone display delimiters with surrounding blank lines, balanced inline delimiters, single-backslash commands, and absence of obsolete or doubled delimiters verified.",
+        "visual_preview": "Composition normalization, discounted NPV, annual production, fuel demand, and relative mass-residual equations rendered successfully with fractions, summation, dotted rates, Greek symbols, subscripts, and superscripts. A Jupyter nbconvert HTML/MathJax export completed successfully."
+      },
+      "key_checks": [
+        "valid nbformat 4.5 JSON with 14 code and 19 Markdown cells",
+        "14/14 code cells executed sequentially from cleared outputs with counts 1 through 14, zero exceptions, zero error outputs, and zero stderr",
+        "16/16 named engineering and economic assertions passed",
+        "all 28 original cells and 13 substantive examples were preserved and integrated",
+        "all three previous figures were preserved and numerically refreshed; three new engineering figures were added",
+        "initial gas in place was 137.524 GSm3, produced gas was 80.725 GSm3, and modeled recovery was 58.70%",
+        "gas rate remained positive and within the 10.02 MSm3/day capacity tolerance; host arrival pressure stayed at or above 29.98 bara and delivery stayed within 0.02 bara of 110 bara",
+        "reservoir pressure declined monotonically, cumulative gas increased monotonically, compressor power remained positive, and every ProcessSystem solve reported converged",
+        "maximum relative producer-to-delivery mass-flow residual was 3.135e-5, within the Adjuster convergence tolerance",
+        "CAPEX allocation, discounted component build-up, and break-even NPV identities closed",
+        "base after-tax NPV was 4.91 billion NOK and the deterministic gas-price break-even was 0.651 NOK/Sm3",
+        "ISO 6976 fuel lower heating value was 37.931 MJ/Sm3 and the composition-derived fuel factor was 2.157 kg CO2/Sm3",
+        "25-year compression totals were 1,680,360.333 t CO2 for the gas turbine and 34,184.778 t CO2e for the Norwegian-grid scenario",
+        "maximum code-line length was 86 characters with no semicolons, wildcard imports, compressed bodies, or initialization above the sufficient level",
+        "five display equations and 15 inline expressions passed source and visual rendering inspection",
+        "all six figures passed final visual and numerical inspection",
+        "the Colab badge, public PyPI setup, current NeqSim documentation, official 2026 tax and tariff context, 2024 NVE electricity factor, and unique catalog target were checked"
+      ],
+      "results": {
+        "initial_gas_in_place_gsm3": 137.524,
+        "produced_gas_gsm3": 80.725,
+        "recovery_percent": 58.7,
+        "final_gas_rate_msm3_per_day": 6.666,
+        "npv_before_tax_bn_nok": 22.77,
+        "npv_after_tax_bn_nok": 4.91,
+        "break_even_gas_price_nok_sm3": 0.651,
+        "maximum_relative_process_mass_residual": 3.135e-05,
+        "fuel_lhv_mj_sm3": 37.931,
+        "fuel_co2_kg_sm3": 2.157,
+        "gas_turbine_compression_co2_tonnes": 1680360.333,
+        "electric_compression_co2e_tonnes": 34184.778
+      },
+      "summary": "Modernized the unfinished NPV notebook into an executed NeqSim field-development tutorial while retaining every original cell, calculation intent, and figure. The expanded notebook now integrates a pressure-constrained reservoir-to-market process, corrected Norwegian petroleum-tax screening, deterministic break-even analysis, ISO 6976 compression emissions, conservation and economic validation, six inspected figures, limitations, references, and reusable next steps.",
+      "documentation_impact": "The executed notebook is the user-facing reservoir-to-market, field-economics, and compression-emissions documentation update. No NeqSim public API, default, or library implementation changed.",
+      "neqsim_defect_found": false,
+      "publication": {
+        "mode": "draft pull request",
+        "branch": "automation/repair-fielddevelopment-npv",
+        "files": [
+          "notebooks/fielddevelopment/npv.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      }
+    },
+    {
+      "path": "notebooks/gasquality/gas_blending_quality_optimization.ipynb",
+      "verified_date": "2026-08-02",
+      "verified_at_utc": "2026-08-02T02:20:42Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-gas-blending-20260802-final3 --neqsim-version latest --extra-package nbclient --extra-package nbconvert --extra-package ipykernel --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260802T021735Z-23308bb3d2b7",
+        "verified_public_pypi_wheels": 65,
+        "manifest_created_at_utc": "2026-08-02T02:17:35Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, Python runtime, Linux platform, and requested notebook-execution toolchain verification passed."
+      },
+      "cell_counts": {
+        "code": 18,
+        "markdown": 19,
+        "total": 37
+      },
+      "preservation": {
+        "original_cells": 33,
+        "original_cells_preserved": 33,
+        "pre_existing_examples": 9,
+        "pre_existing_examples_preserved": 9,
+        "pre_existing_figures": 4,
+        "pre_existing_figures_preserved": 4,
+        "pre_existing_figures_numerically_refreshed": 4,
+        "details": "Preserved all 33 original cells and nine substantive workflows: feed and model definition, ISO 6976 and dew-point helpers, feed/base diagnostics, simultaneous specification screening, nominal maximum selection, heavy-end sensitivity, uncertainty-aware selection, pressure and standard-edition sensitivity, and delivered-energy interpretation. All four original plots were recomputed with the tested NeqSim release and retained with their original engineering message."
+      },
+      "repairs": [
+        "recorded the previously unverified catalog notebook in the maintenance ledger after a clean current-release execution",
+        "closed the application-level teaching gap by adding reusable Stream, Mixer, ProcessSystem, and ThermodynamicOperations objects instead of stopping at isolated quality calculations",
+        "added an explicit adiabatic pressure-enthalpy flash so the process outlet closes energy rather than assuming an unchanged mixing temperature",
+        "added three metered operating cases, total and component mass closure, enthalpy closure, phase-state checks, direct quality reconciliation, and seven new regression assertions",
+        "split the wide final process result into readable operating and scientific-notation balance tables after visual inspection",
+        "extended the learning objectives and interpretation while preserving the existing public-PyPI setup, theory, limitations, references, and exercises"
+      ],
+      "neqsim_capabilities": [
+        "SRK fluid construction with classic mixing rule, normalized dry-gas compositions, and current hydrocarbon dew-point temperature flashes",
+        "ISO 6976:1995 and ISO 6976:2016 GCV, LCV, Wobbe index, relative-density, compressibility-factor, molar-mass, and undefined-component reporting",
+        "named Stream and Mixer equipment composed and executed in a reusable ProcessSystem",
+        "adiabatic PHflash on the mixed outlet with physical-property initialization, phase retrieval, and downstream-reusable outlet stream",
+        "fresh process execution for base, uncertainty-aware, and nominal-rich operating setpoints with quality, phase, mass, component, and energy audits"
+      ],
+      "practical_application": "A reproducible 100 mol/s metered blending station configures lean and conservative high-C6 rich SRK gases, sets stream rates at 70 bara and 15 °C, connects both streams through a NeqSim Mixer in a ProcessSystem, enforces the adiabatic enthalpy target with PHflash, retrieves the mixed stream, checks phase and balances, recalculates ISO 6976 quality and hydrocarbon dew point, and repeats the workflow at 30, 42, and 47 mol% rich gas for reuse in downstream pipeline, separation, compression, or control studies.",
+      "figures": {
+        "previous_figures_preserved": 4,
+        "previous_figures_numerically_refreshed": 4,
+        "new_figures": 1,
+        "total_retained_figures": 5,
+        "purposes": [
+          "refreshed lean, base-blend, and rich-gas component comparison",
+          "refreshed simultaneous GCV, Wobbe, and hydrocarbon-dew-point blend envelope",
+          "refreshed heavy-end uncertainty sensitivity at the nominal blend",
+          "refreshed pressure-path hydrocarbon-dew-point sensitivity",
+          "new executed Stream-Mixer-PHflash blending-station workflow overview"
+        ],
+        "visual_inspection": "Passed after the final clean execution. All five stored PNG outputs were extracted and inspected at original resolution for descriptive titles, readable labels, explicit units, appropriate legends, accessible colors, scales, clipping, overlap, physical trends, and agreement with all 11 retained result tables and nearby interpretation. The new wide process result was split into two readable tables and re-executed before publication."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 4,
+        "inline_expressions": 5,
+        "source_check": "Standalone display delimiters with surrounding blank lines, balanced inline delimiters, single-backslash commands, and absence of obsolete or doubled delimiters verified.",
+        "visual_preview": "Blend composition, ideal and volumetric gross calorific value, Wobbe index, and fugacity-equilibrium expressions rendered correctly with fractions, square roots, summation, subscripts, superscripts, degree symbols, and units. A Jupyter nbconvert HTML/MathJax export completed successfully."
+      },
+      "key_checks": [
+        "valid nbformat 4.5 JSON with 18 code and 19 Markdown cells",
+        "18/18 code cells executed sequentially from cleared outputs with counts 1 through 18, zero exceptions, zero error outputs, and zero stderr",
+        "35/35 named engineering assertions passed",
+        "all 33 original cells and nine substantive original workflows were preserved",
+        "all four previous figures were preserved and numerically refreshed; one process workflow figure was added",
+        "nominal and uncertainty-aware maximum rich-gas fractions were 47 and 42 mol%, respectively",
+        "the uncertainty-aware result was 41.601572 MJ/m3 GCV, 51.447621 MJ/m3 Wobbe, and 4.693335 °C hydrocarbon dew point at 70 bara",
+        "all three process cases remained single phase at 70 bara and closed total mass, every component, and enthalpy",
+        "maximum absolute process mass residual was 6.661e-16 kg/s, maximum component residual was 2.132e-14 mol/s, and maximum enthalpy residual was 2.573e-5 J/s",
+        "the adiabatic uncertainty-aware mixer outlet was 12.879959 °C and reproduced the direct ISO 6976 result",
+        "maximum code-line length was 88 characters with no semicolons, wildcard imports, or compressed one-line compound bodies",
+        "four display equations and five inline expressions passed Colab-safe source and visual rendering inspection",
+        "all five figures and 11 retained tables passed final visual inspection",
+        "the Colab badge, public-PyPI setup, current ISO 6976 documentation, current NeqSim standards, phase-envelope and thermodynamic-model guides, and unique catalog target were checked"
+      ],
+      "results": {
+        "nominal_maximum_rich_gas_mol_percent": 47.0,
+        "uncertainty_aware_rich_gas_mol_percent": 42.0,
+        "uncertainty_aware_gcv_mj_m3": 41.601572,
+        "uncertainty_aware_wobbe_mj_m3": 51.447621,
+        "uncertainty_aware_dew_point_c_at_70_bara": 4.693335,
+        "maximum_pressure_path_dew_point_c": 7.802984,
+        "uncertainty_aware_delivered_energy_gwh_day": 115.559922,
+        "uncertainty_aware_mixer_outlet_temperature_c": 12.879959,
+        "maximum_absolute_process_mass_residual_kg_s": 6.661e-16,
+        "maximum_component_residual_mol_s": 2.132e-14,
+        "maximum_enthalpy_residual_j_s": 2.573e-05
+      },
+      "summary": "Revalidated and extended the cataloged gas-blending notebook without removing any cell, calculation, or visual. The executed notebook now connects ISO 6976 energy quality, SRK dew-point constraints, nominal and heavy-end-aware blend optimization, pressure and standard-edition sensitivity, delivered energy, and a reusable metered NeqSim ProcessSystem with conservation and energy validation.",
+      "documentation_impact": "The executed notebook is the user-facing gas-quality, blend-optimization, and process-integration documentation update. No NeqSim public API, default, or library implementation changed.",
+      "neqsim_defect_found": false,
+      "publication": {
+        "mode": "draft pull request",
+        "branch": "automation/repair-gas-blending-quality",
+        "files": [
+          "notebooks/gasquality/gas_blending_quality_optimization.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      }
+    },
+    {
+      "path": "notebooks/fielddevelopment/process_cost_estimation_and_economics.ipynb",
+      "verified_date": "2026-08-02",
+      "verified_at_utc": "2026-08-02T08:16:40Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-process-cost-20260802 --neqsim-version latest --extra-package nbclient --extra-package nbconvert --extra-package ipykernel --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260802T080710Z-f166c5751e2e",
+        "verified_public_pypi_wheels": 65,
+        "manifest_created_at_utc": "2026-08-02T08:07:10Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, Python runtime, Linux platform, and requested notebook-execution toolchain verification passed."
+      },
+      "cell_counts": {
+        "code": 17,
+        "markdown": 19,
+        "total": 36
+      },
+      "preservation": {
+        "original_cells": 31,
+        "original_cells_preserved": 31,
+        "pre_existing_examples": 9,
+        "pre_existing_examples_preserved": 9,
+        "pre_existing_figures": 4,
+        "pre_existing_figures_preserved": 4,
+        "pre_existing_figures_numerically_refreshed": 4,
+        "details": "Preserved all 31 original cell identities and nine substantive examples: process construction and base execution, mechanical design, CAPEX hierarchy and breakdowns, JSON estimate audit, OPEX, simple economics, project-basis scenarios, throughput scaling, and CEPCI sensitivity. All four original plots were recomputed with the tested release and retained."
+      },
+      "repairs": [
+        "recorded the previously unverified catalog notebook after a clean current-release execution",
+        "reformatted seven overlength code lines into teaching-quality Python without changing calculations",
+        "converted all six pre-existing display equations to standalone Colab-safe delimiters and added a seventh mass-closure equation",
+        "added an executable process-boundary diagram tied to the named NeqSim equipment",
+        "added a reusable three-option concept-screening function with fresh process construction, mechanical design, cost basis, OPEX, revenue, NPV, conservation, pressure, power, and finite-value checks",
+        "corrected clipping found during visual inspection and re-executed the complete notebook"
+      ],
+      "neqsim_capabilities": [
+        "SRK fluid construction with classic mixing rule",
+        "named Stream, Separator, Compressor, Cooler, ThrottlingValve, and ProcessSystem composition",
+        "steady-state process execution with phase split, compressor power, outlet temperature, pressure, and mass-flow retrieval",
+        "system mechanical-design execution and equipment weight, design pressure, and required-power retrieval",
+        "equipment-factored CAPEX hierarchy, equipment and discipline breakdowns, machine-readable estimate basis, OPEX, payback, ROI, and NPV",
+        "location, material, complexity, throughput, and CEPCI scenario configuration"
+      ],
+      "practical_application": "A reusable concept-selection workflow evaluates three 8,000-12,000 kg/h development options. Each option creates and connects a fresh NeqSim feed, separator, compressor, aftercooler, and export valve; runs the physical and mechanical calculations; applies location, material, and complexity assumptions; retrieves power, project cost, OPEX, revenue, and NPV; verifies finite values, 95 bara export pressure, positive power, and separator mass closure; and compares capacity duty with screening economics.",
+      "figures": {
+        "previous_figures_preserved": 4,
+        "previous_figures_numerically_refreshed": 4,
+        "new_figures": 2,
+        "total_retained_figures": 6,
+        "purposes": [
+          "refreshed purchased-equipment and discipline cost breakdown",
+          "refreshed location, material, and complexity estimate comparison",
+          "refreshed throughput and economy-of-scale sensitivity",
+          "refreshed CEPCI escalation sensitivity",
+          "new executable NeqSim equipment and material-flow overview",
+          "new development-option compressor-duty and NPV comparison"
+        ],
+        "visual_inspection": "Passed at original PNG resolution and in a six-figure contact sheet. Titles, labels, units, legends, colors, scales, and numerical trends were readable and consistent with retained tables. The initially clipped process-boundary boxes were corrected, the complete notebook was re-executed, and the final figure was re-inspected."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 7,
+        "inline_expressions": 11,
+        "source_check": "Balanced inline delimiters, standalone display blocks with surrounding blank lines, single-backslash commands, and absence of obsolete or doubled delimiters verified.",
+        "visual_preview": "All seven display equations rendered successfully with a Jupyter-compatible Matplotlib MathText path; fractions, summation limits, logarithms, subscripts, superscripts, arrows, epsilon, and mass-flow overdots were visually inspected. A Jupyter nbconvert HTML export with retained outputs also completed successfully."
+      },
+      "key_checks": [
+        "valid nbformat 4 JSON with 17 code and 19 Markdown cells",
+        "17/17 code cells executed sequentially from cleared outputs with counts 1 through 17, zero exceptions, zero error outputs, and zero stderr",
+        "14/14 original named validation checks and 14/14 final-application checks passed",
+        "all 31 original cells and nine substantive original examples were preserved",
+        "all four previous figures were preserved and numerically refreshed; two application figures were added",
+        "base process delivered 10,000 kg/h at 95 bara with 316.417 kW compressor power",
+        "base total project cost was 1,974,477 USD and annual OPEX was 1,891,507 USD/year",
+        "base screening NPV was 9,303,766 USD at the stated 3,000,000 USD/year revenue basis",
+        "all three application options met 95 bara export pressure, positive power, finite results, and relative mass residual of 2.00e-30",
+        "the North Sea 10 kt/h option had the highest application NPV at 6,471,988 USD for the stated 0.035 USD/kg netback",
+        "maximum code-line length was 100 characters or fewer with no chained statements, wildcard imports, or compressed compound bodies",
+        "seven display equations and 11 inline expressions passed Colab-safe source and visual rendering inspection",
+        "all six figures and 16 HTML table outputs passed final numerical and visual review",
+        "the Colab badge, catalog target, and current NeqSim process, cost-estimation, and process-design documentation links were checked"
+      ],
+      "results": {
+        "base_feed_kg_h": 10000.0,
+        "base_compressor_power_kw": 316.417,
+        "base_export_pressure_bara": 95.0,
+        "base_total_project_cost_usd": 1974477.0,
+        "base_annual_opex_usd": 1891507.019,
+        "base_screening_npv_usd": 9303766.276,
+        "capacity_scale_exponent": 0.642,
+        "application_best_option": "North Sea 10 kt/h",
+        "application_best_npv_usd": 6471988.0,
+        "application_maximum_relative_mass_residual": 2e-30
+      },
+      "summary": "Revalidated and extended the process-cost notebook without removing any cell, example, or visual. The notebook now connects a current NeqSim process model and mechanical design to auditable CAPEX/OPEX/economic calculations and a reusable, conservation-checked development-option selection workflow.",
+      "documentation_impact": "The executed notebook is the user-facing process-cost, mechanical-design, and concept-screening documentation update. No NeqSim public API, default, or library implementation changed.",
+      "neqsim_defect_found": false,
+      "publication": {
+        "mode": "draft pull request",
+        "branch": "automation/repair-process-cost-economics",
+        "files": [
+          "notebooks/fielddevelopment/process_cost_estimation_and_economics.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      }
+    },
+    {
+      "path": "notebooks/material/elemental_sulfur.ipynb",
+      "verified_date": "2026-08-02",
+      "verified_at_utc": "2026-08-02T14:15:40Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-elemental-sulfur-20260802 --neqsim-version latest --extra-package nbconvert --extra-package ipykernel --extra-package scipy --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260802T140218Z-30b88e830499",
+        "verified_public_pypi_wheels": 66,
+        "manifest_created_at_utc": "2026-08-02T14:02:18Z",
+        "integrity": "The complete public-PyPI wheel inventory, file sizes, SHA-256 hashes, Python runtime, Linux platform, and requested notebook toolchain passed verification."
+      },
+      "cell_counts": {
+        "code": 13,
+        "markdown": 30,
+        "total": 43
+      },
+      "preservation": {
+        "original_cells": 36,
+        "original_cells_preserved": 36,
+        "original_code_cells": 10,
+        "original_code_cells_preserved": 10,
+        "pre_existing_examples": 7,
+        "pre_existing_examples_preserved": 7,
+        "pre_existing_figures": 3,
+        "pre_existing_figures_preserved": 3,
+        "pre_existing_figures_numerically_refreshed": 3,
+        "details": "Preserved every original cell and all seven substantive examples: the reference solid-sulfur flash, temperature sensitivity, H2S/O2 reaction assessment, broad species screen, hydrocarbon phase envelope with sulfur contours, isenthalpy overlay, and oxygen-to-sulfur mass calculation. The two former Reaktoro examples retain their chemical intent as auditable stoichiometric and species-screening calculations without replacing the Colab runtime."
+      },
+      "repairs": [
+        "replaced the NeqSim 2.5.35 pin, deprecated jNeqSim and thermoTools imports, wildcard imports, and compressed code with current NeqSim 3.16.0 gateway classes and teaching-quality Python",
+        "removed the notebook-installed Miniconda and platform-specific Reaktoro runtime replacement while retaining both original chemistry learning objectives in self-contained public-PyPI-compatible calculations",
+        "normalized and documented the sour-gas composition and used a reproducible trace-S8 assay",
+        "corrected selective oxidation and Claus reaction equations and fixed the undefined molar-mass variable and double-counting in the oxygen-to-S8 calculation",
+        "replaced the stale post-envelope sulfur mutation and 40,000-flash plotting loops with consistent hydrocarbon-envelope, sulfur-grid, and enthalpy-grid calculations",
+        "expanded the phase-map domain after visual inspection so the calculated hydrocarbon envelope is visible and repaired clipped axes and color scales before the final full rerun",
+        "replaced expired literature URLs and a moved NeqSim page with current stable documentation targets"
+      ],
+      "neqsim_capabilities": [
+        "SystemSrkEos construction with classic mixing rule, multiphase checking, trace S8, and explicit solid-phase checking",
+        "ThermodynamicOperations TP solid flashes, ordinary TP flashes, property initialization, and PT phase-envelope calculation",
+        "phase-type, phase-fraction, phase-mass, total-mass, and enthalpy retrieval",
+        "named Stream, Heater, ThrottlingValve, and ProcessSystem composition",
+        "heater-duty, isenthalpic pressure-reduction, outlet-state, mass-closure, and deposition-risk sensitivity retrieval"
+      ],
+      "practical_application": "A reusable 10,000 kg/h sour-gas pressure station builds a fresh SRK fluid and Stream-Heater-ThrottlingValve-ProcessSystem graph, varies the preheater target from 20 to 120 degrees C, runs each process, retrieves valve outlet temperature, pressure, heater duty, and mass flow, evaluates post-valve S8 stability with a solid flash, checks finite values and exact mass closure, and quantifies the energy-versus-deposition trade-off.",
+      "figures": {
+        "previous_figures_preserved": 3,
+        "previous_figures_numerically_refreshed": 3,
+        "new_figures": 2,
+        "total_retained_figures": 5,
+        "purposes": [
+          "refreshed solid-sulfur mass fraction versus temperature at 70 bara",
+          "refreshed hydrocarbon dew and bubble envelope with equilibrium solid-sulfur contours",
+          "refreshed solid-sulfur map with NeqSim specific-enthalpy contours",
+          "new Stream-Heater-ThrottlingValve process workflow overview",
+          "new preheater-duty and post-valve sulfur-deposition sensitivity"
+        ],
+        "visual_inspection": "Passed after the final complete execution. All five retained PNG outputs were extracted and inspected at original resolution for descriptive titles, readable labels, explicit units, legends or color scale, accessible colors, correct scales and trends, clipping, overlap, and consistency with retained result tables and nearby interpretation. The first map domain omitted the hydrocarbon envelope and the first enthalpy map clipped labels and its color scale; both defects were corrected and every cell was rerun before publication."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 10,
+        "inline_expressions": 25,
+        "source_check": "Balanced inline delimiters, standalone display delimiters with surrounding blank lines, single-backslash commands, and absence of obsolete or doubled delimiters passed.",
+        "visual_preview": "All ten display equations rendered through a Jupyter-compatible MathText path and were visually inspected for fractions, subscripts, reaction arrows, approximate equality, and molar-mass notation. Jupyter nbconvert also produced a complete HTML/MathJax document with retained outputs."
+      },
+      "key_checks": [
+        "valid nbformat 4.5 JSON with 13 code and 30 Markdown cells",
+        "13/13 code cells executed sequentially from cleared outputs with counts 1 through 13, zero exceptions, zero error outputs, and zero stderr",
+        "all 36 original cells, ten original code cells, seven substantive examples, and three original figures were preserved",
+        "all three original figures were recomputed with the tested composition, NeqSim version, temperature-pressure grid, and supported API; two application figures were added",
+        "32/32 executed engineering assertion evaluations passed",
+        "the reference case at 10 degrees C and 70 bara predicted 14.570 ppm solid sulfur by mass and phase fractions closed to unity within 1e-8",
+        "the temperature sensitivity was finite and decreased from solid sulfur at low temperature to zero above the modeled dissolution boundary",
+        "the hydrocarbon phase envelope and both sulfur and enthalpy grids were finite and nonconstant",
+        "the corrected selective-oxidation balance conserved H, S, and O exactly and one kilogram O2 produced a 2.004 kg S8 upper bound",
+        "all six pressure-station scenarios reached 20 bara and closed mass with maximum relative residual 0.0",
+        "the 20 degrees C preheat case reached -6.4451 degrees C after the valve with 14.5766 ppm solid sulfur; the 120 degrees C target used 730.9586 kW and predicted zero solid sulfur at a 107.7083 degrees C valve outlet",
+        "maximum Python code-line length was 84 characters with no semicolons, wildcard imports, magics, or compressed one-line compound bodies",
+        "ten display equations and 25 inline expressions passed Colab-safe source and visual rendering inspection",
+        "all five figures passed final visual and numerical review",
+        "the Colab badge, catalog target, Reaktoro reference, and current NeqSim home, thermodynamic-model, thermodynamics-index, thermodynamic-operations, and process documentation links were checked"
+      ],
+      "results": {
+        "reference_temperature_c": 10.0,
+        "reference_pressure_bara": 70.0,
+        "reference_solid_sulfur_ppm_mass": 14.57,
+        "selective_s8_kg_per_kg_oxygen": 2.004,
+        "application_feed_kg_h": 10000.0,
+        "application_outlet_pressure_bara": 20.0,
+        "application_unheated_outlet_temperature_c": -6.4451,
+        "application_unheated_solid_sulfur_ppm_mass": 14.5766,
+        "application_120c_heater_duty_kw": 730.9586,
+        "application_120c_outlet_temperature_c": 107.7083,
+        "application_120c_solid_sulfur_ppm_mass": 0.0,
+        "application_maximum_relative_mass_residual": 0.0
+      },
+      "summary": "Modernized and expanded the elemental-sulfur notebook without removing any cell, example, or figure. The executed tutorial now connects corrected sulfur chemistry, current NeqSim S8 solid flashes, phase envelopes, enthalpy contours, deposition screening, and a reusable heater-valve mitigation process with conservation checks and five inspected figures.",
+      "documentation_impact": "The executed notebook is the user-facing sulfur-chemistry, solid-equilibrium, phase-map, and pressure-station mitigation documentation update. No NeqSim public API, default, or library implementation changed.",
+      "neqsim_defect_found": false,
+      "publication": {
+        "mode": "draft pull request",
+        "branch": "automation/repair-elemental-sulfur",
+        "files": [
+          "notebooks/material/elemental_sulfur.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      }
+    },
+    {
+      "path": "notebooks/process/neqsimreaktoro.ipynb",
+      "verified_date": "2026-08-02",
+      "verified_at_utc": "2026-08-02T20:28:35.353Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-third-party-integration-20260802b --neqsim-version latest --extra-package CoolProp --extra-package thermopack --extra-package cantera --extra-package fluids --extra-package scipy --extra-package nbconvert --extra-package ipykernel --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260802T200846Z-9d408344780a",
+        "verified_public_pypi_wheels": 71,
+        "manifest_created_at_utc": "2026-08-02T20:08:46Z",
+        "integrity": "The complete public-PyPI wheel inventory, file sizes, SHA-256 hashes, Python runtime, Linux platform, and requested third-party notebook toolchain passed verification."
+      },
+      "cell_counts": {
+        "code": 26,
+        "markdown": 15,
+        "total": 41
+      },
+      "preservation": {
+        "original_cells": 31,
+        "original_cells_preserved": 31,
+        "original_code_cells": 21,
+        "original_code_cells_preserved": 21,
+        "pre_existing_examples": 5,
+        "pre_existing_examples_preserved": 5,
+        "pre_existing_figures": 1,
+        "pre_existing_figures_preserved": 1,
+        "pre_existing_figures_numerically_refreshed": 0,
+        "details": "Preserved every original cell and all five substantive third-party integration examples: Reaktoro-inspired carbonate and pH chemistry, CoolProp pure-CO2 properties, ThermoPack SAFT-VR Mie mixture properties, Cantera premixed flame speed, and fluids orifice pressure loss. The original embedded Cantera reactant/product illustration was retained with verified provenance and identified as a historical conceptual visual."
+      },
+      "repairs": [
+        "replaced the NeqSim 2.5.35 pin, deprecated jNeqSim/processSimulation/thermoTools paths, compressed code, and notebook-installed runtime replacement with current NeqSim 3.16.0 APIs and a public-PyPI-compatible setup cell",
+        "replaced inaccessible Conda-only Reaktoro execution with a transparent carbonate charge-balance screening model while preserving the original CO2-fugacity-to-aqueous-pH process contract and documenting when full Reaktoro is required",
+        "corrected CoolProp integration to use explicit SI inputs and independent pure-CO2 density comparison",
+        "corrected ThermoPack phase selection, current SAFT-VR Mie component identifiers, composition conversion, tuple return handling, and density units",
+        "removed notebook magics from the Cantera class, corrected equivalence-ratio semantics, bounded the FreeFlame solve, refreshed the flame calculation, and retained an interpreted temperature profile",
+        "replaced the assumed-pressure dP_orifice call with differential_pressure_meter_solver driven by NeqSim mass flow, density, viscosity, and heat-capacity ratio",
+        "fixed the cloned pre-run orifice outlet state by wiring the actual unit output stream into the ProcessSystem",
+        "added current documentation, explicit units, assumptions, validation assertions, model-boundary guidance, practical exercises, and a complete rich-gas conditioning application"
+      ],
+      "neqsim_capabilities": [
+        "current fluid helper and lower-case jneqsim gateway with SRK fluids, classic mixing rule, phase and physical-property initialization",
+        "named Stream and Python-defined unit operations participating in ProcessSystem execution",
+        "Stream, Cooler, ThrottlingValve, Separator, and ProcessSystem composition for three rich-gas delivery scenarios",
+        "temperature, pressure, fugacity coefficient, composition, density, viscosity, heat-capacity ratio, product flow, and mass-closure retrieval",
+        "cross-library model-boundary integration with CoolProp 8.0.0, ThermoPack 2.2.3, Cantera 3.2.0, fluids 1.3.1, and SciPy 1.18.0"
+      ],
+      "practical_application": "A reusable 30,000 kg/h rich-gas conditioning workflow builds a fresh SRK fluid and Stream-Cooler-ThrottlingValve-Separator-ProcessSystem graph, varies delivery pressure across 40, 55, and 70 bara, retrieves valve temperature and gas/liquid products, verifies finiteness and exact total-mass closure, and quantifies the coupled Joule-Thomson cooling and condensate-recovery trend.",
+      "figures": {
+        "previous_figures_preserved": 1,
+        "previous_figures_numerically_refreshed": 0,
+        "new_figures": 5,
+        "total_retained_figures": 6,
+        "purposes": [
+          "preserved original externally sourced Cantera reactant/product flame illustration with provenance",
+          "new calculated premixed fuel-gas flame temperature profile",
+          "new NeqSim-to-external-library model-boundary workflow overview",
+          "new pure-CO2 NeqSim SRK versus CoolProp pressure-density comparison",
+          "new orifice differential-pressure versus mass-flow sensitivity",
+          "new delivery-pressure comparison of condensed liquid and valve outlet temperature"
+        ],
+        "visual_inspection": "Passed after the final complete execution. The original embedded image and all five stored PNG outputs were extracted and inspected at original resolution for descriptive titles, readable labels, explicit units, legends where applicable, accessible colors, correct scales and trends, clipping, overlap, stale values, and consistency with stored tables and nearby interpretation."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 4,
+        "inline_expressions": 12,
+        "source_check": "Balanced inline delimiters, standalone display delimiters with surrounding blank lines, single-backslash commands, and absence of obsolete or doubled delimiters passed.",
+        "visual_preview": "All 16 expressions rendered through a Jupyter-compatible MathText path and were visually inspected for fractions, subscripts, superscripts, Greek symbols, units, and mass-flow notation. Jupyter nbconvert also produced a complete HTML/MathJax preview with retained outputs."
+      },
+      "key_checks": [
+        "valid nbformat 4.5 JSON with 26 code and 15 Markdown cells",
+        "26/26 code cells executed sequentially from cleared outputs with counts 1 through 26, zero exceptions, zero error outputs, and zero stderr",
+        "all 31 original cells, 21 original code cells, five substantive examples, and the original embedded visual were preserved",
+        "maximum Python code-line length was 93 characters with no semicolons, obsolete gateway paths, notebook magics, or compressed one-line compound bodies",
+        "the carbonate screen returned pH 5.69453 with finite calcite saturation index from NeqSim CO2 fugacity",
+        "CoolProp and NeqSim pure-CO2 densities and ThermoPack and NeqSim CO2-rich densities were positive and finite",
+        "the Cantera FreeFlame calculation returned 0.6217 m/s flame speed and 2292.7353 K maximum temperature",
+        "the repaired 3,000 kg/h methane orifice returned 0.30083 bara differential pressure and a lower connected outlet pressure",
+        "the eight-point orifice sweep was finite, positive, and strictly increasing with mass flow",
+        "all three rich-gas cases produced finite positive gas and liquid flows and maximum relative mass residual 0.0",
+        "valve outlet temperature increased from -13.838194 to 0.638373 degrees C as delivery pressure increased from 40 to 70 bara, while liquid recovery decreased from 10.835162 to 3.803336 wt%",
+        "four display equations and 12 inline expressions passed Colab-safe source, HTML/MathJax, and visual rendering inspection",
+        "all six figures passed final visual and numerical review",
+        "the Colab badge, catalog target, original Cantera provenance link, and current NeqSim, CoolProp, ThermoPack, Cantera, fluids, and Reaktoro documentation targets were checked"
+      ],
+      "results": {
+        "carbonate_pH": 5.69453,
+        "cantera_flame_speed_m_s": 0.6217,
+        "cantera_maximum_temperature_K": 2292.7353,
+        "orifice_differential_pressure_bara": 0.30083,
+        "application_feed_kg_h": 30000,
+        "application_delivery_pressures_bara": [
+          40,
+          55,
+          70
+        ],
+        "application_liquid_products_kg_h": [
+          3250.548711,
+          2566.39032,
+          1141.000653
+        ],
+        "application_valve_outlet_temperatures_c": [
+          -13.838194,
+          -6.007147,
+          0.638373
+        ],
+        "application_maximum_relative_mass_residual": 0
+      },
+      "summary": "Modernized and expanded the third-party integration notebook without removing any cell, example, or figure. The executed tutorial now connects current NeqSim process objects to auditable carbonate screening, CoolProp, ThermoPack, Cantera, and fluids calculations, then reuses native NeqSim equipment in a validated rich-gas conditioning study with six inspected figures.",
+      "documentation_impact": "The executed notebook is the user-facing third-party integration and model-boundary documentation update. It documents current NeqSim APIs and external-library scope; no NeqSim public API, default, or library implementation changed.",
+      "neqsim_defect_found": false,
+      "publication": {
+        "mode": "draft pull request",
+        "branch": "automation/repair-third-party-integrations",
+        "files": [
+          "notebooks/process/neqsimreaktoro.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      }
+    },
+    {
+      "path": "notebooks/energyopt/PyPSA-Earth_Norway.ipynb",
+      "verified_date": "2026-08-03",
+      "verified_at_utc": "2026-08-03T02:22:02Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-pypsa-norway-20260803 --neqsim-version latest --extra-package pypsa --extra-package highspy --extra-package PyYAML --extra-package scipy --extra-package nbconvert --extra-package ipykernel --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260803T020648Z-66bd447a36eb",
+        "verified_public_pypi_wheels": 99,
+        "manifest_created_at_utc": "2026-08-03T02:06:48Z",
+        "integrity": "The complete public-PyPI wheel inventory, file sizes, SHA-256 hashes, Python runtime, Linux platform, NeqSim, PyPSA, HiGHS, PyYAML, SciPy, and notebook toolchain passed verification."
+      },
+      "cell_counts": {
+        "code": 14,
+        "markdown": 25,
+        "total": 39
+      },
+      "preservation": {
+        "original_cells": 15,
+        "original_cells_preserved": 15,
+        "original_code_cells": 4,
+        "original_code_cells_preserved": 4,
+        "pre_existing_examples": 2,
+        "pre_existing_examples_preserved": 2,
+        "pre_existing_figures": 0,
+        "pre_existing_figures_preserved": 0,
+        "pre_existing_figures_numerically_refreshed": 0,
+        "details": "Preserved all 15 original cells and both substantive examples: the Norway PyPSA-Earth configuration/build workflow and the 100 MW offshore field supplied through a 95%-efficient link. The nonexistent CLI and unavailable network loader were repaired as a transparent synthetic teaching network without removing the original engineering intent. The original notebook had no figure."
+      },
+      "repairs": [
+        "replaced repository cloning, non-persistent shell directory changes, and the nonexistent pypsa-earth command with a documented current PyPSA-Earth Snakemake handoff and executable compact model",
+        "replaced the unavailable pypsa_earth.get_electricity_network call and removed n.lopf usage in favor of PyPSA 1.2.4 Network.optimize with the open HiGHS 1.15.1 solver",
+        "corrected the 100 MW offshore example because a 100 MW input link at 95% efficiency can deliver only 95 MW; the repaired input rating exceeds the required 105.263 MW",
+        "added a public-PyPI-compatible conditional setup, explicit units, assumptions, equations, result interpretation, limitations, references, and reusable exercises",
+        "added a fresh-object NeqSim rich-gas compression, aftercooling, separation, rate sensitivity, pressure sensitivity, and NeqSim-to-PyPSA load-coupling application"
+      ],
+      "neqsim_capabilities": [
+        "SystemSrkEos rich-gas construction, normalized component input, and classic mixing rule",
+        "Stream, Compressor, Cooler, Separator, and ProcessSystem composition and ordered execution",
+        "unit-aware standard flow, pressure, temperature, compressor power, cooler duty, phase-flow retrieval, and fresh-object scenario reuse"
+      ],
+      "practical_application": "A five-rate and five-export-pressure offshore compression study builds and executes fresh NeqSim processes, checks mass closure and trends, adds the calculated compressor power to 70 MW of auxiliary load, and solves a fresh PyPSA dispatch for every integrated production case.",
+      "figures": {
+        "previous_figures_preserved": 0,
+        "previous_figures_numerically_refreshed": 0,
+        "new_figures": 5,
+        "total_retained_figures": 5,
+        "purposes": [
+          "NeqSim-to-PyPSA process and data-handoff overview",
+          "synthetic Norway-like topology and peak corridor loading",
+          "24-hour generation dispatch and delivered load",
+          "production-rate process power and cable-utilization sensitivity",
+          "export-pressure compressor-power sensitivity"
+        ],
+        "visual_inspection": "Passed after the final complete execution. All five stored PNG outputs were extracted and inspected at original resolution for titles, readable labels, units, legends, accessible colors, correct trends and scales, clipping, overlap, and consistency with the stored tables and nearby interpretation."
+      },
+      "equation_rendering": {
+        "display_equations": 5,
+        "inline_expressions": 2,
+        "status": "Passed source, nbconvert HTML/MathJax-path, and visual rendering inspection. Delimiters are balanced and Colab-safe, display blocks are standalone, commands use single backslashes, and fractions, subscripts, summation, Greek symbols, rates, and units rendered."
+      },
+      "key_checks": [
+        "strict nbformat 4.5 JSON validation passed with unique cell IDs",
+        "14/14 code cells executed sequentially from cleared outputs in one fresh shared namespace with counts 1 through 14, zero exceptions, zero error outputs, and zero notebook stderr",
+        "all 15 original cells, four original code cells, two substantive workflows, and zero-figure visual inventory were preserved",
+        "maximum Python code-line length was 74 characters with no semicolons, obsolete imports, shell magics, or compressed compound bodies",
+        "PyPSA baseline optimization terminated ok and optimal",
+        "100 MW offshore delivery matched demand exactly; mainland cable input was 105.263158 MW and remained within its 120 MW rating",
+        "24-hour electrical residual was 0.0 MWh after explicit 126.315789 MWh cable loss",
+        "all three AC corridors remained within rating and the intended NO5-NO1 corridor reached 100% peak loading",
+        "base NeqSim compressor power at 5 MSm3/day and 120 bara was 9.175277 MW with finite duty and temperature",
+        "all ten NeqSim process scenarios had maximum relative mass residual 2.0e-30",
+        "compressor power increased strictly with production rate and export pressure",
+        "all five integrated PyPSA cases were optimal, finite, electrically closed within 1.0e-6 MWh, and within cable capacity",
+        "10/10 final engineering assertions passed",
+        "five display equations and two inline expressions passed Colab-safe source and visual rendering inspection",
+        "the Colab badge, catalog target, preserved source links, and current PyPSA, PyPSA-Earth, and NeqSim documentation targets were checked"
+      ],
+      "results": {
+        "baseline_offshore_load_mw": 100.0,
+        "baseline_cable_input_mw": 105.263158,
+        "baseline_cable_rating_mw": 120.0,
+        "baseline_electrical_residual_mwh": 0.0,
+        "base_compressor_power_mw": 9.175277,
+        "maximum_relative_mass_residual": 2e-30,
+        "final_engineering_checks_passed": 10,
+        "final_engineering_checks_total": 10,
+        "maximum_code_line_length": 74
+      },
+      "documentation_impact": "Substantial notebook documentation update: explains the official PyPSA-Earth workflow boundary, current PyPSA APIs, NeqSim process classes, assumptions, units, equations, validation, interpretation, limitations, current official references, and extension exercises. No catalog change was required because the unique existing link remains.",
+      "neqsim_defect_found": false,
+      "summary": "Repaired the Norway PyPSA-Earth and 100 MW offshore-electrification examples, added a current synthetic PyPSA dispatch model and real NeqSim process-power coupling, retained five inspected technical figures, and passed clean end-to-end execution and engineering checks.",
+      "publication": {
+        "mode": "draft pull request",
+        "branch": "automation/repair-pypsa-earth-norway",
+        "files": [
+          "notebooks/energyopt/PyPSA-Earth_Norway.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      }
+    },
+    {
+      "path": "notebooks/gasvaluechain/GasProcessingChain.ipynb",
+      "verified_date": "2026-08-04",
+      "verified_at_utc": "2026-08-04T02:29:20Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-gas-processing-chain-visual-final-20260804 --neqsim-version latest --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260804T023009Z-362fba707c6a",
+        "verified_public_pypi_wheels": 61,
+        "manifest_created_at_utc": "2026-08-04T02:30:09Z",
+        "integrity": "The complete public-PyPI wheel inventory, file sizes, SHA-256 hashes, Python runtime, Linux platform, NeqSim, and notebook toolchain passed verification."
+      },
+      "cell_counts": {
+        "code": 44,
+        "markdown": 37,
+        "total": 81
+      },
+      "preservation": {
+        "original_cells": 75,
+        "original_cells_preserved": 75,
+        "original_code_cells": 41,
+        "original_code_cells_preserved": 41,
+        "pre_existing_examples": 11,
+        "pre_existing_examples_preserved": 11,
+        "pre_existing_figures": 9,
+        "pre_existing_figures_preserved": 9,
+        "pre_existing_figures_numerically_refreshed": 9,
+        "details": "Preserved all 75 original cells, all 11 question-driven examples, the integrated final calculations, both process-flow diagrams, four pipeline profiles, and three phase-envelope figures. No cell, example, figure, link, or useful functionality was removed."
+      },
+      "repairs": [
+        "replaced the unconditional quiet install with a conditional, public-PyPI-compatible python -m pip install --upgrade --no-cache-dir neqsim setup",
+        "retained NeqSim DOT export while replacing the hidden system Graphviz executable dependency with a portable Matplotlib renderer for both process diagrams",
+        "corrected the displayed LMTD equation, terminal-temperature calculations, Kaarstoe temperature unit, heat-exchanger UA comment, pipeline linepack unit, and ISO 6976 energy units",
+        "increased the export-pipeline diameter from 0.965 to 0.987 m after a NeqSim diameter sweep so the modeled arrival pressure satisfies the stated 110 bara minimum",
+        "reduced the expander outlet pressure from 47 to 46 bara after a NeqSim pressure sweep so sales-gas propane satisfies the stated 1 mol% maximum",
+        "relabelled the screening dehydration-temperature output so it is not presented as a rigorous water-dew-point calculation",
+        "updated the Norway electricity comparison to official SSB 2025 production data published on 19 January 2026 and documented the chemical-energy versus electricity boundary",
+        "expanded title, objectives, assumptions, theory, engineering interpretation, limitations, references, exercises, validation, and reusable application guidance"
+      ],
+      "neqsim_capabilities": [
+        "SRK and CPA fluid construction, component handling, mixing rules, multiphase checking, TP flash, and PT phase-envelope calculation",
+        "Stream, Separator, ThreePhaseSeparator, Compressor, Cooler, HeatExchanger, ThrottlingValve, Expander, Mixer, Recycle, SetPoint, and ProcessSystem composition",
+        "PipeBeggsAndBrills offshore export-pipeline pressure, temperature, density, velocity, elevation, linepack, and transport-time calculations",
+        "ISO 6976 gross calorific value and Wobbe-index calculation",
+        "fresh-object multistage-compression scenario construction with result retrieval, specification checks, mass closure, methane closure, and sensitivity analysis"
+      ],
+      "practical_application": "A reusable five-case export-compression workflow builds a fresh rich-gas Stream-Compressor-Cooler-Compressor-Cooler-ProcessSystem graph, varies interstage pressure, executes each case, retrieves power and outlet conditions, verifies exact total-mass and methane-fraction closure, compares two-stage against one-stage compression, and identifies the lowest-power tested staging pressure.",
+      "figures": {
+        "previous_figures_preserved": 9,
+        "previous_figures_numerically_refreshed": 9,
+        "new_figures": 1,
+        "total_retained_figures": 10,
+        "purposes": [
+          "refreshed offshore process-flow overview",
+          "refreshed pipeline pressure and temperature profile",
+          "refreshed pipeline density profile",
+          "refreshed pipeline velocity profile",
+          "refreshed pipeline terrain profile",
+          "refreshed rich-gas phase envelope",
+          "refreshed export-gas phase envelope",
+          "refreshed sales-gas phase envelope",
+          "refreshed onshore process-flow overview",
+          "new export-compressor staging sensitivity and one-stage comparison"
+        ],
+        "visual_inspection": "Passed after the final complete execution. All ten stored PNG outputs were inspected at original resolution for descriptive titles, readable labels, explicit units, legends, accessible colors, correct values and trends, clipping, overlap, and consistency with nearby interpretation. The initially dense process graph was widened and rerun before final approval."
+      },
+      "equation_rendering": {
+        "display_equations": 5,
+        "inline_expressions": 10,
+        "status": "Passed balanced-delimiter and single-backslash source checks, nbconvert HTML/MathJax-path conversion, and visual inspection. Fractions, logarithms, subscripts, superscripts, Delta symbols, dots, and units rendered correctly."
+      },
+      "key_checks": [
+        "strict nbformat 4.0 JSON validation passed",
+        "44/44 code cells executed sequentially from cleared outputs with counts 1 through 44, zero exceptions, zero error outputs, and zero notebook stderr",
+        "all 75 original cells, 11 substantive examples, and nine original figures were preserved",
+        "maximum Python code-line length was 99 characters with no statement-chain semicolons or compressed compound bodies",
+        "ten PNG figures passed final visual and numerical inspection",
+        "five display equations and ten inline expressions passed Colab-safe source, HTML, and visual-rendering inspection",
+        "export-pipeline arrival pressure was 111.052992 bara against the 110 bara minimum",
+        "sales-gas propane was 0.972645 mol% against the 1 mol% maximum",
+        "rich-gas cricondenbar was 89.969488 bara and condensate TVP was 0.971199 bara",
+        "two-stage export compression required 76.589 MW compared with 86.521 MW for one stage",
+        "five compression scenarios closed total mass and methane fraction exactly",
+        "onshore total-mass relative residual was 6.54e-5 within the documented 1e-4 screening tolerance",
+        "11/11 focused engineering assertions passed",
+        "the Colab badge, unique catalog target, SSB evidence, and all introduced NeqSim documentation links were verified"
+      ],
+      "results": {
+        "export_pipeline_diameter_m": 0.987,
+        "export_pipeline_arrival_pressure_bara": 111.052992,
+        "sales_gas_propane_mol_percent": 0.972645,
+        "rich_gas_cricondenbar_bara": 89.969488,
+        "condensate_tvp_bara": 0.971199,
+        "best_tested_two_stage_power_mw": 76.589,
+        "one_stage_power_mw": 86.521,
+        "modeled_gas_chemical_energy_twh_per_year": 171.217,
+        "norway_2025_electricity_production_twh": 161.8,
+        "final_engineering_checks_passed": 11,
+        "final_engineering_checks_total": 11,
+        "maximum_code_line_length": 99
+      },
+      "documentation_impact": "Substantial notebook documentation and engineering correction: current public-PyPI setup, portable process-diagram rendering, corrected equations and units, explicit specifications and model boundaries, current official references, result interpretation, limitations, exercises, validation, and a complete reusable NeqSim compression application. No catalog change was required because its unique existing link remains correct.",
+      "neqsim_defect_found": false,
+      "summary": "Modernized the complete gas-processing value-chain notebook, preserved every original cell, example, and figure, corrected pipeline and product-specification failures, removed a hidden Graphviz dependency, added a reusable export-compression application, and passed clean execution, rendering, visual, numerical, and engineering checks with NeqSim 3.16.0.",
+      "publication": {
+        "mode": "draft pull request",
+        "branch": "automation/repair-gas-processing-chain",
+        "files": [
+          "notebooks/gasvaluechain/GasProcessingChain.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      }
+    }
+  ]
+}
