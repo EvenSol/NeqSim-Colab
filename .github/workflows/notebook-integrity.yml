@@ -1,0 +1,35 @@
+name: Notebook integrity
+
+on:
+  pull_request:
+    paths:
+      - "notebooks/**"
+      - "scripts/check_notebook.py"
+      - "scripts/test_check_notebook.py"
+      - "scripts/notebook_integrity_baseline.json"
+      - ".github/workflows/notebook-integrity.yml"
+  push:
+    branches: [master]
+    paths:
+      - "notebooks/**"
+      - "scripts/check_notebook.py"
+      - "scripts/test_check_notebook.py"
+      - "scripts/notebook_integrity_baseline.json"
+      - ".github/workflows/notebook-integrity.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Unit tests
+        run: python -m unittest discover -s scripts -p 'test_check_notebook.py'
+      - name: Repository notebook integrity
+        run: >-
+          python scripts/check_notebook.py --all --quiet-warnings
