@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-08-04T09:10:15Z",
+  "notebooks": [
+    {
+      "path": "notebooks/process/governed_process_to_engineering_handover.ipynb",
+      "verified_date": "2026-08-04",
+      "verified_at_utc": "2026-08-04T09:10:15Z",
+      "neqsim_version": "3.16.0",
+      "neqsim_source": {
+        "repository": "https://github.com/equinor/neqsim.git",
+        "requested_ref": "master",
+        "resolved_commit": "13a6f31ee4ce3d5394291edc2179ffb6993eb130",
+        "jar_sha256": "ee992a648f93835feca4bfb4a2b6cb0f356afe4f89282259b3b4048f32310da3",
+        "loaded_from": "file:/workspace/scratch/ab308ea4a4a5/neqsim-main-build/target/neqsim-3.16.0.jar",
+        "bridge_role": "The PyPI neqsim package supplies only the Python and JPype bridge; all demonstrated Java functionality is loaded from the recorded source-master JAR."
+      },
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "Executed all 10 code cells sequentially from an empty in-process IPython namespace against the exact recorded NeqSim master build. Stored two PNG figures; zero error outputs and zero stderr. Jupyter HTML conversion passed.",
+      "code_cells": 10,
+      "substantive_code_cells": 10,
+      "markdown_cells": 12,
+      "neqsim_capabilities_demonstrated": [
+        "SRK process construction with stream, separator, compressor, and adiabatic export line",
+        "controlled engineering cases with EngineeringDesignCase and case configurators",
+        "NORSOK-oriented project construction and ProcessToEngineeringDesignBuilder modules",
+        "native iterative process-to-engineering convergence with immutable source-process checks",
+        "EngineeringDeliverableCompiler generation of a governed multidisciplinary package",
+        "EngineeringNumericalHealthAnalyzer assessment",
+        "native DEXPI 2.0 Process-profile writing and conformance assessment",
+        "CFIHOS 2.0 staging export with an explicit incomplete mapping register"
+      ],
+      "practical_application": "Turns a controlled gas-processing model into an auditable engineering evidence package, including design-case convergence, calculations, datasheets, registers, DEXPI exchange, numerical-health evidence, and a fail-closed CFIHOS handover staging area.",
+      "engineering_validation": {
+        "named_assertions_passed": 11,
+        "assertions_failed": 0,
+        "checks": [
+          "main-source EngineeringDesignLoop class loaded from the recorded JAR",
+          "three controlled cases and seven engineering modules",
+          "native design loop converged in three iterations",
+          "selected design variables finite",
+          "source-process diameter and feed flow unchanged",
+          "compiled engineering package valid",
+          "numerical-health status HEALTHY",
+          "native DEXPI Process profile schema and profile conformant",
+          "required governed artifacts present",
+          "CFIHOS staging status INCOMPLETE with 70 explicit mapping gaps",
+          "87 evidence files generated before the notebook summary"
+        ]
+      },
+      "visual_validation": {
+        "technical_figures": 2,
+        "display_equations": 3,
+        "method": "Visually inspected the two extracted PNG outputs and all three display equations rendered to SVG by MathJax 3.2.2 and rasterized for review; no clipped labels, malformed mathematics, or unreadable content found."
+      },
+      "limitations": [
+        "The embedded CFIHOS class identifiers are intentionally illustrative and cannot constitute an approved owner-operator reference-data-library mapping.",
+        "The model is a compact tutorial slice and not a project-specific design basis or certified engineering deliverable.",
+        "Named-CAE DEXPI qualification remains a separate external governance activity."
+      ]
+    }
+  ]
+}
