@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "shard": 5,
-  "updated_at": "2026-08-04T08:45:00Z",
+  "updated_at": "2026-08-04T20:13:08Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/EquationsOfState.ipynb",
@@ -2094,47 +2094,93 @@
     },
     {
       "path": "notebooks/thermodynamics/water_ammonia_properties.ipynb",
-      "verified_date": "2026-07-20",
-      "verified_at_utc": "2026-07-20T02:42:25.690Z",
+      "verified_date": "2026-08-04",
+      "verified_at_utc": "2026-08-04T20:13:08Z",
       "neqsim_version": "3.16.0",
       "python_version": "3.12.13",
       "java_version": "openjdk 17.0.19",
-      "execution_status": "execution_required",
-      "execution_method": "fresh isolated target environment installed with python -m pip install --upgrade --no-cache-dir neqsim; all code cells executed sequentially in one isolated Python process after final formatting because the sandbox blocks local Jupyter kernel sockets",
-      "code_cells": 18,
-      "markdown_cells": 19,
+      "execution_status": "passed",
+      "execution_method": "Fresh isolated validation environment; all 21 code cells executed sequentially in one Python process after final code and Markdown formatting.",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-water-ammonia-20260804-2157 --neqsim-version latest --extra-package nbconvert --extra-package ipykernel --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260804T200121Z-e4aa63919bb4",
+        "verified_public_pypi_wheels": 65,
+        "integrity": "Complete public-PyPI inventory, file-size, SHA-256, runtime, platform, and requested toolchain verification passed."
+      },
+      "code_cells": 21,
+      "markdown_cells": 21,
       "publication": {
-        "branch": "master",
-        "mode": "atomic direct-to-default-branch commit",
-        "commit": "this atomic commit"
+        "branch": "automation/repair-water-ammonia-properties",
+        "mode": "focused draft pull request targeting master",
+        "commit": "the atomic branch commit containing this ledger entry",
+        "files": [
+          "notebooks/thermodynamics/water_ammonia_properties.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/maintenance_ledger/part-005.json",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "capabilities_demonstrated": [
+        "pure-water IAPWS-IF97 and pure-ammonia reference calculations",
+        "PR binary TP and bubble-point flashes with named-phase retrieval",
+        "composition, pressure, and PR-versus-SRK sensitivity studies",
+        "connected Stream, Heater, Separator, and ProcessSystem execution",
+        "phase-safe component-flow retrieval across all reported phases",
+        "scenario screening with total and component closure assertions"
+      ],
+      "practical_application": {
+        "topic": "Water-ammonia generator and flash-separator screening for an absorption-refrigeration working solution.",
+        "workflow": "Build fresh feed, heater, and separator objects for each temperature; execute the process; retrieve product and component flows; validate closure; and select a case under an illustrative water-carryover limit.",
+        "result": "355 K selected under the 15 kg/h water-carryover screen, with 39.37% ammonia recovery and 251.010 kW heater duty."
+      },
+      "preservation": {
+        "original_cells_preserved": "37/37",
+        "original_code_cells_preserved": "18/18",
+        "original_markdown_cells_preserved": "19/19",
+        "pre_existing_examples_preserved": 10,
+        "pre_existing_figures_preserved": "4/4",
+        "integration": "All original thermodynamic, sensitivity, process, and validation examples remain in their original order. The generator application extends the existing heater example before the final verification."
+      },
+      "visual_validation": {
+        "figure_count": 6,
+        "previous_figures_refreshed": 4,
+        "new_figures": 2,
+        "purposes": [
+          "pure-component saturation-pressure comparison",
+          "composition-dependent bubble-temperature result",
+          "pressure suppression of vapour formation",
+          "heater-duty and phase-split sensitivity",
+          "generator process-workflow overview",
+          "ammonia-recovery versus water-carryover operating trade-off"
+        ],
+        "result": "All retained PNG outputs were visually inspected at original resolution; titles, SI units, legends, colours, scales, labels, and descriptive alternative text are readable with no clipping, overlap, or misleading axes."
+      },
+      "equation_validation": {
+        "display_equations": 7,
+        "inline_expressions": 16,
+        "result": "Balanced standalone display delimiters, inline dollar delimiters, single-backslash LaTeX, and absence of obsolete delimiters were verified. Jupyter nbconvert generated MathJax-compatible HTML, and all equations were visually rendered and inspected."
       },
       "key_checks": [
-        "replaced the seven-cell pure-fluid sketch with a 37-cell water-ammonia thermodynamics tutorial",
-        "all 18 code cells executed in order with zero exceptions, error outputs, or stderr",
-        "all 19 focused benchmark, phase, component-balance, process, trend, and limiting-case assertions passed",
-        "valid nbformat 4 JSON, unique cell IDs, sequential execution counts, and no hidden state",
-        "teaching-readability gate passed with one statement per line, conventional indentation, descriptive names, no wildcard imports, Colab magics, semicolon chains, or inline compound bodies, and code lines at most 78 characters",
-        "the complete notebook was re-executed from a fresh PyPI-only environment after final formatting",
-        "Colab equation gate passed with five balanced display equations, standalone dollar delimiters, single-backslash LaTeX, no obsolete delimiters, successful nbconvert MathJax HTML generation, and a visually inspected equation render",
-        "four embedded SI-labelled engineering figures were visually inspected for readable axes, legends, and physically meaningful trends",
-        "IAPWS-IF97 water normal boiling temperature was 373.227 K, 0.103 K above the 373.124 K reference",
-        "PR ammonia normal boiling temperature was 239.610 K, 0.210 K below the 239.82 K NIST reference",
-        "pure-component saturation pressures increased monotonically with temperature",
-        "the 350 K and 1.0 MPa baseline split into 0.062170 mol/mol gas and 0.937830 mol/mol aqueous phases",
-        "the gas phase contained 0.962522 mol/mol ammonia while the aqueous phase contained 0.149452 mol/mol ammonia",
-        "maximum binary component-balance residual was 1.08e-12 mol/mol",
-        "bubble temperature decreased monotonically as liquid ammonia fraction increased at 1.0 MPa",
-        "gas fraction decreased monotonically with pressure and reached the single-liquid limiting case by 1.25 MPa",
-        "stable PR and SRK bubble-temperature predictions exposed explicit cubic-EOS model-form sensitivity",
-        "the connected stream-heater duty was 205.857766 kW with a 1.71e-13 kW energy-balance residual",
-        "heater duty and equilibrium gas fraction increased monotonically across five outlet-temperature scenarios",
-        "Colab badge, six authoritative references, intended repository path, and exactly-once active-catalog link were validated"
+        "all 21 code cells executed in order with zero exceptions, error outputs, or stderr",
+        "all 24 engineering checks passed",
+        "valid nbformat 4 JSON, unique cell IDs, and complete sequential execution counts",
+        "maximum code-line length was 78 characters with no semicolon chains or inline compound bodies",
+        "all 37 original cells, 10 substantive examples, and 4 original figures were preserved",
+        "four original numerical figures were recomputed with NeqSim 3.16.0 and two figures were added",
+        "generator total mass closure passed at less than 1e-6 kg/h residual",
+        "generator ammonia component closure passed at less than 1e-9 relative residual",
+        "ammonia recovery and water carryover increased monotonically across the five temperature cases",
+        "the selected 355 K case respected the illustrative 15 kg/h water-carryover limit",
+        "the baseline binary flash retained a maximum component-balance residual of 1.08e-12 mol/mol",
+        "the connected heater retained a 1.71e-13 kW energy-balance residual",
+        "catalog link, master-branch Colab badge, and all six authoritative references resolved"
       ],
-      "summary": "Modernized the water-ammonia notebook by removing the shell magic, minimal pure-fluid-only examples, weak explanations, ambiguous units, and missing verification. The new NeqSim 3.16.0 tutorial covers dedicated pure-water and pure-ammonia reference models, saturation pressure, PR binary TP and bubble flashes, phase enrichment, independent component closure, composition and pressure sensitivity, stable PR-SRK model-form uncertainty, explicit exclusion of an initialization-sensitive unregressed CPA boundary, a connected stream-heater calculation, energy closure, phase-boundary scenarios, limitations, troubleshooting, references, exercises, assertions, and embedded outputs.",
+      "summary": "Revalidated and extended the water-ammonia tutorial after its previous passed status was withdrawn for missing execution evidence. Preserved every original cell, example, and figure; repaired two legacy display equations to the Colab-safe standalone format; added a realistic Stream-Heater-Separator generator screen with phase-safe component retrieval, scenario selection, closure checks, and two teaching figures; refreshed every output with NeqSim 3.16.0.",
       "integrity_audit": {
         "date": "2026-08-04",
-        "finding": "Current blob has 18 code cells and 18 missing execution counts; previous passed status did not describe the current blob.",
-        "action": "Passed status withdrawn. Re-execution and content reconciliation are required before this path can be published as verified."
+        "finding": "The prior current blob had 18 missing execution counts, so its passed status was correctly withdrawn.",
+        "resolution": "The expanded 21-code-cell notebook was executed twice after final formatting and now retains complete current outputs and validation evidence."
       }
     },
     {
