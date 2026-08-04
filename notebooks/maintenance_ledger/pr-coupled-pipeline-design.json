@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-08-04T09:30:00Z",
+  "notebooks": [
+    {
+      "path": "notebooks/fluidflow/coupled_thermohydraulic_dnv_pipeline_design.ipynb",
+      "verified_date": "2026-08-04",
+      "verified_at_utc": "2026-08-04T09:30:00Z",
+      "neqsim_version": "3.16.0",
+      "neqsim_source": {
+        "repository": "https://github.com/equinor/neqsim.git",
+        "requested_ref": "master",
+        "resolved_commit": "13a6f31ee4ce3d5394291edc2179ffb6993eb130",
+        "jar_sha256": "ee992a648f93835feca4bfb4a2b6cb0f356afe4f89282259b3b4048f32310da3",
+        "loaded_from": "file:/workspace/scratch/ab308ea4a4a5/neqsim-main-build/target/neqsim-3.16.0.jar",
+        "bridge_role": "The PyPI neqsim package supplies only the Python and JPype bridge; all demonstrated Java functionality is loaded from the recorded source-master JAR."
+      },
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "Executed all 9 code cells sequentially from an empty in-process IPython namespace against the exact recorded NeqSim master build in 8.3 seconds. Stored four PNG figures; zero error outputs and zero stderr. Jupyter HTML conversion passed.",
+      "code_cells": 9,
+      "substantive_code_cells": 9,
+      "markdown_cells": 10,
+      "neqsim_capabilities_demonstrated": [
+        "multiphase SRK wet-gas construction",
+        "segmented Beggs-and-Brill pressure, temperature, velocity, regime, and liquid-holdup profiles",
+        "detailed radial heat transfer through steel, insulation, and seawater convection with Joule-Thomson cooling",
+        "CPA hydrate-equilibrium calculations at simulated arrival pressure",
+        "native DNV-ST-F101 operating, incidental, test, collapse, propagation, load-interaction, fatigue, ovality, and installation-strain checks",
+        "coupled wall, bore, hydraulic, insulation, and flow-assurance option selection"
+      ],
+      "practical_application": "Screens a 20 km wet-gas subsea line and selects the first wall and insulation candidates that close explicit hydraulic, velocity, hydrate-margin, and native DNV-ST-F101 mechanical gates.",
+      "engineering_validation": {
+        "named_assertions_passed": 10,
+        "assertions_failed": 0,
+        "checks": [
+          "main-source DNV calculator loaded from the recorded JAR",
+          "30.0 mm is the first wall candidate to pass the coupled screen",
+          "20.0 mm is the first insulation candidate to pass the thermal gate",
+          "all nine native limit-state checks pass",
+          "governing system-test pressure containment utilization 0.909845",
+          "arrival pressure 171.980 bara above the 165 bara gate",
+          "arrival temperature 36.803 C",
+          "hydrate equilibrium 22.143 C and operating margin 14.660 C",
+          "finite 40-increment segment profiles",
+          "40, 60, and 80 t/h pressure and velocity sensitivity gates pass"
+        ]
+      },
+      "visual_validation": {
+        "technical_figures": 4,
+        "display_equations": 4,
+        "method": "Visually inspected four extracted PNG outputs and all four display equations rendered to SVG by MathJax 3.2.2 and rasterized for review; no clipped labels, malformed mathematics, or unreadable content found."
+      },
+      "limitations": [
+        "The screening kernel is not a clause-complete DNV-ST-F101 conformity assessment.",
+        "Tutorial pressure cases, loads, fatigue spectrum, material factors, ovality, and route conditions require replacement by approved project inputs.",
+        "Normal-operation hydrate margin does not replace shutdown cooldown, restart, inhibitor, or transient liquid-inventory studies."
+      ]
+    }
+  ]
+}
