@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "shard": "stochastic-reservoir-market-20260805",
+  "updated_at": "2026-08-05T12:02:33Z",
+  "notebooks": [
+    {
+      "path": "notebooks/reservoir/stochastic_reservoir_to_market_optimization.ipynb",
+      "verified_date": "2026-08-05",
+      "verified_at_utc": "2026-08-05T12:02:33Z",
+      "neqsim_version": "3.16.0 source build",
+      "neqsim_java_commit": "5dc8b21b4535b4466820f88f520d69249d147757",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "opm_flow_version": "2026.04",
+      "ert_version": "23.0.1",
+      "pyomo_version": "6.9.3",
+      "highs_version": "1.11.0",
+      "execution_status": "passed",
+      "execution_method": "Executed all 33 code cells sequentially from an empty in-process IPython namespace using scripts/execute_notebook_inprocess.py. The clean 153.7-second run stored eight PNG figures, zero error outputs, and zero stderr. The restricted runner used ERT's GenKwConfig and LocalEnsemble sampling API because local scheduler sockets are unavailable; Colab retains the native ERT ensemble_experiment path.",
+      "code_cells": 33,
+      "substantive_code_cells": 33,
+      "markdown_cells": 21,
+      "git_blob_sha1": "825ca347606dc065d6749ea3e9cf4fe8f656ee32",
+      "publication": {
+        "branch": "agent/stochastic-reservoir-market-optimization",
+        "mode": "focused draft pull request",
+        "files": [
+          "notebooks/reservoir/stochastic_reservoir_to_market_optimization.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json",
+          "notebooks/maintenance_ledger/stochastic_reservoir_market_20260805.json"
+        ]
+      },
+      "neqsim_capabilities_demonstrated": [
+        "source-built NeqSim Java master loaded directly with JPype and verified through the Java class code source",
+        "multiphase vertical tubing and subsea flowline calculations with PipeBeggsAndBrills",
+        "three-phase separation, throttling, compression, and aftercooling in ProcessSystem",
+        "direct well/SURF and process response points with fit, mass-closure, sign, and range checks"
+      ],
+      "integrated_workflow": [
+        "twelve ERT uncertainty realizations with correlated technical and commercial transformation",
+        "twelve real OPM Flow oil-water forecasts over eight years and three producers",
+        "realization-keyed reservoir, well, SURF, process, market, and economic ledger",
+        "Pyomo/HiGHS choke allocation, compressor configuration, host holdback, and non-anticipative upgrade timing",
+        "complete-scenario petroleum P90/P50/P10 ranking, expected-value policy, VSS, and EVPI"
+      ],
+      "engineering_validation": {
+        "named_assertions_passed": 29,
+        "assertions_failed": 0,
+        "checks": [
+          "NeqSim class provenance resolves to the source-built master JAR",
+          "ERT lint, realization count, and probability closure",
+          "all twelve OPM Flow return codes and 288 well-year records",
+          "well/SURF response fit below one bar and positive arrival pressures",
+          "NeqSim process mass closure below 1e-8 with positive compressor power and negative cooler duty",
+          "unique realization-year-well ledger keys and single-valued NeqSim commit",
+          "optimal stochastic solve, bounded chokes, nonnegative VSS and EVPI",
+          "nontrivial choke allocation, both compressor configurations, and active/zero host holdback states",
+          "P90/P50/P10 rows retain complete realization identities"
+        ]
+      },
+      "result_summary": {
+        "expected_stochastic_npv_bn_nok": 1.1206,
+        "common_upgrade_policy": "no upgrade",
+        "expected_value_policy": "no upgrade",
+        "vss_bn_nok": 0.0,
+        "evpi_bn_nok": 0.0254,
+        "perfect_information_upgrade_scenarios": 2,
+        "scenario_count": 12,
+        "forecast_years": 8,
+        "opm_runs": 12,
+        "direct_well_surf_states": 7,
+        "direct_process_states": 12
+      },
+      "known_upstream_issue": "https://github.com/equinor/neqsim/issues/2819"
+    }
+  ]
+}
