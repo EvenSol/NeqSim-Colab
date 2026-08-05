@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "shard": "earth-tools-field-development-20260805",
+  "updated_at": "2026-08-05T07:20:00Z",
+  "notebooks": [
+    {
+      "path": "notebooks/fielddevelopment/earth_tools_and_field_development.ipynb",
+      "verified_date": "2026-08-05",
+      "verified_at_utc": "2026-08-05T07:20:00Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-earth-metocean-render --neqsim-version 3.16.0 --extra-package geopandas --extra-package shapely --extra-package pyproj --extra-package rasterio --extra-package rioxarray --extra-package scikit-image --extra-package networkx --extra-package folium --extra-package metocean-api --extra-package metocean-stats --extra-package wavespectra --extra-package virocon --extra-package pyextremes --extra-package utide --extra-package nbconvert --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260805T070646Z-7e243889655c",
+        "verified_public_pypi_wheels": 126,
+        "manifest_created_at_utc": "2026-08-05T07:06:46Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, and requested geospatial/rendering toolchain verification passed."
+      },
+      "neqsim_master_source": {
+        "repository": "https://github.com/equinor/neqsim.git",
+        "ref": "master",
+        "commit": "9e8d44a141bba600026d2229969b49af50f34237",
+        "runtime_jar_sha256": "4f65f4a3018c8d4f10b84c367c906de212c52b3dbd7b133f0887550df5d9552e",
+        "class_probe": "neqsim.process.engineering.design.EngineeringDesignLoop",
+        "loaded_class_location": "the locally built neqsim-3.16.0.jar from the recorded source commit",
+        "verification": "The notebook records git rev-parse HEAD, hashes the runtime JAR, sets NEQSIM_JVM_AUTOSTART=0, adds that JAR before JVM startup, and asserts the probe class protection-domain location."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 13 code cells sequentially from an empty in-process IPython namespace in the final fresh bootstrap environment. Retained tables, four PNG figures, and one Folium map; zero error outputs and zero stored stderr.",
+      "code_cells": 13,
+      "substantive_code_cells": 13,
+      "markdown_cells": 12,
+      "publication": {
+        "branch": "agent/earth-tools-field-development",
+        "mode": "pull request",
+        "commit": "the branch commit containing this ledger entry",
+        "files": [
+          "notebooks/fielddevelopment/earth_tools_and_field_development.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json",
+          "notebooks/maintenance_ledger/earth_tools_field_development_20260805.json"
+        ]
+      },
+      "packages_demonstrated": {
+        "geopandas": "1.1.4",
+        "shapely": "2.1.2",
+        "pyproj": "3.7.2",
+        "rasterio": "1.5.0",
+        "rioxarray": "0.23.0",
+        "xarray": "2026.7.0",
+        "scikit-image": "0.26.0",
+        "networkx": "3.6.1",
+        "folium": "0.20.0"
+      },
+      "data_provenance": {
+        "executed_case": "Deterministic synthetic discovery, hosts, bathymetry, exclusion, commercial inputs, and fluid; no real asset recommendation is represented.",
+        "public_interface": "Guarded example for the official SODIR FactMaps REST base, with documented pipeline layer 311, discovery layer 504, and current production-licence layer 616.",
+        "crs": "EPSG:4326 exchange geometries reprojected to EPSG:32631 before distance, rasterization, and routing operations."
+      },
+      "neqsim_capabilities_demonstrated": [
+        "SRK gas-condensate and water fluid construction with classic mixing rule and multiphase checking",
+        "unit-aware stream flow, pressure, and temperature specifications",
+        "PipeBeggsAndBrills tie-back length, diameter, roughness, elevation, discretization, seabed temperature, and heat-transfer configuration",
+        "arrival pressure, arrival temperature, and outlet-flow retrieval for host screening"
+      ],
+      "practical_application": "Builds two exclusion-aware least-cost subsea routes in a projected CRS, samples bathymetry along them, converts the route attributes into NeqSim tie-back cases, checks pressure and thermal margins, and ranks the synthetic hosts with a transparent screening NPV.",
+      "engineering_validation": {
+        "assertions_passed": 15,
+        "assertions_failed": 0,
+        "checks": [
+          "projected CRS and valid unique vector geometries",
+          "raster CRS and successful exclusion rasterization",
+          "connected candidate-host graph",
+          "routed length not shorter than straight-line distance",
+          "zero routed exclusion cells for both candidates",
+          "finite positive NeqSim arrival pressures",
+          "relative stream-flow imbalance below 1e-7",
+          "arrival temperature below the specified inlet temperature",
+          "positive 70 bara arrival-pressure margins",
+          "finite screening NPV for both hosts"
+        ],
+        "key_results": {
+          "host_west_route_km": 43.335,
+          "host_east_route_km": 39.616,
+          "host_west_arrival_pressure_bara": 172.553,
+          "host_east_arrival_pressure_bara": 173.229,
+          "host_west_arrival_temperature_c": 10.998,
+          "host_east_arrival_temperature_c": 12.293,
+          "maximum_relative_flow_imbalance": 0.0,
+          "screening_preferred_host": "Host West",
+          "host_west_screening_npv_musd": 254.40,
+          "host_east_screening_npv_musd": 241.68
+        }
+      },
+      "figures": {
+        "retained_png_figures": 4,
+        "interactive_maps": 1,
+        "purposes": [
+          "least-cost route and exclusion map beside the routing cost surface",
+          "bathymetry sampled along both candidate routes",
+          "NeqSim arrival pressure and temperature comparison",
+          "CAPEX, NPV, and arrival-pressure-margin host comparison",
+          "interactive WGS84 Folium route review"
+        ],
+        "visual_inspection": "Passed at original retained-output resolution after final execution. Titles, CRS labels, units, legends, color scales, routes, exclusion geometry, markers, annotations, and bar labels are readable; marker margins were corrected before the final run and no clipping, overlap, stale values, or misleading scales remain."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_expressions_verified": 2,
+        "renderer": "Jupyter nbconvert HTML/MathJax path plus a single-backslash Matplotlib MathText contact sheet",
+        "visual_inspection": "The least-cost objective and discounted NPV expressions rendered with summation limits, gradients, absolute values, fractions, subscripts, and superscripts. Delimiters are balanced and Colab-safe."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 25,
+        "maximum_code_line_length": 99,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "hidden_local_dependencies": false,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "sequential_execution_counts": true,
+        "catalog_target_occurrences": 1,
+        "notebook_checker": "passed",
+        "nbconvert_html": "passed"
+      },
+      "documentation_impact": "Adds the first cataloged Earth-tools tutorial and documents package selection, official SODIR interfaces, CRS discipline, raster/vector routing, NeqSim coupling, decision boundaries, limitations, and extension exercises. No NeqSim API issue or documentation defect was discovered.",
+      "summary": "Introduces a complete Earth-tools and field-development tutorial using modern Python geospatial packages and a current-source NeqSim tie-back model, with retained outputs and numerical, rendering, and visual validation."
+    }
+  ]
+}
