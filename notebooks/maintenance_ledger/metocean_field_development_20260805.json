@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "shard": "metocean-field-development-20260805",
+  "updated_at": "2026-08-05T07:25:00Z",
+  "notebooks": [
+    {
+      "path": "notebooks/fielddevelopment/metocean_and_field_development.ipynb",
+      "verified_date": "2026-08-05",
+      "verified_at_utc": "2026-08-05T07:25:00Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-earth-metocean-render --neqsim-version 3.16.0 --extra-package geopandas --extra-package shapely --extra-package pyproj --extra-package rasterio --extra-package rioxarray --extra-package scikit-image --extra-package networkx --extra-package folium --extra-package metocean-api --extra-package metocean-stats --extra-package wavespectra --extra-package virocon --extra-package pyextremes --extra-package utide --extra-package nbconvert --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260805T070646Z-7e243889655c",
+        "verified_public_pypi_wheels": 126,
+        "manifest_created_at_utc": "2026-08-05T07:06:46Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, and requested metocean/rendering toolchain verification passed."
+      },
+      "neqsim_master_source": {
+        "repository": "https://github.com/equinor/neqsim.git",
+        "ref": "master",
+        "commit": "9e8d44a141bba600026d2229969b49af50f34237",
+        "runtime_jar_sha256": "4f65f4a3018c8d4f10b84c367c906de212c52b3dbd7b133f0887550df5d9552e",
+        "class_probe": "neqsim.process.engineering.design.EngineeringDesignLoop",
+        "loaded_class_location": "the locally built neqsim-3.16.0.jar from the recorded source commit",
+        "verification": "The notebook records git rev-parse HEAD, hashes the runtime JAR, sets NEQSIM_JVM_AUTOSTART=0, adds that JAR before JVM startup, and asserts the probe class protection-domain location."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 16 code cells sequentially from an empty in-process IPython namespace in the final fresh bootstrap environment. Retained tables and seven PNG figures; zero error outputs and zero stored stderr.",
+      "code_cells": 16,
+      "substantive_code_cells": 16,
+      "markdown_cells": 15,
+      "publication": {
+        "branch": "agent/metocean-field-development",
+        "mode": "pull request",
+        "commit": "the branch commit containing this ledger entry",
+        "files": [
+          "notebooks/fielddevelopment/metocean_and_field_development.ipynb",
+          "notebooks/fielddevelopment/data/nora10_metocean_stats_1958_1979.csv.gz",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json",
+          "notebooks/maintenance_ledger/metocean_field_development_20260805.json"
+        ]
+      },
+      "packages_demonstrated": {
+        "metocean-api": "1.1.14",
+        "metocean-stats": "1.2.0",
+        "xarray": "2026.7.0",
+        "wavespectra": "4.8.0",
+        "pyextremes": "2.5.0",
+        "virocon": "2.4.0",
+        "utide": "0.3.1"
+      },
+      "data_provenance": {
+        "upstream_repository": "https://github.com/MET-OM/metocean-stats",
+        "upstream_commit": "6077d6b256f7574b009778246d90c74bb67915e9",
+        "upstream_file": "tests/data/NORA_test.txt",
+        "upstream_raw_sha256": "14f184062645314b1b3465eba7d64d3f5cc6da0dd583ae723687aad6dc4e9f7e",
+        "snapshot_sha256": "cb6b0585dadcf4c668b421bd994b275a0eb096af99ae2caad269c3039e5818e2",
+        "snapshot_rows": 64280,
+        "coverage": "1958-01-01T00:00:00 through 1979-12-31T21:00:00 at nominal 3-hour intervals",
+        "interpretation": "Public anonymized NORA10 teaching data from the metocean-stats test suite; not site-specific or certified design data.",
+        "optional_live_interface": "Guarded metocean-api NORA3_wave_sub example; disabled for deterministic execution."
+      },
+      "neqsim_capabilities_demonstrated": [
+        "SRK gas-condensate and water fluid construction with classic mixing rule and multiphase checking",
+        "unit-aware stream flow, pressure, and temperature specifications",
+        "PipeBeggsAndBrills tie-back geometry, roughness, discretization, seabed-temperature, and heat-transfer configuration",
+        "controlled cold- and warm-seawater comparison of arrival temperature and pressure"
+      ],
+      "practical_application": "Builds a metocean-to-field-development chain from immutable public teaching data through monthly climate, standard statistics, 24-hour marine weather windows, empirical waiting time, GEV return levels, an IFORM joint contour, a JONSWAP spectrum, tidal harmonics, NeqSim seasonal tie-back response, and an installation-month cost screen.",
+      "engineering_validation": {
+        "assertions_passed": 22,
+        "assertions_failed": 0,
+        "checks": [
+          "snapshot and upstream hashes recorded, with the compact snapshot hash asserted",
+          "monotonic unique timestamps and complete nonnegative wind/wave variables",
+          "monthly non-exceedance and joint occurrence tables have expected coverage",
+          "weather-window probabilities bounded between zero and one",
+          "finite monthly mean waiting time",
+          "at least 20 annual wave-height maxima",
+          "pyextremes and independent SciPy return levels differ by less than 0.05 m",
+          "return level increases with return period",
+          "finite virocon contour outside the 99th historical wave-height percentile",
+          "wavespectra recovers target significant wave height within 0.02 m",
+          "UTide reconstruction RMSE below 0.08 m",
+          "positive NeqSim arrival-pressure margins and conserved outlet flow",
+          "warmer seawater produces the expected higher arrival temperature",
+          "finite nonnegative screening weather cost and a valid preferred month"
+        ],
+        "key_results": {
+          "preferred_screening_month": 8,
+          "month_8_valid_start_probability": 0.801,
+          "month_8_mean_wait_days": 0.246,
+          "month_8_p90_wait_days": 1.0,
+          "ten_year_wave_return_level_m": 11.155,
+          "fifty_year_wave_return_level_m": 12.769,
+          "illustrative_contour_max_hs_m": 14.089,
+          "cold_case_arrival_temperature_c": 5.307,
+          "warm_case_arrival_temperature_c": 11.107,
+          "cold_case_arrival_pressure_bara": 165.328,
+          "warm_case_arrival_pressure_bara": 165.221,
+          "utide_reconstruction_rmse_m": 0.0151
+        }
+      },
+      "figures": {
+        "retained_png_figures": 7,
+        "purposes": [
+          "historical monthly wind, wave, and air-temperature climate",
+          "24-hour vessel-operability and P90 waiting-time seasonality",
+          "annual-maximum GEV extrapolation and plotting positions",
+          "virocon joint environmental contour",
+          "wavespectra JONSWAP design-sea illustration",
+          "UTide harmonic reconstruction",
+          "NeqSim cold- and warm-seawater arrival comparison"
+        ],
+        "visual_inspection": "Passed at original retained-output resolution after final execution. Titles, axes, units, legends, twin-axis colors, logarithmic return-period scale, contour and data layers, spectrum, time labels, and process bars are readable; no clipping, overlap, stale values, or misleading scales remain."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_expressions_verified": 2,
+        "renderer": "Jupyter nbconvert HTML/MathJax path plus a single-backslash Matplotlib MathText contact sheet",
+        "visual_inspection": "The consecutive-window probability and return-level expressions rendered with fractions, summation and intersection limits, indicator notation, inverse distribution, and subscripts. Delimiters are balanced and Colab-safe."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 31,
+        "maximum_code_line_length": 98,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "hidden_local_dependencies": false,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "sequential_execution_counts": true,
+        "catalog_target_occurrences": 1,
+        "notebook_checker": "passed",
+        "nbconvert_html": "passed"
+      },
+      "documentation_impact": "Adds the first cataloged metocean tutorial and documents package selection, immutable data provenance, optional NORA3 acquisition, statistical and process-model boundaries, field-development interpretation, limitations, and exercises. No NeqSim API issue or documentation defect was discovered.",
+      "summary": "Introduces a complete metocean and field-development tutorial using public teaching data, specialist Python packages, and a current-source NeqSim seasonal tie-back model, with retained outputs and numerical, rendering, and visual validation."
+    }
+  ]
+}
