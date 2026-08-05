@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-08-05T14:00:20Z",
+  "notebooks": [
+    {
+      "path": "notebooks/thermodynamics/thermoml_model_accuracy_and_parameter_tuning.ipynb",
+      "verified_date": "2026-08-05",
+      "verified_at_utc": "2026-08-05T14:00:20Z",
+      "neqsim_version": "source commit 641c871677a02a25b0c62c2278b8d286d20e11a4 (Python bridge 3.16.0)",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "scipy_version": "1.18.0",
+      "thermomlpy_version": "source commit 4d4d4f17175e91bb42278fb15a3330f9b2bbe34f",
+      "neqsim_source": {
+        "repository": "equinor/neqsim",
+        "ref": "master",
+        "commit": "641c871677a02a25b0c62c2278b8d286d20e11a4",
+        "jar_sha256": "66cdc4057f24723c452a11aa9df212f2fd595ba11c7ca3a7439e310ae729f8f3",
+        "runtime_guard": "The notebook builds current NeqSim master before JVM startup and asserts that SystemPrEos is loaded from the recorded source JAR."
+      },
+      "thermomlpy_source": {
+        "repository": "snaserib/ThermoMLPy",
+        "commit": "4d4d4f17175e91bb42278fb15a3330f9b2bbe34f",
+        "runtime_guard": "The immutable checkout is asserted and ThermoMLParser is verified to load from that source tree."
+      },
+      "data_sources": [
+        {
+          "doi": "10.1016/j.jct.2016.04.014",
+          "record_url": "https://trc.nist.gov/ThermoML/10.1016/j.jct.2016.04.014.xml",
+          "sha256": "5b4376820a9b67b18b10d0a03256b174828d85eda54fb2abca5c0fd93d16fc1c",
+          "use": "pure n-heptane density, section 1"
+        },
+        {
+          "doi": "10.1016/j.jct.2015.10.009",
+          "record_url": "https://trc.nist.gov/ThermoML/10.1016/j.jct.2015.10.009.xml",
+          "sha256": "0bc7e50a7714596265315396a19df7ccbec4072f107570362ab1e1d250c5b55f",
+          "use": "CO2 plus n-hexane VLE, sections 5 and 6"
+        }
+      ],
+      "execution_status": "passed",
+      "execution_method": "Executed all 20 code cells sequentially from an empty in-process IPython namespace after the sandbox blocked the attempted standard Jupyter TCP kernel. The final clean 11.7-second run used the recorded source-built NeqSim JAR, retained tables and three PNG figures, and produced zero error outputs and zero stderr. Jupyter HTML conversion passed.",
+      "code_cells": 20,
+      "substantive_code_cells": 20,
+      "markdown_cells": 14,
+      "publication": {
+        "branch": "agent/thermoml-model-accuracy-tuning",
+        "mode": "feature branch and draft pull request",
+        "commit": "the pull-request commit containing this ledger entry",
+        "files": [
+          "notebooks/thermodynamics/thermoml_model_accuracy_and_parameter_tuning.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/maintenance_ledger/thermoml_model_accuracy_20260805.json",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "neqsim_capabilities_demonstrated": [
+        "Peng-Robinson pure-fluid TP flash and physical-property initialization",
+        "system-wide P\u00e9neloux component volume-correction override",
+        "Peng-Robinson binary bubble-pressure flash with classic mixing",
+        "system-wide symmetric binary interaction parameter override",
+        "phase-specific gas composition retrieval by component name",
+        "fresh thermodynamic-system construction for every regression trial"
+      ],
+      "engineering_validation": {
+        "assertions_failed": 0,
+        "checks": [
+          "NeqSim SystemPrEos loaded from the source-built current-master JAR",
+          "ThermoMLPy parser loaded from the immutable recorded checkout",
+          "both DOI-specific XML SHA-256 digests matched the recorded values",
+          "nested ThermoML gas-property organization number resolved to carbon dioxide before column renaming",
+          "density and VLE calibration/validation splits were non-empty and deterministic",
+          "both bounded least-squares optimizers returned success inside their physical bounds",
+          "all model outputs were finite and all calculated vapour mole fractions remained within zero and one"
+        ],
+        "key_results": {
+          "density_points": 227,
+          "density_calibration_points": 182,
+          "density_validation_points": 45,
+          "density_database_c_internal": -0.016515825004413474,
+          "density_fitted_c_internal": 0.019605763511261264,
+          "density_calibration_aard_database_percent": 0.841477,
+          "density_calibration_aard_tuned_percent": 0.777187,
+          "density_validation_aard_database_percent": 0.828451,
+          "density_validation_aard_tuned_percent": 0.760098,
+          "vle_points": 35,
+          "vle_calibration_points": 27,
+          "vle_validation_points": 8,
+          "vle_database_kij": 0.12,
+          "vle_fitted_kij": 0.1207062905430843,
+          "vle_validation_pressure_aard_zero_kij_percent": 25.559324,
+          "vle_validation_pressure_aard_database_kij_percent": 2.563694,
+          "vle_validation_pressure_aard_fitted_kij_percent": 2.607233,
+          "vle_validation_y_co2_mae_zero_kij": 0.006297,
+          "vle_validation_y_co2_mae_database_kij": 0.005179,
+          "vle_validation_y_co2_mae_fitted_kij": 0.005224
+        }
+      },
+      "figures": {
+        "count": 3,
+        "purposes": [
+          "pure n-heptane density parity and held-out residual structure",
+          "three-isotherm CO2 plus n-hexane P-x-y data with zero and fitted interaction-parameter predictions",
+          "calibration and validation comparisons for density AARD, VLE pressure AARD, and vapour-composition MAE"
+        ],
+        "visual_inspection": "Passed after the final clean execution. Titles, axes, units, markers, legends, labels, values, and scales are readable with no clipping. The high-CO2 bubble-flash fold is visible and explicitly discussed as a root/stability warning."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_expressions_verified": 4,
+        "renderer": "Jupyter nbconvert HTML with MathJax plus an exact pdflatex equation contact sheet",
+        "visual_inspection": "Relative residual, AARD, P\u00e9neloux correction, PR mixing rule, subscripts, superscripts, sums, radicals, units, and inline CO2/kij notation rendered correctly with balanced Colab-safe delimiters."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 34,
+        "maximum_code_line_length": 81,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "source_master_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "sequential_execution_counts": true,
+        "catalog_target_occurrences": 1,
+        "notebook_checker": "passed"
+      },
+      "upstream_findings": [
+        {
+          "repository": "snaserib/ThermoMLPy",
+          "issue": "https://github.com/snaserib/ThermoMLPy/issues/1",
+          "finding": "ThermoMLParser misses a gas mole-fraction target RegNum nested under Property-MethodID and falls back to a misleading positional label.",
+          "notebook_handling": "The notebook resolves and asserts the nested organization-number-to-compound relationship before renaming the parsed response."
+        }
+      ],
+      "documentation_impact": "The executed tutorial, catalog entry, dedicated maintenance-ledger shard, and linked upstream parser issue are the documentation update. No NeqSim Java API or separate documentation page required a change.",
+      "neqsim_defect_found": false,
+      "summary": "Added a source-master NeqSim Colab tutorial that uses ThermoMLPy to turn DOI-specific density and VLE records into bounded parameter fits with deterministic held-out validation, uncertainty-scaled diagnostics, provenance guards, and model-form interpretation."
+    }
+  ]
+}
