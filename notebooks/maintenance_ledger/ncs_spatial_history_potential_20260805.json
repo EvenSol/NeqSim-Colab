@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "shard": "ncs-spatial-history-potential-20260805",
+  "updated_at": "2026-08-05T17:45:00Z",
+  "notebooks": [
+    {
+      "path": "notebooks/fielddevelopment/ncs_spatial_history_discoveries_and_future_potential.ipynb",
+      "verified_date": "2026-08-05",
+      "verified_at_utc": "2026-08-05T17:45:00Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "neqsim_master_source": {
+        "repository": "https://github.com/equinor/neqsim.git",
+        "ref": "master",
+        "commit": "7ae08253b45180045a99a700314f23c9a7001b3c",
+        "runtime_jar_sha256": "a644ebbeabebab43be72003fe6d7a23539ec9673f81d2052eb46bd4172e0f64b",
+        "class_probe": "neqsim.process.engineering.design.EngineeringDesignLoop",
+        "loaded_class_location": "fresh source-built neqsim-3.16.0.jar from the recorded commit",
+        "verification": "The notebook records git rev-parse HEAD, hashes the runtime JAR, sets NEQSIM_JVM_AUTOSTART=0, adds the source JAR before JVM startup, and asserts the class protection-domain location."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 13 code cells sequentially from an empty in-process IPython namespace against live SODIR FactMaps and the recorded NeqSim master JAR. The final run completed in 120.0 seconds with sequential counts, retained tables and six PNG figures, zero stored exceptions, and zero stored stderr.",
+      "code_cells": 13,
+      "substantive_code_cells": 13,
+      "markdown_cells": 12,
+      "publication": {
+        "branch": "agent/ncs-spatial-history-discovery-potential",
+        "mode": "pull request",
+        "commit": "the branch commit containing this ledger entry",
+        "files": [
+          "notebooks/fielddevelopment/ncs_spatial_history_discoveries_and_future_potential.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/maintenance_ledger/ncs_spatial_history_potential_20260805.json"
+        ]
+      },
+      "data_provenance": {
+        "retrieval_utc": "2026-08-05T17:48:33+00:00",
+        "publisher": "Norwegian Offshore Directorate (SODIR)",
+        "service": "FactMaps FactMapsWGS84 ArcGIS FeatureServer",
+        "licence": "Norwegian Licence for Open Government Data 2.0",
+        "layers_and_tables": {
+          "wellbores_all": 201,
+          "facilities_in_place": 304,
+          "pipelines": 311,
+          "fields": 502,
+          "discoveries": 504,
+          "field_resources": 515,
+          "discovery_resources": 532,
+          "plays": 540,
+          "current_licences": 616
+        },
+        "crs": "EPSG:4326 for exchange and EPSG:3035 for approximate shelf-scale distances",
+        "robustness": "Explicit fields, pagination, retry/backoff for transient 5xx responses, date conversion, geometry audit, sea-area normalization, stable identifiers, and aggregation of multiple resource-class rows per discovery."
+      },
+      "open_data_results": {
+        "discoveries": 646,
+        "fields": 142,
+        "facilities": 886,
+        "in_service_pipelines": 69,
+        "wildcat_wellbores": 1434,
+        "plays": 71,
+        "current_licence_rows": 1812,
+        "unique_discovery_resource_records": 95,
+        "field_resource_records": 139,
+        "confirmed_play_share": {
+          "North Sea": 0.84,
+          "Norwegian Sea": 0.571,
+          "Barents Sea": 0.60
+        },
+        "wildcats_since_2016": {
+          "North Sea": 191,
+          "Norwegian Sea": 72,
+          "Barents Sea": 53
+        },
+        "published_screened_contingent_oe_MSm3": {
+          "North Sea": 215.627,
+          "Norwegian Sea": 128.782,
+          "Barents Sea": 142.161
+        },
+        "official_undiscovered_resources_MSm3_oe": {
+          "North Sea": 545.0,
+          "Norwegian Sea": 745.0,
+          "Barents Sea": 2190.0
+        },
+        "top_public_development_screen": {
+          "discovery": "35/12-2 (Grosbeak)",
+          "score": 90.29,
+          "recoverable_oe_MSm3": 16.84,
+          "nearest_facility_km": 9.20
+        }
+      },
+      "neqsim_capabilities_demonstrated": [
+        "SRK gas-condensate construction with classic mixing rule and multiphase checking",
+        "unit-aware stream flow, pressure, and temperature specifications",
+        "PipeBeggsAndBrills length, diameter, roughness, discretization, ambient temperature, and heat-transfer configuration",
+        "public-resource-to-screening-rate handoff and diameter sensitivity",
+        "arrival pressure, arrival temperature, and mass-flow conservation checks"
+      ],
+      "engineering_validation": {
+        "assertions_passed": 11,
+        "assertions_failed": 0,
+        "checks": [
+          "exact NeqSim master SHA and source JAR location",
+          "all nine SODIR datasets non-empty",
+          "unique discovery and field identifiers",
+          "finite portfolio scores and non-negative distances",
+          "three NeqSim gas tie-back cases executed",
+          "relative flow imbalance below 1e-8",
+          "arrival pressure monotonic with pipe diameter",
+          "all NeqSim outputs finite"
+        ],
+        "generic_tieback_results": [
+          {
+            "discovery": "35/12-2 (Grosbeak)",
+            "length_km": 9.20,
+            "screen_rate_MSm3_d": 1.088,
+            "arrival_pressure_bara": 159.911,
+            "arrival_temperature_C": 30.237
+          },
+          {
+            "discovery": "6507/4-2 S (Adriana Sabina)",
+            "length_km": 3.383,
+            "screen_rate_MSm3_d": 0.912,
+            "arrival_pressure_bara": 159.976,
+            "arrival_temperature_C": 41.834
+          },
+          {
+            "discovery": "30/2-5 S (Atlantis)",
+            "length_km": 14.906,
+            "screen_rate_MSm3_d": 1.078,
+            "arrival_pressure_bara": 159.864,
+            "arrival_temperature_C": 21.680
+          }
+        ],
+        "evidence_level": "Official-source provenance, geometry and identifier checks, historical consistency, NeqSim conservation, expected pressure-diameter trends, and explicit physical bounds. No project-fluid or proprietary benchmark validation is claimed."
+      },
+      "figures": {
+        "retained_png_figures": 6,
+        "purposes": [
+          "five-year mean exploration and discovery history by sea area",
+          "1980, 2000, and 2026 discovery-field-facility spatial snapshots",
+          "wildcat counts and discovery-well fraction by decade",
+          "undeveloped-discovery ranking and current-infrastructure map",
+          "sea-area history and future-opportunity archetype bubble chart",
+          "generic NeqSim pressure-drop and temperature diameter sensitivity"
+        ],
+        "visual_inspection": "Passed at original retained-output resolution after the final execution. Titles, legends, axes, units, colours, maps, markers, bars, and labels are readable; overlapping discovery annotations were removed and the hydraulic plot was changed from compressed arrival pressure to pressure drop before the final run. No clipping, blank output, stale values, or misleading scale remains."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_expressions_verified": 2,
+        "renderer": "Jupyter nbconvert HTML/MathJax path plus a single-backslash Matplotlib MathText contact sheet",
+        "visual_inspection": "The weighted screen and resource-to-rate equations render with fractions, min/max operators, subscripts, multiplication, and parentheses. Delimiters are balanced and Colab-safe."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 25,
+        "maximum_code_line_length": 90,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "hidden_local_dependencies": false,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "sequential_execution_counts": true,
+        "catalog_target_occurrences": 1,
+        "nbconvert_html": "passed"
+      },
+      "documentation_impact": "Adds a cataloged NCS open-data tutorial and connects it explicitly to the existing area-opening, Earth-tools, reservoir-to-host, DG1, and gas-network notebooks. It documents source licensing, layer identifiers, CRS handling, resource-class aggregation, historical milestones, screening equations, units, validity boundaries, interpretation, and extensions. No NeqSim API or library documentation defect was discovered.",
+      "neqsim_improvement_issues": [],
+      "summary": "Introduces an executed, source-current NeqSim notebook that uses official live data to make NCS history an analytical variable and separates undeveloped-discovery screening from sea-area exploration potential."
+    }
+  ]
+}
