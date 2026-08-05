@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-08-05T06:05:22Z",
+  "notebooks": [
+    {
+      "path": "notebooks/process/external_nonlinear_process_optimization.ipynb",
+      "verified_date": "2026-08-05",
+      "verified_at_utc": "2026-08-05T06:05:22Z",
+      "neqsim_version": "source commit 1ef241bcdd63c8db2b688c3b275bea1782493bfb (Python bridge 3.16.0)",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "scipy_version": "1.18.0",
+      "casadi_version": "3.7.2",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-external-opt-validation --neqsim-version 3.16.0 --extra-package casadi --extra-package scipy --extra-package nbconvert --refresh --download-attempts 2 --timeout-seconds 60",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260805T053643Z-a605275942db",
+        "verified_public_pypi_wheels": 63,
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, and requested SciPy/CasADi toolchain verification passed."
+      },
+      "neqsim_source": {
+        "repository": "equinor/neqsim",
+        "ref": "master",
+        "commit": "1ef241bcdd63c8db2b688c3b275bea1782493bfb",
+        "jar_sha256": "cb568d05857618d96ec953d3da6df1a1c95308a90bbe8211c323b629119f8bd9",
+        "runtime_guard": "The notebook builds current NeqSim master before JVM startup in Colab and asserts that ProcessSimulationEvaluator and EngineeringDesignLoop are loaded from the source JAR."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 25 code cells sequentially from an empty in-process IPython namespace in the fresh SHA-verified environment against the recorded NeqSim master JAR. The clean final execution completed in 59.8 seconds with sequential counts, stored tables and six PNG figures, zero error outputs, and zero stderr. Jupyter HTML conversion passed.",
+      "code_cells": 25,
+      "substantive_code_cells": 25,
+      "markdown_cells": 28,
+      "publication": {
+        "branch": "agent/external-nonlinear-process-optimization",
+        "mode": "feature branch and pull request",
+        "commit": "the pull-request commit containing this ledger entry",
+        "files": [
+          "notebooks/process/external_nonlinear_process_optimization.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/maintenance_ledger/external_nonlinear_process_optimization.json",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "neqsim_capabilities_demonstrated": [
+        "SRK multiphase natural-gas fluid construction and TP process simulation",
+        "Stream, Cooler, vertical Separator, polytropic Compressor, aftercooler, and ProcessSystem workflows",
+        "ProcessSimulationEvaluator parameter, objective, constraint, scaling, cloning, convergence, gradient, and Jacobian APIs",
+        "native signed margins for driver power, discharge temperature, cooler duty, separator gas load, and export pressure",
+        "external scaled SciPy SLSQP and CasADi callback/IPOPT nonlinear optimization",
+        "infeasibility diagnosis and nearest-feasible restoration",
+        "epsilon-constraint throughput-energy Pareto analysis",
+        "IPOPT multiplier interpretation and finite-difference shadow-price verification",
+        "continuous optimization inside enumerated discrete brownfield upgrade packages"
+      ],
+      "engineering_validation": {
+        "assertions_failed": 0,
+        "checks": [
+          "source-built ProcessSimulationEvaluator loaded from the recorded NeqSim master JAR",
+          "base-case total mass residual 1.455192e-16",
+          "all three independent SciPy SLSQP starts converged",
+          "CasADi/IPOPT returned Solve_Succeeded",
+          "SLSQP and IPOPT optimal throughput differed by approximately 0.000001 percent",
+          "both optimizers respected normalized native margins within the 2e-4 numerical tolerance",
+          "finite-difference shadow prices agreed with IPOPT dual predictions",
+          "all upgrade-case mass residuals remained below 1e-8",
+          "a one-percent lower-rate challenge point was feasible and a one-percent higher-rate point was infeasible"
+        ],
+        "key_results": {
+          "base_feed_kg_per_h": 100000.0,
+          "base_export_gas_kg_per_h": 84040.72,
+          "base_condensate_kg_per_h": 15959.28,
+          "base_compressor_power_kw": 1498.677,
+          "base_discharge_temperature_c": 58.02092,
+          "base_inlet_cooler_duty_kw": 1353.748,
+          "base_separator_gas_load_m_per_s": 0.0175623,
+          "nearest_feasible_requested_feed_kg_per_h": 158246.77701,
+          "optimal_feed_kg_per_h": 193108.124633,
+          "optimal_cooler_outlet_c": 13.387312,
+          "optimal_discharge_pressure_bara": 122.532712,
+          "cooler_capacity_shadow_gain_kg_per_h_per_kw": 5.476871,
+          "separator_limit_shadow_gain_kg_per_h_per_m_per_s": 5271556.0,
+          "pareto_points": 9,
+          "illustrative_best_upgrade": "Integrated package",
+          "illustrative_best_upgrade_net_value_m_eur_per_y": 8.891541
+        }
+      },
+      "figures": {
+        "count": 6,
+        "purposes": [
+          "synthetic brownfield gas-conditioning and export topology",
+          "base-case pressure and temperature profiles",
+          "requested-point violation and nearest-feasible margin comparison",
+          "IPOPT dual versus finite-difference shadow-price verification",
+          "NeqSim-evaluated throughput-energy Pareto front and normalized knee",
+          "continuous capacity and illustrative annual value by discrete upgrade package"
+        ],
+        "visual_inspection": "Passed after the final clean execution. Titles, axes, labels, units, legends, colors, arrows, values, and scales are readable; no clipping, overlap, stale data, mixed-unit axes, or misleading scales remain."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_expressions_verified": 3,
+        "inline_expressions_verified": 8,
+        "renderer": "Jupyter nbconvert HTML plus an exact pdflatex equation contact sheet",
+        "visual_inspection": "Decision-vector notation, scaling fractions, dotted mass rates, bounds, aligned constraints, subscripts, superscripts, Greek multipliers, and inequalities rendered correctly with balanced Colab-safe delimiters."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 53,
+        "maximum_code_line_length": 85,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "source_master_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "sequential_execution_counts": true,
+        "catalog_target_occurrences": 1,
+        "notebook_checker": "passed"
+      },
+      "documentation_impact": "The detailed notebook, active-catalog entry, and dedicated maintenance-ledger shard are the documentation update. No NeqSim public API or separate Java documentation page required a change.",
+      "neqsim_defect_found": false,
+      "summary": "Added a long, source-master NeqSim tutorial that turns ProcessSimulationEvaluator into a reproducible external nonlinear optimization interface. It covers scaled SciPy and CasADi/IPOPT adapters, native constraint semantics and sensitivities, infeasibility restoration, dual economics, Pareto trade-offs, brownfield discrete choices, validation, limitations, troubleshooting, and exercises."
+    }
+  ]
+}
