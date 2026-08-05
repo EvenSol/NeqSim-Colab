@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "shard": 5,
-  "updated_at": "2026-08-05T02:13:00Z",
+  "updated_at": "2026-08-05T08:09:48Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/EquationsOfState.ipynb",
@@ -3171,6 +3171,139 @@
       },
       "documentation_impact": "The notebook is the documentation update. No NeqSim public API, default, or separate documentation page required a change.",
       "summary": "Modernized the weather/process tutorial on current NeqSim and Meteostat while preserving every original cell, example purpose, and figure. Added reproducible weather fallbacks, current APIs, air-property theory, compressor and native gas-turbine integration, weather sensitivity, a 136-point practical application, interpretations, limits, troubleshooting, references, exercises, equations, six figures, and focused assertions."
+    },
+    {
+      "path": "notebooks/fielddevelopment/npv.ipynb",
+      "verified_date": "2026-08-05",
+      "verified_at_utc": "2026-08-05T08:09:48Z",
+      "neqsim_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "openjdk 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "Fresh isolated validation environment; all 15 code cells executed sequentially after final code, Markdown, equation, and visualization formatting.",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-npv-20260805-0955 --neqsim-version latest --extra-package openpyxl --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260805T080021Z-c7b1653948bc",
+        "verified_public_pypi_wheels": 50,
+        "integrity": "Complete public-PyPI inventory, file-size, SHA-256, runtime, platform, and requested toolchain verification passed."
+      },
+      "code_cells": 15,
+      "markdown_cells": 21,
+      "publication": {
+        "branch": "automation/repair-fielddevelopment-npv",
+        "mode": "focused draft pull request targeting master",
+        "commit": "the atomic branch commit containing this ledger entry",
+        "files": [
+          "notebooks/fielddevelopment/npv.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/maintenance_ledger/part-005.json",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "capabilities_demonstrated": [
+        "SRK reservoir-fluid construction and multiphase flash",
+        "SimpleReservoir depletion with a gas producer and transient annual stepping",
+        "WellFlow and two Beggs-Brill well and tie-back sections",
+        "arrival-pressure control with a native Adjuster",
+        "export Compressor, Cooler, ThrottlingValve, and ProcessSystem execution",
+        "ISO 6976 heating value and composition-derived carbon factor",
+        "tax-aware discounted cash flow, break-even, coupled scenarios, and tornado ranking"
+      ],
+      "practical_application": {
+        "topic": "Six-well gas-field tie-back from reservoir through well, subsea and host pipelines, export compression, delivery, tax, and emissions.",
+        "workflow": "Configure one physical production forecast, enforce a 30 bara host-arrival constraint, calculate field-life compression and sales gas, build after-tax cash flow, solve break-even, and screen internally consistent price, CAPEX, discount-rate, OPEX, and tariff cases.",
+        "result": "Reference after-tax NPV is 4.906 billion NOK and break-even gas price is 0.651 NOK/Sm3; gas price and discount rate dominate the deterministic local sensitivity."
+      },
+      "preservation": {
+        "original_cells_preserved": "33/33",
+        "original_code_cells_preserved": "14/14",
+        "original_markdown_cells_preserved": "19/19",
+        "pre_existing_examples_preserved": 11,
+        "pre_existing_figures_preserved": "6/6",
+        "integration": "All original fluid, reservoir, well, pipeline, process, economic, break-even, emissions, and validation examples remain in their original order. The new uncertainty section follows the original price screen and reuses the same production and tax models."
+      },
+      "engineering_validation": {
+        "assertions_passed": 20,
+        "assertions_failed": 0,
+        "checks": [
+          "composition normalization and finite reservoir/process results",
+          "all 25 annual process solves converged",
+          "rate, arrival-pressure, delivery-pressure, and compressor-power constraints",
+          "monotonic pressure decline and cumulative production growth",
+          "relative process mass residual below 1e-4",
+          "CAPEX allocation, NPV component, and break-even closure",
+          "plausible ISO 6976 lower heating value and emissions direction",
+          "decision base exactly reproduces the reported NPV",
+          "NPV increases with gas price and decreases with CAPEX and discount rate"
+        ],
+        "key_results": {
+          "gas_initially_in_place_gsm3": 137.524,
+          "produced_gas_gsm3": 80.725,
+          "recovery_percent": 58.7,
+          "npv_before_tax_bn_nok": 22.77,
+          "npv_after_tax_bn_nok": 4.906,
+          "break_even_gas_price_nok_per_sm3": 0.651,
+          "maximum_relative_process_mass_residual": 0.00003135,
+          "gas_price_bound_npv_bn_nok": [
+            3.173,
+            6.64
+          ],
+          "discount_rate_bound_npv_bn_nok": [
+            3.539,
+            6.807
+          ],
+          "capex_bound_npv_bn_nok": [
+            4.459,
+            5.353
+          ],
+          "gas_turbine_lifecycle_emissions_tonnes_co2": 1680360.333,
+          "electric_driver_lifecycle_emissions_tonnes_co2e": 34184.778
+        }
+      },
+      "figures": {
+        "previous_figures_preserved": 6,
+        "previous_figures_numerically_refreshed": 6,
+        "new_figures": 2,
+        "total_retained_figures": 8,
+        "purposes": [
+          "reservoir-to-market NeqSim workflow",
+          "pressure, production, compression-power, and cumulative-gas forecast",
+          "discounted cash flow and cumulative after-tax NPV",
+          "discounted NPV component build-up",
+          "gas-price break-even sensitivity",
+          "coupled gas-price and CAPEX scenario heat map",
+          "local deterministic NPV tornado ranking",
+          "gas-turbine versus electric compression emissions"
+        ],
+        "visual_inspection": "Passed at original resolution after final execution. All eight figures have descriptive titles, explicit units, readable labels and legends, accessible colors, and no clipping, overlap, stale values, mixed-unit axes, or misleading scales."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_expressions_verified": 5,
+        "inline_expressions_verified": 10,
+        "renderer": "Jupyter-compatible single-backslash math source rendered through Matplotlib MathText in the final fresh environment.",
+        "visual_inspection": "Fractions, summations, subscripts, superscripts, Greek symbols, mass-flow over-dots, and absolute-value notation rendered correctly."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 36,
+        "maximum_code_line_length": 86,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "sequential_execution_counts": true,
+        "catalog_target_occurrences": 1,
+        "original_cells_preserved": 33,
+        "original_cell_ids_preserved": 33
+      },
+      "documentation_impact": "The notebook and its examples-catalog description are the documentation updates. No NeqSim public API or separate library documentation required a change.",
+      "summary": "Revalidated and extended the gas tie-back NPV tutorial without removing any original cell, example, or figure. Parameterized the discount rate, added coupled price-CAPEX-discount screening and an accessible tornado ranking, strengthened four monotonic and reference-case assertions, refreshed all outputs, and verified current Norwegian tax, CO2-tax, tariff, and electricity-factor sources."
     }
   ]
 }
