@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-08-05T14:23:04Z",
+  "notebooks": [
+    {
+      "path": "notebooks/process/integrated_dynamic_surf_topside_control.ipynb",
+      "verified_date": "2026-08-05",
+      "verified_at_utc": "2026-08-05T14:23:04Z",
+      "neqsim_version": "3.16.0",
+      "neqsim_python_bridge_version": "3.16.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "Executed all 18 code cells sequentially from an empty in-process IPython namespace against the exact source-built NeqSim master JAR. Retained tables and six PNG figures with zero exception outputs and zero notebook stderr. Execution completed in 38.6 seconds. Jupyter HTML and LaTeX conversion passed; all figures and seven display equations were rendered and visually inspected.",
+      "code_cells": 18,
+      "substantive_code_cells": 18,
+      "markdown_cells": 20,
+      "publication": {
+        "branch": "agent/dynamic-surf-topside-control-main",
+        "mode": "single-topic branch prepared for a draft pull request",
+        "commit": "the branch commit containing this ledger entry",
+        "files": [
+          "notebooks/process/integrated_dynamic_surf_topside_control.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json",
+          "notebooks/maintenance_ledger/integrated-dynamic-surf-topside-control.json"
+        ]
+      },
+      "neqsim_capabilities_demonstrated": [
+        "source-build bootstrap that loads the exact equinor/neqsim master JAR before the JVM starts",
+        "SRK two-phase rich-gas and condensate thermodynamics with classic mixing rule",
+        "TwoFluidPipe terrain, thermal, pressure, holdup, phase-inventory, and conservative transient calculations",
+        "LiquidAccumulationTracker terrain-volume retrieval and deterministic Lagrangian slug generation and exit tracking",
+        "native TwoFluidPipe transient outlet process-stream coupling using the accepted interval-average total flux",
+        "phase-resolved TwoFluidMassBalanceReport gas, oil, water, liquid, total-flux, and residual retrieval",
+        "native Separator VU-flash inventory, pressure, and liquid-level dynamics",
+        "native LevelTransmitter measurement with bounded PI liquid draw-off orchestration",
+        "CompressorChartGenerator five-speed export map with active surge and stonewall curves",
+        "native filtered PID ControllerDeviceBaseClass pressure control acting through compressor speed",
+        "native predictive AntiSurgeController with actuator lag, rate limit, and emergency action",
+        "stonewall-aware recycle low-select override and compressor operating-margin evidence",
+        "fresh shared Java UUID contract for every coupled physical timestep"
+      ],
+      "practical_application": "A reusable 540-second synthetic SURF-to-topside study initializes a 160 m terrain-dip and riser flowline, detects a sharp naive transient handover, conditions the conservative pipe state, transfers the native accepted outlet process stream to a 2.0 m by 6.0 m receiving separator, audits its total flow against phase-resolved conservative fluxes, drives a mapped export compressor through low-flow, restart, and high-flow events, and validates level, pressure, surge, stonewall, transport-delay, controller, interface, slug-ledger, and conservation evidence.",
+      "engineering_validation": {
+        "status": "CALCULATED_ACCEPTED",
+        "named_assertions_passed": 26,
+        "assertions_failed": 0,
+        "key_results": [
+          "raw unchanged-boundary handover detected a 16.704 outlet-to-inlet flow ratio, 0.20724 inventory jump, 1.493 bar maximum pressure-profile jump, and 0.64405 maximum liquid-holdup jump",
+          "raw and event-step TwoFluidMassBalanceReport residuals remained conservative; maximum event relative residual was 1.398e-15",
+          "the native transient outlet stream matched the conservative total report within 2.132e-14 kg/s and gas plus liquid matched the multiphase total within 1.776e-15 kg/s",
+          "five consecutive continuity-qualified steps accepted the dynamic handover after 48 seconds",
+          "270 physical event steps used 270 unique Java UUIDs",
+          "lag correlation identified a 10 second total-flow transport delay at correlation 0.7787",
+          "terrain accumulation changed by 0.11042 m3 and one deterministic terrain slug exited during conditioning with 403.125 kg recorded at the outlet and a final tracker error of 5.116e-13 kg",
+          "pipe-to-topside native stream transfer closed within 3.553e-15 kg/s",
+          "separator liquid level remained between 0.48053 and 0.50046",
+          "native anti-surge action reached 76.649 percent physical opening and closed fully after recovery",
+          "minimum native stonewall margin remained positive at 0.26005 with three sparse override steps",
+          "a filtered PID retune corrected the notebook's current-master pressure-control acceptance failure; final compressor discharge pressure was 89.1596 bara against the 90 bara target",
+          "the pressure-controller event log contains one event for each of the 270 physical timesteps",
+          "all 26 named engineering gates passed and no new actionable NeqSim multiphase defect was detected"
+        ]
+      },
+      "retained_figures": {
+        "count": 6,
+        "purposes": [
+          "integrated SURF, separator, compressor, export, and recycle calculation boundary",
+          "terrain, pressure and holdup raw handover comparison with dynamic conditioning",
+          "native five-speed compressor map with sampled surge and stonewall boundaries",
+          "deterministic 540-second inlet disturbance schedule",
+          "transported flow, liquid arrival, terrain inventory, tracked slug, and separator-level response",
+          "plant pressure, compressor speed, native map margins, and anti-surge recycle arbitration"
+        ],
+        "visual_inspection": "Passed after the final clean execution. All six stored PNG figures were extracted and inspected at original resolution for titles, labels, SI units, legends, colors, scales, clipping, overlap, and agreement with retained tables. The slug panel clearly shows that its single terrain slug exited during conditioning, and the filtered pressure-controller response is visible without clipping."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 7,
+        "source_rule": "Compact dollar delimiters with no touching whitespace and single-backslash LaTeX compatible with Colab MathJax.",
+        "visual_inspection": "All seven display equations independently rendered through LaTeX/amsmath and passed visual inspection for fractions, subscripts, dotted mass flow, maxima, integrals, and operators."
+      },
+      "readability": {
+        "maximum_python_line_length": 83,
+        "checks": "No wildcard imports, semicolon chains, compressed one-line compound bodies, or notebook shell magics."
+      },
+      "neqsim_source": {
+        "repository": "https://github.com/equinor/neqsim",
+        "requested_ref": "master",
+        "resolved_commit": "7ae08253b45180045a99a700314f23c9a7001b3c",
+        "runtime_jar": "neqsim-3.16.0.jar",
+        "runtime_jar_sha256": "174ba787649c63b3d709ce439bd326284aa91861adaaf6b8d164816ce3c7db3c",
+        "classpath_assertion": "TwoFluidMassBalanceReport and the corrected LagrangianSlugTracker outlet-mass API loaded from the source-built runtime JAR before any simulation class was imported"
+      },
+      "validated_upstream_corrections": [
+        {
+          "url": "https://github.com/equinor/neqsim/issues/2813",
+          "pull_request": "https://github.com/equinor/neqsim/pull/2815",
+          "validation": "closed issue; final integrated-notebook tracker residual was 5.116e-13 kg after one slug exited"
+        },
+        {
+          "url": "https://github.com/equinor/neqsim/issues/2814",
+          "pull_request": "https://github.com/equinor/neqsim/pull/2816",
+          "validation": "closed issue; native outlet-stream total matched the conservative report within 2.132e-14 kg/s"
+        }
+      ],
+      "limitations": "Synthetic fluid, compact route, explicit staggered coupling, feed-matched separator gas draw, first-order recycle flow, generated teaching compressor map, and calculated surge entry are not a field control design. Real use requires governed PVT and route data, mesh and timestep convergence, strong-coupling review, valve and header volumes, vendor maps and transient limits, recycle piping and cooler, trip logic, uncertainty, and independent verification.",
+      "summary": "Updated the detailed current-master NeqSim tutorial to couple the corrected native TwoFluidPipe outlet process stream directly into the dynamic topside model while retaining phase-resolved conservative audits. The notebook validates the merged fixes for issues #2813 and #2814, closes the slug ledger after exit, identifies and corrects a notebook PID-tuning failure against current master, conditions the sharp steady-to-dynamic handover, and passes all 26 named gates."
+    }
+  ]
+}
