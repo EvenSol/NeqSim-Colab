@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "shard": "european-gas-oil-market-refinery-20260805",
+  "updated_at": "2026-08-05T16:15:30Z",
+  "shared_environment": {
+    "python_version": "3.12.13",
+    "java_version": "OpenJDK 17.0.19",
+    "neqsim_python_bridge_version": "3.16.0",
+    "numpy_version": "2.5.1",
+    "pandas_version": "3.0.5",
+    "scipy_version": "1.18.0",
+    "matplotlib_version": "3.11.1",
+    "networkx_version": "3.6.1",
+    "nbconvert_version": "7.17.1",
+    "environment_resolution": {
+      "mode": "online-new-snapshot",
+      "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-gas-market-validation --neqsim-version latest --extra-package nbformat --extra-package ipython --extra-package matplotlib --extra-package pandas --extra-package numpy --extra-package cairosvg --extra-package jpype1 --extra-package scipy --extra-package networkx --extra-package nbconvert --refresh",
+      "integrity": "Fresh public-PyPI wheel snapshot and isolated virtual environment; notebook execution used an empty in-process IPython namespace because local kernel sockets are unavailable in the restricted runner."
+    },
+    "neqsim_source": {
+      "repository": "equinor/neqsim",
+      "ref": "master",
+      "commit": "7ae08253b45180045a99a700314f23c9a7001b3c",
+      "gas_notebook_jar_sha256": "03c88c492eca2c989aed2a8495248d68f85e29c260609d7386f599c903bd96d7",
+      "oil_notebooks_validation_jar_sha256": "d1bdf734644537f2304d17e2e354008c48f189858a9055cc6c5aee11034344ba",
+      "validation_overlay": "The source-first local JAR was compiled from current master with its runtime dependencies. The oil notebooks were validated after applying the focused ASTM D4052 fix from upstream PR #2829; each Colab notebook builds current master directly and the crude-sales notebook retains an explicit oil-phase fallback until that fix merges.",
+      "runtime_guard": "Every notebook asserts that the NeqSim classes it uses resolve to the recorded source-built JAR before calculations begin."
+    },
+    "publication": {
+      "branch": "agent/european-gas-oil-market-refinery",
+      "mode": "focused draft pull request",
+      "catalog": "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+      "ledger_index": "notebooks/notebook_maintenance_ledger.json"
+    }
+  },
+  "notebooks": [
+    {
+      "path": "notebooks/gasvaluechain/european_gas_sales_market_foundation.ipynb",
+      "verified_date": "2026-08-05",
+      "verified_at_utc": "2026-08-05T16:15:30Z",
+      "execution_status": "passed",
+      "execution_method": "Executed all 20 code cells sequentially from an empty in-process IPython namespace; retained seven PNG figures, tables, and structured results with zero error outputs. Repository notebook checker and Jupyter HTML conversion passed.",
+      "code_cells": 20,
+      "substantive_code_cells": 20,
+      "markdown_cells": 20,
+      "git_blob_sha1": "d27d26d04957f4b43cf44376c006914c85e93fa8",
+      "neqsim_capabilities_demonstrated": [
+        "source-built SRK gas thermodynamics loaded directly through JPype",
+        "ISO 6976 gross and net calorific value, relative density, and Wobbe index",
+        "energy-volume settlement for composition changes",
+        "composable Stream, Compressor, and ProcessSystem export-compression screen"
+      ],
+      "integrated_workflow": [
+        "consumer contract, cost, procurement, hedge, and reliability views",
+        "transporter booking, nomination, allocation, imbalance, utilization, and invoices",
+        "producer route, quality, compression-cost, and netback views",
+        "ENTSOG, GIE, Eurostat, ACER, Gassco, NetworkX, and SciPy integration map"
+      ],
+      "engineering_validation": {
+        "named_assertions_passed": 12,
+        "assertions_failed": 0,
+        "key_results": {
+          "gross_calorific_value_mj_sm3": 39.551652386668074,
+          "compression_power_mw": 13.696341725656794,
+          "dispatch_marginal_price_eur_mwh": 34.7,
+          "consumer_delivered_cost_eur_mwh": 37.150000000000006,
+          "producer_netback_eur_mwh": 24.79056380768381,
+          "external_cash_residual_eur_mwh": 0.0
+        }
+      },
+      "figures": {
+        "count": 7,
+        "visual_inspection": "Passed after final execution. Quality sensitivity, physical network, dispatch stack, consumer cost, procurement risk, nomination/imbalance, and producer netback views have readable titles, axes, units, legends, labels, and unclipped topology."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_expressions_verified": 2,
+        "renderer": "Jupyter nbconvert HTML with MathJax plus an exact pdflatex equation contact sheet",
+        "visual_inspection": "Energy-volume settlement and constrained-dispatch notation rendered with correct subscripts, superscripts, sums, inequalities, and units."
+      },
+      "data_policy": "No live endpoint was called. Every market, capacity, price, demand, nomination, and cost value is a dated synthetic teaching input; official acquisition routes and licence caveats are documented."
+    },
+    {
+      "path": "notebooks/gasvaluechain/european_crude_oil_sales_foundation.ipynb",
+      "verified_date": "2026-08-05",
+      "verified_at_utc": "2026-08-05T16:15:30Z",
+      "execution_status": "passed",
+      "execution_method": "Executed all 13 code cells sequentially from an empty in-process IPython namespace; retained three PNG figures, tables, and structured results with zero error outputs. Repository notebook checker and Jupyter HTML conversion passed.",
+      "code_cells": 13,
+      "substantive_code_cells": 13,
+      "markdown_cells": 15,
+      "git_blob_sha1": "410aa44cdca56ae318c36323ae11e7c57123eee2",
+      "neqsim_capabilities_demonstrated": [
+        "Peng-Robinson synthetic crude with explicit light components and six TBP fractions",
+        "ASTM D4052 density/API gravity and ASTM D6377-equivalent vapour-pressure integration",
+        "normal-boiling-point cut mapping and mass-yield closure",
+        "explicit liquid-phase custody-density safeguard for volatile crude"
+      ],
+      "integrated_workflow": [
+        "sale contract, nomination, laycan, bill of lading, quality, quantity, pricing, invoice, and true-up records",
+        "terminal, pipeline, tanker, inspection, freight, and demurrage ledger",
+        "refinery-buyer gross-product-worth screen and producer netback",
+        "Eurostat Comext, UN Comtrade, EIA, World Bank, AIS, pandas, SciPy, and NeqSim tool map"
+      ],
+      "engineering_validation": {
+        "named_assertions_passed": 13,
+        "assertions_failed": 0,
+        "key_results": {
+          "density_kg_m3": 868.4399350588111,
+          "api_gravity_deg": 31.275522282294617,
+          "rvp_bara": 0.3068,
+          "net_cargo_bbl": 598881.7733990148,
+          "cargo_price_usd_bbl": 79.68434922709021,
+          "buyer_screening_margin_usd_bbl": -6.803916335948372,
+          "producer_netback_usd_bbl": 60.484349227090206,
+          "external_cash_residual_usd_bbl": 0.0
+        }
+      },
+      "figures": {
+        "count": 3,
+        "visual_inspection": "Passed after final execution. Broad-cut yield, benchmark quotation-period, and physical custody-chain views have readable units, dates, labels, legends, nodes, and arrows without clipping or overlap."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_expressions_verified": 2,
+        "renderer": "Jupyter nbconvert HTML with MathJax plus an exact pdflatex equation contact sheet",
+        "visual_inspection": "Net standard quantity and benchmark-plus-differential pricing rendered with correct subscripts, ampersand, products, and additions."
+      },
+      "known_upstream_issue": "https://github.com/equinor/neqsim/issues/2828",
+      "upstream_fix": "https://github.com/equinor/neqsim/pull/2829",
+      "data_policy": "All assay, price, quantity, logistics, and cost values are synthetic teaching inputs. Licensed benchmarks, actual contracts, inspection procedures, and measurement standards remain external."
+    },
+    {
+      "path": "notebooks/process/neqsim_oil_refinery_simulation_foundation.ipynb",
+      "verified_date": "2026-08-05",
+      "verified_at_utc": "2026-08-05T16:15:30Z",
+      "execution_status": "passed",
+      "execution_method": "Executed all 14 code cells sequentially from an empty in-process IPython namespace; retained four PNG figures and complete balances with zero error outputs. Repository notebook checker and Jupyter HTML conversion passed.",
+      "code_cells": 14,
+      "substantive_code_cells": 14,
+      "markdown_cells": 16,
+      "git_blob_sha1": "f03c8b08c18225064a258f9eb0764441aadf6437",
+      "neqsim_capabilities_demonstrated": [
+        "source-built Peng-Robinson crude characterization with TBP fractions",
+        "Stream, Heater, Separator, and ProcessSystem refinery front-end flowsheet",
+        "preflash and atmospheric flash-zone equilibrium recovery",
+        "NeqSim heater duties and direct temperature-sensitivity cases"
+      ],
+      "integrated_workflow": [
+        "component, mass, energy, and boiling-range recovery reconciliation",
+        "heat recovery, fuel, direct CO2, and intensity scenarios",
+        "gross-product-worth and variable-refining-margin screen",
+        "SciPy constrained two-crude planning illustration and links to oil sales and existing refinery notebooks"
+      ],
+      "engineering_validation": {
+        "named_assertions_passed": 17,
+        "assertions_failed": 0,
+        "key_results": {
+          "feed_kg_h": 100000.0,
+          "preflash_vapour_kg_h": 1776.4779,
+          "flash_zone_vapour_kg_h": 38966.6575,
+          "atmospheric_residue_kg_h": 59256.8646,
+          "mass_residual_kg_h": 2.321e-8,
+          "maximum_component_residual_mol_s": 8.097e-12,
+          "preheater_duty_mw": 9.456718,
+          "atmospheric_furnace_duty_mw": 14.931989,
+          "purchased_heat_at_60_percent_recovery_mw": 18.715,
+          "direct_co2_at_60_percent_recovery_t_h": 4.295,
+          "base_screening_margin_usd_bbl": -5.94,
+          "optimized_variable_margin_kusd_day": -501.39
+        }
+      },
+      "figures": {
+        "count": 4,
+        "visual_inspection": "Passed after final execution. Feed cut yield, cut-recovery heat map, paired heat/emissions scenarios, and temperature-duty sensitivity have readable labels, units, annotations, colour contrast, and scales."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_expressions_verified": 0,
+        "renderer": "Jupyter nbconvert HTML",
+        "visual_inspection": "Markdown, tables, inline technical notation, and units render cleanly; this notebook intentionally expresses balances in auditable tables rather than display equations."
+      },
+      "model_boundary": "Equilibrium front-end screening only. Rigorous CDU fractionation, hydraulics, heat-exchanger-network design, product blending, reaction kinetics, catalyst ageing, sulfur recovery, fouling, safety studies, and licensed refinery planning remain outside scope.",
+      "data_policy": "All assay, operating, price, product-value, utility, emission-factor, and planning inputs are synthetic teaching assumptions."
+    }
+  ]
+}
