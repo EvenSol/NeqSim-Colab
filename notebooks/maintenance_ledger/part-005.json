@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "shard": 5,
-  "updated_at": "2026-08-04T20:13:08Z",
+  "updated_at": "2026-08-05T02:13:00Z",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/EquationsOfState.ipynb",
@@ -2366,6 +2366,138 @@
         "the current well-simulation guide, WellFlow source, pipeline guide, catalog, badge, and public PyPI 3.16.0 references were checked on 2026-07-21"
       ],
       "summary": "Rebuilt the legacy well-calculation sketch as an executed gas-well inflow, vertical-lift, and nodal-analysis tutorial. Replaced obsolete Colab magics, wildcard imports, double-escaped equations, duplicated imports, compressed code, stale video links, an inconsistent SI gas-deliverability equation that produced an implausible rate, and unverified standalone curve fits. Added a public synthetic SRK gas, current WellFlow Fetkovich and PipeBeggsAndBrills APIs, independent IPR reconstruction, segmented pressure and temperature profiles, an adaptive bracketed operating-point solve, mass and component closure, an independent hydraulic scale check, tubing, backpressure, and depletion sensitivities, limitations, references, exercises, five plots, and focused assertions."
+    },
+    {
+      "path": "notebooks/reservoir/ert_neqsim_integrated_field_development.ipynb",
+      "verified_date": "2026-08-05",
+      "verified_at_utc": "2026-08-05T02:13:00Z",
+      "neqsim_version": "3.16.0",
+      "ert_version": "23.0.1",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-ert-field-20260805-0404 --neqsim-version latest --extra-package ert==23.0.1 --refresh",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.16.0/20260805T020826Z-f3af9c5ffe9a",
+        "verified_public_pypi_wheels": 155,
+        "manifest_created_at_utc": "2026-08-05T02:08:26Z",
+        "integrity": "Complete public-PyPI wheel inventory, size, SHA-256, runtime, platform, NeqSim, ERT, and requested toolchain verification passed."
+      },
+      "execution_status": "passed",
+      "execution_method": "All 25 code cells executed sequentially from an empty in-process namespace. ERT lint and deterministic prior sampling prepared 24 runpaths. Because this validation sandbox forbids ERT's local ZeroMQ IPC socket, the documented restricted-runner path executed the exact installed forward model in each ERT-prepared runpath with the configured two-worker limit. All 24 realizations completed with stored tables and eight PNG figures, zero exceptions, zero error outputs, and zero notebook stderr.",
+      "code_cells": 25,
+      "markdown_cells": 25,
+      "publication": {
+        "branch": "automation/repair-ert-integrated-field-development",
+        "mode": "focused draft pull request from current master",
+        "files": [
+          "notebooks/reservoir/ert_neqsim_integrated_field_development.ipynb",
+          "notebooks/maintenance_ledger/part-005.json",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "existing_content_preservation": {
+        "pre_existing_cells": 50,
+        "pre_existing_code_cells": 25,
+        "pre_existing_markdown_cells": 25,
+        "pre_existing_examples": 11,
+        "pre_existing_figures": 8,
+        "preserved_examples": [
+          "ERT GEN_KW prior definition, GEN_DATA response registration, local queue, custom installed job, configuration generation, and lint",
+          "40-cell explicit finite-volume Corey waterflood",
+          "tank material-balance pressure response",
+          "productivity-index well nodal calculation",
+          "SURF hydraulic and arrival-pressure screening",
+          "SRK-CPA inlet choke, three-phase separation, export compression, and aftercooling at peak oil, gas, and water loads",
+          "field production, recovery, and NPV10 calculation",
+          "petroleum-value and load quantiles",
+          "facility-capacity exceedance probabilities",
+          "Spearman uncertainty-driver screening",
+          "internally consistent representative low, median, and high value cases"
+        ],
+        "repairs": "Preserved every original cell, example, output type, and figure. Added an explicit ERT socket-capability probe and a bounded restricted-runtime execution path. When local IPC is unavailable, ERT still owns configuration validation, prior sampling, and runpath generation; the same installed forward model then runs every prepared realization under the original two-worker limit. Native ERT scheduling remains the preferred Google Colab path."
+      },
+      "neqsim_capabilities_demonstrated": [
+        "SRK-CPA multiphase fluid construction and TP flashes",
+        "Stream and ThrottlingValve inlet-pressure conditioning",
+        "ThreePhaseSeparator gas, oil, and aqueous product splitting",
+        "Compressor outlet-pressure and isentropic-efficiency calculation",
+        "Cooler temperature specification and heat-duty retrieval",
+        "ProcessSystem composition and steady-state execution",
+        "phase-safe product flow retrieval and exact process mass closure",
+        "repeated fresh NeqSim process evaluation across 72 peak-load snapshots"
+      ],
+      "practical_application": "A reproducible 24-realization field-development workflow propagates reservoir, well, SURF, availability, and fluid uncertainty through production and economics. Each realization runs three NeqSim facility snapshots, then ranks resource and value outcomes, identifies gas and oil capacity risk, screens dominant uncertainty drivers, and selects internally consistent low, median, and high value cases for tie-in and debottleneck decisions.",
+      "engineering_validation": {
+        "notebook_level_checks_passed": 6,
+        "per_realization_checks_passed": 10,
+        "realizations": 24,
+        "failed_realizations": 0,
+        "checks": [
+          "all 24 ERT-sampled realizations completed",
+          "all ensemble responses were finite",
+          "production rates were nonnegative and recoverable-oil bounds held",
+          "reservoir pressure and water saturation stayed within physical limits",
+          "arrival pressure supported separator operation",
+          "NeqSim compressor raised pressure with positive power",
+          "NeqSim cooler removed heat",
+          "maximum NeqSim process mass residual was 0.0 kg/s",
+          "petroleum-value and ordinary-load quantiles were ordered",
+          "restricted-runner and native-scheduler paths use the same model inputs and outputs"
+        ],
+        "key_results": {
+          "p50_cumulative_oil_msm3": 21.651,
+          "p50_npv10_bn_nok": 24.924,
+          "q50_peak_gas_msm3_day": 1.903,
+          "q50_peak_compressor_power_mw": 3.526,
+          "gas_handling_exceedance_probability": 0.291667,
+          "oil_handling_exceedance_probability": 0.083333,
+          "maximum_process_mass_residual_kg_s": 0.0
+        }
+      },
+      "figures": {
+        "previous_figures_preserved": 8,
+        "previous_figures_numerically_refreshed": 8,
+        "new_figures": 0,
+        "total_retained_figures": 8,
+        "purposes": [
+          "ERT scalar prior ranges",
+          "cumulative-oil, compressor-power, and NPV ensemble distributions",
+          "oil, gas, water, and reservoir-pressure uncertainty envelopes",
+          "representative final finite-volume waterflood states",
+          "NeqSim compressor-power and aftercooler-duty responses",
+          "conditional facility-capacity exceedance risk",
+          "NPV uncertainty-driver rank correlations",
+          "representative oil-rate and reservoir-pressure forecasts"
+        ],
+        "visual_inspection": "Passed at original resolution after the final clean execution. All eight refreshed figures have descriptive titles, readable labels, explicit units, appropriate legends, accessible colors, physically consistent scales and trends, and no clipping or overlap."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_expressions_verified": 6,
+        "inline_expressions_verified": 9,
+        "renderer": "Single-backslash Jupyter-compatible source rendered through Matplotlib MathText in the fresh environment.",
+        "visual_inspection": "Corey saturation, relative permeability, fractional flow, finite-volume update, tank material balance, and nodal deliverability equations rendered with correct fractions, subscripts, superscripts, Greek symbols, brackets, and units."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 50,
+        "maximum_code_line_length": 81,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "sequential_execution_counts": true,
+        "catalog_target_occurrences": 1,
+        "original_cells_preserved": 50,
+        "original_cell_ids_preserved": 50
+      },
+      "documentation_impact": "The notebook now documents native ERT scheduling and the verified restricted-runner path. No NeqSim public API, default, or separate Java documentation page required a change.",
+      "summary": "Repaired the ERT-NeqSim integrated field-development notebook for runtimes that prohibit local ZeroMQ sockets. Preserved and numerically refreshed all 50 original cells, 11 substantive examples, and eight figures; retained native ERT scheduling for Colab; and added a deterministic fallback that reuses ERT-sampled runpaths and executes the exact NeqSim forward model for every realization."
     },
     {
       "path": "notebooks/reservoir/ensamble_based_modelling.ipynb",
