@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "shard": "complete-value-chain-lifecycle-20260806",
-  "updated_at": "2026-08-06T14:27:00Z",
+  "updated_at": "2026-08-06T14:25:00Z",
   "notebooks": [
     {
       "path": "notebooks/valuechain/complete_oil_and_gas_value_chain_with_neqsim.ipynb",
