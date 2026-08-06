@@ -1,0 +1,232 @@
+{
+  "schema_version": 1,
+  "shard": "wells-operations-produced-water-20260806",
+  "updated_at": "2026-08-06T12:40:00Z",
+  "notebooks": [
+    {
+      "path": "notebooks/well/integrated_wells_drilling_completion_lift_injection_intervention.ipynb",
+      "verified_date": "2026-08-06",
+      "verified_at_utc": "2026-08-06T12:40:00Z",
+      "neqsim_version": "3.16.0 source build",
+      "neqsim_java_commit": "df68ad7295b9dae6a324d941761a303d9f301fb5",
+      "neqsim_jar_sha256": "45180d03ae275a12bc50342a098c50dae93fe544b69686cf3c588880fe67c58c",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "numpy_version": "2.5.1",
+      "pandas_version": "3.0.5",
+      "scipy_version": "1.18.0",
+      "matplotlib_version": "3.11.1",
+      "jpype_version": "1.7.1",
+      "execution_status": "passed",
+      "execution_method": "Executed all 9 code cells sequentially from an empty in-process IPython namespace with scripts/execute_notebook_inprocess.py and the compiled current NeqSim Java master classes. The final clean run completed in 3.1 seconds, retained every result-bearing output, stored three PNG figures, and produced zero error outputs or captured stderr.",
+      "code_cells": 9,
+      "substantive_code_cells": 9,
+      "markdown_cells": 9,
+      "git_blob_sha1": "8b87b9d5a3592e7908b7d811e2df318d7dcf3d89",
+      "notebook_bytes": 217490,
+      "publication": {
+        "branch": "agent/integrated-operations-water-value-chain",
+        "mode": "focused draft pull request",
+        "files": [
+          "notebooks/well/integrated_wells_drilling_completion_lift_injection_intervention.ipynb",
+          "notebooks/operations/operations_asset_management_with_neqsim.ipynb",
+          "notebooks/production/produced_water_sand_chemicals_management.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json",
+          "notebooks/maintenance_ledger/wells_operations_produced_water_20260806.json"
+        ]
+      },
+      "python_capabilities_demonstrated": [
+        "minimum-curvature trajectory calculation and spatial visualization",
+        "completion-skin productivity sensitivity and engineering-validity screening",
+        "lifecycle tables, operating-envelope plots, and controlled handoffs"
+      ],
+      "neqsim_capabilities_demonstrated": [
+        "source-built SubseaWell class provenance",
+        "WellCostEstimator drilling and completion cost breakdown",
+        "ArtificialLiftScreener method ranking",
+        "InjectionWellModel rate, pressure limit, and pump screen",
+        "WellIntegrityScreening and AcidTreatmentSimulator intervention evidence"
+      ],
+      "engineering_validation": {
+        "named_assertions_passed": 6,
+        "assertions_failed": 0,
+        "checks": [
+          "trajectory TVD is monotonic and dogleg severity remains below 3 deg/30 m",
+          "well cost components are positive and close inside total cost",
+          "reported-feasible lift results receive independent non-negative rate and power validation",
+          "injection rate respects target and maximum-BHP constraints",
+          "acid dissolution remains bounded from 0 to 100 percent",
+          "main-only source class resolves to the exact built master JAR"
+        ]
+      },
+      "result_summary": {
+        "measured_depth_m": 3400.0,
+        "true_vertical_depth_m": 2738.0,
+        "screening_well_cost_musd": 77.52,
+        "recommended_lift": "GAS_LIFT",
+        "recommended_lift_rate_sm3d": 2067.0,
+        "maximum_achievable_water_injection_sm3d": 3893.0,
+        "integrity_disposition": "INTERVENTION_REQUIRED",
+        "acid_scale_dissolved_kg": 1570.0
+      },
+      "rendered_visual_validation": {
+        "renderer": "nbconvert 7.17.1 Jupyter HTML with MathJax source plus Matplotlib MathText equation audit",
+        "display_equations_inspected": 2,
+        "figures_inspected": 3,
+        "result": "passed",
+        "notes": "All equations and retained figures were inspected at original resolution for symbols, labels, units, scales, legends, clipping, contrast, and consistency with stored tables."
+      },
+      "known_upstream_issues": [
+        "https://github.com/equinor/neqsim/issues/2858",
+        "https://github.com/equinor/neqsim/issues/2860"
+      ],
+      "issue_handling": "A Python validity overlay excludes the negative feasible rod-pump result from decision plots, duplicate integrity findings are deduplicated for display, and both upstream defects are linked in the notebook."
+    },
+    {
+      "path": "notebooks/operations/operations_asset_management_with_neqsim.ipynb",
+      "verified_date": "2026-08-06",
+      "verified_at_utc": "2026-08-06T12:40:00Z",
+      "neqsim_version": "3.16.0 source build",
+      "neqsim_java_commit": "df68ad7295b9dae6a324d941761a303d9f301fb5",
+      "neqsim_jar_sha256": "45180d03ae275a12bc50342a098c50dae93fe544b69686cf3c588880fe67c58c",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "numpy_version": "2.5.1",
+      "pandas_version": "3.0.5",
+      "scipy_version": "1.18.0",
+      "matplotlib_version": "3.11.1",
+      "jpype_version": "1.7.1",
+      "execution_status": "passed",
+      "execution_method": "Executed all 10 code cells sequentially from an empty in-process IPython namespace with scripts/execute_notebook_inprocess.py and the compiled current NeqSim Java master classes. The final clean run completed in 4.0 seconds, retained every result-bearing output, stored four PNG figures, and produced zero error outputs or captured stderr.",
+      "code_cells": 10,
+      "substantive_code_cells": 10,
+      "markdown_cells": 10,
+      "git_blob_sha1": "5d0d3f39f8d8498670a76deb9032114678d51b0d",
+      "notebook_bytes": 216877,
+      "publication": {
+        "branch": "agent/integrated-operations-water-value-chain",
+        "mode": "focused draft pull request"
+      },
+      "python_capabilities_demonstrated": [
+        "right-censored Weibull maximum-likelihood fitting with SciPy",
+        "condition trend and threshold projection",
+        "shared-crew event simulation for corrective, calendar, and condition-based policies",
+        "uncertainty-weighted daily mass-balance reconciliation"
+      ],
+      "neqsim_capabilities_demonstrated": [
+        "source-built OperationalRiskSimulator class provenance",
+        "SRK separator and compressor physical baseline",
+        "ProductionImpactAnalyzer raw equipment-trip consequences",
+        "native operational-risk Monte Carlo cross-check"
+      ],
+      "engineering_validation": {
+        "named_assertions_passed": 6,
+        "assertions_failed": 0,
+        "checks": [
+          "process export rate and compressor power are finite and positive",
+          "raw NeqSim rate consequence remains visible while pressure/specification and topology gates define saleable-production loss",
+          "censored Weibull fit converges to positive parameters",
+          "simulated policy availability remains between zero and one",
+          "native NeqSim availability remains between zero and 100 percent",
+          "daily reconciled meter balance closes below 1e-8 tonnes"
+        ]
+      },
+      "result_summary": {
+        "baseline_export_kg_h": 10000.0,
+        "baseline_compressor_power_kw": 262.3,
+        "weibull_shape": 2.17,
+        "weibull_scale_h": 10836.0,
+        "highest_mean_policy_availability": 0.9494,
+        "native_mean_availability_percent": 99.44,
+        "reconciled_30_day_deferred_tonnes": 353.0
+      },
+      "rendered_visual_validation": {
+        "renderer": "nbconvert 7.17.1 Jupyter HTML with MathJax source plus Matplotlib MathText equation audit",
+        "display_equations_inspected": 2,
+        "figures_inspected": 4,
+        "result": "passed",
+        "notes": "All equations and four retained figures were inspected at original resolution; the availability axis and accounting labels were corrected before the final render."
+      },
+      "known_upstream_issue": "https://github.com/equinor/neqsim/issues/2859",
+      "issue_handling": "The notebook keeps the raw zero-rate-loss result visible, adds explicit saleable-product pressure/specification and no-bypass topology gates, and links the upstream issue."
+    },
+    {
+      "path": "notebooks/production/produced_water_sand_chemicals_management.ipynb",
+      "verified_date": "2026-08-06",
+      "verified_at_utc": "2026-08-06T12:40:00Z",
+      "neqsim_version": "3.16.0 source build",
+      "neqsim_java_commit": "df68ad7295b9dae6a324d941761a303d9f301fb5",
+      "neqsim_jar_sha256": "45180d03ae275a12bc50342a098c50dae93fe544b69686cf3c588880fe67c58c",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "numpy_version": "2.5.1",
+      "pandas_version": "3.0.5",
+      "scipy_version": "1.18.0",
+      "matplotlib_version": "3.11.1",
+      "jpype_version": "1.7.1",
+      "execution_status": "passed",
+      "execution_method": "Executed all 13 code cells sequentially from an empty in-process IPython namespace with scripts/execute_notebook_inprocess.py and the compiled current NeqSim Java master classes. The final clean run completed in 7.8 seconds, retained every result-bearing output, stored five PNG figures, and produced zero error outputs or captured stderr.",
+      "code_cells": 13,
+      "substantive_code_cells": 13,
+      "markdown_cells": 13,
+      "git_blob_sha1": "6e40f19e02aa5c5d6c0873f63538d2186d908f64",
+      "notebook_bytes": 303736,
+      "publication": {
+        "branch": "agent/integrated-operations-water-value-chain",
+        "mode": "focused draft pull request"
+      },
+      "python_capabilities_demonstrated": [
+        "flow-weighted monthly oil-in-water and dispersed-oil accounting",
+        "treatment, compatibility, hydrate, sand, chemical, and emissions scenario orchestration",
+        "MEG and TEG circulation, recovery, make-up, and explicit-factor inventory balances"
+      ],
+      "neqsim_capabilities_demonstrated": [
+        "source-built physics-based produced-water Hydrocyclone class provenance",
+        "SRK-CPA ThreePhaseSeparator phase split and produced-water properties",
+        "ProducedWaterTreatmentTrain and hydrocyclone liner, d50, DSD, turndown, and OIW screening",
+        "WaterCompatibilityScreener, CO2CorrosionAnalyzer, HydrateRiskMapper, and ErosionPredictionCalculator",
+        "ProducedWaterDegassingSystem methane, CO2, and CO2e inventory"
+      ],
+      "engineering_validation": {
+        "named_assertions_passed": 9,
+        "assertions_failed": 0,
+        "checks": [
+          "three-phase outlet mass closes within two percent of inlet",
+          "hydrocyclone efficiency is bounded and liner count is positive",
+          "d50 marker and grade-efficiency curve use the same calculated cut size",
+          "monthly dispersed-oil mass closes from flow and concentration",
+          "corrosion and sand-erosion rates are non-negative",
+          "hydrate equilibrium is finite at every profile point",
+          "glycol and chemical make-up does not exceed circulation",
+          "direct and embedded emissions remain finite and non-negative",
+          "main-only hydrocyclone class resolves to the exact built master JAR"
+        ]
+      },
+      "result_summary": {
+        "produced_water_m3_h": 66.61,
+        "hydrocyclone_active_liners": 14,
+        "hydrocyclone_d50_microns": 8.02,
+        "hydrocyclone_dsd_efficiency": 0.9319,
+        "monthly_flow_weighted_oiw_mg_l": 5.395,
+        "worst_scale": "BaSO4",
+        "worst_scale_si": 4.04,
+        "minimum_hydrate_margin_c": -12.18,
+        "maximum_screened_sand_erosion_mm_y": 0.0213,
+        "chemical_makeup_kg_d": 17838.0,
+        "screened_total_emissions_kgco2e_d": 1035896.0
+      },
+      "rendered_visual_validation": {
+        "renderer": "nbconvert 7.17.1 Jupyter HTML with MathJax source plus Matplotlib MathText equation audit",
+        "display_equations_inspected": 1,
+        "figures_inspected": 5,
+        "result": "passed",
+        "notes": "The retained figures were inspected at original resolution. The d50 curve consistency and scale-plot range were corrected before the final render; equations, units, legends, limits, and compliance line were verified."
+      },
+      "regulatory_basis": [
+        "https://www.ospar.org/documents?v=32591",
+        "https://www.ospar.org/documents?v=43939"
+      ]
+    }
+  ]
+}
