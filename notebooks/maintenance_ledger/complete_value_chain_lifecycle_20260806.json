@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "shard": "complete-value-chain-lifecycle-20260806",
-  "updated_at": "2026-08-06T14:19:00Z",
+  "updated_at": "2026-08-06T14:27:00Z",
   "notebooks": [
     {
       "path": "notebooks/valuechain/complete_oil_and_gas_value_chain_with_neqsim.ipynb",
@@ -71,6 +71,22 @@
         "result": "passed",
         "notes": "Every equation and retained figure was inspected at original resolution for labels, units, legends, clipping, contrast, scales, and consistency with stored tables."
       },
+      "preservation_validation": {
+        "original_cells_preserved": 16,
+        "cells_removed": 0,
+        "pre_existing_examples_preserved": 4,
+        "pre_existing_figures_preserved": 4,
+        "figure_values_refreshed": 4,
+        "new_figures_added": 0,
+        "examples": [
+          "eight-stage value-chain workflow overview",
+          "SRK-CPA phase split and export-compression handoff",
+          "field-life load, constraint, energy, and emissions screen",
+          "NeqSim capability-role matrix"
+        ],
+        "integration": "The four original examples remain in their original learning order, share the public-PyPI provenance setup, and build from the handoff map through a reusable NeqSim phase-split/compression workflow to field-life and capability interpretation."
+      },
+      "practical_application": "A reproducible field-inlet workflow configures SRK-CPA fluid composition, runs a three-phase separator, retrieves phase mass rates, closes the balance, estimates export-compression duty, varies field-life loads, and identifies the migrating capacity constraint.",
       "known_upstream_issues": [],
       "issue_handling": "No new NeqSim defect was found. The notebook uses stable current-master APIs and records the reduced field-life assumptions explicitly.",
       "artifact_origin": "public-pypi",
@@ -147,6 +163,25 @@
         "result": "passed",
         "notes": "All equations and six retained figures were inspected at original resolution. The discharge-temperature offset axis and the shutdown inventory/temperature separation were corrected before the final clean render."
       },
+      "preservation_validation": {
+        "original_cells_preserved": 22,
+        "cells_removed": 0,
+        "pre_existing_examples_preserved": 7,
+        "pre_existing_figures_preserved": 6,
+        "figure_values_refreshed": 6,
+        "new_figures_added": 0,
+        "examples": [
+          "facility-lifecycle workflow overview",
+          "nitrogen and process-gas real-fluid property comparison",
+          "purge and drying material-balance screen",
+          "separator and compressor start-up ramp",
+          "shutdown inventory and low-temperature screen",
+          "late-life operability and economic-limit screen",
+          "decommissioning schedule and cost-uncertainty analysis"
+        ],
+        "integration": "The seven original examples remain in lifecycle order and use one public-PyPI NeqSim setup. The narrative connects commissioning properties to purge, start-up, shutdown, late-life, and decommissioning decisions without deleting or bypassing any calculation."
+      },
+      "practical_application": "A reusable start-up and shutdown workflow configures SRK process fluids, connects Stream, ThreePhaseSeparator, and Compressor objects, runs load scenarios, retrieves power, temperature, and outlet mass rates, checks closure, and screens real-gas shutdown inventory across pressure.",
       "known_upstream_issues": [],
       "issue_handling": "No new NeqSim defect was found. A feed stream must be run before reading separator outlet rates; the final notebook does this and asserts mass closure.",
       "artifact_origin": "public-pypi",
