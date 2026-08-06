@@ -1,38 +1,38 @@
 {
-  "schema_version": 3,
-  "updated_at": "2026-08-05T17:45:00Z",
-  "active_notebook_count": 262,
-  "shards_glob": "maintenance_ledger/*.json",
-  "retired_notebooks": [
-    {
-      "path": "notebooks/process/syntheticdatageneration.ipynb",
-      "retired_date": "2026-08-04",
-      "reason": "The current Git blob is truncated at 100000 bytes and cannot be parsed; the last complete historical revision remains recoverable from Git history.",
-      "follow_up": "Replace with the planned NeqSim-master data-reconciliation and Bayesian digital-twin notebook."
-    },
-    {
-      "path": "notebooks/reactions/reactions.ipynb",
-      "retired_date": "2026-08-04",
-      "reason": "One-byte blank placeholder with no executable or instructional content.",
-      "follow_up": "Use the maintained reaction notebooks in the same directory."
-    },
-    {
-      "path": "notebooks/PVT/newtestNeqSim.ipynb",
-      "retired_date": "2026-08-04",
-      "reason": "Byte-identical orphaned duplicate with an obsolete external test-repository badge.",
-      "follow_up": "Use notebooks/examples_of_NeqSim_in_Colab.ipynb and topic-specific maintained tutorials."
-    },
-    {
-      "path": "notebooks/fluidflow/newtestNeqSim.ipynb",
-      "retired_date": "2026-08-04",
-      "reason": "Byte-identical orphaned duplicate with an obsolete external test-repository badge.",
-      "follow_up": "Use notebooks/examples_of_NeqSim_in_Colab.ipynb and topic-specific maintained tutorials."
-    },
-    {
-      "path": "notebooks/process/newtestNeqSim.ipynb",
-      "retired_date": "2026-08-04",
-      "reason": "Byte-identical orphaned duplicate with an obsolete external test-repository badge.",
-      "follow_up": "Use notebooks/examples_of_NeqSim_in_Colab.ipynb and topic-specific maintained tutorials."
-    }
-  ]
+ "schema_version": 3,
+ "updated_at": "2026-08-06T06:46:10Z",
+ "active_notebook_count": 263,
+ "shards_glob": "maintenance_ledger/*.json",
+ "retired_notebooks": [
+  {
+   "path": "notebooks/process/syntheticdatageneration.ipynb",
+   "retired_date": "2026-08-04",
+   "reason": "The current Git blob is truncated at 100000 bytes and cannot be parsed; the last complete historical revision remains recoverable from Git history.",
+   "follow_up": "Replace with the planned NeqSim-master data-reconciliation and Bayesian digital-twin notebook."
+  },
+  {
+   "path": "notebooks/reactions/reactions.ipynb",
+   "retired_date": "2026-08-04",
+   "reason": "One-byte blank placeholder with no executable or instructional content.",
+   "follow_up": "Use the maintained reaction notebooks in the same directory."
+  },
+  {
+   "path": "notebooks/PVT/newtestNeqSim.ipynb",
+   "retired_date": "2026-08-04",
+   "reason": "Byte-identical orphaned duplicate with an obsolete external test-repository badge.",
+   "follow_up": "Use notebooks/examples_of_NeqSim_in_Colab.ipynb and topic-specific maintained tutorials."
+  },
+  {
+   "path": "notebooks/fluidflow/newtestNeqSim.ipynb",
+   "retired_date": "2026-08-04",
+   "reason": "Byte-identical orphaned duplicate with an obsolete external test-repository badge.",
+   "follow_up": "Use notebooks/examples_of_NeqSim_in_Colab.ipynb and topic-specific maintained tutorials."
+  },
+  {
+   "path": "notebooks/process/newtestNeqSim.ipynb",
+   "retired_date": "2026-08-04",
+   "reason": "Byte-identical orphaned duplicate with an obsolete external test-repository badge.",
+   "follow_up": "Use notebooks/examples_of_NeqSim_in_Colab.ipynb and topic-specific maintained tutorials."
+  }
+ ]
 }
