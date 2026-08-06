@@ -1,15 +1,14 @@
 {
   "schema_version": 1,
   "shard": "complete-value-chain-lifecycle-20260806",
-  "updated_at": "2026-08-06T13:15:00Z",
+  "updated_at": "2026-08-06T14:19:00Z",
   "notebooks": [
     {
       "path": "notebooks/valuechain/complete_oil_and_gas_value_chain_with_neqsim.ipynb",
       "verified_date": "2026-08-06",
-      "verified_at_utc": "2026-08-06T13:15:00Z",
-      "neqsim_version": "3.16.0 source build",
-      "neqsim_java_commit": "0c9a5426247ffa34191b9dc5ed6ea9e89937da18",
-      "neqsim_jar_sha256": "7bad6b03b40dee23aa7a795c5ad1fa09802f567fab2bffab09b0d65b6d09c82f",
+      "verified_at_utc": "2026-08-06T14:19:00Z",
+      "neqsim_version": "3.16.0",
+      "neqsim_jar_sha256": "aec6c0024ce55d3df810d61affc321ba99abeffb54110ff24b87573fc74f88f2",
       "python_version": "3.12.13",
       "java_version": "OpenJDK 17.0.19",
       "numpy_version": "2.5.1",
@@ -29,19 +28,19 @@
           "notebooks/maintenance_ledger/complete_value_chain_lifecycle_20260806.json"
         ]
       },
-      "execution_method": "Executed all 8 code cells sequentially from an empty in-process IPython namespace with scripts/execute_notebook_inprocess.py and the compiled current NeqSim Java master classes. The final clean run completed in 3.7 seconds, retained every result-bearing output, stored four PNG figures, and produced zero error outputs or captured stderr.",
+      "execution_method": "Executed all 8 code cells sequentially from an empty in-process IPython namespace with scripts/execute_notebook_inprocess.py and NeqSim 3.16.0 from the verified public-PyPI wheel snapshot. The final clean run completed in 3.4 seconds, retained every result-bearing output, stored four PNG figures, and produced zero error outputs or captured stderr.",
       "code_cells": 8,
       "substantive_code_cells": 8,
       "markdown_cells": 8,
-      "git_blob_sha1": "2f6f27ddc5ae7564d9e00f02939afd64a5830797",
-      "notebook_bytes": 422709,
+      "git_blob_sha1": "4ae8ddb43005a3d32b85381c6f36e0a1142505d8",
+      "notebook_bytes": 421263,
       "python_capabilities_demonstrated": [
         "value-chain decision and handoff mapping",
         "field-life load, availability, capacity, energy, and emissions orchestration",
         "capability-role matrix and dependency-ordered learning path"
       ],
       "neqsim_capabilities_demonstrated": [
-        "source-built ThreePhaseSeparator provenance",
+        "public-PyPI ThreePhaseSeparator provenance",
         "SRK-CPA field-inlet phase split and physical properties",
         "export compression power and process-stream handoff"
       ],
@@ -49,7 +48,7 @@
         "named_assertions_passed": 5,
         "assertions_failed": 0,
         "checks": [
-          "NeqSim source reference is master",
+          "NeqSim 3.16.0 resolves from the verified public-PyPI snapshot",
           "three-phase mass residual is below 1e-8",
           "compressor demand is finite and positive",
           "all field-life numerical results are finite",
@@ -73,15 +72,16 @@
         "notes": "Every equation and retained figure was inspected at original resolution for labels, units, legends, clipping, contrast, scales, and consistency with stored tables."
       },
       "known_upstream_issues": [],
-      "issue_handling": "No new NeqSim defect was found. The notebook uses stable current-master APIs and records the reduced field-life assumptions explicitly."
+      "issue_handling": "No new NeqSim defect was found. The notebook uses stable current-master APIs and records the reduced field-life assumptions explicitly.",
+      "artifact_origin": "public-pypi",
+      "resolution_mode": "online-new-snapshot"
     },
     {
       "path": "notebooks/operations/facility_lifecycle_commissioning_to_decommissioning.ipynb",
       "verified_date": "2026-08-06",
-      "verified_at_utc": "2026-08-06T13:15:00Z",
-      "neqsim_version": "3.16.0 source build",
-      "neqsim_java_commit": "0c9a5426247ffa34191b9dc5ed6ea9e89937da18",
-      "neqsim_jar_sha256": "7bad6b03b40dee23aa7a795c5ad1fa09802f567fab2bffab09b0d65b6d09c82f",
+      "verified_at_utc": "2026-08-06T14:19:00Z",
+      "neqsim_version": "3.16.0",
+      "neqsim_jar_sha256": "aec6c0024ce55d3df810d61affc321ba99abeffb54110ff24b87573fc74f88f2",
       "python_version": "3.12.13",
       "java_version": "OpenJDK 17.0.19",
       "numpy_version": "2.5.1",
@@ -101,19 +101,19 @@
           "notebooks/maintenance_ledger/complete_value_chain_lifecycle_20260806.json"
         ]
       },
-      "execution_method": "Executed all 11 code cells sequentially from an empty in-process IPython namespace with scripts/execute_notebook_inprocess.py and the compiled current NeqSim Java master classes. The final clean run completed in 4.3 seconds, retained every result-bearing output, stored six PNG figures, and produced zero error outputs or captured stderr.",
+      "execution_method": "Executed all 11 code cells sequentially from an empty in-process IPython namespace with scripts/execute_notebook_inprocess.py and NeqSim 3.16.0 from the verified public-PyPI wheel snapshot. The final clean run completed in 5.3 seconds, retained every result-bearing output, stored six PNG figures, and produced zero error outputs or captured stderr.",
       "code_cells": 11,
       "substantive_code_cells": 11,
       "markdown_cells": 11,
-      "git_blob_sha1": "6950727fa2d2911cc8c20696d020caf415165df4",
-      "notebook_bytes": 543575,
+      "git_blob_sha1": "76a843d20bef21c6c9e0e6bb90ebf489b703b37f",
+      "notebook_bytes": 547358,
       "python_capabilities_demonstrated": [
         "commissioning, purge, ramp-up, shutdown, and late-life sequence orchestration",
         "economic-limit and minimum-stable-flow screening",
         "decommissioning schedule and Monte Carlo cost uncertainty"
       ],
       "neqsim_capabilities_demonstrated": [
-        "source-built SRK thermodynamic-system provenance",
+        "public-PyPI SRK thermodynamic-system provenance",
         "nitrogen and process-gas real-fluid commissioning properties and linepack",
         "separator phase split, compressor power, discharge temperature, and mass closure",
         "pressure-dependent shutdown inventory reference"
@@ -122,7 +122,7 @@
         "named_assertions_passed": 7,
         "assertions_failed": 0,
         "checks": [
-          "NeqSim source reference is master",
+          "NeqSim 3.16.0 resolves from the verified public-PyPI snapshot",
           "commissioning properties are finite",
           "start-up process results are finite",
           "start-up separator mass residual is below 1e-8",
@@ -148,7 +148,9 @@
         "notes": "All equations and six retained figures were inspected at original resolution. The discharge-temperature offset axis and the shutdown inventory/temperature separation were corrected before the final clean render."
       },
       "known_upstream_issues": [],
-      "issue_handling": "No new NeqSim defect was found. A feed stream must be run before reading separator outlet rates; the final notebook does this and asserts mass closure."
+      "issue_handling": "No new NeqSim defect was found. A feed stream must be run before reading separator outlet rates; the final notebook does this and asserts mass closure.",
+      "artifact_origin": "public-pypi",
+      "resolution_mode": "online-new-snapshot"
     }
   ]
 }
