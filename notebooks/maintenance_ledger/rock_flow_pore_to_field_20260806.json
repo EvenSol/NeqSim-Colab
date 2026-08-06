@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "shard": "rock-flow-pore-to-field-20260806",
+  "updated_at": "2026-08-06T10:55:00Z",
+  "notebooks": [
+    {
+      "path": "notebooks/reservoir/rock_flow_pore_to_field_neqsim.ipynb",
+      "verified_date": "2026-08-06",
+      "verified_at_utc": "2026-08-06T10:55:00Z",
+      "neqsim_version": "3.16.0 source build",
+      "neqsim_java_commit": "df68ad7295b9dae6a324d941761a303d9f301fb5",
+      "neqsim_jar_sha256": "091465d928d7935a7197482b3b5aa41fecdd3535af7562893cc863c5026654fc",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "openpnm_version": "3.6.4",
+      "porespy_version": "3.0.4",
+      "gstools_version": "1.7.0",
+      "numpy_version": "2.4.6",
+      "scipy_version": "1.18.0",
+      "execution_status": "passed",
+      "execution_method": "Executed all 25 code cells sequentially from an empty in-process IPython namespace with scripts/execute_notebook_inprocess.py and a source-built current NeqSim Java master JAR. The final clean run completed in 33.8 seconds, retained every result-bearing output, stored nine PNG figures, and produced zero error outputs or stderr.",
+      "code_cells": 25,
+      "substantive_code_cells": 25,
+      "markdown_cells": 16,
+      "git_blob_sha1": "19d0fd4b22c197bd2cdb20f43d9eda28ce3c5c24",
+      "notebook_bytes": 1350552,
+      "publication": {
+        "branch": "agent/rock-flow-pore-to-field-neqsim",
+        "mode": "focused draft pull request",
+        "files": [
+          "notebooks/reservoir/rock_flow_pore_to_field_neqsim.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json",
+          "notebooks/maintenance_ledger/rock_flow_pore_to_field_20260806.json"
+        ]
+      },
+      "python_capabilities_demonstrated": [
+        "PoreSpy synthetic three-dimensional voxel rock, inlet connectivity, capillary transform, trapped drainage, and capillary-pressure curve",
+        "PoreSpy SNOW pore-network extraction and OpenPNM Stokes-flow absolute permeability with two independent probe fluids",
+        "GSTools anisotropic seeded log-permeability field with an explicit baffle and transmissive window",
+        "SciPy sparse two-point finite-volume pressure solution and explicit upwind two-phase transport",
+        "OPM Flow PERMX, PORO, and SWOF handoff generation"
+      ],
+      "neqsim_capabilities_demonstrated": [
+        "source-built current NeqSim Java master loaded directly with JPype and verified through HostFacility class provenance",
+        "SystemSrkCPAstatoil characterization with C10 and C20 TBP fractions, classic CPA mixing rule, and multiphase TP flash",
+        "pressure-dependent oil density, oil viscosity, and gas-phase diagnostics plus reservoir-water density and viscosity",
+        "composable Stream, ThreePhaseSeparator, and ProcessSystem hydrocarbon surface-flash snapshots",
+        "reservoir-rate to facility-mass handoff with independent produced-water load conservation"
+      ],
+      "engineering_validation": {
+        "named_assertions_passed": 13,
+        "assertions_failed": 0,
+        "checks": [
+          "initial reservoir state is a single oil phase and source classes resolve to the source-built master JAR",
+          "three-dimensional inlet-connected pore space reaches the outlet",
+          "extracted pore network has no disconnected pores after cleanup",
+          "oil and water Stokes probes recover absolute permeability within 4.694e-14 relative difference",
+          "relative-permeability tables stay inside physical bounds",
+          "base and accelerated finite-volume water balances close below 4.1e-14 relative residual",
+          "higher rate raises injector pressure and advances water breakthrough",
+          "half-size saturation-step sensitivity changes final recovery by 9.216e-05 and water cut by 2.002e-05",
+          "NeqSim hydrocarbon separator mass closure remains below 9.619e-13 relative residual",
+          "OPM rock and SCAL handoff files are generated"
+        ]
+      },
+      "result_summary": {
+        "connected_porosity": 0.24416097005208334,
+        "pore_network_permeability_md": 404.3615729593747,
+        "oil_viscosity_cp_at_250_bara": 0.41329432087860074,
+        "water_viscosity_cp_at_250_bara": 0.3229778560693428,
+        "buckley_leverett_breakthrough_pv": 0.5475376846271035,
+        "base_breakthrough_year": 7.498676394725971,
+        "accelerated_breakthrough_year": 4.686672746703733,
+        "base_final_recovery_fraction": 0.5492596853735274,
+        "accelerated_final_recovery_fraction": 0.6615794050227499,
+        "base_max_injector_pressure_bara": 216.03154142732154,
+        "accelerated_max_injector_pressure_bara": 258.5217186154662
+      },
+      "rendered_visual_validation": {
+        "renderer": "nbconvert 7.17.1 Jupyter HTML with MathJax source plus Matplotlib MathText equation audit",
+        "display_equations_inspected": 16,
+        "figures_inspected": 9,
+        "result": "passed",
+        "notes": "All equations rendered with correct fractions, Greek symbols, subscripts, superscripts, operators, and delimiters. All nine retained figures were inspected at original resolution for labels, units, legends, color contrast, scales, clipping, overlap, and agreement with stored numerical tables."
+      },
+      "known_upstream_issue": "https://github.com/equinor/neqsim/issues/2856",
+      "issue_handling": "The high-water-fraction CPA gas-phase discontinuity was reproduced on current master, excluded from the notebook result path, documented in the limitations section, and replaced by a stable hydrocarbon flash plus independently conserved produced-water load."
+    }
+  ]
+}
