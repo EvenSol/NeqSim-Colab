@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
   "shard": "complete-value-chain-lifecycle-20260806",
-  "updated_at": "2026-08-06T14:25:00Z",
+  "updated_at": "2026-08-06T20:20:01Z",
   "notebooks": [
     {
       "path": "notebooks/valuechain/complete_oil_and_gas_value_chain_with_neqsim.ipynb",
       "verified_date": "2026-08-06",
-      "verified_at_utc": "2026-08-06T14:19:00Z",
+      "verified_at_utc": "2026-08-06T20:20:01Z",
       "neqsim_version": "3.16.0",
       "neqsim_jar_sha256": "aec6c0024ce55d3df810d61affc321ba99abeffb54110ff24b87573fc74f88f2",
       "python_version": "3.12.13",
@@ -18,58 +18,75 @@
       "jpype_version": "1.7.1",
       "execution_status": "passed",
       "publication": {
-        "branch": "agent/complete-value-chain-lifecycle",
+        "branch": "automation/extend-complete-value-chain-20260806",
         "mode": "focused draft pull request",
         "files": [
           "notebooks/valuechain/complete_oil_and_gas_value_chain_with_neqsim.ipynb",
-          "notebooks/operations/facility_lifecycle_commissioning_to_decommissioning.ipynb",
           "notebooks/examples_of_NeqSim_in_Colab.ipynb",
           "notebooks/notebook_maintenance_ledger.json",
           "notebooks/maintenance_ledger/complete_value_chain_lifecycle_20260806.json"
         ]
       },
-      "execution_method": "Executed all 8 code cells sequentially from an empty in-process IPython namespace with scripts/execute_notebook_inprocess.py and NeqSim 3.16.0 from the verified public-PyPI wheel snapshot. The final clean run completed in 3.4 seconds, retained every result-bearing output, stored four PNG figures, and produced zero error outputs or captured stderr.",
-      "code_cells": 8,
-      "substantive_code_cells": 8,
-      "markdown_cells": 8,
-      "git_blob_sha1": "4ae8ddb43005a3d32b85381c6f36e0a1142505d8",
-      "notebook_bytes": 421263,
+      "execution_method": "Executed all 16 code cells sequentially from an empty in-process IPython namespace with scripts/execute_notebook_inprocess.py and NeqSim 3.16.0 from a fresh verified public-PyPI snapshot. The final clean run completed in 7.5 seconds, retained every result-bearing output and ten PNG figures, and produced zero exceptions, error outputs, or captured stderr.",
+      "code_cells": 16,
+      "substantive_code_cells": 16,
+      "markdown_cells": 22,
+      "git_blob_sha1": "9aee626d00170ecdd042d3dba115181bc43dbf75",
+      "notebook_bytes": 1034065,
       "python_capabilities_demonstrated": [
-        "value-chain decision and handoff mapping",
-        "field-life load, availability, capacity, energy, and emissions orchestration",
-        "capability-role matrix and dependency-ordered learning path"
+        "value-chain ownership, decision, and handoff mapping",
+        "six-case process scenario orchestration and decision gates",
+        "synthetic PVT residual audit without model tuning",
+        "Darcy-Weisbach SURF option screen using NeqSim properties",
+        "Monte Carlo lifecycle value and rank-sensitivity analysis"
       ],
       "neqsim_capabilities_demonstrated": [
-        "public-PyPI ThreePhaseSeparator provenance",
-        "SRK-CPA field-inlet phase split and physical properties",
-        "export compression power and process-stream handoff"
+        "public-PyPI SRK-CPA and SRK thermodynamic-system provenance",
+        "connected ProcessSystem with Stream, ThreePhaseSeparator, Compressor, and Cooler",
+        "phase rates, mass closure, compressor power, cooling duty, density, and viscosity",
+        "ISO 6976 superior calorific value, Wobbe index, and relative density",
+        "supporting PVT density reproduction across pressure"
       ],
       "engineering_validation": {
-        "named_assertions_passed": 5,
+        "named_assertions_passed": 15,
         "assertions_failed": 0,
         "checks": [
-          "NeqSim 3.16.0 resolves from the verified public-PyPI snapshot",
-          "three-phase mass residual is below 1e-8",
-          "compressor demand is finite and positive",
-          "all field-life numerical results are finite",
-          "all eight value-chain stages are represented in the capability matrix"
+          "all four pre-existing examples and figures remain operational",
+          "all six connected process scenarios converged",
+          "maximum scenario mass residual is 6.034e-14",
+          "PVT is supporting rather than primary at every lifecycle stage",
+          "six synthetic PVT residuals are finite and below 2 percent",
+          "gas density increases monotonically from 20 to 120 bara",
+          "pressure drop increases monotonically across nine turbulent-flow points",
+          "ISO 6976 gas-quality results are finite and decline consistently with CO2",
+          "all 5,000 economic realizations are finite and percentiles are ordered",
+          "decision summaries are complete and preserve review cases"
         ]
       },
       "result_summary": {
-        "gas_handoff_t_h": 25.28,
-        "oil_handoff_t_h": 119.55,
-        "water_handoff_t_h": 5.174,
-        "relative_mass_residual": 4.075e-14,
-        "export_compressor_power_kw": 886.5,
-        "initial_constraint": "gas compression",
-        "late_life_constraint": "water handling"
+        "reference_gas_handoff_t_h": 25.28,
+        "reference_oil_handoff_t_h": 119.5,
+        "reference_water_handoff_t_h": 5.174,
+        "maximum_relative_mass_residual": 6.034e-14,
+        "reference_compressor_power_mw": 0.8865,
+        "reference_cooling_duty_mw": 2.137,
+        "reference_export_gas_msm3_d": 0.7537,
+        "reference_gcv_mj_sm3": 43.56,
+        "reference_wobbe_mj_sm3": 53.67,
+        "maximum_hydraulic_screen_drop_bar": 0.9197,
+        "npv_p10_p50_p90_bnok": [
+          -2.783,
+          -1.797,
+          -0.516
+        ],
+        "scenario_requiring_quality_review": "CO2 rich"
       },
       "rendered_visual_validation": {
-        "renderer": "nbconvert 7.17.1 Jupyter HTML with MathJax source plus Matplotlib MathText equation audit",
-        "display_equations_inspected": 2,
-        "figures_inspected": 4,
+        "renderer": "nbconvert 7.17.1 Jupyter HTML with MathJax source plus original-resolution PNG contact-sheet inspection",
+        "display_equations_inspected": 7,
+        "figures_inspected": 10,
         "result": "passed",
-        "notes": "Every equation and retained figure was inspected at original resolution for labels, units, legends, clipping, contrast, scales, and consistency with stored tables."
+        "notes": "All ten retained figures were inspected for units, titles, legends, color contrast, clipping, overlap, scales, and numerical consistency. One crowded scenario annotation set was replaced by a readable legend before the final run."
       },
       "preservation_validation": {
         "original_cells_preserved": 16,
@@ -77,18 +94,18 @@
         "pre_existing_examples_preserved": 4,
         "pre_existing_figures_preserved": 4,
         "figure_values_refreshed": 4,
-        "new_figures_added": 0,
+        "new_figures_added": 6,
         "examples": [
           "eight-stage value-chain workflow overview",
           "SRK-CPA phase split and export-compression handoff",
           "field-life load, constraint, energy, and emissions screen",
           "NeqSim capability-role matrix"
         ],
-        "integration": "The four original examples remain in their original learning order, share the public-PyPI provenance setup, and build from the handoff map through a reusable NeqSim phase-split/compression workflow to field-life and capability interpretation."
+        "integration": "The original examples remain in their original order and feed a substantially expanded workflow covering ownership, connected process scenarios, PVT-support QA, hydraulic screening, gas quality, uncertainty, value, and decision gates."
       },
-      "practical_application": "A reproducible field-inlet workflow configures SRK-CPA fluid composition, runs a three-phase separator, retrieves phase mass rates, closes the balance, estimates export-compression duty, varies field-life loads, and identifies the migrating capacity constraint.",
+      "practical_application": "A reusable six-scenario ProcessSystem builds SRK-CPA fluids, connects feed, three-phase separation, compression, and cooling, retrieves phase and energy results, verifies convergence and mass closure, calculates ISO 6976 quality, and passes decision-consistent outputs into hydraulic, commercial, uncertainty, and lifecycle-gate analyses.",
       "known_upstream_issues": [],
-      "issue_handling": "No new NeqSim defect was found. The notebook uses stable current-master APIs and records the reduced field-life assumptions explicitly.",
+      "issue_handling": "No new NeqSim defect was found. The notebook uses supported NeqSim 3.16.0 APIs and keeps PVT laboratory interpretation, EOS tuning, and model approval outside the NeqSim ownership boundary.",
       "artifact_origin": "public-pypi",
       "resolution_mode": "online-new-snapshot"
     },
