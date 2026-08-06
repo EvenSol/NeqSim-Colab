@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
   "shard": "complete-value-chain-lifecycle-20260806",
-  "updated_at": "2026-08-06T20:19:28Z",
+  "updated_at": "2026-08-06T22:46:15Z",
   "notebooks": [
     {
       "path": "notebooks/valuechain/complete_oil_and_gas_value_chain_with_neqsim.ipynb",
-      "verified_date": "2026-08-06",
-      "verified_at_utc": "2026-08-06T20:19:28Z",
+      "verified_date": "2026-08-07",
+      "verified_at_utc": "2026-08-06T22:46:15Z",
       "neqsim_version": "source commit a1f7817d57e013d14da31991cc160b570ca0cb62",
       "neqsim_source": {
         "repository": "equinor/neqsim",
@@ -17,103 +17,119 @@
       },
       "python_version": "3.12.13",
       "java_version": "OpenJDK 17.0.19",
-      "numpy_version": "2.5.1",
-      "pandas_version": "3.0.5",
-      "scipy_version": "1.18.0",
-      "matplotlib_version": "3.11.1",
+      "numpy_version": "2.3.5",
+      "pandas_version": "2.2.3",
+      "scipy_version": "1.17.0",
+      "matplotlib_version": "3.10.8",
       "jpype_version": "1.7.1",
       "execution_status": "passed",
       "publication": {
         "branch": "agent/extend-complete-value-chain-pvt-supporting",
-        "mode": "focused draft pull request",
+        "pull_request": 110,
+        "base_branch": "master",
+        "conflict_resolution_base_commit": "cd5d799fe806fd6536e809627c630d403455fe6a",
+        "mode": "conflict-resolved pull request",
         "files": [
           "notebooks/valuechain/complete_oil_and_gas_value_chain_with_neqsim.ipynb",
           "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json",
           "notebooks/maintenance_ledger/complete_value_chain_lifecycle_20260806.json"
         ]
       },
-      "execution_method": "Executed all 17 code cells sequentially from an empty in-process IPython namespace against compiled NeqSim master source at commit a1f7817d. The final clean run completed in 5.8 seconds, retained every result-bearing table and 11 PNG figures, and produced zero error outputs or stderr. Jupyter HTML conversion passed.",
-      "code_cells": 17,
-      "substantive_code_cells": 17,
-      "markdown_cells": 17,
-      "git_blob_sha1": "84406670ad2eebe1bb8ab3113f67e04c99834460",
-      "notebook_bytes": 1325483,
+      "execution_method": "Executed all 23 code cells sequentially from an empty in-process IPython namespace against compiled NeqSim master source at commit a1f7817d. The clean run completed in 9.0 seconds, retained every result-bearing table and 17 PNG figures, and produced zero error outputs or stderr. Jupyter HTML conversion passed.",
+      "code_cells": 23,
+      "substantive_code_cells": 23,
+      "markdown_cells": 29,
+      "git_blob_sha1": "242d16c0a4b66c680701ca02e5bfcfbd7b257495",
+      "notebook_bytes": 1967441,
       "python_capabilities_demonstrated": [
-        "model ownership, handoff contracts, and coherent case registries",
-        "synthetic laboratory PVT quality checks and interpolation",
+        "model ownership, governed handoffs, and coherent case registries",
+        "synthetic laboratory PVT QA and independent residual review",
         "reservoir realization, well/SURF, and facility-envelope orchestration",
-        "product-specification, emissions, economic, and RAM screening"
+        "Darcy-Weisbach hydraulic screening from governed fluid properties",
+        "deterministic and probabilistic economics with rank sensitivity",
+        "product, emissions, RAM, late-life, and decision-gate screening"
       ],
       "neqsim_capabilities_demonstrated": [
         "source-master class provenance through JPype",
         "SRK-CPA downstream process-fluid translation with an explicit PVT boundary",
-        "three-phase separator named gas, oil, and water handoffs",
-        "export-compressor power and nearby-flow continuity cases"
+        "connected ProcessSystem with Stream, ThreePhaseSeparator, Compressor, and Cooler",
+        "phase rates, mass closure, compression power, and cooling duty",
+        "supporting SRK density reproduction across pressure",
+        "ISO 6976 superior calorific value, Wobbe index, and relative density"
       ],
       "engineering_validation": {
-        "named_assertions_passed": 13,
+        "named_assertions_passed": 19,
+        "integrated_validation_checks_passed": 25,
         "assertions_failed": 0,
         "checks": [
           "source-built NeqSim commit and JAR identity are recorded",
           "NeqSim is never primary for PVT authoring",
-          "all synthetic laboratory PVT quality checks pass",
+          "synthetic laboratory PVT QA and supporting density residual checks pass",
           "scenario identifiers are unique and coherent",
-          "three nearby NeqSim process cases close mass below 1e-8",
-          "compressor demand changes monotonically with feed rate",
+          "three nearby handoff cases and six connected process cases close mass",
+          "all six connected ProcessSystem cases converge",
           "reservoir forecasts cover every case and year",
-          "well/SURF margins are finite",
+          "well/SURF margins and Darcy hydraulic points are finite and physical",
           "the BASE-001 facility constraint migrates over field life",
           "synthetic product measurements stay within limits",
-          "economic value is ordered low, base, high",
+          "ISO 6976 gas-quality results are finite and respond consistently to CO2",
+          "deterministic economic value is ordered low, base, high",
+          "5,000 probabilistic value realizations are finite and ordered",
           "reliability percentiles are ordered",
-          "all eleven lifecycle stages are mapped"
+          "all eleven lifecycle stages and scenario review gates are represented"
         ]
       },
       "result_summary": {
-        "gas_handoff_t_h": 25.28,
-        "oil_handoff_t_h": 119.55,
-        "water_handoff_t_h": 5.174,
-        "relative_mass_residual_acceptance_limit": 1e-08,
-        "export_compressor_power_kw": 886.5,
+        "reference_gas_handoff_t_h": 25.28,
+        "reference_oil_handoff_t_h": 119.5,
+        "reference_water_handoff_t_h": 5.174,
+        "maximum_connected_mass_residual": 6.034e-14,
+        "reference_compressor_power_mw": 0.8865,
+        "reference_cooling_duty_mw": 2.137,
+        "reference_export_gas_msm3_d": 0.7537,
+        "reference_gcv_mj_sm3": 43.56,
+        "reference_wobbe_mj_sm3": 53.67,
+        "maximum_supporting_pvt_density_residual_percent": 1.186,
+        "maximum_hydraulic_screen_drop_bar": 0.9197,
+        "npv_p10_p50_p90_bnok": [
+          -2.785,
+          -1.8,
+          -0.518
+        ],
         "initial_constraint": "gas compression",
         "late_life_constraint": "water handling",
         "base_case_npv_musd": 16970.0,
-        "ram_p50_availability": 0.9615
+        "ram_p50_availability": 0.9615,
+        "scenario_requiring_quality_review": "CO2 rich"
       },
       "rendered_visual_validation": {
-        "renderer": "nbconvert 7.17.1 Jupyter HTML with MathJax source plus Matplotlib MathText equation audit",
-        "display_equations_inspected": 5,
-        "figures_inspected": 11,
+        "renderer": "nbconvert 7.17.1 Jupyter HTML with MathJax source plus original-resolution PNG and Matplotlib MathText inspection",
+        "display_equations_inspected": 10,
+        "figures_inspected": 17,
         "result": "passed",
-        "notes": "All equations and 11 stored figures were inspected at original resolution for labels, units, legends, clipping, contrast, scales, and agreement with retained tables."
+        "notes": "All stored figures and display equations were inspected for labels, units, legends, clipping, contrast, scales, and agreement with tables."
       },
       "link_validation": {
+        "all_markdown_links_checked": 26,
         "repository_notebook_links_checked": 18,
+        "official_documentation_links_checked": 6,
         "broken_links": 0,
         "result": "passed"
       },
       "preservation_validation": {
-        "baseline_cells_reviewed": 16,
-        "final_cells": 34,
-        "core_examples_preserved_and_extended": [
-          "value-chain workflow and role map",
-          "SRK-CPA phase split and export-compression handoff",
-          "field-life load and constraint migration",
-          "dependency-ordered curriculum"
-        ],
-        "new_sections": [
-          "PVT governance and synthetic laboratory QA",
-          "model contract and realization registry",
-          "reservoir forecasts and well/SURF margins",
-          "product contracts, emissions, economics, RAM, and decision gates"
-        ]
+        "pull_request_110_cells_preserved": 34,
+        "master_application_cells_integrated": 18,
+        "final_cells": 52,
+        "master_pull_request_preserved": 109,
+        "resolution_strategy": "Retain PR 110's governed lifecycle and source-master implementation; integrate master's connected process, PVT-support audit, hydraulic, ISO 6976, probabilistic-value, and scenario-gate applications."
       },
-      "practical_application": "A coherent teaching workflow keeps a specialist PVT model as the governing fluid basis, translates it into a documented NeqSim process fluid, closes three-phase handoffs, carries reservoir realizations through wells/SURF and facility constraints, and connects products, emissions, value, reliability, late life, and decision gates.",
+      "practical_application": "A coherent teaching workflow keeps laboratory data and a specialist PVT model as the governing fluid basis, translates that basis into documented NeqSim process contracts, runs connected process and gas-quality scenarios, and carries internally consistent reservoir realizations through wells/SURF, facilities, products, emissions, value, reliability, late life, and gates.",
       "known_upstream_issues": [],
-      "issue_handling": "No new NeqSim defect or missing public API was found. The source-master separator, stream, and compressor APIs supported the composable handoff.",
-      "documentation_impact": "Updated the executed notebook, its catalog description, and this maintenance ledger entry. No NeqSim Java API or separate documentation page changed.",
+      "issue_handling": "No new NeqSim defect or missing public API was found. Source-master stream, separator, compressor, cooler, ProcessSystem, property, and ISO 6976 APIs supported the merged workflow.",
+      "documentation_impact": "Updated the executed notebook, catalog description, root ledger timestamp, and focused maintenance shard. No NeqSim Java API changed.",
       "artifact_origin": "equinor/neqsim source master",
-      "resolution_mode": "source-master-controlled-validation"
+      "resolution_mode": "source-master-conflict-resolved-validation"
     },
     {
       "path": "notebooks/operations/facility_lifecycle_commissioning_to_decommissioning.ipynb",
