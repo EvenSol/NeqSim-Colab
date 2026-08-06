@@ -1,0 +1,166 @@
+{
+ "schema_version": 1,
+ "updated_at": "2026-08-06T06:46:10Z",
+ "notebooks": [
+  {
+   "path": "notebooks/fluidflow/asgard_transport_dynamic_co2_tracing.ipynb",
+   "verified_date": "2026-08-06",
+   "verified_at_utc": "2026-08-06T06:46:10Z",
+   "neqsim_version": "source master commit df68ad7295b9dae6a324d941761a303d9f301fb5",
+   "python_version": "3.12.13",
+   "java_version": "OpenJDK 17.0.19",
+   "numpy_version": "2.5.1",
+   "pandas_version": "3.0.5",
+   "matplotlib_version": "3.11.1",
+   "jpype_version": "1.7.1",
+   "neqsim_source": {
+    "repository": "equinor/neqsim",
+    "ref": "master",
+    "commit": "df68ad7295b9dae6a324d941761a303d9f301fb5",
+    "runtime_guard": "The notebook clones NeqSim master, detaches at the recorded exact commit, builds with Maven, disables Python-wheel JVM autostart, loads target/classes through JPype, asserts the exact commit, and verifies PipeFlowSystem's Java code-source location."
+   },
+   "execution_status": "passed",
+   "execution_method": "Executed all 13 code cells sequentially with the repository's canonical scripts/execute_notebook_inprocess.py runner after the sandbox prohibited a standard Jupyter ZeroMQ kernel. The exact-master runner is fail-fast on stderr, validated nbformat, retained five PNG figures plus all tables/stdout, and completed in 126.5 seconds with zero stored errors and zero stderr. Jupyter HTML conversion passed.",
+   "code_cells": 13,
+   "substantive_code_cells": 13,
+   "markdown_cells": 12,
+   "publication": {
+    "branch": "agent/asgard-transport-dynamic-co2-tracing",
+    "mode": "feature branch and draft pull request",
+    "commit": "the pull-request commit containing this ledger entry",
+    "files": [
+     "notebooks/fluidflow/asgard_transport_dynamic_co2_tracing.ipynb",
+     "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+     "notebooks/maintenance_ledger/asgard_transport_dynamic_co2_tracing_20260805.json",
+     "notebooks/notebook_maintenance_ledger.json"
+    ]
+   },
+   "neqsim_capabilities_demonstrated": [
+    "LoopedPipeNetwork component-molar-flow source mixing",
+    "source-built SystemSrkEos fluid construction and physical properties",
+    "PipeFlowSystem coupled hydraulic/EOS steady initialization",
+    "conservative one-phase transient species transport",
+    "first-order implicit versus bounded TVD Van Leer/SSP-RK2 advection",
+    "independent constant physical axial-dispersion sensitivity and boundary-condition diagnostics",
+    "per-step CFL, automatic-substep, Peclet/dispersion, and numerical-dispersion diagnostics",
+    "steady hydraulic root solve for event inlet pressure at a fixed 110 bara receipt target",
+    "component inventory, boundary flux, bounds, and thermo-sync diagnostics",
+    "joint spatial and temporal refinement of a finite CO2 and field-flow event",
+    "TwoFluidPipe component-resolved gas/oil transport, phase inventory, immutable history, and mass-balance reports"
+   ],
+   "engineering_validation": {
+    "assertions_failed": 0,
+    "checks": [
+     "source junction mixing converged with component residuals below tolerance",
+     "baseline 200 bara inlet gave 110.338 bara simulated Kårstø pressure",
+     "a 6.25 percent total-flow uplift at 200 bara reduced simulated Kårstø pressure to 97.892 bara",
+     "the event pressure root solve required 207.03 bara to restore 110.005 bara at Kårstø",
+     "every accepted first-order, TVD, and TVD-plus-dispersion transport step converged",
+     "maximum TVD step component residual was 7.209e-10 relative",
+     "maximum cumulative TVD component residual was 1.070e-9 relative",
+     "maximum thermodynamic synchronization error was 6.661e-16",
+     "mass fractions stayed between 0.016673 and 0.876971 and remained normalized",
+     "maximum full-step CFL was 0.3123 and maximum physical-dispersion number was 0.0016",
+     "the TVD peak retained 80.7 percent of inlet amplitude versus 42.2 percent for first-order implicit and 80.4 percent for TVD plus illustrative dispersion",
+     "base-to-fine common-time difference 1.700735e-4 was lower than coarse-to-base 4.205446e-4",
+     "TwoFluid preflash contained gas and oil; named-component and total phase-mass reports converged",
+     "TwoFluid maximum component residual was 3.177e-16 relative and total phase-mass residual was 7.653e-17 relative",
+     "TwoFluid CO2 inventories were positive in gas and oil; repeated fresh runs were identical"
+    ],
+    "key_results": {
+     "inlet_pressure_bara": 200,
+     "karsto_pressure_bara": 110.338,
+     "event_total_flow_kg_per_s": 486.09375,
+     "event_total_flow_uplift_percent": 6.25,
+     "event_outlet_pressure_at_200_bara": 97.892,
+     "required_event_inlet_pressure_bara": 207.03,
+     "event_outlet_pressure_at_required_inlet_bara": 110.005,
+     "equivalent_standard_flow_gsm3_per_year": 19.92,
+     "mixed_baseline_co2_mol_percent": 0.8988,
+     "mixed_event_co2_mol_percent": 1.7013,
+     "ten_percent_arrival_time_h": 50.5,
+     "peak_time_h": 61.5,
+     "peak_co2_mol_percent": 1.5465,
+     "first_order_peak_amplitude_transmitted_percent": 42.2,
+     "tvd_peak_amplitude_transmitted_percent": 80.7,
+     "tvd_plus_illustrative_dispersion_peak_amplitude_transmitted_percent": 80.4,
+     "physical_axial_dispersion_m2_per_s": 250,
+     "maximum_physical_dispersion_number": 0.0016,
+     "outlet_excess_centroid_delay_h": 49.2,
+     "linepack_over_mass_flow_h": 48.9,
+     "time_above_illustrative_one_mol_percent_h": 22,
+     "final_pulse_amplitude_percent": 0,
+     "maximum_full_step_cfl": 0.3123,
+     "maximum_transport_substeps": 1,
+     "first_order_numerical_dispersion_reference_m2_per_s": 96827.6388,
+     "coarse_peak_co2_mol_percent": 1.34044,
+     "base_peak_co2_mol_percent": 1.5465,
+     "fine_peak_co2_mol_percent": 1.64371,
+     "coarse_to_base_common_time_mad": 0.0004205446,
+     "base_to_fine_common_time_mad": 0.0001700735,
+     "twofluid_maximum_component_relative_residual": 3.177e-16,
+     "twofluid_total_phase_mass_relative_residual": 7.653e-17,
+     "twofluid_maximum_mass_fraction_sum_error": 2.22e-16,
+     "twofluid_maximum_phase_component_sync_error_kg": 1.137e-13,
+     "twofluid_gas_co2_inventory_kg": 7.870596,
+     "twofluid_oil_co2_inventory_kg": 9.485444,
+     "twofluid_repeat_maximum_difference": 0
+    }
+   },
+   "figures": {
+    "count": 5,
+    "purposes": [
+     "two-source network topology and source/mixed CO2 states",
+     "first-order/TVD/physical-dispersion pulse comparison, temporary flow uplift, pressure schedule, and transient pressure profiles",
+     "space-time CO2 propagation heatmap",
+     "selected axial CO2 profiles",
+     "grid/time-step outlet sensitivity"
+    ],
+    "visual_inspection": "Passed after the final clean execution. All five PNGs were extracted at original resolution and inspected; titles, labels, legends, units, scales, topology arrows, pressure target, flow/pressure schedules, pulse timing, physical-dispersion overlay, and profile progression are readable with no clipping."
+   },
+   "equation_rendering": {
+    "status": "passed",
+    "display_expressions_verified": 4,
+    "renderer": "Jupyter nbconvert HTML with Colab-safe dollar delimiters plus an independent Matplotlib equation contact sheet",
+    "visual_inspection": "Source mixing, modified-equation numerical dispersion, conservative physical axial dispersion, and component inventory residuals rendered with correct sums, indices, derivatives, overbars, subscripts, and signs."
+   },
+   "notebook_quality": {
+    "valid_nbformat_json": true,
+    "total_cells": 25,
+    "colab_badge_valid": true,
+    "source_master_setup_cell": true,
+    "hidden_local_dependencies": false,
+    "stored_error_outputs": 0,
+    "stored_stderr_outputs": 0,
+    "sequential_execution_counts": true,
+    "catalog_target_occurrences": 1,
+    "notebook_checker": "passed: focused --require-main-source check completed with 0 errors/0 warnings; repository-wide check covered 303 notebooks with 0 errors and 40 baseline warnings"
+   },
+   "upstream_findings": [
+    {
+     "repository": "equinor/neqsim",
+     "pull_request": "https://github.com/equinor/neqsim/pull/2835",
+     "finding": "Bounded TVD Van Leer/SSP-RK2 species transport is merged and exercised from the exact master commit."
+    },
+    {
+     "repository": "equinor/neqsim",
+     "pull_request": "https://github.com/equinor/neqsim/pull/2838",
+     "finding": "Independent conservative physical axial dispersion is merged and exercised as an explicitly non-calibrated 250 m2/s sensitivity."
+    },
+    {
+     "repository": "equinor/neqsim",
+     "pull_request": "https://github.com/equinor/neqsim/pull/2837",
+     "finding": "Component-resolved TwoFluidPipe phase inventories and conservation diagnostics are merged and pass the final gas/oil integration gate."
+    },
+    {
+     "repository": "equinor/neqsim",
+     "issue": "https://github.com/equinor/neqsim/issues/2825",
+     "finding": "LoopedPipeNetwork steady mixing and PipeFlowSystem transient edge inventories are not yet integrated into a dynamic network."
+    }
+   ],
+   "documentation_impact": "Updated the executable tutorial, catalog entry, dedicated maintenance-ledger shard, root ledger count/timestamp, capability status, limitations, equations, and links to the three merged NeqSim pull requests. No separate guide or release note is required because this repository change is itself a tutorial-only update.",
+   "neqsim_improvement_needs_found": true,
+   "summary": "Updated the Åsgard/Kristin-to-Kårstø screening tutorial to exact NeqSim master after the required transport improvements merged. The notebook calculates the event pressure boundary, separates advection resolution from an illustrative physical-dispersion sensitivity, closes one-phase component balances, and finishes with a deterministic component-resolved TwoFluid gas/oil conservation gate."
+  }
+ ]
+}
