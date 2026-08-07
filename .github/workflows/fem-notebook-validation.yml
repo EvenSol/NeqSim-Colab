@@ -28,7 +28,7 @@ jobs:
         shell: bash
         run: |
           apt-get update -qq
-          DEBIAN_FRONTEND=noninteractive apt-get install -y -qq openjdk-17-jdk-headless git libglu1-mesa
+          DEBIAN_FRONTEND=noninteractive apt-get install -y -qq openjdk-17-jdk-headless git libglu1-mesa xvfb libgl1-mesa-glx
           python -m pip install -q neqsim scikit-fem gmsh meshio pyvista scipy nbconvert
           mkdir -p /content
           python - <<'PY'
@@ -37,6 +37,7 @@ jobs:
 
           robust_jar = """candidates=[p for p in (src/'target').glob('neqsim-*.jar') if '-sources' not in p.name and '-javadoc' not in p.name and not p.name.startswith('original-')]\nif not candidates: raise FileNotFoundError('No NeqSim runtime JAR found')\njar=max(candidates,key=lambda p:p.stat().st_size)\nassert jar.stat().st_size > 5_000_000, f'Expected shaded runtime JAR, got {jar} ({jar.stat().st_size} bytes)'"""
           robust_jar_first = """candidates = [p for p in (src / 'target').glob('neqsim-*.jar') if '-sources' not in p.name and '-javadoc' not in p.name and not p.name.startswith('original-')]\nif not candidates:\n    raise FileNotFoundError('No NeqSim runtime JAR found')\nneqsim_jar = max(candidates, key=lambda p: p.stat().st_size)\nassert neqsim_jar.stat().st_size > 5_000_000, f'Expected shaded runtime JAR, got {neqsim_jar} ({neqsim_jar.stat().st_size} bytes)'"""
+          xvfb_setup = """if shutil.which('Xvfb') is None:\n    subprocess.run(['apt-get','update','-qq'],check=True)\n    subprocess.run(['apt-get','install','-y','-qq','xvfb','libgl1-mesa-glx'],check=True)\nif not os.environ.get('DISPLAY'):\n    os.environ['DISPLAY']=':99'\n    subprocess.Popen(['Xvfb',':99','-screen','0','1280x1024x24'],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)\n    import time; time.sleep(0.5)\n"""
 
           for name in [
               "notebooks/fluidflow/neqsim_fenicsx_fem_pipeline.ipynb",
@@ -55,6 +56,10 @@ jobs:
                           'jars = sorted((src / "target").glob("neqsim-*-shaded.jar"))\nif not jars:\n    raise FileNotFoundError("No shaded NeqSim JAR produced")\nneqsim_jar = jars[-1]',
                           robust_jar_first,
                       )
+                      if "NEQSIM_SOURCE_REF='master'" in s and "Xvfb" not in s:
+                          marker = "NEQSIM_SOURCE_REF='master'"
+                          pos = s.find("\n", s.find(marker)) + 1
+                          s = s[:pos] + xvfb_setup + s[pos:]
                       c["source"] = s
               p.write_text(json.dumps(nb, indent=1) + "\n")
           PY
