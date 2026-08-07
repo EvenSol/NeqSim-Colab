@@ -38,6 +38,8 @@ jobs:
           robust_jar = """candidates=[p for p in (src/'target').glob('neqsim-*.jar') if '-sources' not in p.name and '-javadoc' not in p.name and not p.name.startswith('original-')]\nif not candidates: raise FileNotFoundError('No NeqSim runtime JAR found')\njar=max(candidates,key=lambda p:p.stat().st_size)\nassert jar.stat().st_size > 5_000_000, f'Expected shaded runtime JAR, got {jar} ({jar.stat().st_size} bytes)'"""
           robust_jar_first = """candidates = [p for p in (src / 'target').glob('neqsim-*.jar') if '-sources' not in p.name and '-javadoc' not in p.name and not p.name.startswith('original-')]\nif not candidates:\n    raise FileNotFoundError('No NeqSim runtime JAR found')\nneqsim_jar = max(candidates, key=lambda p: p.stat().st_size)\nassert neqsim_jar.stat().st_size > 5_000_000, f'Expected shaded runtime JAR, got {neqsim_jar} ({neqsim_jar.stat().st_size} bytes)'"""
           xvfb_setup = """if shutil.which('Xvfb') is None:\n    subprocess.run(['apt-get','update','-qq'],check=True)\n    subprocess.run(['apt-get','install','-y','-qq','xvfb'],check=True)\nif not os.environ.get('DISPLAY'):\n    os.environ['DISPLAY']=':99'\n    subprocess.Popen(['Xvfb',':99','-screen','0','1280x1024x24'],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)\n    import time; time.sleep(0.5)\n"""
+          old_pipeline_render = "cells,types,xyz=plot.vtk_mesh(Th.function_space); grid=pv.UnstructuredGrid(cells,types,xyz); grid.point_data['T [degC]']=Tc; pl=pv.Plotter(off_screen=True); pl.add_mesh(grid,scalars='T [degC]'); pl.view_xy(); pl.screenshot('/tmp/femT.png'); from IPython.display import Image,display; display(Image('/tmp/femT.png'))"
+          new_pipeline_render = "plt.figure(figsize=(10,3)); sc=plt.scatter(c[:,0],c[:,1],c=Tc,s=10); plt.colorbar(sc,label='Temperature [degC]'); plt.axvspan(z0,z1,alpha=.12); plt.xlabel('Local z [m]'); plt.ylabel('Radius [m]'); plt.title('FEniCSx local temperature field'); plt.show()"
 
           for name in [
               "notebooks/fluidflow/neqsim_fenicsx_fem_pipeline.ipynb",
@@ -60,6 +62,9 @@ jobs:
                           marker = "NEQSIM_SOURCE_REF='master'"
                           pos = s.find("\n", s.find(marker)) + 1
                           s = s[:pos] + xvfb_setup + s[pos:]
+                      if name.endswith("neqsim_fenicsx_fem_pipeline.ipynb"):
+                          s = s.replace("petsc_options_prefix='heat_'", "petsc_options_prefix=f'heat_{nx}_{nr}_{int(defect)}_'")
+                          s = s.replace(old_pipeline_render, new_pipeline_render)
                       c["source"] = s
               p.write_text(json.dumps(nb, indent=1) + "\n")
           PY
@@ -95,7 +100,7 @@ jobs:
 
           catalog_path = Path("notebooks/examples_of_NeqSim_in_Colab.ipynb")
           cat = json.loads(catalog_path.read_text())
-          entry1 = "* **Advanced** - [NeqSim + FEniCSx local pipeline FEM](fluidflow/neqsim_fenicsx_fem_pipeline.ipynb): use source-built NeqSim master for fluid properties and hydrate equilibrium, then resolve a local insulation defect, shutdown cooldown, hydrate no-touch time, and axisymmetric thermo-elastic stress with FEniCSx and PyVista.\n"
+          entry1 = "* **Advanced** - [NeqSim + FEniCSx local pipeline FEM](fluidflow/neqsim_fenicsx_fem_pipeline.ipynb): use source-built NeqSim master for fluid properties and hydrate equilibrium, then resolve a local insulation defect, shutdown cooldown, hydrate no-touch time, and axisymmetric thermo-elastic stress with FEniCSx.\n"
           entry2 = "* **Advanced** - [Finite-element methods for oil & gas engineering with NeqSim](fluidflow/finite_element_methods_oil_gas_neqsim.ipynb): establish the NeqSim → Gmsh → scikit-fem/FEniCSx → PyVista stack through insulated-pipe heat transfer, damaged-insulation meshing, porous CO2 diffusion, and wellbore-to-formation heat conduction.\n"
           if not any("neqsim_fenicsx_fem_pipeline.ipynb" in ("".join(c.get("source", [])) if isinstance(c.get("source"), list) else str(c.get("source", ""))) for c in cat["cells"]):
               for c in cat["cells"]:
@@ -118,7 +123,7 @@ jobs:
           entries = []
           capabilities = {
               paths[0]: ["NeqSim SRK-CPA transport-property handoff", "1D pipeline thermal boundary", "FEniCSx axisymmetric local heat conduction", "mesh and analytical verification", "NeqSim hydrate equilibrium and SurfCooldownAnalyzer comparison", "local transient cooldown", "axisymmetric thermo-elastic stress"],
-              paths[1]: ["NeqSim transport and multicomponent diffusion properties", "scikit-fem radial heat transfer", "Gmsh physical groups and unstructured mesh", "direct Gmsh-to-DOLFINx transfer", "PyVista FEM visualization", "porous-rock CO2 diffusion", "FEniCSx wellbore-to-formation heat conduction"],
+              paths[1]: ["NeqSim transport and multicomponent diffusion properties", "scikit-fem radial heat transfer", "Gmsh physical groups and unstructured mesh", "direct Gmsh-to-DOLFINx transfer", "PyVista FEM mesh/field handling", "porous-rock CO2 diffusion", "FEniCSx wellbore-to-formation heat conduction"],
           }
           for path in paths:
               nb = json.loads(Path(path).read_text())
