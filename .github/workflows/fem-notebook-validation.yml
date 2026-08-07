@@ -1,8 +1,8 @@
 name: FEM notebook execution validation
 
 on:
-  pull_request:
-    branches: [master]
+  push:
+    branches: [fenicsx-neqsim-fem-pipeline]
     paths:
       - "notebooks/fluidflow/neqsim_fenicsx_fem_pipeline.ipynb"
       - "notebooks/fluidflow/finite_element_methods_oil_gas_neqsim.ipynb"
@@ -10,7 +10,10 @@ on:
 
 permissions:
   contents: write
-  pull-requests: read
+
+concurrency:
+  group: fem-notebook-validation
+  cancel-in-progress: true
 
 jobs:
   execute-and-record:
@@ -20,7 +23,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.head.ref }}
+          ref: fenicsx-neqsim-fem-pipeline
           fetch-depth: 0
           persist-credentials: true
 
@@ -206,4 +209,4 @@ plt.plot(tc,bc,label='bulk'); plt.plot(tc,wc,label='min wall'); plt.axhline(targ
           git rm .github/workflows/fem-notebook-validation.yml
           git add notebooks/fluidflow/neqsim_fenicsx_fem_pipeline.ipynb notebooks/fluidflow/finite_element_methods_oil_gas_neqsim.ipynb notebooks/examples_of_NeqSim_in_Colab.ipynb notebooks/notebook_maintenance_ledger.json notebooks/maintenance_ledger/fem_neqsim_gmsh_fenicsx_20260807.json
           git commit -m "Execute and validate NeqSim FEM notebooks"
-          git push origin HEAD:${{ github.event.pull_request.head.ref }}
+          git push origin HEAD:fenicsx-neqsim-fem-pipeline
