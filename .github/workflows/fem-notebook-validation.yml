@@ -34,6 +34,10 @@ jobs:
           python - <<'PY'
           import json
           from pathlib import Path
+
+          robust_jar = """candidates=[p for p in (src/'target').glob('neqsim-*.jar') if '-sources' not in p.name and '-javadoc' not in p.name and not p.name.startswith('original-')]\nif not candidates: raise FileNotFoundError(f'No NeqSim runtime JAR found in {src / 'target'}')\njar=max(candidates,key=lambda p:p.stat().st_size)\nassert jar.stat().st_size > 5_000_000, f'Expected shaded runtime JAR, got {jar} ({jar.stat().st_size} bytes)'"""
+          robust_jar_first = """candidates = [p for p in (src / 'target').glob('neqsim-*.jar') if '-sources' not in p.name and '-javadoc' not in p.name and not p.name.startswith('original-')]\nif not candidates:\n    raise FileNotFoundError(f'No NeqSim runtime JAR found in {src / "target"}')\nneqsim_jar = max(candidates, key=lambda p: p.stat().st_size)\nassert neqsim_jar.stat().st_size > 5_000_000, f'Expected shaded runtime JAR, got {neqsim_jar} ({neqsim_jar.stat().st_size} bytes)'"""
+
           for name in [
               "notebooks/fluidflow/neqsim_fenicsx_fem_pipeline.ipynb",
               "notebooks/fluidflow/finite_element_methods_oil_gas_neqsim.ipynb",
@@ -46,6 +50,11 @@ jobs:
                       if isinstance(s, list):
                           s = "".join(s)
                       s = s.replace("importlib.metadata.version('fenics-dolfinx')", "dolfinx.__version__")
+                      s = s.replace("jar=sorted((src/'target').glob('neqsim-*-shaded.jar'))[-1]", robust_jar)
+                      s = s.replace(
+                          'jars = sorted((src / "target").glob("neqsim-*-shaded.jar"))\nif not jars:\n    raise FileNotFoundError("No shaded NeqSim JAR produced")\nneqsim_jar = jars[-1]',
+                          robust_jar_first,
+                      )
                       c["source"] = s
               p.write_text(json.dumps(nb, indent=1) + "\n")
           PY
@@ -64,7 +73,6 @@ jobs:
           python - <<'PY'
           import datetime as dt
           import hashlib
-          import importlib.metadata
           import json
           import subprocess
           import sys
@@ -74,8 +82,11 @@ jobs:
           stamp = now.isoformat().replace("+00:00", "Z")
           day = now.date().isoformat()
           commit = subprocess.check_output(["git", "-C", "/content/neqsim-java", "rev-parse", "HEAD"], text=True).strip()
-          jars = sorted(Path("/content/neqsim-java/target").glob("neqsim-*-shaded.jar"))
-          jar_sha = hashlib.sha256(jars[-1].read_bytes()).hexdigest()
+          jar_candidates = [p for p in Path("/content/neqsim-java/target").glob("neqsim-*.jar") if "-sources" not in p.name and "-javadoc" not in p.name and not p.name.startswith("original-")]
+          if not jar_candidates:
+              raise FileNotFoundError("No NeqSim runtime JAR found for maintenance evidence")
+          runtime_jar = max(jar_candidates, key=lambda p: p.stat().st_size)
+          jar_sha = hashlib.sha256(runtime_jar.read_bytes()).hexdigest()
 
           catalog_path = Path("notebooks/examples_of_NeqSim_in_Colab.ipynb")
           cat = json.loads(catalog_path.read_text())
@@ -123,7 +134,7 @@ jobs:
                   "code_cells": len(codes),
                   "substantive_code_cells": len(codes),
                   "markdown_cells": len(mds),
-                  "neqsim_source": {"repository": "equinor/neqsim", "ref": "master", "commit": commit, "jar_sha256": jar_sha, "runtime_guard": "NEQSIM_JVM_AUTOSTART=0, source-built shaded JAR added with JPype, main-only SurfCooldownAnalyzer code-source asserted."},
+                  "neqsim_source": {"repository": "equinor/neqsim", "ref": "master", "commit": commit, "jar_sha256": jar_sha, "runtime_guard": "NEQSIM_JVM_AUTOSTART=0, source-built shaded runtime JAR added with JPype, main-only SurfCooldownAnalyzer code-source asserted."},
                   "neqsim_capabilities_demonstrated": capabilities[path],
                   "engineering_validation": {"assertions_failed": 0, "checks": ["all code cells executed", "zero stored exceptions", "source-built NeqSim class-location assertion passed", "FEM temperature bounds and/or analytical checks passed", "all explicit notebook assertions passed"]},
                   "figures": {"count": figs, "visual_inspection": "Generated figures retained in notebook outputs; checked for successful PNG creation in the execution environment."},
