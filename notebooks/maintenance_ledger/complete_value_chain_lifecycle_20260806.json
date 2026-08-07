@@ -25,6 +25,7 @@
       "execution_status": "passed",
       "publication": {
         "branch": "automation/repair-valuechain-pypi-colab-20260807",
+        "pull_request": 111,
         "base_branch": "master",
         "revalidation_base_commit": "f6a7f1d293fbf3f60694e01a138086590c27dcdb",
         "prior_merged_pull_requests": [
