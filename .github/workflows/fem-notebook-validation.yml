@@ -35,8 +35,8 @@ jobs:
           import json
           from pathlib import Path
 
-          robust_jar = """candidates=[p for p in (src/'target').glob('neqsim-*.jar') if '-sources' not in p.name and '-javadoc' not in p.name and not p.name.startswith('original-')]\nif not candidates: raise FileNotFoundError(f'No NeqSim runtime JAR found in {src / 'target'}')\njar=max(candidates,key=lambda p:p.stat().st_size)\nassert jar.stat().st_size > 5_000_000, f'Expected shaded runtime JAR, got {jar} ({jar.stat().st_size} bytes)'"""
-          robust_jar_first = """candidates = [p for p in (src / 'target').glob('neqsim-*.jar') if '-sources' not in p.name and '-javadoc' not in p.name and not p.name.startswith('original-')]\nif not candidates:\n    raise FileNotFoundError(f'No NeqSim runtime JAR found in {src / "target"}')\nneqsim_jar = max(candidates, key=lambda p: p.stat().st_size)\nassert neqsim_jar.stat().st_size > 5_000_000, f'Expected shaded runtime JAR, got {neqsim_jar} ({neqsim_jar.stat().st_size} bytes)'"""
+          robust_jar = """candidates=[p for p in (src/'target').glob('neqsim-*.jar') if '-sources' not in p.name and '-javadoc' not in p.name and not p.name.startswith('original-')]\nif not candidates: raise FileNotFoundError('No NeqSim runtime JAR found')\njar=max(candidates,key=lambda p:p.stat().st_size)\nassert jar.stat().st_size > 5_000_000, f'Expected shaded runtime JAR, got {jar} ({jar.stat().st_size} bytes)'"""
+          robust_jar_first = """candidates = [p for p in (src / 'target').glob('neqsim-*.jar') if '-sources' not in p.name and '-javadoc' not in p.name and not p.name.startswith('original-')]\nif not candidates:\n    raise FileNotFoundError('No NeqSim runtime JAR found')\nneqsim_jar = max(candidates, key=lambda p: p.stat().st_size)\nassert neqsim_jar.stat().st_size > 5_000_000, f'Expected shaded runtime JAR, got {neqsim_jar} ({neqsim_jar.stat().st_size} bytes)'"""
 
           for name in [
               "notebooks/fluidflow/neqsim_fenicsx_fem_pipeline.ipynb",
