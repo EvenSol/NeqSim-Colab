@@ -40,6 +40,10 @@ jobs:
           xvfb_setup = """if shutil.which('Xvfb') is None:\n    subprocess.run(['apt-get','update','-qq'],check=True)\n    subprocess.run(['apt-get','install','-y','-qq','xvfb'],check=True)\nif not os.environ.get('DISPLAY'):\n    os.environ['DISPLAY']=':99'\n    subprocess.Popen(['Xvfb',':99','-screen','0','1280x1024x24'],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)\n    import time; time.sleep(0.5)\n"""
           old_pipeline_render = "cells,types,xyz=plot.vtk_mesh(Th.function_space); grid=pv.UnstructuredGrid(cells,types,xyz); grid.point_data['T [degC]']=Tc; pl=pv.Plotter(off_screen=True); pl.add_mesh(grid,scalars='T [degC]'); pl.view_xy(); pl.screenshot('/tmp/femT.png'); from IPython.display import Image,display; display(Image('/tmp/femT.png'))"
           new_pipeline_render = "plt.figure(figsize=(10,3)); sc=plt.scatter(c[:,0],c[:,1],c=Tc,s=10); plt.colorbar(sc,label='Temperature [degC]'); plt.axvspan(z0,z1,alpha=.12); plt.xlabel('Local z [m]'); plt.ylabel('Radius [m]'); plt.title('FEniCSx local temperature field'); plt.show()"
+          old_gmsh_render = "cells,types,pts=plot.vtk_mesh(V); grid=pv.UnstructuredGrid(cells,types,pts); grid.point_data['Temperature [degC]']=uh.x.array-273.15; pl=pv.Plotter(off_screen=True,window_size=(1000,420)); pl.add_mesh(grid,scalars='Temperature [degC]',show_edges=True); pl.view_xy(); pl.screenshot('/tmp/gmsh_stack.png'); from IPython.display import Image,display; display(Image('/tmp/gmsh_stack.png'))"
+          new_gmsh_render = "cells,types,pts=plot.vtk_mesh(V); grid=pv.UnstructuredGrid(cells,types,pts); grid.point_data['Temperature [degC]']=uh.x.array-273.15; assert grid.n_points==len(uh.x.array); print(grid); plt.figure(figsize=(10,3)); sc=plt.scatter(pts[:,0],pts[:,1],c=uh.x.array-273.15,s=10); plt.colorbar(sc,label='Temperature [degC]'); plt.xlabel('Axial coordinate [m]'); plt.ylabel('Radius [m]'); plt.title('Gmsh → FEniCSx field stored in PyVista'); plt.show()"
+          old_well_render = "cells,types,pts=plot.vtk_mesh(Vw); gg=pv.UnstructuredGrid(cells,types,pts); gg.point_data['T [degC]']=Tw.x.array-273.15; pl=pv.Plotter(off_screen=True,window_size=(850,500)); pl.add_mesh(gg,scalars='T [degC]'); pl.view_xy(); pl.screenshot('/tmp/well.png'); display(Image('/tmp/well.png'))"
+          new_well_render = "cells,types,pts=plot.vtk_mesh(Vw); gg=pv.UnstructuredGrid(cells,types,pts); gg.point_data['T [degC]']=Tw.x.array-273.15; assert gg.n_points==len(Tw.x.array); print(gg); plt.figure(figsize=(8,5)); sc=plt.scatter(pts[:,0],pts[:,1],c=Tw.x.array-273.15,s=8); plt.colorbar(sc,label='Temperature [degC]'); plt.xlabel('Depth coordinate [m]'); plt.ylabel('Radius [m]'); plt.title('Well/formation field stored in PyVista'); plt.show()"
 
           for name in [
               "notebooks/fluidflow/neqsim_fenicsx_fem_pipeline.ipynb",
@@ -47,7 +51,9 @@ jobs:
           ]:
               p = Path(name)
               nb = json.loads(p.read_text())
-              for c in nb["cells"]:
+              for index, c in enumerate(nb["cells"]):
+                  if "id" not in c:
+                      c["id"] = f"cell-{index:02d}"
                   if c.get("cell_type") == "code":
                       s = c.get("source", "")
                       if isinstance(s, list):
@@ -65,6 +71,9 @@ jobs:
                       if name.endswith("neqsim_fenicsx_fem_pipeline.ipynb"):
                           s = s.replace("petsc_options_prefix='heat_'", "petsc_options_prefix=f'heat_{nx}_{nr}_{int(defect)}_'")
                           s = s.replace(old_pipeline_render, new_pipeline_render)
+                      else:
+                          s = s.replace(old_gmsh_render, new_gmsh_render)
+                          s = s.replace(old_well_render, new_well_render)
                       c["source"] = s
               p.write_text(json.dumps(nb, indent=1) + "\n")
           PY
@@ -148,7 +157,7 @@ jobs:
                   "neqsim_capabilities_demonstrated": capabilities[path],
                   "engineering_validation": {"assertions_failed": 0, "checks": ["all code cells executed", "zero stored exceptions", "source-built NeqSim class-location assertion passed", "FEM temperature bounds and/or analytical checks passed", "all explicit notebook assertions passed"]},
                   "figures": {"count": figs, "visual_inspection": "Generated figures retained in notebook outputs; checked for successful PNG creation in the execution environment."},
-                  "notebook_quality": {"valid_nbformat_json": True, "total_cells": len(nb["cells"]), "colab_badge_valid": True, "source_master_setup_cell": True, "hidden_local_dependencies": False, "stored_error_outputs": 0, "sequential_execution_counts": True},
+                  "notebook_quality": {"valid_nbformat_json": true, "total_cells": len(nb["cells"]), "colab_badge_valid": true, "source_master_setup_cell": true, "hidden_local_dependencies": false, "stored_error_outputs": 0, "sequential_execution_counts": true},
                   "summary": "Executable NeqSim-to-FEM engineering tutorial using current NeqSim master and open-source Python FEM/meshing/visualization tools."
               })
           shard = {"schema_version": 1, "updated_at": stamp, "notebooks": entries}
