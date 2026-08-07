@@ -24,58 +24,58 @@ jobs:
           fetch-depth: 0
           persist-credentials: true
 
-      - name: System and Python dependencies
+      - name: Install runtime dependencies
         shell: bash
         run: |
           apt-get update -qq
-          DEBIAN_FRONTEND=noninteractive apt-get install -y -qq openjdk-17-jdk-headless git libglu1-mesa xvfb
+          DEBIAN_FRONTEND=noninteractive apt-get install -y -qq openjdk-17-jdk-headless git libglu1-mesa
           python -m pip install -q neqsim scikit-fem gmsh meshio pyvista scipy nbconvert
           mkdir -p /content
+
+      - name: Patch notebooks to current runtime APIs
+        shell: bash
+        run: |
           python - <<'PY'
           import json
           from pathlib import Path
 
-          robust_jar = """candidates=[p for p in (src/'target').glob('neqsim-*.jar') if '-sources' not in p.name and '-javadoc' not in p.name and not p.name.startswith('original-')]\nif not candidates: raise FileNotFoundError('No NeqSim runtime JAR found')\njar=max(candidates,key=lambda p:p.stat().st_size)\nassert jar.stat().st_size > 5_000_000, f'Expected shaded runtime JAR, got {jar} ({jar.stat().st_size} bytes)'"""
-          robust_jar_first = """candidates = [p for p in (src / 'target').glob('neqsim-*.jar') if '-sources' not in p.name and '-javadoc' not in p.name and not p.name.startswith('original-')]\nif not candidates:\n    raise FileNotFoundError('No NeqSim runtime JAR found')\nneqsim_jar = max(candidates, key=lambda p: p.stat().st_size)\nassert neqsim_jar.stat().st_size > 5_000_000, f'Expected shaded runtime JAR, got {neqsim_jar} ({neqsim_jar.stat().st_size} bytes)'"""
-          xvfb_setup = """if shutil.which('Xvfb') is None:\n    subprocess.run(['apt-get','update','-qq'],check=True)\n    subprocess.run(['apt-get','install','-y','-qq','xvfb'],check=True)\nif not os.environ.get('DISPLAY'):\n    os.environ['DISPLAY']=':99'\n    subprocess.Popen(['Xvfb',':99','-screen','0','1280x1024x24'],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)\n    import time; time.sleep(0.5)\n"""
-          old_pipeline_render = "cells,types,xyz=plot.vtk_mesh(Th.function_space); grid=pv.UnstructuredGrid(cells,types,xyz); grid.point_data['T [degC]']=Tc; pl=pv.Plotter(off_screen=True); pl.add_mesh(grid,scalars='T [degC]'); pl.view_xy(); pl.screenshot('/tmp/femT.png'); from IPython.display import Image,display; display(Image('/tmp/femT.png'))"
-          new_pipeline_render = "plt.figure(figsize=(10,3)); sc=plt.scatter(c[:,0],c[:,1],c=Tc,s=10); plt.colorbar(sc,label='Temperature [degC]'); plt.axvspan(z0,z1,alpha=.12); plt.xlabel('Local z [m]'); plt.ylabel('Radius [m]'); plt.title('FEniCSx local temperature field'); plt.show()"
-          old_gmsh_render = "cells,types,pts=plot.vtk_mesh(V); grid=pv.UnstructuredGrid(cells,types,pts); grid.point_data['Temperature [degC]']=uh.x.array-273.15; pl=pv.Plotter(off_screen=True,window_size=(1000,420)); pl.add_mesh(grid,scalars='Temperature [degC]',show_edges=True); pl.view_xy(); pl.screenshot('/tmp/gmsh_stack.png'); from IPython.display import Image,display; display(Image('/tmp/gmsh_stack.png'))"
-          new_gmsh_render = "cells,types,pts=plot.vtk_mesh(V); grid=pv.UnstructuredGrid(cells,types,pts); grid.point_data['Temperature [degC]']=uh.x.array-273.15; assert grid.n_points==len(uh.x.array); print(grid); plt.figure(figsize=(10,3)); sc=plt.scatter(pts[:,0],pts[:,1],c=uh.x.array-273.15,s=10); plt.colorbar(sc,label='Temperature [degC]'); plt.xlabel('Axial coordinate [m]'); plt.ylabel('Radius [m]'); plt.title('Gmsh → FEniCSx field stored in PyVista'); plt.show()"
-          old_well_render = "cells,types,pts=plot.vtk_mesh(Vw); gg=pv.UnstructuredGrid(cells,types,pts); gg.point_data['T [degC]']=Tw.x.array-273.15; pl=pv.Plotter(off_screen=True,window_size=(850,500)); pl.add_mesh(gg,scalars='T [degC]'); pl.view_xy(); pl.screenshot('/tmp/well.png'); display(Image('/tmp/well.png'))"
-          new_well_render = "cells,types,pts=plot.vtk_mesh(Vw); gg=pv.UnstructuredGrid(cells,types,pts); gg.point_data['T [degC]']=Tw.x.array-273.15; assert gg.n_points==len(Tw.x.array); print(gg); plt.figure(figsize=(8,5)); sc=plt.scatter(pts[:,0],pts[:,1],c=Tw.x.array-273.15,s=8); plt.colorbar(sc,label='Temperature [degC]'); plt.xlabel('Depth coordinate [m]'); plt.ylabel('Radius [m]'); plt.title('Well/formation field stored in PyVista'); plt.show()"
+          paths = [
+              Path("notebooks/fluidflow/neqsim_fenicsx_fem_pipeline.ipynb"),
+              Path("notebooks/fluidflow/finite_element_methods_oil_gas_neqsim.ipynb"),
+          ]
 
-          for name in [
-              "notebooks/fluidflow/neqsim_fenicsx_fem_pipeline.ipynb",
-              "notebooks/fluidflow/finite_element_methods_oil_gas_neqsim.ipynb",
-          ]:
-              p = Path(name)
-              nb = json.loads(p.read_text())
-              for index, c in enumerate(nb["cells"]):
-                  if "id" not in c:
-                      c["id"] = f"cell-{index:02d}"
-                  if c.get("cell_type") == "code":
-                      s = c.get("source", "")
-                      if isinstance(s, list):
-                          s = "".join(s)
-                      s = s.replace("importlib.metadata.version('fenics-dolfinx')", "dolfinx.__version__")
-                      s = s.replace("jar=sorted((src/'target').glob('neqsim-*-shaded.jar'))[-1]", robust_jar)
-                      s = s.replace(
-                          'jars = sorted((src / "target").glob("neqsim-*-shaded.jar"))\nif not jars:\n    raise FileNotFoundError("No shaded NeqSim JAR produced")\nneqsim_jar = jars[-1]',
-                          robust_jar_first,
-                      )
-                      if "NEQSIM_SOURCE_REF='master'" in s and "Xvfb" not in s:
-                          marker = "NEQSIM_SOURCE_REF='master'"
-                          pos = s.find("\n", s.find(marker)) + 1
-                          s = s[:pos] + xvfb_setup + s[pos:]
-                      if name.endswith("neqsim_fenicsx_fem_pipeline.ipynb"):
-                          s = s.replace("petsc_options_prefix='heat_'", "petsc_options_prefix=f'heat_{nx}_{nr}_{int(defect)}_'")
-                          s = s.replace(old_pipeline_render, new_pipeline_render)
-                      else:
-                          s = s.replace(old_gmsh_render, new_gmsh_render)
-                          s = s.replace(old_well_render, new_well_render)
-                      c["source"] = s
-              p.write_text(json.dumps(nb, indent=1) + "\n")
+          jar_old_short = "jar=sorted((src/'target').glob('neqsim-*-shaded.jar'))[-1]"
+          jar_new_short = """candidates=[p for p in (src/'target').glob('neqsim-*.jar') if '-sources' not in p.name and '-javadoc' not in p.name and not p.name.startswith('original-')]\nif not candidates: raise FileNotFoundError('No NeqSim runtime JAR found')\njar=max(candidates,key=lambda p:p.stat().st_size)\nassert jar.stat().st_size > 5_000_000"""
+          jar_old_long = 'jars = sorted((src / "target").glob("neqsim-*-shaded.jar"))\nif not jars:\n    raise FileNotFoundError("No shaded NeqSim JAR produced")\nneqsim_jar = jars[-1]'
+          jar_new_long = """candidates = [p for p in (src / 'target').glob('neqsim-*.jar') if '-sources' not in p.name and '-javadoc' not in p.name and not p.name.startswith('original-')]\nif not candidates:\n    raise FileNotFoundError('No NeqSim runtime JAR found')\nneqsim_jar = max(candidates, key=lambda p: p.stat().st_size)\nassert neqsim_jar.stat().st_size > 5_000_000"""
+
+          pipeline_old = "cells,types,xyz=plot.vtk_mesh(Th.function_space); grid=pv.UnstructuredGrid(cells,types,xyz); grid.point_data['T [degC]']=Tc; pl=pv.Plotter(off_screen=True); pl.add_mesh(grid,scalars='T [degC]'); pl.view_xy(); pl.screenshot('/tmp/femT.png'); from IPython.display import Image,display; display(Image('/tmp/femT.png'))"
+          pipeline_new = "plt.figure(figsize=(10,3)); sc=plt.scatter(c[:,0],c[:,1],c=Tc,s=10); plt.colorbar(sc,label='Temperature [degC]'); plt.axvspan(z0,z1,alpha=.12); plt.xlabel('Local z [m]'); plt.ylabel('Radius [m]'); plt.title('FEniCSx local temperature field'); plt.show()"
+
+          gmsh_old = "cells,types,pts=plot.vtk_mesh(V); grid=pv.UnstructuredGrid(cells,types,pts); grid.point_data['Temperature [degC]']=uh.x.array-273.15; pl=pv.Plotter(off_screen=True,window_size=(1000,420)); pl.add_mesh(grid,scalars='Temperature [degC]',show_edges=True); pl.view_xy(); pl.screenshot('/tmp/gmsh_stack.png'); from IPython.display import Image,display; display(Image('/tmp/gmsh_stack.png'))"
+          gmsh_new = "cells,types,pts=plot.vtk_mesh(V); grid=pv.UnstructuredGrid(cells,types,pts); grid.point_data['Temperature [degC]']=uh.x.array-273.15; assert grid.n_points==len(uh.x.array); print(grid); plt.figure(figsize=(10,3)); sc=plt.scatter(pts[:,0],pts[:,1],c=uh.x.array-273.15,s=10); plt.colorbar(sc,label='Temperature [degC]'); plt.xlabel('Axial coordinate [m]'); plt.ylabel('Radius [m]'); plt.title('Gmsh → FEniCSx field stored in PyVista'); plt.show()"
+
+          well_old = "cells,types,pts=plot.vtk_mesh(Vw); gg=pv.UnstructuredGrid(cells,types,pts); gg.point_data['T [degC]']=Tw.x.array-273.15; pl=pv.Plotter(off_screen=True,window_size=(850,500)); pl.add_mesh(gg,scalars='T [degC]'); pl.view_xy(); pl.screenshot('/tmp/well.png'); display(Image('/tmp/well.png'))"
+          well_new = "cells,types,pts=plot.vtk_mesh(Vw); gg=pv.UnstructuredGrid(cells,types,pts); gg.point_data['T [degC]']=Tw.x.array-273.15; assert gg.n_points==len(Tw.x.array); print(gg); plt.figure(figsize=(8,5)); sc=plt.scatter(pts[:,0],pts[:,1],c=Tw.x.array-273.15,s=8); plt.colorbar(sc,label='Temperature [degC]'); plt.xlabel('Depth coordinate [m]'); plt.ylabel('Radius [m]'); plt.title('Well/formation field stored in PyVista'); plt.show()"
+
+          for path in paths:
+              nb = json.loads(path.read_text())
+              for i, cell in enumerate(nb["cells"]):
+                  cell.setdefault("id", f"cell-{i:02d}")
+                  if cell.get("cell_type") != "code":
+                      continue
+                  src = cell.get("source", "")
+                  if isinstance(src, list):
+                      src = "".join(src)
+                  src = src.replace("importlib.metadata.version('fenics-dolfinx')", "dolfinx.__version__")
+                  src = src.replace(jar_old_short, jar_new_short).replace(jar_old_long, jar_new_long)
+                  if path.name == "neqsim_fenicsx_fem_pipeline.ipynb":
+                      src = src.replace("petsc_options_prefix='heat_'", "petsc_options_prefix=f'heat_{nx}_{nr}_{int(defect)}_'")
+                      src = src.replace(pipeline_old, pipeline_new)
+                  else:
+                      src = src.replace(gmsh_old, gmsh_new).replace(well_old, well_new)
+                  cell["source"] = src
+              path.write_text(json.dumps(nb, indent=1) + "\n")
           PY
 
       - name: Execute notebooks
@@ -86,7 +86,7 @@ jobs:
           python scripts/execute_notebook_inprocess.py notebooks/fluidflow/neqsim_fenicsx_fem_pipeline.ipynb
           python scripts/execute_notebook_inprocess.py notebooks/fluidflow/finite_element_methods_oil_gas_neqsim.ipynb
 
-      - name: Update catalog and maintenance evidence
+      - name: Record catalog and maintenance evidence
         shell: bash
         run: |
           python - <<'PY'
@@ -96,74 +96,60 @@ jobs:
           import subprocess
           import sys
           from pathlib import Path
+          import dolfinx
 
           now = dt.datetime.now(dt.timezone.utc).replace(microsecond=0)
           stamp = now.isoformat().replace("+00:00", "Z")
-          day = now.date().isoformat()
+          day = str(now.date())
           commit = subprocess.check_output(["git", "-C", "/content/neqsim-java", "rev-parse", "HEAD"], text=True).strip()
-          jar_candidates = [p for p in Path("/content/neqsim-java/target").glob("neqsim-*.jar") if "-sources" not in p.name and "-javadoc" not in p.name and not p.name.startswith("original-")]
-          if not jar_candidates:
-              raise FileNotFoundError("No NeqSim runtime JAR found for maintenance evidence")
-          runtime_jar = max(jar_candidates, key=lambda p: p.stat().st_size)
+          jars = [p for p in Path("/content/neqsim-java/target").glob("neqsim-*.jar") if "-sources" not in p.name and "-javadoc" not in p.name and not p.name.startswith("original-")]
+          runtime_jar = max(jars, key=lambda p: p.stat().st_size)
           jar_sha = hashlib.sha256(runtime_jar.read_bytes()).hexdigest()
 
           catalog_path = Path("notebooks/examples_of_NeqSim_in_Colab.ipynb")
-          cat = json.loads(catalog_path.read_text())
-          entry1 = "* **Advanced** - [NeqSim + FEniCSx local pipeline FEM](fluidflow/neqsim_fenicsx_fem_pipeline.ipynb): use source-built NeqSim master for fluid properties and hydrate equilibrium, then resolve a local insulation defect, shutdown cooldown, hydrate no-touch time, and axisymmetric thermo-elastic stress with FEniCSx.\n"
-          entry2 = "* **Advanced** - [Finite-element methods for oil & gas engineering with NeqSim](fluidflow/finite_element_methods_oil_gas_neqsim.ipynb): establish the NeqSim → Gmsh → scikit-fem/FEniCSx → PyVista stack through insulated-pipe heat transfer, damaged-insulation meshing, porous CO2 diffusion, and wellbore-to-formation heat conduction.\n"
-          if not any("neqsim_fenicsx_fem_pipeline.ipynb" in ("".join(c.get("source", [])) if isinstance(c.get("source"), list) else str(c.get("source", ""))) for c in cat["cells"]):
-              for c in cat["cells"]:
-                  if c.get("cell_type") != "markdown":
+          catalog = json.loads(catalog_path.read_text())
+          entry1 = "* **Advanced** - [NeqSim + FEniCSx local pipeline FEM](fluidflow/neqsim_fenicsx_fem_pipeline.ipynb): source-built NeqSim master supplies fluid properties and hydrate equilibrium; FEniCSx resolves local insulation degradation, cooldown, hydrate no-touch time, and thermo-elastic stress.\n"
+          entry2 = "* **Advanced** - [Finite-element methods for oil & gas engineering with NeqSim](fluidflow/finite_element_methods_oil_gas_neqsim.ipynb): use NeqSim → Gmsh → scikit-fem/FEniCSx → PyVista for insulated-pipe heat transfer, damaged-insulation geometry, porous CO2 diffusion, and wellbore-to-formation heat conduction.\n"
+          all_text = "\n".join("".join(c.get("source", [])) if isinstance(c.get("source"), list) else str(c.get("source", "")) for c in catalog["cells"])
+          if "neqsim_fenicsx_fem_pipeline.ipynb" not in all_text:
+              marker = "* [NeqSim + OpenFOAM CFD with inline flow graphics](fluidflow/neqsim_openfoam_cfd.ipynb)\n"
+              for cell in catalog["cells"]:
+                  if cell.get("cell_type") != "markdown":
                       continue
-                  src = "".join(c.get("source", [])) if isinstance(c.get("source"), list) else str(c.get("source", ""))
-                  marker = "* [NeqSim + OpenFOAM CFD with inline flow graphics](fluidflow/neqsim_openfoam_cfd.ipynb)\n"
+                  src = "".join(cell.get("source", [])) if isinstance(cell.get("source"), list) else str(cell.get("source", ""))
                   if marker in src:
-                      src = src.replace(marker, marker + entry1 + entry2)
-                      c["source"] = src.splitlines(keepends=True)
+                      cell["source"] = src.replace(marker, marker + entry1 + entry2).splitlines(keepends=True)
                       break
               else:
-                  raise RuntimeError("Could not locate Fluid mechanics catalog insertion point")
-          catalog_path.write_text(json.dumps(cat, indent=1) + "\n")
+                  raise RuntimeError("Fluid mechanics catalog marker not found")
+          catalog_path.write_text(json.dumps(catalog, indent=1) + "\n")
 
-          paths = [
+          nb_paths = [
               "notebooks/fluidflow/neqsim_fenicsx_fem_pipeline.ipynb",
               "notebooks/fluidflow/finite_element_methods_oil_gas_neqsim.ipynb",
           ]
           entries = []
-          capabilities = {
-              paths[0]: ["NeqSim SRK-CPA transport-property handoff", "1D pipeline thermal boundary", "FEniCSx axisymmetric local heat conduction", "mesh and analytical verification", "NeqSim hydrate equilibrium and SurfCooldownAnalyzer comparison", "local transient cooldown", "axisymmetric thermo-elastic stress"],
-              paths[1]: ["NeqSim transport and multicomponent diffusion properties", "scikit-fem radial heat transfer", "Gmsh physical groups and unstructured mesh", "direct Gmsh-to-DOLFINx transfer", "PyVista FEM mesh/field handling", "porous-rock CO2 diffusion", "FEniCSx wellbore-to-formation heat conduction"],
-          }
-          for path in paths:
+          for path in nb_paths:
               nb = json.loads(Path(path).read_text())
-              codes = [c for c in nb["cells"] if c.get("cell_type") == "code"]
-              mds = [c for c in nb["cells"] if c.get("cell_type") == "markdown"]
-              assert all(c.get("execution_count") is not None for c in codes)
-              assert not any(o.get("output_type") == "error" for c in codes for o in c.get("outputs", []))
-              figs = sum(1 for c in codes for o in c.get("outputs", []) if "image/png" in o.get("data", {}))
+              code = [c for c in nb["cells"] if c.get("cell_type") == "code"]
+              assert code and all(c.get("execution_count") is not None for c in code)
+              assert not any(o.get("output_type") == "error" for c in code for o in c.get("outputs", []))
               entries.append({
                   "path": path,
                   "verified_date": day,
                   "verified_at_utc": stamp,
                   "neqsim_version": f"source master commit {commit}",
                   "python_version": sys.version.split()[0],
-                  "dolfinx_version": getattr(__import__("dolfinx"), "__version__", "unknown"),
+                  "dolfinx_version": dolfinx.__version__,
                   "execution_status": "passed",
-                  "execution_method": "Executed every code cell sequentially in the official dolfinx/lab:stable container with the repository in-process notebook runner; source-built NeqSim master was loaded through JPype and all notebook assertions completed without stored errors.",
-                  "code_cells": len(codes),
-                  "substantive_code_cells": len(codes),
-                  "markdown_cells": len(mds),
-                  "neqsim_source": {"repository": "equinor/neqsim", "ref": "master", "commit": commit, "jar_sha256": jar_sha, "runtime_guard": "NEQSIM_JVM_AUTOSTART=0, source-built shaded runtime JAR added with JPype, main-only SurfCooldownAnalyzer code-source asserted."},
-                  "neqsim_capabilities_demonstrated": capabilities[path],
-                  "engineering_validation": {"assertions_failed": 0, "checks": ["all code cells executed", "zero stored exceptions", "source-built NeqSim class-location assertion passed", "FEM temperature bounds and/or analytical checks passed", "all explicit notebook assertions passed"]},
-                  "figures": {"count": figs, "visual_inspection": "Generated figures retained in notebook outputs; checked for successful PNG creation in the execution environment."},
-                  "notebook_quality": {"valid_nbformat_json": true, "total_cells": len(nb["cells"]), "colab_badge_valid": true, "source_master_setup_cell": true, "hidden_local_dependencies": false, "stored_error_outputs": 0, "sequential_execution_counts": true},
-                  "summary": "Executable NeqSim-to-FEM engineering tutorial using current NeqSim master and open-source Python FEM/meshing/visualization tools."
+                  "execution_method": "Executed all code cells in dolfinx/lab:stable using scripts/execute_notebook_inprocess.py.",
+                  "neqsim_source": {"repository": "equinor/neqsim", "ref": "master", "commit": commit, "jar_sha256": jar_sha, "runtime_guard": "Source-built runtime JAR loaded with JPype and SurfCooldownAnalyzer code-source asserted."},
+                  "engineering_validation": {"assertions_failed": 0, "checks": ["all code cells executed", "zero stored exceptions", "explicit analytical/mesh/temperature checks passed"]},
+                  "notebook_quality": {"valid_nbformat_json": True, "total_cells": len(nb["cells"]), "stored_error_outputs": 0},
               })
-          shard = {"schema_version": 1, "updated_at": stamp, "notebooks": entries}
-          shard_path = Path("notebooks/maintenance_ledger/fem_neqsim_gmsh_fenicsx_20260807.json")
-          shard_path.write_text(json.dumps(shard, indent=1) + "\n")
 
+          shard = Path("notebooks/maintenance_ledger/fem_neqsim_gmsh_fenicsx_20260807.json")
+          shard.write_text(json.dumps({"schema_version": 1, "updated_at": stamp, "notebooks": entries}, indent=1) + "\n")
           root_path = Path("notebooks/notebook_maintenance_ledger.json")
           root = json.loads(root_path.read_text())
           root["updated_at"] = stamp
