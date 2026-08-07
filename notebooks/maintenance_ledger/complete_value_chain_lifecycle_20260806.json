@@ -1,34 +1,38 @@
 {
   "schema_version": 1,
   "shard": "complete-value-chain-lifecycle-20260806",
-  "updated_at": "2026-08-06T22:46:15Z",
+  "updated_at": "2026-08-07T02:15:12Z",
   "notebooks": [
     {
       "path": "notebooks/valuechain/complete_oil_and_gas_value_chain_with_neqsim.ipynb",
       "verified_date": "2026-08-07",
-      "verified_at_utc": "2026-08-06T22:46:15Z",
-      "neqsim_version": "source commit a1f7817d57e013d14da31991cc160b570ca0cb62",
+      "verified_at_utc": "2026-08-07T02:15:12Z",
+      "neqsim_version": "3.16.0",
       "neqsim_source": {
-        "repository": "equinor/neqsim",
-        "requested_ref": "master",
-        "resolved_commit": "a1f7817d57e013d14da31991cc160b570ca0cb62",
-        "validation_jar_sha256": "7fc148e6d1fd28e09e8edfc37ce031a7c40f14aca31584bddcb82228e3bec095",
-        "runtime_guard": "The notebook loads the supplied or source-built JAR before importing simulation classes and verifies the ThreePhaseSeparator code source."
+        "artifact_origin": "public-pypi",
+        "package": "neqsim==3.16.0",
+        "source_index": "https://pypi.org/simple",
+        "validation_jar_sha256": "aec6c0024ce55d3df810d61affc321ba99abeffb54110ff24b87573fc74f88f2",
+        "runtime_guard": "The notebook verifies the installed package version, bundled JAR name and SHA-256, a ThreePhaseSeparator API smoke class, and the JPype classpath."
       },
       "python_version": "3.12.13",
       "java_version": "OpenJDK 17.0.19",
-      "numpy_version": "2.3.5",
-      "pandas_version": "2.2.3",
-      "scipy_version": "1.17.0",
-      "matplotlib_version": "3.10.8",
+      "numpy_version": "2.5.1",
+      "pandas_version": "3.0.5",
+      "scipy_version": "1.18.0",
+      "matplotlib_version": "3.11.1",
       "jpype_version": "1.7.1",
       "execution_status": "passed",
       "publication": {
-        "branch": "agent/extend-complete-value-chain-pvt-supporting",
-        "pull_request": 110,
+        "branch": "automation/repair-valuechain-pypi-colab-20260807",
+        "pull_request": 111,
         "base_branch": "master",
-        "conflict_resolution_base_commit": "cd5d799fe806fd6536e809627c630d403455fe6a",
-        "mode": "conflict-resolved pull request",
+        "revalidation_base_commit": "f6a7f1d293fbf3f60694e01a138086590c27dcdb",
+        "prior_merged_pull_requests": [
+          109,
+          110
+        ],
+        "mode": "focused draft pull request",
         "files": [
           "notebooks/valuechain/complete_oil_and_gas_value_chain_with_neqsim.ipynb",
           "notebooks/examples_of_NeqSim_in_Colab.ipynb",
@@ -36,12 +40,12 @@
           "notebooks/maintenance_ledger/complete_value_chain_lifecycle_20260806.json"
         ]
       },
-      "execution_method": "Executed all 23 code cells sequentially from an empty in-process IPython namespace against compiled NeqSim master source at commit a1f7817d. The clean run completed in 9.0 seconds, retained every result-bearing table and 17 PNG figures, and produced zero error outputs or stderr. Jupyter HTML conversion passed.",
+      "execution_method": "Executed all 23 code cells sequentially from an empty in-process IPython namespace with scripts/execute_notebook_inprocess.py and NeqSim 3.16.0 from a fresh verified public-PyPI snapshot. The final clean run completed in 8.1 seconds, retained every result-bearing table and 17 PNG figures, and produced zero error outputs or captured stderr. Jupyter HTML conversion and a ten-equation MathText preview passed.",
       "code_cells": 23,
       "substantive_code_cells": 23,
       "markdown_cells": 29,
-      "git_blob_sha1": "242d16c0a4b66c680701ca02e5bfcfbd7b257495",
-      "notebook_bytes": 1967441,
+      "git_blob_sha1": "1d410264abfbfa9a0018f62572355fbceeae963c",
+      "notebook_bytes": 1929247,
       "python_capabilities_demonstrated": [
         "model ownership, governed handoffs, and coherent case registries",
         "synthetic laboratory PVT QA and independent residual review",
@@ -51,7 +55,7 @@
         "product, emissions, RAM, late-life, and decision-gate screening"
       ],
       "neqsim_capabilities_demonstrated": [
-        "source-master class provenance through JPype",
+        "public-PyPI package and bundled-JAR provenance through JPype",
         "SRK-CPA downstream process-fluid translation with an explicit PVT boundary",
         "connected ProcessSystem with Stream, ThreePhaseSeparator, Compressor, and Cooler",
         "phase rates, mass closure, compression power, and cooling duty",
@@ -63,7 +67,7 @@
         "integrated_validation_checks_passed": 25,
         "assertions_failed": 0,
         "checks": [
-          "source-built NeqSim commit and JAR identity are recorded",
+          "public-PyPI NeqSim package and bundled JAR identity are recorded",
           "NeqSim is never primary for PVT authoring",
           "synthetic laboratory PVT QA and supporting density residual checks pass",
           "scenario identifiers are unique and coherent",
@@ -108,7 +112,7 @@
         "display_equations_inspected": 10,
         "figures_inspected": 17,
         "result": "passed",
-        "notes": "All stored figures and display equations were inspected for labels, units, legends, clipping, contrast, scales, and agreement with tables."
+        "notes": "All 17 stored figures and ten display equations were inspected for labels, units, legends, clipping, contrast, scales, and agreement with tables. The decision-gate heatmap was refreshed with a colorblind-safe orange-blue palette and high-contrast status labels before the final clean execution."
       },
       "link_validation": {
         "all_markdown_links_checked": 26,
@@ -118,18 +122,41 @@
         "result": "passed"
       },
       "preservation_validation": {
-        "pull_request_110_cells_preserved": 34,
-        "master_application_cells_integrated": 18,
-        "final_cells": 52,
-        "master_pull_request_preserved": 109,
-        "resolution_strategy": "Retain PR 110's governed lifecycle and source-master implementation; integrate master's connected process, PVT-support audit, hydraulic, ISO 6976, probabilistic-value, and scenario-gate applications."
+        "merged_master_cells_preserved": 52,
+        "cells_removed": 0,
+        "pre_existing_examples_preserved": 17,
+        "pre_existing_code_cells_preserved": 23,
+        "pre_existing_figures_preserved": 17,
+        "figure_values_refreshed": 17,
+        "new_figures_added": 0,
+        "examples": [
+          "governed lifecycle workflow overview",
+          "discipline-ownership capability matrix",
+          "primary synthetic PVT evidence",
+          "supporting NeqSim PVT residual audit",
+          "named NeqSim process handoff streams",
+          "six-scenario connected process application",
+          "reservoir production and pressure forecast",
+          "wellhead and shared-flowline screen",
+          "dry-gas hydraulic sensitivity",
+          "facility-load and constraint migration",
+          "product-contract margin screen",
+          "ISO 6976 quality and commercial-energy sensitivity",
+          "power-supply emissions comparison",
+          "deterministic linked cash-flow screen",
+          "probabilistic NPV and sensitivity analysis",
+          "RAM availability distribution",
+          "scenario decision-gate matrix"
+        ],
+        "integration": "All merged-master cells, examples, checks, tables, and visuals remain in their lifecycle progression. Only provenance, Colab equation delimiters, and decision-gate accessibility were repaired; all numerical visuals were recomputed with the tested public-PyPI release."
       },
       "practical_application": "A coherent teaching workflow keeps laboratory data and a specialist PVT model as the governing fluid basis, translates that basis into documented NeqSim process contracts, runs connected process and gas-quality scenarios, and carries internally consistent reservoir realizations through wells/SURF, facilities, products, emissions, value, reliability, late life, and gates.",
       "known_upstream_issues": [],
-      "issue_handling": "No new NeqSim defect or missing public API was found. Source-master stream, separator, compressor, cooler, ProcessSystem, property, and ISO 6976 APIs supported the merged workflow.",
-      "documentation_impact": "Updated the executed notebook, catalog description, root ledger timestamp, and focused maintenance shard. No NeqSim Java API changed.",
-      "artifact_origin": "equinor/neqsim source master",
-      "resolution_mode": "source-master-conflict-resolved-validation"
+      "issue_handling": "No new NeqSim defect or missing public API was found. Public-PyPI stream, separator, compressor, cooler, ProcessSystem, property, and ISO 6976 APIs supported the complete workflow.",
+      "documentation_impact": "Updated the executed notebook setup/provenance, Colab-safe equations, accessible decision-gate graphic, catalog wording, root ledger timestamp, and focused maintenance shard. No NeqSim Java API changed.",
+      "artifact_origin": "public-pypi",
+      "resolution_mode": "online-new-snapshot",
+      "neqsim_jar_sha256": "aec6c0024ce55d3df810d61affc321ba99abeffb54110ff24b87573fc74f88f2"
     },
     {
       "path": "notebooks/operations/facility_lifecycle_commissioning_to_decommissioning.ipynb",
