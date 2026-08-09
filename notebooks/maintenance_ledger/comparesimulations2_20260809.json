@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-08-09T14:58:13Z",
+  "notebooks": [
+    {
+      "path": "notebooks/process/comparesimulations2.ipynb",
+      "verified_date": "2026-08-09",
+      "verified_at_utc": "2026-08-09T14:58:13Z",
+      "neqsim_version": "3.17.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-comparesimulations2-final7-20260809t1602 --neqsim-version latest --refresh --extra-package scipy --extra-package pydantic --extra-package scikit-learn --extra-package graphviz --extra-package jupyter --extra-package nbconvert --extra-package ipykernel --extra-package black",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.17.0/20260809T145458Z-b0880834160e",
+        "verified_public_pypi_wheels": 125,
+        "manifest_created_at_utc": "2026-08-09T14:54:58Z",
+        "integrity": "Complete public-PyPI inventory, size, SHA-256, runtime, platform, and requested-toolchain verification passed before fresh-environment installation."
+      },
+      "execution_status": "passed",
+      "execution_method": "All 30 code cells executed sequentially from an empty in-process IPython state with execution counts 1 through 30, zero exceptions, zero error outputs, and zero stored stderr. The final clean run completed in 103.2 seconds and retained every table and inline figure.",
+      "code_cells": 30,
+      "substantive_code_cells": 30,
+      "markdown_cells": 26,
+      "publication": {
+        "branch": "automation/repair-comparesimulations2-20260809",
+        "mode": "atomic connector-backed draft pull request",
+        "commit": "the commit containing this ledger entry",
+        "files": [
+          "notebooks/process/comparesimulations2.ipynb",
+          "notebooks/notebook_maintenance_ledger.json",
+          "notebooks/maintenance_ledger/comparesimulations2_20260809.json"
+        ]
+      },
+      "preservation": {
+        "pre_existing_cells": 48,
+        "preserved_cells": 48,
+        "pre_existing_substantive_examples": 16,
+        "preserved_substantive_examples": 16,
+        "pre_existing_figures": 3,
+        "preserved_figures": 3,
+        "repairs": "Preserved every original cell and all fluid, Eclipse import, standard-condition, phase-envelope, connected-process, report, persistence, product, duty, rotating-equipment, 100-case, optimization, surrogate, direct-thread, and pool examples. Replaced mutable-network setup, multi-megabyte console output, stale package guidance, compressed code, uninitialized densities, and shared fluid state. Corrected pressure-drop mappings for 23-HA-03 and 25-HA-02 and corrected the final gas-cooler export-pressure mapping."
+      },
+      "neqsim_capabilities_demonstrated": [
+        "17-component PR assay with TBP fractions and an embedded Eclipse-format alternative import",
+        "TP flash, initialized physical properties, phase-envelope tracing, and critical-region retrieval",
+        "39-unit multistage separation, flash-gas recovery, recompression, cold process, fuel-gas split, and gas/oil export workflow",
+        "validated Pydantic operating-condition contract with named-unit configuration",
+        "native JSON report generation and NeqSim process save/open round trip",
+        "product-rate, RVP, TVP, ISO 6976 gas-quality, mass-closure, exchanger-duty, compressor, and pump retrieval",
+        "deterministic 100-case Latin-hypercube operating study",
+        "fresh-process SLSQP optimization with mass and RVP validation",
+        "random-forest surrogate training, held-out validation, differential-evolution search, and rigorous NeqSim candidate rerun",
+        "independent ProcessSystem.runAsThread execution and managed NeqSimThreadPool futures"
+      ],
+      "practical_application": "Builds a reusable offshore oil-and-gas process from a governed fluid assay; configures pressures, temperatures, pressure drops, and export conditions; runs and audits a base case; compares published HYSYS responses; maps 100 operating scenarios; validates direct and surrogate optimization candidates; and demonstrates safe parallel execution with independently cloned thermodynamic systems.",
+      "engineering_validation": {
+        "assertions_passed": 43,
+        "assertions_failed": 0,
+        "checks": [
+          "all 48 original cells, 16 substantive examples, and three original figures preserved",
+          "all 30 code cells executed in order with no exceptions or stderr",
+          "standard-condition gas and oil densities finite and physically plausible",
+          "all required process units present and native DOT graph contains key nodes",
+          "overall base-case and 100-case mass residuals below 0.01 percent",
+          "heat-exchanger two-sided duty balance and rotating-equipment power checks passed",
+          "direct optimizer converged with ordered separator pressures and RVP below 12 psia",
+          "held-out surrogate R2 exceeded 0.5 and its candidate passed a fresh rigorous NeqSim run",
+          "direct and managed parallel results agreed within 1e-6 kW",
+          "valid nbformat JSON, sequential counts, public-PyPI setup, Colab badge, links, code readability, and stored outputs verified"
+        ],
+        "key_results": {
+          "base_total_power_kw": 10431.428486,
+          "base_oil_export_m3_day": 19130.517773,
+          "base_gas_export_msm3_day": 2.900716,
+          "base_mass_residual_percent": 0.000408,
+          "base_oil_rvp_psia": 9.5792,
+          "standard_gas_density_kg_m3": 0.9675,
+          "standard_oil_density_kg_m3": 708.9682,
+          "scenario_count": 100,
+          "maximum_scenario_mass_residual_percent": 0.001336,
+          "direct_optimized_power_kw": 9909.8522,
+          "direct_optimized_stage_1_pressure_barg": 35.0,
+          "direct_optimized_stage_2_pressure_barg": 9.157728,
+          "surrogate_held_out_r2": 0.796,
+          "surrogate_candidate_power_kw": 9333.9807,
+          "surrogate_candidate_rvp_psia": 10.5563
+        }
+      },
+      "figures": {
+        "previous_figures": 3,
+        "previous_figures_refreshed": 1,
+        "previous_figures_preserved_as_dated_provenance": 2,
+        "new_figures": 6,
+        "total_retained_figures": 9,
+        "purposes": [
+          "refreshed PR phase envelope with dew branch, bubble branch, and critical point",
+          "exact preserved published process-flow image",
+          "current connected NeqSim workflow overview",
+          "exact preserved legacy native Graphviz rendering with historical-label warning",
+          "separator-pressure power sensitivity and power-oil trade-off",
+          "rigorous base-versus-direct-optimization power comparison",
+          "surrogate parity validation and feature influence",
+          "direct Java-thread completion timing",
+          "direct-thread versus managed-pool execution comparison"
+        ],
+        "visual_inspection": "Passed at original resolution after the final clean execution. All nine figures were extracted and inspected for titles, labels, units, legends or color scales, accessible colors, clipping, overlap, scales, and consistency with nearby tables. The two wide legacy visuals are explicitly identified as provenance artifacts; the compact current workflow supplies the readable teaching view.",
+        "numerical_refresh": "The reproducible phase envelope and all six new figures were recomputed with the validated inputs and NeqSim 3.17.0. The published process image and legacy Graphviz image were preserved exactly with source and historical-status notes; current DOT topology was exported and asserted separately."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 3,
+        "renderer": "Jupyter nbconvert MathJax-compatible HTML plus visual math-render inspection",
+        "visual_inspection": "Fugacity equality, mass-closure fraction, comparison fraction, subscripts, superscripts, summation, dotted mass rates, Greek symbols, and bold composition vectors rendered correctly. All delimiters are balanced and commands use single backslashes."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "maximum_code_line_length": 100,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "changed_links_checked": true,
+        "catalog_target_occurrences": 1
+      },
+      "summary": "Modernized the complete simulator-comparison workflow without pinning the notebook to a NeqSim release. Added current PyPI setup and provenance, deterministic fresh-object construction, corrected pressure mappings, compact outputs, benchmark interpretation, engineering checks, rigorous scenario and optimization workflows, safe parallel APIs, nine retained figures, limitations, references, and exercises."
+    }
+  ]
+}
