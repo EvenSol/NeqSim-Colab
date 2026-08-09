@@ -1,19 +1,19 @@
 {
   "schema_version": 1,
   "shard": "complete-value-chain-lifecycle-20260806",
-  "updated_at": "2026-08-07T02:15:12Z",
+  "updated_at": "2026-08-09T02:09:11Z",
   "notebooks": [
     {
       "path": "notebooks/valuechain/complete_oil_and_gas_value_chain_with_neqsim.ipynb",
-      "verified_date": "2026-08-07",
-      "verified_at_utc": "2026-08-07T02:15:12Z",
-      "neqsim_version": "3.16.0",
+      "verified_date": "2026-08-09",
+      "verified_at_utc": "2026-08-09T02:09:11Z",
+      "neqsim_version": "3.17.0",
       "neqsim_source": {
         "artifact_origin": "public-pypi",
-        "package": "neqsim==3.16.0",
+        "package": "neqsim==3.17.0",
         "source_index": "https://pypi.org/simple",
-        "validation_jar_sha256": "aec6c0024ce55d3df810d61affc321ba99abeffb54110ff24b87573fc74f88f2",
-        "runtime_guard": "The notebook verifies the installed package version, bundled JAR name and SHA-256, a ThreePhaseSeparator API smoke class, and the JPype classpath."
+        "validation_jar_sha256": "f114c17bf99a7b02be9f8c49b66fd792c88fdcbfcb043487481fb0bf23298556",
+        "runtime_guard": "The notebook verifies the installed package version, bundled JAR name and SHA-256, a ThreePhaseSeparator API smoke class, and the JPype classpath. Validation sets NEQSIM_VALIDATION_OFFLINE=1 so an incomplete verified environment fails before any network install."
       },
       "python_version": "3.12.13",
       "java_version": "OpenJDK 17.0.19",
@@ -27,7 +27,7 @@
         "branch": "automation/repair-valuechain-pypi-colab-20260807",
         "pull_request": 111,
         "base_branch": "master",
-        "revalidation_base_commit": "f6a7f1d293fbf3f60694e01a138086590c27dcdb",
+        "revalidation_base_commit": "b092f7ddaa9ae247606bb20ce9427ffd42d2fa9a",
         "prior_merged_pull_requests": [
           109,
           110
@@ -40,12 +40,12 @@
           "notebooks/maintenance_ledger/complete_value_chain_lifecycle_20260806.json"
         ]
       },
-      "execution_method": "Executed all 23 code cells sequentially from an empty in-process IPython namespace with scripts/execute_notebook_inprocess.py and NeqSim 3.16.0 from a fresh verified public-PyPI snapshot. The final clean run completed in 8.1 seconds, retained every result-bearing table and 17 PNG figures, and produced zero error outputs or captured stderr. Jupyter HTML conversion and a ten-equation MathText preview passed.",
+      "execution_method": "Executed all 23 code cells sequentially from an empty in-process IPython namespace with scripts/execute_notebook_inprocess.py and NeqSim 3.17.0 from a fresh verified public-PyPI snapshot containing SciPy. The final clean run completed in 8.1 seconds, retained every result-bearing table and 17 PNG figures, and produced zero error outputs or captured stderr. A separate fresh 62-wheel rendering environment passed Jupyter HTML conversion and the ten-equation rendering audit.",
       "code_cells": 23,
       "substantive_code_cells": 23,
       "markdown_cells": 29,
-      "git_blob_sha1": "1d410264abfbfa9a0018f62572355fbceeae963c",
-      "notebook_bytes": 1929247,
+      "git_blob_sha1": "03f1c449398f802a682985dfa3406c2e100c6bb9",
+      "notebook_bytes": 1929606,
       "python_capabilities_demonstrated": [
         "model ownership, governed handoffs, and coherent case registries",
         "synthetic laboratory PVT QA and independent residual review",
@@ -112,7 +112,7 @@
         "display_equations_inspected": 10,
         "figures_inspected": 17,
         "result": "passed",
-        "notes": "All 17 stored figures and ten display equations were inspected for labels, units, legends, clipping, contrast, scales, and agreement with tables. The decision-gate heatmap was refreshed with a colorblind-safe orange-blue palette and high-contrast status labels before the final clean execution."
+        "notes": "All 17 stored figures and ten display equations were inspected for labels, units, legends, clipping, contrast, scales, and agreement with tables. Every engineering output and all 17 figure hashes are unchanged from the NeqSim 3.16.0 run; only package/JAR provenance changed under 3.17.0."
       },
       "link_validation": {
         "all_markdown_links_checked": 26,
@@ -148,15 +148,17 @@
           "RAM availability distribution",
           "scenario decision-gate matrix"
         ],
-        "integration": "All merged-master cells, examples, checks, tables, and visuals remain in their lifecycle progression. Only provenance, Colab equation delimiters, and decision-gate accessibility were repaired; all numerical visuals were recomputed with the tested public-PyPI release."
+        "integration": "All merged-master cells, examples, checks, tables, and visuals remain in their lifecycle progression. Provenance, the fail-loud offline validation guard, Colab equation delimiters, and decision-gate accessibility are integrated; all numerical visuals were recomputed with the tested public-PyPI release."
       },
       "practical_application": "A coherent teaching workflow keeps laboratory data and a specialist PVT model as the governing fluid basis, translates that basis into documented NeqSim process contracts, runs connected process and gas-quality scenarios, and carries internally consistent reservoir realizations through wells/SURF, facilities, products, emissions, value, reliability, late life, and gates.",
       "known_upstream_issues": [],
       "issue_handling": "No new NeqSim defect or missing public API was found. Public-PyPI stream, separator, compressor, cooler, ProcessSystem, property, and ISO 6976 APIs supported the complete workflow.",
-      "documentation_impact": "Updated the executed notebook setup/provenance, Colab-safe equations, accessible decision-gate graphic, catalog wording, root ledger timestamp, and focused maintenance shard. No NeqSim Java API changed.",
+      "documentation_impact": "Updated the executed notebook setup/provenance for NeqSim 3.17.0, added a fail-loud offline validation guard, preserved Colab-safe equations and the accessible decision-gate graphic, reconciled current-master catalog changes, and refreshed the focused maintenance shard. No NeqSim Java API changed.",
       "artifact_origin": "public-pypi",
       "resolution_mode": "online-new-snapshot",
-      "neqsim_jar_sha256": "aec6c0024ce55d3df810d61affc321ba99abeffb54110ff24b87573fc74f88f2"
+      "execution_snapshot_wheel_count": 49,
+      "render_snapshot_wheel_count": 62,
+      "neqsim_jar_sha256": "f114c17bf99a7b02be9f8c49b66fd792c88fdcbfcb043487481fb0bf23298556"
     },
     {
       "path": "notebooks/operations/facility_lifecycle_commissioning_to_decommissioning.ipynb",
