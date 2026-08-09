@@ -24,8 +24,8 @@
       "jpype_version": "1.7.1",
       "execution_status": "passed",
       "publication": {
-        "branch": "automation/repair-valuechain-pypi-colab-20260807",
-        "pull_request": 111,
+        "branch": "automation/repair-valuechain-pypi-colab-20260809",
+        "pull_request": 114,
         "base_branch": "master",
         "revalidation_base_commit": "b092f7ddaa9ae247606bb20ce9427ffd42d2fa9a",
         "prior_merged_pull_requests": [
