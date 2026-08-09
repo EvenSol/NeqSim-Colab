@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "shard": "dexpi_safety_study_workflow",
+  "updated_at": "2026-08-09T09:31:08Z",
+  "notebooks": [
+    {
+      "path": "notebooks/process/dexpi_safety_study_workflow.ipynb",
+      "verified_date": "2026-08-09",
+      "verified_at_utc": "2026-08-09T09:31:08Z",
+      "neqsim_version": "3.17.0",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-dexpi-2899-exec --neqsim-version latest --refresh --extra-package nbclient --extra-package nbconvert --extra-package ipykernel",
+        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.17.0/20260809T090842Z-0f40dc962ea8",
+        "verified_public_pypi_wheels": 65,
+        "manifest_created_at_utc": "2026-08-09T09:08:42Z",
+        "integrity": "Complete public-PyPI inventory, size, SHA-256, runtime, platform, and requested-toolchain verification passed before fresh-environment installation."
+      },
+      "execution_status": "passed",
+      "execution_method": "Executed all 14 code cells top-to-bottom from an empty in-process IPython state using the repository validation runner because the automation sandbox blocks local ZeroMQ/TCP kernel startup. All user-relevant tables, diagnostics, and three PNG figures are retained with sequential execution counts 1 through 14, zero error outputs, and zero stored stderr.",
+      "code_cells": 14,
+      "substantive_code_cells": 13,
+      "markdown_cells": 19,
+      "publication": {
+        "branch": "agent/dexpi-phase0-profile-audit",
+        "mode": "focused draft pull request linked to equinor/neqsim#2899",
+        "commit": "the commit containing this ledger entry",
+        "files": [
+          "notebooks/process/dexpi_safety_study_workflow.ipynb",
+          "notebooks/maintenance_ledger/part-003.json",
+          "notebooks/maintenance_ledger/dexpi_safety_study_workflow.json"
+        ]
+      },
+      "preservation": {
+        "pre_existing_cells": 33,
+        "preserved_cells": 33,
+        "pre_existing_figures": 3,
+        "preserved_figures": 3,
+        "repairs": "Preserved the calculated ProcessSystem, process overlay, semantic graph, HAZOP nodes, cause-and-effect register, readiness matrix, all 33 cells, and all three figures. Replaced the deprecated header-override export path, exact NeqSim 3.16.0 pin, stale expected-gap assertion, substring semantic checks, ambiguous DEXPI-profile claim, and crossed graph connectors without removing an engineering objective."
+      },
+      "neqsim_capabilities_demonstrated": [
+        "composable calculated ProcessSystem with stable equipment and instrument tags",
+        "Proteus P&ID export through DexpiXmlWriter.write",
+        "native DEXPI 2.0 Plant/P&ID export and conformance assessment through Dexpi20XmlWriter.writeAndAssess",
+        "exact typed HIPPS and SIS GenericAttribute audit",
+        "DEXPI equipment, piping, instrumentation, loop, nozzle, and design-condition inventory",
+        "HAZOP-node, cause-and-effect, and cross-study readiness registers",
+        "byte-level and engineering-semantic determinism checks",
+        "explicit profile-loss and qualification-boundary reporting"
+      ],
+      "engineering_validation": {
+        "focused_checks_passed": 14,
+        "focused_checks_failed": 0,
+        "checks": [
+          "relative mass-balance error below 1e-6",
+          "explicit Proteus 4.1.1 profile",
+          "Proteus engineering-semantic fingerprint deterministic after excluding only export Date and Time",
+          "native DEXPI 2.0 payload byte deterministic",
+          "native DEXPI 2.0 schema and supported semantic profile conformant with zero errors",
+          "protected equipment and three pressure-sensor tags present",
+          "HIPPS final element exported as GateValve",
+          "SIL 3, 2oo3, proof-test interval, closure time, safe state, and SIS attributes mapped exactly",
+          "native-profile HIPPS extension boundary observed",
+          "82 bara trip set point explicitly retained outside both exchange profiles",
+          "HAZOP and cause-and-effect identifiers complete"
+        ],
+        "key_results": {
+          "feed_pressure_bara": 90.0,
+          "protected_pressure_bara": 75.0,
+          "mass_balance_relative_error": 0.0,
+          "proteus_export_bytes": 141391,
+          "proteus_semantic_sha256": "c6237492bf32778c63f6dc83b16039aadb624a140291b4b7334767a76ab733c9",
+          "native_dexpi_20_export_bytes": 9749,
+          "native_dexpi_20_sha256": "3870f349952d4920f6e6fdb8840cfc6e9a6e2a3bbc85888bc4486c985b587338",
+          "native_conformance_status": "CONFORMANT",
+          "proteus_equipment_objects": 3,
+          "proteus_piping_network_segments": 4,
+          "proteus_process_instrumentation_functions": 3,
+          "proteus_instrumentation_loops": 3,
+          "proteus_nozzles": 9,
+          "hipps_safety_attributes_verified": 6,
+          "external_trip_set_points": 1
+        }
+      },
+      "figures": {
+        "total_retained_figures": 3,
+        "visual_inspection": "Passed at original stored resolution after the final full execution. Process topology, semantic graph, and readiness matrix have readable titles, labels, SI or stated engineering units, accessible colors, descriptive alternative text, and no clipping or material overlap. Connector geometry was corrected so arrows terminate at semantic-node boundaries rather than crossing tag text."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "display_equations": 1,
+        "inline_expressions": 5,
+        "renderer": "Jupyter/Colab-compatible MathJax 3.2.2 SVG path",
+        "visual_inspection": "The compact completeness equation rendered with the fraction, roman subscripts, and balanced delimiters intact; source uses single-backslash LaTeX commands."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "total_cells": 33,
+        "maximum_code_line_length": 82,
+        "one_statement_per_line": true,
+        "semicolon_chains": 0,
+        "one_line_compound_bodies": 0,
+        "wildcard_imports": 0,
+        "stored_error_outputs": 0,
+        "stored_stderr_outputs": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "catalog_target_occurrences": 1,
+        "sha256": "924485860e755c211a7a4a6ad1f6c78ee684397ce7c440e4e412a02293ed85c9",
+        "bytes": 316628
+      },
+      "documentation_impact": "Updated the acceptance notebook and its maintenance-ledger evidence. The catalog target is unchanged and occurs exactly once. No JavaDoc, API guide, migration note, or release note changes are needed because this increment changes no NeqSim Java or Python API.",
+      "neqsim_improvements": {
+        "new_issues_created": 0,
+        "resolved_evidence_reused": "equinor/neqsim#2653 and merged PR #2654",
+        "campaign": "equinor/neqsim#2899",
+        "status": "Corrected stale notebook evidence and recorded the current Proteus-versus-native DEXPI capability and loss matrix."
+      },
+      "limitations": "Generated exchanges, HAZOP nodes, C&E rows, SIL-related attributes, and engineering values are software-qualified proposals or calculated evidence only. Native conformance is not DEXPI e.V. certification, rendered-P&ID approval, commercial CAE interoperability, multidisciplinary study approval, or approved-for-construction status.",
+      "summary": "Phase 0 refresh of the DEXPI safety-study acceptance notebook: current public NeqSim now demonstrates the merged HIPPS/SIS Proteus mapping, separately assessed native DEXPI 2.0 conformance, deterministic engineering semantics, an explicit trip-setpoint/profile boundary, and safer qualification language."
+    }
+  ]
+}
