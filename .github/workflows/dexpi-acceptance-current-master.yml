@@ -1,0 +1,114 @@
+name: DEXPI acceptance on current NeqSim master
+
+on:
+  pull_request:
+    paths:
+      - "notebooks/process/dexpi_safety_study_workflow.ipynb"
+      - "notebooks/maintenance_ledger/dexpi_safety_study_workflow.json"
+      - "scripts/bootstrap_neqsim_validation_env.py"
+      - "scripts/check_notebook.py"
+      - ".github/workflows/dexpi-acceptance-current-master.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  execute-render-validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Check out NeqSim-Colab change
+        uses: actions/checkout@v4
+
+      - name: Check out current NeqSim master
+        uses: actions/checkout@v4
+        with:
+          repository: equinor/neqsim
+          ref: master
+          path: neqsim-java-master
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: maven
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build exact checked-out NeqSim source
+        working-directory: neqsim-java-master
+        run: >-
+          ./mvnw -q
+          -DskipTests
+          -Dmaven.javadoc.skip=true
+          package
+
+      - name: Resolve source-built runtime
+        shell: bash
+        run: |
+          NEQSIM_JAR="$({
+            find neqsim-java-master/target -maxdepth 1 -type f -name 'neqsim-*.jar' \
+              ! -name '*sources*' ! -name '*javadoc*' ! -name 'original-*' \
+              -printf '%s %p\n'
+          } | sort -n | tail -1 | cut -d' ' -f2-)"
+          test -n "${NEQSIM_JAR}"
+          echo "NEQSIM_SOURCE_ROOT=${GITHUB_WORKSPACE}/neqsim-java-master" >> "${GITHUB_ENV}"
+          echo "NEQSIM_SOURCE_JAR=${GITHUB_WORKSPACE}/${NEQSIM_JAR}" >> "${GITHUB_ENV}"
+          git -C neqsim-java-master rev-parse HEAD
+          sha256sum "${NEQSIM_JAR}"
+
+      - name: Bootstrap verified public-PyPI runtime
+        run: >-
+          python scripts/bootstrap_neqsim_validation_env.py
+          --venv "${RUNNER_TEMP}/neqsim-dexpi-acceptance"
+          --neqsim-version latest
+          --refresh
+          --require-online-resolution
+          --extra-package nbclient
+          --extra-package nbconvert
+          --extra-package ipykernel
+
+      - name: Execute every notebook cell
+        shell: bash
+        run: |
+          "${RUNNER_TEMP}/neqsim-dexpi-acceptance/bin/python" -m ipykernel install \
+            --user \
+            --name neqsim-dexpi-acceptance
+          "${RUNNER_TEMP}/neqsim-dexpi-acceptance/bin/jupyter" nbconvert \
+            --to notebook \
+            --execute \
+            --inplace \
+            --ExecutePreprocessor.timeout=2400 \
+            --ExecutePreprocessor.kernel_name=neqsim-dexpi-acceptance \
+            notebooks/process/dexpi_safety_study_workflow.ipynb
+
+      - name: Validate executed notebook
+        run: >-
+          "${RUNNER_TEMP}/neqsim-dexpi-acceptance/bin/python"
+          scripts/check_notebook.py
+          notebooks/process/dexpi_safety_study_workflow.ipynb
+          --require-main-source
+
+      - name: Render Colab-compatible HTML
+        run: >-
+          "${RUNNER_TEMP}/neqsim-dexpi-acceptance/bin/jupyter"
+          nbconvert
+          --to html
+          --output dexpi_safety_study_workflow.html
+          notebooks/process/dexpi_safety_study_workflow.ipynb
+
+      - name: Upload execution and rendering evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: dexpi-current-master-acceptance
+          if-no-files-found: error
+          path: |
+            notebooks/process/dexpi_safety_study_workflow.ipynb
+            notebooks/process/dexpi_safety_study_workflow.html
+            *.xml
+            *.topology.json
