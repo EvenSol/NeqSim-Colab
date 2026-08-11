@@ -66,6 +66,7 @@ jobs:
         run: >-
           python scripts/bootstrap_neqsim_validation_env.py
           --venv "${RUNNER_TEMP}/neqsim-dexpi-acceptance"
+          --wheelhouse-root "${RUNNER_TEMP}/neqsim-validation-wheelhouse"
           --neqsim-version latest
           --refresh
           --require-online-resolution
