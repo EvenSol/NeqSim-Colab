@@ -111,5 +111,5 @@ jobs:
           path: |
             notebooks/process/dexpi_safety_study_workflow.ipynb
             notebooks/process/dexpi_safety_study_workflow.html
-            *.xml
-            *.topology.json
+            notebooks/process/*.xml
+            notebooks/process/*.topology.json
