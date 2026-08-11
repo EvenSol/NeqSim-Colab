@@ -1,25 +1,34 @@
 {
   "schema_version": 1,
   "shard": "dexpi_safety_study_workflow",
-  "updated_at": "2026-08-11T17:30:00Z",
+  "updated_at": "2026-08-11T17:58:00Z",
   "notebooks": [
     {
       "path": "notebooks/process/dexpi_safety_study_workflow.ipynb",
       "verified_date": "2026-08-11",
-      "verified_at_utc": "2026-08-11T17:37:00Z",
+      "verified_at_utc": "2026-08-11T17:56:37Z",
       "neqsim_version": "3.17.0",
       "python_version": "3.12.13",
       "java_version": "OpenJDK 17.0.19",
       "environment_resolution": {
         "mode": "online-new-snapshot",
-        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-dexpi-2899-exec --neqsim-version latest --refresh --extra-package nbclient --extra-package nbconvert --extra-package ipykernel",
-        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.17.0/20260809T090842Z-0f40dc962ea8",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv ${RUNNER_TEMP}/neqsim-dexpi-acceptance --wheelhouse-root ${RUNNER_TEMP}/neqsim-validation-wheelhouse --neqsim-version latest --refresh --require-online-resolution --extra-package nbclient --extra-package nbconvert --extra-package ipykernel",
+        "snapshot": "/home/runner/work/_temp/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.17.0/20260811T175605Z-cdf2c3ff8990",
         "verified_public_pypi_wheels": 65,
-        "manifest_created_at_utc": "2026-08-09T09:08:42Z",
+        "manifest_created_at_utc": "2026-08-11T17:56:05Z",
         "integrity": "Complete public-PyPI inventory, size, SHA-256, runtime, platform, and requested-toolchain verification passed before fresh-environment installation."
       },
-      "execution_status": "validation-pending-ci",
-      "execution_method": "All 15 cells passed provisionally against source snapshot 1dee5b51 with retained outputs, zero errors, and three inspected figures. Exact current-master qualification remains pending because local Maven resolution was blocked by transient canonical-Maven-Central DNS. The dedicated pull-request workflow must build the exact checked-out equinor/neqsim master, execute all cells, retain outputs, render HTML, and publish an artifact before this entry may return to passed.",
+      "execution_status": "passed",
+      "execution_method": "GitHub Actions run 31519985841 checked out equinor/neqsim master 12b0e2fab3c4ea244a810e8058ca57c08e72631f, built its Java runtime, resolved the verified public-PyPI Python environment, executed all 15 code cells in order, retained outputs, validated the notebook with --require-main-source, rendered Colab-compatible HTML, and published notebook, HTML, three exchange profiles, repeat exports, and the topology report as artifact 9112681359.",
+      "artifact_evidence": {
+        "workflow_run": 31519985841,
+        "workflow_head": "d987744280fada1b080a2bb809e55bb68120ed55",
+        "artifact_id": 9112681359,
+        "artifact_digest": "sha256:3d207e3fef3347e1ca44dcd0e2b5a60488c97093d04c2f4ae7303bd047ef9ecc",
+        "neqsim_java_commit": "12b0e2fab3c4ea244a810e8058ca57c08e72631f",
+        "neqsim_jar_sha256": "fc16ab4be4eda4970b50c6b4d7dfca43047493aa09d7db4a71e9663746de1df3",
+        "html_sha256": "35d1002d526c161cea6e732b6b23f2d5576899417ebf8260842e6a28a881905b"
+      },
       "code_cells": 15,
       "substantive_code_cells": 14,
       "markdown_cells": 19,
@@ -77,12 +86,14 @@
           "feed_pressure_bara": 90.0,
           "protected_pressure_bara": 75.0,
           "mass_balance_relative_error": 0.0,
-          "proteus_export_bytes": 141390,
-          "proteus_semantic_sha256": "c6237492bf32778c63f6dc83b16039aadb624a140291b4b7334767a76ab733c9",
+          "proteus_export_bytes": 141391,
+          "proteus_semantic_sha256": "07473045399c2a4e78f38716ec5488623239e4e5ba9ba6ab04c7e51937c868d3",
           "native_dexpi_20_export_bytes": 9749,
           "native_dexpi_20_sha256": "3870f349952d4920f6e6fdb8840cfc6e9a6e2a3bbc85888bc4486c985b587338",
           "native_conformance_status": "CONFORMANT",
           "native_dexpi_20_process_export_bytes": 17463,
+          "native_dexpi_20_process_sha256": "061ad6ddbb7f940ef20413452925f685b03ec8b5e847c0c5f2cba835ee394997",
+          "native_dexpi_20_process_topology_report_sha256": "3818a94c7dfc861d1eef2ab13e770f06a6c5ba23c05c0794a6c0b7a360195b6f",
           "native_dexpi_20_process_conformance_status": "CONFORMANT",
           "native_dexpi_20_process_topology_equivalent": true,
           "native_dexpi_20_process_operating_value_source": "CANONICAL_ENGINEERING_GRAPH_CALCULATION_NODES",
@@ -98,7 +109,7 @@
       },
       "figures": {
         "total_retained_figures": 3,
-        "visual_inspection": "Passed provisionally at original stored resolution after the 1dee5b51 execution. Process topology, semantic graph, and readiness matrix have readable titles, labels, SI or stated engineering units, accessible colors, nearby explanatory prose, and no clipping or material overlap. Nbconvert reports that the three generated PNG outputs do not carry embedded alt metadata; exact-master HTML remains a required CI artifact for final inspection."
+        "visual_inspection": "Passed on the exact-current-master artifact at original stored resolution. Process topology, semantic graph, and readiness matrix have readable titles, labels, SI or stated engineering units, accessible colors, nearby explanatory prose, and no clipping or material overlap. The notebook supplies per-output alt metadata and nearby explanatory prose; nbconvert still warns that generated PNG attachments do not embed alt text in the binary payload."
       },
       "equation_rendering": {
         "status": "passed",
@@ -121,18 +132,18 @@
         "public_pypi_setup_cell": true,
         "hidden_local_dependencies": false,
         "catalog_target_occurrences": 1,
-        "sha256": "e1421b3984fc0fd31818fed4d0a65ce90eadc414a6594aacf0aa2aa2240a0140",
-        "bytes": 311713
+        "sha256": "fcfbd8ef6687caccb73b9eb021634feddb25623284bd4b576e4125fafd2848b9",
+        "bytes": 338409
       },
       "documentation_impact": "Updated the acceptance notebook, its dedicated maintenance ledger, and an exact-current-master execution/render workflow. The catalog target remains unchanged and occurs once. No JavaDoc, migration, or release-note change is needed because NeqSim APIs and behavior are unchanged.",
       "neqsim_improvements": {
         "new_issues_created": 0,
         "resolved_evidence_reused": "equinor/neqsim#2653 and merged PR #2654",
         "campaign": "equinor/neqsim#2899",
-        "status": "Exercises the merged canonical DEXPI Process/PFD operating-case path beside the preserved Proteus and native Plant/P&ID profiles; exact-current-master CI qualification remains pending."
+        "status": "Exercises and qualifies the merged canonical DEXPI Process/PFD operating-case path on exact current master beside the preserved Proteus and native Plant/P&ID profiles."
       },
       "limitations": "Generated exchanges, HAZOP nodes, C&E rows, SIL-related attributes, and engineering values are software-qualified proposals or calculated evidence only. Native conformance is not DEXPI e.V. certification, rendered-P&ID approval, commercial CAE interoperability, multidisciplinary study approval, or approved-for-construction status.",
-      "summary": "Phase 0 current-master acceptance tranche: retain the graphical Proteus and native Plant/P&ID evidence while adding canonical native Process/PFD topology, operating-case provenance, deterministic output, and structured loss diagnostics. Provisional execution passed on 1dee5b51; exact current master remains gated by the new CI workflow."
+      "summary": "Phase 0 current-master acceptance tranche: exact-master evidence retains the graphical Proteus and native Plant/P&ID profiles while adding canonical native Process/PFD topology, operating-case provenance, deterministic output, and structured loss diagnostics."
     }
   ]
 }
