@@ -1,36 +1,45 @@
 {
   "schema_version": 1,
   "shard": "dexpi_safety_study_workflow",
-  "updated_at": "2026-08-09T09:31:08Z",
+  "updated_at": "2026-08-11T17:58:00Z",
   "notebooks": [
     {
       "path": "notebooks/process/dexpi_safety_study_workflow.ipynb",
-      "verified_date": "2026-08-09",
-      "verified_at_utc": "2026-08-09T09:31:08Z",
+      "verified_date": "2026-08-11",
+      "verified_at_utc": "2026-08-11T17:56:37Z",
       "neqsim_version": "3.17.0",
       "python_version": "3.12.13",
       "java_version": "OpenJDK 17.0.19",
       "environment_resolution": {
         "mode": "online-new-snapshot",
-        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-validation-dexpi-2899-exec --neqsim-version latest --refresh --extra-package nbclient --extra-package nbconvert --extra-package ipykernel",
-        "snapshot": "/workspace/.cache/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.17.0/20260809T090842Z-0f40dc962ea8",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv ${RUNNER_TEMP}/neqsim-dexpi-acceptance --wheelhouse-root ${RUNNER_TEMP}/neqsim-validation-wheelhouse --neqsim-version latest --refresh --require-online-resolution --extra-package nbclient --extra-package nbconvert --extra-package ipykernel",
+        "snapshot": "/home/runner/work/_temp/neqsim-validation-wheelhouse/schema-1/cpython-312-linux-x86_64/neqsim-3.17.0/20260811T175605Z-cdf2c3ff8990",
         "verified_public_pypi_wheels": 65,
-        "manifest_created_at_utc": "2026-08-09T09:08:42Z",
+        "manifest_created_at_utc": "2026-08-11T17:56:05Z",
         "integrity": "Complete public-PyPI inventory, size, SHA-256, runtime, platform, and requested-toolchain verification passed before fresh-environment installation."
       },
       "execution_status": "passed",
-      "execution_method": "Executed all 14 code cells top-to-bottom from an empty in-process IPython state using the repository validation runner because the automation sandbox blocks local ZeroMQ/TCP kernel startup. All user-relevant tables, diagnostics, and three PNG figures are retained with sequential execution counts 1 through 14, zero error outputs, and zero stored stderr.",
-      "code_cells": 14,
-      "substantive_code_cells": 13,
+      "execution_method": "GitHub Actions run 31519985841 checked out equinor/neqsim master 12b0e2fab3c4ea244a810e8058ca57c08e72631f, built its Java runtime, resolved the verified public-PyPI Python environment, executed all 15 code cells in order, retained outputs, validated the notebook with --require-main-source, rendered Colab-compatible HTML, and published notebook, HTML, three exchange profiles, repeat exports, and the topology report as artifact 9112681359.",
+      "artifact_evidence": {
+        "workflow_run": 31519985841,
+        "workflow_head": "d987744280fada1b080a2bb809e55bb68120ed55",
+        "artifact_id": 9112681359,
+        "artifact_digest": "sha256:3d207e3fef3347e1ca44dcd0e2b5a60488c97093d04c2f4ae7303bd047ef9ecc",
+        "neqsim_java_commit": "12b0e2fab3c4ea244a810e8058ca57c08e72631f",
+        "neqsim_jar_sha256": "fc16ab4be4eda4970b50c6b4d7dfca43047493aa09d7db4a71e9663746de1df3",
+        "html_sha256": "35d1002d526c161cea6e732b6b23f2d5576899417ebf8260842e6a28a881905b"
+      },
+      "code_cells": 15,
+      "substantive_code_cells": 14,
       "markdown_cells": 19,
       "publication": {
-        "branch": "agent/dexpi-phase0-profile-audit",
+        "branch": "automation/dexpi-current-master-acceptance",
         "mode": "focused draft pull request linked to equinor/neqsim#2899",
         "commit": "the commit containing this ledger entry",
         "files": [
           "notebooks/process/dexpi_safety_study_workflow.ipynb",
-          "notebooks/maintenance_ledger/part-003.json",
-          "notebooks/maintenance_ledger/dexpi_safety_study_workflow.json"
+          "notebooks/maintenance_ledger/dexpi_safety_study_workflow.json",
+          ".github/workflows/dexpi-acceptance-current-master.yml"
         ]
       },
       "preservation": {
@@ -38,12 +47,14 @@
         "preserved_cells": 33,
         "pre_existing_figures": 3,
         "preserved_figures": 3,
-        "repairs": "Preserved the calculated ProcessSystem, process overlay, semantic graph, HAZOP nodes, cause-and-effect register, readiness matrix, all 33 cells, and all three figures. Replaced the deprecated header-override export path, exact NeqSim 3.16.0 pin, stale expected-gap assertion, substring semantic checks, ambiguous DEXPI-profile claim, and crossed graph connectors without removing an engineering objective."
+        "repairs": "Preserved all 33 prior cells and three figures, then added one current-master source/JAR provenance cell. Extended the existing three-profile matrix to execute the canonical DEXPI 2.0 Process/PFD path without removing the Proteus or native Plant/P&ID evidence."
       },
       "neqsim_capabilities_demonstrated": [
         "composable calculated ProcessSystem with stable equipment and instrument tags",
         "Proteus P&ID export through DexpiXmlWriter.write",
         "native DEXPI 2.0 Plant/P&ID export and conformance assessment through Dexpi20XmlWriter.writeAndAssess",
+        "native DEXPI 2.0 Process/PFD export through the canonical engineering graph and NORMAL-001 calculation nodes",
+        "stable material-topology fingerprint, deterministic XML/report output, explicit units, calculated/review-required provenance, and structured missing-value or unsupported-scope diagnostics",
         "exact typed HIPPS and SIS GenericAttribute audit",
         "DEXPI equipment, piping, instrumentation, loop, nozzle, and design-condition inventory",
         "HAZOP-node, cause-and-effect, and cross-study readiness registers",
@@ -51,13 +62,18 @@
         "explicit profile-loss and qualification-boundary reporting"
       ],
       "engineering_validation": {
-        "focused_checks_passed": 14,
+        "focused_checks_passed": 20,
         "focused_checks_failed": 0,
         "checks": [
           "relative mass-balance error below 1e-6",
           "explicit Proteus 4.1.1 profile",
           "Proteus engineering-semantic fingerprint deterministic after excluding only export Date and Time",
           "native DEXPI 2.0 payload byte deterministic",
+          "native DEXPI 2.0 Process/PFD payload and topology report byte deterministic",
+          "native Process/PFD schema, profile, and supported material topology valid",
+          "canonical engineering graph is the recorded topology source",
+          "canonical NORMAL-001 calculation nodes are the recorded operating-value source",
+          "missing downstream calculation nodes are exposed by structured diagnostics without live-stream fallback",
           "native DEXPI 2.0 schema and supported semantic profile conformant with zero errors",
           "protected equipment and three pressure-sensor tags present",
           "HIPPS final element exported as GateValve",
@@ -71,10 +87,17 @@
           "protected_pressure_bara": 75.0,
           "mass_balance_relative_error": 0.0,
           "proteus_export_bytes": 141391,
-          "proteus_semantic_sha256": "c6237492bf32778c63f6dc83b16039aadb624a140291b4b7334767a76ab733c9",
+          "proteus_semantic_sha256": "07473045399c2a4e78f38716ec5488623239e4e5ba9ba6ab04c7e51937c868d3",
           "native_dexpi_20_export_bytes": 9749,
           "native_dexpi_20_sha256": "3870f349952d4920f6e6fdb8840cfc6e9a6e2a3bbc85888bc4486c985b587338",
           "native_conformance_status": "CONFORMANT",
+          "native_dexpi_20_process_export_bytes": 17463,
+          "native_dexpi_20_process_sha256": "061ad6ddbb7f940ef20413452925f685b03ec8b5e847c0c5f2cba835ee394997",
+          "native_dexpi_20_process_topology_report_sha256": "3818a94c7dfc861d1eef2ab13e770f06a6c5ba23c05c0794a6c0b7a360195b6f",
+          "native_dexpi_20_process_conformance_status": "CONFORMANT",
+          "native_dexpi_20_process_topology_equivalent": true,
+          "native_dexpi_20_process_operating_value_source": "CANONICAL_ENGINEERING_GRAPH_CALCULATION_NODES",
+          "native_dexpi_20_process_missing_value_diagnostics": 15,
           "proteus_equipment_objects": 3,
           "proteus_piping_network_segments": 4,
           "proteus_process_instrumentation_functions": 3,
@@ -86,7 +109,7 @@
       },
       "figures": {
         "total_retained_figures": 3,
-        "visual_inspection": "Passed at original stored resolution after the final full execution. Process topology, semantic graph, and readiness matrix have readable titles, labels, SI or stated engineering units, accessible colors, descriptive alternative text, and no clipping or material overlap. Connector geometry was corrected so arrows terminate at semantic-node boundaries rather than crossing tag text."
+        "visual_inspection": "Passed on the exact-current-master artifact at original stored resolution. Process topology, semantic graph, and readiness matrix have readable titles, labels, SI or stated engineering units, accessible colors, nearby explanatory prose, and no clipping or material overlap. The notebook supplies per-output alt metadata and nearby explanatory prose; nbconvert still warns that generated PNG attachments do not embed alt text in the binary payload."
       },
       "equation_rendering": {
         "status": "passed",
@@ -97,8 +120,8 @@
       },
       "notebook_quality": {
         "valid_nbformat_json": true,
-        "total_cells": 33,
-        "maximum_code_line_length": 82,
+        "total_cells": 34,
+        "maximum_code_line_length": 83,
         "one_statement_per_line": true,
         "semicolon_chains": 0,
         "one_line_compound_bodies": 0,
@@ -109,18 +132,18 @@
         "public_pypi_setup_cell": true,
         "hidden_local_dependencies": false,
         "catalog_target_occurrences": 1,
-        "sha256": "924485860e755c211a7a4a6ad1f6c78ee684397ce7c440e4e412a02293ed85c9",
-        "bytes": 316628
+        "sha256": "fcfbd8ef6687caccb73b9eb021634feddb25623284bd4b576e4125fafd2848b9",
+        "bytes": 338409
       },
-      "documentation_impact": "Updated the acceptance notebook and its maintenance-ledger evidence. The catalog target is unchanged and occurs exactly once. No JavaDoc, API guide, migration note, or release note changes are needed because this increment changes no NeqSim Java or Python API.",
+      "documentation_impact": "Updated the acceptance notebook, its dedicated maintenance ledger, and an exact-current-master execution/render workflow. The catalog target remains unchanged and occurs once. No JavaDoc, migration, or release-note change is needed because NeqSim APIs and behavior are unchanged.",
       "neqsim_improvements": {
         "new_issues_created": 0,
         "resolved_evidence_reused": "equinor/neqsim#2653 and merged PR #2654",
         "campaign": "equinor/neqsim#2899",
-        "status": "Corrected stale notebook evidence and recorded the current Proteus-versus-native DEXPI capability and loss matrix."
+        "status": "Exercises and qualifies the merged canonical DEXPI Process/PFD operating-case path on exact current master beside the preserved Proteus and native Plant/P&ID profiles."
       },
       "limitations": "Generated exchanges, HAZOP nodes, C&E rows, SIL-related attributes, and engineering values are software-qualified proposals or calculated evidence only. Native conformance is not DEXPI e.V. certification, rendered-P&ID approval, commercial CAE interoperability, multidisciplinary study approval, or approved-for-construction status.",
-      "summary": "Phase 0 refresh of the DEXPI safety-study acceptance notebook: current public NeqSim now demonstrates the merged HIPPS/SIS Proteus mapping, separately assessed native DEXPI 2.0 conformance, deterministic engineering semantics, an explicit trip-setpoint/profile boundary, and safer qualification language."
+      "summary": "Phase 0 current-master acceptance tranche: exact-master evidence retains the graphical Proteus and native Plant/P&ID profiles while adding canonical native Process/PFD topology, operating-case provenance, deterministic output, and structured loss diagnostics."
     }
   ]
 }
