@@ -1,0 +1,617 @@
+{
+  "schema_version": 1,
+  "shard": "community-agent-demos-20260811",
+  "updated_at": "2026-08-11T14:10:00Z",
+  "notebooks": [
+    {
+      "path": "notebooks/AI/community_agent_demos/01_production_shortfall_diagnostics_agent.ipynb",
+      "verified_date": "2026-08-11",
+      "verified_at_utc": "2026-08-11T14:10:00Z",
+      "neqsim_version": "3.17.0 Python bridge with current-master Java source overlay",
+      "neqsim_java_commit": "1dee5b51f6689d0b383e8d90fece9729132dd6e3",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "Executed all seven code cells sequentially from an empty in-process IPython namespace using scripts/execute_notebook_inprocess.py. Validation loaded 5,444 Java classes compiled from the exact current NeqSim master source tree ahead of the packaged runtime dependencies. The retained notebook contains one PNG figure, zero error outputs, zero notebook stderr, and a final VALIDATION PASSED result.",
+      "code_cells": 7,
+      "substantive_code_cells": 7,
+      "markdown_cells": 3,
+      "git_blob_sha1": "a8ef964ee3fb97bd53d6a4542a721e2459dd7126",
+      "publication": {
+        "branch": "agent/community-agent-demo-notebooks-20260811",
+        "mode": "focused ten-notebook demonstration-series draft pull request",
+        "files": [
+          "notebooks/AI/community_agent_demos/01_production_shortfall_diagnostics_agent.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json",
+          "notebooks/maintenance_ledger/community-agent-demos-20260811.json"
+        ]
+      },
+      "neqsim_capabilities_demonstrated": [
+        "SRK multiphase reference flash and phase-property audit",
+        "model-versus-measurement residual construction",
+        "non-negative physical-signature decomposition and loss allocation"
+      ],
+      "engineering_validation": {
+        "named_assertions_passed": 3,
+        "assertions_failed": 0,
+        "result": "Flowline restriction ranked first and a smaller allocation-bias amplitude remained identifiable."
+      },
+      "retained_figures": {
+        "count": 1,
+        "purpose": "production shortfall timeline and ranked diagnostic amplitudes",
+        "visual_inspection": "Passed at original PNG resolution for title, labels, units, legend, scales, clipping, overlap, and agreement with retained output."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "math_expressions": 4,
+        "source_rule": "Compact dollar delimiters with Colab-compatible LaTeX.",
+        "visual_inspection": "All series equations compiled with LaTeX/amsmath and were visually inspected for fractions, indices, operators, and symbols."
+      },
+      "readability": {
+        "maximum_python_line_length": 85,
+        "checks": "No wildcard imports, semicolon chains, notebook shell magics, or compressed one-line compound bodies."
+      },
+      "neqsim_source": {
+        "repository": "https://github.com/equinor/neqsim",
+        "requested_ref": "master",
+        "resolved_commit": "1dee5b51f6689d0b383e8d90fece9729132dd6e3",
+        "runtime_jar": "neqsim-current-master-agent-demo-complete.jar",
+        "runtime_jar_sha256": "f3e4080d8e6a97225047de1ec04c5a7fcd1049845b770a11da4986d96d2dce8c",
+        "classpath_assertion": "SystemSrkEos and EngineeringDesignLoop both resolved to the current-master source JAR before calculations were imported.",
+        "colab_build": "The default Colab path clones current master and builds the full runtime JAR with mvnw; the local restricted runner used an exact javac source overlay because Maven Central DNS was unavailable."
+      },
+      "upstream_gap_review": "No new actionable NeqSim defect was found; notebook-model limitations are documented and do not require an upstream issue.",
+      "limitations": "Synthetic tags and prescribed fault signatures; field use requires governed tags, calibrated models, and intervention review."
+    },
+    {
+      "path": "notebooks/AI/community_agent_demos/02_well_deliverability_diagnostics_agent.ipynb",
+      "verified_date": "2026-08-11",
+      "verified_at_utc": "2026-08-11T14:10:00Z",
+      "neqsim_version": "3.17.0 Python bridge with current-master Java source overlay",
+      "neqsim_java_commit": "1dee5b51f6689d0b383e8d90fece9729132dd6e3",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "Executed all seven code cells sequentially from an empty in-process IPython namespace using scripts/execute_notebook_inprocess.py. Validation loaded 5,444 Java classes compiled from the exact current NeqSim master source tree ahead of the packaged runtime dependencies. The retained notebook contains one PNG figure, zero error outputs, zero notebook stderr, and a final VALIDATION PASSED result.",
+      "code_cells": 7,
+      "substantive_code_cells": 7,
+      "markdown_cells": 3,
+      "git_blob_sha1": "bd5b5e3e0ad973985bb41ea44dbb9a5ba63005f0",
+      "publication": {
+        "branch": "agent/community-agent-demo-notebooks-20260811",
+        "mode": "focused ten-notebook demonstration-series draft pull request",
+        "files": [
+          "notebooks/AI/community_agent_demos/02_well_deliverability_diagnostics_agent.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json",
+          "notebooks/maintenance_ledger/community-agent-demos-20260811.json"
+        ]
+      },
+      "neqsim_capabilities_demonstrated": [
+        "high-pressure SRK gas-property calculation",
+        "gas IPR and vertical-lift operating-point solution",
+        "scenario residual ranking against a synthetic well test"
+      ],
+      "engineering_validation": {
+        "named_assertions_passed": 3,
+        "assertions_failed": 0,
+        "result": "The paired rate and flowing-pressure test correctly identified the imposed tubing restriction."
+      },
+      "retained_figures": {
+        "count": 1,
+        "purpose": "IPR, healthy VLP, restricted VLP, and measured operating point",
+        "visual_inspection": "Passed at original PNG resolution for title, labels, units, legend, scales, clipping, overlap, and agreement with retained output."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "math_expressions": 2,
+        "source_rule": "Compact dollar delimiters with Colab-compatible LaTeX.",
+        "visual_inspection": "All series equations compiled with LaTeX/amsmath and were visually inspected for fractions, indices, operators, and symbols."
+      },
+      "readability": {
+        "maximum_python_line_length": 90,
+        "checks": "No wildcard imports, semicolon chains, notebook shell magics, or compressed one-line compound bodies."
+      },
+      "neqsim_source": {
+        "repository": "https://github.com/equinor/neqsim",
+        "requested_ref": "master",
+        "resolved_commit": "1dee5b51f6689d0b383e8d90fece9729132dd6e3",
+        "runtime_jar": "neqsim-current-master-agent-demo-complete.jar",
+        "runtime_jar_sha256": "f3e4080d8e6a97225047de1ec04c5a7fcd1049845b770a11da4986d96d2dce8c",
+        "classpath_assertion": "SystemSrkEos and EngineeringDesignLoop both resolved to the current-master source JAR before calculations were imported.",
+        "colab_build": "The default Colab path clones current master and builds the full runtime JAR with mvnw; the local restricted runner used an exact javac source overlay because Maven Central DNS was unavailable."
+      },
+      "upstream_gap_review": "No new actionable NeqSim defect was found; notebook-model limitations are documented and do not require an upstream issue.",
+      "limitations": "Reduced gas-well equations; calibrate PVT, multiphase hydraulics, geometry, and rate-dependent skin."
+    },
+    {
+      "path": "notebooks/AI/community_agent_demos/03_transient_operability_restart_agent.ipynb",
+      "verified_date": "2026-08-11",
+      "verified_at_utc": "2026-08-11T14:10:00Z",
+      "neqsim_version": "3.17.0 Python bridge with current-master Java source overlay",
+      "neqsim_java_commit": "1dee5b51f6689d0b383e8d90fece9729132dd6e3",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "Executed all seven code cells sequentially from an empty in-process IPython namespace using scripts/execute_notebook_inprocess.py. Validation loaded 5,444 Java classes compiled from the exact current NeqSim master source tree ahead of the packaged runtime dependencies. The retained notebook contains one PNG figure, zero error outputs, zero notebook stderr, and a final VALIDATION PASSED result.",
+      "code_cells": 7,
+      "substantive_code_cells": 7,
+      "markdown_cells": 3,
+      "git_blob_sha1": "132d7a19934f669acb7dcef8295dfd826f4dd32c",
+      "publication": {
+        "branch": "agent/community-agent-demo-notebooks-20260811",
+        "mode": "focused ten-notebook demonstration-series draft pull request",
+        "files": [
+          "notebooks/AI/community_agent_demos/03_transient_operability_restart_agent.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json",
+          "notebooks/maintenance_ledger/community-agent-demos-20260811.json"
+        ]
+      },
+      "neqsim_capabilities_demonstrated": [
+        "warm and cold SRK property and liquid-yield flashes",
+        "event-driven shutdown, restart, and compressor-trip simulation",
+        "multi-constraint operating-envelope gates"
+      ],
+      "engineering_validation": {
+        "named_assertions_passed": 3,
+        "assertions_failed": 0,
+        "result": "The staged restart passed all gates while the aggressive ramp crossed the 60 bar pressure limit."
+      },
+      "retained_figures": {
+        "count": 1,
+        "purpose": "restart pressure, temperature, and separator-level envelopes",
+        "visual_inspection": "Passed at original PNG resolution for title, labels, units, legend, scales, clipping, overlap, and agreement with retained output."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "math_expressions": 1,
+        "source_rule": "Compact dollar delimiters with Colab-compatible LaTeX.",
+        "visual_inspection": "All series equations compiled with LaTeX/amsmath and were visually inspected for fractions, indices, operators, and symbols."
+      },
+      "readability": {
+        "maximum_python_line_length": 75,
+        "checks": "No wildcard imports, semicolon chains, notebook shell magics, or compressed one-line compound bodies."
+      },
+      "neqsim_source": {
+        "repository": "https://github.com/equinor/neqsim",
+        "requested_ref": "master",
+        "resolved_commit": "1dee5b51f6689d0b383e8d90fece9729132dd6e3",
+        "runtime_jar": "neqsim-current-master-agent-demo-complete.jar",
+        "runtime_jar_sha256": "f3e4080d8e6a97225047de1ec04c5a7fcd1049845b770a11da4986d96d2dce8c",
+        "classpath_assertion": "SystemSrkEos and EngineeringDesignLoop both resolved to the current-master source JAR before calculations were imported.",
+        "colab_build": "The default Colab path clones current master and builds the full runtime JAR with mvnw; the local restricted runner used an exact javac source overlay because Maven Central DNS was unavailable."
+      },
+      "upstream_gap_review": "No new actionable NeqSim defect was found; notebook-model limitations are documented and do not require an upstream issue.",
+      "limitations": "Reduced-order states; detailed work needs calibrated transient hydraulics and flow-assurance physics."
+    },
+    {
+      "path": "notebooks/AI/community_agent_demos/04_equipment_performance_degradation_agent.ipynb",
+      "verified_date": "2026-08-11",
+      "verified_at_utc": "2026-08-11T14:10:00Z",
+      "neqsim_version": "3.17.0 Python bridge with current-master Java source overlay",
+      "neqsim_java_commit": "1dee5b51f6689d0b383e8d90fece9729132dd6e3",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "Executed all seven code cells sequentially from an empty in-process IPython namespace using scripts/execute_notebook_inprocess.py. Validation loaded 5,444 Java classes compiled from the exact current NeqSim master source tree ahead of the packaged runtime dependencies. The retained notebook contains one PNG figure, zero error outputs, zero notebook stderr, and a final VALIDATION PASSED result.",
+      "code_cells": 7,
+      "substantive_code_cells": 7,
+      "markdown_cells": 3,
+      "git_blob_sha1": "906998de08ef735e908590fcd2303bc5943815fb",
+      "publication": {
+        "branch": "agent/community-agent-demo-notebooks-20260811",
+        "mode": "focused ten-notebook demonstration-series draft pull request",
+        "files": [
+          "notebooks/AI/community_agent_demos/04_equipment_performance_degradation_agent.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json",
+          "notebooks/maintenance_ledger/community-agent-demos-20260811.json"
+        ]
+      },
+      "neqsim_capabilities_demonstrated": [
+        "NeqSim gas heat-capacity and compressibility calculation",
+        "compressor isentropic-work and inferred-efficiency trending",
+        "heat-exchanger UA inference and degradation ranking"
+      ],
+      "engineering_validation": {
+        "named_assertions_passed": 3,
+        "assertions_failed": 0,
+        "result": "Compressor efficiency loss and exchanger fouling ranked above a temperature-bias hypothesis."
+      },
+      "retained_figures": {
+        "count": 1,
+        "purpose": "reconciled compressor efficiency and exchanger UA trends",
+        "visual_inspection": "Passed at original PNG resolution for title, labels, units, legend, scales, clipping, overlap, and agreement with retained output."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "math_expressions": 2,
+        "source_rule": "Compact dollar delimiters with Colab-compatible LaTeX.",
+        "visual_inspection": "All series equations compiled with LaTeX/amsmath and were visually inspected for fractions, indices, operators, and symbols."
+      },
+      "readability": {
+        "maximum_python_line_length": 91,
+        "checks": "No wildcard imports, semicolon chains, notebook shell magics, or compressed one-line compound bodies."
+      },
+      "neqsim_source": {
+        "repository": "https://github.com/equinor/neqsim",
+        "requested_ref": "master",
+        "resolved_commit": "1dee5b51f6689d0b383e8d90fece9729132dd6e3",
+        "runtime_jar": "neqsim-current-master-agent-demo-complete.jar",
+        "runtime_jar_sha256": "f3e4080d8e6a97225047de1ec04c5a7fcd1049845b770a11da4986d96d2dce8c",
+        "classpath_assertion": "SystemSrkEos and EngineeringDesignLoop both resolved to the current-master source JAR before calculations were imported.",
+        "colab_build": "The default Colab path clones current master and builds the full runtime JAR with mvnw; the local restricted runner used an exact javac source overlay because Maven Central DNS was unavailable."
+      },
+      "upstream_gap_review": "No new actionable NeqSim defect was found; notebook-model limitations are documented and do not require an upstream issue.",
+      "limitations": "Screening equations; use vendor maps, heat-loss correction, reconciled sensors, and uncertainty."
+    },
+    {
+      "path": "notebooks/AI/community_agent_demos/05_gas_network_linepack_quality_agent.ipynb",
+      "verified_date": "2026-08-11",
+      "verified_at_utc": "2026-08-11T14:10:00Z",
+      "neqsim_version": "3.17.0 Python bridge with current-master Java source overlay",
+      "neqsim_java_commit": "1dee5b51f6689d0b383e8d90fece9729132dd6e3",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "Executed all seven code cells sequentially from an empty in-process IPython namespace using scripts/execute_notebook_inprocess.py. Validation loaded 5,444 Java classes compiled from the exact current NeqSim master source tree ahead of the packaged runtime dependencies. The retained notebook contains one PNG figure, zero error outputs, zero notebook stderr, and a final VALIDATION PASSED result.",
+      "code_cells": 7,
+      "substantive_code_cells": 7,
+      "markdown_cells": 3,
+      "git_blob_sha1": "fc7e12313b0ec657001d275790b0697f8175b70a",
+      "publication": {
+        "branch": "agent/community-agent-demo-notebooks-20260811",
+        "mode": "focused ten-notebook demonstration-series draft pull request",
+        "files": [
+          "notebooks/AI/community_agent_demos/05_gas_network_linepack_quality_agent.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json",
+          "notebooks/maintenance_ledger/community-agent-demos-20260811.json"
+        ]
+      },
+      "neqsim_capabilities_demonstrated": [
+        "source-specific SRK density and compressibility calculation",
+        "section linepack and delayed-composition-front simulation",
+        "delivery-pressure and Wobbe-limit event detection"
+      ],
+      "engineering_validation": {
+        "named_assertions_passed": 3,
+        "assertions_failed": 0,
+        "result": "The delivery quality front reached its limit at 15.8 hours, before the pressure constraint."
+      },
+      "retained_figures": {
+        "count": 1,
+        "purpose": "delivery pressure, CO2 concentration, and Wobbe-index forecast",
+        "visual_inspection": "Passed at original PNG resolution for title, labels, units, legend, scales, clipping, overlap, and agreement with retained output."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "math_expressions": 1,
+        "source_rule": "Compact dollar delimiters with Colab-compatible LaTeX.",
+        "visual_inspection": "All series equations compiled with LaTeX/amsmath and were visually inspected for fractions, indices, operators, and symbols."
+      },
+      "readability": {
+        "maximum_python_line_length": 99,
+        "checks": "No wildcard imports, semicolon chains, notebook shell magics, or compressed one-line compound bodies."
+      },
+      "neqsim_source": {
+        "repository": "https://github.com/equinor/neqsim",
+        "requested_ref": "master",
+        "resolved_commit": "1dee5b51f6689d0b383e8d90fece9729132dd6e3",
+        "runtime_jar": "neqsim-current-master-agent-demo-complete.jar",
+        "runtime_jar_sha256": "f3e4080d8e6a97225047de1ec04c5a7fcd1049845b770a11da4986d96d2dce8c",
+        "classpath_assertion": "SystemSrkEos and EngineeringDesignLoop both resolved to the current-master source JAR before calculations were imported.",
+        "colab_build": "The default Colab path clones current master and builds the full runtime JAR with mvnw; the local restricted runner used an exact javac source overlay because Maven Central DNS was unavailable."
+      },
+      "upstream_gap_review": "No new actionable NeqSim defect was found; notebook-model limitations are documented and do not require an upstream issue.",
+      "limitations": "Reduced network and quality proxies; dispatch use needs calibrated hydraulics and contractual quality methods."
+    },
+    {
+      "path": "notebooks/AI/community_agent_demos/06_reservoir_ensemble_history_match_agent.ipynb",
+      "verified_date": "2026-08-11",
+      "verified_at_utc": "2026-08-11T14:10:00Z",
+      "neqsim_version": "3.17.0 Python bridge with current-master Java source overlay",
+      "neqsim_java_commit": "1dee5b51f6689d0b383e8d90fece9729132dd6e3",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "Executed all seven code cells sequentially from an empty in-process IPython namespace using scripts/execute_notebook_inprocess.py. Validation loaded 5,444 Java classes compiled from the exact current NeqSim master source tree ahead of the packaged runtime dependencies. The retained notebook contains one PNG figure, zero error outputs, zero notebook stderr, and a final VALIDATION PASSED result.",
+      "code_cells": 7,
+      "substantive_code_cells": 7,
+      "markdown_cells": 3,
+      "git_blob_sha1": "6979efe6d031e8db3bee0b8920228223bb29fed5",
+      "publication": {
+        "branch": "agent/community-agent-demo-notebooks-20260811",
+        "mode": "focused ten-notebook demonstration-series draft pull request",
+        "files": [
+          "notebooks/AI/community_agent_demos/06_reservoir_ensemble_history_match_agent.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json",
+          "notebooks/maintenance_ledger/community-agent-demos-20260811.json"
+        ]
+      },
+      "neqsim_capabilities_demonstrated": [
+        "NeqSim standard and separator gas-property calculation",
+        "probabilistic tank-model ensemble and observation likelihood",
+        "weighted posterior quantiles and facility mass-rate conversion"
+      ],
+      "engineering_validation": {
+        "named_assertions_passed": 3,
+        "assertions_failed": 0,
+        "result": "The posterior P90 facility-feed screen was 344.6 kg/s while retaining GIIP and aquifer uncertainty."
+      },
+      "retained_figures": {
+        "count": 1,
+        "purpose": "prior ensemble, posterior rate band, history, and parameter weights",
+        "visual_inspection": "Passed at original PNG resolution for title, labels, units, legend, scales, clipping, overlap, and agreement with retained output."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "math_expressions": 1,
+        "source_rule": "Compact dollar delimiters with Colab-compatible LaTeX.",
+        "visual_inspection": "All series equations compiled with LaTeX/amsmath and were visually inspected for fractions, indices, operators, and symbols."
+      },
+      "readability": {
+        "maximum_python_line_length": 98,
+        "checks": "No wildcard imports, semicolon chains, notebook shell magics, or compressed one-line compound bodies."
+      },
+      "neqsim_source": {
+        "repository": "https://github.com/equinor/neqsim",
+        "requested_ref": "master",
+        "resolved_commit": "1dee5b51f6689d0b383e8d90fece9729132dd6e3",
+        "runtime_jar": "neqsim-current-master-agent-demo-complete.jar",
+        "runtime_jar_sha256": "f3e4080d8e6a97225047de1ec04c5a7fcd1049845b770a11da4986d96d2dce8c",
+        "classpath_assertion": "SystemSrkEos and EngineeringDesignLoop both resolved to the current-master source JAR before calculations were imported.",
+        "colab_build": "The default Colab path clones current master and builds the full runtime JAR with mvnw; the local restricted runner used an exact javac source overlay because Maven Central DNS was unavailable."
+      },
+      "upstream_gap_review": "No new actionable NeqSim defect was found; notebook-model limitations are documented and do not require an upstream issue.",
+      "limitations": "Compact tank model; real history matching requires simulator physics, correlated errors, and geological checks."
+    },
+    {
+      "path": "notebooks/AI/community_agent_demos/07_robust_field_development_decision_agent.ipynb",
+      "verified_date": "2026-08-11",
+      "verified_at_utc": "2026-08-11T14:10:00Z",
+      "neqsim_version": "3.17.0 Python bridge with current-master Java source overlay",
+      "neqsim_java_commit": "1dee5b51f6689d0b383e8d90fece9729132dd6e3",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "Executed all seven code cells sequentially from an empty in-process IPython namespace using scripts/execute_notebook_inprocess.py. Validation loaded 5,444 Java classes compiled from the exact current NeqSim master source tree ahead of the packaged runtime dependencies. The retained notebook contains one PNG figure, zero error outputs, zero notebook stderr, and a final VALIDATION PASSED result.",
+      "code_cells": 7,
+      "substantive_code_cells": 7,
+      "markdown_cells": 3,
+      "git_blob_sha1": "46e91b8a91e5d91144436fd32a305dba43600b55",
+      "publication": {
+        "branch": "agent/community-agent-demo-notebooks-20260811",
+        "mode": "focused ten-notebook demonstration-series draft pull request",
+        "files": [
+          "notebooks/AI/community_agent_demos/07_robust_field_development_decision_agent.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json",
+          "notebooks/maintenance_ledger/community-agent-demos-20260811.json"
+        ]
+      },
+      "neqsim_capabilities_demonstrated": [
+        "NeqSim-derived compression-energy intensity",
+        "joint subsurface, price, carbon, uptime, and schedule ensemble",
+        "NPV distribution, expected regret, and emissions-aware robust score"
+      ],
+      "engineering_validation": {
+        "named_assertions_passed": 3,
+        "assertions_failed": 0,
+        "result": "The host-upgrade concept ranked first under the declared downside-value and regret score."
+      },
+      "retained_figures": {
+        "count": 1,
+        "purpose": "concept NPV distributions and downside-value versus emissions plane",
+        "visual_inspection": "Passed at original PNG resolution for title, labels, units, legend, scales, clipping, overlap, and agreement with retained output."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "math_expressions": 1,
+        "source_rule": "Compact dollar delimiters with Colab-compatible LaTeX.",
+        "visual_inspection": "All series equations compiled with LaTeX/amsmath and were visually inspected for fractions, indices, operators, and symbols."
+      },
+      "readability": {
+        "maximum_python_line_length": 83,
+        "checks": "No wildcard imports, semicolon chains, notebook shell magics, or compressed one-line compound bodies."
+      },
+      "neqsim_source": {
+        "repository": "https://github.com/equinor/neqsim",
+        "requested_ref": "master",
+        "resolved_commit": "1dee5b51f6689d0b383e8d90fece9729132dd6e3",
+        "runtime_jar": "neqsim-current-master-agent-demo-complete.jar",
+        "runtime_jar_sha256": "f3e4080d8e6a97225047de1ec04c5a7fcd1049845b770a11da4986d96d2dce8c",
+        "classpath_assertion": "SystemSrkEos and EngineeringDesignLoop both resolved to the current-master source JAR before calculations were imported.",
+        "colab_build": "The default Colab path clones current master and builds the full runtime JAR with mvnw; the local restricted runner used an exact javac source overlay because Maven Central DNS was unavailable."
+      },
+      "upstream_gap_review": "No new actionable NeqSim defect was found; notebook-model limitations are documented and do not require an upstream issue.",
+      "limitations": "Decision-framing economics; sanction work needs fiscal, market, schedule, and concept-maturity models."
+    },
+    {
+      "path": "notebooks/AI/community_agent_demos/08_brownfield_change_impact_agent.ipynb",
+      "verified_date": "2026-08-11",
+      "verified_at_utc": "2026-08-11T14:10:00Z",
+      "neqsim_version": "3.17.0 Python bridge with current-master Java source overlay",
+      "neqsim_java_commit": "1dee5b51f6689d0b383e8d90fece9729132dd6e3",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "Executed all seven code cells sequentially from an empty in-process IPython namespace using scripts/execute_notebook_inprocess.py. Validation loaded 5,444 Java classes compiled from the exact current NeqSim master source tree ahead of the packaged runtime dependencies. The retained notebook contains one PNG figure, zero error outputs, zero notebook stderr, and a final VALIDATION PASSED result.",
+      "code_cells": 7,
+      "substantive_code_cells": 7,
+      "markdown_cells": 3,
+      "git_blob_sha1": "67464211288c433e9e83d5676ce6ff3f70eeee13",
+      "publication": {
+        "branch": "agent/community-agent-demo-notebooks-20260811",
+        "mode": "focused ten-notebook demonstration-series draft pull request",
+        "files": [
+          "notebooks/AI/community_agent_demos/08_brownfield_change_impact_agent.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json",
+          "notebooks/maintenance_ledger/community-agent-demos-20260811.json"
+        ]
+      },
+      "neqsim_capabilities_demonstrated": [
+        "SRK baseline and blended tie-in thermodynamic states",
+        "before-and-after capacity-utilization matrix",
+        "traffic-light classification and dependency-driven study scope"
+      ],
+      "engineering_validation": {
+        "named_assertions_passed": 3,
+        "assertions_failed": 0,
+        "result": "The tie-in overloaded separator gas load and compressor power, triggering debottleneck studies."
+      },
+      "retained_figures": {
+        "count": 1,
+        "purpose": "baseline and tie-in utilization for five brownfield systems",
+        "visual_inspection": "Passed at original PNG resolution for title, labels, units, legend, scales, clipping, overlap, and agreement with retained output."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "math_expressions": 1,
+        "source_rule": "Compact dollar delimiters with Colab-compatible LaTeX.",
+        "visual_inspection": "All series equations compiled with LaTeX/amsmath and were visually inspected for fractions, indices, operators, and symbols."
+      },
+      "readability": {
+        "maximum_python_line_length": 91,
+        "checks": "No wildcard imports, semicolon chains, notebook shell magics, or compressed one-line compound bodies."
+      },
+      "neqsim_source": {
+        "repository": "https://github.com/equinor/neqsim",
+        "requested_ref": "master",
+        "resolved_commit": "1dee5b51f6689d0b383e8d90fece9729132dd6e3",
+        "runtime_jar": "neqsim-current-master-agent-demo-complete.jar",
+        "runtime_jar_sha256": "f3e4080d8e6a97225047de1ec04c5a7fcd1049845b770a11da4986d96d2dce8c",
+        "classpath_assertion": "SystemSrkEos and EngineeringDesignLoop both resolved to the current-master source JAR before calculations were imported.",
+        "colab_build": "The default Colab path clones current master and builds the full runtime JAR with mvnw; the local restricted runner used an exact javac source overlay because Maven Central DNS was unavailable."
+      },
+      "upstream_gap_review": "No new actionable NeqSim defect was found; notebook-model limitations are documented and do not require an upstream issue.",
+      "limitations": "Capacity screen only; verify vendor curves, controls, relief, corrosion, layout, and constructability."
+    },
+    {
+      "path": "notebooks/AI/community_agent_demos/09_produced_water_troubleshooting_agent.ipynb",
+      "verified_date": "2026-08-11",
+      "verified_at_utc": "2026-08-11T14:10:00Z",
+      "neqsim_version": "3.17.0 Python bridge with current-master Java source overlay",
+      "neqsim_java_commit": "1dee5b51f6689d0b383e8d90fece9729132dd6e3",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "Executed all seven code cells sequentially from an empty in-process IPython namespace using scripts/execute_notebook_inprocess.py. Validation loaded 5,444 Java classes compiled from the exact current NeqSim master source tree ahead of the packaged runtime dependencies. The retained notebook contains one PNG figure, zero error outputs, zero notebook stderr, and a final VALIDATION PASSED result.",
+      "code_cells": 7,
+      "substantive_code_cells": 7,
+      "markdown_cells": 3,
+      "git_blob_sha1": "21b6b6183068efecf7613c47a7b1671ffa81c634",
+      "publication": {
+        "branch": "agent/community-agent-demo-notebooks-20260811",
+        "mode": "focused ten-notebook demonstration-series draft pull request",
+        "files": [
+          "notebooks/AI/community_agent_demos/09_produced_water_troubleshooting_agent.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json",
+          "notebooks/maintenance_ledger/community-agent-demos-20260811.json"
+        ]
+      },
+      "neqsim_capabilities_demonstrated": [
+        "NeqSim hydrocarbon-water separator phase calculation",
+        "commingled-ion balance and saturation-index screening",
+        "trend evidence, mechanism ranking, and discriminating sample plan"
+      ],
+      "engineering_validation": {
+        "named_assertions_passed": 3,
+        "assertions_failed": 0,
+        "result": "Barite scale ranked first and the notebook requires mineralogy confirmation before dose changes."
+      },
+      "retained_figures": {
+        "count": 1,
+        "purpose": "water-rate, turbidity, and filter differential-pressure evidence",
+        "visual_inspection": "Passed at original PNG resolution for title, labels, units, legend, scales, clipping, overlap, and agreement with retained output."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "math_expressions": 1,
+        "source_rule": "Compact dollar delimiters with Colab-compatible LaTeX.",
+        "visual_inspection": "All series equations compiled with LaTeX/amsmath and were visually inspected for fractions, indices, operators, and symbols."
+      },
+      "readability": {
+        "maximum_python_line_length": 94,
+        "checks": "No wildcard imports, semicolon chains, notebook shell magics, or compressed one-line compound bodies."
+      },
+      "neqsim_source": {
+        "repository": "https://github.com/equinor/neqsim",
+        "requested_ref": "master",
+        "resolved_commit": "1dee5b51f6689d0b383e8d90fece9729132dd6e3",
+        "runtime_jar": "neqsim-current-master-agent-demo-complete.jar",
+        "runtime_jar_sha256": "f3e4080d8e6a97225047de1ec04c5a7fcd1049845b770a11da4986d96d2dce8c",
+        "classpath_assertion": "SystemSrkEos and EngineeringDesignLoop both resolved to the current-master source JAR before calculations were imported.",
+        "colab_build": "The default Colab path clones current master and builds the full runtime JAR with mvnw; the local restricted runner used an exact javac source overlay because Maven Central DNS was unavailable."
+      },
+      "upstream_gap_review": "No new actionable NeqSim defect was found; notebook-model limitations are documented and do not require an upstream issue.",
+      "limitations": "Screening SI omits activities, kinetics, and inhibitor response; use representative samples and electrolyte models."
+    },
+    {
+      "path": "notebooks/AI/community_agent_demos/10_co2_transport_storage_agent.ipynb",
+      "verified_date": "2026-08-11",
+      "verified_at_utc": "2026-08-11T14:10:00Z",
+      "neqsim_version": "3.17.0 Python bridge with current-master Java source overlay",
+      "neqsim_java_commit": "1dee5b51f6689d0b383e8d90fece9729132dd6e3",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "Executed all seven code cells sequentially from an empty in-process IPython namespace using scripts/execute_notebook_inprocess.py. Validation loaded 5,444 Java classes compiled from the exact current NeqSim master source tree ahead of the packaged runtime dependencies. The retained notebook contains one PNG figure, zero error outputs, zero notebook stderr, and a final VALIDATION PASSED result.",
+      "code_cells": 7,
+      "substantive_code_cells": 7,
+      "markdown_cells": 3,
+      "git_blob_sha1": "3e98a26efa0daf49c02db236eba335a4f95895e5",
+      "publication": {
+        "branch": "agent/community-agent-demo-notebooks-20260811",
+        "mode": "focused ten-notebook demonstration-series draft pull request",
+        "files": [
+          "notebooks/AI/community_agent_demos/10_co2_transport_storage_agent.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json",
+          "notebooks/maintenance_ledger/community-agent-demos-20260811.json"
+        ]
+      },
+      "neqsim_capabilities_demonstrated": [
+        "Peng-Robinson CO2-rich phase, density, and viscosity mapping",
+        "impurity-dependent Darcy pipeline pressure-drop screen",
+        "multi-well radial injectivity and transport-margin checks"
+      ],
+      "engineering_validation": {
+        "named_assertions_passed": 3,
+        "assertions_failed": 0,
+        "result": "The base transport case passed and an 18-well, 2-D formation screen retained a 9.0 kg/s injection margin."
+      },
+      "retained_figures": {
+        "count": 1,
+        "purpose": "CO2-rich density map and impurity-sensitive outlet pressure",
+        "visual_inspection": "Passed at original PNG resolution for title, labels, units, legend, scales, clipping, overlap, and agreement with retained output."
+      },
+      "equation_rendering": {
+        "status": "passed",
+        "math_expressions": 1,
+        "source_rule": "Compact dollar delimiters with Colab-compatible LaTeX.",
+        "visual_inspection": "All series equations compiled with LaTeX/amsmath and were visually inspected for fractions, indices, operators, and symbols."
+      },
+      "readability": {
+        "maximum_python_line_length": 98,
+        "checks": "No wildcard imports, semicolon chains, notebook shell magics, or compressed one-line compound bodies."
+      },
+      "neqsim_source": {
+        "repository": "https://github.com/equinor/neqsim",
+        "requested_ref": "master",
+        "resolved_commit": "1dee5b51f6689d0b383e8d90fece9729132dd6e3",
+        "runtime_jar": "neqsim-current-master-agent-demo-complete.jar",
+        "runtime_jar_sha256": "f3e4080d8e6a97225047de1ec04c5a7fcd1049845b770a11da4986d96d2dce8c",
+        "classpath_assertion": "SystemSrkEos and EngineeringDesignLoop both resolved to the current-master source JAR before calculations were imported.",
+        "colab_build": "The default Colab path clones current master and builds the full runtime JAR with mvnw; the local restricted runner used an exact javac source overlay because Maven Central DNS was unavailable."
+      },
+      "upstream_gap_review": "No new actionable NeqSim defect was found; notebook-model limitations are documented and do not require an upstream issue.",
+      "limitations": "Screening chain; verify phase envelope, water, corrosion, terrain, transients, fracture, geomechanics, and plume behavior."
+    }
+  ]
+}
