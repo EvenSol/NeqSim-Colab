@@ -1,0 +1,144 @@
+{
+ "schema_version": 1,
+ "updated_at": "2026-08-11T13:23:50Z",
+ "notebooks": [
+  {
+   "path": "notebooks/fluidflow/asgard_transport_open_data_to_neqsim.ipynb",
+   "verified_date": "2026-08-11",
+   "verified_at_utc": "2026-08-11T13:23:50Z",
+   "neqsim_version": "source master commit 1dee5b51f6689d0b383e8d90fece9729132dd6e3",
+   "python_version": "3.12.13",
+   "java_version": "OpenJDK 17.0.19",
+   "numpy_version": "2.5.2",
+   "pandas_version": "3.0.5",
+   "matplotlib_version": "3.11.1",
+   "jpype_version": "1.7.1",
+   "nbformat_version": "5.11.0",
+   "nbconvert_version": "7.17.1",
+   "neqsim_source": {
+    "repository": "equinor/neqsim",
+    "ref": "master",
+    "commit": "1dee5b51f6689d0b383e8d90fece9729132dd6e3",
+    "runtime_jar_sha256": "9fcff3aa74ff9dde9bab144c5a096bc7906b61b5d6c427dfc9c283fc62055b36",
+    "runtime_guard": "The notebook disables Python-wheel JVM autostart, checks out the exact recorded NeqSim master commit, builds a source JAR in Colab, adds only that artifact to JPype, and asserts that PipeBeggsAndBrills resolves from the expected JAR. The restricted local validation path compiled all 3154 current src/main/java files with javac 17 against the verified public-PyPI 3.17.0 shaded dependency bundle, overlaid current resources, excluded compile-time-only Colt API stubs from the runtime artifact, and passed the same exact class-location guard."
+   },
+   "execution_status": "passed",
+   "execution_method": "Executed all 11 code cells sequentially in a clean process with scripts/execute_notebook_inprocess.py. The fail-fast run completed in 34.1 seconds, retained 18 outputs including four PNG figures, tables, diagnostics, and stdout, and stored zero errors and zero stderr. A classic Jupyter nbconvert HTML/MathJax render passed without missing-alt warnings.",
+   "code_cells": 11,
+   "substantive_code_cells": 11,
+   "markdown_cells": 8,
+   "publication": {
+    "branch": "agent/asgard-open-data-route-neqsim",
+    "mode": "feature branch and draft pull request",
+    "commit": "the pull-request commit containing this ledger entry",
+    "files": [
+     "notebooks/fluidflow/asgard_transport_open_data_to_neqsim.ipynb",
+     "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+     "notebooks/maintenance_ledger/asgard_transport_open_data_to_neqsim_20260811.json",
+     "notebooks/notebook_maintenance_ledger.json"
+    ]
+   },
+   "open_data": {
+    "sodir_pipeline_id": 307674,
+    "sodir_layer": "Data/FeatureServer/6100",
+    "sodir_license": "NLOD 2.0",
+    "emodnet_service": "Bathymetry REST depth_profile",
+    "snapshot_retrieved_date": "2026-08-10",
+    "snapshot_bundle_sha256": "21340d05d45db607d2b0f3339ef6e575b31afacb6c4b46b6cfbf756764124a2c",
+    "raw_public_geometry_length_km": 688.877480179543,
+    "gassco_engineering_length_km": 720.0,
+    "engineering_kp_scale_factor": 1.0451785995564051,
+    "sodir_vertex_count": 148,
+    "route_station_count": 145,
+    "cross_section_point_count": 725,
+    "station_interval_km": 5.0,
+    "cross_track_offsets_m": [-100.0, -50.0, 0.0, 50.0, 100.0],
+    "maximum_sampled_centreline_depth_m_below_lat": 370.05,
+    "sodir_reported_maximum_water_depth_m": 372
+   },
+   "neqsim_capabilities_demonstrated": [
+    "source-built SystemSrkEos rich-gas fluid with classic mixing rule",
+    "144 chained PipeBeggsAndBrills segments using local terrain elevation changes",
+    "specified standard flow with calculated pressure and temperature profiles",
+    "constant seawater temperature and specified overall heat-transfer coefficient",
+    "flow-rate sensitivity and full axial-increment refinement",
+    "total mass-flow conservation and phase-state diagnostics"
+   ],
+   "engineering_validation": {
+    "evidence_level": 3,
+    "assertions_failed": 0,
+    "assertions_passed": 11,
+    "checks": [
+     "synthetic composition sums to one",
+     "engineering route ends at KP 720 km",
+     "145 stations contain exactly 725 five-point records",
+     "sampled maximum centreline depth is within 5 m of the SODIR reported maximum",
+     "base-case relative mass-flow imbalance is below 1e-10",
+     "base-case outlet pressure remains positive",
+     "pressure drop increases monotonically from 36 to 44 MSm3/day",
+     "base case remains single phase with zero modeled liquid holdup",
+     "5-to-10-increment outlet-pressure difference is below 0.01 bar",
+     "5-to-10-increment outlet-temperature difference is below 0.02 degrees C",
+     "PipeBeggsAndBrills exact source-JAR class-location guard passes"
+    ],
+    "key_results": {
+     "inlet_pressure_bara": 180.0,
+     "inlet_temperature_c": 10.0,
+     "seawater_temperature_c": 5.0,
+     "assumed_overall_u_w_per_m2_k": 5.0,
+     "assumed_inside_diameter_m": 1.0,
+     "absolute_roughness_m": 0.000045,
+     "base_flow_msm3_per_day": 40.0,
+     "base_outlet_pressure_bara": 128.347438,
+     "base_pressure_drop_bar": 51.652562,
+     "base_outlet_temperature_c": 2.351599,
+     "base_mass_balance_relative_error": 0.0,
+     "base_maximum_liquid_holdup": 0.0,
+     "pressure_drop_at_36_msm3_per_day_bar": 42.383048,
+     "pressure_drop_at_44_msm3_per_day_bar": 62.512968,
+     "outlet_temperature_at_36_msm3_per_day_c": 3.080126,
+     "outlet_temperature_at_44_msm3_per_day_c": 1.214746,
+     "five_to_ten_increment_pressure_difference_bar": 0.0013,
+     "five_to_ten_increment_temperature_difference_c": 0.0064
+    }
+   },
+   "figures": {
+    "count": 4,
+    "purposes": [
+     "public SODIR route, raw-versus-engineering KP, and EMODnet terrain quality control",
+     "selected synthetic five-point cross-sections",
+     "base-case pressure and temperature profiles with terrain",
+     "pressure profiles and overall pressure-drop flow sensitivity"
+    ],
+    "visual_inspection": "Passed after the final clean execution. All four PNGs were extracted at original resolution and inspected. The final revision moved the cross-section legend outside the data region and ordered sensitivity curves by flow. Titles, labels, legends, units, depth orientation, colors, and scales are readable without clipping or overlap."
+   },
+   "equation_rendering": {
+    "status": "passed",
+    "display_expressions_verified": 4,
+    "renderer": "Jupyter nbconvert classic HTML with MathJax-compatible dollar delimiters plus an independent Matplotlib equation contact sheet",
+    "visual_inspection": "Engineering-KP scaling, segment geometry, pressure drop, and relative mass-flow imbalance rendered with correct fractions, subscripts, symbols, units, dots, and signs."
+   },
+   "notebook_quality": {
+    "valid_nbformat_json": true,
+    "total_cells": 19,
+    "colab_badge_valid": true,
+    "source_master_setup_cell": true,
+    "embedded_reproducible_open_data_snapshot": true,
+    "live_sodir_emodnet_refresh_path": true,
+    "hidden_local_dependencies": false,
+    "stored_error_outputs": 0,
+    "stored_stderr_outputs": 0,
+    "sequential_execution_counts": true,
+    "maximum_code_line_length": 94,
+    "empty_code_cells": 0,
+    "todo_markers": 0,
+    "catalog_target_occurrences": 1,
+    "notebook_checker": "passed: focused --require-main-source check completed with 0 errors/0 warnings; repository-wide --all check covered 313 notebooks with 0 errors and 42 accepted maintenance warnings"
+   },
+   "upstream_findings": [],
+   "documentation_impact": "Added the executed notebook to the Fluid mechanics catalog and added a dedicated maintenance-ledger shard plus the root-ledger count/timestamp update. No NeqSim Java/Python API, numerical behavior, guide, or release note changed.",
+   "neqsim_improvement_needs_found": false,
+   "summary": "Adds a reproducible public-data route-to-simulation tutorial for Åsgard Transport. It preserves public and derived KP, generates normalized five-point sections and a clearly non-certified C5P candidate, and calculates terrain-following NeqSim pressure and temperature profiles with conservation, sensitivity, and refinement evidence."
+  }
+ ]
+}
