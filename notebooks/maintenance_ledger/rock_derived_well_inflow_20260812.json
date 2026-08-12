@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "shard": "rock-derived-well-inflow-20260812",
+  "updated_at": "2026-08-12T20:14:13Z",
+  "notebooks": [
+    {
+      "path": "notebooks/well/rock_derived_productivity_injectivity_opm_neqsim.ipynb",
+      "verified_date": "2026-08-12",
+      "verified_at_utc": "2026-08-12T20:14:13Z",
+      "neqsim_version": "3.17.0 base JAR with current-master source overlay for the exact well classes used",
+      "neqsim_java_commit": "879eeded80135ad485de4327907fe6c3282cba08",
+      "neqsim_jar_sha256": "a5337f5d6ec11619d32be6827ac2bed92e664e7cb581c188b7efec7fbb03736a",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "opm_flow_version": "2026.04",
+      "opm_python_version": "2026.4",
+      "pyscal_version": "0.15.3",
+      "resdata_version": "6.3.2",
+      "welltestpy_version": "1.2.0",
+      "execution_status": "passed",
+      "execution_method": "Executed all 18 code cells sequentially from an empty in-process IPython namespace because the restricted validation runner blocks Jupyter kernel sockets. The clean final run used OPM Flow 2026.04 for 13 cases, loaded the exact current-master NeqSim WellSystem and InjectionWellModel classes from the recorded JAR, retained every result-bearing output and six PNG figures, and produced zero error outputs and zero stderr.",
+      "code_cells": 18,
+      "substantive_code_cells": 18,
+      "markdown_cells": 19,
+      "git_blob_sha1": "fb51cdfbfef4bb05034c58f72edd9eb61d639d59",
+      "notebook_bytes": 452111,
+      "publication": {
+        "branch": "agent/rock-derived-well-inflow-opm-neqsim",
+        "mode": "focused draft pull request",
+        "files": [
+          "notebooks/well/rock_derived_productivity_injectivity_opm_neqsim.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json",
+          "notebooks/maintenance_ledger/rock_derived_well_inflow_20260812.json"
+        ]
+      },
+      "python_capabilities_demonstrated": [
+        "welltestpy Campaign, well, pumping-test observation, and smoothing-derivative data workflow",
+        "skin-augmented Theis fit with SciPy and explicit hydraulic-transmissivity to petroleum kh conversion",
+        "Equinor pyscal Corey water-oil relative permeability and OPM SWOF export",
+        "resdata extraction of FPR, WBHP, WOPR, WGPR, and WWIR from real OPM Flow summary files",
+        "bounded PCHIP pressure-to-rate interpolation with explicit extrapolation rejection",
+        "voidage-replacement, fracture-margin, analytical Peaceman, and bubble-point productivity diagnostics"
+      ],
+      "neqsim_capabilities_demonstrated": [
+        "source-provenance-checked current-master WellSystem and InjectionWellModel classes",
+        "rock-and-skin-informed water-injection wellbore and pump screening",
+        "multiphase producer VLP generation and numerical crossing with an OPM-derived IPR",
+        "SystemPrEos well-fluid characterization, Stream handoff, Separator flash, and ProcessSystem mass closure"
+      ],
+      "engineering_validation": {
+        "named_assertions_passed": 16,
+        "assertions_failed": 0,
+        "checks": [
+          "synthetic transient fit converges and recovers kh within 2% and skin within 5%",
+          "pyscal water and oil endpoints close",
+          "all 13 OPM Flow cases report simulation completion",
+          "producer rate rises with drawdown and injector rate rises with BHP",
+          "OPM PI is within 35% of an independent radial Darcy/Peaceman magnitude screen",
+          "bounded direct pressure-to-rate answers are positive",
+          "fixed-BHP depletion produces material productivity decay through the bubble point",
+          "safe injector BHP preserves a fracture-pressure margin and the voidage screen returns a physical well count",
+          "NeqSim class provenance resolves to the recorded current-master JAR",
+          "OPM-IPR/NeqSim-VLP pressure residual and NeqSim separator mass balance close"
+        ]
+      },
+      "result_summary": {
+        "fitted_kh_md_m": 4500.666299,
+        "fitted_skin": 3.499881,
+        "production_rate_at_260_210_bara_sm3_day": 1392.518,
+        "injection_rate_at_325_260_bara_sm3_day": 3891.5,
+        "safe_injector_capacity_at_330_bara_sm3_day": 4191.167,
+        "required_water_for_three_producers_sm3_day": 5692.943,
+        "injectors_required": 2,
+        "bubble_point_productivity_decay_percent": 54.0,
+        "nodal_operating_rate_sm3_day": 1834.030815,
+        "nodal_operating_bhp_bara": 195.74437,
+        "analytical_pi_difference_percent": -20.6
+      },
+      "rendered_visual_validation": {
+        "renderer": "IPython inline Matplotlib PNG plus nbconvert-compatible notebook rich output",
+        "figures_inspected": 6,
+        "result": "passed",
+        "notes": "All retained figures were inspected together and at original resolution for axes, units, legends, pressure direction, bubble-point marker, clipping, overlap, contrast, and consistency with the stored tables. The final figures show smooth PTA/SCAL diagnostics, monotone OPM pressure sweeps, a clean fixed-BHP PI decline through bubble point, and one OPM-IPR/NeqSim-VLP crossing."
+      }
+    }
+  ]
+}
