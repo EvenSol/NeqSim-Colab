@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "shard": "wellstream-shutdown-cooldown-20260812",
+  "updated_at": "2026-08-12T21:19:00Z",
+  "notebooks": [
+    {
+      "path": "notebooks/flowassurance/wellstream_shutdown_cooldown_to_openfoam_deadleg.ipynb",
+      "verified_date": "2026-08-12",
+      "verified_at_utc": "2026-08-12T21:19:00Z",
+      "neqsim_version": "3.17.0 verified GitHub Actions artifact with exact current-master source overlays for TwoFluidPipe, flash, and SURF cooldown classes",
+      "neqsim_java_commit": "879eeded80135ad485de4327907fe6c3282cba08",
+      "neqsim_jar_sha256": "5c2c874f8bad73f309a73c7a35659d35388c45daa621304ef49972202ecf9443",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "Executed all 10 code cells sequentially from an empty in-process IPython namespace with scripts/execute_notebook_inprocess.py. The clean final run loaded exact current-master TwoFluidPipe, TPflash, and SurfCooldownAnalyzer classes ahead of the verified NeqSim artifact JAR, retained every result-bearing output and five PNG figures, produced zero error outputs and zero stderr, and generated a zipped OpenFOAM handoff package.",
+      "code_cells": 10,
+      "substantive_code_cells": 10,
+      "markdown_cells": 9,
+      "git_blob_sha1": "6dce91898737654ef97e418b0fed859f54f149d7",
+      "notebook_bytes": 598600,
+      "publication": {
+        "branch": "agent/wellstream-shutdown-cooldown-openfoam-handoff",
+        "mode": "focused draft pull request",
+        "files": [
+          "notebooks/flowassurance/wellstream_shutdown_cooldown_to_openfoam_deadleg.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json",
+          "notebooks/maintenance_ledger/wellstream_shutdown_cooldown_20260812.json"
+        ]
+      },
+      "neqsim_capabilities_demonstrated": [
+        "SRK-CPA gas, oil, and aqueous phase initialization with hydrate equilibrium calculations",
+        "terrain-following TwoFluidPipe flowing initialization and simultaneous inlet/outlet closure",
+        "cell-owned multilayer steel, FBE, and PU-foam thermal inertia during closed-boundary cooldown",
+        "axial hydrate-management margin and interpolated first no-touch-time crossing",
+        "native SurfCooldownAnalyzer as an independent lumped screening comparison"
+      ],
+      "openfoam_handoff": [
+        "time-varying upstream and downstream parent-pipe pressure, temperature, and phase-fraction patches",
+        "final flowing initial fields and tee reference history",
+        "SRK-CPA phase-property table and provenance/unit/sign manifest",
+        "explicit pressure-driven velocity-boundary guidance and a path to iterative heat-flux feedback"
+      ],
+      "engineering_validation": {
+        "named_assertions_passed": 9,
+        "assertions_failed": 0,
+        "checks": [
+          "gas, oil, and aqueous thermodynamic phases are present",
+          "15-minute no-touch time lies in the demonstration range",
+          "30-minute versus 15-minute no-touch time differs by 0.0783 percent",
+          "closed total-mass inventory drift remains below 3.1e-15 relative",
+          "mass-balance and thermal-energy residuals remain below 1.3e-12 relative",
+          "gas, oil, and water phase fractions close to unity",
+          "mean temperature cools materially without undershooting the seabed boundary",
+          "OpenFOAM handoff archive contains all documented files"
+        ]
+      },
+      "result_summary": {
+        "two_fluid_no_touch_time_h": 14.139156799240137,
+        "coarse_step_no_touch_time_h": 14.150221841944923,
+        "time_step_difference_percent": 0.07825815118890588,
+        "lumped_screen_no_touch_time_h": 59.69513036057004,
+        "critical_position_km": 1.0,
+        "tee_handoff_position_km": 5.0,
+        "radial_overall_u_W_m2K_inner_basis": 0.7773780807850504,
+        "maximum_relative_mass_drift": 3.0658144456950823e-15,
+        "maximum_mass_balance_relative_residual": 1.1996665222285128e-15,
+        "maximum_thermal_energy_relative_residual": 1.2379960801483927e-12
+      },
+      "rendered_visual_validation": {
+        "renderer": "nbconvert 7.17.1 Jupyter HTML with MathJax source plus retained inline Matplotlib PNG",
+        "display_equations_inspected": 2,
+        "figures_inspected": 5,
+        "result": "passed",
+        "notes": "All equations and five retained figures were inspected together and at original resolution for labels, units, legends, hydrate-limit alignment, clipping, overlap, phase-fraction closure, color contrast, and consistency with the stored result tables."
+      },
+      "known_upstream_issues": [
+        "https://github.com/equinor/neqsim/issues/2907",
+        "https://github.com/equinor/neqsim/issues/2977"
+      ],
+      "issue_handling": "The notebook limits claims about long-duration compositional shutdown behavior under #2907. It documents and applies an explicit closed-side HTC workaround while #2977 tracks separation of inner-film and overall-U ownership in the multilayer API."
+    }
+  ]
+}
