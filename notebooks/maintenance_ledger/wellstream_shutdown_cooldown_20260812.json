@@ -1,24 +1,24 @@
 {
   "schema_version": 1,
   "shard": "wellstream-shutdown-cooldown-20260812",
-  "updated_at": "2026-08-12T21:19:00Z",
+  "updated_at": "2026-08-13T00:00:00Z",
   "notebooks": [
     {
       "path": "notebooks/flowassurance/wellstream_shutdown_cooldown_to_openfoam_deadleg.ipynb",
-      "verified_date": "2026-08-12",
-      "verified_at_utc": "2026-08-12T21:19:00Z",
+      "verified_date": "2026-08-13",
+      "verified_at_utc": "2026-08-13T00:00:00Z",
       "neqsim_version": "3.17.0 verified GitHub Actions artifact with exact current-master source overlays for TwoFluidPipe, flash, and SURF cooldown classes",
       "neqsim_java_commit": "879eeded80135ad485de4327907fe6c3282cba08",
       "neqsim_jar_sha256": "5c2c874f8bad73f309a73c7a35659d35388c45daa621304ef49972202ecf9443",
       "python_version": "3.12.13",
       "java_version": "OpenJDK 17.0.19",
       "execution_status": "passed",
-      "execution_method": "Executed all 10 code cells sequentially from an empty in-process IPython namespace with scripts/execute_notebook_inprocess.py. The clean final run loaded exact current-master TwoFluidPipe, TPflash, and SurfCooldownAnalyzer classes ahead of the verified NeqSim artifact JAR, retained every result-bearing output and five PNG figures, produced zero error outputs and zero stderr, and generated a zipped OpenFOAM handoff package.",
-      "code_cells": 10,
-      "substantive_code_cells": 10,
-      "markdown_cells": 9,
-      "git_blob_sha1": "6dce91898737654ef97e418b0fed859f54f149d7",
-      "notebook_bytes": 598600,
+      "execution_method": "Executed all 18 code cells sequentially from an empty in-process IPython namespace with scripts/execute_notebook_inprocess.py. The clean final run loaded exact current-master TwoFluidPipe, TPflash, and SurfCooldownAnalyzer classes ahead of the verified NeqSim artifact JAR, then executed OpenFOAM Foundation 14 build 14-7b05503f98a8 for fine, doubled-time-step, and coarse-mesh dead-leg cases. It retained every result-bearing output and nine PNG figures, produced zero error outputs and zero stderr, and generated both an updated coupling handoff and a reusable fine OpenFOAM case archive.",
+      "code_cells": 18,
+      "substantive_code_cells": 18,
+      "markdown_cells": 14,
+      "git_blob_sha1": "81497b2d2dd53fbae3ed3c45d97f50578296c501",
+      "notebook_bytes": 1083658,
       "publication": {
         "branch": "agent/wellstream-shutdown-cooldown-openfoam-handoff",
         "mode": "focused draft pull request",
@@ -34,16 +34,18 @@
         "terrain-following TwoFluidPipe flowing initialization and simultaneous inlet/outlet closure",
         "cell-owned multilayer steel, FBE, and PU-foam thermal inertia during closed-boundary cooldown",
         "axial hydrate-management margin and interpolated first no-touch-time crossing",
-        "native SurfCooldownAnalyzer as an independent lumped screening comparison"
+        "native SurfCooldownAnalyzer as an independent lumped screening comparison",
+        "traceable parent-pipe boundary and candidate static tee-cell heat-transfer feedback profiles"
       ],
-      "openfoam_handoff": [
-        "time-varying upstream and downstream parent-pipe pressure, temperature, and phase-fraction patches",
-        "final flowing initial fields and tee reference history",
-        "SRK-CPA phase-property table and provenance/unit/sign manifest",
-        "explicit pressure-driven velocity-boundary guidance and a path to iterative heat-flux feedback"
+      "openfoam_execution": [
+        "2D planar parent-pipe tee, 1.5 m capped dead leg, and separate fluid, steel, and insulation regions",
+        "one-second three-phase multiphaseEuler gravity redistribution initialized from NeqSim gas/oil/water holdups",
+        "96-hour three-region conjugate conduction with exact NeqSim temperature histories through 18 hours and an explicit held-boundary extension",
+        "fine/coarse mesh and 60/120-second time-step comparisons",
+        "phase-volume closure, thermal-energy closure, local fluid/wall temperatures, hydrate-risk volume, outer heat flux, and circular-equivalent line-loss feedback"
       ],
       "engineering_validation": {
-        "named_assertions_passed": 9,
+        "named_assertions_passed": 17,
         "assertions_failed": 0,
         "checks": [
           "gas, oil, and aqueous thermodynamic phases are present",
@@ -53,7 +55,14 @@
           "mass-balance and thermal-energy residuals remain below 1.3e-12 relative",
           "gas, oil, and water phase fractions close to unity",
           "mean temperature cools materially without undershooting the seabed boundary",
-          "OpenFOAM handoff archive contains all documented files"
+          "all three OpenFOAM regional meshes report Mesh OK",
+          "fine fluid mesh contains 623 cells versus 285 cells on the coarse mesh",
+          "settled phase fractions sum to unity within 1.1e-10 and maximum phase-volume drift is 5.7e-7 relative",
+          "OpenFOAM thermal-energy closure residual is 0.6726 percent",
+          "120-second versus 60-second final minimum differs by 0.0013 K",
+          "coarse versus fine final minimum differs by 0.5409 K",
+          "local temperatures remain bounded by the imposed physical temperatures",
+          "updated coupling handoff and reusable fine OpenFOAM case archives are non-empty"
         ]
       },
       "result_summary": {
@@ -66,14 +75,26 @@
         "radial_overall_u_W_m2K_inner_basis": 0.7773780807850504,
         "maximum_relative_mass_drift": 3.0658144456950823e-15,
         "maximum_mass_balance_relative_residual": 1.1996665222285128e-15,
-        "maximum_thermal_energy_relative_residual": 1.2379960801483927e-12
+        "maximum_thermal_energy_relative_residual": 1.2379960801483927e-12,
+        "openfoam_build": "14-7b05503f98a8",
+        "openfoam_fine_fluid_cells": 623,
+        "openfoam_coarse_fluid_cells": 285,
+        "openfoam_phase_volume_maximum_relative_drift": 5.687495487710546e-7,
+        "openfoam_thermal_energy_relative_residual": 0.006726006000231884,
+        "openfoam_time_step_final_minimum_difference_K": 0.001298,
+        "openfoam_mesh_final_minimum_difference_K": 0.54086,
+        "openfoam_deadleg_no_touch_3K_h": 87.23240424537131,
+        "openfoam_deadleg_no_touch_5K_h": 76.1660446846411,
+        "openfoam_to_neqsim_heat_loss_ratio_at_12h": 2.0413740233442397,
+        "governing_no_touch_time_h": 14.139156799240137,
+        "governing_location": "NeqSim parent pipe"
       },
       "rendered_visual_validation": {
-        "renderer": "nbconvert 7.17.1 Jupyter HTML with MathJax source plus retained inline Matplotlib PNG",
-        "display_equations_inspected": 2,
-        "figures_inspected": 5,
+        "renderer": "nbconvert 7.17.0 Jupyter HTML with MathJax source plus retained inline Matplotlib PNG",
+        "display_equations_inspected": 3,
+        "figures_inspected": 9,
         "result": "passed",
-        "notes": "All equations and five retained figures were inspected together and at original resolution for labels, units, legends, hydrate-limit alignment, clipping, overlap, phase-fraction closure, color contrast, and consistency with the stored result tables."
+        "notes": "All equations and nine retained figures were inspected together and at original resolution for labels, units, legends, hydrate-limit alignment, clipping, overlap, phase placement, local temperature and margin fields, risk-volume trends, sensitivity annotations, color contrast, and consistency with the stored result tables. The geometry view was corrected and re-executed after the first render exposed clipped domain limits and an overlapping cap annotation."
       },
       "known_upstream_issues": [
         "https://github.com/equinor/neqsim/issues/2907",
