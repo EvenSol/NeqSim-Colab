@@ -1,9 +1,6 @@
 name: CO2 low-temperature notebook validation
 
 on:
-  push:
-    branches:
-      - codex/co2-low-temperature-model-study
   pull_request:
     paths:
       - notebooks/thermodynamics/CO2_low_temperature_compression_relief_and_depressurization.ipynb
