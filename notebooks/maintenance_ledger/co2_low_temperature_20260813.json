@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "shard": "co2-low-temperature-20260813",
+  "updated_at": "2026-08-13T10:00:00Z",
+  "notebooks": [
+    {
+      "path": "notebooks/thermodynamics/CO2_low_temperature_compression_relief_and_depressurization.ipynb",
+      "verified_date": "2026-08-13",
+      "verified_at_utc": "2026-08-13T10:00:00Z",
+      "neqsim_version": "3.17.0 Python bridge with the Java runtime source-built from current equinor/neqsim master",
+      "neqsim_java_commit": "ef31a3ba78a325b5784a33486bb047a264425412",
+      "neqsim_jar_sha256": "d1cb2dd3044467f31ebbed3ace48d32bd55fc2167f08211ad62eb62e5de1a91a",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "coolprop_version": "8.0.0",
+      "execution_status": "passed",
+      "execution_method": "Executed all 24 code cells sequentially from an empty in-process IPython namespace with scripts/execute_notebook_inprocess.py. The run used a GitHub Actions source-built runtime JAR from the exact recorded NeqSim master commit, retained all numerical tables and eight PNG figures, and produced zero stored errors and zero stderr streams.",
+      "code_cells": 24,
+      "substantive_code_cells": 24,
+      "markdown_cells": 27,
+      "git_blob_sha1": "e26a66e8ae3c69d124d9861107de0416eb27c22f",
+      "notebook_bytes": 379434,
+      "publication": {
+        "branch": "codex/co2-low-temperature-model-study",
+        "mode": "focused draft pull request",
+        "files": [
+          ".github/workflows/co2-low-temperature-notebook-validation.yml",
+          "notebooks/thermodynamics/CO2_low_temperature_compression_relief_and_depressurization.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json",
+          "notebooks/maintenance_ledger/co2_low_temperature_20260813.json"
+        ]
+      },
+      "neqsim_capabilities_demonstrated": [
+        "SRK and PR multistage CO2-rich compression with intercooling, shaft power, cooler duty, and mass closure",
+        "EOS-CG and GERG-2008 equilibrium density and phase audits for CO2 with nitrogen, oxygen, and argon",
+        "EOS-CG final-cooler temperature and impurity phase map",
+        "PR and SRK isenthalpic mixture relief paths",
+        "reference-EOS audit gates at dense and model-sensitive states"
+      ],
+      "independent_validation": [
+        "Span-Wagner pure-CO2 density and saturation calculations through CoolProp HEOS",
+        "published EOS-CG, EOS-CG-2021, GERG-2008, and CO2 blowdown literature",
+        "homogeneous-equilibrium critical-flow reconstruction",
+        "transient rigid-vessel mass and energy balances with a lumped metal wall"
+      ],
+      "engineering_validation": {
+        "named_assertions_passed": 12,
+        "assertions_failed": 0,
+        "checks": [
+          "synthetic composition normalized",
+          "EOS-CG pure-CO2 density within 0.1 percent of the reference",
+          "compressor powers finite and positive",
+          "all compressor-stage pressure targets met",
+          "compression-train total mass closed",
+          "EOS-CG detected the nominal two-phase final state at 25 degC",
+          "HEM critical maxima were interior and positive",
+          "blowdown pressure decreased monotonically",
+          "blowdown stopped above the triple pressure",
+          "fluid temperature approached the triple temperature without crossing the fluid-model boundary",
+          "the lumped wall remained warmer than the final fluid"
+        ]
+      },
+      "result_summary": {
+        "maximum_eoscg_pure_co2_density_deviation_percent": 0.0315,
+        "pr_density_deviation_at_70_bara_25_degC_percent": -12.0182,
+        "srk_density_deviation_at_70_bara_25_degC_percent": -14.9228,
+        "span_wagner_saturation_pressure_at_25_degC_bara": 64.3424,
+        "nominal_eoscg_final_phase_count": 2,
+        "nominal_eoscg_final_bulk_density_kg_m3": 668.8952,
+        "nominal_eoscg_final_gas_beta": 0.03087,
+        "pr_total_compressor_power_MW": 7.76941,
+        "srk_total_compressor_power_MW": 7.83471,
+        "hem_critical_flux_20_degC_kg_m2_s": 50050.1037,
+        "hem_critical_flux_25_degC_kg_m2_s": 38964.9963,
+        "adiabatic_blowdown_minimum_fluid_degC": -55.8815,
+        "ambient_heat_leak_blowdown_minimum_wall_degC": -10.1619
+      },
+      "rendered_visual_validation": {
+        "renderer": "nbconvert 7.17.1 Jupyter HTML with MathJax source and retained inline Matplotlib PNG",
+        "display_equations_inspected": 8,
+        "figures_inspected": 8,
+        "result": "passed",
+        "notes": "All equations and all eight retained figures were inspected after the final source-built execution and again after repository-size PNG optimization. Symbols, units, labels, legends, phase boundaries, triple-point limits, color contrast, clipping, overlap, and consistency with the retained result tables all passed."
+      },
+      "documentation_impact": "The main NeqSim-Colab notebook catalog is updated with a direct relative link and a concise description. No public NeqSim API, default, or installation interface is changed.",
+      "issue_handling": "No distinct NeqSim defect or missing API invalidating the study was identified. The notebook explicitly limits fluid-only calculations at the CO2 triple boundary and treats certified relief sizing, solid formation, and detailed wall-temperature assessment as separate qualified workflows."
+    }
+  ]
+}
