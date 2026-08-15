@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "shard": "northern-lights-open-data-20260815",
+  "updated_at": "2026-08-15T12:55:05Z",
+  "notebooks": [
+    {
+      "path": "notebooks/fielddevelopment/northern_lights/01_northern_lights_open_data_foundation.ipynb",
+      "verified_date": "2026-08-15",
+      "verified_at_utc": "2026-08-15T12:55:05Z",
+      "neqsim_version": "3.17.0 Python bridge with Java classes source-built from the exact equinor/neqsim master snapshot",
+      "neqsim_java_commit": "647b4b84e10cf354e5688a22a72c359f801d0cc3",
+      "neqsim_jar_sha256": "5c6f26b0529aa04905c518ba6320a49ca237de055d708d55b49e82a78289055b",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "numpy_version": "2.5.2",
+      "pandas_version": "3.0.5",
+      "matplotlib_version": "3.11.1",
+      "jpype_version": "1.7.1",
+      "nbformat_version": "5.11.0",
+      "nbconvert_version": "7.17.1",
+      "execution_status": "passed",
+      "execution_method": "Executed all 14 code cells sequentially from an empty in-process IPython namespace with scripts/execute_notebook_inprocess.py. Maven compiled the exact recorded NeqSim source checkout through target/classes; because the restricted shell could not download the final Maven archiver plugins, the local gate packaged those compiled classes into a source-classes JAR and used the verified public-PyPI 3.17.0 shaded JAR only for third-party dependency resolution. JPype loaded the main-only DynamicCapabilityReport and all NeqSim classes from the source-classes JAR. The pull-request workflow independently performs the normal full Maven package build from the same commit. The run retained every table and six PNG figures, with zero stored errors and zero stderr streams.",
+      "code_cells": 14,
+      "substantive_code_cells": 14,
+      "markdown_cells": 20,
+      "git_blob_sha1": "aa8814441a109d6c0b620955b67a45767ca6b590",
+      "notebook_bytes": 714098,
+      "publication": {
+        "branch": "agent/northern-lights-open-data-foundation",
+        "mode": "focused draft pull request and first notebook of a governed series",
+        "files": [
+          ".github/workflows/northern-lights-open-data-notebook-validation.yml",
+          "notebooks/fielddevelopment/northern_lights/01_northern_lights_open_data_foundation.ipynb",
+          "notebooks/fielddevelopment/northern_lights/README.md",
+          "notebooks/fielddevelopment/northern_lights/DATA_ATTRIBUTION.md",
+          "notebooks/fielddevelopment/northern_lights/northern_lights_common.py",
+          "notebooks/fielddevelopment/northern_lights/data/31_5-7_Image.csv",
+          "notebooks/fielddevelopment/northern_lights/data/Deviation.csv",
+          "notebooks/fielddevelopment/northern_lights/data/NorthernLights-31_5-7.csv",
+          "notebooks/fielddevelopment/northern_lights/data/UCSdata.csv",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json",
+          "notebooks/maintenance_ledger/northern_lights_open_data_20260815.json"
+        ]
+      },
+      "open_data": {
+        "authoritative_full_package": "Equinor Northern Lights Databricks Marketplace listing ea296770-0ee0-4b74-a202-a2c0873add7c",
+        "bundled_source_repository": "GeoArkadeep/supporting-data-for-EOS-Northern-Lights",
+        "bundled_source_commit": "4d24c01cb893a3d80d1c4e25a3dde0ebbf178839",
+        "bundled_file_count": 4,
+        "license": "Northern Lights terms and conditions for licence to data; attribution required and licensed material may not be sold",
+        "provenance_boundary": "Deviation and image-marker files are labelled licensed open snapshots. Formation and UCS files are labelled external interpretations whose source disclaims factual accuracy and endorsement. SODIR and Northern Lights values are curated public facts. NeqSim outputs are derived, and declared pressure/thermal inputs are scenario assumptions.",
+        "snapshot_sha256": {
+          "31_5-7_Image.csv": "1a3cf3d79d7644c1d3471cc35ea723fd3d75f00fe0cc9b1c161eef56805e26a7",
+          "Deviation.csv": "2a5758a50acb3f806069d4c379f7f06bcced04fdbd7d3d091d1fdc26fc51ee83",
+          "NorthernLights-31_5-7.csv": "db5611c7e0b2351cc3edefee99be92951ca383732768196f19c8d4f8aa998e2a",
+          "UCSdata.csv": "780f451f1a2808c5a7518974efc5b1f2c9dce153e33c8c49823d83e8577c6442"
+        }
+      },
+      "neqsim_capabilities_demonstrated": [
+        "source-built EOS-CG pure-CO2 equilibrium density, viscosity, enthalpy, heat capacity, sound speed and phase audit over 24 pressure-temperature states",
+        "source-built SRK-CPA salt-free water density and viscosity reference at three reservoir-pressure anchors",
+        "iterative EOS-CG hydrostatic injection-column calculation with pressure-temperature-density coupling",
+        "thermodynamic translation of annual CCS mass capacity into local dense-volume flow",
+        "explicit NeqSim ownership of thermodynamics, wells, pipelines, facilities and operations with an OPM Flow dynamic-storage handoff"
+      ],
+      "engineering_validation": {
+        "named_assertions_passed": 15,
+        "assertions_failed": 0,
+        "checks": [
+          "all four snapshot hashes match",
+          "trajectory MD is monotonic",
+          "trajectory TVD is monotonic",
+          "trajectory remains below 2 degrees inclination",
+          "terminal TVD reconciles within 0.1 m",
+          "Drake interpretation sums to 75 m",
+          "Cook plus Johansen interpretation sums to 173 m",
+          "UCS interpretation is finite and positive",
+          "EOS-CG property grid is finite and positive",
+          "EOS-CG selected grid is single phase",
+          "CPA water reference is finite and liquid-like",
+          "hydrostatic pressure rises monotonically",
+          "hydrostatic bottom pressure exceeds wellhead pressure",
+          "Phase 2 to Phase 1 capacity ratio is 10/3",
+          "handoff assigns both NeqSim and OPM Flow"
+        ]
+      },
+      "result_summary": {
+        "trajectory_station_count": 53,
+        "terminal_md_m": 2915.0,
+        "terminal_tvd_m": 2914.89,
+        "maximum_inclination_deg": 1.66,
+        "terminal_horizontal_displacement_m": 9.8895,
+        "interpreted_drake_thickness_m": 75.0,
+        "interpreted_cook_thickness_m": 57.0,
+        "interpreted_johansen_thickness_m": 116.0,
+        "formation_interpretation_gap_m": 53.0,
+        "ucs_interpretation_sample_count": 45,
+        "ucs_interpretation_range_mpa": [18.0, 65.0],
+        "hydrostatic_scenario_wellhead_bara": 100.0,
+        "hydrostatic_scenario_bottom_bara": 279.19,
+        "hydrostatic_scenario_bottom_density_kg_m3": 593.051,
+        "phase_1_average_mass_rate_kg_s": 47.532,
+        "phase_2_minimum_average_mass_rate_kg_s": 158.44,
+        "phase_2_minimum_dense_volume_m3_h_at_screen_bottom": 961.781
+      },
+      "rendered_visual_validation": {
+        "renderer": "nbconvert 7.17.1 Jupyter HTML with MathJax source plus a single-backslash Matplotlib MathText equation audit",
+        "display_equations_inspected": 3,
+        "figures_inspected": 6,
+        "result": "passed",
+        "notes": "All six retained figures were extracted at original resolution and inspected individually and in a contact sheet. Titles, axes, units, legends or color scale, depth orientation, colors, scales, clipping, overlap and consistency with retained tables passed. All three display equations rendered with correct fractions, overdots, subscripts, bars, Greek symbols, vectors and units. The final nbconvert HTML conversion passed; its six missing-alt warnings are mitigated by adjacent observation, mechanism, implication and recommendation text for every figure."
+      },
+      "link_validation": {
+        "catalog_target_checked": true,
+        "series_readme_target_checked": true,
+        "broken_links": 0,
+        "result": "passed"
+      },
+      "documentation_impact": "Adds a Northern Lights section, governed series roadmap, full data attribution, shared data loader, a direct catalog entry and a source-build CI workflow. It does not change a public NeqSim Java API, numerical default or OPM Flow recommendation.",
+      "issue_handling": "No NeqSim defect or missing public API invalidated the first notebook. Missing composition, formation-water chemistry, detailed pressure/test records, completion geometry, dynamic reservoir execution and geomechanical acceptance are treated as explicit data/model gates for later notebooks rather than NeqSim defects."
+    }
+  ]
+}
