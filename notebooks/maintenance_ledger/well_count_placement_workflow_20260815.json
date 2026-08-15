@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "shard": "well-count-placement-workflow-20260815",
+  "updated_at": "2026-08-15T07:52:19Z",
+  "notebooks": [
+    {
+      "path": "notebooks/fielddevelopment/well_count_and_placement_workflow.ipynb",
+      "verified_date": "2026-08-15",
+      "verified_at_utc": "2026-08-15T07:52:19Z",
+      "execution_status": "passed",
+      "execution_method": "Executed all 22 code cells sequentially from an empty in-process IPython namespace with scripts/execute_notebook_inprocess.py. The final clean run used OPM Flow 2026.04, NeqSim 3.17.0, pymoo 0.6.2, and pyscal 0.15.3; completed in 41.2 seconds; retained all result-bearing outputs and six PNG figures; and produced zero error outputs and zero captured stderr.",
+      "code_cells": 22,
+      "substantive_code_cells": 22,
+      "markdown_cells": 20,
+      "git_blob_sha1": "f6aff49168fd1ac1a04da7d04b90c6bda875f85a",
+      "notebook_bytes": 1184795,
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "neqsim_version": "3.17.0",
+      "neqsim_jar_sha256": "f114c17bf99a7b02be9f8c49b66fd792c88fdcbfcb043487481fb0bf23298556",
+      "opm_version": "2026.4",
+      "pymoo_version": "0.6.2",
+      "pyscal_version": "0.15.3",
+      "resdata_version": "6.3.2",
+      "numpy_version": "2.5.2",
+      "pandas_version": "3.0.5",
+      "scipy_version": "1.18.0",
+      "matplotlib_version": "3.11.1",
+      "publication": {
+        "branch": "agent/well-count-placement-workflow",
+        "base_branch": "master",
+        "mode": "focused branch without pull request",
+        "files": [
+          "notebooks/fielddevelopment/well_count_and_placement_workflow.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json",
+          "notebooks/maintenance_ledger/well_count_placement_workflow_20260815.json"
+        ]
+      },
+      "python_capabilities_demonstrated": [
+        "five-realization synthetic geology and constrained candidate generation",
+        "radial producer and injector safe-rate screening with voidage replacement",
+        "mixed discrete robust multi-objective layout optimization with pymoo NSGA-II",
+        "OPM Flow deck construction, execution, and summary-vector analysis",
+        "SURF pressure and velocity screening",
+        "brownfield capacity gates, discounted cash flow, and Monte Carlo uncertainty"
+      ],
+      "neqsim_capabilities_demonstrated": [
+        "Peng-Robinson dead-oil PVT and SRK-CPA injection-water PVT",
+        "PVDO and PVTW table construction for the reservoir-simulation handoff",
+        "multiphase stream, choke, three-phase separator, compressor, and cooler",
+        "facility-load calculation, compression duty, cooling duty, and mass closure"
+      ],
+      "engineering_validation": {
+        "named_assertions_passed": 26,
+        "assertions_failed": 0,
+        "checks": [
+          "package versions and candidate masks are valid",
+          "pyscal relative-permeability endpoints and bounds are physical",
+          "every optimized layout has exact producer and injector counts",
+          "minimum spacing and reservoir-support constraints are satisfied",
+          "NeqSim PVT tables are finite and physical",
+          "all four OPM Flow cases complete with summary output",
+          "cumulative oil is monotonic and rates and pressures remain physical",
+          "the NeqSim process train closes mass",
+          "the selected concept is the highest-NPV option that passes every hard screen",
+          "petroleum P90, P50, and P10 NPV estimates are ordered"
+        ]
+      },
+      "result_summary": {
+        "safe_producer_rate_sm3_d": 1850.0,
+        "safe_injector_rate_sm3_d": 3300.0,
+        "selected_concept": "5P2I",
+        "selected_producer_cells_one_based": [
+          [6, 20],
+          [4, 7],
+          [17, 15],
+          [10, 9],
+          [21, 17]
+        ],
+        "selected_injector_cells_one_based": [
+          [20, 14],
+          [10, 14]
+        ],
+        "selected_peak_oil_sm3_d": 5250.0,
+        "selected_oil_at_6_years_msm3": 0.828107375,
+        "selected_final_pressure_bara": 142.9722,
+        "selected_deterministic_npv_musd": 189.326,
+        "selected_capex_musd": 243.162,
+        "selected_npv_p90_musd": 54.5751,
+        "selected_npv_p50_musd": 181.4173,
+        "selected_npv_p10_musd": 333.7883,
+        "selected_probability_positive_npv": 0.98,
+        "opm_flow_cases_completed": 4,
+        "maximum_process_mass_residual": 0.0,
+        "screening_compressor_power_mw": 0.676654,
+        "screening_aftercooler_duty_mw": -1.09324
+      },
+      "rendered_visual_validation": {
+        "renderer": "nbconvert 7.17.1 Jupyter HTML with MathJax-compatible source plus original-resolution PNG and Matplotlib MathText inspection",
+        "display_equations_inspected": 3,
+        "figures_inspected": 6,
+        "result": "passed",
+        "notes": "All stored figures were inspected at original resolution for labels, units, legends, clipping, contrast, scales, and consistency with the result tables. Layout legends were given opaque high-contrast frames and the deterministic-value chart was revised to distinguish concepts that pass hard screens from those screened out. All three display equations were rendered and inspected separately."
+      },
+      "link_validation": {
+        "markdown_links_checked": 13,
+        "repository_notebook_links_checked": 5,
+        "broken_repository_links": 0,
+        "result": "passed"
+      },
+      "practical_application": "A gated educational workflow takes a field team from subsurface uncertainty and single-well limits through count screening, robust producer/injector placement, dynamic reservoir verification, SURF and facility constraints, economics, uncertainty, and an auditable selected concept.",
+      "known_upstream_issues": [],
+      "issue_handling": "No NeqSim, OPM Flow, pymoo, or pyscal defect was found. The notebook states that its synthetic geology and screening economics are teaching inputs and that real decisions require history matching, detailed well design, flow assurance, facility integration, and project-specific assurance."
+    }
+  ]
+}
