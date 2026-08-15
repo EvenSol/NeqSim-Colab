@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
   "shard": "volve-field-calculations-20260815",
-  "updated_at": "2026-08-15T09:56:37Z",
+  "updated_at": "2026-08-15T12:48:58Z",
   "series_validation": {
     "marketplace_listing": "https://marketplace.databricks.com/details/5c3558ef-315c-44dd-baef-7062ac301f22/Equinor-ASA_Volve-Data-Village",
     "saved_execution_data_mode": "demonstration-fallback",
     "marketplace_measured_data_acceptance": "pending installed Unity Catalog Volume path and authenticated run",
     "neqsim_master_runtime_acceptance": "pending clean connected Colab run",
     "publication_readiness": "blocked until both pending acceptance runs pass",
-    "handoff_contracts": 7
+    "handoff_contracts": 8
   },
   "publication": {
-    "base_commit": "3ef4afc33b2bfd117fdaa102e3db79bb566a1a4b",
-    "branch": "agent/volve-history-match-full-surf",
+    "base_commit": "66d93d4a194d551358bad07f2c463b315124466a",
+    "branch": "agent/volve-principal-field-lifecycle",
     "mode": "focused draft pull request",
     "status": "publication requested; measured Marketplace acceptance remains pending"
   },
@@ -203,19 +203,44 @@
       ],
       "engineering_validation": "All 17 all-well and full-SURF assertions passed; every producer had a finite nodal solution, the coupled network converged, algebraic and direct NeqSim mass flow agreed, pressure closure was within tolerance, profile and integrity screens were finite, and shutdown/restart logic was ordered.",
       "rendered_visual_validation": "passed: three equations and five stored multi-panel figures inspected at original resolution; kelvin and Celsius profile labels were checked explicitly"
+    },
+    {
+      "path": "notebooks/fielddevelopment/volve/08_volve_closed_loop_field_development_operations.ipynb",
+      "verified_date": "2026-08-15",
+      "verified_at_utc": "2026-08-15T12:48:58Z",
+      "execution_status": "passed",
+      "execution_scope": "closed-loop static-scenario, placement, reduced history-response, NeqSim injection and facility-constrained lifecycle fallback executed; measured Marketplace and complete-case OPM Flow acceptance remain pending",
+      "execution_method": "Executed all cells sequentially from a fresh in-process IPython namespace with VOLVE_VALIDATION_MODE=1 and NeqSim 3.17.0; retained outputs and raised on any cell error or captured stderr.",
+      "code_cells": 18,
+      "substantive_code_cells": 18,
+      "markdown_cells": 16,
+      "stored_outputs": 22,
+      "stored_png_figures": 5,
+      "display_equations": 7,
+      "git_blob_sha1": "7b8efdc8d0bf60116e6b8ac93f241a8c51aa3afc",
+      "notebook_bytes": 717981,
+      "capabilities": [
+        "static opportunity map and four explicit producer/injector development scenarios with spacing checks",
+        "OPM WELSPECS, COMPDAT, WCONPROD and WCONINJE generation plus an OPM-primary multi-vector history-match ensemble path",
+        "NeqSim CPA water density, injection mass and pump-power calculation",
+        "monthly reservoir, well, SURF, separator, compression, water, export and injection constraint feedback",
+        "economic-limit timing, hydrate-window handoff, plugging inventory, removal sequence and decommissioning-cost uncertainty"
+      ],
+      "engineering_validation": "All 19 closed-loop lifecycle assertions passed; producer/injector presence and spacing, OPM schedule sections, finite history objective, NeqSim water density, injection power, optimizer record count, physical pressure, hard facility constraints, economic-limit ordering and decommissioning percentiles were verified.",
+      "rendered_visual_validation": "passed: seven equations and five stored multi-panel figures inspected across three contact sheets at original resolution"
     }
   ],
   "series_checks": {
-    "notebook_checker": "passed: 0 errors, 0 warnings with --require-main-source on all seven notebooks",
+    "notebook_checker": "passed: 0 errors, 0 warnings with --require-main-source on all eight notebooks",
     "checker_unit_tests": "passed: 6 tests",
     "stored_errors": 0,
     "captured_stderr_outputs": 0,
-    "figures_inspected": 23,
-    "display_equations_inspected": 17,
+    "figures_inspected": 28,
+    "display_equations_inspected": 24,
     "html_rendering": "passed with nbconvert 7.17.x",
     "contract_data_status": "DEMONSTRATION_FALLBACK"
   },
-  "documentation_impact": "Expanded the dedicated Volve field calculations section and series README from five to seven long executed notebooks, linked the NeqSim Field Development and Operations book, added a development-to-shutdown lifecycle map, extended the Marketplace ingestion module for real production workbooks and added two versioned handoff contracts. No NeqSim Java API, numerical behavior, installation default or model recommendation changed.",
+  "documentation_impact": "Established the eight-notebook Volve series as the principal NeqSim-Colab field-lifecycle collection, added an exact nine-requirement coverage and acceptance matrix, and added a closed-loop capstone for development scenarios, placement, OPM-primary history matching, facility feedback, injection, economic limit and decommissioning. No NeqSim Java API, numerical behavior, installation default or model recommendation changed.",
   "known_upstream_issues": [],
   "issue_handling": "No confirmed NeqSim defect or missing public API was found. Databricks authentication and the installed Unity Catalog Volume path are acceptance prerequisites, not NeqSim issues."
 }
