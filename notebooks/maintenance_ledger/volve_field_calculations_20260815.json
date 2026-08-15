@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "shard": "volve-field-calculations-20260815",
+  "updated_at": "2026-08-15T08:56:49Z",
+  "series_validation": {
+    "marketplace_listing": "https://marketplace.databricks.com/details/5c3558ef-315c-44dd-baef-7062ac301f22/Equinor-ASA_Volve-Data-Village",
+    "saved_execution_data_mode": "demonstration-fallback",
+    "marketplace_measured_data_acceptance": "pending installed Unity Catalog Volume path and authenticated run",
+    "neqsim_master_runtime_acceptance": "pending clean connected Colab run",
+    "publication_readiness": "blocked until both pending acceptance runs pass",
+    "handoff_contracts": 5
+  },
+  "publication": {
+    "base_commit": "af3ae6f9fb1a04bdc2118a89a03928d9e53d4c9e",
+    "branch": "agent/volve-databricks-field-calculations",
+    "mode": "focused draft pull request",
+    "status": "publication requested; measured Marketplace acceptance remains pending"
+  },
+  "runtime": {
+    "neqsim_version": "3.17.0",
+    "artifact_origin": "preinstalled public-PyPI validation bridge and bundled JAR",
+    "neqsim_jar_sha256": "f114c17bf99a7b02be9f8c49b66fd792c88fdcbfcb043487481fb0bf23298556",
+    "python_version": "3.12.13",
+    "java_version": "OpenJDK 17",
+    "numpy_version": "2.5.2",
+    "scipy_version": "1.18.0",
+    "pandas_version": "3.0.5",
+    "matplotlib_version": "3.11.1",
+    "jpype_version": "1.7.1"
+  },
+  "notebooks": [
+    {
+      "path": "notebooks/fielddevelopment/volve/01_volve_seismic_wells_static_model.ipynb",
+      "verified_date": "2026-08-15",
+      "verified_at_utc": "2026-08-15T08:56:49Z",
+      "execution_status": "passed",
+      "execution_scope": "deterministic teaching fallback only; measured Volve data acceptance remains pending",
+      "execution_method": "Executed all cells sequentially from a fresh in-process IPython namespace with VOLVE_VALIDATION_MODE=1; retained outputs and raised on any cell error or captured stderr.",
+      "code_cells": 15,
+      "substantive_code_cells": 15,
+      "markdown_cells": 15,
+      "stored_outputs": 17,
+      "stored_png_figures": 4,
+      "display_equations": 4,
+      "git_blob_sha1": "b945fad4f02d02e63d9fbf6a2debc8b8fb05456b",
+      "notebook_bytes": 632537,
+      "capabilities": [
+        "Databricks Marketplace Volume inventory, classification, explicit selection, digest and least-download interface",
+        "SEG-Y geometry and amplitude QC, horizon picking, discontinuity screening and depth conversion",
+        "well-log petrophysics, NeqSim phase densities, STOIIP uncertainty and static-model handoff"
+      ],
+      "engineering_validation": "All geoscience assertions passed; top and thickness truth checks, physical log ranges, finite NeqSim densities, ordered STOIIP percentiles and handoff existence were verified.",
+      "rendered_visual_validation": "passed: four equations and four stored figures inspected at original resolution"
+    },
+    {
+      "path": "notebooks/fielddevelopment/volve/02_volve_pvt_blackoil_reservoir.ipynb",
+      "verified_date": "2026-08-15",
+      "verified_at_utc": "2026-08-15T08:56:49Z",
+      "execution_status": "passed",
+      "execution_scope": "deterministic teaching fallback only; measured Volve data acceptance remains pending",
+      "execution_method": "Executed all cells sequentially from a fresh in-process IPython namespace with VOLVE_VALIDATION_MODE=1; retained outputs and raised on any cell error or captured stderr.",
+      "code_cells": 14,
+      "substantive_code_cells": 14,
+      "markdown_cells": 14,
+      "stored_outputs": 19,
+      "stored_png_figures": 2,
+      "display_equations": 0,
+      "git_blob_sha1": "dcb8560f2ac1fcc59434d343ab48cf9f572ad02d",
+      "notebook_bytes": 356268,
+      "capabilities": [
+        "PVT, Eclipse/OPM and production-asset selection with provenance",
+        "NeqSim SRK assay, bubble-pressure search, pressure sweep and DLE-derived black-oil properties",
+        "field-history QC, material-balance screening, forecast construction and OPM Flow acceptance contract"
+      ],
+      "engineering_validation": "All PVT and reservoir assertions passed; phase behavior, property positivity, history integrity, monotonic cumulative volumes, forecast ranges and handoff existence were verified.",
+      "rendered_visual_validation": "passed: two stored multi-panel figures inspected at original resolution"
+    },
+    {
+      "path": "notebooks/fielddevelopment/volve/03_volve_wells_surf_flow_assurance.ipynb",
+      "verified_date": "2026-08-15",
+      "verified_at_utc": "2026-08-15T08:56:49Z",
+      "execution_status": "passed",
+      "execution_scope": "deterministic teaching fallback only; measured Volve data acceptance remains pending",
+      "execution_method": "Executed all cells sequentially from a fresh in-process IPython namespace with VOLVE_VALIDATION_MODE=1; retained outputs and raised on any cell error or captured stderr.",
+      "code_cells": 15,
+      "substantive_code_cells": 15,
+      "markdown_cells": 14,
+      "stored_outputs": 18,
+      "stored_png_figures": 4,
+      "display_equations": 3,
+      "git_blob_sha1": "515b4b246864817e9875451b637d63d8d86b6433",
+      "notebook_bytes": 422017,
+      "capabilities": [
+        "well trajectories, completions, productivity, injectivity, IPR/VLP and nodal operating points",
+        "NeqSim wellstream phase properties and pipeline hydraulic-diameter screening",
+        "flowing thermal margins, hydrate boundary, shutdown cooldown and facility-inlet envelope"
+      ],
+      "engineering_validation": "All wells, SURF and flow-assurance assertions passed; trajectories, operating points, finite phase properties, monotonic diameter screens, cooldown boundary and handoff existence were verified.",
+      "rendered_visual_validation": "passed: three equations and four stored figures inspected at original resolution"
+    },
+    {
+      "path": "notebooks/fielddevelopment/volve/04_volve_facilities_processing.ipynb",
+      "verified_date": "2026-08-15",
+      "verified_at_utc": "2026-08-15T08:56:49Z",
+      "execution_status": "passed",
+      "execution_scope": "deterministic teaching fallback only; measured Volve data acceptance remains pending",
+      "execution_method": "Executed all cells sequentially from a fresh in-process IPython namespace with VOLVE_VALIDATION_MODE=1; retained outputs and raised on any cell error or captured stderr. Facility cases include a bounded convergence retry and reject non-finite outputs.",
+      "code_cells": 15,
+      "substantive_code_cells": 15,
+      "markdown_cells": 14,
+      "stored_outputs": 16,
+      "stored_png_figures": 2,
+      "display_equations": 1,
+      "git_blob_sha1": "93fbcba2353543ad448eafb3c65d18d9816662d5",
+      "notebook_bytes": 180339,
+      "capabilities": [
+        "NeqSim inlet conditioning, three-phase separation, oil letdown/stabilization, gas compression and cooling",
+        "capacity and bottleneck migration across turndown, normal and peak cases",
+        "produced-water, chemical, utility, emissions, availability and safeguarding screens"
+      ],
+      "engineering_validation": "All facilities assertions passed; finite process cases, mass closure, monotonic power, named bottlenecks, capacity exceedance, physical intensities and handoff existence were verified.",
+      "rendered_visual_validation": "passed: one equation and two stored multi-panel figures inspected at original resolution"
+    },
+    {
+      "path": "notebooks/fielddevelopment/volve/05_volve_integrated_field_twin.ipynb",
+      "verified_date": "2026-08-15",
+      "verified_at_utc": "2026-08-15T08:56:49Z",
+      "execution_status": "passed",
+      "execution_scope": "deterministic teaching fallback only; measured Volve data acceptance remains pending",
+      "execution_method": "Executed all cells sequentially from a fresh in-process IPython namespace with VOLVE_VALIDATION_MODE=1; retained outputs and raised on any cell error or captured stderr.",
+      "code_cells": 15,
+      "substantive_code_cells": 15,
+      "markdown_cells": 15,
+      "stored_outputs": 18,
+      "stored_png_figures": 2,
+      "display_equations": 2,
+      "git_blob_sha1": "003ee5ac4941cee5a2c6b971bf41715ff1031c5e",
+      "notebook_bytes": 380602,
+      "capabilities": [
+        "versioned discipline-contract registry, history alignment and residual diagnostics",
+        "reservoir-to-export constraint ownership, intervention and uncertainty evaluation",
+        "discounted economics, emissions context, seven decision gates and final integrated handoff"
+      ],
+      "engineering_validation": "All integrated-field assertions passed; one contract schema, non-negative rates, finite capacity, named constraints, finite economics, physical probabilities, seven gates and final handoff existence were verified.",
+      "rendered_visual_validation": "passed: two equations and two stored multi-panel figures inspected at original resolution"
+    }
+  ],
+  "series_checks": {
+    "notebook_checker": "passed: 0 errors, 0 warnings with --require-main-source on all five notebooks",
+    "checker_unit_tests": "passed: 6 tests",
+    "stored_errors": 0,
+    "captured_stderr_outputs": 0,
+    "figures_inspected": 14,
+    "display_equations_inspected": 10,
+    "html_rendering": "passed with nbconvert 7.17.1",
+    "contract_data_status": "DEMONSTRATION_FALLBACK"
+  },
+  "documentation_impact": "Added a dedicated Volve field calculations section to the main catalog, a linked series README, five long executed notebooks, a shared Marketplace ingestion module and five versioned handoff contracts. No NeqSim Java API, numerical behavior, installation default or model recommendation changed.",
+  "known_upstream_issues": [],
+  "issue_handling": "No confirmed NeqSim defect or missing public API was found. Databricks authentication and the installed Unity Catalog Volume path are acceptance prerequisites, not NeqSim issues."
+}
