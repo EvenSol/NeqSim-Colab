@@ -1,0 +1,150 @@
+name: Northern Lights open-data notebook validation
+
+on:
+  pull_request:
+    paths:
+      - notebooks/fielddevelopment/northern_lights/**
+      - notebooks/examples_of_NeqSim_in_Colab.ipynb
+      - notebooks/maintenance_ledger/northern_lights_open_data_20260815.json
+      - notebooks/notebook_maintenance_ledger.json
+      - .github/workflows/northern-lights-open-data-notebook-validation.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-build-and-execute:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Check out NeqSim-Colab
+        uses: actions/checkout@v7
+
+      - name: Check out the exact current-master NeqSim source snapshot
+        uses: actions/checkout@v7
+        with:
+          repository: equinor/neqsim
+          ref: 647b4b84e10cf354e5688a22a72c359f801d0cc3
+          fetch-depth: 1
+          path: neqsim-source
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: maven
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Build the exact NeqSim source snapshot
+        working-directory: neqsim-source
+        run: ./mvnw -q -DskipTests -Dmaven.javadoc.skip=true package
+
+      - name: Record source-built runtime
+        shell: bash
+        run: |
+          SOURCE_JAR=$(find "$GITHUB_WORKSPACE/neqsim-source/target" -maxdepth 1 -type f -name 'neqsim-*.jar' | grep -Ev '(sources|javadoc|tests|original)' | sort | tail -n 1)
+          test -n "$SOURCE_JAR"
+          SOURCE_COMMIT=$(git -C "$GITHUB_WORKSPACE/neqsim-source" rev-parse HEAD)
+          test "$SOURCE_COMMIT" = "647b4b84e10cf354e5688a22a72c359f801d0cc3"
+          SOURCE_SHA256=$(sha256sum "$SOURCE_JAR" | awk '{print $1}')
+          echo "NEQSIM_SOURCE_ROOT=$GITHUB_WORKSPACE/neqsim-source" >> "$GITHUB_ENV"
+          echo "NEQSIM_SOURCE_JAR=$SOURCE_JAR" >> "$GITHUB_ENV"
+          printf 'commit=%s\njar_sha256=%s\njar_name=%s\n' \
+            "$SOURCE_COMMIT" "$SOURCE_SHA256" "$(basename "$SOURCE_JAR")" \
+            > "$GITHUB_WORKSPACE/neqsim-source-build-metadata.txt"
+          cat "$GITHUB_WORKSPACE/neqsim-source-build-metadata.txt"
+
+      - name: Create clean validation environment
+        run: |
+          python scripts/bootstrap_neqsim_validation_env.py \
+            --venv /tmp/neqsim-northern-lights-validation \
+            --wheelhouse-root /tmp/neqsim-validation-wheelhouse \
+            --neqsim-version 3.17.0 \
+            --refresh \
+            --extra-package nbconvert==7.17.1
+
+      - name: Validate helper module syntax
+        run: |
+          /tmp/neqsim-northern-lights-validation/bin/python -m py_compile \
+            notebooks/fielddevelopment/northern_lights/northern_lights_common.py
+
+      - name: Execute notebook from top to bottom
+        env:
+          MPLCONFIGDIR: /tmp/matplotlib-northern-lights
+          IPYTHONDIR: /tmp/ipython-northern-lights
+          NORTHERN_LIGHTS_DATA_MODE: open-snapshot
+        run: |
+          /tmp/neqsim-northern-lights-validation/bin/python \
+            scripts/execute_notebook_inprocess.py \
+            notebooks/fielddevelopment/northern_lights/01_northern_lights_open_data_foundation.ipynb
+
+      - name: Run notebook integrity checks
+        run: |
+          /tmp/neqsim-northern-lights-validation/bin/python scripts/check_notebook.py \
+            notebooks/fielddevelopment/northern_lights/01_northern_lights_open_data_foundation.ipynb \
+            --require-main-source
+
+      - name: Render notebook to HTML
+        run: |
+          /tmp/neqsim-northern-lights-validation/bin/jupyter nbconvert \
+            --to html \
+            --output northern_lights_open_data_foundation.html \
+            notebooks/fielddevelopment/northern_lights/01_northern_lights_open_data_foundation.ipynb
+
+      - name: Verify retained execution evidence
+        run: |
+          /tmp/neqsim-northern-lights-validation/bin/python - <<'PY'
+          from pathlib import Path
+          import nbformat
+
+          path = Path(
+              "notebooks/fielddevelopment/northern_lights/"
+              "01_northern_lights_open_data_foundation.ipynb"
+          )
+          notebook = nbformat.read(path, as_version=4)
+          code_cells = [cell for cell in notebook.cells if cell.cell_type == "code"]
+          errors = []
+          stderr = []
+          figures = 0
+          for cell in code_cells:
+              for output in cell.get("outputs", []):
+                  if output.output_type == "error":
+                      errors.append(output)
+                  if output.output_type == "stream" and output.name == "stderr":
+                      stderr.append(output.text)
+                  if (
+                      output.output_type in ("display_data", "execute_result")
+                      and "image/png" in output.get("data", {})
+                  ):
+                      figures += 1
+
+          assert len(code_cells) == 14
+          assert [cell.execution_count for cell in code_cells] == list(range(1, 15))
+          assert not errors
+          assert not stderr
+          assert figures == 6
+          notebook_text = str(notebook)
+          assert "All 15 engineering checks passed." in notebook_text
+          assert "647b4b84e10cf354e5688a22a72c359f801d0cc3" in notebook_text
+          assert "open-snapshot" in notebook_text
+          print("Retained-output and scope checks passed.")
+          PY
+
+      - name: Upload source runtime, executed notebook, and HTML
+        uses: actions/upload-artifact@v4
+        with:
+          name: northern-lights-open-data-source-executed
+          path: |
+            ${{ env.NEQSIM_SOURCE_JAR }}
+            neqsim-source-build-metadata.txt
+            notebooks/fielddevelopment/northern_lights/01_northern_lights_open_data_foundation.ipynb
+            notebooks/fielddevelopment/northern_lights/northern_lights_open_data_foundation.html
+          retention-days: 7
+
