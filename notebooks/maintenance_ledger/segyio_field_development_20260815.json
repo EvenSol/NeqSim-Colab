@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "shard": "segyio-field-development-20260815",
+  "updated_at": "2026-08-15T07:20:00Z",
+  "notebooks": [
+    {
+      "path": "notebooks/fielddevelopment/segyio_to_field_development_workflow.ipynb",
+      "verified_date": "2026-08-15",
+      "verified_at_utc": "2026-08-15T07:20:00Z",
+      "neqsim_version": "3.17.0",
+      "neqsim_source": {
+        "artifact_origin": "public-pypi",
+        "package": "neqsim==3.17.0",
+        "source_index": "https://pypi.org/simple",
+        "validation_jar_sha256": "f114c17bf99a7b02be9f8c49b66fd792c88fdcbfcb043487481fb0bf23298556",
+        "runtime_guard": "The notebook verifies the installed package version, bundled JAR identity and SHA-256, JPype classpath, and a Stream Java smoke class before running process calculations."
+      },
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "segyio_version": "1.9.14",
+      "numpy_version": "2.5.2",
+      "scipy_version": "1.18.0",
+      "pandas_version": "3.0.5",
+      "matplotlib_version": "3.11.1",
+      "jpype_version": "1.7.1",
+      "execution_status": "passed",
+      "execution_method": "Executed all 15 code cells sequentially from an empty in-process IPython namespace with scripts/execute_notebook_inprocess.py and a fresh hash-verified public-PyPI environment. The final clean run completed in 16.9 seconds, retained all user-relevant outputs and five PNG figures, and produced zero error outputs or captured stderr.",
+      "code_cells": 15,
+      "substantive_code_cells": 15,
+      "markdown_cells": 17,
+      "git_blob_sha1": "6182913fb22830ddad8a5c65ff73a13531d67b5c",
+      "notebook_bytes": 834526,
+      "publication": {
+        "branch": "agent/segyio-field-development-workflow",
+        "mode": "focused draft pull request",
+        "files": [
+          "notebooks/fielddevelopment/segyio_to_field_development_workflow.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json",
+          "notebooks/maintenance_ledger/segyio_field_development_20260815.json"
+        ]
+      },
+      "segyio_capabilities_demonstrated": [
+        "deterministic synthetic post-stack 3-D amplitude volume with known top, base, channel, structural high and 28 ms fault throw",
+        "SEG-Y write/read using inline-major cube geometry, 4 ms sampling, trace coordinates, binary-header audit and memory-mapped NumPy extraction",
+        "analytic-signal envelope, lateral-gradient discontinuity, tutorial-style similarity, threshold mask and amplitude overlay",
+        "derived discontinuity volume written by reusing the amplitude SEG-Y headers followed by exact data and selected-header round-trip checks",
+        "negative top-event and positive base-event picking with depth conversion and error measurement against known synthetic surfaces"
+      ],
+      "field_development_capabilities_demonstrated": [
+        "explicit ownership and handoff contracts from seismic through static and dynamic reservoir models, wells/SURF, facilities and decisions",
+        "coherent low/base/high depth-conversion, closure, rock-property, formation-volume-factor and recovery scenarios",
+        "screening well placement in two fault compartments plus a downdip injector candidate",
+        "field-life oil, gas, water and facility-utilization screens with constraint migration",
+        "DG0-DG4 evidence, model-output, decision and boundary matrix"
+      ],
+      "neqsim_capabilities_demonstrated": [
+        "public-PyPI package and bundled-JAR provenance through JPype",
+        "SystemSrkCPAstatoil fluid with water and CPA mixing rule 10",
+        "composable Stream, ThreePhaseSeparator, Compressor and ProcessSystem cases",
+        "named gas, hydrocarbon-liquid and aqueous product streams",
+        "low/base/high mass closure, export pressure and compression-power sensitivity"
+      ],
+      "engineering_validation": {
+        "named_assertions_passed": 11,
+        "assertions_failed": 0,
+        "evidence_level": "synthetic truth, exact file round trips, conservation, monotonic scenario trends and explicit workflow boundaries",
+        "checks": [
+          "input and derived SEG-Y amplitudes round trip exactly",
+          "trace count, inline/crossline labels, sample interval and coordinate endpoints are retained",
+          "top and thickness pick RMSE remain below one 4 ms sample",
+          "LOW, BASE and HIGH STOIIP are strictly ordered",
+          "forecast values are finite and non-negative",
+          "NeqSim mass balance closes below 1e-8 relative residual",
+          "compressor power increases monotonically with wellstream feed",
+          "all five field-development gates and all five static figures are present"
+        ]
+      },
+      "result_summary": {
+        "segy_trace_count": 2091,
+        "sample_interval_ms": 4.0,
+        "fault_throw_ms": 28.0,
+        "top_pick_rmse_ms": 2.313,
+        "thickness_pick_rmse_ms": 1.286,
+        "low_base_high_stoiip_MSm3": [
+          5.171,
+          11.50,
+          20.08
+        ],
+        "base_recoverable_oil_MSm3": 3.910,
+        "base_process_feed_kg_h": 80000.0,
+        "base_compressor_power_kW": 472.8,
+        "maximum_process_mass_residual": 4.084e-14
+      },
+      "rendered_visual_validation": {
+        "renderer": "nbconvert 7.17.1 Jupyter HTML with MathJax source plus Matplotlib MathText equation audit",
+        "display_equations_inspected": 3,
+        "figures_inspected": 5,
+        "result": "passed",
+        "notes": "All three equations rendered with correct fractions, summation, Greek symbols, subscripts and units. All five stored figures were inspected at original resolution for axes, units, legends, annotations, color contrast, scales, clipping, overlap and agreement with tables. The interpretation figure was corrected and re-executed after the first visual review."
+      },
+      "link_validation": {
+        "catalog_target_checked": true,
+        "relative_companion_notebook_links_checked": 4,
+        "broken_links": 0,
+        "result": "passed"
+      },
+      "documentation_impact": "Added the executed notebook to the main NeqSim-Colab field-development catalog and recorded focused maintenance evidence. No NeqSim Java API, numerical behavior, installation default or model recommendation changed.",
+      "known_upstream_issues": [],
+      "issue_handling": "No NeqSim defect or missing public API was found. The notebook explicitly assigns seismic interpretation, depth conversion, geomodelling, dynamic reservoir simulation and detailed multiphase flow to their specialist tools rather than treating them as NeqSim capabilities.",
+      "artifact_origin": "public-pypi",
+      "resolution_mode": "online-new-snapshot",
+      "execution_snapshot_wheel_count": 63,
+      "neqsim_jar_sha256": "f114c17bf99a7b02be9f8c49b66fd792c88fdcbfcb043487481fb0bf23298556"
+    }
+  ]
+}
