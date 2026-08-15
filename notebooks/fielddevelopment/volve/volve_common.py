@@ -330,6 +330,201 @@ def select_asset(
     )
 
 
+def materialize_asset(
+    source: VolveSource,
+    inventory: pd.DataFrame,
+    relative_path: str,
+    target_directory: Path,
+) -> Path:
+    """Return a local path for one explicitly selected Marketplace asset."""
+
+    if source.mode == "marketplace-local-volume":
+        local_path = Path(source.volume_root) / relative_path
+        if not local_path.is_file():
+            raise FileNotFoundError(f"Selected Marketplace file is missing: {local_path}")
+        return local_path
+    if source.mode != "marketplace-remote-volume":
+        raise RuntimeError("A measured Marketplace source is required.")
+    selected_rows = inventory.loc[inventory["relative_path"].eq(relative_path)]
+    if len(selected_rows) != 1:
+        raise RuntimeError(
+            f"Expected one inventory row for {relative_path!r}; found {len(selected_rows)}."
+        )
+    if "remote_path" not in selected_rows.columns:
+        raise RuntimeError("Remote inventory does not contain a remote_path column.")
+    remote_path = str(selected_rows.iloc[0]["remote_path"])
+    target_path = target_directory / Path(relative_path).name
+    return download_remote_file(remote_path, target_path)
+
+
+def _normalized_column_name(column_name: object) -> str:
+    """Normalize a tabular column name for conservative schema matching."""
+
+    return re.sub(r"[^a-z0-9]+", "", str(column_name).strip().lower())
+
+
+def _match_column(
+    columns: Iterable[object],
+    aliases: Iterable[str],
+    *,
+    required: bool = True,
+) -> object | None:
+    """Match one source column from an ordered alias list."""
+
+    normalized = {_normalized_column_name(column): column for column in columns}
+    for alias in aliases:
+        if alias in normalized:
+            return normalized[alias]
+    if required:
+        raise KeyError(f"None of the required columns were found: {list(aliases)}")
+    return None
+
+
+def _read_best_tabular_sheet(path: Path) -> tuple[pd.DataFrame, str]:
+    """Read the CSV or Excel sheet that best matches production history."""
+
+    if path.suffix.lower() == ".csv":
+        return pd.read_csv(path), "CSV"
+    if path.suffix.lower() not in {".xlsx", ".xls"}:
+        raise ValueError(f"Unsupported production-history format: {path.suffix}")
+    workbook = pd.ExcelFile(path)
+    scored: list[tuple[int, int, str, pd.DataFrame]] = []
+    target_aliases = {
+        "dateprd",
+        "date",
+        "npdwellborename",
+        "wellborename",
+        "well",
+        "boreoilvol",
+        "oilvolume",
+        "boregasvol",
+        "gasvolume",
+        "borewatvol",
+        "watervolume",
+    }
+    for sheet_name in workbook.sheet_names:
+        table = pd.read_excel(path, sheet_name=sheet_name)
+        normalized_columns = {_normalized_column_name(column) for column in table.columns}
+        schema_score = len(normalized_columns & target_aliases)
+        name_score = int("monthly" in sheet_name.lower()) * 2
+        name_score += int("daily" in sheet_name.lower())
+        scored.append((schema_score, name_score, sheet_name, table))
+    if not scored:
+        raise RuntimeError(f"No worksheets were found in {path}.")
+    schema_score, _, sheet_name, table = max(
+        scored,
+        key=lambda item: (item[0], item[1], len(item[3])),
+    )
+    if schema_score < 4:
+        raise RuntimeError(
+            f"No worksheet in {path.name} matched the Volve production schema."
+        )
+    return table, sheet_name
+
+
+def read_production_history(path: Path) -> pd.DataFrame:
+    """Normalize the Volve production workbook to monthly well rates."""
+
+    table, sheet_name = _read_best_tabular_sheet(path)
+    date_column = _match_column(
+        table.columns,
+        ["dateprd", "productiondate", "date"],
+    )
+    well_column = _match_column(
+        table.columns,
+        ["npdwellborename", "wellborename", "wellname", "well"],
+    )
+    oil_column = _match_column(
+        table.columns,
+        ["boreoilvol", "oilvolume", "oilvol", "oilsm3"],
+    )
+    gas_column = _match_column(
+        table.columns,
+        ["boregasvol", "gasvolume", "gasvol", "gassm3"],
+    )
+    water_column = _match_column(
+        table.columns,
+        ["borewatvol", "borewatervol", "watervolume", "watervol", "watersm3"],
+    )
+    optional_aliases = {
+        "on_stream_hours": ["onstreamhrs", "onstreamhours"],
+        "downhole_pressure_bara": [
+            "avgdownholepressurebara",
+            "downholepressurebara",
+        ],
+        "wellhead_pressure_bara": ["avgwhpp", "wellheadpressurebara"],
+        "wellhead_temperature_c": ["avgwhtp", "wellheadtemperaturec"],
+        "flow_kind": ["flowkind"],
+        "well_type": ["welltype"],
+    }
+    optional_columns = {
+        name: _match_column(table.columns, aliases, required=False)
+        for name, aliases in optional_aliases.items()
+    }
+    normalized = pd.DataFrame(
+        {
+            "date": pd.to_datetime(table[date_column], errors="coerce"),
+            "well": table[well_column].astype(str).str.strip(),
+            "oil_volume_Sm3": pd.to_numeric(table[oil_column], errors="coerce"),
+            "gas_volume_Sm3": pd.to_numeric(table[gas_column], errors="coerce"),
+            "water_volume_Sm3": pd.to_numeric(table[water_column], errors="coerce"),
+        }
+    )
+    for output_name, source_column in optional_columns.items():
+        if source_column is None:
+            normalized[output_name] = np.nan
+        elif output_name in {"flow_kind", "well_type"}:
+            normalized[output_name] = table[source_column].astype(str).str.strip()
+        else:
+            normalized[output_name] = pd.to_numeric(
+                table[source_column],
+                errors="coerce",
+            )
+    normalized = normalized.dropna(subset=["date", "well"])
+    production_mask = pd.Series(True, index=normalized.index)
+    if normalized["flow_kind"].notna().any():
+        production_mask &= normalized["flow_kind"].str.contains(
+            "prod",
+            case=False,
+            na=False,
+        )
+    filtered = normalized.loc[production_mask].copy()
+    filtered["month"] = filtered["date"].dt.to_period("M").dt.to_timestamp()
+    aggregations: dict[str, str] = {
+        "oil_volume_Sm3": "sum",
+        "gas_volume_Sm3": "sum",
+        "water_volume_Sm3": "sum",
+        "on_stream_hours": "sum",
+        "downhole_pressure_bara": "mean",
+        "wellhead_pressure_bara": "mean",
+        "wellhead_temperature_c": "mean",
+    }
+    monthly = (
+        filtered.groupby(["month", "well"], as_index=False)
+        .agg(aggregations)
+        .rename(columns={"month": "date"})
+        .sort_values(["date", "well"])
+    )
+    days_in_month = monthly["date"].dt.days_in_month.astype(float)
+    monthly["oil_rate_Sm3_day"] = monthly["oil_volume_Sm3"] / days_in_month
+    monthly["gas_rate_Sm3_day"] = monthly["gas_volume_Sm3"] / days_in_month
+    monthly["water_rate_Sm3_day"] = monthly["water_volume_Sm3"] / days_in_month
+    monthly["on_stream_fraction"] = (
+        monthly["on_stream_hours"] / (24.0 * days_in_month)
+    ).clip(0.0, 1.0)
+    monthly["data_status"] = "MEASURED_VOLVE"
+    monthly.attrs.update(
+        {
+            "source_path": str(path),
+            "source_sha256": file_sha256(path),
+            "sheet_name": sheet_name,
+            "raw_rows": int(len(table)),
+            "normalized_rows": int(len(monthly)),
+        }
+    )
+    return monthly
+
+
 def demo_seismic(
     *,
     inline_count: int = 36,
