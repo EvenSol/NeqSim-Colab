@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "shard": "biomass-to-saf-20260820",
+  "updated_at": "2026-08-20T14:35:58Z",
+  "notebooks": [
+    {
+      "path": "notebooks/bioprocesses/biomass_to_sustainable_aviation_fuel_with_neqsim.ipynb",
+      "verified_date": "2026-08-20",
+      "verified_at_utc": "2026-08-20T14:35:58Z",
+      "neqsim_version": "3.18.0 Python bridge target with Java runtime compiled from current equinor/neqsim master",
+      "neqsim_java_commit": "4a8eb2ae725acd6727098e62b07abaadb74ddeeb",
+      "neqsim_jar_sha256": "2d15c411bab7f97a25c419b9bb256fb3fdcac226b8c5b5ad2da1d28a239e6004",
+      "neqsim_source_build_method": "Offline javac source overlay on the v3.18.0 release dependency bundle; all master Java sources compiled except two unchanged Colt-dependent parameter-fitting sources, and the only production-code delta after v3.18.0 was included.",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "pandas_version": "2.2.3",
+      "numpy_version": "2.3.5",
+      "matplotlib_version": "3.10.8",
+      "execution_status": "passed",
+      "execution_method": "Executed all 38 code cells sequentially from an empty Python namespace with a clean local sequential executor, NEQSIM_SOURCE_ROOT fixed to the recorded master commit, and NEQSIM_SOURCE_JAR fixed to the recorded source-overlay runtime. The run retained all result-bearing outputs and ten PNG figures and produced zero stored errors and zero stderr streams.",
+      "code_cells": 38,
+      "substantive_code_cells": 38,
+      "markdown_cells": 43,
+      "stored_outputs": 45,
+      "stored_png_figures": 10,
+      "display_equations": 17,
+      "git_blob_sha1": "60c8a850ff20938d51b1a8734b2e84b812c35444",
+      "notebook_bytes": 803567,
+      "publication": {
+        "branch": "codex/biomass-to-saf-neqsim",
+        "base_branch": "master",
+        "mode": "focused draft pull request",
+        "files": [
+          "notebooks/bioprocesses/biomass_to_sustainable_aviation_fuel_with_neqsim.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json",
+          "notebooks/maintenance_ledger/biomass_to_saf_20260820.json"
+        ]
+      },
+      "neqsim_capabilities_demonstrated": [
+        "SRK three-phase flashes for HEFA, ATJ, upgraded fast-pyrolysis oil, and upgraded HTL biocrude surrogates",
+        "wet-syngas condensation and one-stage versus three-stage compression with intercooling",
+        "ASTM D86, D4052, D445, and D1322 oil-quality calculations for upgraded-oil TBP surrogates"
+      ],
+      "engineering_validation": {
+        "named_assertions_passed": 17,
+        "assertions_failed": 0,
+        "checks": [
+          "feedstock compositions and route mass balances close",
+          "HEFA, ATJ, pyrolysis, and HTL surrogate flashes produce expected phases",
+          "wet syngas condenses an aqueous phase",
+          "three-stage compression uses less power than one-stage compression",
+          "core oil-quality outputs are finite and D86 curves are monotonic",
+          "carbon and energy efficiencies are physical",
+          "Monte Carlo outputs are finite"
+        ]
+      },
+      "result_summary": {
+        "three_stage_syngas_compression_power_kW_per_1000_kg_h": 151.2,
+        "compression_power_reduction_percent": 21.4,
+        "fast_pyrolysis_primary_bio_oil_wt_percent_dry_feed": 65.0,
+        "fast_pyrolysis_finished_fuel_kg_per_t_dry_feed": 268.3,
+        "fast_pyrolysis_scenario_saf_kg_per_t_dry_feed": 147.57,
+        "htl_primary_biocrude_wt_percent_afdw": 34.0,
+        "htl_finished_fuel_kg_per_t_afdw": 410.16,
+        "htl_scenario_saf_kg_per_t_afdw": 225.59,
+        "pyrolysis_upgraded_surrogate_density_kg_m3": 804.32,
+        "pyrolysis_upgraded_surrogate_D86_T50_C": 199.41,
+        "htl_upgraded_surrogate_density_kg_m3": 822.69,
+        "htl_upgraded_surrogate_D86_T50_C": 227.79
+      },
+      "rendered_visual_validation": {
+        "renderer": "Pandoc 3.1.3 standalone HTML with MathML plus pdfLaTeX display-equation rendering and original-resolution PNG inspection",
+        "display_equations_inspected": 17,
+        "figures_inspected": 10,
+        "result": "passed",
+        "notes": "Every retained figure was inspected at original resolution for labels, units, legends, contrast, clipping, and consistency with stored results. All display equations were rendered and inspected across two pages."
+      },
+      "documentation_impact": "The main NeqSim-Colab examples catalog is updated with a direct relative link and a concise scope description. No public NeqSim API, default, or installation interface is changed.",
+      "issue_handling": "No NeqSim defect invalidating the study was found. ASTM D445 returns non-finite viscosity for the deliberately sparse teaching TBP surrogates; the notebook converts this to a documented missing assay requirement rather than presenting a false viscosity result."
+    }
+  ]
+}
