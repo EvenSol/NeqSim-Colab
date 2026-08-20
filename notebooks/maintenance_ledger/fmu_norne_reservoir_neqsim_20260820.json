@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "shard": "fmu-norne-reservoir-neqsim-20260820",
+  "updated_at": "2026-08-20T20:28:59Z",
+  "notebooks": [
+    {
+      "path": "notebooks/reservoir/fmu_norne_subsurface_to_facilities_workflow.ipynb",
+      "verified_date": "2026-08-20",
+      "verified_at_utc": "2026-08-20T20:28:59Z",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "neqsim_version": "3.16.0",
+      "ert_version": "23.0.1",
+      "iterative_ensemble_smoother_version": "1.3.0",
+      "fmu_dataio_version": "2.30.2",
+      "fmu_tools_version": "1.33.0",
+      "execution_status": "passed",
+      "execution_method": "Executed all 35 code cells sequentially from an empty in-process IPython namespace with scripts/execute_notebook_inprocess.py. The final clean run completed in 11.5 seconds, downloaded checksum-tracked Norne inputs from a pinned OPM commit, retained all result-bearing outputs, stored eleven PNG figures, ran a finite-volume reservoir forecast, completed four ES-MDA updates, passed ert lint, and ran three real NeqSim facility cases with zero stored errors or stderr. Retained PNG outputs were then packaged as visually quality-preserving optimized indexed-color PNG files to keep the executed notebook practical for GitHub and Colab; the numerical data and image dimensions were unchanged.",
+      "code_cells": 35,
+      "substantive_code_cells": 35,
+      "markdown_cells": 19,
+      "git_blob_sha1": "e3d80d1ff5e3396ee46825ec3f129d2dfa70a45e",
+      "notebook_bytes": 685602,
+      "publication": {
+        "branch": "agent/fmu-norne-reservoir-neqsim",
+        "mode": "focused draft pull request",
+        "files": [
+          "notebooks/reservoir/fmu_norne_subsurface_to_facilities_workflow.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json",
+          "notebooks/maintenance_ledger/fmu_norne_reservoir_neqsim_20260820.json"
+        ]
+      },
+      "published_data": {
+        "source": "OPM/opm-data public Norne model",
+        "commit": "eaa2261683a97027e057c2bc49612ad1c86390b3",
+        "license_notice": "ODbL 1.0 and DbCL 1.0 notices retained from the published model",
+        "parsed_grid_dimensions": [46, 112, 22],
+        "active_cells": 44927,
+        "source_files": 7,
+        "source_sha256_checks": 7
+      },
+      "reservoir_capabilities_demonstrated": [
+        "parsing and quality control of public Norne grid, porosity, permeability, net-to-gross, initial water saturation, activity and schedule data",
+        "transparent vertical upscaling to 2263 active two-dimensional cells with pore-volume and transmissibility preservation",
+        "sparse two-point finite-volume pressure solution and explicit upwind oil-water transport with producer and injector controls",
+        "water-inventory audit, saturation maps, rate forecasts and an educational OPM/Eclipse property include handoff"
+      ],
+      "fmu_capabilities_demonstrated": [
+        "seeded prior ensemble of 60 realizations with auditable parameter ranges",
+        "synthetic educational history observations that remain explicitly separate from published Norne data",
+        "four-step ES-MDA update using iterative-ensemble-smoother and an ERT 23 case that passes ert lint",
+        "FMU-style metadata and prior, posterior and forecast result tables for reproducible case exchange"
+      ],
+      "neqsim_capabilities_demonstrated": [
+        "NeqSim SRK reservoir-fluid construction and multiphase TP flash",
+        "three posterior rate cases transferred through streams, mixer, choke, cooler, three-phase separator and compressor",
+        "120 bara export-pressure target, compressor duty, separated phase loads and relative mass-balance audit",
+        "facility-capacity control factors propagated back to the posterior reservoir-rate ensemble"
+      ],
+      "engineering_validation": {
+        "named_assertions_passed": 19,
+        "assertions_failed": 0,
+        "checks": [
+          "Norne grid size is 113344 cells and the published active-cell count is 44927",
+          "published property ranges are finite and physically bounded",
+          "finite-volume rates remain non-negative and total production matches the imposed control",
+          "water inventory closes within 1e-4 relative fraction",
+          "ES-MDA normalized RMSE decreases from 4.0734 to 0.9304",
+          "all posterior parameters and forecasts are finite",
+          "ERT configuration reports Found no errors",
+          "NeqSim cases reach 120 bara export pressure and close separator mass balance",
+          "facility control factors remain in the physical interval zero to one",
+          "all interface and metadata artifacts are generated"
+        ]
+      },
+      "result_summary": {
+        "educational_upscaled_pore_volume_million_m3": 473.3306,
+        "pv_weighted_porosity": 0.24642,
+        "median_horizontal_permeability_md": 390.70473,
+        "posterior_realizations": 60,
+        "prior_normalized_rmse": 4.0734,
+        "posterior_normalized_rmse": 0.9304,
+        "facility_constraint_probability": 0.5,
+        "controlled_oil_rate_q10_sm3_day": 1642.616,
+        "controlled_oil_rate_q50_sm3_day": 1687.0138,
+        "controlled_oil_rate_q90_sm3_day": 1737.0836,
+        "neqsim_q50_compressor_power_mw": 0.482491,
+        "neqsim_export_pressure_bara": 120.0
+      },
+      "rendered_visual_validation": {
+        "renderer": "nbconvert 7.17.1 Jupyter HTML with MathJax source plus Matplotlib MathText equation audit",
+        "display_equations_inspected": 8,
+        "figures_inspected": 11,
+        "result": "passed",
+        "notes": "All eight display equations rendered with correct fractions, Greek symbols, subscripts, superscripts and delimiters. All eleven optimized retained figures were inspected at original resolution after output packaging for labels, units, legends, contrast, scales, clipping, overlap and consistency with stored numerical tables. The dedicated model-setup figure shows the active grid, upscaled net thickness and permeability, wells, imposed controls and flow arrows. The result dashboard shows pressure, oil and water rates, water cut and the water-inventory residual. The final facility plot visibly shows the capacity boundary and the constrained forecast distribution."
+      },
+      "known_limitations": [
+        "The notebook uses published Norne properties and selected published well locations, but educational cell dimensions, vertical upscaling, fluid composition and synthetic observations; it is not a Norne history match or development-decision model.",
+        "The portable finite-volume model is executed in every runtime. The full published Norne OPM Flow deck is downloaded and inspected but is not executed because a native Flow binary is not guaranteed in Google Colab.",
+        "FMU means Fast Model Update in this notebook, not an FMI Functional Mock-up Unit."
+      ],
+      "issue_handling": "No NeqSim defect or actionable API gap was exposed by the executed workflow, so no upstream NeqSim issue was opened. Documentation impact is handled by the examples catalog and this maintenance record."
+    }
+  ]
+}
