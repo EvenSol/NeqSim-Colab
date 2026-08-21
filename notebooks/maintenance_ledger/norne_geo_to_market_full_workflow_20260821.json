@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "shard": "norne-geo-to-market-full-workflow-20260821",
+  "updated_at": "2026-08-21T17:50:12Z",
+  "notebooks": [
+    {
+      "path": "notebooks/valuechain/norne_geo_to_market_full_workflow.ipynb",
+      "verified_date": "2026-08-21",
+      "verified_at_utc": "2026-08-21T17:50:12Z",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "neqsim_source_ref": "master",
+      "neqsim_source_commit": "1505466864a8e8e7f6838f36192cb8a23bbd3b0d",
+      "neqsim_validation_runtime": "3.17.0",
+      "ert_version": "23.0.1",
+      "iterative_ensemble_smoother_version": "1.3.0",
+      "fmu_dataio_version": "2.30.2",
+      "fmu_tools_version": "1.33.0",
+      "execution_status": "passed",
+      "execution_method": "Executed all 38 code cells sequentially from an empty in-process IPython namespace with scripts/execute_notebook_inprocess.py. The final clean validation run completed in 12.8 seconds, downloaded checksum-tracked Norne inputs from a pinned OPM commit, retained all result-bearing outputs, stored fifteen PNG figures, ran the finite-volume reservoir forecast, completed four ES-MDA updates, passed ert lint, screened well and SURF flow assurance, ran three real NeqSim process and ISO 6976 cases, propagated downstream constraints through field life, and calculated a 60-realization NPV distribution with zero stored errors or stderr. The normal Colab path clones, resolves and source-builds current NeqSim master. Maven Central DNS was unavailable in the controlled validation environment, so the retained local evidence used the pinned NeqSim 3.17.0 release JAR while recording the resolved current-master source commit. Retained PNGs were losslessly optimized without changing dimensions or numerical data.",
+      "code_cells": 38,
+      "substantive_code_cells": 38,
+      "markdown_cells": 21,
+      "git_blob_sha1": "4cf7084e9fedf5d7f16badb52e70143f22e4c7ae",
+      "notebook_bytes": 2116595,
+      "publication": {
+        "branch": "agent/norne-geo-to-market-full-workflow",
+        "mode": "focused draft pull request",
+        "files": [
+          "notebooks/valuechain/norne_geo_to_market_full_workflow.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json",
+          "notebooks/maintenance_ledger/norne_geo_to_market_full_workflow_20260821.json"
+        ]
+      },
+      "published_data": {
+        "source": "OPM/opm-data public Norne model",
+        "commit": "eaa2261683a97027e057c2bc49612ad1c86390b3",
+        "license_notice": "ODbL 1.0 and DbCL 1.0 notices retained from the published model",
+        "parsed_grid_dimensions": [46, 112, 22],
+        "active_cells": 44927,
+        "upscaled_active_columns": 2263,
+        "source_files": 7,
+        "source_sha256_checks": 7
+      },
+      "capabilities_demonstrated": [
+        "published Norne grid, petrophysical and schedule data retrieval, SHA-256 provenance, property QC and vertical upscaling",
+        "transparent two-phase finite-volume reservoir model with mass-balance and physical-bound validation",
+        "seeded 60-realization FMU prior, four-step ES-MDA update and ERT 23 configuration lint",
+        "realization-preserving reservoir-to-well-to-SURF interface and pressure, temperature, hydrate, cooldown, wax, erosion and slug screens",
+        "real NeqSim SRK wellstream mixing, inlet choke, cooling, three-phase separation and export compression",
+        "NeqSim ISO 6976 superior calorific value, Wobbe index and relative-density handoff",
+        "facility-capacity controls returned to the reservoir forecast and propagated through field life",
+        "realization-level product energy, emissions, price, availability, cost, carbon and discount-rate uncertainty propagated to NPV and sensitivity"
+      ],
+      "engineering_validation": {
+        "named_end_to_end_assertions_passed": 16,
+        "assertions_failed": 0,
+        "checks": [
+          "all seven published files exist with populated unique SHA-256 values",
+          "the current NeqSim master commit is recorded and the validation JAR is loaded",
+          "reservoir physical and conservation checks pass",
+          "ES-MDA normalized RMSE decreases from 3.481633 to 0.912293",
+          "ERT configuration lint passes",
+          "all seven well, SURF and flow-assurance checks pass",
+          "all NeqSim cases reach 120 bara and close separator mass balance",
+          "all ISO 6976 values are finite and controls remain bounded",
+          "market results are finite, NPV quantiles are ordered and all handoff artifacts exist"
+        ]
+      },
+      "result_summary": {
+        "posterior_realizations": 60,
+        "prior_normalized_rmse": 3.481633,
+        "posterior_normalized_rmse": 0.912293,
+        "q50_surf_arrival_pressure_bara": 48.951594,
+        "q50_time_to_hydrate_screen_h": 28.760444,
+        "q50_compressor_power_mw": 0.474836,
+        "q50_export_gas_gcv_mj_sm3": 42.315338,
+        "q50_export_gas_wobbe_mj_sm3": 51.042113,
+        "facility_constraint_probability_year_5": 0.4,
+        "controlled_oil_rate_q10_sm3_day": 1671.9162,
+        "controlled_oil_rate_q50_sm3_day": 1720.2668,
+        "controlled_oil_rate_q90_sm3_day": 1754.7424,
+        "npv_q10_musd": 1219.85,
+        "npv_q50_musd": 1493.81,
+        "npv_q90_musd": 1797.68
+      },
+      "rendered_visual_validation": {
+        "renderer": "nbconvert 7.17.1 Jupyter HTML with MathJax source plus original-resolution retained PNG inspection",
+        "display_equations_inspected": 13,
+        "figures_inspected": 15,
+        "result": "passed",
+        "notes": "All thirteen display equations use Colab-safe dollar delimiters and were audited for balanced delimiters and single LaTeX command backslashes. All fifteen retained figures were inspected at original resolution for labels, units, legends, contrast, scales, clipping, overlap and consistency with stored numerical tables. The final inspection includes the closed-loop workflow, published property distributions, reservoir maps and forecasts, prior/posterior FMU evidence, flow-assurance profiles and shutdown window, NeqSim process and ISO 6976 results, constraint feedback, field-life rates, NPV distribution and sensitivity screen."
+      },
+      "known_limitations": [
+        "Published Norne data anchor the workflow, but vertical upscaling, fluid composition, synthetic history, well and SURF geometry, operating assumptions and economics are educational; this is not an official Norne history match, reserves statement, certified flow-assurance study, facility design or investment basis.",
+        "The portable finite-volume model runs in every environment. The full OPM Flow Norne deck is downloaded and inspected but not executed because a native Flow binary is not guaranteed in Colab.",
+        "The homogeneous steady flow-assurance screens do not replace calibrated multiphase transient simulation, detailed terrain, compositional hydrate and wax models, laboratory data or specialist design tools.",
+        "The compact process does not include dehydration, dew-point control, produced-water treatment, detailed compressor maps, heat integration, reliability or a certified metering chain.",
+        "The retained validation outputs use pinned NeqSim 3.17.0 because Maven Central DNS was unavailable; normal Colab execution source-builds the recorded current NeqSim master path.",
+        "FMU means Fast Model Update, not an FMI Functional Mock-up Unit."
+      ],
+      "documentation_impact": "Adds an advanced geo-to-market entry to the main Colab examples catalog and this maintenance shard; no Java API documentation change is required.",
+      "issue_handling": "No NeqSim defect or actionable API gap was exposed by the executed workflow. The current-master Maven failure was an external DNS outage, so no upstream issue was opened."
+    }
+  ]
+}
