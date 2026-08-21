@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "shard": "early-phase-subsurface-flow-assurance-handoff-20260821",
+  "updated_at": "2026-08-21T19:09:40Z",
+  "notebooks": [
+    {
+      "path": "notebooks/valuechain/early_phase_subsurface_to_flow_assurance_handoff.ipynb",
+      "verified_date": "2026-08-21",
+      "verified_at_utc": "2026-08-21T19:09:40Z",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "neqsim_source_ref": "master",
+      "neqsim_source_commit": "59cb541bc584c47bc1d24f66d8c52703aa983477",
+      "neqsim_validation_runtime": "3.17.0",
+      "execution_status": "passed",
+      "execution_method": "Executed all 22 code cells sequentially from an empty in-process IPython namespace with scripts/execute_notebook_inprocess.py. The final clean validation run completed in 12.1 seconds, retained all result-bearing outputs, generated five inline PNG figures, preserved coherent realization identity through every handoff, ran representative NeqSim well and native TwoFluidPipe calculations, completed hydrate, choke and MPFM screens, exported a SHA-256 manifest and ZIP handoff package, and stored zero errors or stderr. The normal Colab path clones, resolves and source-builds current NeqSim master. The controlled validation path used the pinned NeqSim 3.17.0 release JAR while recording the resolved current-master source commit. Retained PNGs were palette-optimized without changing dimensions or numerical data.",
+      "code_cells": 22,
+      "substantive_code_cells": 22,
+      "markdown_cells": 17,
+      "git_blob_sha1": "63093441918e71b156cfc4e1f28544e9f5e94d70",
+      "notebook_bytes": 483508,
+      "publication": {
+        "branch": "agent/early-phase-data-handoff",
+        "mode": "focused draft pull request",
+        "files": [
+          "notebooks/valuechain/early_phase_subsurface_to_flow_assurance_handoff.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json",
+          "notebooks/maintenance_ledger/early_phase_subsurface_flow_assurance_handoff_20260821.json"
+        ]
+      },
+      "published_data": {
+        "source": "seeded public synthetic ECLIPSE-style summary ensemble",
+        "license_notice": "No proprietary or externally copied field data are stored",
+        "realizations": 24,
+        "monthly_dates": 49,
+        "wells": 3,
+        "summary_vectors": [
+          "FOPR",
+          "FGPR",
+          "FWPR",
+          "FPR",
+          "WOPR",
+          "WGPR",
+          "WWPR",
+          "WBHP"
+        ]
+      },
+      "capabilities_demonstrated": [
+        "official res2df adapter pattern for real ECLIPSE or OPM summary files",
+        "unit-explicit canonical data contract with version, completeness and QC checks",
+        "coherent LOW_P10, BASE_P50 and HIGH_P90 member selection without independent-column quantiles",
+        "realization-preserving reservoir, well, SURF, flow-assurance, choke, MPFM and topside handoffs",
+        "NeqSim SRK fluid construction, representative well hydraulics, native TwoFluidPipe profiles and hydrate-equilibrium screening",
+        "transparent independent Beggs-and-Brill comparison and named engineering acceptance checks",
+        "agent-ready JSON and CSV contracts, SHA-256 manifest, figures and ZIP reporting package"
+      ],
+      "engineering_validation": {
+        "named_end_to_end_assertions_passed": 17,
+        "assertions_failed": 0,
+        "checks": [
+          "all reservoir QC checks pass and three distinct coherent scenarios are selected",
+          "current NeqSim source commit and validation JAR provenance are recorded",
+          "all numerical results are finite with positive well and flowline pressure drops",
+          "representative-well and flowline mass balances close",
+          "wellhead and flowline temperatures remain within explicit engineering bounds",
+          "TwoFluidPipe and Beggs-and-Brill pressure drops remain within the same engineering order",
+          "pressure profiles and liquid holdup remain physically bounded",
+          "all nineteen export artifacts, metadata, manifest and ZIP package exist"
+        ],
+        "evidence_level": "conservation and thermodynamic consistency plus an independent correlation comparison and physical bounds"
+      },
+      "result_summary": {
+        "selected_scenarios": 3,
+        "base_realization_id": 13,
+        "base_oil_rate_sm3_day": 2364.792468,
+        "base_gas_rate_sm3_day": 603612.263916,
+        "base_arrival_pressure_bara": 81.515302,
+        "base_arrival_temperature_C": 40.117486,
+        "base_hydrate_margin_C": 21.089675,
+        "base_maximum_phase_velocity_m_s": 12.703978,
+        "base_twofluid_to_beggs_brill_dp_ratio": 0.516052,
+        "maximum_mass_error_fraction": 0.0
+      },
+      "rendered_visual_validation": {
+        "renderer": "nbconvert 7.17.1 Jupyter HTML with MathJax source plus original-resolution retained PNG inspection",
+        "display_equations_inspected": 3,
+        "figures_inspected": 5,
+        "result": "passed",
+        "notes": "All three display equations use Colab-safe dollar delimiters and were audited for balanced delimiters and single LaTeX command backslashes. All five retained figures were inspected at original resolution for readable labels, units, legends, contrast, clipping, overlap and consistency with stored numerical tables."
+      },
+      "known_limitations": [
+        "The stored ensemble, fluid, geometry and design criteria are synthetic teaching inputs; replace them with governed project data for engineering work.",
+        "A fixed 70 degC wellhead temperature is an explicit screening boundary while the representative well calculation focuses on pressure drop.",
+        "TwoFluidPipe supplies native hydraulic profiles; the stored thermal profile is a transparent steady U-value screen using NeqSim mixture heat capacity.",
+        "The internal Beggs-and-Brill comparison is not OLGA validation, and steady hydrate margins do not certify shutdown or restart operability.",
+        "Dominant SLUG classification and high liquid holdup are screening flags that require calibrated geometry and transient verification before design decisions."
+      ],
+      "documentation_impact": "Adds the notebook to the main Colab examples catalog and records a dedicated maintenance shard; no NeqSim Java or Python API documentation change is required.",
+      "issue_handling": "No NeqSim defect or distinct actionable API gap was exposed by the executed workflow, so no upstream issue was opened."
+    }
+  ]
+}
