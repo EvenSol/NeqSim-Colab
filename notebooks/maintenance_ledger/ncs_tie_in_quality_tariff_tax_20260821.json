@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "shard": "ncs-tie-in-quality-tariff-tax-20260821",
+  "updated_at": "2026-08-21T21:23:28Z",
+  "notebooks": [
+    {
+      "path": "notebooks/fielddevelopment/ncs_tie_in_quality_tariff_tax.ipynb",
+      "verified_date": "2026-08-21",
+      "verified_at_utc": "2026-08-21T21:23:28Z",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "numpy_version": "2.3.2",
+      "pandas_version": "2.3.1",
+      "matplotlib_version": "3.10.5",
+      "nbconvert_version": "7.17.1",
+      "jpype_version": "1.6.0",
+      "neqsim_source_ref": "master",
+      "neqsim_source_commit": "dd89babf24747b88d9e581e7938238fde4589ab2",
+      "neqsim_validation_runtime": "3.17.0",
+      "neqsim_validation_jar_sha256": "f114c17bf99a7b02be9f8c49b66fd792c88fdcbfcb043487481fb0bf23298556",
+      "execution_status": "passed",
+      "execution_method": "Executed all 23 code cells sequentially from an empty in-process IPython namespace with scripts/execute_notebook_inprocess.py. The final clean validation completed in 5.2 seconds with all result-bearing outputs retained, six PNG figures, zero stored errors, zero stderr, and 17 named engineering assertions passed. The normal Colab path clones, resolves, and source-builds current NeqSim master. Maven Central DNS was unavailable in the controlled validation environment, so retained local evidence used the pinned NeqSim 3.17.0 release JAR while recording the resolved current-master source commit and exact validation JAR SHA-256.",
+      "code_cells": 23,
+      "substantive_code_cells": 23,
+      "markdown_cells": 27,
+      "git_blob_sha1": "5cc7c58c0dcb06400a6b36982fca61fd7496d21a",
+      "notebook_bytes": 870535,
+      "publication": {
+        "branch": "agent/ncs-tie-in-quality-tariff-tax",
+        "mode": "focused draft pull request",
+        "files": [
+          "notebooks/fielddevelopment/ncs_tie_in_quality_tariff_tax.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json",
+          "notebooks/maintenance_ledger/ncs_tie_in_quality_tariff_tax_20260821.json"
+        ]
+      },
+      "capabilities_demonstrated": [
+        "accountable multidisciplinary agent register spanning reservoir, SURF, NeqSim process, host integration, gas and liquid quality, Gassco planning, contracts, measurement, tax, and integrated decision work",
+        "boundary-specific reservoir-to-market specification and processing-location framework",
+        "real NeqSim SRK gas-condensate choke, cooling, three-phase separation, export compression, cooling, liquid letdown, heating, and stabilization process",
+        "NeqSim ASTM D6377 stabilized-condensate vapour pressure and ISO 6976 gas quality and blending envelopes",
+        "detailed public Nyhamna entry, dry-gas exit, and condensate specification examples with explicit non-universal scope",
+        "dated August 2026 Gassco K, I, and O tariff component snapshot, booking-vintage comparison, route screen, processing-service units, and unused booked-capacity exposure",
+        "host-priority, firm-tie, and pro-rata capacity allocation with separate host holdback, tie curtailment, and CO2 blending-quality capacity",
+        "accepted-production gas and condensate value, booked transport tariff, host processing, simplified Norwegian petroleum tax, and seeded commercial uncertainty"
+      ],
+      "engineering_validation": {
+        "named_end_to_end_assertions_passed": 17,
+        "assertions_failed": 0,
+        "checks": [
+          "wellstream, host dry-gas, and tie dry-gas compositions each sum to one",
+          "NeqSim inlet and stabilizer mass balances close below 1e-8 relative residual",
+          "export compressor duty is positive and the 120 bara pressure target is reached",
+          "ASTM D6377 result is finite and passes the explicitly labelled published P3 example",
+          "all ISO 6976 blend-quality values are finite",
+          "selected route unit-tariff arithmetic closes at 0.6097778 NOK/Sm3",
+          "every allocation is non-negative, bounded by potential, and respects the shared capacity",
+          "cash-flow values are finite and uncertainty NPV quantiles are ordered",
+          "the gate register preserves open and partial evidence rather than implying decision readiness"
+        ]
+      },
+      "result_summary": {
+        "feed_kg_h": 250000.0,
+        "inlet_separator_gas_kg_h": 234013.50707,
+        "inlet_separator_oil_kg_h": 14119.800134,
+        "inlet_separator_water_kg_h": 1866.692796,
+        "stabilized_condensate_kg_h": 2894.472363,
+        "stabilization_flash_gas_kg_h": 11225.327771,
+        "compressor_power_mw": 4.80807,
+        "stabilized_astm_d6377_rvpe_bara": 0.57469,
+        "tie_gas_gcv_mj_sm3": 41.599,
+        "tie_gas_wobbe_mj_sm3": 51.03283,
+        "teaching_route_tariff_aug_2026_nok_sm3": 0.6097778,
+        "booked_capacity_august_charge_screen_mnok": 94.5156,
+        "unused_capacity_exposure_mnok": 22.6837,
+        "pre_tax_npv8_bnok": 37.955,
+        "simplified_post_tax_npv8_bnok": 9.274,
+        "monte_carlo_post_tax_npv8_q10_bnok": 4.668,
+        "monte_carlo_post_tax_npv8_q50_bnok": 7.608,
+        "monte_carlo_post_tax_npv8_q90_bnok": 10.825
+      },
+      "rendered_visual_validation": {
+        "renderer": "nbconvert 7.17.1 Jupyter HTML with MathJax source, original-resolution retained PNG inspection, and a pdflatex equation contact sheet",
+        "display_equations_inspected": 2,
+        "figures_inspected": 6,
+        "result": "passed",
+        "notes": "The HTML conversion completed. Both display equations rendered with correct fractions, subscripts, and operators. All six retained figures were inspected at original resolution for labels, units, legends, contrast, clipping, scales, and consistency with stored numerical tables: phase products/RVPE, ISO 6976 blend quality, tariff/booking exposure, holdback/curtailment/quality capacity, cash flow/tax timing, and uncertainty/sensitivity."
+      },
+      "official_information_policy": "Gassco tariff, manual, GMDC, and Nyhamna values; SODIR clauses; and Norwegian Tax Administration guidance are frozen, dated teaching snapshots with direct official links and explicit instructions to re-verify current controlling documents. No live endpoint is called during notebook execution. All field, host, price, cost, availability, and economic-case values are synthetic teaching inputs.",
+      "known_limitations": [
+        "The fluid, profiles, host capacity, route selection, prices, costs, and commercial terms are synthetic and are not a real NCS opportunity or operator capacity statement.",
+        "The process omits calibrated reservoir and multiphase transient models, dehydration, dew-point and acid-gas units, detailed NGL recovery, equipment maps, reliability, dynamic control, emissions compliance, and produced-water treatment.",
+        "Published Nyhamna values are facility- and document-specific examples, not universal or guaranteed-current Gassled specifications.",
+        "The tariff addition is a dated classroom screen using selected published unit elements; actual charges require the regulation, booking vintage, route, service, month, quantity basis, agreement, adjustments, and operator confirmation.",
+        "The petroleum-tax model is deliberately simplified and excludes field-specific tax bases, loss timing, norm-price detail, finance, transition items, decommissioning, abandonment security, indirect taxes, and eligibility analysis.",
+        "The retained validation outputs use pinned NeqSim 3.17.0 because Maven Central DNS was unavailable; normal Colab execution source-builds the recorded current NeqSim master path."
+      ],
+      "documentation_impact": "Adds one advanced field-development entry to the main Colab examples catalog and a dedicated maintenance shard; no Java API documentation change is required.",
+      "issue_handling": "No NeqSim defect or actionable Java API gap was exposed by the executed workflow. The current-master Maven failure was an external DNS outage, so no upstream NeqSim issue was opened."
+    }
+  ]
+}
