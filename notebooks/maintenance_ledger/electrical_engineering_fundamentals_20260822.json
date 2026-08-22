@@ -1,0 +1,71 @@
+{
+  "schema_version": 3,
+  "updated_at": "2026-08-22T13:34:00Z",
+  "notebooks": [
+    {
+      "path": "notebooks/power/electrical_engineering_fundamentals_oil_gas.ipynb",
+      "execution_status": "passed",
+      "code_cells": 21,
+      "validation_date": "2026-08-22",
+      "notebook_purpose": "Teach electrical-engineering fundamentals for oil and gas operations by coupling NeqSim compressor and pump duties to transparent Python power-system screening calculations.",
+      "source_provenance": {
+        "neqsim_repository": "https://github.com/equinor/neqsim",
+        "neqsim_commit": "0c1dfa371e20a6d0a274d6f756ea6d5ed8a0408a",
+        "bridge_release": "neqsim 3.16.0",
+        "source_built_jar": "neqsim-3.18.0.jar",
+        "source_built_jar_sha256": "4f64571df09d4e21a1cbe990db4cb646d6828b3178b4a1c3d8c5d682290751a2",
+        "case_data": "Synthetic teaching assumptions",
+        "standards_checked": "Official scope pages checked 2026-08-22"
+      },
+      "validation": {
+        "clean_runtime": {
+          "status": "passed",
+          "execution_method": "scripts/execute_notebook_inprocess.py",
+          "execution_time_seconds": 10.3,
+          "fresh_environment": true,
+          "resolution_mode": "online-new-snapshot",
+          "wheel_hashes_verified": true,
+          "artifact_origin": "public-pypi",
+          "wheel_count": 62,
+          "python": "3.12.13",
+          "java": "OpenJDK 17.0.19",
+          "jpype1": "1.7.1",
+          "numpy": "2.5.2",
+          "pandas": "3.0.5",
+          "scipy": "1.18.1",
+          "matplotlib": "3.11.1"
+        },
+        "retained_outputs": {
+          "status": "passed",
+          "executed_code_cells": "21/21",
+          "stored_errors": 0,
+          "stored_stderr": 0,
+          "figures": 8,
+          "display_equations": 11,
+          "notebook_sha256": "5da3565853bb575124b79cf2d912f427b89173b71ad5d207e391ba8b3abb33c9"
+        },
+        "repository_checker": "python scripts/check_notebook.py <path> --require-main-source: 0 errors, 0 warnings",
+        "repository_wide_checker": "Reached and validated the new notebook; current master remains red only on the pre-existing MultiphaseOptim.ipynb 21-versus-22 code-cell ledger mismatch and unexecuted code cell 22",
+        "rendered_html": "nbconvert 7.17.1 Jupyter HTML completed",
+        "rendered_pdf": "nbconvert 7.17.1 LaTeX/XeLaTeX completed; 44-page validation rendering",
+        "visual_inspection": "All 8 retained figures, all 11 display equations, all Markdown cells, result tables, and the full rendered layout inspected; no clipping, overlap, truncation, blank output, or malformed equation remains",
+        "teaching_readability": "0 non-URL code lines over 100 characters; no semicolon-compressed or inline compound statements",
+        "engineering_checks": "25/25 passed",
+        "representative_results": {
+          "compressor_shaft_power_mw": 7.4687,
+          "water_injection_pump_shaft_power_mw": 4.6274,
+          "pump_independent_check_difference_percent": -1.2831,
+          "coincident_real_demand_mw": 18.4386,
+          "coincident_apparent_demand_mva": 19.3230,
+          "aggregate_power_factor": 0.9542,
+          "initial_symmetrical_fault_current_ka": 10.8278,
+          "dol_voltage_dip_percent": 20.4309,
+          "vfd_voltage_dip_percent": 4.4832,
+          "maximum_daily_n_minus_one_transformer_utilization_percent": 77.2737
+        }
+      },
+      "documentation_impact": "Adds the notebook to the Power production catalog and records dedicated maintenance evidence. No NeqSim public API or model behaviour is changed.",
+      "neqsim_improvement_issues": []
+    }
+  ]
+}
