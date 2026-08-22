@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "shard": "ncs-resource-classification-neqsim-20260822",
+  "updated_at": "2026-08-22T08:41:00Z",
+  "notebooks": [
+    {
+      "path": "notebooks/fielddevelopment/ncs_resource_classification_with_neqsim.ipynb",
+      "verified_date": "2026-08-22",
+      "verified_at_utc": "2026-08-22T08:41:00Z",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "numpy_version": "2.5.2",
+      "pandas_version": "3.0.5",
+      "scipy_version": "1.18.1",
+      "matplotlib_version": "3.11.1",
+      "networkx_version": "3.6.1",
+      "nbconvert_version": "7.17.1",
+      "jpype_version": "1.7.1",
+      "neqsim_source_ref": "master",
+      "neqsim_source_commit": "59f485417abb9cc34a3bd8c6779fc188b070ec25",
+      "neqsim_validation_runtime": "3.17.0",
+      "neqsim_validation_jar_sha256": "f114c17bf99a7b02be9f8c49b66fd792c88fdcbfcb043487481fb0bf23298556",
+      "execution_status": "passed",
+      "execution_method": "Executed all 26 code cells sequentially from an empty in-process IPython namespace with scripts/execute_notebook_inprocess.py. The final clean run completed in 9.3 seconds, retained all user-relevant tables and seven PNG figures, produced zero stored errors and zero stderr, and passed 19 named end-to-end checks. The normal Colab path clones and source-builds current NeqSim master. The retained controlled validation used the hash-identified NeqSim 3.17.0 release JAR while recording and inspecting exact current master commit 59f485417abb9cc34a3bd8c6779fc188b070ec25.",
+      "code_cells": 26,
+      "substantive_code_cells": 26,
+      "markdown_cells": 16,
+      "git_blob_sha1": "c151c40e7e5b46c4f383544db43ae1132d715f99",
+      "notebook_bytes": 640197,
+      "publication": {
+        "branch": "agent/ncs-resource-classification-neqsim",
+        "mode": "focused draft pull request",
+        "files": [
+          "notebooks/fielddevelopment/ncs_resource_classification_with_neqsim.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json",
+          "notebooks/maintenance_ledger/ncs_resource_classification_neqsim_20260822.json"
+        ]
+      },
+      "capabilities_demonstrated": [
+        "officially sourced explanation of produced petroleum, reserves, contingent resources, and undiscovered resources across RC0-RC9",
+        "separation of project maturity, F/A project category, low/base/high volume uncertainty, geological discovery chance, economics, and simulation evidence",
+        "BOI, BOK, BOV, BOG, PDO approval, production-start, and sale/delivery transition graph including RC6 shelving and reactivation",
+        "machine-readable pandas resource-project register with ownership, next-decision, identifier, category, volume, and validation contracts",
+        "optional SODIR ArcGIS loader contract with live retrieval disabled in the retained reproducible snapshot and explicit NLOD/public-data policy",
+        "real NeqSim SRK/classic wellstream, choke, cooling, three-phase separation, export compression, aftercooling, liquid letdown, heating, and stabilization process",
+        "marketable gas and condensate yield bridge from recovered hydrocarbon mass to sales-product estimates with explicit recovery and acceptance factors",
+        "SciPy Latin-hypercube uncertainty with P90-low, expected-base, and P10-high reporting identities",
+        "capacity-limited low/base/high production profiles, cumulative-volume closure, and clearly non-classifying synthetic NPV evidence",
+        "CSV and JSON handoff package with SHA-256 manifest and links to eight exploration-to-market companion notebooks"
+      ],
+      "engineering_validation": {
+        "named_end_to_end_assertions_passed": 19,
+        "assertions_failed": 0,
+        "evidence_level": "official classification definitions, synthetic probabilistic truth, NeqSim conservation, graph reachability, ordered uncertainty, profile closure, and finite economics",
+        "checks": [
+          "exact current NeqSim source commit and declared runtime JAR are recorded and verified",
+          "wellstream composition sums to one and all RC0-RC9 classes are represented",
+          "the resource register obeys the SODIR F/A class rules",
+          "the typical graph connects RC9 to RC0 and preserves an RC6 reactivation path",
+          "separator and stabilizer relative mass residuals remain below 1e-8",
+          "export compressor power and screened product rates are positive",
+          "gas and condensate P90-low, expected-base, and P10-high estimates are strictly ordered",
+          "RC8 risk weighting remains separate from resource class and below the success-case estimate",
+          "every low/base/high production profile closes to its classified volume",
+          "all scenario NPVs are finite and both handoff artifacts are generated",
+          "the retained run performs no live SODIR retrieval"
+        ]
+      },
+      "result_summary": {
+        "feed_kg_h": 240000.0,
+        "screened_marketable_gas_MSm3_d": 6.11781,
+        "screened_marketable_condensate_Sm3_d": 156.529,
+        "gas_yield_BSm3_per_Mt_recovered_hydrocarbon": 1.07048,
+        "condensate_yield_MSm3_per_Mt_recovered_hydrocarbon": 0.0273891,
+        "export_compressor_power_MW": 4.7053,
+        "maximum_relative_process_mass_residual": 8.48862e-15,
+        "gas_P90_low_BSm3": 6.791123,
+        "gas_expected_base_BSm3": 10.489835,
+        "gas_P10_high_BSm3": 14.737721,
+        "condensate_P90_low_MSm3": 0.174085,
+        "condensate_expected_base_MSm3": 0.268705,
+        "condensate_P10_high_MSm3": 0.377590,
+        "low_pre_tax_NPV8_billion_NOK": -2.939677,
+        "base_pre_tax_NPV8_billion_NOK": 1.267462,
+        "high_pre_tax_NPV8_billion_NOK": 4.695492
+      },
+      "rendered_visual_validation": {
+        "renderer": "nbconvert 7.17.1 Jupyter HTML with MathJax source, original-resolution PNG inspection, and a pdflatex equation audit",
+        "display_equations_inspected": 4,
+        "figures_inspected": 7,
+        "result": "passed",
+        "notes": "The final HTML conversion completed. All four display equations and associated inline symbols were rendered and inspected for fractions, summation, conditional expectation, subscripts, units, and escaping. All seven retained figures were inspected at original resolution for labels, legends, units, contrast, clipping, overlap, scales, and consistency with the saved tables. The production-profile axes were corrected to start at zero, then the notebook was re-executed, re-rendered, and re-inspected."
+      },
+      "link_validation": {
+        "catalog_target_checked": true,
+        "relative_companion_notebook_links_checked": 8,
+        "broken_links": 0,
+        "result": "passed"
+      },
+      "official_information_policy": "SODIR and Norwegianpetroleum definitions are paraphrased from official sources accessed 22 August 2026. Live SODIR retrieval is disabled in the retained run. All project, fluid, composition, volume, rate, capacity, marketability, price, cost, schedule, and economic values are explicitly synthetic teaching inputs. The notebook instructs readers to re-check current controlling guidance and responsible licence evidence before formal use.",
+      "known_limitations": [
+        "The notebook does not make or audit a formal resource-classification decision and is not an RNB submission or reserves opinion.",
+        "The synthetic SRK process omits calibrated PVT, compositional variation, wells and SURF, dehydration, acid-gas removal, dew-point control, NGL recovery, detailed stabilization, product specifications, metering, availability, emissions, controls, and dynamics.",
+        "The marketability factors and facility capacity are teaching assumptions, not host guarantees, transport rights, tariffs, allocation rules, or commercial terms.",
+        "The educational probability distributions omit governed correlations, model-form uncertainty, bias, multi-project aggregation, and confidential evidence.",
+        "The economic screen is pre-tax and omits financing, detailed tariffs and processing charges, emissions cost, abandonment, reliability, and commercial allocation.",
+        "Retained outputs use NeqSim 3.17.0; the normal Colab source-build path for current master is present but was not the controlled output runtime."
+      ],
+      "documentation_impact": "Adds one advanced field-development entry to the main NeqSim-Colab catalog, eight relative companion-notebook links inside the notebook, and a dedicated maintenance shard. No NeqSim Java or Python API, numerical behavior, installation default, or model recommendation changed.",
+      "issue_handling": "No NeqSim defect or distinct actionable Java/Python API gap was exposed by the clean execution, so no equinor/neqsim issue was opened."
+    }
+  ]
+}
