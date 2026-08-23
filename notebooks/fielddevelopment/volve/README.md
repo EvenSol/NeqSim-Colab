@@ -69,7 +69,7 @@ variables documented in each notebook. In Colab, keep DATABRICKS_HOST and
 DATABRICKS_TOKEN in Colab Secrets; do not paste credentials into a notebook.
 
 The stored clean-runtime validation was made with deterministic teaching
-fixtures. Notebooks 02, 03, and 04 enable them by setting
+fixtures. Notebooks 01, 02, 03, and 04 enable them by setting
 VOLVE_VALIDATION_MODE=1; the other notebooks use the validation setup
 documented in their own setup cells.
 Every fixture output is marked DEMONSTRATION_FALLBACK. It is not measured Volve
@@ -80,7 +80,7 @@ data, a history match, a reserves statement, or a design certification.
 - All eight notebooks execute cleanly in the explicit validation mode with
   retained outputs. Exact code-cell, figure, equation, and engineering-check
   evidence is recorded in the Volve maintenance-ledger shard.
-- Notebooks 02, 03, and 04 install the newest released NeqSim distribution from
+- Notebooks 01, 02, 03, and 04 install the newest released NeqSim distribution from
   public PyPI with the unpinned `!pip install neqsim` command. They no longer
   clone or build NeqSim source and do not inject a custom JAR classpath.
 - Normal execution defaults to Marketplace mode and stops if the installed
