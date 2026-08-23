@@ -1,12 +1,13 @@
 {
   "schema_version": 1,
   "shard": "volve-field-calculations-20260815",
-  "updated_at": "2026-08-15T12:48:58Z",
+  "updated_at": "2026-08-22T20:36:31Z",
   "series_validation": {
     "marketplace_listing": "https://marketplace.databricks.com/details/5c3558ef-315c-44dd-baef-7062ac301f22/Equinor-ASA_Volve-Data-Village",
     "saved_execution_data_mode": "demonstration-fallback",
     "marketplace_measured_data_acceptance": "pending installed Unity Catalog Volume path and authenticated run",
-    "neqsim_master_runtime_acceptance": "pending clean connected Colab run",
+    "neqsim_master_runtime_acceptance": "pending clean connected Colab run for the remaining source-built Volve notebooks; notebook 02 is accepted on public PyPI",
+    "pypi_simplification": "notebook 02 passed full clean-runtime acceptance with the newest public-PyPI distribution and the exact unpinned !pip install neqsim command",
     "publication_readiness": "blocked until both pending acceptance runs pass",
     "handoff_contracts": 8
   },
@@ -64,26 +65,58 @@
     },
     {
       "path": "notebooks/fielddevelopment/volve/02_volve_pvt_blackoil_reservoir.ipynb",
-      "verified_date": "2026-08-15",
-      "verified_at_utc": "2026-08-15T08:56:49Z",
+      "verified_date": "2026-08-22",
+      "verified_at_utc": "2026-08-22T20:36:31Z",
       "execution_status": "passed",
       "execution_scope": "deterministic teaching fallback only; measured Volve data acceptance remains pending",
-      "execution_method": "Executed all cells sequentially from a fresh in-process IPython namespace with VOLVE_VALIDATION_MODE=1; retained outputs and raised on any cell error or captured stderr.",
-      "code_cells": 14,
+      "execution_method": "Resolved the newest NeqSim distribution from public PyPI with scripts/bootstrap_neqsim_validation_env.py --neqsim-version latest --refresh, then executed all cells sequentially in a fresh isolated in-process IPython namespace with VOLVE_VALIDATION_MODE=1; retained outputs and raised on any cell error or captured stderr.",
+      "installation": {
+        "notebook_command": "!pip install neqsim",
+        "artifact_origin": "public-pypi",
+        "source_build_removed": true,
+        "git_clone_removed": true,
+        "maven_build_removed": true,
+        "custom_jar_classpath_removed": true
+      },
+      "environment": {
+        "neqsim_version": "3.18.0",
+        "python_version": "3.12.13",
+        "java_version": "OpenJDK 17.0.19",
+        "numpy_version": "2.5.2",
+        "pandas_version": "3.0.5",
+        "matplotlib_version": "3.11.1",
+        "bootstrap_resolution": "online-new-snapshot with verified public-PyPI wheel hashes"
+      },
+      "code_cells": 15,
       "substantive_code_cells": 14,
       "markdown_cells": 14,
       "stored_outputs": 19,
       "stored_png_figures": 2,
       "display_equations": 0,
-      "git_blob_sha1": "dcb8560f2ac1fcc59434d343ab48cf9f572ad02d",
-      "notebook_bytes": 356268,
+      "git_blob_sha1": "da42e75117507539d8a160ce9072e4854ce98678",
+      "notebook_bytes": 353419,
       "capabilities": [
         "PVT, Eclipse/OPM and production-asset selection with provenance",
         "NeqSim SRK assay, bubble-pressure search, pressure sweep and DLE-derived black-oil properties",
         "field-history QC, material-balance screening, forecast construction and OPM Flow acceptance contract"
       ],
-      "engineering_validation": "All PVT and reservoir assertions passed; phase behavior, property positivity, history integrity, monotonic cumulative volumes, forecast ranges and handoff existence were verified.",
-      "rendered_visual_validation": "passed: two stored multi-panel figures inspected at original resolution"
+      "engineering_validation": "All 8 PVT and reservoir assertions passed; composition closure, finite and physical 178.84 bara bubble pressure, finite positive pressure-sweep properties, finite DLE table, non-negative field rates, physical forecast water cut and handoff existence were verified.",
+      "preservation": {
+        "substantive_code_cells": "14 of 14 preserved",
+        "markdown_cells": "14 of 14 preserved",
+        "stored_outputs": "19 of 19 preserved",
+        "stored_png_figures": "2 of 2 preserved",
+        "png_sha256": [
+          "5c0133c3c47f244c0db60391956b2f5ddd26af4c3e0ea98fb09829a2c3f06035",
+          "5bfd6e429094a4d5f69d3ed47a848360c6c0281e598c482b2ae27b112d2120f6"
+        ]
+      },
+      "output_comparison": "Bubble pressure remained 178.84 bara and both stored PNG figures are byte-identical to the pre-change baseline. STOIIP teaching-fixture quantiles changed by +0.6304%, -0.0557%, and +0.6351% because the unpinned environment resolved a newer NumPy quantile implementation; the deterministic input seed, NeqSim results, engineering conclusions, and figures are unchanged.",
+      "rendered_visual_validation": "passed: nbconvert 7.17.1 HTML export retained MathJax 2.7.7 and all 6 inline equations; a 16-page XeLaTeX compatibility render was inspected page by page, including every table and both multi-panel figures at original resolution, with readable labels and units and no clipping, overlap, blank output, or broken assets",
+      "checker": "python scripts/check_notebook.py <notebook> --ledger validation/checker-ledger.json --catalog validation/checker-catalog.ipynb --baseline validation/checker-baseline.json: 0 errors, 0 warnings; nbformat 4.5 validation passed",
+      "documentation_impact": "Updated the Volve README to identify notebook 02 as public-PyPI-only while preserving Marketplace as the normal data mode.",
+      "limitations": "Measured Marketplace data and OPM Flow acceptance remain pending and are independent of the NeqSim installer change.",
+      "next_candidate": "notebooks/fielddevelopment/volve/04_volve_facilities_processing.ipynb"
     },
     {
       "path": "notebooks/fielddevelopment/volve/03_volve_wells_surf_flow_assurance.ipynb",
@@ -231,16 +264,27 @@
     }
   ],
   "series_checks": {
-    "notebook_checker": "passed: 0 errors, 0 warnings with --require-main-source on all eight notebooks",
+    "notebook_checker": "2026-08-15 historical series check: 0 errors, 0 warnings with --require-main-source before notebook 02 was simplified to public PyPI",
+    "campaign_140_notebook_checker": "notebook 02 passed the current checker with 0 errors and 0 warnings without the obsolete --require-main-source contract",
     "checker_unit_tests": "passed: 6 tests",
     "stored_errors": 0,
     "captured_stderr_outputs": 0,
     "figures_inspected": 28,
     "display_equations_inspected": 24,
-    "html_rendering": "passed with nbconvert 7.17.x",
+    "html_rendering": "passed with nbconvert 7.17.1; notebook 02 MathJax and 16-page compatibility render visually inspected after final execution",
     "contract_data_status": "DEMONSTRATION_FALLBACK"
   },
-  "documentation_impact": "Established the eight-notebook Volve series as the principal NeqSim-Colab field-lifecycle collection, added an exact nine-requirement coverage and acceptance matrix, and added a closed-loop capstone for development scenarios, placement, OPM-primary history matching, facility feedback, injection, economic limit and decommissioning. No NeqSim Java API, numerical behavior, installation default or model recommendation changed.",
+  "campaign_140": {
+    "issue": 140,
+    "classification": "notebooks/fielddevelopment/volve/02_volve_pvt_blackoil_reservoir.ipynb: public PyPI simplification validated; merge pending",
+    "base_commit": "8622fb87ded99c04d63de70fc1a8ffbe8af70700",
+    "branch": "agent/campaign140-pypi-volve-pvt",
+    "installer_before": "clone equinor/neqsim master, Maven source build, pinned Python bridge and custom JAR classpath",
+    "installer_after": "!pip install neqsim",
+    "mandatory_gates": "fresh public-PyPI resolution, 15/15 clean execution, 0 stored errors, 0 stderr, checker 0/0, engineering assertions 8/8, exact figure comparison 2/2, HTML/MathJax export and complete visual inspection passed",
+    "next_candidate": "notebooks/fielddevelopment/volve/04_volve_facilities_processing.ipynb"
+  },
+  "documentation_impact": "Established the eight-notebook Volve series as the principal NeqSim-Colab field-lifecycle collection, added an exact nine-requirement coverage and acceptance matrix, and added a closed-loop capstone for development scenarios, placement, OPM-primary history matching, facility feedback, injection, economic limit and decommissioning. Campaign #140 now documents notebook 02 as using the newest public-PyPI NeqSim distribution with the unpinned installer; no NeqSim Java API or model recommendation changed.",
   "known_upstream_issues": [],
   "issue_handling": "No confirmed NeqSim defect or missing public API was found. Databricks authentication and the installed Unity Catalog Volume path are acceptance prerequisites, not NeqSim issues."
 }
