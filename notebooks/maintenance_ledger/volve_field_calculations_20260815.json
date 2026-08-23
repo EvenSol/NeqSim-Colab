@@ -131,8 +131,8 @@
       "stored_outputs": 18,
       "stored_png_figures": 4,
       "display_equations": 3,
-      "git_blob_sha1": "3d3f0fdb02cfc1bd0110da22ecf5eeabd9551825",
-      "notebook_bytes": 402892,
+      "git_blob_sha1": "b19cd306944211d9ce5b8899aff9b1340003138a",
+      "notebook_bytes": 418987,
       "capabilities": [
         "well trajectories, completions, productivity, injectivity, IPR/VLP and nodal operating points",
         "NeqSim wellstream phase properties and pipeline hydraulic-diameter screening",
