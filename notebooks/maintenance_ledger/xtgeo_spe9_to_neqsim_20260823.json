@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "shard": "xtgeo-spe9-to-neqsim-20260823",
+  "updated_at": "2026-08-23T15:33:40Z",
+  "notebooks": [
+    {
+      "path": "notebooks/reservoir/xtgeo_spe9_subsurface_to_neqsim.ipynb",
+      "verified_date": "2026-08-23",
+      "verified_at_utc": "2026-08-23T15:33:40Z",
+      "neqsim_version": "3.18.0 public PyPI release",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "xtgeo_version": "4.25.1",
+      "xtgeoviz_version": "0.3.2",
+      "numpy_version": "2.4.6",
+      "execution_status": "passed",
+      "execution_method": "Executed all 20 code cells sequentially from an empty in-process IPython namespace with scripts/execute_notebook_inprocess.py and public PyPI installations of NeqSim, XTGeo, and XTGeoViz. The final clean run completed in 20.9 seconds, retained every result-bearing output, stored six PNG figures, and produced zero error outputs or stderr.",
+      "code_cells": 20,
+      "substantive_code_cells": 20,
+      "markdown_cells": 15,
+      "git_blob_sha1": "0c3653c3b9ff3b5bb6e2c66d57680567e62170fb",
+      "notebook_bytes": 592587,
+      "publication": {
+        "branch": "agent/xtgeo-spe9-to-neqsim",
+        "mode": "focused draft pull request",
+        "files": [
+          "notebooks/reservoir/xtgeo_spe9_subsurface_to_neqsim.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json",
+          "notebooks/maintenance_ledger/xtgeo_spe9_to_neqsim_20260823.json"
+        ]
+      },
+      "open_data": {
+        "repository": "equinor/xtgeo-testdata",
+        "commit": "cad17f24e22c19c6cefe6f647185395cc0a11add",
+        "license": "LGPL-3.0",
+        "dataset": "Synthetic SPE9 benchmark EGRID, INIT, DATA, and INITSOL files",
+        "integrity": "All four files are downloaded from immutable commit URLs and verified against embedded SHA-256 checksums."
+      },
+      "xtgeo_capabilities_demonstrated": [
+        "EGRID geometry and INIT property loading with active-cell and property-range audits",
+        "GRDECL restart property loading for pressure, water saturation, gas saturation, and solution GOR",
+        "field-unit pore-volume reconstruction and initial hydrocarbon pore-volume aggregation",
+        "RegularSurface generation and Points-based spaced candidate-column screening"
+      ],
+      "xtgeoviz_capabilities_demonstrated": [
+        "depth-map rendering of an XTGeo RegularSurface",
+        "initial hydrocarbon pore-volume mapping with overlaid XTGeo candidate Points"
+      ],
+      "neqsim_capabilities_demonstrated": [
+        "explicit SRK teaching-fluid construction with TBP and plus fractions and a bubble-point audit",
+        "surface oil, gas, and water template construction followed by rate-based recombination",
+        "composable choke, cooler, three-phase separation, low-pressure separation, and gas recompression",
+        "mass-conservation, reconstruction, monotonic-load, and compression-capacity checks"
+      ],
+      "engineering_validation": {
+        "named_assertions_passed": 18,
+        "assertions_failed": 0,
+        "checks": [
+          "all four open-data files match their pinned SHA-256 checksums",
+          "the grid contains 24 by 25 by 15 cells and all 9000 are active",
+          "porosity, permeability, saturations, and pressure remain within physical bounds",
+          "the field-unit pore-volume identity closes below 1e-6 relative residual",
+          "five candidate columns meet the minimum five-grid-step spacing rule",
+          "the teaching assay closes to 100 mol% and its bubble pressure remains below initial reservoir pressure",
+          "all facility mass and reconstruction residuals remain below 1e-8 kg/s",
+          "compression demand rises monotonically with throughput"
+        ]
+      },
+      "result_summary": {
+        "active_cells": 9000,
+        "initial_hydrocarbon_pore_volume_million_reservoir_m3": 37.787417,
+        "deterministic_stoiip_million_sm3": 34.042718,
+        "p10_stoiip_million_sm3": 31.005,
+        "p50_stoiip_million_sm3": 34.031,
+        "p90_stoiip_million_sm3": 37.255,
+        "pore_volume_weighted_pressure_bara": 268.971411,
+        "pore_volume_weighted_solution_gor_sm3_per_sm3": 247.568,
+        "base_case_compression_mw": 4.431427,
+        "high_case_compression_utilization_percent": 103.399847
+      },
+      "rendered_visual_validation": {
+        "renderer": "nbconvert 7.17.1 Jupyter HTML with MathJax source plus Matplotlib MathText equation audit",
+        "display_equations_inspected": 7,
+        "figures_inspected": 6,
+        "result": "passed",
+        "notes": "All equations rendered with correct fractions, Greek symbols, subscripts, superscripts, operators, and delimiters. All retained figures were inspected at original resolution for labels, units, legends, color contrast, scales, clipping, overlap, and agreement with stored numerical tables."
+      },
+      "known_upstream_issue": null,
+      "issue_handling": "No NeqSim defect was reproduced. The notebook limitations distinguish the synthetic benchmark, screening proxies, teaching PVT reconstruction, nonhistory-matched fluid, and steady-state facility model from decision-grade studies."
+    }
+  ]
+}
