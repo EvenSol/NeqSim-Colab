@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
   "shard": "volve-field-calculations-20260815",
-  "updated_at": "2026-08-23T06:54:44Z",
+  "updated_at": "2026-08-23T07:51:40Z",
   "series_validation": {
     "marketplace_listing": "https://marketplace.databricks.com/details/5c3558ef-315c-44dd-baef-7062ac301f22/Equinor-ASA_Volve-Data-Village",
     "saved_execution_data_mode": "demonstration-fallback",
     "marketplace_measured_data_acceptance": "pending installed Unity Catalog Volume path and authenticated run",
-    "neqsim_master_runtime_acceptance": "pending clean connected Colab runs for the remaining source-built Volve notebooks; notebooks 02, 03 and 04 are accepted on public PyPI",
-    "pypi_simplification": "notebooks 02, 03 and 04 passed full clean-runtime acceptance with the newest public-PyPI distribution and the exact unpinned !pip install neqsim command",
+    "neqsim_master_runtime_acceptance": "Volve notebooks 01, 02, 03 and 04 are accepted on public PyPI; remaining source-provenance contracts in the shard are unchanged",
+    "pypi_simplification": "notebooks 01, 02, 03 and 04 passed full clean-runtime acceptance with the newest public-PyPI distribution and the exact unpinned !pip install neqsim command",
     "publication_readiness": "blocked until both pending acceptance runs pass",
     "handoff_contracts": 8
   },
@@ -42,26 +42,63 @@
   "notebooks": [
     {
       "path": "notebooks/fielddevelopment/volve/01_volve_seismic_wells_static_model.ipynb",
-      "verified_date": "2026-08-15",
-      "verified_at_utc": "2026-08-15T08:56:49Z",
+      "verified_date": "2026-08-23",
+      "verified_at_utc": "2026-08-23T07:44:30Z",
       "execution_status": "passed",
       "execution_scope": "deterministic teaching fallback only; measured Volve data acceptance remains pending",
-      "execution_method": "Executed all cells sequentially from a fresh in-process IPython namespace with VOLVE_VALIDATION_MODE=1; retained outputs and raised on any cell error or captured stderr.",
+      "execution_method": "Resolved the newest NeqSim distribution from public PyPI with scripts/bootstrap_neqsim_validation_env.py --neqsim-version latest --refresh --require-online-resolution, then clean-executed all cells top to bottom in a fresh isolated in-process IPython kernel path with VOLVE_VALIDATION_MODE=1 and VOLVE_DATA_MODE=demo; retained outputs and raised on any cell error or captured stderr.",
       "code_cells": 15,
-      "substantive_code_cells": 15,
+      "substantive_code_cells": 14,
       "markdown_cells": 15,
       "stored_outputs": 17,
       "stored_png_figures": 4,
       "display_equations": 4,
-      "git_blob_sha1": "b945fad4f02d02e63d9fbf6a2debc8b8fb05456b",
-      "notebook_bytes": 632537,
+      "git_blob_sha1": "567e6ec4e3206f4d53e5c2b694180fd2cf6673d0",
+      "notebook_bytes": 629558,
       "capabilities": [
         "Databricks Marketplace Volume inventory, classification, explicit selection, digest and least-download interface",
         "SEG-Y geometry and amplitude QC, horizon picking, discontinuity screening and depth conversion",
         "well-log petrophysics, NeqSim phase densities, STOIIP uncertainty and static-model handoff"
       ],
-      "engineering_validation": "All geoscience assertions passed; top and thickness truth checks, physical log ranges, finite NeqSim densities, ordered STOIIP percentiles and handoff existence were verified.",
-      "rendered_visual_validation": "passed: four equations and four stored figures inspected at original resolution"
+      "engineering_validation": "All 8 geoscience assertions passed: the 36 x 44 x 220 cube was finite, top-pick RMSE 1.155289 ms and thickness RMSE 1.606098 ms were each below one 4 ms sample, every well retained pay, porosity stayed physical, STOIIP percentiles were ordered, NeqSim fluid properties were positive, and the handoff existed. GRV was 289680000 m3 and deterministic STOIIP was 11.58580 MSm3.",
+      "rendered_visual_validation": "passed: nbconvert 7.17.1 HTML export retained MathJax and all four displayed equations; an 18-page XeLaTeX compatibility render was inspected page by page, including every Markdown section, all eight rich result tables, all four figures, labels and units, with no clipping, overlap, blank output or broken assets",
+      "installation": {
+        "notebook_command": "!pip install neqsim",
+        "artifact_origin": "public-pypi",
+        "source_build_removed": true,
+        "git_clone_removed": true,
+        "maven_build_removed": true,
+        "custom_jar_classpath_removed": true
+      },
+      "environment": {
+        "neqsim_version": "3.18.0",
+        "python_version": "3.12.13",
+        "java_version": "OpenJDK 17.0.19",
+        "numpy_version": "2.5.2",
+        "pandas_version": "3.0.5",
+        "matplotlib_version": "3.11.1",
+        "nbformat_version": "5.11.1",
+        "nbconvert_version": "7.17.1",
+        "bootstrap_resolution": "online-new-snapshot with verified public-PyPI wheel hashes"
+      },
+      "preservation": {
+        "substantive_code_cells": "14 of 14 preserved",
+        "markdown_cells": "15 of 15 retained; only the installer-policy cell was simplified",
+        "user_relevant_stored_outputs": "17 of 17 preserved; obsolete source provenance was replaced by concise public-package environment evidence",
+        "rich_result_tables": "8 of 8 preserved",
+        "stored_png_figures": "4 of 4 preserved",
+        "png_sha256": [
+          "2410d4c5ba1f48c7c9b6ef6ac02a9870df8962585f40009948d6eaf473faf8bb",
+          "06267f9d3c6361479ef36c0a4e0e8336a1381c197add2e2bb586d1d257d170ea",
+          "4b373c51747d2b6761c2969541ac2c14250b39609eddb6abdd01d7c55f83f087",
+          "936b8d7c04ba103af9b59598cb89c5dcbf5f710425ff80ae9af8640c4a37a3c5"
+        ]
+      },
+      "output_comparison": "Every substantive post-setup text, table and numerical result matches the pre-change baseline. NeqSim oil density remained 638.2771909533349 kg/m3 and viscosity remained 0.20487701620205578 cP. The generated handoff retained every engineering value; only its isolated absolute work path and generated-at timestamp changed. All four PNG figures are byte-identical.",
+      "checker": "python scripts/check_notebook.py notebooks/fielddevelopment/volve/01_volve_seismic_wells_static_model.ipynb: 0 errors, 0 warnings; python -m unittest discover -s . -p 'test_*.py' from scripts/: 14 tests passed",
+      "documentation_impact": "Updated the Volve README to identify notebooks 01, 02, 03 and 04 as public-PyPI-only while preserving Marketplace as the normal data mode; catalog path unchanged.",
+      "limitations": "Measured Marketplace data acceptance remains pending and is independent of the NeqSim installer change. The deterministic fallback remains a teaching fixture, not measured Volve data, a history match, reserves statement or certified design.",
+      "next_candidate": "notebooks/fluidflow/neqsim_fenicsx_fem_pipeline.ipynb"
     },
     {
       "path": "notebooks/fielddevelopment/volve/02_volve_pvt_blackoil_reservoir.ipynb",
@@ -333,26 +370,26 @@
   ],
   "series_checks": {
     "notebook_checker": "2026-08-15 historical series check: 0 errors, 0 warnings with --require-main-source before notebook 02 was simplified to public PyPI",
-    "campaign_140_notebook_checker": "notebooks 02, 03 and 04 passed the current checker with 0 errors and 0 warnings without the obsolete --require-main-source contract",
+    "campaign_140_notebook_checker": "notebooks 01, 02, 03 and 04 passed the current checker with 0 errors and 0 warnings without the obsolete --require-main-source contract",
     "checker_unit_tests": "passed: 14 tests",
     "stored_errors": 0,
     "captured_stderr_outputs": 0,
     "figures_inspected": 28,
     "display_equations_inspected": 24,
-    "html_rendering": "passed with nbconvert 7.17.1; notebook 04 retained MathJax 2.7.7 and its 17-page compatibility render, and notebook 03 retained MathJax and all three equations in its 18-page compatibility render; both were inspected after final execution",
+    "html_rendering": "passed with nbconvert 7.17.1; notebook 01 retained MathJax and all four equations in its complete 18-page compatibility render; prior campaign render evidence for notebooks 02, 03 and 04 is retained",
     "contract_data_status": "DEMONSTRATION_FALLBACK"
   },
   "campaign_140": {
     "issue": 140,
-    "classification": "notebooks 02 and 04 merged; notebooks/fielddevelopment/volve/03_volve_wells_surf_flow_assurance.ipynb public-PyPI simplification validated in draft-PR scope",
-    "base_commit": "591a4293a084372d69669f0306674a8b82b372fe",
-    "branch": "agent/campaign140-pypi-volve-wells-surf",
+    "classification": "notebooks 02, 03 and 04 merged; notebooks/fielddevelopment/volve/01_volve_seismic_wells_static_model.ipynb public-PyPI simplification validated in draft-PR scope",
+    "base_commit": "ab3605823dcd8eb67dea1685900b7788ccffacfe",
+    "branch": "agent/campaign140-pypi-volve-static-model",
     "installer_before": "pinned Python bridge, clone equinor/neqsim master, Maven source build and custom JAR classpath",
     "installer_after": "!pip install neqsim",
-    "mandatory_gates": "fresh public-PyPI resolution, explicit merged notebook-02 handoff, 15/15 clean execution, 0 stored errors, 0 stderr, checker 0/0, 14/14 unit tests, engineering assertions 9/9, exact substantive numerical comparison, exact figure comparison 4/4, HTML/MathJax export and complete 18-page visual inspection passed",
-    "next_candidate": "notebooks/fielddevelopment/volve/01_volve_seismic_wells_static_model.ipynb"
+    "mandatory_gates": "fresh public-PyPI resolution, 15/15 clean execution, 0 stored errors, 0 stderr, checker 0/0, 14/14 unit tests, engineering assertions 8/8, exact substantive numerical comparison, exact figure comparison 4/4, HTML/MathJax export and complete 18-page visual inspection passed",
+    "next_candidate": "notebooks/fluidflow/neqsim_fenicsx_fem_pipeline.ipynb"
   },
-  "documentation_impact": "Established the eight-notebook Volve series as the principal NeqSim-Colab field-lifecycle collection, added an exact nine-requirement coverage and acceptance matrix, and added a closed-loop capstone for development scenarios, placement, OPM-primary history matching, facility feedback, injection, economic limit and decommissioning. Campaign #140 now documents notebooks 02, 03 and 04 as using the newest public-PyPI NeqSim distribution with the unpinned installer; no NeqSim Java API, engineering model, or catalog path changed.",
+  "documentation_impact": "Established the eight-notebook Volve series as the principal NeqSim-Colab field-lifecycle collection and retained its acceptance matrix and closed-loop capstone. Campaign #140 now documents notebooks 01, 02, 03 and 04 as using the newest public-PyPI NeqSim distribution with the unpinned installer; no NeqSim Java API, engineering model, or catalog path changed.",
   "known_upstream_issues": [],
   "issue_handling": "No confirmed NeqSim defect or missing public API was found. Databricks authentication and the installed Unity Catalog Volume path are acceptance prerequisites, not NeqSim issues."
 }
