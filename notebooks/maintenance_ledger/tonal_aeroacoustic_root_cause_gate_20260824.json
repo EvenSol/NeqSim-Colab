@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "shard": "tonal-aeroacoustic-root-cause-gate-20260824",
+  "updated_at": "2026-08-24T16:40:49Z",
+  "notebooks": [
+    {
+      "path": "notebooks/fluidflow/tonal_aeroacoustic_root_cause_gate.ipynb",
+      "verified_date": "2026-08-24",
+      "verified_at_utc": "2026-08-24T16:40:49Z",
+      "neqsim_version": "3.18.0",
+      "neqsim_main_commit_built": "7d0d056b650ff8f776e2229add68a2e78f280551",
+      "neqsim_main_jar_sha256": "da2df0dbbc61593d3ab5da76d3329cc3d3c52f84de30a9e667ccb71fae8ce73a",
+      "python_version": "3.12.13",
+      "java_version": "OpenJDK 17.0.19",
+      "execution_status": "passed",
+      "execution_method": "Executed all 15 code cells sequentially from an empty in-process IPython namespace in a fresh isolated environment. The run used the verified public NeqSim 3.18.0 wheel, retained 22 outputs and four PNG figures, and produced zero error outputs and zero stderr. The current main Java source also built successfully before notebook validation.",
+      "environment_resolution": {
+        "mode": "online-new-snapshot",
+        "bootstrap": "python scripts/bootstrap_neqsim_validation_env.py --venv /tmp/neqsim-aeroacoustic-validation --neqsim-version latest --extra-package nbconvert --refresh",
+        "resolved_neqsim_version": "3.18.0",
+        "integrity": "Fresh environment, package hashes, runtime, and requested validation toolchain verified before execution."
+      },
+      "code_cells": 15,
+      "substantive_code_cells": 15,
+      "markdown_cells": 18,
+      "git_blob_sha1": "0c60b984e03ec9d5e2f80d2f159e3ec8b5f95fbc",
+      "notebook_sha256": "e2bab4ce253e3a70c156d410476561bd9c324386c235b799f6f9c75464ff0640",
+      "notebook_bytes": 540055,
+      "publication": {
+        "branch": "agent/tonal-aeroacoustic-pepr-notebook",
+        "mode": "focused draft pull request",
+        "files": [
+          "notebooks/fluidflow/tonal_aeroacoustic_root_cause_gate.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json",
+          "notebooks/maintenance_ledger/tonal_aeroacoustic_root_cause_gate_20260824.json"
+        ]
+      },
+      "neqsim_capabilities_demonstrated": [
+        "SRK dry-gas construction with TP and PH flashes",
+        "thermodynamic and hydraulic boundary extraction",
+        "IEC 60534-8-3 control-valve noise screening",
+        "acoustic-induced-vibration screening and pressure-drop sensitivity",
+        "flow-induced-pulsation and branch-mode screening",
+        "multi-hypothesis evidence synthesis with independent-source gating"
+      ],
+      "transient_cfd_caa_verification": {
+        "method": "one-dimensional linearized compressible Euler finite-volume solver with Rusanov flux and damped end zones",
+        "cells": 360,
+        "time_steps": 11479,
+        "time_step_microseconds": 5.2269,
+        "courant_number": 0.64996,
+        "imposed_source_hz": 750.0,
+        "recovered_sensor_peak_hz": 750.07,
+        "scope": "Numerical and spectral verification only; no installed geometry or causal root-source claim."
+      },
+      "engineering_validation": {
+        "named_assertions_passed": 15,
+        "assertions_failed": 0,
+        "checks": [
+          "thermodynamic state and hydraulic quantities are finite and physical",
+          "valve-noise and AIV screens execute with explicit synthetic inputs",
+          "transient compressible solver maintains Courant number below one",
+          "transient state remains finite and acoustic energy density nonnegative",
+          "virtual sensors recover the imposed tone within 30 Hz",
+          "synthetic time histories recover the same 750 Hz tone before and after an amplitude change",
+          "geometry-sensitive branch modes are not treated as installed frequencies",
+          "steady RANS is limited to mean hydraulics",
+          "actual geometry, synchronized spectra, modal data, resolution independence, independent corroboration, and intervention remain mandatory",
+          "evidence synthesis retains a single-source warning and weak top-hypothesis confidence",
+          "final root-cause verdict is STOP — CAUSE UNRESOLVED"
+        ]
+      },
+      "result_summary": {
+        "synthetic_upstream_pressure_bara_abs": 55.0,
+        "synthetic_downstream_pressure_bara_abs": 15.0,
+        "downstream_density_kg_m3": 11.304,
+        "downstream_speed_of_sound_m_s": 414.49,
+        "downstream_bulk_velocity_m_s": 43.645,
+        "downstream_mach_number": 0.1053,
+        "synthetic_valve_external_level_dba": 73.588,
+        "synthetic_aiv_margin_db": 3.0579,
+        "recovered_cfd_sensor_peak_hz": 750.07,
+        "final_verdict": "STOP — CAUSE UNRESOLVED"
+      },
+      "rendered_visual_validation": {
+        "renderer": "nbconvert HTML plus extracted original-resolution Matplotlib PNG outputs",
+        "html_bytes": 896293,
+        "figures_inspected": 4,
+        "result": "passed",
+        "notes": "Pressure sensitivity, transient pressure and sensor spectra, synthetic response spectra, and branch-mode geometry sweep were inspected for titles, axes, units, legends, color contrast, clipping, overlap, scale, and consistency with the stored numerical outputs."
+      },
+      "notebook_quality": {
+        "valid_nbformat_json": true,
+        "sequential_execution_counts": "1 through 15",
+        "error_outputs": 0,
+        "stored_stderr": 0,
+        "colab_badge_valid": true,
+        "public_pypi_setup_cell": true,
+        "hidden_local_dependencies": false,
+        "repository_checker": "0 errors, 0 warnings",
+        "repository_checker_unit_tests": "6 passed",
+        "catalog_target_occurrences": 1,
+        "public_case_data": "synthetic and non-identifying"
+      },
+      "documentation_impact": "Added one catalog entry and a dedicated maintenance-ledger shard. No API documentation change is required because the notebook uses released public classes without introducing a library API change.",
+      "summary": "Added an evidence-gated PEPR teaching notebook that combines NeqSim thermodynamic and vibration screens with a real time-marching compressible CFD/CAA verification, synthetic spectra, geometry and modal-data requirements, hypothesis synthesis, and an executable stop gate that prevents a tonal root-cause declaration when installed evidence is missing."
+    }
+  ]
+}
