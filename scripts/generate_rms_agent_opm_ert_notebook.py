@@ -839,7 +839,7 @@ of cell values into the browser.
 """))
 
 cells.append(code(r"""
-relative_permeability_tables = """
+relative_permeability_tables = '''
 SWOF
   0.12  0.00000  1.0000  0.0
   0.20  0.00010  0.8500  0.0
@@ -862,7 +862,7 @@ SGOF
   0.60  0.7800  0.0100  0.0
   0.70  0.9300  0.0010  0.0
   0.88  1.0000  0.0000  0.0 /
-""".strip()
+'''.strip()
 print(relative_permeability_tables)
 
 grid_include_path = OUTPUT_DIRECTORY / "REEK_GRID.GRDECL"
@@ -910,7 +910,7 @@ def completion_lines(well_name, i_index, j_index, layers):
     )
 
 def render_deck(perm_multiplier, poro_multiplier, injection_rate):
-    return f"""
+    return f'''
 RUNSPEC
 TITLE
   PUBLIC RMS-ORIGIN REEK MODEL: NEQSIM PVT, OPM FLOW, ERT
@@ -1021,7 +1021,7 @@ TSTEP
   24*30.4375 /
 
 END
-""".strip()
+'''.strip()
 
 deck_text = render_deck(1.0, 1.0, 12000.0)
 deck_path = OUTPUT_DIRECTORY / "RMS_REEK_BASE.DATA"
@@ -1387,10 +1387,10 @@ the same directory and parameter contracts as a larger study.
 """))
 
 cells.append(code(r"""
-parameter_priors = """PERM_MULT UNIFORM 0.70 1.30
+parameter_priors = '''PERM_MULT UNIFORM 0.70 1.30
 PORO_MULT UNIFORM 0.95 1.05
 INJ_RATE UNIFORM 8000.0 16000.0
-"""
+'''
 (ERT_DIRECTORY / "parameters.txt").write_text(parameter_priors, encoding="utf-8")
 
 template_text = render_deck(
@@ -1401,7 +1401,7 @@ template_text = render_deck(
 template_path = ERT_DIRECTORY / "RMS_REEK.DATA.jinja2"
 template_path.write_text(template_text + "\n", encoding="utf-8")
 
-ert_configuration = f"""
+ert_configuration = f'''
 NUM_REALIZATIONS 4
 MIN_REALIZATIONS 4
 RANDOM_SEED {RANDOM_SEED}
@@ -1421,7 +1421,7 @@ FORWARD_MODEL TEMPLATE_RENDER(
   <OUTPUT_FILE>=RMS_REEK.DATA
 )
 FORWARD_MODEL FLOW
-"""
+'''
 ert_configuration = textwrap.dedent(ert_configuration).strip() + "\n"
 ert_config_path = ERT_DIRECTORY / "rms_reek.ert"
 ert_config_path.write_text(ert_configuration, encoding="utf-8")
