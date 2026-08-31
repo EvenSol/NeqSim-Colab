@@ -1,0 +1,65 @@
+name: Validate RMS OPM ERT notebook
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - notebooks/reservoir/rms_to_opm_flow_agent_ert.ipynb
+      - scripts/generate_rms_agent_opm_ert_notebook.py
+      - .github/workflows/rms-opm-ert-notebook-validation.yml
+
+permissions:
+  contents: read
+
+jobs:
+  execute-and-validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install notebook runner
+        run: |
+          python -m pip install --quiet nbformat==5.10.4 nbconvert==7.16.6 jupyter-client ipykernel
+          python -m ipykernel install --user --name python3 --display-name 'Python 3'
+      - name: Generate notebook source
+        run: python scripts/generate_rms_agent_opm_ert_notebook.py
+      - name: Execute notebook from a clean kernel
+        run: >-
+          jupyter nbconvert --to notebook --execute --inplace
+          --ExecutePreprocessor.timeout=4200
+          --ExecutePreprocessor.iopub_timeout=120
+          notebooks/reservoir/rms_to_opm_flow_agent_ert.ipynb
+      - name: Validate execution and repository contracts
+        run: |
+          python scripts/check_notebook.py notebooks/reservoir/rms_to_opm_flow_agent_ert.ipynb --require-main-source
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          path = Path('notebooks/reservoir/rms_to_opm_flow_agent_ert.ipynb')
+          notebook = json.loads(path.read_text(encoding='utf-8'))
+          code = [cell for cell in notebook['cells'] if cell['cell_type'] == 'code']
+          missing = [i for i, cell in enumerate(code, 1) if cell.get('execution_count') is None]
+          errors = [output for cell in code for output in cell.get('outputs', []) if output.get('output_type') == 'error']
+          images = sum('image/png' in output.get('data', {}) for cell in code for output in cell.get('outputs', []))
+          assert not missing, f'Unexecuted code cells: {missing}'
+          assert not errors, f'Stored errors: {errors}'
+          assert images >= 11, f'Expected at least 11 retained PNG outputs, found {images}'
+          print({'code_cells': len(code), 'retained_png_outputs': images, 'stored_errors': len(errors)})
+          PY
+      - name: Render HTML for visual review
+        run: >-
+          jupyter nbconvert --to html
+          --output rms_to_opm_flow_agent_ert.html
+          notebooks/reservoir/rms_to_opm_flow_agent_ert.ipynb
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rms-opm-ert-executed-notebook
+          path: |
+            notebooks/reservoir/rms_to_opm_flow_agent_ert.ipynb
+            notebooks/reservoir/rms_to_opm_flow_agent_ert.html
+          if-no-files-found: error
+          retention-days: 14
