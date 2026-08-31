@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
   "shard": "rms-opm-ert-agent-20260831",
-  "updated_at": "2026-08-31T17:05:33Z",
+  "updated_at": "2026-08-31T17:15:07Z",
   "notebooks": [
     {
       "path": "notebooks/reservoir/rms_to_opm_flow_agent_ert.ipynb",
       "verified_date": "2026-08-31",
-      "verified_at_utc": "2026-08-31T17:05:33Z",
+      "verified_at_utc": "2026-08-31T17:15:07Z",
       "neqsim_version": "3.18.0 Python bridge with current source-built Java master",
       "neqsim_commit": "1f7a01b06307d9d56451e43bb8d6023d28d14007",
-      "neqsim_jar_sha256": "1e7d2c1c0678220db9b82385e7f614cf6e62aea367d6610c8035b707032bc739",
+      "neqsim_jar_sha256": "39e1de9738baaef18726c5d7a3f9cccf3a8af29a8e39761f90d92b870b0a857a",
       "python_version": "3.12.14",
       "xtgeo_version": "4.25.1",
       "opm_version": "2026.4",
@@ -19,8 +19,8 @@
       "code_cells": 42,
       "substantive_code_cells": 42,
       "markdown_cells": 20,
-      "git_blob_sha1": "160b7ffab7e3bf5d4f2dcfeaede8567d82b7d557",
-      "notebook_bytes": 2735505,
+      "git_blob_sha1": "1501daf688f19b19e6f65e777e5a3259c7184098",
+      "notebook_bytes": 2747005,
       "publication": {
         "branch": "codex/rms-agent-opm-ert-notebook",
         "mode": "focused draft pull request",
@@ -56,7 +56,7 @@
       "result_summary": {
         "data_commit": "cad17f24e22c19c6cefe6f647185395cc0a11add",
         "neqsim_commit": "1f7a01b06307d9d56451e43bb8d6023d28d14007",
-        "neqsim_jar_sha256": "1e7d2c1c0678220db9b82385e7f614cf6e62aea367d6610c8035b707032bc739",
+        "neqsim_jar_sha256": "39e1de9738baaef18726c5d7a3f9cccf3a8af29a8e39761f90d92b870b0a857a",
         "grid_dimensions": [
           40,
           64,
@@ -76,6 +76,14 @@
         "ert_final_oil_range_million_sm3": [
           7.305,
           7.305
+        ],
+        "ert_final_pressure_range_bara": [
+          219.46754455566406,
+          230.8283233642578
+        ],
+        "ert_final_water_rate_range_sm3_day": [
+          0.008757241070270538,
+          0.010717831552028656
         ],
         "selected_process_realization": 0,
         "compressor_power_MW": 2.680346000234267,
