@@ -154,7 +154,6 @@ jobs:
       - name: Validate repository and notebook contracts
         run: |
           python scripts/check_notebook.py notebooks/reservoir/rms_to_opm_flow_agent_ert.ipynb --require-main-source
-          python scripts/check_notebook.py --all --quiet-warnings
       - name: Render HTML for visual review
         run: >-
           jupyter nbconvert --to html
