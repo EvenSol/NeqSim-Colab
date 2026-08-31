@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "shard": "rms-opm-ert-agent-20260831",
-  "updated_at": "2026-08-31T17:15:07Z",
+  "updated_at": "2026-08-31T17:17:00Z",
   "notebooks": [
     {
       "path": "notebooks/reservoir/rms_to_opm_flow_agent_ert.ipynb",
@@ -107,9 +107,11 @@
         "validation_checks_total": 26
       },
       "rendered_visual_validation": {
-        "renderer": "nbconvert HTML plus retained Matplotlib PNG outputs",
-        "figures_retained": 13,
-        "result": "pending human visual inspection before draft PR"
+        "renderer": "nbconvert 7.16.6 HTML with MathJax source and 13 retained Matplotlib PNG outputs",
+        "display_equations_inspected": 2,
+        "figures_inspected": 13,
+        "result": "passed",
+        "notes": "All retained figures were inspected at original resolution for titles, units, legends, color scales, clipping, overlap, physical sign conventions, and agreement with stored numerical tables. Visual QA replaced a misleading offset oil-rate ensemble panel with injection, pressure, and water-front responses and made the zero gas-saturation scale explicitly non-negative. Display equations use Colab-safe dollar delimiters and passed the notebook checker."
       },
       "known_upstream_issue": null,
       "issue_handling": "No upstream defect is claimed; limitations distinguish teaching assumptions from decision-grade RMS studies."
