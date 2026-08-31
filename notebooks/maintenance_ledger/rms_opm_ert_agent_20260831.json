@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "shard": "rms-opm-ert-agent-20260831",
+  "updated_at": "2026-08-31T17:05:33Z",
+  "notebooks": [
+    {
+      "path": "notebooks/reservoir/rms_to_opm_flow_agent_ert.ipynb",
+      "verified_date": "2026-08-31",
+      "verified_at_utc": "2026-08-31T17:05:33Z",
+      "neqsim_version": "3.18.0 Python bridge with current source-built Java master",
+      "neqsim_commit": "1f7a01b06307d9d56451e43bb8d6023d28d14007",
+      "neqsim_jar_sha256": "1e7d2c1c0678220db9b82385e7f614cf6e62aea367d6610c8035b707032bc739",
+      "python_version": "3.12.14",
+      "xtgeo_version": "4.25.1",
+      "opm_version": "2026.4",
+      "ert_version": "23.0.1",
+      "execution_status": "passed",
+      "execution_method": "Clean GitHub Actions Python 3.12 kernel; all cells executed top-to-bottom; NeqSim Java master built from source; OPM Flow base case and four ERT realizations completed.",
+      "code_cells": 42,
+      "substantive_code_cells": 42,
+      "markdown_cells": 20,
+      "git_blob_sha1": "160b7ffab7e3bf5d4f2dcfeaede8567d82b7d557",
+      "notebook_bytes": 2735505,
+      "publication": {
+        "branch": "codex/rms-agent-opm-ert-notebook",
+        "mode": "focused draft pull request",
+        "files": [
+          "notebooks/reservoir/rms_to_opm_flow_agent_ert.ipynb",
+          "README.md",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json",
+          "notebooks/maintenance_ledger/rms_opm_ert_agent_20260831.json",
+          ".github/workflows/rms-opm-ert-notebook-validation.yml",
+          "scripts/generate_rms_agent_opm_ert_notebook.py"
+        ]
+      },
+      "open_data": {
+        "repository": "equinor/xtgeo-testdata",
+        "commit": "cad17f24e22c19c6cefe6f647185395cc0a11add",
+        "license": "LGPL-3.0",
+        "dataset": "Public Reek geological and simulation ROFF exports with RMS-origin provenance",
+        "integrity": "Seven immutable files verified by embedded SHA-256 and byte counts."
+      },
+      "capabilities_demonstrated": [
+        "XTGeo ROFF ingestion, grid QC, 2x2x4 blocking, facies spreading, GRDECL export",
+        "NeqSim master-source SRK characterization and black-oil PVT generation",
+        "OPM Flow corner-point simulation with summary and restart-state inspection",
+        "ERT four-realization ensemble experiment using the FLOW forward model",
+        "NeqSim surface-process handover and governed RMS-agent job contract"
+      ],
+      "engineering_validation": {
+        "named_assertions_passed": 26,
+        "assertions_failed": 0,
+        "retained_png_figures": 13
+      },
+      "result_summary": {
+        "data_commit": "cad17f24e22c19c6cefe6f647185395cc0a11add",
+        "neqsim_commit": "1f7a01b06307d9d56451e43bb8d6023d28d14007",
+        "neqsim_jar_sha256": "1e7d2c1c0678220db9b82385e7f614cf6e62aea367d6610c8035b707032bc739",
+        "grid_dimensions": [
+          40,
+          64,
+          14
+        ],
+        "active_cells": 35838,
+        "blocking": [
+          2,
+          2,
+          4
+        ],
+        "porosity_blocking_rmse": 0.0918770723782011,
+        "bubble_pressure_bara": 193.24040031433105,
+        "base_final_pressure_bara": 223.61802673339844,
+        "base_final_cumulative_oil_million_sm3": 7.305,
+        "ert_realizations": 4,
+        "ert_final_oil_range_million_sm3": [
+          7.305,
+          7.305
+        ],
+        "selected_process_realization": 0,
+        "compressor_power_MW": 2.680346000234267,
+        "process_mass_residual_kg_s": 5.423572702056845e-11,
+        "figures": [
+          "workflow_architecture.png",
+          "reek_structure_and_static_maps.png",
+          "reek_property_distributions.png",
+          "reek_blocking_comparison.png",
+          "reek_property_spreading_layers.png",
+          "reek_well_screening.png",
+          "neqsim_black_oil_pvt.png",
+          "opm_flow_forecast.png",
+          "opm_final_restart_maps.png",
+          "opm_3d_water_front.png",
+          "ert_flow_ensemble.png",
+          "ert_parameter_response.png",
+          "integrated_process_workflow.png"
+        ],
+        "validation_checks_passed": 26,
+        "validation_checks_total": 26
+      },
+      "rendered_visual_validation": {
+        "renderer": "nbconvert HTML plus retained Matplotlib PNG outputs",
+        "figures_retained": 13,
+        "result": "pending human visual inspection before draft PR"
+      },
+      "known_upstream_issue": null,
+      "issue_handling": "No upstream defect is claimed; limitations distinguish teaching assumptions from decision-grade RMS studies."
+    }
+  ]
+}
