@@ -24,7 +24,9 @@ jobs:
           python-version: '3.12'
           cache: pip
       - name: Install notebook runner
-        run: python -m pip install --quiet nbformat==5.10.4 nbconvert==7.16.6 jupyter-client
+        run: |
+          python -m pip install --quiet nbformat==5.10.4 nbconvert==7.16.6 jupyter-client ipykernel
+          python -m ipykernel install --user --name python3 --display-name 'Python 3'
       - name: Generate notebook
         run: python scripts/generate_rms_agent_opm_ert_notebook.py
       - name: Execute every cell
