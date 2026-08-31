@@ -950,15 +950,12 @@ INCLUDE
   '{permy_path.as_posix()}' /
 INCLUDE
   '{permz_path.as_posix()}' /
-INCLUDE
-  '{fipnum_path.as_posix()}' /
 
-EDIT
 MULTIPLY
-  PORO {poro_multiplier} /
-  PERMX {perm_multiplier} /
-  PERMY {perm_multiplier} /
-  PERMZ {perm_multiplier} /
+  PORO {poro_multiplier} 6* /
+  PERMX {perm_multiplier} 6* /
+  PERMY {perm_multiplier} 6* /
+  PERMZ {perm_multiplier} 6* /
 /
 
 PROPS
@@ -969,6 +966,10 @@ ROCK
   260.0 4.0E-5 /
 
 {relative_permeability_tables}
+
+REGIONS
+INCLUDE
+  '{fipnum_path.as_posix()}' /
 
 SOLUTION
 EQUIL
