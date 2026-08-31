@@ -201,7 +201,7 @@ if supplied_source and supplied_jar:
     neqsim_source = Path(supplied_source).resolve()
     neqsim_jar = Path(supplied_jar).resolve()
 else:
-    build_root = Path("/content") if Path("/content").exists() else Path.cwd()
+    build_root = Path("/content") if Path("/content").exists() else Path(os.environ.get("RUNNER_TEMP", "/tmp")).resolve()
     neqsim_source = build_root / "neqsim-java-master"
     if not neqsim_source.exists():
         run_command(
