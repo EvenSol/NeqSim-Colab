@@ -1211,6 +1211,9 @@ definitions = [
 images = []
 for column, (cube, label, unit, cmap) in enumerate(definitions):
     vmin, vmax = np.nanmin(cube), np.nanmax(cube)
+    if np.isclose(vmin, vmax):
+        vmin = max(0.0, float(vmin))
+        vmax = vmin + 1.0e-6
     for row, k_index in enumerate(layers_to_plot):
         image = axes[row, column].imshow(cube[k_index], origin="lower", cmap=cmap, vmin=vmin, vmax=vmax, aspect="auto")
         if row == 0:
@@ -1386,7 +1389,10 @@ ERT samples three transparent uncertainties:
 
 TEMPLATE_RENDER writes one complete Flow deck per realization. The standard ERT FLOW forward
 model runs the real simulator. Four realizations are deliberately small enough for Colab but use
-the same directory and parameter contracts as a larger study.
+the same directory and parameter contracts as a larger study. Oil remains on its 10,000 Sm3/day
+ORAT control in this short forecast, so the ensemble graphics focus on sampled injection,
+pressure response, and the developing produced-water response rather than magnifying tiny
+floating-point differences in the controlled oil rate.
 """))
 
 cells.append(code(r"""
@@ -1499,12 +1505,12 @@ display(ensemble_history.groupby("realization").tail(1))
 ensemble_figure, axes = plt.subplots(1, 3, figsize=(15.0, 4.8), constrained_layout=True)
 for realization, frame in ensemble_history.groupby("realization"):
     years = frame["time_days"] / 365.25
-    axes[0].plot(years, frame["oil_rate_Sm3_day"], alpha=0.8, label=f"R{realization}")
+    axes[0].plot(years, frame["water_injection_Sm3_day"], alpha=0.8, label=f"R{realization}")
     axes[1].plot(years, frame["field_pressure_bara"], alpha=0.8)
     axes[2].plot(years, frame["water_rate_Sm3_day"], alpha=0.8)
-axes[0].set(xlabel="Time [year]", ylabel="Oil rate [Sm3/day]", title="ERT oil-rate ensemble")
-axes[1].set(xlabel="Time [year]", ylabel="Pressure [bara]", title="ERT pressure ensemble")
-axes[2].set(xlabel="Time [year]", ylabel="Water rate [Sm3/day]", title="ERT water ensemble")
+axes[0].set(xlabel="Time [year]", ylabel="Water injection [Sm3/day]", title="ERT sampled injection controls")
+axes[1].set(xlabel="Time [year]", ylabel="Pressure [bara]", title="ERT pressure response")
+axes[2].set(xlabel="Time [year]", ylabel="Produced water [Sm3/day]", title="ERT water-front response")
 axes[0].legend(ncol=2)
 path = OUTPUT_DIRECTORY / "ert_flow_ensemble.png"
 ensemble_figure.savefig(path, dpi=170, bbox_inches="tight")
@@ -1513,9 +1519,9 @@ plt.show()
 
 final_ensemble = ensemble_history.groupby("realization").tail(1).merge(ensemble_parameters, on="realization")
 relationship_figure, axes = plt.subplots(1, 2, figsize=(11.5, 4.5), constrained_layout=True)
-axes[0].scatter(final_ensemble["PERM_MULT"], final_ensemble["cumulative_oil_MSm3"],
+axes[0].scatter(final_ensemble["PERM_MULT"], final_ensemble["water_rate_Sm3_day"],
                 c=final_ensemble["INJ_RATE"], cmap="viridis", s=100)
-axes[0].set(xlabel="PERM_MULT", ylabel="Final cumulative oil [million Sm3]", title="Permeability response")
+axes[0].set(xlabel="PERM_MULT", ylabel="Final produced water [Sm3/day]", title="Permeability and water-front response")
 scatter = axes[1].scatter(final_ensemble["PORO_MULT"], final_ensemble["field_pressure_bara"],
                           c=final_ensemble["INJ_RATE"], cmap="plasma", s=100)
 axes[1].set(xlabel="PORO_MULT", ylabel="Final pressure [bara]", title="Porosity and injection response")
@@ -1653,6 +1659,14 @@ final_results = {
         float(final_ensemble["cumulative_oil_MSm3"].min()),
         float(final_ensemble["cumulative_oil_MSm3"].max()),
     ],
+    "ert_final_pressure_range_bara": [
+        float(final_ensemble["field_pressure_bara"].min()),
+        float(final_ensemble["field_pressure_bara"].max()),
+    ],
+    "ert_final_water_rate_range_sm3_day": [
+        float(final_ensemble["water_rate_Sm3_day"].min()),
+        float(final_ensemble["water_rate_Sm3_day"].max()),
+    ],
     "selected_process_realization": selected_realization,
     "compressor_power_MW": float(gas_compressor.getPower() / 1e6),
     "process_mass_residual_kg_s": float(process_mass_residual_kg_s),
@@ -1667,8 +1681,10 @@ display(pd.DataFrame([
     ("NeqSim bubble pressure", bubble_pressure_bara, "bara"),
     ("Base final pressure", final_results["base_final_pressure_bara"], "bara"),
     ("Base cumulative oil", final_results["base_final_cumulative_oil_million_sm3"], "million Sm3"),
-    ("ERT low final oil", final_results["ert_final_oil_range_million_sm3"][0], "million Sm3"),
-    ("ERT high final oil", final_results["ert_final_oil_range_million_sm3"][1], "million Sm3"),
+    ("ERT minimum final pressure", final_results["ert_final_pressure_range_bara"][0], "bara"),
+    ("ERT maximum final pressure", final_results["ert_final_pressure_range_bara"][1], "bara"),
+    ("ERT minimum final water rate", final_results["ert_final_water_rate_range_sm3_day"][0], "Sm3/day"),
+    ("ERT maximum final water rate", final_results["ert_final_water_rate_range_sm3_day"][1], "Sm3/day"),
     ("Selected compressor power", final_results["compressor_power_MW"], "MW"),
 ], columns=["result", "value", "unit"]).round(6))
 print(json.dumps(final_results, indent=2))
