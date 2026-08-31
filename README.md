@@ -11,6 +11,7 @@ Advanced notebooks use the released Python distribution only as the JPype bridge
 
 * [LNG process simulation and benchmark comparison](notebooks/process/LNG_Process_Benchmark_Comparison.ipynb) – Run closed-loop SMR, C3MR, DMR, and nitrogen-expander models with common KPIs, literature checks, and an exchanger grid-convergence study.
 * [IoT and Industry 4.0 with NeqSim](notebooks/AI/IoT_and_Industry4.0_with_NeqSim.ipynb) – Build an instrumented digital twin, stream dynamic simulation data, and explore Industry 4.0 workflows backed by NeqSim measurements.
+* [RMS-origin reservoir to OPM Flow, ERT, and NeqSim](notebooks/reservoir/rms_to_opm_flow_agent_ert.ipynb) – Audit public Reek ROFF exports, demonstrate blocking and property spreading, run OPM Flow and ERT, and define a governed RMS-agent contract.
 
 ## Getting Started
 See the [NeqSim Colab page](https://colab.research.google.com/github/EvenSol/NeqSim-Colab/blob/master/notebooks/examples_of_NeqSim_in_Colab.ipynb) for how to start using NeqSim in Colab/Python.
