@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "shard": "data-reconciliation-bayesian-twin-20260901",
+  "updated_at": "2026-09-01T15:17:29Z",
+  "notebooks": [
+    {
+      "path": "notebooks/process/data_reconciliation_bayesian_digital_twin.ipynb",
+      "verified_date": "2026-09-01",
+      "verified_at_utc": "2026-09-01T15:17:29Z",
+      "neqsim_version": "Python bridge 3.18.0 with Java runtime built from equinor/neqsim master commit fdf6b227b4240589ebbfb900527b37e667f3efc8",
+      "neqsim_commit": "fdf6b227b4240589ebbfb900527b37e667f3efc8",
+      "neqsim_jar_sha256": "070494e0b9488e1c2d1f2ba75c212466346ee6c07eed950001fa5360daecfbd0",
+      "python_version": "3.12.13",
+      "java_version": "17.0.20",
+      "numpy_version": "2.5.2",
+      "pandas_version": "3.0.5",
+      "matplotlib_version": "3.10.8",
+      "scipy_version": "1.17.0",
+      "nbformat_version": "5.11.1",
+      "nbconvert_version": "7.17.1",
+      "execution_status": "passed",
+      "execution_method": "Clean isolated Python 3.12 process; all 27 code cells executed top-to-bottom against the source-built NeqSim master JAR with retained stdout, tables, JSON, and inline figures.",
+      "code_cells": 27,
+      "substantive_code_cells": 27,
+      "markdown_cells": 30,
+      "git_blob_sha1": "6f117a2f7911311568114264114d8e3c4c9d25ca",
+      "notebook_bytes": 1039574,
+      "publication": {
+        "branch": "codex/data-reconciliation-bayesian-digital-twin",
+        "mode": "focused draft pull request",
+        "files": [
+          "notebooks/process/data_reconciliation_bayesian_digital_twin.ipynb",
+          "scripts/generate_data_reconciliation_bayesian_twin_notebook.py",
+          ".github/workflows/data-reconciliation-bayesian-twin-validation.yml",
+          "notebooks/maintenance_ledger/data_reconciliation_bayesian_twin_20260901.json",
+          "notebooks/notebook_maintenance_ledger.json",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "README.md"
+        ]
+      },
+      "data_scope": {
+        "type": "deterministic synthetic teaching data",
+        "base_seed": 20260901,
+        "derived_seeds": "Base seed plus one for calibration noise and plus two for posterior sampling.",
+        "model_basis": "SRK with classic mixing rule",
+        "integrity": "Synthetic truth, measurement uncertainties, random seed, resolved NeqSim commit, and source-JAR SHA-256 are retained in the notebook outputs."
+      },
+      "capabilities_demonstrated": [
+        "native Cao-Rhinehart steady-state qualification for historian-style signals",
+        "native uncertainty-weighted linear data reconciliation with an independent NumPy cross-check",
+        "global chi-square testing, normalized-residual ranking, and gross-error isolation",
+        "virtual-meter reconstruction after exclusion of a demonstrably suspect measurement",
+        "native NeqSim batch calibration of compressor polytropic efficiency",
+        "NeqSim-generated response surfaces with off-grid emulator validation",
+        "sequential Bayesian inference with prior, posterior, and credible interval",
+        "held-out posterior-predictive validation",
+        "propagation of parameter uncertainty to compressor-power decisions",
+        "machine-readable JSON handoff with provenance, validation, and limitations"
+      ],
+      "engineering_validation": {
+        "named_assertions_passed": 27,
+        "assertions_failed": 0,
+        "repository_checker_errors": 0,
+        "repository_checker_warnings": 0,
+        "retained_png_figures": 9,
+        "display_equations": 5,
+        "stderr_streams": 0,
+        "execution_errors": 0
+      },
+      "result_summary": {
+        "first_all_tag_steady_sample": 46,
+        "normal_chi_square": 0.2904018361751536,
+        "maximum_post_balance_residual_kg_h": 7.275957614183426e-12,
+        "gross_error_candidate": "separator_gas",
+        "raw_candidate_error_kg_h": 565.0,
+        "virtual_meter_error_kg_h": 34.38566047148197,
+        "synthetic_efficiency_truth": 0.78,
+        "native_batch_efficiency": 0.7806156712444108,
+        "bayesian_posterior_mean": 0.780598291398739,
+        "bayesian_95_interval": [
+          0.7777569776605775,
+          0.7833774383972046
+        ],
+        "holdout_rmse_K": 0.36818662979379674,
+        "holdout_interval_coverage": 1.0,
+        "probability_below_1_70_MW": 0.7652397196576916,
+        "validation_checks_passed": 27,
+        "validation_checks_total": 27
+      },
+      "rendered_visual_validation": {
+        "renderer": "nbconvert 7.17.1 HTML with MathJax source and nine retained Matplotlib PNG outputs",
+        "display_equations_inspected": 5,
+        "figures_inspected": 9,
+        "result": "passed",
+        "notes": "Every retained figure was inspected at original resolution for titles, units, legends, thresholds, uncertainty bands, clipping, overlap, and consistency with stored numerical results. All display equations use Colab-safe compact dollar delimiters."
+      },
+      "documentation_impact": "Adds the planned replacement for the retired synthetic-data-generation notebook to the AI/digital-twin catalog and README featured list. It complements the existing online-simulation, model-versus-measurement, IoT, and machine-learning notebooks with measurement trust, inference, and uncertainty governance.",
+      "known_upstream_issue": {
+        "repository": "equinor/neqsim",
+        "number": 3393,
+        "url": "https://github.com/equinor/neqsim/issues/3393",
+        "impact": "The core data-reconciliation example uses obsolete API calls; this notebook uses and validates the current signatures."
+      },
+      "issue_handling": "Opened equinor/neqsim issue #3393 with the failing calls, current replacements, environment, and acceptance criteria. The new notebook links the issue and independently validates the corrected API usage."
+    }
+  ]
+}

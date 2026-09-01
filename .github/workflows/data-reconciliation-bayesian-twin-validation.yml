@@ -1,0 +1,167 @@
+name: Data reconciliation and Bayesian twin validation
+
+on:
+  pull_request:
+    paths:
+      - notebooks/process/data_reconciliation_bayesian_digital_twin.ipynb
+      - scripts/generate_data_reconciliation_bayesian_twin_notebook.py
+      - notebooks/examples_of_NeqSim_in_Colab.ipynb
+      - README.md
+      - notebooks/maintenance_ledger/data_reconciliation_bayesian_twin_20260901.json
+      - notebooks/notebook_maintenance_ledger.json
+      - .github/workflows/data-reconciliation-bayesian-twin-validation.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-build-execute-render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Check out NeqSim-Colab
+        uses: actions/checkout@v7
+
+      - name: Check out the reviewed NeqSim master snapshot
+        uses: actions/checkout@v7
+        with:
+          repository: equinor/neqsim
+          ref: fdf6b227b4240589ebbfb900527b37e667f3efc8
+          fetch-depth: 1
+          path: neqsim-source
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: maven
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Build the reviewed NeqSim source snapshot
+        working-directory: neqsim-source
+        run: ./mvnw -q -DskipTests -Dmaven.javadoc.skip=true package
+
+      - name: Record the source-built runtime
+        shell: bash
+        run: |
+          SOURCE_JAR=$(find "$GITHUB_WORKSPACE/neqsim-source/target" -maxdepth 1 -type f -name 'neqsim-*.jar' | grep -Ev '(sources|javadoc|tests|original)' | sort | head -n 1)
+          test -n "$SOURCE_JAR"
+          SOURCE_COMMIT=$(git -C "$GITHUB_WORKSPACE/neqsim-source" rev-parse HEAD)
+          test "$SOURCE_COMMIT" = "fdf6b227b4240589ebbfb900527b37e667f3efc8"
+          SOURCE_SHA256=$(sha256sum "$SOURCE_JAR" | awk '{print $1}')
+          echo "NEQSIM_SOURCE_ROOT=$GITHUB_WORKSPACE/neqsim-source" >> "$GITHUB_ENV"
+          echo "NEQSIM_SOURCE_JAR=$SOURCE_JAR" >> "$GITHUB_ENV"
+          printf 'commit=%s\njar_sha256=%s\njar_name=%s\n' \
+            "$SOURCE_COMMIT" "$SOURCE_SHA256" "$(basename "$SOURCE_JAR")" \
+            > "$GITHUB_WORKSPACE/neqsim-source-build-metadata.txt"
+          cat "$GITHUB_WORKSPACE/neqsim-source-build-metadata.txt"
+
+      - name: Create a clean validation environment
+        run: |
+          python scripts/bootstrap_neqsim_validation_env.py \
+            --venv /tmp/neqsim-data-reconciliation-validation \
+            --wheelhouse-root /tmp/neqsim-validation-wheelhouse \
+            --neqsim-version 3.18.0 \
+            --refresh \
+            --extra-package numpy==2.5.2 \
+            --extra-package pandas==3.0.5 \
+            --extra-package matplotlib==3.10.8 \
+            --extra-package scipy==1.17.0 \
+            --extra-package nbformat==5.11.1 \
+            --extra-package nbconvert==7.17.1
+
+      - name: Validate and run the notebook generator
+        run: |
+          /tmp/neqsim-data-reconciliation-validation/bin/python -m py_compile \
+            scripts/generate_data_reconciliation_bayesian_twin_notebook.py
+          /tmp/neqsim-data-reconciliation-validation/bin/python \
+            scripts/generate_data_reconciliation_bayesian_twin_notebook.py
+
+      - name: Execute the notebook from top to bottom
+        env:
+          IPYTHONDIR: /tmp/ipython-data-reconciliation
+          MPLCONFIGDIR: /tmp/matplotlib-data-reconciliation
+          NEQSIM_JVM_AUTOSTART: "0"
+          NEQSIM_NOTEBOOK_FIGURE_DIR: ${{ github.workspace }}/validation-artifacts/data-reconciliation-bayesian-twin
+        run: |
+          /tmp/neqsim-data-reconciliation-validation/bin/python \
+            scripts/execute_notebook_inprocess.py \
+            notebooks/process/data_reconciliation_bayesian_digital_twin.ipynb
+
+      - name: Run notebook integrity checks
+        run: |
+          /tmp/neqsim-data-reconciliation-validation/bin/python scripts/check_notebook.py \
+            notebooks/process/data_reconciliation_bayesian_digital_twin.ipynb \
+            --require-main-source
+
+      - name: Verify retained execution evidence
+        run: |
+          /tmp/neqsim-data-reconciliation-validation/bin/python - <<'PY'
+          from pathlib import Path
+          import nbformat
+
+          path = Path(
+              "notebooks/process/"
+              "data_reconciliation_bayesian_digital_twin.ipynb"
+          )
+          notebook = nbformat.read(path, as_version=4)
+          code_cells = [
+              cell for cell in notebook.cells if cell.cell_type == "code"
+          ]
+          errors = []
+          stderr = []
+          figures = 0
+          for cell in code_cells:
+              for output in cell.get("outputs", []):
+                  if output.output_type == "error":
+                      errors.append(output)
+                  if output.output_type == "stream" and output.name == "stderr":
+                      stderr.append(output.text)
+                  if (
+                      output.output_type in ("display_data", "execute_result")
+                      and "image/png" in output.get("data", {})
+                  ):
+                      figures += 1
+
+          notebook_text = str(notebook)
+          assert len(code_cells) == 27
+          assert [cell.execution_count for cell in code_cells] == list(range(1, 28))
+          assert not errors
+          assert not stderr
+          assert figures == 9
+          assert "Validation passed: 27 / 27 named checks." in notebook_text
+          assert "fdf6b227b4240589ebbfb900527b37e667f3efc8" in notebook_text
+          assert "https://github.com/equinor/neqsim/issues/3393" in notebook_text
+          figure_dir = Path(
+              "validation-artifacts/data-reconciliation-bayesian-twin"
+          )
+          assert len(list(figure_dir.glob("*.png"))) == 9
+          print("Retained-output, provenance, and figure checks passed.")
+          PY
+
+      - name: Render the executed notebook to HTML
+        run: |
+          /tmp/neqsim-data-reconciliation-validation/bin/jupyter nbconvert \
+            --to html \
+            --output data_reconciliation_bayesian_digital_twin.html \
+            --output-dir validation-artifacts/data-reconciliation-bayesian-twin \
+            notebooks/process/data_reconciliation_bayesian_digital_twin.ipynb
+
+      - name: Upload source runtime and static fallbacks
+        uses: actions/upload-artifact@v4
+        with:
+          name: data-reconciliation-bayesian-twin-source-executed
+          path: |
+            ${{ env.NEQSIM_SOURCE_JAR }}
+            neqsim-source-build-metadata.txt
+            notebooks/process/data_reconciliation_bayesian_digital_twin.ipynb
+            validation-artifacts/data-reconciliation-bayesian-twin/*.html
+            validation-artifacts/data-reconciliation-bayesian-twin/*.png
+          retention-days: 7
