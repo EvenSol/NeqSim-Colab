@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "shard": "seismic-to-rms-inputs-20260901",
+  "updated_at": "2026-09-01T06:41:37Z",
+  "notebooks": [
+    {
+      "path": "notebooks/reservoir/seismic_to_rms_input_workflow.ipynb",
+      "verified_date": "2026-09-01",
+      "verified_at_utc": "2026-09-01T06:41:37Z",
+      "neqsim_version": "not applicable; upstream geophysics companion notebook",
+      "python_version": "3.12.13",
+      "numpy_version": "2.3.5",
+      "pandas_version": "2.2.3",
+      "matplotlib_version": "3.10.8",
+      "scipy_version": "1.17.0",
+      "xtgeo_version": "4.25.1",
+      "segyio_version": "1.9.14",
+      "lasio_version": "0.32",
+      "execution_status": "passed",
+      "execution_method": "Clean isolated Python 3.12 process; all 35 code cells executed top-to-bottom with retained stdout, rich displays, tables, and inline figures.",
+      "code_cells": 35,
+      "substantive_code_cells": 35,
+      "markdown_cells": 22,
+      "git_blob_sha1": "30aeace5216c1ce5406be09d30e67d276c923794",
+      "notebook_bytes": 6396233,
+      "publication": {
+        "branch": "codex/seismic-to-rms-input-notebook",
+        "mode": "focused draft pull request",
+        "files": [
+          "notebooks/reservoir/seismic_to_rms_input_workflow.ipynb",
+          "scripts/generate_seismic_to_rms_notebook.py",
+          ".github/workflows/seismic-to-rms-notebook-validation.yml",
+          "notebooks/maintenance_ledger/seismic_to_rms_inputs_20260901.json",
+          "notebooks/notebook_maintenance_ledger.json",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "README.md"
+        ]
+      },
+      "open_data": {
+        "repository": "equinor/xtgeo-testdata",
+        "commit": "cad17f24e22c19c6cefe6f647185395cc0a11add",
+        "license": "LGPL-3.0",
+        "dataset": "Public synthetic Reek depth-stack SEG-Y, RMS surfaces, fault polygons, and wells",
+        "integrity": "Thirteen immutable public inputs verified by embedded SHA-256 digests and byte counts."
+      },
+      "capabilities_demonstrated": [
+        "fully calculated synthetic common-midpoint gather, normal-moveout correction, and stack",
+        "SEG-Y geometry, amplitude, footprint, dead-trace, and outlier QC",
+        "RMS well and log ingestion, marker extraction, and well-to-seismic event-phase ties",
+        "sparse-control top/base horizon tracking with withheld-reference validation",
+        "fault support from a calculated lateral-discontinuity proxy",
+        "illustrative checkshot-calibrated time-to-depth conversion",
+        "residual-scaled structural realizations and gross-rock-volume calculation",
+        "interval attributes with blind-well porosity acceptance gating",
+        "RMS-ready SEG-Y, IRAP ASCII, polygon, RMS well, LAS, JSON, and CSV export",
+        "independent readback, manifest hashing, ZIP integrity, and licensed-worker contract"
+      ],
+      "engineering_validation": {
+        "named_assertions_passed": 34,
+        "assertions_failed": 0,
+        "repository_checker_errors": 0,
+        "repository_checker_warnings": 0,
+        "retained_png_figures": 15,
+        "display_equations": 7
+      },
+      "result_summary": {
+        "public_input_files": 13,
+        "cube_dimensions": [
+          408,
+          280,
+          70
+        ],
+        "seismic_traces": 114240,
+        "seismic_sample_interval_m": 5.0,
+        "zero_energy_traces": 8634,
+        "outlier_traces_repaired": 6,
+        "property_wells": 8,
+        "top_phase_shift_m": 10.0,
+        "base_phase_shift_m": -10.0,
+        "top_horizon_rmse_m": 14.243662,
+        "base_horizon_rmse_m": 14.062305,
+        "fault_support_ratio": 2.160662,
+        "illustrative_depth_conversion_rmse_m": 1.1165,
+        "structural_realizations": 6,
+        "grv_p50_million_m3": 3005.382,
+        "baseline_porosity_loo_rmse": 0.02745,
+        "best_seismic_porosity_loo_rmse": 0.02773,
+        "porosity_trend_accepted": false,
+        "package_files": 47,
+        "package_zip_mb": 30.811374,
+        "validation_checks_passed": 34,
+        "validation_checks_total": 34
+      },
+      "rendered_visual_validation": {
+        "renderer": "nbconvert 7.17.1 HTML with MathJax source and 15 retained Matplotlib PNG outputs",
+        "display_equations_inspected": 7,
+        "figures_inspected": 15,
+        "result": "passed",
+        "notes": "Every retained figure was inspected at original resolution for titles, units, legends, color scales, clipping, overlap, masking, and consistency with stored numerical tables. Visual QA caught and corrected masked-array fill values that initially broke the interpreted seismic-section axis. All display equations use Colab-safe compact dollar delimiters."
+      },
+      "documentation_impact": "Adds the missing upstream seismic-to-RMS companion to README.md and the notebook catalog; the downstream RMS-to-OPM-Flow-to-ERT-to-NeqSim notebook remains unchanged.",
+      "known_upstream_issue": null,
+      "issue_handling": "No actionable NeqSim defect was found. The notebook explicitly separates public teaching calculations from licensed RMS work and decision-grade interpretation."
+    }
+  ]
+}
