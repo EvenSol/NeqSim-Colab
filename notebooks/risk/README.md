@@ -12,6 +12,10 @@ The notebook follows one coherent chain:
 
 The final section shows how the same structure can be used in an agentic NeqSim workflow and identifies natural extensions such as dynamic risk, bow-tie/barrier analysis, condition-based reliability, real-time risk monitoring, portfolio risk, and economic consequence integration.
 
+## Execution status
+
+The notebook was executed top-to-bottom on GitHub Actions with the public `neqsim` 3.20.0 Python package on Python 3.12. Execution outputs and plots are retained in the notebook. The executable LOPA check closes exactly for the demonstrated assumptions: initiating-event frequency 0.1/year × BPCS PFD 0.1 × SIF PFD 0.005 = 5.0e-5/year, with total RRF 2000.
+
 ## Engineering-use boundary
 
 The example demonstrates software behavior and workflow patterns. Reliability rates, initiating-event frequencies, PFD values, consequence categories, SIL targets, proof-test assumptions, and barrier independence must come from an approved and traceable engineering basis before results are used for real decisions.
