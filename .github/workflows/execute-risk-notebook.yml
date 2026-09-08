@@ -1,0 +1,78 @@
+name: Execute NeqSim risk notebook
+
+on:
+  push:
+    branches:
+      - add-neqsim-risk-framework-notebooks
+
+permissions:
+  contents: write
+
+jobs:
+  execute-risk-notebook:
+    if: ${{ !contains(github.event.head_commit.message, '[executed-risk-notebook]') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: add-neqsim-risk-framework-notebooks
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install notebook runtime
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install neqsim pandas matplotlib jupyter nbconvert nbformat
+
+      - name: Add risk notebook to main example catalog
+        run: |
+          python - <<'PY'
+          import nbformat
+          path = 'notebooks/examples_of_NeqSim_in_Colab.ipynb'
+          nb = nbformat.read(path, as_version=4)
+          marker = '## New Capability Demonstration Notebooks'
+          link = '* **Advanced** - [NeqSim risk framework: process risk, availability, LOPA and SIS](risk/neqsim_risk_framework_complete.ipynb): connect a physical process model to equipment failure consequence, degraded operation, reliability and Monte Carlo availability, then continue into LOPA, independent protection layers, SIF modeling, residual-risk validation, and agentic risk-workflow patterns.\n'
+          if not any('risk/neqsim_risk_framework_complete.ipynb' in c.source for c in nb.cells if c.cell_type == 'markdown'):
+              for cell in nb.cells:
+                  if cell.cell_type == 'markdown' and marker in cell.source:
+                      cell.source = cell.source.rstrip() + '\n' + link
+                      break
+              else:
+                  raise RuntimeError('New Capability Demonstration Notebooks section not found')
+              nbformat.write(nb, path)
+          PY
+
+      - name: Execute all cells and retain outputs
+        run: |
+          jupyter nbconvert --to notebook --execute --inplace \
+            --ExecutePreprocessor.timeout=900 \
+            notebooks/risk/neqsim_risk_framework_complete.ipynb
+
+      - name: Verify executed outputs
+        run: |
+          python - <<'PY'
+          import nbformat
+          path = 'notebooks/risk/neqsim_risk_framework_complete.ipynb'
+          nb = nbformat.read(path, as_version=4)
+          code = [c for c in nb.cells if c.cell_type == 'code']
+          missing = [i for i,c in enumerate(code,1) if c.execution_count is None]
+          if missing:
+              raise SystemExit(f'Unexecuted code cells: {missing}')
+          outputs = sum(len(c.outputs) for c in code)
+          print(f'Executed {len(code)} code cells with {outputs} retained output objects')
+          if outputs == 0:
+              raise SystemExit('Notebook has no retained outputs')
+          PY
+
+      - name: Commit executed notebook and catalog reference
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add notebooks/risk/neqsim_risk_framework_complete.ipynb notebooks/examples_of_NeqSim_in_Colab.ipynb
+          if ! git diff --cached --quiet; then
+            git commit -m 'docs(risk): retain executed notebook outputs [executed-risk-notebook]'
+            git push origin HEAD:add-neqsim-risk-framework-notebooks
+          fi
