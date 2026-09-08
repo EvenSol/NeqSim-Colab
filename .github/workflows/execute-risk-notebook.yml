@@ -40,6 +40,7 @@ jobs:
               src = cell.source
               src = src.replace('impact.getBaselineProduction()', 'impact.getBaselineProductionRate()')
               src = src.replace('impact.getProductionLossPercent()', 'impact.getPercentLoss()')
+              src = src.replace('json.loads(mc.toJson())', 'json.loads(str(mc.toJson()))')
               old = "criticality = dict(analyzer.rankEquipmentByCriticality())\ncriticality_df = pd.DataFrame(criticality.items(), columns=['equipment','production_loss_percent']).sort_values('production_loss_percent', ascending=False)"
               new = "ranking = list(analyzer.rankEquipmentByCriticality())\ncriticality_df = pd.DataFrame([{'equipment': r.getEquipmentName(), 'production_loss_percent': r.getPercentLoss()} for r in ranking]).sort_values('production_loss_percent', ascending=False)"
               src = src.replace(old, new)
