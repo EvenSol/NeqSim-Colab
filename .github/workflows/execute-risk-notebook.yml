@@ -27,10 +27,25 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install neqsim pandas matplotlib jupyter nbconvert nbformat
 
-      - name: Add risk notebook to main example catalog
+      - name: Align notebook with current risk API and add catalog reference
         run: |
           python - <<'PY'
           import nbformat
+
+          risk_path = 'notebooks/risk/neqsim_risk_framework_complete.ipynb'
+          risk_nb = nbformat.read(risk_path, as_version=4)
+          for cell in risk_nb.cells:
+              if cell.cell_type != 'code':
+                  continue
+              src = cell.source
+              src = src.replace('impact.getBaselineProduction()', 'impact.getBaselineProductionRate()')
+              src = src.replace('impact.getProductionLossPercent()', 'impact.getPercentLoss()')
+              old = "criticality = dict(analyzer.rankEquipmentByCriticality())\ncriticality_df = pd.DataFrame(criticality.items(), columns=['equipment','production_loss_percent']).sort_values('production_loss_percent', ascending=False)"
+              new = "ranking = list(analyzer.rankEquipmentByCriticality())\ncriticality_df = pd.DataFrame([{'equipment': r.getEquipmentName(), 'production_loss_percent': r.getPercentLoss()} for r in ranking]).sort_values('production_loss_percent', ascending=False)"
+              src = src.replace(old, new)
+              cell.source = src
+          nbformat.write(risk_nb, risk_path)
+
           path = 'notebooks/examples_of_NeqSim_in_Colab.ipynb'
           nb = nbformat.read(path, as_version=4)
           marker = '## New Capability Demonstration Notebooks'
