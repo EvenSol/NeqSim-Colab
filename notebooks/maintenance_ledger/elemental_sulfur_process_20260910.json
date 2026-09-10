@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "shard": "elemental-sulfur-process-20260910",
+  "updated_at": "2026-09-10T09:57:52Z",
+  "notebooks": [
+    {
+      "path": "notebooks/process/elemental_sulfur_stabilization_recompression.ipynb",
+      "verified_date": "2026-09-10",
+      "verified_at_utc": "2026-09-10T09:57:52Z",
+      "execution_status": "passed",
+      "code_cells": 19,
+      "markdown_cells": 14,
+      "execution_method": "All 19 code cells in a fresh IPython process from a clean, SHA256-verified offline wheel snapshot environment; outputs retained; final execution 56.5 seconds.",
+      "validation_environment": {
+        "fresh_environment": true,
+        "wheel_snapshot": "cpython-312-linux-x86_64/neqsim-3.18.0/20260824T163120Z-924007932947",
+        "verified_wheel_count": 61,
+        "python": "3.12.14",
+        "packages": {
+          "neqsim": "3.18.0",
+          "numpy": "2.5.2",
+          "pandas": "3.0.5",
+          "matplotlib": "3.11.1",
+          "nbformat": "5.11.1",
+          "nbconvert": "7.17.1"
+        }
+      },
+      "neqsim_version": "Python bridge 3.18.0; source-compiled Java 3.20.0 from current master",
+      "neqsim_commit": "324c35c0b09719bfe6911c509be7f85a11bcb34a",
+      "neqsim_jar_sha256": "af5f416695387fb47597808e43de8d4b48bfcd1485fe6cc6b4de8d7b785b3ea7",
+      "java_version": "17.0.20",
+      "source_build": {
+        "compilation": "3342 current-source files compiled by Maven with Java release 17",
+        "packaging": "Offline Maven package could not resolve uncached maven-archiver/plexus-archiver dependencies. A thin JAR was made from target/classes. The released 3.20.0 JAR supplied third-party dependencies behind it on the classpath.",
+        "class_origin_assertions": {
+          "neqsim.thermo.system.SystemSrkCPAstatoil": "neqsim-3.20.0-source.jar",
+          "neqsim.process.equipment.reactor.SulfurOxidationReactor": "neqsim-3.20.0-source.jar",
+          "neqsim.process.equipment.reactor.IronSulfideOxidationSource": "neqsim-3.20.0-source.jar"
+        },
+        "dependency_container_sha256": "27a6f0f83f3dd7f153d776378b2285497e669ecd731c148ee21c0889218e7145",
+        "core_source_modified": false,
+        "java_tests": "Not run; no core Java changes in this notebook PR"
+      },
+      "git_blob_sha1": "471bbc8907e7bb4bfd5a4c7201f19b2f7fdd0ef0",
+      "notebook_bytes": 513602,
+      "publication": {
+        "branch": "codex/elemental-sulfur-stabilization-recompression",
+        "mode": "focused draft pull request"
+      },
+      "engineering_validation": {
+        "independent_checks": [
+          "H/O/S reaction atom balance",
+          "JANAF 298.15 K reaction Gibbs energy",
+          "O2-limited sulfur ceiling",
+          "logarithmic reaction-equilibrium residual",
+          "oxygen-free finite Fe2O3 sulfur bound"
+        ],
+        "process_checks": [
+          "oil-section mass balance",
+          "overall mass and total-sulfur balances",
+          "O2 stoichiometric consumption balance",
+          "elemental-sulfur terminal fates",
+          "per-component reaction and phase inventory closure",
+          "all three surface scenarios checked"
+        ],
+        "mass_relative_tolerance": 1e-06,
+        "total_sulfur_relative_tolerance": 1e-05,
+        "oxygen_mol_per_s_tolerance": 1e-07,
+        "stored_errors": 0,
+        "stderr_streams": 0,
+        "repository_checker_unit_tests": "6 passed",
+        "focused_main_source_checker": "0 errors, 0 warnings",
+        "catalog_relative_targets": "304 links resolve against the authoritative base repository tree plus the new file",
+        "full_repository_check": "Delegated to existing Notebook integrity GitHub Actions workflow; partial local materialization cannot establish a full-repository --all result"
+      },
+      "result_summary": {
+        "mass_in_kg_h": 100737.3,
+        "mass_out_kg_h": 100737.3,
+        "relative_mass_error": 5.133301e-09,
+        "S_in_kg_h": 191.917,
+        "S_out_kg_h": 191.917,
+        "relative_S_error": 1.561211e-07,
+        "O2_mol_s_error": 1.478155e-10,
+        "S_formed_kg_h": 5.046108,
+        "S_wall_kg_h": 0.972578,
+        "S_filters_kg_h": 1.712131,
+        "S_mobile_export_kg_h": 1.465149
+      },
+      "rendered_visual_validation": {
+        "renderer": "Jupyter nbconvert 7.17.1 HTML, local MathJax 3.2.2 tex-svg-full, Chromium 152 via Playwright",
+        "reader_facing_cells_inspected": 27,
+        "display_equations_inspected": 8,
+        "inline_expressions_inspected": 13,
+        "tables_inspected": 14,
+        "retained_figures_inspected": 4,
+        "result": "passed",
+        "notes": "All reader-facing Markdown and output cells inspected; no MathJax errors, missing images, horizontal clipping or malformed tables. Diagram annotation, legend clearance and scientific notation corrected and re-rendered. Final issue/source-link addition reviewed separately; no numerical code changed afterward."
+      },
+      "data_scope": "Synthetic feed, equipment, rate, surface, exposure, and capture assumptions. NIST-JANAF data are embedded standard-state values. Reaction equilibrium is restricted to the specified selective pathway with frozen local gas fugacity coefficients, not full multiphase ionic Gibbs minimization.",
+      "limitations": [
+        "Kinetic and capture parameters uncalibrated",
+        "No plant or sulfur-solubility dataset validation",
+        "No condensate recycle",
+        "No hot-wall reaction, particle re-equilibration inside compressors, or detailed deposition transport model",
+        "Wall-inventory example is separate from the steady train to avoid double counting",
+        "Constant filter efficiency and capacity illustration do not predict differential pressure or a change-out interval"
+      ],
+      "upstream_issues": [
+        "https://github.com/equinor/neqsim/issues/3621",
+        "https://github.com/equinor/neqsim/issues/3622",
+        "https://github.com/equinor/neqsim/issues/3623",
+        "https://github.com/equinor/neqsim/issues/3624",
+        "https://github.com/equinor/neqsim/issues/3628"
+      ],
+      "documentation_impact": "Adds a self-contained process/sulfur tutorial and links it from the main catalog and README featured list. Existing reference notebook is unchanged."
+    }
+  ]
+}
