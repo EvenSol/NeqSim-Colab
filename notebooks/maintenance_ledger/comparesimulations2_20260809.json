@@ -1,22 +1,22 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-09T20:32:20Z",
+  "updated_at": "2026-09-10T22:28:02Z",
   "notebooks": [
     {
       "path": "notebooks/process/comparesimulations2.ipynb",
-      "verified_date": "2026-09-09",
-      "verified_at_utc": "2026-09-09T20:32:20Z",
-      "neqsim_version": "3.20.0 Python package with Java commit df2de508ffff3dbc881bdb6e796fe4bb27627498",
+      "verified_date": "2026-09-10",
+      "verified_at_utc": "2026-09-10T22:28:02Z",
+      "neqsim_version": "3.20.0 Python package with Java commit 653db71353dc3a5a0fad92b945978fd0bd94e74a",
       "python_version": "3.12.14",
       "java_version": "OpenJDK 17.0.20",
       "environment_resolution": {
         "mode": "exact-source-commit runtime with packaged Python API",
-        "runtime_jar_sha256": "7e29f0e9dd424172812f9dd2c13f282a82ebb0f22f8870eb5fe91254ea2913a1",
-        "bootstrap": "The notebook accepts NEQSIM_EXACT_JAR for CI/developer validation; otherwise it fetches and builds public commit df2de508ffff3dbc881bdb6e796fe4bb27627498 before JVM startup.",
+        "runtime_jar_sha256": "8b2eeb94e972e0c30467ad9c4f99f299b5fe9eec57b55f0e4ff4dd5896ec6704",
+        "bootstrap": "The notebook accepts NEQSIM_EXACT_JAR for CI/developer validation; otherwise it fetches and builds public commit 653db71353dc3a5a0fad92b945978fd0bd94e74a before JVM startup.",
         "integrity": "The retained provenance table records Python, Java, runtime JAR, SHA-256, and exact Java commit. No pre-release or stale packaged renderer was used."
       },
       "execution_status": "passed",
-      "execution_method": "All 34 code cells executed sequentially from an empty in-process IPython state with execution counts 1 through 34, zero exceptions, zero error outputs, and zero stored stderr. The final clean run completed in 155.7 seconds and retained every table, equation, calculated figure, and eight-sheet PFD/P&ID visual set.",
+      "execution_method": "All 34 code cells executed sequentially from an empty in-process IPython state with execution counts 1 through 34, zero exceptions, zero error outputs, and zero stored stderr. The exact merged-core clean run completed in 270.2 seconds and retained every table, equation, calculated figure, and eight-sheet PFD/P&ID visual set.",
       "code_cells": 34,
       "substantive_code_cells": 34,
       "markdown_cells": 27,
@@ -49,7 +49,7 @@
         "four A1 SVG sheets and one A1 PDF drawing set per profile",
         "native DEXPI 2.0 Process and Plant/P&ID outputs kept distinct from the Proteus 4.1 compatibility companion",
         "source-linked P&ID registers for nozzles, piping, valves, reducers, instruments, signals, and declared isolation/drain/vent/relief interfaces",
-        "independent byte-identical regeneration of all 25 delivered files"
+        "independent byte-identical regeneration of all 29 delivered files"
       ],
       "practical_application": "Runs and optimizes the established separation/compression teaching case, then delivers a topology-equivalent PFD and a graphically distinct P&ID proposal with operating data, balances, tagged symbols, orthogonal routes, recycles, area boundaries, line identity, engineering registers, and exchange companions. The outputs remain review-required teaching artifacts, not a completed safety or construction design.",
       "engineering_validation": {
@@ -62,8 +62,8 @@
           "20 direct-thread and 20 managed-pool cases were explicitly qualified after timing and agreed within 1e-6 kW",
           "PFD and P&ID share source graph fingerprint 47a2e6d7a3331f1ea2717b018e28977d943450bbe8130409d2401d223358ccc6",
           "each profile contains four A1 SVG sheets and a four-page A1 PDF",
-          "both profiles report zero DIAGRAM_RENDER warnings and errors",
-          "all 25 primary delivery files match an independently reconstructed and solved regeneration byte for byte",
+          "completed-scene diagnostics report 14 PFD and 413 P&ID warnings, zero errors, and fail-visible review-required status",
+          "all 29 primary delivery files match an independently reconstructed and solved regeneration byte for byte",
           "24-VB-01 is absent from the runnable process and both deliveries",
           "all eight fresh sheets inspected at full-sheet and 200 dpi detail scales"
         ],
@@ -76,23 +76,27 @@
           "scenario_count": 100,
           "maximum_scenario_mass_residual_percent": 0.003330,
           "direct_optimized_power_kw": 9909.9486,
-          "surrogate_held_out_r2": 0.794,
-          "surrogate_candidate_power_kw": 9297.7136,
-          "surrogate_candidate_rvp_psia": 10.4109,
-          "pfd_pdf_sha256": "020aef2f04f3c9261e846da5ab3a1d66d3a64066a1f1abcb28f43702829c0ece",
-          "pid_pdf_sha256": "8aff1c847a9595592675f8667662c8237d4002bcd8a1b9d65a33b62d37b71240"
+          "surrogate_held_out_r2": 0.797,
+          "surrogate_candidate_power_kw": 9365.2472,
+          "surrogate_candidate_rvp_psia": 10.3923,
+          "pfd_pdf_sha256": "a8ce98adc76ebd0be59a3b3fa59d7e7df5dc3dd1949b6dee7baf5a7372d7eaee",
+          "pid_pdf_sha256": "ff5f7a29a33c0ea734a7950d4d6701143739fa3e2aee6c53468a9bbe32b4bc6a"
         }
       },
       "diagram_acceptance": {
-        "status": "implementation and visual generation passed; accountable engineering review remains required",
+        "status": "generation and deterministic regeneration passed; whole-sheet visual acceptance blocked",
         "paper_size": "A1 landscape",
         "profiles": ["PFD", "PID"],
         "svg_sheets_per_profile": 4,
         "pdf_pages_per_profile": 4,
-        "renderer_warnings": 0,
+        "renderer_warnings": 427,
+        "renderer_warnings_by_profile": {
+          "PFD": 14,
+          "PID": 413
+        },
         "renderer_errors": 0,
         "stable_regeneration": true,
-        "visual_inspection": "All eight fresh pages were rendered and inspected at full-sheet and 200 dpi detail scales. Routes, arrows, tagged symbols, continuations, title blocks, area structure, and the PFD/P&ID distinction remain legible with no clipped sheet content or renderer-reported collision defect.",
+        "visual_inspection": "All eight fresh pages were rendered and inspected at full-sheet and 200 dpi detail scales. The controlled sheet index is intentionally non-connectivity content. The process sheets retain significant whitespace and off-page/text-route collision findings; P&ID sheets retain dense instrument, signal, valve, and physical-attachment findings. These 427 completed-scene warnings block whole-sheet visual acceptance.",
         "project_metadata_gaps": "Line classes, piping specifications, design pressure and temperature, materials, valve failure positions, instrument ranges, alarm/trip set points, hazardous-area data, relief sizing and disposal, drain/vent destinations, revision approvals, and accountable discipline sign-off remain missing and explicitly disclosed.",
         "claims_boundary": "Standards-aligned teaching proposal only. No ISO 10628 or ANSI/ISA-5.1 conformance, certification, safety credit, construction fitness, or engineering approval is claimed. Native DEXPI 2.0 and Proteus 4.1 compatibility claims are distinct; external named-CAE round-trip qualification remains open."
       },
@@ -100,7 +104,7 @@
         "preserved_calculated_png_figures": 7,
         "new_inline_svg_sheets": 8,
         "fresh_profile_pdfs": 2,
-        "visual_inspection": "The final clean execution retained seven calculated PNG figures and all eight fresh SVG sheets. The PFD and P&ID PDFs were rendered at target A1 size and inspected at full-sheet and 200 dpi detail scales."
+        "visual_inspection": "The exact merged-core clean execution retained seven calculated PNG figures and all eight fresh SVG sheets. Both four-page PDFs were rendered at target A1 size and inspected at full-sheet and 200 dpi detail scales; the inspection confirmed the fail-visible collision and P&ID-density findings recorded by completed-scene diagnostics."
       },
       "equation_rendering": {
         "status": "passed",
@@ -118,7 +122,7 @@
         "hidden_local_dependencies": false,
         "catalog_target_occurrences": 1
       },
-      "summary": "Published-ready retained-output milestone for the comparesimulations2 case: exact accepted Java renderer provenance, explicit numerical recycle identities, complete scientific rerun, deterministic parallel qualification, fresh PFD and distinct P&ID, correct DEXPI/Proteus companions, zero renderer defects, full A1 inspection, and byte-identical independent regeneration."
+      "summary": "Exact merged-core retained-output review milestone for the comparesimulations2 case: explicit numerical recycle identities, complete scientific rerun, deterministic parallel qualification, fresh PFD and distinct P&ID, separate DEXPI/Proteus companions, full A1 inspection, and byte-identical independent regeneration. Completed-scene diagnostics expose 14 PFD and 413 P&ID warnings, so whole-sheet visual acceptance and publication approval remain blocked."
     }
   ]
 }
