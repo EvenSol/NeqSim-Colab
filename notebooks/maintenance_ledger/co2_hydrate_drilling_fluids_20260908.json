@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "shard": "co2-hydrate-drilling-fluids-20260908",
-  "updated_at": "2026-09-08T22:28:23Z",
+  "updated_at": "2026-09-10T19:46:27Z",
   "notebooks": [
     {
       "path": "notebooks/flowassurance/co2_hydrate_brines_and_drilling_fluids.ipynb",
@@ -25,8 +25,8 @@
       "code_cells": 20,
       "substantive_code_cells": 20,
       "markdown_cells": 23,
-      "git_blob_sha1": "ac324a00f8c11a2110befaf3402e3557daedc6a0",
-      "notebook_bytes": 870764,
+      "git_blob_sha1": "f66e74d5ca1e18222565776ba2fedced4f3059c4",
+      "notebook_bytes": 873836,
       "publication": {
         "branch": "codex/co2-hydrate-brines-drilling-fluids-20260908",
         "mode": "focused draft pull request",
@@ -82,7 +82,7 @@
         "accepted_hydrate_attempts": 65,
         "max_accepted_component_error": 9.0427665355719e-13,
         "max_accepted_charge_error": 5.106201458159162e-12,
-        "max_accepted_absolute_hydrate_residual": 8.903608175181432e-07
+        "max_accepted_absolute_hydrate_residual": 8.903608175181432e-7
       },
       "rendered_visual_validation": {
         "renderer": "nbconvert 7.17.1 HTML; MathJax 3.2.2 SVG; WeasyPrint PDF inspection",
@@ -106,7 +106,12 @@
           "url": "https://github.com/equinor/neqsim/issues/3585",
           "handling": "Rejected NaCl-CaCl2 state with CO2/water inventory imbalance; main mixed curve uses a passing NaCl-KCl control."
         }
-      ]
+      ],
+      "editorial_update": {
+        "date": "2026-09-10",
+        "scope": "Remove project-specific framing; add general learning objectives, Colab execution steps and practice tasks. Update catalog and PR description.",
+        "validation": "Eight Markdown cells changed. All 20 executable cells, execution counts and saved outputs are identical to the verified 2026-09-08 run; numerical execution evidence is reused. Existing equations and figures are unchanged. Changed instructional sections rendered and inspected; notebook schema and focused integrity checker passed."
+      }
     }
   ]
 }
