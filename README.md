@@ -9,6 +9,7 @@ Advanced notebooks use the released Python distribution only as the JPype bridge
 
 ## Featured notebooks
 
+* [Elemental sulfur in oil stabilization and gas recompression](notebooks/process/elemental_sulfur_stabilization_recompression.ipynb) – Calculate H2S/O2 equilibrium and kinetics, sulfur deposition, rust/FeS effects, separator oil/condensate carryover, compressor fouling, and potential mitigation and cleaning measures.
 * [LNG process simulation and benchmark comparison](notebooks/process/LNG_Process_Benchmark_Comparison.ipynb) – Run closed-loop SMR, C3MR, DMR, and nitrogen-expander models with common KPIs, literature checks, and an exchanger grid-convergence study.
 * [IoT and Industry 4.0 with NeqSim](notebooks/AI/IoT_and_Industry4.0_with_NeqSim.ipynb) – Build an instrumented digital twin, stream dynamic simulation data, and explore Industry 4.0 workflows backed by NeqSim measurements.
 * [Plant-data reconciliation and a Bayesian digital twin](notebooks/process/data_reconciliation_bayesian_digital_twin.ipynb) – Qualify historian windows, reconcile redundant meters, isolate gross errors, calibrate compressor efficiency, validate a Bayesian posterior, and propagate uncertainty to an operating decision.

@@ -1,0 +1,389 @@
+{
+  "schema_version": 1,
+  "shard": "elemental-sulfur-process-20260910",
+  "updated_at": "2026-09-10T11:32:38Z",
+  "notebooks": [
+    {
+      "path": "notebooks/process/elemental_sulfur_stabilization_recompression.ipynb",
+      "verified_date": "2026-09-10",
+      "verified_at_utc": "2026-09-10T11:32:38Z",
+      "execution_status": "passed",
+      "code_cells": 26,
+      "markdown_cells": 20,
+      "execution_method": "All 26 code cells in order in a fresh IPython process from an independently bootstrapped SHA256-verified offline wheel snapshot environment; outputs retained; final execution 156.0 seconds.",
+      "validation_environment": {
+        "fresh_environment": true,
+        "wheel_snapshot": "cpython-312-linux-x86_64/neqsim-3.18.0/20260824T163120Z-924007932947",
+        "verified_wheel_count": 61,
+        "python": "3.12.14",
+        "packages": {
+          "neqsim": "3.18.0",
+          "numpy": "2.5.2",
+          "pandas": "3.0.5",
+          "matplotlib": "3.11.1",
+          "nbformat": "5.11.1",
+          "nbconvert": "7.17.1"
+        }
+      },
+      "neqsim_version": "Python bridge 3.18.0; source-compiled Java 3.20.0 from current master",
+      "neqsim_commit": "b703de2fdce2bda4b4b212bb0b293984a552b092",
+      "neqsim_jar_sha256": "a3aea3865ff8cb4475a73643fc8c03f71c1c44cef874202274efd5b33d4db23b",
+      "java_version": "17.0.20",
+      "source_build": {
+        "compilation": "3343 current-source files compiled successfully by Maven with Java release 17",
+        "packaging": "A thin JAR was made from target/classes after successful Maven compile. The released 3.20.0 JAR supplies third-party dependencies behind it on the classpath. The Colab bootstrap normally runs Maven package; local thin-JAR validation avoids previously encountered uncached Maven archiver dependencies.",
+        "class_origin_assertions": {
+          "neqsim.thermo.system.SystemSrkCPAstatoil": "neqsim-3.20.0-source.jar",
+          "neqsim.process.equipment.reactor.SulfurOxidationReactor": "neqsim-3.20.0-source.jar",
+          "neqsim.process.equipment.reactor.IronSulfideOxidationSource": "neqsim-3.20.0-source.jar",
+          "neqsim.process.equipment.separator.ThreePhaseSeparator": "neqsim-3.20.0-source.jar",
+          "neqsim.process.equipment.compressor.Compressor": "neqsim-3.20.0-source.jar",
+          "neqsim.process.equipment.compressor.CompressorDeposit": "neqsim-3.20.0-source.jar",
+          "neqsim.process.equipment.compressor.CompressorDepositWash": "neqsim-3.20.0-source.jar"
+        },
+        "dependency_container_sha256": "27a6f0f83f3dd7f153d776378b2285497e669ecd731c148ee21c0889218e7145",
+        "core_source_modified": false,
+        "java_tests": "Not run; no core Java changes in this notebook PR"
+      },
+      "git_blob_sha1": "24808cd6b4e6738b4c4d74849ec217fb24065fd2",
+      "notebook_bytes": 855890,
+      "publication": {
+        "branch": "codex/elemental-sulfur-stabilization-recompression",
+        "mode": "focused draft pull request"
+      },
+      "engineering_validation": {
+        "independent_checks": [
+          "H/O/S reaction atom balance",
+          "JANAF 298.15 K reaction Gibbs energy",
+          "O2-limited sulfur ceiling",
+          "logarithmic reaction-equilibrium residual",
+          "oxygen-free finite Fe2O3 sulfur bound"
+        ],
+        "process_checks": [
+          "oil-section mass balance",
+          "overall mass and total-sulfur balances",
+          "O2 stoichiometric consumption balance",
+          "elemental-sulfur terminal fates",
+          "per-component reaction and phase inventory closure",
+          "all three surface scenarios checked",
+          "Native separator feed-oil carryover transfer and three-outlet mass balance",
+          "Six oil/condensate compressor cases: added mixture mass, component inventories and enthalpy closure",
+          "Native deposit accumulation equals integrated assumed component loading",
+          "All degradation and rate-sensitivity points remain below 30 percent modeled area blockage",
+          "Additional native suction scrubber mass balance and 99 percent oil-phase removal",
+          "Lower-oxygen whole-process mass, sulfur and oxygen balances",
+          "Native wash removal and residual deposit inventory conservation"
+        ],
+        "mass_relative_tolerance": 1e-06,
+        "total_sulfur_relative_tolerance": 1e-05,
+        "oxygen_mol_per_s_tolerance": 1e-07,
+        "stored_errors": 0,
+        "stderr_streams": 0,
+        "repository_checker_unit_tests": "6 passed",
+        "focused_main_source_checker": "0 errors, 0 warnings",
+        "catalog_relative_targets": "305 rendered catalog links resolve against the authoritative base repository tree plus the notebook; URL decoding and balanced Markdown links are handled",
+        "full_repository_check": "Delegated to existing Notebook integrity GitHub Actions workflow; partial local materialization cannot establish a full-repository --all result"
+      },
+      "result_summary": {
+        "mass_in_kg_h": 100737.3,
+        "mass_out_kg_h": 100737.3,
+        "relative_mass_error": 5.133301e-09,
+        "S_in_kg_h": 191.917,
+        "S_out_kg_h": 191.917,
+        "relative_S_error": 1.561211e-07,
+        "O2_mol_s_error": 1.478155e-10,
+        "S_formed_kg_h": 5.046108,
+        "S_wall_kg_h": 0.972578,
+        "S_filters_kg_h": 1.712131,
+        "S_mobile_export_kg_h": 1.465149
+      },
+      "rendered_visual_validation": {
+        "renderer": "Jupyter nbconvert 7.17.1 HTML, local MathJax 3.2.2 tex-svg-full, Chromium 152 via Playwright",
+        "reader_facing_cells_inspected": 40,
+        "display_equations_inspected": 9,
+        "inline_expressions_inspected": 13,
+        "tables_inspected": 23,
+        "retained_figures_inspected": 6,
+        "result": "passed",
+        "notes": "All final reader-facing Markdown and result cells visually inspected. Every figure, table and MathJax equation inspected; no errors, missing images or horizontal clipping. Python formatting has identical ASTs; all code lines are at most 100 characters."
+      },
+      "data_scope": "Synthetic feed, equipment, rate, surface, exposure, and capture assumptions. NIST-JANAF data are embedded standard-state values. Reaction equilibrium is restricted to the specified selective pathway with frozen local gas fugacity coefficients, not full multiphase ionic Gibbs minimization.",
+      "limitations": [
+        "Kinetic and capture parameters uncalibrated",
+        "No plant or sulfur-solubility dataset validation",
+        "No condensate recycle",
+        "No hot-wall reaction, particle re-equilibration inside compressors, or detailed deposition transport model",
+        "Wall-inventory example is separate from the steady train to avoid double counting",
+        "Constant filter efficiency and capacity illustration do not predict differential pressure or a change-out interval",
+        "Wet compression assumes phase equilibrium with fixed polytropic efficiency; droplet slip and finite evaporation are not solved",
+        "Compressor residue and sulfur capture coefficients, foulable geometry and wash constants are uncalibrated",
+        "Compressor degradation is a separate inventory sensitivity; it does not subtract mass from or feed back into the baseline train",
+        "Fixed-pressure duty and head multipliers do not establish map feasibility, surge margin or driver adequacy",
+        "No droplet erosion, corrosion damage, vibration, seals, slug response, remaining life or qualified cleaning procedure",
+        "Mitigation ignores extra pressure drop and nitrogen-package cost; efficiencies are assumed removal targets"
+      ],
+      "upstream_issues": [
+        "https://github.com/equinor/neqsim/issues/3621",
+        "https://github.com/equinor/neqsim/issues/3622",
+        "https://github.com/equinor/neqsim/issues/3623",
+        "https://github.com/equinor/neqsim/issues/3624",
+        "https://github.com/equinor/neqsim/issues/3628"
+      ],
+      "documentation_impact": "Extends the process/sulfur tutorial with liquid carryover, compressor degradation and mitigation; updates its main catalog and README descriptions.",
+      "carryover_degradation_extension": {
+        "date": "2026-09-10",
+        "scope": "Sections 10-13: native entrainment, oil/condensate wet compression, deposit degradation, solutions and washing",
+        "native_separator_results": [
+          {
+            "Feed-oil carryover (%)": "0.00",
+            "Transferred oil (kg/h)": "0.0000",
+            "Transferred oil (mg/Sm3 gas)": "0.0000",
+            "Gas-outlet total (kg/h)": "14340.9699",
+            "Outlet mass error (kg/h)": "-0.0"
+          },
+          {
+            "Feed-oil carryover (%)": "0.01",
+            "Transferred oil (kg/h)": "8.4753",
+            "Transferred oil (mg/Sm3 gas)": "511.0513",
+            "Gas-outlet total (kg/h)": "14349.4452",
+            "Outlet mass error (kg/h)": "-0.0"
+          },
+          {
+            "Feed-oil carryover (%)": "0.10",
+            "Transferred oil (kg/h)": "84.7532",
+            "Transferred oil (mg/Sm3 gas)": "5110.5128",
+            "Gas-outlet total (kg/h)": "14425.7230",
+            "Outlet mass error (kg/h)": "-0.0"
+          },
+          {
+            "Feed-oil carryover (%)": "1.00",
+            "Transferred oil (kg/h)": "847.5316",
+            "Transferred oil (mg/Sm3 gas)": "51105.1281",
+            "Gas-outlet total (kg/h)": "15188.5015",
+            "Outlet mass error (kg/h)": "-0.0"
+          }
+        ],
+        "wet_compressor_results": [
+          {
+            "Liquid source": "Oil",
+            "Added (kg/h)": "0.0",
+            "Suction HC liquid (kg/h)": "0.0000",
+            "Suction water (kg/h)": "0.0000",
+            "Suction liquid (wt%)": "0.0000",
+            "Discharge HC liquid (kg/h)": "0.0000",
+            "Power (kW)": "809.9152",
+            "Discharge T (C)": "120.8749"
+          },
+          {
+            "Liquid source": "Oil",
+            "Added (kg/h)": "50.0",
+            "Suction HC liquid (kg/h)": "113.0962",
+            "Suction water (kg/h)": "0.0311",
+            "Suction liquid (wt%)": "0.6363",
+            "Discharge HC liquid (kg/h)": "18.9215",
+            "Power (kW)": "807.9529",
+            "Discharge T (C)": "119.9877"
+          },
+          {
+            "Liquid source": "Oil",
+            "Added (kg/h)": "200.0",
+            "Suction HC liquid (kg/h)": "354.2493",
+            "Suction water (kg/h)": "0.1013",
+            "Suction liquid (wt%)": "1.9763",
+            "Discharge HC liquid (kg/h)": "115.3002",
+            "Power (kW)": "804.9425",
+            "Discharge T (C)": "118.3413"
+          },
+          {
+            "Liquid source": "Condensate",
+            "Added (kg/h)": "0.0",
+            "Suction HC liquid (kg/h)": "0.0000",
+            "Suction water (kg/h)": "0.0000",
+            "Suction liquid (wt%)": "0.0000",
+            "Discharge HC liquid (kg/h)": "0.0000",
+            "Power (kW)": "809.9152",
+            "Discharge T (C)": "120.8749"
+          },
+          {
+            "Liquid source": "Condensate",
+            "Added (kg/h)": "50.0",
+            "Suction HC liquid (kg/h)": "49.7673",
+            "Suction water (kg/h)": "0.0000",
+            "Suction liquid (wt%)": "0.2799",
+            "Discharge HC liquid (kg/h)": "0.0000",
+            "Power (kW)": "808.8491",
+            "Discharge T (C)": "120.3504"
+          },
+          {
+            "Liquid source": "Condensate",
+            "Added (kg/h)": "200.0",
+            "Suction HC liquid (kg/h)": "199.6772",
+            "Suction water (kg/h)": "0.0000",
+            "Suction liquid (wt%)": "1.1136",
+            "Discharge HC liquid (kg/h)": "0.0000",
+            "Power (kW)": "806.0500",
+            "Discharge T (C)": "118.8230"
+          }
+        ],
+        "degradation_results": [
+          {
+            "Liquid source": "Oil",
+            "Hours": "0.0",
+            "HC residue (kg)": "0.0000",
+            "S deposit (kg)": "0.0000",
+            "Efficiency (%)": "75.0000",
+            "Head multiplier": "1.0000",
+            "Power (kW)": "809.9152",
+            "Discharge T (C)": "120.8749"
+          },
+          {
+            "Liquid source": "Oil",
+            "Hours": "168.0",
+            "HC residue (kg)": "1.9000",
+            "S deposit (kg)": "1.2137",
+            "Efficiency (%)": "69.6051",
+            "Head multiplier": "0.9121",
+            "Power (kW)": "881.0999",
+            "Discharge T (C)": "126.3660"
+          },
+          {
+            "Liquid source": "Oil",
+            "Hours": "336.0",
+            "HC residue (kg)": "3.8000",
+            "S deposit (kg)": "2.4274",
+            "Efficiency (%)": "64.2101",
+            "Head multiplier": "0.8283",
+            "Power (kW)": "965.8146",
+            "Discharge T (C)": "132.8905"
+          },
+          {
+            "Liquid source": "Oil",
+            "Hours": "720.0",
+            "HC residue (kg)": "8.1429",
+            "S deposit (kg)": "5.2016",
+            "Efficiency (%)": "51.8789",
+            "Head multiplier": "0.6518",
+            "Power (kW)": "1236.2139",
+            "Discharge T (C)": "153.5992"
+          },
+          {
+            "Liquid source": "Condensate",
+            "Hours": "0.0",
+            "HC residue (kg)": "0.0000",
+            "S deposit (kg)": "0.0000",
+            "Efficiency (%)": "75.0000",
+            "Head multiplier": "1.0000",
+            "Power (kW)": "809.9152",
+            "Discharge T (C)": "120.8749"
+          },
+          {
+            "Liquid source": "Condensate",
+            "Hours": "168.0",
+            "HC residue (kg)": "0.0836",
+            "S deposit (kg)": "1.2137",
+            "Efficiency (%)": "73.6415",
+            "Head multiplier": "0.9775",
+            "Power (kW)": "826.7453",
+            "Discharge T (C)": "122.1737"
+          },
+          {
+            "Liquid source": "Condensate",
+            "Hours": "336.0",
+            "HC residue (kg)": "0.1672",
+            "S deposit (kg)": "2.4274",
+            "Efficiency (%)": "72.2831",
+            "Head multiplier": "0.9552",
+            "Power (kW)": "844.2820",
+            "Discharge T (C)": "123.5267"
+          },
+          {
+            "Liquid source": "Condensate",
+            "Hours": "720.0",
+            "HC residue (kg)": "0.3583",
+            "S deposit (kg)": "5.2016",
+            "Efficiency (%)": "69.1780",
+            "Head multiplier": "0.9053",
+            "Power (kW)": "887.2671",
+            "Discharge T (C)": "126.8414"
+          }
+        ],
+        "mitigation_results": [
+          {
+            "Option": "Unmitigated",
+            "HC liquid exposed (kg/h)": "113.09616",
+            "S particles exposed (kg/h)": "1.44490",
+            "720 h deposit (kg)": "13.34457",
+            "Efficiency (%)": "51.87887",
+            "Head multiplier": "0.65177",
+            "Added duty from fouling (kW)": "426.29875"
+          },
+          {
+            "Option": "Liquid + particle removal",
+            "HC liquid exposed (kg/h)": "1.13096",
+            "S particles exposed (kg/h)": "0.14449",
+            "720 h deposit (kg)": "0.60159",
+            "Efficiency (%)": "74.31647",
+            "Head multiplier": "0.98864",
+            "Added duty from fouling (kW)": "8.38261"
+          },
+          {
+            "Option": "Removal + lower O2",
+            "HC liquid exposed (kg/h)": "1.13096",
+            "S particles exposed (kg/h)": "0.00000",
+            "720 h deposit (kg)": "0.08143",
+            "Efficiency (%)": "74.81905",
+            "Head multiplier": "0.99699",
+            "Added duty from fouling (kW)": "2.20258"
+          }
+        ],
+        "oxygen_control_results": [
+          {
+            "Purge O2 (%)": "1.0",
+            "Whole-train S formed (kg/h)": "5.04611"
+          },
+          {
+            "Purge O2 (%)": "0.1",
+            "Whole-train S formed (kg/h)": "0.50461"
+          }
+        ],
+        "wash_results": [
+          {
+            "Native solvent case": "Water",
+            "Contacted solvent (kg)": "100.0",
+            "Removed deposit (kg)": "0.00000",
+            "Remaining deposit (kg)": "13.34457",
+            "Efficiency multiplier after": "0.69172"
+          },
+          {
+            "Native solvent case": "Condensate",
+            "Contacted solvent (kg)": "100.0",
+            "Removed deposit (kg)": "7.35000",
+            "Remaining deposit (kg)": "5.99457",
+            "Efficiency multiplier after": "0.90363"
+          },
+          {
+            "Native solvent case": "Xylene",
+            "Contacted solvent (kg)": "100.0",
+            "Removed deposit (kg)": "9.54292",
+            "Remaining deposit (kg)": "3.80164",
+            "Efficiency multiplier after": "0.95103"
+          }
+        ],
+        "model_assumptions": {
+          "compressor": "33 to 90 bara; 32 C suction; 0.75 clean polytropic efficiency; 10 detailed steps",
+          "foulable_area_m2": 6.0,
+          "passage_half_height_m": 0.01,
+          "oil_residue_yield": 0.0001,
+          "condensate_residue_yield": 1e-05,
+          "sulfur_particle_capture": 0.005,
+          "exposure_h": 720.0,
+          "liquid_removal_target": 0.99,
+          "additional_particle_capture": 0.9,
+          "lower_purge_oxygen_mole_fraction": 0.001
+        },
+        "qualification": "Engineering screening only; no fitted wet-flow losses, erosion rate, rotordynamics, remaining-life model or OEM operating map",
+        "new_core_issues": []
+      }
+    }
+  ]
+}
