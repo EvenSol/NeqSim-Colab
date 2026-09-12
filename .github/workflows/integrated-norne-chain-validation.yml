@@ -6,6 +6,9 @@ on:
       - scripts/generate_integrated_norne_chain.py
       - .github/workflows/integrated-norne-chain-validation.yml
   workflow_dispatch:
+concurrency:
+  group: integrated-norne-chain-validation
+  cancel-in-progress: true
 permissions:
   contents: read
 jobs:
@@ -36,7 +39,14 @@ jobs:
         working-directory: neqsim-source
         run: ./mvnw -q -DskipTests -Dmaven.javadoc.skip=true package
       - name: Install notebook tooling
-        run: python -m pip install -q nbformat nbclient nbconvert ipykernel matplotlib pillow playwright
+        run: python -m pip install -q nbformat nbclient nbconvert ipykernel matplotlib pillow playwright black==26.5.1
+      - uses: actions/cache/restore@v4
+        with:
+          path: |
+            chain_artifacts/opm_runs
+            norne-open-data
+          key: norne-chain-v1-${{ github.run_id }}
+          restore-keys: norne-chain-v1-
       - name: Generate and execute notebook
         env:
           NEQSIM_SOURCE_REF: e4baa50c8fb0815e52c38ddcb93f806e6907ece8
@@ -73,7 +83,7 @@ jobs:
                   path = Path('chain_artifacts/integrated_norne_reservoir_to_facilities_ai.html').resolve()
                   await page.goto(path.as_uri())
                   await page.wait_for_timeout(8000)
-                  await page.evaluate("document.querySelectorAll('.jp-Cell-inputWrapper').forEach(e => e.style.display='none')")
+                  await page.evaluate("document.querySelectorAll('.jp-CodeCell .jp-Cell-inputWrapper').forEach(e => e.style.display='none')")
                   await page.evaluate("new Promise(resolve => { if(window.MathJax && MathJax.Hub) MathJax.Hub.Queue(resolve); else resolve(); })")
                   cells = page.locator('.jp-Cell')
                   folder = Path('chain_artifacts/rendered_cells')
@@ -85,6 +95,13 @@ jobs:
                   await browser.close()
           asyncio.run(main())
           PY
+      - uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: |
+            chain_artifacts/opm_runs
+            norne-open-data
+          key: norne-chain-v1-${{ github.run_id }}
       - name: Retain notebook, figures, tables and diagnostics
         if: always()
         uses: actions/upload-artifact@v4

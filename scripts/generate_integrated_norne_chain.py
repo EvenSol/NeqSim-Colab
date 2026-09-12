@@ -2,6 +2,7 @@
 import json
 from pathlib import Path
 import textwrap
+import black
 
 CELLS = []
 
@@ -639,7 +640,10 @@ and optional oil/water slip. A three-phase thermodynamic inlet is not by itself 
 qualified three-phase hydraulic solve. We inspect oil and water holdups, phase mass-flux
 closure, phase-volume closure, and **all six steady convergence residuals**.
 
-The well and subsea models are composable process objects. We pass each actual outlet
+The well and subsea models are composable process objects. After each pipe run, we explicitly
+refresh the outlet TP equilibrium and physical properties before the next model consumes it.
+This guards against stale phase/derivative state after outlet flow normalization; a plausible
+heat capacity is an additional acceptance check, not a replacement for convergence. We pass each actual outlet
 stream into the next unit. The well is treated as adiabatic for this initial screen; the
 flowline exchanges heat with 4 °C seawater. Inclination, slip closures and sparse axial
 resolution remain model-form/numerical uncertainties.
@@ -648,6 +652,9 @@ A nonconverged solve or pressure-floor hit is rejected. The model is not used he
 validated severe-slugging amplitudes, erosion life, or transient operability qualification.
 ''')
 code(r'''
+OUTLET_REFRESH_AUDIT = []
+
+
 def pipe_run(inlet, name, length, diameter, rise, sections=20, heat_transfer=0.0):
     pipe = Pipe(name, inlet)
     pipe.setLength(float(length))
@@ -662,6 +669,20 @@ def pipe_run(inlet, name, length, diameter, rise, sections=20, heat_transfer=0.0
         pipe.setSurfaceTemperature(4.0, 'C')
         pipe.setHeatTransferCoefficient(float(heat_transfer))
     pipe.run()
+    outlet_fluid = pipe.getOutletStream().getFluid()
+    before_cp = float(outlet_fluid.getCp('J/kgK'))
+    before_phases = int(outlet_fluid.getNumberOfPhases())
+    Thermo(outlet_fluid).TPflash()
+    outlet_fluid.init(3)
+    outlet_fluid.initPhysicalProperties()
+    heat_capacity = outlet_fluid.getCp('J/kgK')
+    OUTLET_REFRESH_AUDIT.append({
+        'segment': name, 'cp_before_J_kgK': before_cp,
+        'cp_after_J_kgK': float(heat_capacity), 'phases_before': before_phases,
+        'phases_after': int(outlet_fluid.getNumberOfPhases()),
+    })
+    if not 100 < heat_capacity < 20000:
+        raise RuntimeError(f'{name}: invalid outlet heat capacity {heat_capacity}')
     report = pipe.getSteadyStateConvergenceReport()
     residuals = {
         'pressure_momentum': report.getPressureMomentumResidual(),
@@ -722,6 +743,7 @@ assert wet_transport['inlet'].getFluid().hasPhaseType('oil')
 assert wet_transport['inlet'].getFluid().hasPhaseType('aqueous')
 print('Separate hypothetical wet-flow stress case; not an OPM forecast point.')
 display(pd.DataFrame(wet_transport['residuals']))
+display(pd.DataFrame(OUTLET_REFRESH_AUDIT))
 ''')
 code(r'''
 fig, axes = plt.subplots(2, 2, figsize=(12, 7))
@@ -1326,6 +1348,7 @@ print(f'GP prediction for {len(proposal_pool)} candidates [s]: {inference_s:.6f}
 print('Inference speed excludes training, sampling, NeqSim, and final simulator verification.')
 display(run_table)
 
+pd.DataFrame(OUTLET_REFRESH_AUDIT).to_csv(OUT / 'outlet_refresh_audit.csv', index=False)
 comparison.to_csv(OUT / 'development_decisions.csv', index=False)
 policy_table.to_csv(OUT / 'policy_realizations.csv', index=False)
 run_table.to_csv(OUT / 'simulation_costs.csv', index=False)
@@ -1410,6 +1433,8 @@ ROOT = Path(__file__).resolve().parents[1]
 TARGET = ROOT / 'notebooks/reservoir/integrated_norne_reservoir_to_facilities_ai.ipynb'
 TARGET.parent.mkdir(parents=True, exist_ok=True)
 for index, cell in enumerate(CELLS):
+    if cell['cell_type'] == 'code':
+        cell['source'] = black.format_str(cell['source'], mode=black.Mode(line_length=96))
     cell['id'] = f'chain-{index:03d}'
     cell['source'] = cell['source'].splitlines(keepends=True)
 notebook = {
