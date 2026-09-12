@@ -188,6 +188,8 @@ from sklearn.preprocessing import StandardScaler
 from opm.io.ecl import ESmry
 from IPython.display import display
 
+pd.set_option('display.max_colwidth', None)
+pd.set_option('display.max_columns', None)
 RNG = np.random.default_rng(7291)
 OUT = Path('chain_artifacts').resolve()
 OUT.mkdir(exist_ok=True)
@@ -537,13 +539,15 @@ screens candidates with a net-layer/porosity/permeability index; it is not a dri
 The numerical forecast uses the published completion cells of two wells.
 
 Tubing size, trajectory, completion productivity, sand control, injection support, and
-allowable drawdown must then be considered together. We compare two internal tubing
+allowable drawdown must then be considered together. We compare three internal tubing
 diameters in the hydraulic model. The assumed path rises from the 2700 m BHP datum to a
 320 m seabed, followed by a 6 km tieback and a 320 m riser. These dimensions are hypothetical.
 
-$$p_{bh}=p_{arrival}+\Delta p_{well}+\Delta p_{flowline+riser}+\Delta p_{choke}$$
+$$p_{bh}=p_{host}+\Delta p_{well}+\Delta p_{flowline+riser}+\Delta p_{choke}$$
 
-All pressures are absolute. The pressure losses include hydrostatic and frictional effects
+Here $p_{host}$ is the receiving pressure after the choke; the calculated pre-choke
+arrival pressure is $p_{arrival}=p_{host}+\Delta p_{choke}$. All pressures and pressure
+differences are in bar, with absolute pressure used for $p$. The pressure losses include hydrostatic and frictional effects
 computed by the flow model. We never subtract a fixed guessed wellhead-pressure offset
 from reservoir pressure. A negative available choke drop means the proposed reservoir
 rate/BHP pair cannot deliver to that receiving pressure with this assumed geometry.
@@ -578,6 +582,9 @@ composition then represents those masses: a methane/ethane/propane/nitrogen/CO�
 TBP pseudo-component for stock oil, and water. The oil molecular weight is assumed.
 
 $$\dot m_i=\rho_{i,std}\,q_{i,std}/86400$$
+
+$i$ labels oil, gas or water; $\dot m_i$ is kg/s, $\rho_{i,std}$ is kg/Sm³, and
+$q_{i,std}$ is Sm³/day. The factor 86400 converts days to seconds.
 
 Mass is preserved at the interface; **phase volumes, gas solubility and calorific value are
 not guaranteed to reproduce the Norne black-oil tables**. The water density includes brine
@@ -644,12 +651,16 @@ The well and subsea models are composable process objects. After each pipe run, 
 refresh the outlet TP equilibrium and physical properties before the next model consumes it.
 This guards against stale phase/derivative state after outlet flow normalization; a plausible
 heat capacity is an additional acceptance check, not a replacement for convergence. The
-outlet-refresh audit retains before/after values so this interface correction is visible. We pass each actual outlet
+outlet-refresh audit retains before/after values so this interface correction is visible.
+The reproducible native issue is tracked in [NeqSim #3685](https://github.com/equinor/neqsim/issues/3685). We pass each actual outlet
 stream into the next unit. The well is treated as adiabatic for this initial screen; the
 flowline exchanges heat with 4 °C seawater. Inclination, slip closures and sparse axial
 resolution remain model-form/numerical uncertainties.
 
-A nonconverged solve or pressure-floor hit is rejected. The model is not used here to claim
+A nonconverged solve, pressure-floor hit or failed conservation check is rejected.
+[NeqSim #3686](https://github.com/equinor/neqsim/issues/3686) tracks a high-rate case
+where native steady convergence coexists with a phase mass-flux deficit. The notebook
+retains the rejected input and diagnostic; it does not relax the acceptance tolerance. The model is not used here to claim
 validated severe-slugging amplitudes, erosion life, or transient operability qualification.
 ''')
 code(r'''
@@ -797,6 +808,8 @@ insulation and restart philosophy belong in a development decision.
 
 $$T(t)=T_{sea}+(T_0-T_{sea})\exp(-UA t/C)$$
 
+$T_0$ is initial temperature, $T_{sea}$ is seawater temperature, and $T(t)$ is the
+lumped temperature, all in °C (temperature differences have the same value in K).
 $U$ is W/(m² K), $A$ is exposed area in m², $C$ is combined fluid/steel heat capacity in J/K,
 and time is seconds. Wax, asphaltene, scale, corrosion, emulsions, sand and severe slugging
 need additional fluid, chemistry, surface and transient evidence.
@@ -1021,6 +1034,9 @@ A Gaussian process supplies a mean and predictive standard deviation. Its standa
 is model uncertainty conditional on the training data and kernel; it is not the geological
 uncertainty distribution or a calibrated safety bound. We check performance on separately
 sampled geological/control combinations and report the small validation sample size.
+Kernel length scales can reach their configured bounds; the final audit displays those
+fitting diagnostics. A weakly identified feature over one year is not evidence that it
+is unimportant over field life.
 
 The adaptive policy requests a new OPM calculation where a high predicted outcome and
 uncertainty warrant exploration. This is a bounded numerical orchestrator, not an LLM making
@@ -1139,7 +1155,7 @@ and add new simulations near uncertain constraint boundaries.
 
 $$\max_u\;\frac{1}{N}\sum_r N_p(u,r)\quad\text{subject to }g_j(u,r)\le0$$
 
-$u$ contains BHP and injection controls, $r$ indexes geological realizations, and $g_j$
+$u$ contains BHP and injection controls, $r$ indexes the $N$ geological realizations, and $g_j$
 represents pressure and host-headroom constraints. Every policy uses identical realization
 weights. Reservoir, surrogate, transport-model and commercial uncertainty remain distinct.
 ''')
@@ -1181,6 +1197,19 @@ display(ranking.round(4))
 print('Direct finite-set reservoir-only winner:', ranking.index[0])
 print('Fixed-surrogate proposal:', ranking.fixed_prediction.idxmax())
 print('Adaptive-surrogate proposal:', ranking.adaptive_prediction.idxmax())
+
+# A deliberately limited end-report view makes the effect of host headroom visible.
+# It is compared with the complete report-time qualification in the next cell.
+snapshot_rows = []
+for scenario, capacities in HEADROOM.items():
+    for policy in POLICIES:
+        rows = policy_table[policy_table.policy == policy]
+        accepted = all(feasible(row, capacities) for row in rows.to_dict('records'))
+        snapshot_rows.append({'host': scenario, 'policy': policy,
+                              'day_360_only_pass': accepted})
+snapshot_screen = pd.DataFrame(snapshot_rows)
+display(snapshot_screen.pivot(index='policy', columns='host', values='day_360_only_pass'))
+print('This table screens day 360 only; it does not qualify the operating policy.')
 ''')
 md(r'''
 ### Capacity feedback changes the feasible set
@@ -1210,6 +1239,10 @@ for (policy, realization), forecast in policy_forecasts.items():
         report_checks.append({'policy': policy, 'realization': realization, **check})
 checks = pd.DataFrame(report_checks)
 checks.to_csv(OUT / 'coupled_report_checks.csv', index=False)
+failures = checks.loc[checks.hydraulic_status != 'converged', 'hydraulic_failure']
+print('Rejected transport snapshots:', len(failures), 'of', len(checks))
+for message in failures.head(3):
+    print(message)
 comparison_rows = []
 for scenario, capacities in HEADROOM.items():
     for policy in POLICIES:
@@ -1218,7 +1251,7 @@ for scenario, capacities in HEADROOM.items():
         pressure_fail = rows.arrival_min_bara.isna() | (rows.arrival_min_bara < 42)
         reasons = []
         if (rows.hydraulic_status != 'converged').any():
-            reasons.append('hydraulic convergence')
+            reasons.append('transport numerical validation')
         if pressure_fail.any():
             reasons.append('arrival pressure')
         if rows.min_hydrate_margin_K.isna().any() or rows.min_hydrate_margin_K.min() < 3.0:
@@ -1235,7 +1268,9 @@ for scenario, capacities in HEADROOM.items():
             'limiting_checks': ', '.join(reasons) or 'none in tested envelope',
         })
 comparison = pd.DataFrame(comparison_rows)
-display(comparison.round(4))
+display(comparison.round(4).style.set_properties(
+    **{'white-space': 'normal', 'max-width': '220px'},
+))
 for scenario in HEADROOM:
     accepted = comparison[(comparison.host == scenario) & comparison.all_report_checks_pass]
     if accepted.empty:
@@ -1272,7 +1307,8 @@ md(r'''
 
 Host headroom only has value if another part of the chain can use it. The following
 counterfactual holds the wet-flow fluid and BHP fixed while varying tubing and flowline
-internal diameter. We compare delivery pressure and host power. Increasing host power
+internal diameter over a deliberately broad envelope, including undersized tubing.
+We compare delivery pressure against the receiving-pressure requirement. Increasing host power
 capacity cannot repair inadequate well/subsea delivery pressure.
 
 Conversely, a larger line can be economically unhelpful if the host is already limited by
@@ -1282,20 +1318,23 @@ calculation using declared hypothetical values; these are not equipment quotatio
 ''')
 code(r'''
 design_rows = []
-for tubing in [0.20, 0.23, 0.28]:
-    for diameter in [0.30, 0.35, 0.40]:
+for tubing in [0.06, 0.08, 0.12]:
+    for diameter in [0.25, 0.35, 0.45]:
         try:
             trial = transport(wet_oil, wet_gas, wet_water, 230, tubing=tubing, line_diameter=diameter)
             arrival = trial['arrival'].getPressure('bara')
             design_rows.append({'tubing_m': tubing, 'line_m': diameter,
                                 'arrival_bara': arrival, 'delivery_pass': arrival >= 42,
-                                'status': 'converged'})
-        except RuntimeError:
+                                'status': 'converged', 'reason': ''})
+        except RuntimeError as error:
             design_rows.append({'tubing_m': tubing, 'line_m': diameter,
                                 'arrival_bara': np.nan, 'delivery_pass': False,
-                                'status': 'rejected: convergence'})
+                                'status': 'rejected', 'reason': str(error)})
 design_table = pd.DataFrame(design_rows)
-display(design_table.round(3))
+display(design_table.drop(columns=['reason']).round(3))
+for reason in design_table.loc[~design_table.delivery_pass, 'reason'].unique():
+    if reason:
+        print('Rejected design diagnostic:', reason)
 fig, ax = plt.subplots(figsize=(8, 4))
 for tubing, rows in design_table.groupby('tubing_m'):
     ax.plot(rows.line_m, rows.arrival_bara, 'o-', label=f'Tubing ID {tubing:.2f} m')
@@ -1347,7 +1386,9 @@ uncertainty_register = pd.DataFrame([
     ['ML', 'GP kernel and limited design', 'Four independent validation cases',
      'Larger holdout, interval calibration, OOD detection and constraint learning'],
 ], columns=['uncertainty', 'representation', 'evidence here', 'next evidence'])
-display(uncertainty_register)
+display(uncertainty_register.style.set_properties(
+    **{'white-space': 'normal', 'max-width': '230px'},
+))
 ''')
 md(r'''
 ## 15. Traceable automation and interfaces for a larger agent workflow
@@ -1465,7 +1506,7 @@ validation = {
 assert validation['maximum_process_mass_residual'] < 1e-6
 assert validation['maximum_process_component_residual'] < 1e-5
 print(json.dumps(validation, indent=2))
-(OUT / 'validation.json').write_text(json.dumps(validation, indent=2))
+_ = (OUT / 'validation.json').write_text(json.dumps(validation, indent=2))
 ''')
 
 ROOT = Path(__file__).resolve().parents[1]
