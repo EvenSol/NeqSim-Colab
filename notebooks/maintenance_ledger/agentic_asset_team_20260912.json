@@ -1,0 +1,141 @@
+{
+  "schema_version": 3,
+  "notebooks": [
+    {
+      "path": "notebooks/AI/agentic_asset_team_tieback_and_debottlenecking.ipynb",
+      "status": "validated",
+      "execution_status": "passed",
+      "code_cells": 34,
+      "validation_date": "2026-09-12",
+      "source_commit": "5eb26ebad6e180b3756248237ecc33129ec071f4",
+      "source_jar_sha256": "43c82351ec1f2b164492dcfc9f168cfb10c66ca5f8932b0d1db2101971fe07e8",
+      "notebook_sha256": "5579bc8f32be047e9c8176e2bb6836c1e35a00092531d9e199660554d759e40e",
+      "python_version": "3.12.14",
+      "java_version": "17.0.20",
+      "package_versions": {
+        "neqsim": "3.20.0",
+        "numpy": "2.5.3",
+        "pandas": "3.0.5",
+        "scipy": "1.18.1",
+        "matplotlib": "3.11.2",
+        "plotly": "7.0.0",
+        "jsonschema": "4.26.0"
+      },
+      "execution": {
+        "method": "Fresh isolated Python process; repository execute_notebook_inprocess.py runner",
+        "command": "python scripts/execute_notebook_inprocess.py notebooks/AI/agentic_asset_team_tieback_and_debottlenecking.ipynb",
+        "elapsed_seconds": 157.1,
+        "exit_code": 0,
+        "stored_error_count": 0,
+        "stderr_outputs": 0,
+        "static_figures": 14,
+        "interactive_explorers": 1,
+        "live_api_status": "not_run",
+        "live_api_limitation": "No API credential available. Default executed agent-plan replay is explicitly labelled; live HTTP inference is not claimed as tested."
+      },
+      "engineering_validation": {
+        "checks": {
+          "protected host feeds": true,
+          "nominal recommendation feasible": true,
+          "old recommendation rejected after derating": true,
+          "derated replan feasible": true,
+          "margin candidate feasible": true,
+          "margin holdout fully passes": true,
+          "pressure-decline replans feasible": true,
+          "mass closure every process": true,
+          "component closure every process": true,
+          "enthalpy closure every process": true,
+          "fresh power repeatability": true,
+          "fresh liquid repeatability": true,
+          "replay final verification": true,
+          "malformed calls did not simulate": true,
+          "resource scenarios conserve resource": true
+        },
+        "simulations": 1848,
+        "stored_operating_rejections": 871,
+        "maximum_mass_error": 1.4795666835817146e-15,
+        "maximum_component_error": 3.62482569035995e-15,
+        "maximum_energy_error": 1.490032129442962e-10,
+        "holdout_passed": 96,
+        "holdout_cases": 96,
+        "live_api_status": "not_run"
+      },
+      "representative_results": {
+        "question": "Accept the discovery while protecting 80 t/h host production?",
+        "nominal_accepted_tie_t_h": 60.0,
+        "derated_original_settings_t_h": 6.0671234130859375,
+        "derated_maximum_screened_t_h": 52.617810581951105,
+        "derated_margin_candidate_t_h": 42.91154906169144,
+        "margin_candidate_controls": {
+          "simulation_id": "SIM-01848",
+          "tie_kg_h": 42911.54906169144,
+          "pressure_bara": 61.54888549862234,
+          "temperature_C": 22.0,
+          "split": 0.4640055207721075,
+          "power_kW": 2467.900008946506,
+          "cooling_kW": 5314.822340785109,
+          "gas_kg_h": 118668.21069837571,
+          "liquid_kg_h": 4243.338363315701,
+          "co2_mol_pct": 2.93551436503273,
+          "wobbe_MJ_Sm3": 52.3320530906568,
+          "feasible": true,
+          "limiting": "deliverability_B"
+        },
+        "holdout_pass_fraction": 1.0,
+        "nomination_shortfall_t_h": 17.08845093830856,
+        "driver_package_nominal_t_h": 60.0,
+        "economic_scenario_npv_MEUR": 340.16918007515017,
+        "qualification": "Synthetic host-capacity screening; no plant operating approval",
+        "open_engineering_actions": [
+          "Replace synthetic maps and limits with vendor-qualified equipment evidence.",
+          "Replace reduced deliverability with reservoir, well and SURF calculations.",
+          "Qualify downstream condensation, dehydration, water/hydrate and export specifications.",
+          "Run transient controls and anti-surge studies before defining an operating transition.",
+          "Validate cooling utility approach, hydraulics, fouling and off-design performance.",
+          "Replace commercial assumptions with project estimates and fiscal/economic models."
+        ]
+      },
+      "source_provenance": {
+        "repository": "equinor/neqsim",
+        "ref": "master at study start; pinned commit for reproduction",
+        "verification": "All regular source blobs matched the connector-fetched exact GitHub tree before Maven build; commit, JAR hash and loaded Java class location retained.",
+        "build": "./mvnw -q -DskipTests -Dmaven.javadoc.skip=true package: exit 0",
+        "tests_boundary": "Java source was not changed; Javadocs and Java test suite were not run for this notebook study."
+      },
+      "visual_validation": {
+        "renderer": "nbconvert classic HTML + MathJax SVG; WeasyPrint/PyMuPDF visual inspection",
+        "status": "passed",
+        "markdown_cells_inspected": 32,
+        "display_equations": 12,
+        "inline_math_expressions": 16,
+        "all_static_figures_inspected": true,
+        "pages_inspected": 24,
+        "interactive_fallback": "Plotly explorer has retained static envelope/trade-off figures. Browser interaction was not exercised in this environment.",
+        "result": "All equations, figures, result tables and Markdown reviewed; readable labels and units, no clipped plots or broken equations."
+      },
+      "integrity_validation": {
+        "checker_unit_tests": "6 passed",
+        "targeted_checker": "Strict execution and require_main_source: 0 errors, 0 warnings",
+        "code_readability": "All code parsed; lines <=100 characters except URLs; conventional Black formatting.",
+        "relative_notebook_links": "318 checked against exact repository tree plus new notebook; none broken.",
+        "repository_wide_ci": "Pending GitHub notebook-integrity workflow; full repository not materialized locally."
+      },
+      "documentation_impact": {
+        "assessment": "New user-visible notebook; no NeqSim library source change.",
+        "updated": [
+          "README.md",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/AI/agentic_asset_team_tieback_and_debottlenecking.ipynb"
+        ],
+        "scope": "Setup, model construction, units, pressure decline, optimization, agent contracts, uncertainty, economics, validation, limitations and book navigation."
+      },
+      "related_neqsim_issues": [],
+      "improvement_assessment": "No distinct actionable NeqSim library defect established. Synthetic model assumptions and unexecuted optional live HTTP path are disclosed in the notebook.",
+      "publication": {
+        "mode": "feature branch and draft pull request",
+        "base": "master",
+        "merge_authorized": false
+      }
+    }
+  ]
+}
