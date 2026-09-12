@@ -187,6 +187,7 @@ from sklearn.metrics import mean_absolute_error, r2_score
 from sklearn.preprocessing import StandardScaler
 from opm.io.ecl import ESmry
 from IPython.display import display
+from textwrap import fill
 
 pd.set_option('display.max_colwidth', None)
 pd.set_option('display.max_columns', None)
@@ -249,7 +250,7 @@ for start, end in [((2.65, 3.6), (3.2, 3.6)), ((5.65, 3.6), (6.2, 3.6)),
 ax.annotate('', xy=(4.5, 4.1), xytext=(10.4, 4.1),
             arrowprops={'arrowstyle': '->', 'connectionstyle': 'arc3,rad=0.2',
                         'color': COLORS[1], 'linewidth': 2})
-ax.text(7.4, 4.6, 'Pressure and capacity feedback', ha='center', color=COLORS[1])
+ax.text(7.4, 4.85, 'Pressure and capacity feedback', ha='center', color=COLORS[1])
 ax.text(6, 0.05, 'Every accepted recommendation carries simulator evidence.', ha='center')
 show_figure(fig, '01_coupled_chain')
 ''')
@@ -974,9 +975,9 @@ def assess_report(row, tubing=0.23, line_diameter=0.35):
 
 
 base_load = assess_report(base_forecast.iloc[-1])
-display(pd.DataFrame([base_load]).drop(columns=['hydraulic_failure']))
+display(pd.Series(base_load).drop('hydraulic_failure').to_frame('value'))
 if base_load['hydraulic_failure']:
-    print('Hydraulic rejection:', base_load['hydraulic_failure'])
+    print(fill('Transport rejection: ' + base_load['hydraulic_failure'], width=100))
 
 # Headroom is scenario data, not a claim about the installed Norne host.
 HEADROOM = {
@@ -1242,7 +1243,7 @@ checks.to_csv(OUT / 'coupled_report_checks.csv', index=False)
 failures = checks.loc[checks.hydraulic_status != 'converged', 'hydraulic_failure']
 print('Rejected transport snapshots:', len(failures), 'of', len(checks))
 for message in failures.head(3):
-    print(message)
+    print(fill(message, width=100))
 comparison_rows = []
 for scenario, capacities in HEADROOM.items():
     for policy in POLICIES:
@@ -1268,8 +1269,14 @@ for scenario, capacities in HEADROOM.items():
             'limiting_checks': ', '.join(reasons) or 'none in tested envelope',
         })
 comparison = pd.DataFrame(comparison_rows)
-display(comparison.round(4).style.set_properties(
-    **{'white-space': 'normal', 'max-width': '220px'},
+display(comparison.rename(columns={
+    'all_report_checks_pass': 'All reports pass',
+    'mean_oil_million_sm3': 'Mean oil [million Sm3]',
+    'Q10_oil_million_sm3': 'Q10 oil [million Sm3]',
+    'Q90_oil_million_sm3': 'Q90 oil [million Sm3]',
+    'limiting_checks': 'Limiting checks',
+}).style.format(precision=4).set_properties(
+    **{'white-space': 'normal', 'max-width': '190px'},
 ))
 for scenario in HEADROOM:
     accepted = comparison[(comparison.host == scenario) & comparison.all_report_checks_pass]
@@ -1299,7 +1306,8 @@ axes[1].set_yticks(range(len(matrix.index)), matrix.index)
 axes[1].set_title('All stored-report checks: pass / reject')
 for i in range(len(matrix.index)):
     for j in range(len(matrix.columns)):
-        axes[1].text(j, i, 'PASS' if matrix.iloc[i, j] else 'REJECT', ha='center', va='center')
+        axes[1].text(j, i, 'PASS' if matrix.iloc[i, j] else 'REJECT', ha='center', va='center',
+                     color='white', fontweight='bold')
 show_figure(fig, '10_integrated_decision_map')
 ''')
 md(r'''
@@ -1334,7 +1342,7 @@ design_table = pd.DataFrame(design_rows)
 display(design_table.drop(columns=['reason']).round(3))
 for reason in design_table.loc[~design_table.delivery_pass, 'reason'].unique():
     if reason:
-        print('Rejected design diagnostic:', reason)
+        print(fill('Rejected design diagnostic: ' + reason, width=100))
 fig, ax = plt.subplots(figsize=(8, 4))
 for tubing, rows in design_table.groupby('tubing_m'):
     ax.plot(rows.line_m, rows.arrival_bara, 'o-', label=f'Tubing ID {tubing:.2f} m')
@@ -1421,7 +1429,7 @@ inference_s = time.perf_counter() - start
 print('Unique actual OPM runs:', len(unique_runs))
 print('Distinct GP fitting diagnostics:', len(set(GP_FIT_WARNINGS)))
 for message in sorted(set(GP_FIT_WARNINGS)):
-    print(message)
+    print(fill(message, width=100))
 (OUT / 'gp_fit_diagnostics.json').write_text(json.dumps(GP_FIT_WARNINGS, indent=2))
 print('Recorded OPM solve time [s]:', run_table.elapsed_s.sum())
 print(f'GP prediction for {len(proposal_pool)} candidates [s]: {inference_s:.6f}')
@@ -1445,7 +1453,8 @@ ledger = {
     ],
 }
 (OUT / 'engineering_ledger.json').write_text(json.dumps(ledger, indent=2))
-print('Reusable outputs:', ', '.join(path.name for path in OUT.glob('*.csv')))
+print(fill('Reusable outputs: ' + ', '.join(path.name for path in OUT.glob('*.csv')),
+           width=100))
 ''')
 md(r'''
 ## 16. What the demonstration establishes
