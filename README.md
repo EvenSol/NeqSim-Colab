@@ -9,6 +9,7 @@ Advanced notebooks use the released Python distribution only as the JPype bridge
 
 ## Featured notebooks
 
+* [Hot-oil commissioning and ML risk screening](notebooks/flowassurance/hot_oil_commissioning_neqsim_ml.ipynb) – Combine NeqSim properties, wax, thermal resistance and a native heater/pipeline process with a conservative transient displacement model, numerical checks, RF/MLP surrogates and explicit gel-restart assumptions.
 * [open-DARTS waterflood simulation and a NeqSim process handoff](notebooks/reservoir/open_darts_waterflood_to_neqsim.ipynb) – Build and validate an open-DARTS reservoir model, exercise well controls, check analytical and numerical sensitivity, and transfer component rates into NeqSim; connect the tutorial to the existing OPM Flow, RMS, and ERT examples.
 * [Elemental sulfur in oil stabilization and gas recompression](notebooks/process/elemental_sulfur_stabilization_recompression.ipynb) – Calculate H2S/O2 equilibrium and kinetics, sulfur deposition, rust/FeS effects, separator oil/condensate carryover, compressor fouling, and potential mitigation and cleaning measures.
 * [LNG process simulation and benchmark comparison](notebooks/process/LNG_Process_Benchmark_Comparison.ipynb) – Run closed-loop SMR, C3MR, DMR, and nitrogen-expander models with common KPIs, literature checks, and an exchanger grid-convergence study.
