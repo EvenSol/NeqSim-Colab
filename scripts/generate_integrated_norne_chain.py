@@ -643,7 +643,8 @@ closure, phase-volume closure, and **all six steady convergence residuals**.
 The well and subsea models are composable process objects. After each pipe run, we explicitly
 refresh the outlet TP equilibrium and physical properties before the next model consumes it.
 This guards against stale phase/derivative state after outlet flow normalization; a plausible
-heat capacity is an additional acceptance check, not a replacement for convergence. We pass each actual outlet
+heat capacity is an additional acceptance check, not a replacement for convergence. The
+outlet-refresh audit retains before/after values so this interface correction is visible. We pass each actual outlet
 stream into the next unit. The well is treated as adiabatic for this initial screen; the
 flowline exchanges heat with 4 °C seawater. Inclination, slip closures and sparse axial
 resolution remain model-form/numerical uncertainties.
@@ -694,7 +695,8 @@ def pipe_run(inlet, name, length, diameter, rise, sections=20, heat_transfer=0.0
     }
     if not report.isConverged():
         raise RuntimeError(f'{name}: {report.getTerminationReason()}, {residuals}')
-    assert max(residuals.values()) <= report.getTolerance()
+    if max(residuals.values()) > report.getTolerance():
+        raise RuntimeError(f'{name}: residual tolerance exceeded: {residuals}')
     profiles = pd.DataFrame({
         'distance_m': np.asarray(pipe.getPositionProfile()),
         'pressure_bara': np.asarray(pipe.getPressureProfile()) / 1e5,
@@ -706,12 +708,20 @@ def pipe_run(inlet, name, length, diameter, rise, sections=20, heat_transfer=0.0
         'oil_mass_kg_s': np.asarray(pipe.getOilMassFlowProfile()),
         'water_mass_kg_s': np.asarray(pipe.getWaterMassFlowProfile()),
     })
-    assert np.allclose(profiles.oil_holdup + profiles.water_holdup,
-                       profiles.liquid_holdup, atol=1e-9)
+    if not np.allclose(profiles.oil_holdup + profiles.water_holdup,
+                       profiles.liquid_holdup, atol=1e-9):
+        raise RuntimeError(f'{name}: phase holdup closure failed')
     phase_sum = profiles[['gas_mass_kg_s', 'oil_mass_kg_s', 'water_mass_kg_s']].sum(axis=1)
-    assert np.allclose(phase_sum, inlet.getFlowRate('kg/sec'), rtol=1e-5, atol=1e-7)
-    assert np.all(profiles.pressure_bara > 1.0)
-    assert np.all((profiles.liquid_holdup >= 0) & (profiles.liquid_holdup <= 1))
+    expected_mass = float(inlet.getFlowRate('kg/sec'))
+    if not np.allclose(phase_sum, expected_mass, rtol=1e-5, atol=1e-7):
+        raise RuntimeError(
+            f'{name}: phase mass closure failed; expected={expected_mass:.12g} kg/s, '
+            f'profile=[{phase_sum.min():.12g}, {phase_sum.max():.12g}] kg/s'
+        )
+    if not np.all(profiles.pressure_bara > 1.0):
+        raise RuntimeError(f'{name}: pressure floor reached')
+    if not np.all((profiles.liquid_holdup >= 0) & (profiles.liquid_holdup <= 1)):
+        raise RuntimeError(f'{name}: nonphysical liquid holdup')
     return pipe, profiles, residuals
 
 
@@ -792,7 +802,7 @@ and time is seconds. Wax, asphaltene, scale, corrosion, emulsions, sand and seve
 need additional fluid, chemistry, surface and transient evidence.
 ''')
 code(r'''
-hydrate_pressures = np.array([20., 40., 60., 80., 100., 140.])
+hydrate_pressures = np.array([5., 10., 20., 40., 60., 80., 100., 140., 200., 260.])
 hydrate_temperatures = []
 for pressure in hydrate_pressures:
     fluid = System(285.15, float(pressure))
@@ -809,7 +819,7 @@ assert np.all(np.isfinite(hydrate_temperatures))
 assert np.all(np.diff(hydrate_temperatures) > 0)
 profile = wet_transport['line_profile']
 hydrate_on_path = np.interp(profile.pressure_bara, hydrate_pressures, hydrate_temperatures)
-pressure_domain_valid = bool(profile.pressure_bara.between(20, 140).all())
+pressure_domain_valid = bool(profile.pressure_bara.between(5, 260).all())
 fig, axes = plt.subplots(1, 2, figsize=(11, 4.2))
 axes[0].plot(hydrate_pressures, hydrate_temperatures, 'o-', label='Fresh-water onset')
 axes[0].plot(profile.pressure_bara, profile.temperature_c, label='Wet-flow operating path')
@@ -916,6 +926,7 @@ are recorded separately from physically insufficient arrival pressure.
 code(r'''
 def assess_report(row, tubing=0.23, line_diameter=0.35):
     arrivals = []
+    thermal_margins = []
     hydraulic_failure = None
     for well in ['B-2H', 'D-1H']:
         oil = float(row['WOPR:' + well])
@@ -927,13 +938,21 @@ def assess_report(row, tubing=0.23, line_diameter=0.35):
             result = transport(oil, gas, water, float(row['WBHP:' + well]),
                                tubing=tubing, line_diameter=line_diameter)
             arrivals.append(result['arrival'].getPressure('bara'))
+            profile = result['line_profile']
+            if profile.pressure_bara.between(hydrate_pressures.min(), hydrate_pressures.max()).all():
+                onset = np.interp(profile.pressure_bara, hydrate_pressures, hydrate_temperatures)
+                thermal_margins.append(float(np.min(profile.temperature_c - onset)))
         except RuntimeError as error:
-            hydraulic_failure = str(error)[:500]
+            hydraulic_failure = (
+                f'{well}; oil={oil:.12g}, gas={gas:.12g}, water={water:.12g} Sm3/d; '
+                f'BHP={float(row["WBHP:" + well]):.12g} bara; {error}'
+            )
             break
     host_feed, _ = fluid_handoff(float(row.FOPR), float(row.FGPR), float(row.FWPR), 45.0)
     host = facility(host_feed)
     return {
         'day': float(row.day), 'arrival_min_bara': min(arrivals) if arrivals else None,
+        'min_hydrate_margin_K': min(thermal_margins) if len(thermal_margins) == len(arrivals) and arrivals else None,
         'hydraulic_status': 'failed' if hydraulic_failure else 'converged',
         'hydraulic_failure': hydraulic_failure,
         **{key: float(host[key]) for key in ['power_MW', 'gas_kg_s', 'water_kg_s',
@@ -970,9 +989,11 @@ display(pd.DataFrame(HEADROOM).T)
 
 def feasible(load, headroom):
     pressure = load['arrival_min_bara']
+    thermal_margin = load['min_hydrate_margin_K']
     return bool(
         load['hydraulic_status'] == 'converged' and pressure is not None
         and pressure >= 42.0
+        and thermal_margin is not None and thermal_margin >= 3.0
         and all(load[key] <= headroom[key] for key in headroom)
     )
 
@@ -1015,6 +1036,7 @@ N_ADAPTIVE = 3
 N_TEST = 4
 EVIDENCE = [base_evidence]
 TRAINING = []
+GP_FIT_WARNINGS = []
 
 
 def vector_parameters(vector):
@@ -1044,7 +1066,11 @@ def fit_gp(records):
         length_scale=np.ones(4), length_scale_bounds=(0.05, 20), nu=2.5,
     ) + WhiteKernel(1e-6, noise_level_bounds='fixed')
     model = GaussianProcessRegressor(kernel=kernel, normalize_y=True, random_state=7291)
-    model.fit(scaler.transform(features), target)
+    import warnings
+    with warnings.catch_warnings(record=True) as caught:
+        warnings.simplefilter('always')
+        model.fit(scaler.transform(features), target)
+    GP_FIT_WARNINGS.extend(str(item.message) for item in caught)
     return model, scaler
 
 
@@ -1161,7 +1187,9 @@ md(r'''
 
 An end-report screen is useful for teaching but cannot qualify an operating policy. The
 next tool checks all nonzero stored report times for each policy/realization before making
-the final comparisons. It calculates host loads from actual OPM rates, while the well and
+the final comparisons. The flow-assurance screen requires a 3 K margin above the calculated
+fresh-water hydrate-onset curve along each line; out-of-domain results are rejected. This
+margin is a teaching criterion, not a field-qualified inhibition or restart requirement. It calculates host loads from actual OPM rates, while the well and
 subsea model checks whether the imposed BHP can supply the receiving pressure.
 
 The BHP already controls the reservoir calculation. Rejecting an infeasible rate/BHP pair
@@ -1193,6 +1221,8 @@ for scenario, capacities in HEADROOM.items():
             reasons.append('hydraulic convergence')
         if pressure_fail.any():
             reasons.append('arrival pressure')
+        if rows.min_hydrate_margin_K.isna().any() or rows.min_hydrate_margin_K.min() < 3.0:
+            reasons.append('thermal hydrate screen')
         for key in capacities:
             if rows[key].max() > capacities[key]:
                 reasons.append(key)
@@ -1213,6 +1243,11 @@ for scenario in HEADROOM:
     else:
         winner = accepted.sort_values('mean_oil_million_sm3', ascending=False).iloc[0]
         print(f'{scenario}: best tested feasible policy = {winner.policy}')
+        feasible_names = accepted.policy.tolist()
+        print('  Fixed-GP proposal in the qualified feasible set:',
+              ranking.loc[feasible_names].fixed_prediction.idxmax())
+        print('  Adaptive-GP proposal in the qualified feasible set:',
+              ranking.loc[feasible_names].adaptive_prediction.idxmax())
 ''')
 code(r'''
 fig, axes = plt.subplots(1, 2, figsize=(12, 4.5))
@@ -1276,7 +1311,7 @@ assumed_discount_rate = 0.10
 break_even_extra_sm3 = assumed_upgrade_cost * (1 + assumed_discount_rate) / assumed_netback_per_sm3
 print(f'Illustrative one-year break-even incremental oil: {break_even_extra_sm3:,.0f} Sm³.')
 print('Netback = 350 currency units/Sm³; upgrade = 15 million; discount rate = 10%.')
-print('Use policy differences from the integrated model; do not value unavailable reservoir potential.')
+print('Use integrated policy differences; do not value unavailable reservoir potential.')
 ''')
 md(r'''
 ## 14. Recoverable volumes, uncertainty and what more data is worth
@@ -1343,6 +1378,10 @@ start = time.perf_counter()
 model.predict(scaler.transform(proposal_pool))
 inference_s = time.perf_counter() - start
 print('Unique actual OPM runs:', len(unique_runs))
+print('Distinct GP fitting diagnostics:', len(set(GP_FIT_WARNINGS)))
+for message in sorted(set(GP_FIT_WARNINGS)):
+    print(message)
+(OUT / 'gp_fit_diagnostics.json').write_text(json.dumps(GP_FIT_WARNINGS, indent=2))
 print('Recorded OPM solve time [s]:', run_table.elapsed_s.sum())
 print(f'GP prediction for {len(proposal_pool)} candidates [s]: {inference_s:.6f}')
 print('Inference speed excludes training, sampling, NeqSim, and final simulator verification.')
