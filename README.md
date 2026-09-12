@@ -9,6 +9,8 @@ Advanced notebooks use the released Python distribution only as the JPype bridge
 
 ## Featured notebooks
 
+* [The AI Asset Team: tie-back and debottlenecking](notebooks/AI/agentic_asset_team_tieback_and_debottlenecking.ipynb) – One executed industrial study combining fixed compressor maps, protected host production, constrained optimization, derating recovery, uncertainty, five-year economics, retained graphics, an audited investigation replay and an optional live language-model agent. Uses pinned NeqSim source; local source reuse is available through `NEQSIM_SOURCE_ROOT`/`NEQSIM_SOURCE_JAR`. Live mode uses `OPENAI_API_KEY` and optional `OPENAI_MODEL`; credentials are never stored in outputs.
+
 * [Mechanical design to interactive 3D equipment](notebooks/process/mechanical_design_to_3d_models.ipynb) – Generate separator and compressor models from calculated NeqSim dimensions, inspect cutaways, compare flow cases, and exchange qualified STL/GLB/JSON artifacts.
 
 * [Hot-oil commissioning and ML risk screening](notebooks/flowassurance/hot_oil_commissioning_neqsim_ml.ipynb) – Combine NeqSim properties, wax, thermal resistance and a native heater/pipeline process with a conservative transient displacement model, numerical checks, RF/MLP surrogates and explicit gel-restart assumptions.
@@ -27,4 +29,5 @@ See the [NeqSim Colab page](https://colab.research.google.com/github/EvenSol/Neq
 See the [NeqSim Colab page](https://colab.research.google.com/github/EvenSol/NeqSim-Colab/blob/master/notebooks/examples_of_NeqSim_in_Colab.ipynb). Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests.
 
 Repository-wide notebook integrity is checked with `python scripts/check_notebook.py --all`. New main-source notebooks must additionally pass `python scripts/check_notebook.py PATH --require-main-source` after clean execution.
+
 
