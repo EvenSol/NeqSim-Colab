@@ -1,0 +1,119 @@
+name: Integrated Norne chain validation
+on:
+  push:
+    branches: [codex/integrated-norne-chain-ai]
+    paths:
+      - scripts/generate_integrated_norne_chain.py
+      - .github/workflows/integrated-norne-chain-validation.yml
+  workflow_dispatch:
+concurrency:
+  group: integrated-norne-chain-validation
+  cancel-in-progress: true
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Install OPM Flow
+        run: |
+          sudo add-apt-repository -y ppa:opm/ppa
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libopm-simulators-bin
+          flow --version
+      - uses: actions/checkout@v4
+        with:
+          repository: equinor/neqsim
+          ref: e4baa50c8fb0815e52c38ddcb93f806e6907ece8
+          path: neqsim-source
+      - name: Build verified NeqSim source
+        working-directory: neqsim-source
+        run: ./mvnw -q -DskipTests -Dmaven.javadoc.skip=true package
+      - name: Install notebook tooling
+        run: python -m pip install -q nbformat nbclient nbconvert ipykernel matplotlib pillow playwright black==26.5.1
+      - uses: actions/cache/restore@v4
+        with:
+          path: |
+            chain_artifacts/opm_runs
+            norne-open-data
+          key: norne-chain-v1-${{ github.run_id }}
+          restore-keys: norne-chain-v1-
+      - name: Generate and execute notebook
+        env:
+          NEQSIM_SOURCE_REF: e4baa50c8fb0815e52c38ddcb93f806e6907ece8
+          NEQSIM_SOURCE_ROOT: ${{ github.workspace }}/neqsim-source
+          NEQSIM_SOURCE_JAR: ${{ github.workspace }}/neqsim-source/target/neqsim-3.20.0.jar
+          OMP_NUM_THREADS: '2'
+        run: |
+          python scripts/generate_integrated_norne_chain.py
+          python - <<'PY'
+          import nbformat
+          from nbclient import NotebookClient
+          from pathlib import Path
+          path = Path('notebooks/reservoir/integrated_norne_reservoir_to_facilities_ai.ipynb')
+          notebook = nbformat.read(path, as_version=4)
+          try:
+              NotebookClient(notebook, timeout=3600, kernel_name='python3',
+                             resources={'metadata': {'path': '.'}}).execute()
+          finally:
+              nbformat.write(notebook, path)
+          PY
+      - name: Check and render
+        run: |
+          python scripts/check_notebook.py notebooks/reservoir/integrated_norne_reservoir_to_facilities_ai.ipynb --require-main-source
+          python -m nbconvert --to html notebooks/reservoir/integrated_norne_reservoir_to_facilities_ai.ipynb --output-dir chain_artifacts
+          python -m playwright install --with-deps chromium
+          python - <<'PY'
+          import asyncio
+          from pathlib import Path
+          from playwright.async_api import async_playwright
+          async def main():
+              async with async_playwright() as p:
+                  browser = await p.chromium.launch()
+                  page = await browser.new_page(viewport={'width': 1440, 'height': 1100}, device_scale_factor=1)
+                  path = Path('chain_artifacts/integrated_norne_reservoir_to_facilities_ai.html').resolve()
+                  await page.goto(path.as_uri())
+                  await page.wait_for_timeout(8000)
+                  await page.evaluate("document.querySelectorAll('.jp-CodeCell .jp-Cell-inputWrapper').forEach(e => e.style.display='none')")
+                  await page.evaluate("new Promise(resolve => { if(window.MathJax && MathJax.Hub) MathJax.Hub.Queue(resolve); else resolve(); })")
+                  cells = page.locator('.jp-Cell')
+                  folder = Path('chain_artifacts/rendered_cells')
+                  folder.mkdir(exist_ok=True)
+                  for i in range(await cells.count()):
+                      cell = cells.nth(i)
+                      if await cell.evaluate('(e) => e.getBoundingClientRect().height') > 5:
+                          await cell.screenshot(path=str(folder / f'cell-{i:03d}.png'))
+                  await browser.close()
+          asyncio.run(main())
+          PY
+      - uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: |
+            chain_artifacts/opm_runs
+            norne-open-data
+          key: norne-chain-v1-${{ github.run_id }}
+      - name: Retain notebook, figures, tables and diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: integrated-norne-chain-validation
+          retention-days: 14
+          path: |
+            notebooks/reservoir/integrated_norne_reservoir_to_facilities_ai.ipynb
+            chain_artifacts/*.html
+            chain_artifacts/*.png
+            chain_artifacts/*.csv
+            chain_artifacts/*.json
+            chain_artifacts/rendered_cells/
+            chain_artifacts/opm_runs/*/run.json
+            chain_artifacts/opm_runs/*/stdout.log
