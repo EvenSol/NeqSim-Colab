@@ -3,11 +3,13 @@ This GitHub repository is the code and notebook base for the web module [Introdu
 
 NeqSim Python/Colab is part of the [NeqSim project](https://equinor.github.io/neqsimhome/). NeqSim (Non-Equilibrium Simulator) is a Java library for estimation of fluid behavior and process design. The basis for NeqSim is a library of fundamental mathematical models related to phase behavior and physical properties of fluids.
 
-Advanced notebooks use the released Python distribution only as the JPype bridge. They clone current [`equinor/neqsim`](https://github.com/equinor/neqsim) `master`, build the Java runtime JAR, record the resolved commit and SHA-256 digest, and verify that Java classes were loaded from that JAR before running calculations.
+Advanced notebooks use JPype directly or through the Python distribution. They clone current [`equinor/neqsim`](https://github.com/equinor/neqsim) `master`, build Java classes or a runtime JAR, record the resolved commit and SHA-256 provenance, and verify that Java classes were loaded from that build before running calculations.
 
 [NeqSim (Non-Equilibrium Simulator)](https://equinor.github.io/neqsimhome/) is a library for estimation of fluid behaviour for oil and gas production. Colaboratory (Colab) is a free Jupyter notebook environment that requires no setup and runs entirely in the cloud. In the notebooks listed in this page you will find examples of typical gas processing calculations using NeqSim in Colab, and will serve both as introduction to natural gas processing and to interactive use of NeqSim in a Python based notebook. The notebooks serves as a theoretical introduction and as a simulation tool for many processes found in the gas industry.
 
 ## Featured notebooks
+
+* [Wellstream flow on current NeqSim master](notebooks/fluidflow/wellstream_steady_dynamic_multiphase_master.ipynb) – Two- and three-phase steady profiles, transient rate cycles, phase mass ledgers, mesh/time-step sensitivity, flow-field animation, hydrate margins and a characterized wax screen. Includes the current unsplit/transaction APIs and explicit qualification limits.
 
 * [Gas distillation: recovery, energy and temperature control](notebooks/process/gas_distillation_temperature_control.ipynb) – Connect cryogenic separator calculations, an NGL deethanizer, audited stage balances, product-quality constraints and downstream NGL temperature control screening. Uses a pinned source-built NeqSim runtime and explicitly documents the terminal-duty limitation tracked in equinor/neqsim#3698.
 
@@ -34,6 +36,7 @@ See the [NeqSim Colab page](https://colab.research.google.com/github/EvenSol/Neq
 See the [NeqSim Colab page](https://colab.research.google.com/github/EvenSol/NeqSim-Colab/blob/master/notebooks/examples_of_NeqSim_in_Colab.ipynb). Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests.
 
 Repository-wide notebook integrity is checked with `python scripts/check_notebook.py --all`. New main-source notebooks must additionally pass `python scripts/check_notebook.py PATH --require-main-source` after clean execution.
+
 
 
 
