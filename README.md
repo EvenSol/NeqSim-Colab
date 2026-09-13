@@ -9,6 +9,7 @@ Advanced notebooks use the released Python distribution only as the JPype bridge
 
 ## Featured notebooks
 
+* [Centrifugal compressor sizing and production optimization](notebooks/process/centrifugal_compressor_sizing_production_optimization.ipynb) – Calculate consistent impeller diameter/head/speed, audit stages and design exports, and optimize a fixed compressor with production, power and recycle constraints. Uses the exact source of [NeqSim PR #3695](https://github.com/equinor/neqsim/pull/3695).
 * [Reservoir-to-facilities decisions with OPM Flow, NeqSim and ML](notebooks/reservoir/integrated_norne_reservoir_to_facilities_ai.ipynb) – Use public Norne reservoir data, synthetic seismic interpretation, an actual OPM ensemble, native gas/oil/water transport and process equipment to compare development controls under geological uncertainty and changing host headroom. Retains simulator diagnostics, surrogate validation, flow-assurance screens and traceable decisions.
 
 * [The AI Asset Team: tie-back and debottlenecking](notebooks/AI/agentic_asset_team_tieback_and_debottlenecking.ipynb) – One executed industrial study combining fixed compressor maps, protected host production, constrained optimization, derating recovery, uncertainty, five-year economics, retained graphics, an audited investigation replay and an optional live language-model agent. Uses pinned NeqSim source; local source reuse is available through `NEQSIM_SOURCE_ROOT`/`NEQSIM_SOURCE_JAR`. Live mode uses `OPENAI_API_KEY` and optional `OPENAI_MODEL`; credentials are never stored in outputs.
@@ -31,6 +32,7 @@ See the [NeqSim Colab page](https://colab.research.google.com/github/EvenSol/Neq
 See the [NeqSim Colab page](https://colab.research.google.com/github/EvenSol/NeqSim-Colab/blob/master/notebooks/examples_of_NeqSim_in_Colab.ipynb). Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests.
 
 Repository-wide notebook integrity is checked with `python scripts/check_notebook.py --all`. New main-source notebooks must additionally pass `python scripts/check_notebook.py PATH --require-main-source` after clean execution.
+
 
 
 
