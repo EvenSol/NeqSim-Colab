@@ -9,6 +9,8 @@ Advanced notebooks use the released Python distribution only as the JPype bridge
 
 ## Featured notebooks
 
+* [Gas distillation: recovery, energy and temperature control](notebooks/process/gas_distillation_temperature_control.ipynb) – Connect cryogenic separator calculations, an NGL deethanizer, audited stage balances, product-quality constraints and downstream NGL temperature control screening. Uses a pinned source-built NeqSim runtime and explicitly documents the terminal-duty limitation tracked in equinor/neqsim#3698.
+
 * [Centrifugal compressor sizing and production optimization](notebooks/process/centrifugal_compressor_sizing_production_optimization.ipynb) – Calculate consistent impeller diameter/head/speed, audit stages and design exports, and optimize a fixed compressor with production, power and recycle constraints. Uses the exact source of [NeqSim PR #3695](https://github.com/equinor/neqsim/pull/3695).
 * [Reservoir-to-facilities decisions with OPM Flow, NeqSim and ML](notebooks/reservoir/integrated_norne_reservoir_to_facilities_ai.ipynb) – Use public Norne reservoir data, synthetic seismic interpretation, an actual OPM ensemble, native gas/oil/water transport and process equipment to compare development controls under geological uncertainty and changing host headroom. Retains simulator diagnostics, surrogate validation, flow-assurance screens and traceable decisions.
 
