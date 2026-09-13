@@ -1,0 +1,232 @@
+{
+  "schema_version": 3,
+  "notebooks": [
+    {
+      "path": "notebooks/fluidflow/wellstream_steady_dynamic_multiphase_master.ipynb",
+      "status": "validated",
+      "execution_status": "passed",
+      "code_cells": 18,
+      "validation_date": "2026-09-13",
+      "notebook_sha256": "094c2bb183949b88f434a53c4222c39322b35c7fe48d069e12d8fc7c23f9850c",
+      "notebook_git_blob_sha1": "114c36f23a4415ee50e4da8cae875fb1a32bbe25",
+      "source_commit": "b017290b304d0f6d2099d2a97a255351226ddecf",
+      "source_class_sha256": "3217e543ad7f056ebf216e036c3a461f8d94b7b1144303212893f82f0557e754",
+      "python_version": "3.12.14",
+      "java_version": "17.0.20",
+      "package_versions": {
+        "JPype1": "1.7.1",
+        "numpy": "2.5.2",
+        "pandas": "3.0.5",
+        "matplotlib": "3.11.1"
+      },
+      "execution": {
+        "command": "NEQSIM_SOURCE_DIR=<clean exact-source checkout> python scripts/execute_notebook_inprocess.py notebooks/fluidflow/wellstream_steady_dynamic_multiphase_master.ipynb",
+        "method": "Fresh isolated Python/IPython process; notebook setup compiles the clean master checkout with Maven and loads its target/classes through JPype.",
+        "exit_code": 0,
+        "elapsed_seconds": 65.1,
+        "stored_error_count": 0,
+        "stderr_outputs": 0,
+        "static_figures": 11,
+        "animated_figures": 1,
+        "animation_frames": 31,
+        "all_code_cells_executed_in_order": true,
+        "all_code_cells_retain_outputs": true,
+        "setup_limit": "The fresh-Colab clone and package-install path was not exercised locally. The documented existing-clean-checkout path was executed, including the actual Maven compile and class-origin assertion. Python packages were installed in an isolated environment."
+      },
+      "source_provenance": {
+        "repository": "equinor/neqsim",
+        "requested_ref": "master",
+        "master_commit_when_started": "b017290b304d0f6d2099d2a97a255351226ddecf",
+        "verification": "Exact clean detached Git worktree from available object cache; commit identity independently verified with the GitHub connector. No production Java source edits or substituted stub classes.",
+        "compile": "Maven wrapper: -B -q -DskipTests compile dependency:build-classpath; Java 17.0.20",
+        "class_origin_asserted": true,
+        "release_neqsim_jar_used": false
+      },
+      "engineering_validation": {
+        "checks_passed": 183,
+        "checks_total": 183,
+        "steady": [
+          {
+            "Case": "Gas–oil",
+            "Arrival [bara]": 57.627795382516325,
+            "Arrival [°C]": 41.76636919135092,
+            "Mean liquid holdup [-]": 0.2693633274825322,
+            "Liquid inventory [m³]": 95.2008582111328,
+            "Total inventory [kg]": 72409.79940471232,
+            "Dominant regime": "SLUG"
+          },
+          {
+            "Case": "Gas–oil–water",
+            "Arrival [bara]": 57.77011703831909,
+            "Arrival [°C]": 42.42042912135207,
+            "Mean liquid holdup [-]": 0.28223277750874953,
+            "Liquid inventory [m³]": 99.74929729766959,
+            "Total inventory [kg]": 78530.49055434916,
+            "Dominant regime": "SLUG"
+          }
+        ],
+        "uphill_refinement": [
+          {
+            "Cells": 30,
+            "Arrival [bara]": 7.469114147160852,
+            "Mean liquid holdup [-]": 0.2743005945176059,
+            "Mean oil−water slip [m/s]": 0.44987616119681834
+          },
+          {
+            "Cells": 60,
+            "Arrival [bara]": 7.4291457429261625,
+            "Mean liquid holdup [-]": 0.2716300675438177,
+            "Mean oil−water slip [m/s]": 0.4596110355167282
+          }
+        ],
+        "dynamic_sensitivity": [
+          {
+            "Comparison": "Outer partition: 1 → 0.5 s",
+            "Max arrival difference [kg/s]": 0.14870495711982556,
+            "Max inlet-pressure difference [bar]": 0.015221266013469403,
+            "Final inventory difference [%]": 0.0023901815613291966,
+            "Final inventory-change difference [kg]": 1.8728857418900589
+          },
+          {
+            "Comparison": "Spatial mesh: 20 → 40 cells",
+            "Max arrival difference [kg/s]": 0.49044040671106615,
+            "Max inlet-pressure difference [bar]": 0.1352980355009592,
+            "Final inventory difference [%]": 0.004046799277102053,
+            "Final inventory-change difference [kg]": 3.828988171138917
+          }
+        ],
+        "unchanged_boundary_maximum_inventory_drift_percent": 0.18086769536233005,
+        "dynamic_diagnostics": [
+          {
+            "Case": "dry N=20, dt=1.0, event=True",
+            "Elapsed [s]": 119.999999999999,
+            "Maximum phase residual [-]": 5.071163383711526e-16,
+            "Maximum global residual [kg]": 3.7914560380158946e-11,
+            "Pressure-limit count": 0,
+            "Coupled failure": false,
+            "Pressure correction limited": false,
+            "Rejected coupled substeps": 0,
+            "Outlet backflow clamped": false
+          },
+          {
+            "Case": "wet N=20, dt=1.0, event=True",
+            "Elapsed [s]": 119.999999999999,
+            "Maximum phase residual [-]": 6.136451709389386e-16,
+            "Maximum global residual [kg]": 3.342393029015511e-11,
+            "Pressure-limit count": 0,
+            "Coupled failure": false,
+            "Pressure correction limited": false,
+            "Rejected coupled substeps": 0,
+            "Outlet backflow clamped": false
+          }
+        ],
+        "unsplit": [
+          {
+            "Elapsed [s]": 2.5,
+            "Accepted substeps": 50,
+            "In [kg]": 0.25,
+            "Out [kg]": 0.24999995642431094,
+            "Inventory [kg]": 66.76336414825275,
+            "Relative residual [-]": 2.5297172412851904e-11,
+            "Outlet [kg/s]": 0.09999998256972437
+          },
+          {
+            "Elapsed [s]": 5.0,
+            "Accepted substeps": 50,
+            "In [kg]": 0.24999999999999986,
+            "Out [kg]": 0.2500000046914596,
+            "Inventory [kg]": 66.76336414825275,
+            "Relative residual [-]": 7.026997228667084e-11,
+            "Outlet [kg/s]": 0.10000000187658384
+          }
+        ],
+        "hydrate_screen": [
+          {
+            "Case": "Warm line: U = 5",
+            "Minimum hydrate margin [K]": 28.041391861341445,
+            "First flagged sample [m]": null,
+            "Flagged samples": 0
+          },
+          {
+            "Case": "Cold screen: U = 60",
+            "Minimum hydrate margin [K]": -4.719493962257795,
+            "First flagged sample [m]": 3625.0,
+            "Flagged samples": 6
+          }
+        ],
+        "wax_onset_bracket": [
+          {
+            "Pressure [bara]": 40.0,
+            "Wax-positive lower [°C]": 64.5625,
+            "Wax-free upper [°C]": 64.59375,
+            "Bracket width [K]": 0.03125
+          },
+          {
+            "Pressure [bara]": 60.0,
+            "Wax-positive lower [°C]": 64.5,
+            "Wax-free upper [°C]": 64.53125,
+            "Bracket width [K]": 0.03125
+          },
+          {
+            "Pressure [bara]": 80.0,
+            "Wax-positive lower [°C]": 64.75,
+            "Wax-free upper [°C]": 64.78125,
+            "Bracket width [K]": 0.03125
+          }
+        ],
+        "wax_issue": "https://github.com/equinor/neqsim/issues/3709",
+        "scope": "Synthetic wellstreams: gas/oil and gas/oil/water; steady residuals and throughput, 30/60-cell uphill fixture, 120 s rate cycles with gas/oil/water/total mass ledgers, unchanged-boundary control, outer-step and spatial sensitivity, five-second gas unsplit continuation and complete serialized-state rollback.",
+        "flow_assurance": "Freshwater hydrate equilibrium for the wet feed with a checked pressure interpolation; deliberately cold clean-fluid path. Separate characterized heavy assay with raw wax TP-flash curves, 0.03125 K onset brackets and one-ppm mass-closure gate. Direct calcWAT output is excluded from safe-margin claims and tracked in issue #3709.",
+        "limitations": [
+          "Synthetic teaching examples, without field or experimental calibration.",
+          "Hydraulic transients disable phase transfer and named-component advection; no composition-front or full thermal-energy validation claim.",
+          "120 s is early response, not complete liquid-residence-time settling.",
+          "Unsplit example is gas-only and isothermal; current multiphase riser and severe-slugging qualification gaps remain open.",
+          "Hydrate and wax calculations are equilibrium screens; no deposition kinetics, inhibitor sizing, blockage prediction or solids feedback to hydraulics.",
+          "Wax uses an explicitly separate characterized fluid from the original wellstreams."
+        ]
+      },
+      "visual_validation": {
+        "renderer": "nbconvert classic HTML with MathJax 3 SVG; WeasyPrint 70 and PyMuPDF page inspection",
+        "status": "passed",
+        "markdown_cells_inspected": 29,
+        "result_code_cells_inspected": 18,
+        "math_expressions_rendered": 13,
+        "static_figures_inspected": 11,
+        "animation_frames_inspected": 31,
+        "pages_inspected": 16,
+        "result": "All Markdown, equations, result tables, figures and animation frames inspected. Axes and units, legends, event timing, color scales and static animation fallback are legible. Area-fraction display is explicitly distinguished from physical layer heights."
+      },
+      "integrity_validation": {
+        "notebook_schema": "nbformat validation passed",
+        "checker_unit_tests": "6 passed",
+        "targeted_repository_checker": "validate_notebook(strict_execution=True, expected_code_cells=18, require_main_source=True): zero errors and warnings",
+        "code_readability": "All code cells AST-parsed and Black-formatted at line length 96.",
+        "catalog_and_readme_links": "328 relative notebook links verified against exact GitHub base tree plus the new notebook.",
+        "active_notebook_count": 307,
+        "repository_wide_ci": "To be checked on the published PR; the complete historical notebook repository was not materialized locally.",
+        "pre_commit": "No .pre-commit-config.yaml exists in the inspected target repository base tree."
+      },
+      "documentation_impact": {
+        "assessment": "New advanced notebook documenting current master flowline and flow-assurance capabilities; no library implementation changes.",
+        "updated": [
+          "README.md",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/fluidflow/wellstream_steady_dynamic_multiphase_master.ipynb"
+        ],
+        "scope": "Source setup and provenance, units, boundary contracts, model assumptions, plots and animation, numerical checks, equilibrium-only limits, source references and reproducible CSV/JSON/image exports."
+      },
+      "related_issues": [
+        "https://github.com/equinor/neqsim/issues/3709",
+        "https://github.com/equinor/neqsim/issues/3298",
+        "https://github.com/equinor/neqsim/issues/2907",
+        "https://github.com/equinor/neqsim/issues/2911"
+      ],
+      "publication": {
+        "mode": "feature branch and draft pull request",
+        "base": "master",
+        "merge_authorized": false
+      }
+    }
+  ]
+}
