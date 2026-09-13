@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "shard": "gas-distillation-temperature-control-20260913",
+  "updated_at": "2026-09-13T08:18:55.509118Z",
+  "notebooks": [
+    {
+      "path": "notebooks/process/gas_distillation_temperature_control.ipynb",
+      "verified_date": "2026-09-13",
+      "verified_at_utc": "2026-09-13T08:18:55.509118Z",
+      "execution_status": "passed",
+      "execution_method": "Fresh Python process in an isolated, repository-bootstrapped environment; repository IPython in-process runner with stdout tee for progress only; all cells executed in order and all outputs retained.",
+      "execution_seconds": 57.4,
+      "code_cells": 19,
+      "substantive_code_cells": 17,
+      "markdown_cells": 15,
+      "neqsim_version": "3.18.0 Python bridge; Java 3.20.0 source pinned to current master at authoring",
+      "neqsim_commit": "1e7fda16e3872f74d918367a708737fbbad93927",
+      "neqsim_jar_sha256": "1fd99597cc291c053dc0f21773267f0e823d6d0c735262f879d66b0db2855524",
+      "python_version": "3.12.14",
+      "java_version": "17.0.20",
+      "runtime_versions": {
+        "neqsim": "3.18.0",
+        "JPype1": "1.7.1",
+        "numpy": "2.5.2",
+        "pandas": "3.0.5",
+        "matplotlib": "3.11.1",
+        "nbformat": "5.11.1",
+        "nbconvert": "7.17.1"
+      },
+      "validation_environment": {
+        "fresh_environment": true,
+        "resolution_mode": "verified-snapshot-reuse",
+        "wheel_count": 61,
+        "public_pypi_artifact_hashes_verified": true,
+        "snapshot": "20260824T163120Z-924007932947"
+      },
+      "git_blob_sha1": "6ac7c2585b55796d1bf39208ec72fe78ddf75b90",
+      "notebook_bytes": 796042,
+      "paper": {
+        "doi": "10.2118/234910-MS",
+        "opportunity_issue": "https://github.com/equinor/neqsim/issues/3697",
+        "data_scope": "Publisher abstract only. Synthetic compositions and flow; no ambiguous abstract flow values, paper figures, or datasets reused. No numerical replication claim."
+      },
+      "capabilities_demonstrated": [
+        "Native SRK gas cooler and cryogenic Separator with component recovery and energy closure",
+        "Composable ten-equilibrium-stage NGL deethanizer using current Naphtali-Sandholm solver",
+        "Independent neighboring-outlet stage component and energy audits, EOS equilibrium and product checks",
+        "Sparse constrained operating-point selection with auditable duties and explicit branch limitations",
+        "Column finite differences and half-step qualification; inconsistent column gains rejected",
+        "Native NGL Heater plus NeqSim enthalpy derivatives for downstream thermal PI screening",
+        "Analytical transient response, time-step refinement, actuator bounds and nine assumption scenarios"
+      ],
+      "engineering_validation": {
+        "checks_passed": 14,
+        "checks_failed": 0,
+        "column_calculations": 20,
+        "cryogenic_separator_cases": 13,
+        "retained_png_figures": 7,
+        "selected_case": {
+          "Bottom (°C)": 87.5,
+          "Reboiler (kW)": 616.7083277005877,
+          "Condenser cooling (kW)": 126.08389776762466,
+          "C2 in bottoms (mol%)": 10.75564337837252,
+          "C3 recovery (%)": 72.84753143209652,
+          "Liquid (kg/h)": 5980.050043010203
+        },
+        "column_gains_qualified": false,
+        "column_gain_half_step_relative_change": [
+          0.1542346851455409,
+          4.470344377430394,
+          0.6261160226969545
+        ],
+        "control_model": "NGL product conditioning; frozen composition; assumed inventory and UA",
+        "thermal_cp_half_step_relative_error": 2.936968608313606e-07,
+        "thermal_duty_kw": 37.46805333073728,
+        "control_IAE_reduction_percent": 89.51518314493248,
+        "analytical_error_K": 4.618527782440651e-14,
+        "time_step_error_K": 0.000921534094347809,
+        "evidence_level": "Conservation and EOS equilibrium consistency for accepted column states; numerical verification of an assumed thermal model. No experimental validation."
+      },
+      "rendered_visual_validation": {
+        "renderer": "nbconvert HTML; MathJax 3.2.2 SVG; WeasyPrint PDF and PyMuPDF raster inspection",
+        "notebook_pages_inspected": 15,
+        "catalog_pages_inspected": 25,
+        "markdown_cells_inspected": 15,
+        "catalog_markdown_cells_inspected": 6,
+        "result_bearing_and_setup_code_cells_inspected": 19,
+        "display_equations_inspected": 10,
+        "inline_math_occurrences_inspected": 35,
+        "figures_inspected": 7,
+        "result": "passed",
+        "notes": "Inspected all Markdown, equations, outputs, tables and figures. Fixed truncated validation labels and numeric wrapping in the QA render; final notebook re-executed and rendered again."
+      },
+      "repository_validation": {
+        "checker_unit_tests": "Six repository checker unit tests passed.",
+        "focused_integrity": "check_notebook.validate_notebook with strict_execution=True, expected_code_cells=19, require_main_source=True: zero errors and warnings; nbformat schema valid.",
+        "math_and_code": "All code parses; non-URL lines <=100 characters; compact Colab math; zero stored errors or stderr.",
+        "link_validation": "315 relative notebook links resolve against authoritative GitHub tree 236ee153b6369aeba280d90dcf89934165ebef09 plus the new notebook. Catalog source differs by exactly one new entry.",
+        "whole_repository_integrity": "Pending GitHub Actions on the published commit; focused checks used a partial authoritative mirror.",
+        "java_build": "Maven package succeeded with tests and Javadoc packaging skipped. All 3494 src/main and pom.xml blobs matched the authoritative GitHub tree. No Java source changed."
+      },
+      "documentation_impact": "Added notebook, one Unit Operations catalog entry, README feature, dedicated evidence shard and index count.",
+      "known_upstream_issues": [
+        "https://github.com/equinor/neqsim/issues/3698",
+        "https://github.com/equinor/neqsim/issues/2936"
+      ],
+      "issue_handling": "Created and verified #3698 with a reproducible terminal-duty/tray-input publication defect. Notebook uses independently audited duties and prohibits relying on the affected utility ports. Existing #2936 is linked for solver/initialization limitations.",
+      "limitations": [
+        "Synthetic dry sweet hydrocarbon cases; cryogenic separator and NGL column are independent cases.",
+        "Abstract only; no reproduction of the paper or hardware/PID validation.",
+        "Native column terminal duties and tray-input references are inconsistent on the pinned source; independent accepted-outlet audits are required.",
+        "Sparse accepted grid is not a global optimum or uniqueness proof; some other starts failed or reached different solution branches.",
+        "Column gain half-step consistency fails; these gains must not tune a column controller.",
+        "PI example controls downstream NGL conditioning with frozen composition and assumed inventory, UA, delay and noise; it is not dynamic fractionation."
+      ]
+    }
+  ]
+}
