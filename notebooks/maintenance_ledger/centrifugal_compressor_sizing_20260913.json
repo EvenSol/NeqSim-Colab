@@ -1,0 +1,155 @@
+{
+  "schema_version": 3,
+  "notebooks": [
+    {
+      "path": "notebooks/process/centrifugal_compressor_sizing_production_optimization.ipynb",
+      "status": "validated",
+      "execution_status": "passed",
+      "code_cells": 23,
+      "validation_date": "2026-09-13",
+      "notebook_sha256": "95907b27458c84edeeb1c3ac392dd2faf5c0aa96254050d05efa90cb4f7b19af",
+      "notebook_git_blob_sha1": "c9481162ae5342cc156cc529b7415387cfcb0998",
+      "source_commit": "ef8093d6a41c2ae25fae2cbf300275bfd6446102",
+      "source_jar_sha256": "00fffb3d8e11a5544b8d8497b85b8e045f38075bf977981ed234d67cafca3db3",
+      "python_version": "3.12.14",
+      "java_version": "17.0.20",
+      "package_versions": {
+        "JPype1": "1.7.1",
+        "numpy": "2.3.5",
+        "pandas": "2.2.3",
+        "scipy": "1.17.0",
+        "matplotlib": "3.10.8"
+      },
+      "execution": {
+        "command": "python scripts/execute_notebook_inprocess.py notebooks/process/centrifugal_compressor_sizing_production_optimization.ipynb",
+        "method": "Fresh isolated Python/IPython process; audited exact-source runtime manifest supplied through NEQSIM_VALIDATED_RUNTIME",
+        "exit_code": 0,
+        "elapsed_seconds": 37.2,
+        "stored_error_count": 0,
+        "stderr_outputs": 0,
+        "static_figures": 8,
+        "all_code_cells_executed_in_order": true,
+        "all_code_cells_retain_outputs": true,
+        "setup_limit": "Fresh-Colab git/Maven bootstrap was not exercised locally; the equivalent pinned source was compiled and loaded through the documented validated-runtime path."
+      },
+      "source_provenance": {
+        "repository": "equinor/neqsim",
+        "pull_request": 3695,
+        "ref": "ef8093d6a41c2ae25fae2cbf300275bfd6446102",
+        "pr_state_when_validated": "open draft",
+        "base_commit_verified": "0d4f064f283ab9001175b87333c8f57bd9f67802",
+        "verification": "3494 source/resource/POM Git blob hashes matched the connector-fetched base tree. The connector compare showed one subsequent commit; all three changed production-source blobs were fetched at ef8093d6a41c2ae25fae2cbf300275bfd6446102 and verified. Unchanged source/resources were retained.",
+        "compile": "ECJ 3.41.0 -17: all 3365 original Java files compiled; three updated production classes recompiled for the final PR revision; 3494 source/POM/resource Git blobs verified via the exact base tree and connector-fetched source delta",
+        "class_origin_asserted": true
+      },
+      "engineering_validation": {
+        "checks_passed": 29,
+        "design": {
+          "gas_rate_kg_s": 20.0,
+          "suction_bara": 30.0,
+          "discharge_bara": 90.0,
+          "impellers": 6,
+          "diameter_m": 0.2572358464180622,
+          "shaft_speed_rpm": 18000.0
+        },
+        "production_optimum": {
+          "Suction [bara]": 33.11868916929278,
+          "Net flow [kg/s]": 27.260727843766862,
+          "Compressor flow [kg/s]": 27.260727843766862,
+          "Recycle [kg/s]": 0.0,
+          "Power [kW]": 5499.999999999276,
+          "Speed [rpm]": 17430.160471581665,
+          "Tip speed [m/s]": 234.76399763892942,
+          "phi [-]": 0.07101893328985531,
+          "Head [kJ/kg]": 157.36923917019845,
+          "Discharge [\u00b0C]": 131.97927932346744,
+          "Actual flow [m\u00b3/s]": 1.1032364901611829,
+          "Well potential [kg/s]": 27.260727843769555,
+          "Specific energy [kWh/t net]": 56.043176342663266,
+          "Map residual [kJ/kg]": 0.0,
+          "Feasible": true,
+          "margins": {
+            "well supply": 8.976523228435932e-14,
+            "driver power": 1.3162868774750016e-13,
+            "maximum speed": 0.1196888650716331,
+            "minimum speed": 0.4525133726318054,
+            "surge control": 0.717900779453638,
+            "high-flow limit": 0.23209922054636192,
+            "discharge temperature": 0.2001255798577731,
+            "tip speed": 0.3292457210316302,
+            "head per impeller": 0.125726449054453
+          }
+        },
+        "independent_search": {
+          "pressure_points": 101,
+          "flow_points": 143,
+          "feasible_grid_best_kg_s": 27.0
+        },
+        "reference_regression": "6000-rpm rich-gas case is infeasible; 18000-rpm case has eight impellers and is feasible; all head/speed/flow identities checked.",
+        "stage_audit": "Six equal-head Schultz steps end at 90.31652 bara: 0.35169% difference from the single-casing model, within the disclosed 0.5% teaching tolerance; not an exact final pressure-specified train.",
+        "coverage": [
+          "total and component mass balance",
+          "enthalpy/power closure",
+          "independent ideal-gas equation screen",
+          "independent stage/diameter enumeration",
+          "JSON mm/m and kJ/kg/J/kg conversions",
+          "stale speed and zero-speed null export",
+          "frozen installed geometry",
+          "map head residual",
+          "active constraints and multi-start search",
+          "full-flow NeqSim replay",
+          "12 driver/reservoir scenarios",
+          "9 productivity/efficiency scenarios",
+          "steady recycle external mass and energy balances"
+        ],
+        "limitations": [
+          "Synthetic constant-efficiency map and well deliverability; no measured uplift or vendor calibration",
+          "Preliminary equal-head/inlet-stage sizing only; no blade/diffuser/rotordynamic qualification",
+          "30 kJ/kg head per impeller retained as a conservative operating constraint",
+          "Algebraic thermally conditioned steady recycle; no transient surge/controller model",
+          "No motor/gearbox loss or code/certification claim"
+        ]
+      },
+      "visual_validation": {
+        "renderer": "nbconvert classic HTML + MathJax 3 SVG; WeasyPrint 70 and PyMuPDF page inspection",
+        "status": "passed",
+        "markdown_cells_inspected": 22,
+        "result_code_cells_inspected": 23,
+        "display_equations": 13,
+        "inline_math_expressions": 36,
+        "static_figures_inspected": 8,
+        "pages_inspected": 12,
+        "result": "All Markdown, equations, result tables and figures inspected; no malformed math, missing outputs, clipped labels or text truncation. Map legend moved below the plot."
+      },
+      "integrity_validation": {
+        "checker_unit_tests": "6 passed",
+        "targeted_repository_checker": "validate_notebook(strict_execution=True, expected_code_cells=23, require_main_source=True): zero errors and warnings",
+        "colab_math_source": "Balanced compact dollar delimiters; single-backslash LaTeX; no obsolete delimiters",
+        "code_readability": "All code parsed; Black line length 99; no code line longer than 100 except unavoidable URLs",
+        "catalog_and_companion_links": "316 relative notebook links verified against exact GitHub tree plus the new notebook",
+        "repository_wide_ci": "Pending GitHub notebook-integrity; the complete historical repository was not materialized locally",
+        "pre_commit": "No .pre-commit-config.yaml exists in the inspected NeqSim-Colab base tree"
+      },
+      "documentation_impact": {
+        "assessment": "New user-visible educational workflow; no NeqSim library implementation changes.",
+        "updated": [
+          "README.md",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/process/centrifugal_compressor_sizing_production_optimization.ipynb"
+        ],
+        "scope": "Setup, pinned source provenance, units, thermodynamic/sizing methods, synthetic operating assumptions, validation, exports and example-book navigation"
+      },
+      "related_issues": [
+        "https://github.com/equinor/neqsim/issues/3676"
+      ],
+      "related_pull_requests": [
+        "https://github.com/equinor/neqsim/pull/3695"
+      ],
+      "publication": {
+        "mode": "feature branch and draft pull request",
+        "base": "master",
+        "merge_authorized": false
+      }
+    }
+  ]
+}
