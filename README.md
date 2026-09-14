@@ -9,6 +9,8 @@ Advanced notebooks use JPype directly or through the Python distribution. They c
 
 ## Featured notebooks
 
+* [NeqSim × Equinor TimeSeriesAnalysis: large-process analytics](notebooks/advanced_analytics/neqsim_timeseriesanalysis_large_process.ipynb) – Combine a 67-unit NeqSim facility with Equinor's actual .NET identification and dynamic simulation library: load allocation, connected models, compressor diagnostics and PID screening. Uses pinned NeqSim master and TimeSeriesAnalysis 1.4.38; a fresh Linux Colab setup builds both runtimes. Optional `NEQSIM_VALIDATED_RUNTIME` supplies an audited prebuilt runtime manifest with source revision, JAR path/hash, dependency directory through the source root, .NET root and assembly directory. Results are written to `neqsim_tsa_results/` and its ZIP archive, with all tables and figures embedded in the notebook.
+
 * [Wellstream flow on current NeqSim master](notebooks/fluidflow/wellstream_steady_dynamic_multiphase_master.ipynb) – Two- and three-phase steady profiles, transient rate cycles, phase mass ledgers, mesh/time-step sensitivity, flow-field animation, hydrate margins and a characterized wax screen. Includes the current unsplit/transaction APIs and explicit qualification limits.
 
 * [Gas distillation: recovery, energy and temperature control](notebooks/process/gas_distillation_temperature_control.ipynb) – Connect cryogenic separator calculations, an NGL deethanizer, audited stage balances, product-quality constraints and downstream NGL temperature control screening. Uses a pinned source-built NeqSim runtime and explicitly documents the terminal-duty limitation tracked in equinor/neqsim#3698.
@@ -36,6 +38,7 @@ See the [NeqSim Colab page](https://colab.research.google.com/github/EvenSol/Neq
 See the [NeqSim Colab page](https://colab.research.google.com/github/EvenSol/NeqSim-Colab/blob/master/notebooks/examples_of_NeqSim_in_Colab.ipynb). Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests.
 
 Repository-wide notebook integrity is checked with `python scripts/check_notebook.py --all`. New main-source notebooks must additionally pass `python scripts/check_notebook.py PATH --require-main-source` after clean execution.
+
 
 
 
