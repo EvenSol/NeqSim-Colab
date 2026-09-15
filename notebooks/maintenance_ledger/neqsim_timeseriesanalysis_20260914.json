@@ -5,12 +5,12 @@
       "path": "notebooks/advanced_analytics/neqsim_timeseriesanalysis_large_process.ipynb",
       "status": "validated",
       "execution_status": "passed",
-      "code_cells": 18,
-      "validation_date": "2026-09-14",
-      "notebook_sha256": "bdd8059408e239de78506195690d63587e24c85b7c9ccd8f547c756eae44a45e",
-      "notebook_git_blob_sha1": "e56a8fb973dbc623ad78bc625868375287bd09e1",
-      "source_commit": "f3e588cec56fce818b723b3c0cb94c3619509d41",
-      "source_jar_sha256": "4f082a3337f9b29331e2062da96cd86c4151cb185dbdf6d4d883f07e48da460b",
+      "code_cells": 21,
+      "validation_date": "2026-09-15",
+      "notebook_sha256": "5e018717a8f7211a28712f3746d07e24f4eacf2717a5da83be0f6fc4270aaf27",
+      "notebook_git_blob_sha1": "121468cec4817529d3d602b0c811f0f6c430cbdc",
+      "source_commit": "c675924586b311f21e24506ec5fc9d4482a8aeaa",
+      "source_jar_sha256": "9eeab119c5d504bfd49296736d555260f204f4b8341e4dc07966aa1b2874b2d2",
       "python_version": "3.12.14",
       "java_version": "17.0.20",
       "package_versions": {
@@ -26,20 +26,21 @@
         "command": "NEQSIM_VALIDATED_RUNTIME=<audited manifest> <fresh venv>/bin/python scripts/execute_notebook_inprocess.py notebooks/advanced_analytics/neqsim_timeseriesanalysis_large_process.ipynb",
         "method": "Fresh isolated virtual environment from a hash-verified wheel snapshot; fresh IPython process; ordered cells; source JAR and .NET assembly origin assertions",
         "exit_code": 0,
-        "elapsed_seconds": 31.6,
         "stored_error_count": 0,
         "stderr_outputs": 0,
         "all_code_cells_executed_in_order": true,
         "all_code_cells_retain_outputs": true,
         "environment_resolution": "verified-snapshot-reuse",
-        "wheel_count": 53,
+        "wheel_count": 78,
         "wheel_hashes_verified": true,
-        "setup_limit": "Saved execution uses the documented audited runtime manifest. NeqSim source and .NET dependencies were built locally. Fresh-Colab download/build route was not exercised in Google hosted Colab."
+        "setup_limit": "Saved execution uses the documented audited runtime manifest. NeqSim source and .NET dependencies were built locally. Fresh-Colab download/build route was not exercised in Google hosted Colab.",
+        "final_environment": "Fresh validation-final environment; no prior notebook execution",
+        "final_working_directory": "Fresh final-run directory; no pre-existing result files"
       },
       "source_provenance": {
         "repository": "equinor/neqsim",
-        "ref": "f3e588cec56fce818b723b3c0cb94c3619509d41",
-        "source_blob_verification": "3502 production-source/resource/POM/wrapper Git blob hashes matched the exact connector-fetched master tree.",
+        "ref": "c675924586b311f21e24506ec5fc9d4482a8aeaa",
+        "source_blob_verification": "3506 production-source/resource/POM/wrapper Git blob hashes matched the exact connector-fetched master tree.",
         "compile": "Maven wrapper compile and dependency:copy-dependencies with maven.test.skip=true and spotless.skip=true: exit 0; source unchanged; source class/resource JAR packaged from target/classes.",
         "maven_bootstrap": "work-with-neqsim prepare_maven.py applied before the build.",
         "class_origins": "SystemSrkEos and master-only AutoRecycleBuilder both loaded from the verified source JAR.",
@@ -58,19 +59,20 @@
         "held_out_static_rmse_K": 1.2811367186628744,
         "physical_fault_detection_delay_windows": 0,
         "healthy_validation_alarm_windows": 0,
-        "engineering_checks_passed": 36,
-        "static_figures": 12,
+        "engineering_checks_passed": 47,
+        "static_figures": 14,
         "coverage": [
-          "Total and component mass balances",
-          "Train and header enthalpy balances",
-          "54-point steady scan",
-          "Constrained load allocation and full NeqSim replay",
-          "Exact integrated thermal-energy balance",
-          "Chronological identification, calibration and held-out test",
-          "Independent analytical step and timestep refinement",
-          "Connected TSA plants through 97 models",
-          "Compressor fault residuals and independent temperature check",
-          "Unsaturated PI disturbance rejection"
+          "67-unit facility: total/component mass and enthalpy balances",
+          "54-point steady scan, constrained allocation and NeqSim replay",
+          "Analytical thermal-storage balance, chronological identification and held-out validation",
+          "Connected seven-model dynamic and zero-lag steady PlantSimulator replay",
+          "Six PidModel feedback loops, shared utility and header in one 14-model PlantSimulator",
+          "Native PID bounds, unsaturated nominal cases and limit/recovery stress",
+          "Typed CLR interface list, arrays, root namespace, enum and ref/out conversions",
+          "Plant JSON round trip, repeated execution and initialization-seed independence",
+          "Portable binding fixture and expected outputs; direct Python.NET harness self-check",
+          "PlantSimulator scaling through 96 PID loops and 194 connected models",
+          "Compressor fault residuals and independent temperature cross-check"
         ],
         "limitations": [
           "Synthetic measurements and equipment parameters",
@@ -78,34 +80,41 @@
           "Fixed composition, cooler temperatures and assumed off-design efficiency curves",
           "Optimization is a local candidate inside the sampled domain",
           "Empirical residual threshold is not a guaranteed probability bound",
-          "Network scaling timings compare different workloads, not simulator speedup"
-        ]
+          "Network scaling timings compare different workloads, not simulator speedup",
+          "Official equinor/timeseriesanalysis-py wrapper repository and README returned 404; its API and execution are not validated",
+          "TSA 1.4.38 needs explicit steady PID output seeds for this multi-input graph; subsequent values are proven to come from simulation",
+          "Common utility is a prescribed lag, without load-to-utility feedback or a water energy balance",
+          "12 K utility stress can extrapolate beyond the identification domain; it is a numerical limit/recovery test"
+        ],
+        "closed_loop_models": 14,
+        "largest_connected_plant": 194,
+        "wrapper_backend_validated": false
       },
       "visual_validation": {
         "status": "passed",
-        "renderer": "Jupyter nbconvert classic HTML; MathJax 3.2.2 SVG; WeasyPrint 70 and PyMuPDF page inspection",
-        "markdown_cells_inspected": 16,
-        "result_code_cells_inspected": 18,
+        "renderer": "Jupyter nbconvert 7.17.1 classic HTML; MathJax 3.2.2 SVG; WeasyPrint 70.0 and PyMuPDF page inspection",
+        "markdown_cells_inspected": 19,
+        "result_code_cells_inspected": 21,
         "display_equations": 8,
-        "inline_equations": 11,
-        "static_figures_inspected": 12,
-        "notebook_review_pages": 16,
+        "inline_equations": 10,
+        "static_figures_inspected": 14,
+        "notebook_review_pages": 21,
         "catalog_markdown_cells": 6,
-        "catalog_review_pages": 21,
+        "catalog_review_pages": 22,
         "result": "All equations, tables and figures inspected. No malformed math, clipped plots, blank outputs or truncated result tables. Catalog insertion renders and target links are verified."
       },
       "integrity_validation": {
         "checker_unit_tests": "python -m unittest discover -s scripts -p test_check_notebook.py: 6 passed",
-        "targeted_checker": "validate_notebook(strict_execution=True, expected_code_cells=18, require_main_source=True): zero errors and warnings",
-        "code_readability": "All code parsed; Black line length 99; no code line exceeds 100 characters",
+        "targeted_checker": "validate_notebook(strict_execution=True, expected_code_cells=21, require_main_source=True): zero errors and warnings",
+        "code_readability": "All code parsed; Black line length 99; maximum code line length 99",
         "math_source": "Compact balanced dollar delimiters and single-backslash LaTeX verified",
         "catalog_links": "317 relative notebook links verified against the exact GitHub base tree plus this notebook",
-        "ledger_index": "50 existing shards loaded through GitHub: 307 unique entries; new shard adds one; active_notebook_count=308",
-        "repository_wide_ci": "Pending GitHub notebook-integrity. Historical notebook bodies were not all downloaded locally.",
+        "ledger_index": "Existing notebook entry updated in place; active_notebook_count remains 308",
+        "repository_wide_ci": "Pending GitHub notebook-integrity for this improvement PR",
         "pre_commit": "No .pre-commit-config.yaml in the inspected base tree; no Java files changed."
       },
       "documentation_impact": {
-        "assessment": "New educational integration with setup, units, assumptions, validity domains, runtime provenance and examples navigation; no NeqSim or TSA library implementation changes.",
+        "assessment": "Expand the existing integration notebook with explicit PlantSimulator feedback, Python interoperability, reproducible binding fixtures, initialization behavior and wrapper access limits. No NeqSim or TSA implementation files changed.",
         "updated": [
           "README.md",
           "notebooks/examples_of_NeqSim_in_Colab.ipynb",
@@ -113,11 +122,28 @@
         ]
       },
       "related_issues": [],
-      "improvement_assessment": "No new NeqSim library defect identified in the executed scope. Reduced dynamic and actuator models are explicit notebook assumptions.",
+      "improvement_assessment": "No new NeqSim defect found. A TSA multi-input feedback initialization limitation was reproduced and documented separately from Python.NET interface compatibility; the executed case supplies consistent initial PID outputs. Search for TSA issues matching initialization PID returned no matches; this PR does not modify TSA.",
       "publication": {
         "mode": "feature branch and draft pull request",
         "base": "master",
         "merge_authorized": false
+      },
+      "previous_validation": {
+        "validation_date": "2026-09-14",
+        "notebook_git_blob_sha1": "e56a8fb973dbc623ad78bc625868375287bd09e1",
+        "source_commit": "f3e588cec56fce818b723b3c0cb94c3619509d41",
+        "code_cells": 18
+      },
+      "wrapper_integration": {
+        "repository": "https://github.com/equinor/timeseriesanalysis-py",
+        "access_checked": "2026-09-15",
+        "repository_and_readme_status": 404,
+        "official_wrapper_executed": false,
+        "executed_backend": "Python.NET 3.1.0 / TimeSeriesAnalysis 1.4.38",
+        "portable_case_outputs": 14,
+        "portable_case_samples": 1100,
+        "same_backend_max_absolute_difference": 0.0,
+        "next_step": "Inspect an accessible wrapper source revision, implement run_candidate(case) with its documented API, and run compare_binding against the exported baseline."
       }
     }
   ]
