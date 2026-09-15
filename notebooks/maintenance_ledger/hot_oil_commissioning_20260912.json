@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "shard": "hot-oil-commissioning-20260912",
+  "updated_at": "2026-09-12T10:28:07.885236Z",
+  "notebooks": [
+    {
+      "path": "notebooks/flowassurance/hot_oil_commissioning_neqsim_ml.ipynb",
+      "verified_date": "2026-09-12",
+      "verified_at_utc": "2026-09-12T10:28:07.885236Z",
+      "execution_status": "passed",
+      "execution_method": "Fresh Python process with the repository IPython in-process runner; all code cells executed in order with installation, source-JAR provenance, full results and figures retained.",
+      "execution_seconds": 35.7,
+      "code_cells": 20,
+      "substantive_code_cells": 18,
+      "markdown_cells": 16,
+      "neqsim_version": "3.20.0 Python bridge; Java source pinned to current master at authoring",
+      "neqsim_commit": "08e460b43dfe3e2a53368377e4aa9aa3164ece98",
+      "neqsim_jar_sha256": "acd4e25041e7682b8fd5dce57965d8ad7e070efe458eb1eea6fd9154846080eb",
+      "python_version": "3.12.14",
+      "runtime_versions": {
+        "neqsim": "3.20.0",
+        "numpy": "2.3.5",
+        "pandas": "2.2.3",
+        "scipy": "1.17.0",
+        "matplotlib": "3.10.8",
+        "scikit-learn": "1.8.0",
+        "JPype1": "1.7.1"
+      },
+      "git_blob_sha1": "b590ab7f0b5999cefa08dbaa05c26ce34fcfe903",
+      "notebook_bytes": 1042781,
+      "paper": {
+        "doi": "10.3390/en19153483",
+        "license": "CC BY",
+        "data_scope": "Full paper inspected; original 69 CFD records not available here; 180 new synthetic 1D cases generated."
+      },
+      "capabilities_demonstrated": [
+        "SRK TBP hydrocarbon and CPA water property tables",
+        "Pedersen wax equilibrium with raw results, failed-flash and characterization-mass checks",
+        "Native multilayer thermal resistance and connected heater/PipeBeggsAndBrills process",
+        "Conservative axial advection-dispersion and radial wall-energy storage in notebook Python",
+        "Mass/energy and analytical front checks, independent U-value, axial/time/radial refinements",
+        "Operating/closure sensitivity, held-out RF/MLP evaluation, prediction guard, direct candidate checks",
+        "Explicit full-bore gel restart scenarios, separate from equivalent cold-oil exposure"
+      ],
+      "engineering_validation": {
+        "checks_passed": 28,
+        "checks_failed": 0,
+        "simulation_dataset_cases": 180,
+        "held_out_cases": 36,
+        "retained_png_figures": 9,
+        "baseline": {
+          "max_drop_c": 10.451167490831466,
+          "peak_pressure_bar": 0.029597604658172526,
+          "peak_risk_m": 0.39057553156749614,
+          "outlet_c": 69.35708022549449,
+          "end_time_s": 70.0
+        },
+        "native_U_W_m2K": 3.1327149932771667,
+        "wax_appearance_temperature_c": 44.99999880932485,
+        "MLP_held_out_RMSE": {
+          "temperature_deficit_C": 0.1531484322599369,
+          "pressure_bar": 0.0003298356273527443,
+          "equivalent_exposure_m": 0.012868274108345118
+        },
+        "MLP_target_R2": [
+          0.9968571516107798,
+          0.9993516647236372,
+          0.9962222757466582
+        ],
+        "mesh_bias_note": "Six held-out cases rerun at 160 cells; risk-length mesh differences 0.019-0.097 m exceed ML RMSE against the 80-cell labels. Explicitly displayed in notebook."
+      },
+      "rendered_visual_validation": {
+        "renderer": "nbconvert 7.17.1 basic HTML; MathJax 3.2.2 SVG for every expression; WeasyPrint 70.0; PyMuPDF raster inspection",
+        "notebook_pages_inspected": 12,
+        "catalog_pages_inspected": 18,
+        "markdown_cells_inspected": 16,
+        "result_bearing_and_setup_code_cells_inspected": 20,
+        "display_equations_inspected": 8,
+        "inline_math_occurrences_inspected": 34,
+        "figures_inspected": 9,
+        "result": "passed",
+        "notes": "Inspected every Markdown/result cell, equation, table and figure. Reduced displayed training-table width, then re-executed and re-rendered; no clipped values or malformed equations remain."
+      },
+      "repository_validation": {
+        "checker_unit_tests": "python -m unittest discover -s scripts -p test_check_notebook.py: 6 passed",
+        "focused_integrity": "Repository check_notebook.validate_notebook with strict_execution=True, expected_code_cells=20 and require_main_source=True: 0 errors, 0 warnings; nbformat schema valid",
+        "math_and_code": "All code parses, non-URL code lines <=100 characters; compact balanced Colab math; zero stored errors or stderr",
+        "link_validation": "312 relative notebook links in tutorial/catalog resolved against authoritative GitHub tree 17d6b3f49c00cd0db07c528aa24a44e9fd2423f1 plus new notebook",
+        "whole_repository_integrity": "Pending exact-head GitHub Actions; partial local source mirror used for focused validation",
+        "java_build": "Maven package succeeded with tests and Javadoc packaging skipped; full current src/main source inputs verified against GitHub blob identities. No Java source changed."
+      },
+      "documentation_impact": "Added worked tutorial, main catalog flow-assurance entry, README feature, dedicated evidence shard and index count; existing catalog source preserved except one entry.",
+      "known_upstream_issues": [
+        "https://github.com/equinor/neqsim/issues/108"
+      ],
+      "issue_handling": "Linked existing embedded-database wax initialization issue #108; used explicit temporary tables and post-characterization database initialization. No duplicate issue created.",
+      "limitations": [
+        "One-dimensional homogeneous liquid screening; no three-dimensional CFD or original-paper numerical replication",
+        "Synthetic assay; frozen density/heat capacity; assumed axial dispersion and heat-transfer coefficients",
+        "Newtonian hydraulic estimate excludes emulsions, yield stress and transient momentum",
+        "WAT, cold-oil exposure, deposition and connected gel length are distinct; restart yield stresses are assumed",
+        "Fixed two-pipe-volume observation window; ML interpolation only within the synthetic case basis",
+        "ML accuracy measures approximation of the discrete model, not agreement with field or CFD observations"
+      ]
+    }
+  ]
+}

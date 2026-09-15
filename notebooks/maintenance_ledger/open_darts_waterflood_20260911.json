@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "shard": "open-darts-waterflood-20260911",
+  "updated_at": "2026-09-11T07:27:57.087044Z",
+  "notebooks": [
+    {
+      "path": "notebooks/reservoir/open_darts_waterflood_to_neqsim.ipynb",
+      "verified_date": "2026-09-11",
+      "verified_at_utc": "2026-09-11T07:27:57.087044Z",
+      "execution_status": "passed",
+      "execution_method": "New isolated Python 3.12 environment; fresh-process, ordered IPython execution with repository execute_notebook_inprocess.py; every code cell retained with outputs.",
+      "code_cells": 19,
+      "substantive_code_cells": 19,
+      "markdown_cells": 19,
+      "neqsim_version": "3.20.0 Python bridge; Java built from current master",
+      "neqsim_commit": "71835e21ef7e9c7b5a0ba809126c17b99aa864d8",
+      "neqsim_jar_sha256": "6fd4ef0b4384d65c004ca9a5c1e1497a00fa752ff623b11ca0a3ce878c655ef6",
+      "python_version": "3.12.14",
+      "runtime_versions": {
+        "open-darts": "1.5.0",
+        "open-darts-flash": "0.14.0",
+        "neqsim": "3.20.0",
+        "numpy": "2.5.3",
+        "pandas": "3.0.5",
+        "scipy": "1.18.1"
+      },
+      "open_darts_commit": "bab04c2d3f13e3b2c05798a41c2db2fe714635f8",
+      "open_darts_scope": "PyPI 1.5.0; 2.0 tag acknowledged, compatibility not claimed",
+      "git_blob_sha1": "f16ac60dace1e10335e870a8e3e0bcbb56727fa3",
+      "notebook_bytes": 662551,
+      "capabilities_demonstrated": [
+        "DartsModel, StructReservoir, custom immiscible property container and Compositional engine",
+        "Rate and BHP controls, feasible BHP initialization, schedule continuation",
+        "Signed well rates, field pressure and saturation, HDF5 and CSV output",
+        "Buckley-Leverett shock and profile validation; separate grid/time/OBL refinements",
+        "Component inventory audit and a mole-conserving NeqSim process handoff",
+        "Catalog relationship to SimpleReservoir, OPM Flow, RMS, ERT, wells and facilities"
+      ],
+      "engineering_validation": {
+        "named_assertions_passed": 47,
+        "assertions_failed": 0,
+        "reservoir_cases": 6,
+        "neqsim_surface_cases": 3,
+        "retained_png_figures": 5,
+        "result_summary": {
+          "checks_passed": 47,
+          "checks_failed": 0,
+          "analytical_breakthrough_day": 111.24611797498102,
+          "darts_breakthrough_50_percent_day": 107.97765830896886,
+          "maximum_inventory_error_percent": 0.007369202749841404,
+          "oil_rate_day_240_m3_day": 2.0815285433259443,
+          "water_rate_day_240_m3_day": 17.91847145667627,
+          "water_cut_day_240": 0.8959235728337143,
+          "neqsim_commit": "71835e21ef7e9c7b5a0ba809126c17b99aa864d8",
+          "neqsim_jar_sha256": "6fd4ef0b4384d65c004ca9a5c1e1497a00fa752ff623b11ca0a3ce878c655ef6",
+          "runtime_versions": {
+            "open-darts": "1.5.0",
+            "open-darts-flash": "0.14.0",
+            "neqsim": "3.20.0",
+            "numpy": "2.5.3",
+            "pandas": "3.0.5",
+            "scipy": "1.18.1"
+          },
+          "python_version": "3.12.14"
+        }
+      },
+      "rendered_visual_validation": {
+        "renderer": "nbconvert 7.17.1 classic HTML, MathJax 3.2.2 SVG for every source expression, WeasyPrint 70.0 HTML layout, PDF pages rasterized with PyMuPDF",
+        "notebook_pages_inspected": 30,
+        "catalog_pages_inspected": 18,
+        "markdown_cells_inspected": 19,
+        "code_cells_inspected": 19,
+        "display_equations_inspected": 7,
+        "inline_math_occurrences_inspected": 18,
+        "figures_inspected": 5,
+        "result": "passed",
+        "notes": "All Markdown/result cells, equations, tables, native-diagnostic excerpts and five full-resolution figures inspected. No malformed math, clipped labels, blank results or stored errors. Native iterative logs remain in per-case files; all warning lines and final convergence diagnostics retained inline."
+      },
+      "documentation_impact": "Added tutorial, reservoir catalog entry and README feature; existing notebook numerical content preserved.",
+      "known_upstream_issue": null,
+      "issue_handling": "No NeqSim defect found. Input alias n-decane resolves to canonical nC10 and is handled by indexed component lookup. DARTS low-permeability case initialized with feasible BHP control.",
+      "limitations": [
+        "Synthetic incompressible immiscible water/decane model, not calibrated live oil",
+        "NeqSim surface phase partitioning is not an experimental EOS benchmark",
+        "One-way component transfer with imposed surface conditions; no coupled wellbore model",
+        "No executed ERT, real-grid, chemistry, thermal, GPU or DARTS 2.0 case"
+      ],
+      "repository_validation": {
+        "checker_unit_tests": {
+          "command": "python -m unittest discover -s scripts -p 'test_check_notebook.py'",
+          "exit_code": 0,
+          "passed": 6
+        },
+        "strict_notebook_check": {
+          "command": "python scripts/check_notebook.py notebooks/reservoir/open_darts_waterflood_to_neqsim.ipynb --require-main-source",
+          "exit_code": 0,
+          "errors": 0,
+          "warnings": 0
+        },
+        "repository_check": {
+          "command": "python scripts/check_notebook.py --all --quiet-warnings",
+          "exit_code": 0,
+          "notebooks": 344,
+          "errors": 0,
+          "warnings": 45,
+          "warning_scope": "Existing notebooks outside this change; new notebook has zero warnings."
+        },
+        "diff_check": {
+          "command": "git diff --check",
+          "exit_code": 0
+        },
+        "ledger_index": "Recounted all shards: existing index said 298 but contained 299 entries; adding this notebook gives 300.",
+        "java_build": "Source-built NeqSim 71835e21 with Maven package; test execution skipped for runtime build. No NeqSim Java source edits."
+      }
+    }
+  ]
+}

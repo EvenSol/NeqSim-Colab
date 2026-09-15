@@ -1,0 +1,117 @@
+{
+  "schema_version": 3,
+  "notebooks": [
+    {
+      "path": "notebooks/process/fouling_thermal_hydraulic_preheater.ipynb",
+      "status": "validated",
+      "execution_status": "passed",
+      "code_cells": 13,
+      "validation_date": "2026-09-14",
+      "notebook_sha256": "7643c1422b4c0c02e9b7b905ae1ba3a20b146980e5c9c8a57337a3c9fbbf2b00",
+      "notebook_git_blob_sha1": "e27ce9504dcb65bde3b6c6f0c4724715601a4ff4",
+      "source_commit": "4317d3d1249d9eb20fc80fbb5fed2d6b6d388d48",
+      "python_version": "3.12.14",
+      "java_version": "17.0.20",
+      "package_versions": {
+        "JPype1": "1.7.1",
+        "numpy": "2.3.5",
+        "pandas": "2.2.3",
+        "matplotlib": "3.10.8"
+      },
+      "execution": {
+        "method": "Fresh isolated Python/IPython process; compiled exact feature source loaded through the documented prepared-workspace path",
+        "command": "NEQSIM_SOURCE_DIR=/path/to/neqsim-source NEQSIM_PREBUILT=1 python scripts/execute_notebook_inprocess.py notebooks/process/fouling_thermal_hydraulic_preheater.ipynb",
+        "exit_code": 0,
+        "elapsed_seconds": 4.2,
+        "stored_error_count": 0,
+        "stderr_outputs": 0,
+        "static_figures": 6,
+        "all_code_cells_executed_in_order": true,
+        "all_code_cells_retain_outputs": true,
+        "setup_limit": "Fresh-Colab git/Maven bootstrap was not exercised locally; the same pinned source was compiled and loaded through the documented prepared workspace."
+      },
+      "source_provenance": {
+        "repository": "equinor/neqsim",
+        "pull_request": 3719,
+        "ref": "4317d3d1249d9eb20fc80fbb5fed2d6b6d388d48",
+        "pr_state_when_validated": "open draft",
+        "base_commit_verified": "ff5c8fa79b762ea2806bcca9e7d1ef6fa907f833",
+        "verification": "Local Git HEAD matched the connector-published commit; remote changed blobs were verified and production-source diff was empty before the executed run.",
+        "compile": "Maven wrapper compiled production classes and dependencies; 54 focused Java tests passed on Java 17.0.20.",
+        "class_origin_asserted": true
+      },
+      "engineering_validation": {
+        "analytical_conduction_cases": 3,
+        "analytical_laminar_hydraulic_cases": 3,
+        "full_process_comparison_cases": 10,
+        "campaign_samples": 25,
+        "conductivity_thickness_cases": 25,
+        "clean_recovery_kw": 660.68544,
+        "one_mm_recovery_kw": 244.63177,
+        "extra_trim_heat_at_one_mm_kw": 416.04267,
+        "clean_tube_pressure_loss_bar": 0.0280639,
+        "one_mm_tube_pressure_loss_bar": 0.0451367,
+        "maximum_exchanger_energy_residual_w": 0.00098,
+        "coverage": [
+          "Exact cylindrical outside-area resistance",
+          "Hagen-Poiseuille plus pass return losses",
+          "Total and component mass conservation",
+          "Hot/cold enthalpy conservation",
+          "Native tube/shell outlet pressure mapping",
+          "Repeated execution and zero-layer cleaning recovery",
+          "Thermal and hydraulic trends",
+          "Downstream native trim-heater response"
+        ],
+        "limitations": [
+          "Synthetic single-phase SRK case; no Aspen or experimental replication",
+          "Inlet-property lumped hydraulics and enthalpy secant capacity with ideal counterflow effectiveness",
+          "Prescribed deposit growth and cleaning; no kinetic or transient inventory model",
+          "Trim-heater demand is not a separately solved column reboiler duty",
+          "No deposit roughness, shell blockage or detailed TEMA thermal corrections"
+        ]
+      },
+      "visual_validation": {
+        "renderer": "Jupyter nbconvert + Chromium 131 + MathJax 3.2.2 SVG",
+        "status": "passed",
+        "markdown_cells_inspected": 17,
+        "result_code_cells_inspected": 13,
+        "math_expressions_rendered": 19,
+        "static_figures_inspected": 6,
+        "screenshots_inspected": 30,
+        "math_render_errors": 0,
+        "broken_images": 0,
+        "result": "All Markdown, equations, output tables and figures visually inspected. SI axis-label capitalization corrected, equipment count corrected, and complete notebook rerun and rerendered. No clipped labels or malformed math."
+      },
+      "integrity_validation": {
+        "colab_math_source": "Balanced compact dollar delimiters and single-backslash LaTeX",
+        "code_readability": "No code line over 100 characters",
+        "pre_commit": "No .pre-commit-config.yaml in the inspected NeqSim-Colab base tree",
+        "repository_wide_ci": "Pending GitHub notebook-integrity",
+        "checker_unit_tests": "6 passed",
+        "targeted_repository_checker": "Passed with --require-main-source: 1 notebook, zero errors or warnings",
+        "repository_wide_checker": "353 notebooks checked: zero errors, 45 warnings on the existing backlog",
+        "catalog_links": "All relative catalog targets verified by scripts/check_notebook.py",
+        "catalog_visual_validation": "Changed gas-processing-design catalog section rendered and inspected"
+      },
+      "documentation_impact": {
+        "assessment": "New advanced workflow using the NeqSim fouling thermal-hydraulic feature.",
+        "updated": [
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/process/fouling_thermal_hydraulic_preheater.ipynb"
+        ],
+        "scope": "Pinned-source setup, physical assumptions, equations, units, analytical and process validation, outputs, exports and catalog navigation"
+      },
+      "related_issues": [
+        "https://github.com/equinor/neqsim/issues/3718"
+      ],
+      "related_pull_requests": [
+        "https://github.com/equinor/neqsim/pull/3719"
+      ],
+      "publication": {
+        "mode": "feature branch and draft pull request",
+        "base": "master",
+        "merge_authorized": false
+      }
+    }
+  ]
+}

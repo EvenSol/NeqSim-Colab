@@ -3,12 +3,28 @@ This GitHub repository is the code and notebook base for the web module [Introdu
 
 NeqSim Python/Colab is part of the [NeqSim project](https://equinor.github.io/neqsimhome/). NeqSim (Non-Equilibrium Simulator) is a Java library for estimation of fluid behavior and process design. The basis for NeqSim is a library of fundamental mathematical models related to phase behavior and physical properties of fluids.
 
-Advanced notebooks use the released Python distribution only as the JPype bridge. They clone current [`equinor/neqsim`](https://github.com/equinor/neqsim) `master`, build the Java runtime JAR, record the resolved commit and SHA-256 digest, and verify that Java classes were loaded from that JAR before running calculations.
+Advanced notebooks use JPype directly or through the Python distribution. They clone current [`equinor/neqsim`](https://github.com/equinor/neqsim) `master`, build Java classes or a runtime JAR, record the resolved commit and SHA-256 provenance, and verify that Java classes were loaded from that build before running calculations.
 
 [NeqSim (Non-Equilibrium Simulator)](https://equinor.github.io/neqsimhome/) is a library for estimation of fluid behaviour for oil and gas production. Colaboratory (Colab) is a free Jupyter notebook environment that requires no setup and runs entirely in the cloud. In the notebooks listed in this page you will find examples of typical gas processing calculations using NeqSim in Colab, and will serve both as introduction to natural gas processing and to interactive use of NeqSim in a Python based notebook. The notebooks serves as a theoretical introduction and as a simulation tool for many processes found in the gas industry.
 
 ## Featured notebooks
 
+* [NeqSim × Equinor TimeSeriesAnalysis: large-process analytics](notebooks/advanced_analytics/neqsim_timeseriesanalysis_large_process.ipynb) – Combine a 67-unit NeqSim facility with Equinor's actual .NET identification and dynamic simulation library: load allocation, steady and dynamic PlantSimulator networks, compressor diagnostics, six PID feedback loops with native limits, serialization and scaling to 194 models. Adds a 24-unit JSON-built oil-stabilization process: material-graph and recycle analysis, LP/MP condensate routing, constrained pressure optimization with native replay, and an eight-model local dynamic PlantSimulator projection. Includes a Python.NET interface acceptance case and portable fixtures for the proposed `equinor/timeseriesanalysis-py` wrapper; its repository was inaccessible during validation, so no official-wrapper execution is claimed. Uses pinned NeqSim master and TimeSeriesAnalysis 1.4.38; a fresh Linux Colab setup builds both runtimes. Optional `NEQSIM_VALIDATED_RUNTIME` supplies an audited prebuilt runtime manifest with source revision, JAR path/hash, dependency directory through the source root, .NET root and assembly directory. Results are written to `neqsim_tsa_results/` and its ZIP archive, with all tables and figures embedded in the notebook.
+
+* [Wellstream flow on current NeqSim master](notebooks/fluidflow/wellstream_steady_dynamic_multiphase_master.ipynb) – Two- and three-phase steady profiles, transient rate cycles, phase mass ledgers, mesh/time-step sensitivity, flow-field animation, hydrate margins and a characterized wax screen. Includes the current unsplit/transaction APIs and explicit qualification limits.
+
+* [Gas distillation: recovery, energy and temperature control](notebooks/process/gas_distillation_temperature_control.ipynb) – Connect cryogenic separator calculations, an NGL deethanizer, audited stage balances, product-quality constraints and downstream NGL temperature control screening. Uses a pinned source-built NeqSim runtime and explicitly documents the terminal-duty limitation tracked in equinor/neqsim#3698.
+
+* [Centrifugal compressor sizing and production optimization](notebooks/process/centrifugal_compressor_sizing_production_optimization.ipynb) – Calculate consistent impeller diameter/head/speed, audit stages and design exports, and optimize a fixed compressor with production, power and recycle constraints. Uses the exact source of [NeqSim PR #3695](https://github.com/equinor/neqsim/pull/3695).
+* [Reservoir-to-facilities decisions with OPM Flow, NeqSim and ML](notebooks/reservoir/integrated_norne_reservoir_to_facilities_ai.ipynb) – Use public Norne reservoir data, synthetic seismic interpretation, an actual OPM ensemble, native gas/oil/water transport and process equipment to compare development controls under geological uncertainty and changing host headroom. Retains simulator diagnostics, surrogate validation, flow-assurance screens and traceable decisions.
+
+* [The AI Asset Team: tie-back and debottlenecking](notebooks/AI/agentic_asset_team_tieback_and_debottlenecking.ipynb) – One executed industrial study combining fixed compressor maps, protected host production, constrained optimization, derating recovery, uncertainty, five-year economics, retained graphics, an audited investigation replay and an optional live language-model agent. Uses pinned NeqSim source; local source reuse is available through `NEQSIM_SOURCE_ROOT`/`NEQSIM_SOURCE_JAR`. Live mode uses `OPENAI_API_KEY` and optional `OPENAI_MODEL`; credentials are never stored in outputs.
+
+* [Mechanical design to interactive 3D equipment](notebooks/process/mechanical_design_to_3d_models.ipynb) – Generate separator and compressor models from calculated NeqSim dimensions, inspect cutaways, compare flow cases, and exchange qualified STL/GLB/JSON artifacts.
+
+* [Hot-oil commissioning and ML risk screening](notebooks/flowassurance/hot_oil_commissioning_neqsim_ml.ipynb) – Combine NeqSim properties, wax, thermal resistance and a native heater/pipeline process with a conservative transient displacement model, numerical checks, RF/MLP surrogates and explicit gel-restart assumptions.
+* [open-DARTS waterflood simulation and a NeqSim process handoff](notebooks/reservoir/open_darts_waterflood_to_neqsim.ipynb) – Build and validate an open-DARTS reservoir model, exercise well controls, check analytical and numerical sensitivity, and transfer component rates into NeqSim; connect the tutorial to the existing OPM Flow, RMS, and ERT examples.
+* [Elemental sulfur in oil stabilization and gas recompression](notebooks/process/elemental_sulfur_stabilization_recompression.ipynb) – Calculate H2S/O2 equilibrium and kinetics, sulfur deposition, rust/FeS effects, separator oil/condensate carryover, compressor fouling, and potential mitigation and cleaning measures.
 * [LNG process simulation and benchmark comparison](notebooks/process/LNG_Process_Benchmark_Comparison.ipynb) – Run closed-loop SMR, C3MR, DMR, and nitrogen-expander models with common KPIs, literature checks, and an exchanger grid-convergence study.
 * [IoT and Industry 4.0 with NeqSim](notebooks/AI/IoT_and_Industry4.0_with_NeqSim.ipynb) – Build an instrumented digital twin, stream dynamic simulation data, and explore Industry 4.0 workflows backed by NeqSim measurements.
 * [Plant-data reconciliation and a Bayesian digital twin](notebooks/process/data_reconciliation_bayesian_digital_twin.ipynb) – Qualify historian windows, reconcile redundant meters, isolate gross errors, calibrate compressor efficiency, validate a Bayesian posterior, and propagate uncertainty to an operating decision.
@@ -22,3 +38,10 @@ See the [NeqSim Colab page](https://colab.research.google.com/github/EvenSol/Neq
 See the [NeqSim Colab page](https://colab.research.google.com/github/EvenSol/NeqSim-Colab/blob/master/notebooks/examples_of_NeqSim_in_Colab.ipynb). Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests.
 
 Repository-wide notebook integrity is checked with `python scripts/check_notebook.py --all`. New main-source notebooks must additionally pass `python scripts/check_notebook.py PATH --require-main-source` after clean execution.
+
+
+
+
+
+
+

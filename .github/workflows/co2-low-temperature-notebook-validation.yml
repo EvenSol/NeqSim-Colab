@@ -135,7 +135,7 @@ jobs:
           assert not errors
           assert not stderr
           assert figures == 8
-          assert "All 12 engineering checks passed." in str(notebook)
+          assert "All 15 engineering checks passed." in str(notebook)
           assert "NeqSim source commit:" in str(notebook)
           assert "Loaded main-only class from:" in str(notebook)
           print("Retained-output and scope checks passed.")
@@ -149,3 +149,4 @@ jobs:
             notebooks/thermodynamics/CO2_low_temperature_compression_relief_and_depressurization.ipynb
             notebooks/thermodynamics/co2_low_temperature_analysis.html
           retention-days: 7
+

@@ -1,33 +1,31 @@
 {
   "schema_version": 1,
   "shard": "co2-low-temperature-20260813",
-  "updated_at": "2026-08-13T10:00:00Z",
+  "updated_at": "2026-09-13T08:15:52.400585+00:00",
   "notebooks": [
     {
       "path": "notebooks/thermodynamics/CO2_low_temperature_compression_relief_and_depressurization.ipynb",
-      "verified_date": "2026-08-13",
-      "verified_at_utc": "2026-08-13T10:00:00Z",
+      "verified_date": "2026-09-13",
+      "verified_at_utc": "2026-09-13T08:15:52.400585+00:00",
       "neqsim_version": "3.17.0 Python bridge with the Java runtime source-built from current equinor/neqsim master",
-      "neqsim_java_commit": "ef31a3ba78a325b5784a33486bb047a264425412",
-      "neqsim_jar_sha256": "d1cb2dd3044467f31ebbed3ace48d32bd55fc2167f08211ad62eb62e5de1a91a",
-      "python_version": "3.12.13",
-      "java_version": "OpenJDK 17.0.19",
+      "neqsim_java_commit": "1e7fda16e3872f74d918367a708737fbbad93927",
+      "neqsim_jar_sha256": "c189fe3210cc6e220d1ed10719fdcaecc70655741003b536f4a02c1301bae722",
+      "python_version": "3.12.14",
+      "java_version": "openjdk version \"17.0.20\" 2026-07-21",
       "coolprop_version": "8.0.0",
       "execution_status": "passed",
-      "execution_method": "Executed all 24 code cells sequentially from an empty in-process IPython namespace with scripts/execute_notebook_inprocess.py. The run used a GitHub Actions source-built runtime JAR from the exact recorded NeqSim master commit, retained all numerical tables and eight PNG figures, and produced zero stored errors and zero stderr streams.",
+      "execution_method": "Executed all 24 code cells in a fresh Python 3.12 process with scripts/execute_notebook_inprocess.py and a clean neqsim 3.17.0/CoolProp 8.0.0 validation environment. Reused the unmodified source-built JAR and commit/hash metadata from GitHub Actions run 34746413969, artifact 10313873258. The notebook verified the JAR SHA-256 before JVM startup. Every code cell retains its output; eight PNG figures, zero errors and zero stderr streams.",
       "code_cells": 24,
       "substantive_code_cells": 24,
       "markdown_cells": 27,
-      "git_blob_sha1": "e26a66e8ae3c69d124d9861107de0416eb27c22f",
-      "notebook_bytes": 379434,
+      "git_blob_sha1": "951eae24d2ca0260526f42afde0d457469fd88ae",
+      "notebook_bytes": 1257390,
       "publication": {
-        "branch": "codex/co2-low-temperature-model-study",
-        "mode": "focused draft pull request",
+        "branch": "feat/centrifugal-compressor-sizing-production-optimization",
+        "mode": "CI repair in existing draft pull request #163",
         "files": [
           ".github/workflows/co2-low-temperature-notebook-validation.yml",
           "notebooks/thermodynamics/CO2_low_temperature_compression_relief_and_depressurization.ipynb",
-          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
-          "notebooks/notebook_maintenance_ledger.json",
           "notebooks/maintenance_ledger/co2_low_temperature_20260813.json"
         ]
       },
@@ -42,49 +40,99 @@
         "Span-Wagner pure-CO2 density and saturation calculations through CoolProp HEOS",
         "published EOS-CG, EOS-CG-2021, GERG-2008, and CO2 blowdown literature",
         "homogeneous-equilibrium critical-flow reconstruction",
-        "transient rigid-vessel mass and energy balances with a lumped metal wall"
+        "transient rigid-vessel mass and energy balances with a lumped metal wall",
+        "CoolProp 8.0.0 HEOS mixture PT flashes at 25 degC and 66/70/72 bara, compared with EOS-CG phase count and bulk density; no fitted or overridden interaction parameters"
       ],
       "engineering_validation": {
-        "named_assertions_passed": 12,
+        "named_assertions_passed": 15,
         "assertions_failed": 0,
         "checks": [
-          "synthetic composition normalized",
-          "EOS-CG pure-CO2 density within 0.1 percent of the reference",
-          "compressor powers finite and positive",
-          "all compressor-stage pressure targets met",
-          "compression-train total mass closed",
-          "EOS-CG detected the nominal two-phase final state at 25 degC",
-          "HEM critical maxima were interior and positive",
-          "blowdown pressure decreased monotonically",
-          "blowdown stopped above the triple pressure",
-          "fluid temperature approached the triple temperature without crossing the fluid-model boundary",
-          "the lumped wall remained warmer than the final fluid"
-        ]
+          "composition normalized",
+          "EOS-CG pure-CO2 density within 0.1% of reference",
+          "all compressor powers finite and positive",
+          "all stage pressure targets met",
+          "compression-train total mass closure",
+          "EOS-CG and HEOS resolve the 25 C pressure bracket",
+          "EOS-CG bracket densities within 2% of HEOS",
+          "phase-bracket component balance closes",
+          "two-phase fugacities agree",
+          "HEM critical maxima are interior",
+          "HEM critical fluxes finite and positive",
+          "blowdown pressure decreases monotonically",
+          "blowdown stops above triple pressure",
+          "blowdown fluid approaches triple temperature",
+          "lumped wall remains warmer than final fluid"
+        ],
+        "maximum_component_mole_fraction_residual": 1.1102230246251565e-16,
+        "maximum_absolute_log_fugacity_ratio": 5.040675778381556e-09,
+        "phase_audit_density_tolerance_percent": 2.0
       },
       "result_summary": {
         "maximum_eoscg_pure_co2_density_deviation_percent": 0.0315,
         "pr_density_deviation_at_70_bara_25_degC_percent": -12.0182,
         "srk_density_deviation_at_70_bara_25_degC_percent": -14.9228,
         "span_wagner_saturation_pressure_at_25_degC_bara": 64.3424,
-        "nominal_eoscg_final_phase_count": 2,
-        "nominal_eoscg_final_bulk_density_kg_m3": 668.8952,
-        "nominal_eoscg_final_gas_beta": 0.03087,
+        "nominal_eoscg_final_phase_count": 1,
+        "nominal_eoscg_final_bulk_density_kg_m3": 707.16372,
+        "nominal_eoscg_final_gas_beta": null,
         "pr_total_compressor_power_MW": 7.76941,
         "srk_total_compressor_power_MW": 7.83471,
         "hem_critical_flux_20_degC_kg_m2_s": 50050.1037,
         "hem_critical_flux_25_degC_kg_m2_s": 38964.9963,
         "adiabatic_blowdown_minimum_fluid_degC": -55.8815,
-        "ambient_heat_leak_blowdown_minimum_wall_degC": -10.1619
+        "ambient_heat_leak_blowdown_minimum_wall_degC": -10.1619,
+        "nominal_gas_beta_note": "Not applicable: one phase; this field denotes the gas mole fraction in a two-phase split.",
+        "phase_pressure_audit": [
+          {
+            "Pressure [bara]": 66.0,
+            "EOS-CG phases [-]": 2,
+            "HEOS phases [-]": 2,
+            "EOS-CG [kg/m³]": 294.95942,
+            "HEOS [kg/m³]": 293.74216,
+            "Density difference [%]": 0.4144
+          },
+          {
+            "Pressure [bara]": 70.0,
+            "EOS-CG phases [-]": 1,
+            "HEOS phases [-]": 1,
+            "EOS-CG [kg/m³]": 707.16372,
+            "HEOS [kg/m³]": 706.36869,
+            "Density difference [%]": 0.11255
+          },
+          {
+            "Pressure [bara]": 72.0,
+            "EOS-CG phases [-]": 1,
+            "HEOS phases [-]": 1,
+            "EOS-CG [kg/m³]": 719.49922,
+            "HEOS [kg/m³]": 718.82921,
+            "Density difference [%]": 0.09321
+          }
+        ],
+        "maximum_phase_audit_density_deviation_percent": 0.4144
       },
       "rendered_visual_validation": {
-        "renderer": "nbconvert 7.17.1 Jupyter HTML with MathJax source and retained inline Matplotlib PNG",
+        "renderer": "nbconvert 7.17.1 with MathJax SVG conversion; reader HTML and a complete PDF render with retained inline Matplotlib PNGs",
         "display_equations_inspected": 8,
         "figures_inspected": 8,
         "result": "passed",
-        "notes": "All equations and all eight retained figures were inspected after the final source-built execution and again after repository-size PNG optimization. Symbols, units, labels, legends, phase boundaries, triple-point limits, color contrast, clipping, overlap, and consistency with the retained result tables all passed."
+        "notes": "All 17 math expressions, eight figures, tables, phase-audit results, updated interpretation and 15 validation checks were reviewed in the complete rendered notebook. No malformed equations, overlapping labels or truncated results.",
+        "inline_equations_inspected": 9
       },
-      "documentation_impact": "The main NeqSim-Colab notebook catalog is updated with a direct relative link and a concise description. No public NeqSim API, default, or installation interface is changed.",
-      "issue_handling": "No distinct NeqSim defect or missing API invalidating the study was identified. The notebook explicitly limits fluid-only calculations at the CO2 triple boundary and treats certified relief sizing, solid formation, and detailed wall-temperature assessment as separate qualified workflows."
+      "documentation_impact": "Updated the CO2 notebook phase interpretation, physical acceptance criteria, historical-change explanation, references and retained results. The existing catalog description and path remain accurate. The workflow still builds current NeqSim master and now requires all 15 engineering checks.",
+      "issue_handling": "Addresses NeqSim-Colab #151. The historical two-phase expectation was invalidated by the reference-EOS fugacity and liquid-root correction in equinor/neqsim #3223; no new NeqSim source modification is required for this repair.",
+      "phase_regression_investigation": {
+        "issue": "https://github.com/EvenSol/NeqSim-Colab/issues/151",
+        "upstream_correction": "https://github.com/equinor/neqsim/pull/3223",
+        "correction_commit": "5b32fc9b2f350a76890d75af005f06f6a8e8851f",
+        "pre_correction_parent": "b11c336eb0a1e300287a87d35e781bd601a55bd9",
+        "method": "Compiled the seven pre-correction reference-EOS classes and placed them ahead of the current JAR in a separate diagnostic JVM; this is an isolated class regression experiment, not a full historical source rebuild. The final notebook uses the unmodified current-source JAR.",
+        "pre_correction_nominal_phases": 2,
+        "pre_correction_nominal_density_kg_m3": 668.8951984400072,
+        "current_nominal_phases": 1,
+        "current_nominal_density_kg_m3": 707.1637175128669,
+        "independent_heos_nominal_density_kg_m3": 706.3686904566285,
+        "workflow_source_policy": "current equinor/neqsim master; no workflow source pin or skipped phase check"
+      }
     }
   ]
 }

@@ -1,0 +1,115 @@
+{
+  "schema_version": 3,
+  "notebooks": [
+    {
+      "path": "notebooks/process/mechanical_design_to_3d_models.ipynb",
+      "status": "validated",
+      "execution_status": "passed",
+      "code_cells": 16,
+      "validation_date": "2026-09-12",
+      "source_commit": "7cdaa4d7259ee7b8d3d8c0db5d927270a1bef107",
+      "source_jar_sha256": "137378d705ff0b7f80fd12ae4981981bff5c94215db9eaf263f9e5666e542da0",
+      "python_version": "3.12.14",
+      "java_version": "17.0.20",
+      "package_versions": {
+        "neqsim": "3.20.0",
+        "trimesh": "5.1.0",
+        "plotly": "7.0.0",
+        "numpy": "2.5.3",
+        "pandas": "3.0.5",
+        "matplotlib": "3.11.2",
+        "scipy": "1.18.1",
+        "networkx": "3.6.1",
+        "shapely": "2.1.2"
+      },
+      "execution": {
+        "command": "python scripts/execute_notebook_inprocess.py notebooks/process/mechanical_design_to_3d_models.ipynb",
+        "method": "fresh isolated Python process; exact source root and JAR supplied",
+        "exit_code": 0,
+        "elapsed_seconds": 5.6,
+        "stored_error_count": 0,
+        "stderr_outputs": 0,
+        "static_figures": 5,
+        "interactive_mesh_views": 3,
+        "infrastructure_note": "TCP/ZeroMQ kernel sockets unavailable; repository-supported in-process runner used."
+      },
+      "source_provenance": {
+        "repository": "equinor/neqsim",
+        "ref": "master",
+        "commit": "7cdaa4d7259ee7b8d3d8c0db5d927270a1bef107",
+        "tree_sha": "791000518abf90f65a97f499d4d28b20cabb3f9e",
+        "verification": "Every source-tree blob hash matched the connector-fetched GitHub tree before Maven build; loaded Java class location asserted."
+      },
+      "engineering_checks": {
+        "separator_mass_relative_error": 2.3101165425032383e-13,
+        "rotor_tip_speed_relative_error": 2.220446049250313e-16,
+        "finest_envelope_volume_relative_error": 0.00042465589883411425,
+        "checks_passed": [
+          "separator and compressor mass conservation",
+          "positive finite design dimensions",
+          "repeated vessel sizing convergence",
+          "reviewed outlet nozzle velocity limits",
+          "rotor diameter/speed/tip-speed identity",
+          "three flow cases recalculated",
+          "watertight envelope and consistent winding",
+          "analytic volume and mesh refinement",
+          "expected external dimensions",
+          "STL bounds/volume round trip",
+          "GLB bounds/part count"
+        ],
+        "source_issues": [
+          3675,
+          3676,
+          3677,
+          3678
+        ],
+        "excluded": [
+          "design certification",
+          "manufacturing tolerance",
+          "CFD mesh qualification",
+          "rotordynamic validation",
+          "assembly boolean/penetration checks"
+        ]
+      },
+      "visual_validation": {
+        "renderer": "nbconvert classic HTML + MathJax SVG; WeasyPrint/PyMuPDF inspection",
+        "status": "passed",
+        "markdown_cells_inspected": 16,
+        "display_equations": 3,
+        "inline_math_expressions": 10,
+        "static_figures_inspected": 5,
+        "pages_inspected": 9,
+        "interactive_fallback": "Every Plotly model has an inspected stored PNG. Browser/WebGL interaction not exercised in this environment.",
+        "result": "Readable equations, tables and complete figures; no clipped labels, broken math or missing static outputs."
+      },
+      "integrity_validation": {
+        "checker_unit_tests": "6 passed",
+        "targeted_checker": "scripts/check_notebook.py validate_notebook(strict_execution=True, expected_code_cells=16, require_main_source=True): 0 errors, 0 warnings",
+        "catalog_links": "308 relative notebook links checked against exact GitHub repository tree plus new notebook",
+        "companion_links": "6 notebook links checked against the same tree",
+        "archive": "14 SHA-256 hashes verified inside generated ZIP; manifest excludes itself",
+        "repository_wide_ci": "Pending GitHub notebook-integrity workflow; full repository not materialized locally."
+      },
+      "documentation_impact": {
+        "assessment": "New user-visible educational workflow; no NeqSim library source changes.",
+        "updated": [
+          "README.md",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/process/mechanical_design_to_3d_models.ipynb"
+        ],
+        "scope": "Setup, unit conversions, API ownership, assumptions, validation, exports, limitations, design workflow potential and book navigation."
+      },
+      "related_issues": [
+        "https://github.com/equinor/neqsim/issues/3675",
+        "https://github.com/equinor/neqsim/issues/3676",
+        "https://github.com/equinor/neqsim/issues/3677",
+        "https://github.com/equinor/neqsim/issues/3678"
+      ],
+      "publication": {
+        "mode": "feature branch and draft pull request",
+        "base": "master",
+        "merge_authorized": false
+      }
+    }
+  ]
+}

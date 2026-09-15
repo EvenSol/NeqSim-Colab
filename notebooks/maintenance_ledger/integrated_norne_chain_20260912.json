@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "shard": "integrated-norne-chain-20260912",
+  "updated_at": "2026-09-12T19:24:17.309053+00:00",
+  "notebooks": [
+    {
+      "path": "notebooks/reservoir/integrated_norne_reservoir_to_facilities_ai.ipynb",
+      "verified_date": "2026-09-12",
+      "verified_at_utc": "2026-09-12T19:24:17.309053+00:00",
+      "execution_status": "passed",
+      "execution_method": "nbclient clean Python 3.12 kernel, all 25 cells in order, GitHub Actions Ubuntu 24.04 and Java 21. All user-relevant outputs retained. The final run reuses checksum-verified OPM SMSPEC/UNSMRY outputs from 29 successful native OPM solves; native NeqSim transport and process calculations, ML fitting and all report-time checks are rerun. No reservoir proxy fallback or fabricated simulator result is used.",
+      "execution_workflow_url": "https://github.com/EvenSol/NeqSim-Colab/actions/runs/34713582119",
+      "code_cells": 25,
+      "substantive_code_cells": 25,
+      "markdown_cells": 20,
+      "git_blob_sha1": "51717f7438fb41d690bde731ce105f0732197e79",
+      "notebook_bytes": 1302585,
+      "python_version": "3.12.14",
+      "java_version": "Temurin 21",
+      "neqsim_source_commit": "e4baa50c8fb0815e52c38ddcb93f806e6907ece8",
+      "neqsim_jar_sha256": "d547d584fa23e496943b22359a5e2f6860241887c3b1425e0c95751a23aad311",
+      "neqsim_loaded_class_location": "file:/home/runner/work/NeqSim-Colab/NeqSim-Colab/neqsim-source/target/neqsim-3.20.0.jar",
+      "opm_version": "flow 2026.04",
+      "data_source_commit": "eaa2261683a97027e057c2bc49612ad1c86390b3",
+      "engineering_validation": {
+        "source_files_verified": 64,
+        "source_active_cells": 44927,
+        "OPM_unique_successful_runs": 29,
+        "coupled_report_checks": 182,
+        "hydraulic_convergence_failures_recorded": 12,
+        "maximum_process_mass_residual": 1.4344705707549295e-12,
+        "maximum_process_component_residual": 1.6097599728730054e-12,
+        "ML_holdout_cases": 4,
+        "retained_figures": 11
+      },
+      "rendered_visual_validation": {
+        "renderer": "nbconvert HTML, MathJax, Playwright Chromium, 1440px viewport",
+        "all_cells_inspected": 45,
+        "display_equations_inspected": 6,
+        "figures_inspected": 11,
+        "result": "passed",
+        "notes": "Inspected every Markdown and result-bearing cell. Corrected a pressure-reference definition, overlapping feedback-arrow label, clipped tables and diagnostics, and decision-map contrast; reran and inspected the corrected rendering."
+      },
+      "known_upstream_issues": [
+        "https://github.com/equinor/neqsim/issues/3685",
+        "https://github.com/equinor/neqsim/issues/3686"
+      ],
+      "issue_handling": "An explicit audited outlet TP/property refresh works around the invalid connected outlet property state. Phase-flux deficits, pressure floors and failed convergence are rejected, retained with inputs, and never promoted to feasible solutions. No core NeqSim fix or qualified field-design claim is made.",
+      "documentation_impact": "New detailed teaching notebook and reproducible validation workflow; README and example-book links added, maintenance count and dedicated shard updated. The earlier FMU/Norne notebook is preserved.",
+      "limitations": [
+        "Hypothetical forecast, well, subsea and host specifications",
+        "Black-oil mass mapping is not a matched compositional PVT model",
+        "Steady checks at report times; no transient operability qualification",
+        "Small teaching ensemble; no calibrated tail or reserves claims"
+      ],
+      "publication": {
+        "branch": "codex/integrated-norne-chain-ai",
+        "base_branch": "master",
+        "mode": "draft pull request"
+      }
+    }
+  ]
+}
