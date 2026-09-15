@@ -1,7 +1,7 @@
 {
  "schema_version": 3,
- "updated_at": "2026-09-15T11:41:49Z",
- "active_notebook_count": 308,
+ "updated_at": "2026-09-14T17:13:19Z",
+ "active_notebook_count": 309,
  "shards_glob": "maintenance_ledger/*.json",
  "retired_notebooks": [
   {
