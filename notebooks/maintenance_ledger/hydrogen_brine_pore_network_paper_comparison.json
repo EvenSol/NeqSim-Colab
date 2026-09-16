@@ -1,0 +1,93 @@
+{
+  "schema_version": 3,
+  "updated_at": "2026-09-16T06:30:00Z",
+  "notebooks": [
+    {
+      "path": "notebooks/reservoir/hydrogen_brine_pore_network_paper_comparison.ipynb",
+      "execution_status": "passed",
+      "code_cells": 15,
+      "validation_date": "2026-09-16",
+      "notebook_purpose": "Compare NeqSim-coupled synthetic hydrogen–brine network drainage with source-bounded paper findings.",
+      "source_provenance": {
+        "neqsim_source_commit": "87f3c41266ed6ce6dc4ec3879411ae7da59b5eca",
+        "jar_sha256": "5a81a8bc6e035898acf28c53a9fc12147dfa8b33efa92ae964e57cd1743e34dc",
+        "loaded_java_class": "neqsim.thermo.mixingrule.SoreideWhitsonParameterization",
+        "loaded_uri": "file:/workspace/scratch/ae2708680125/runtime/neqsim-source/target/neqsim-verified.jar",
+        "python": "3.12.14",
+        "java": "17.0.20",
+        "python_bridge": "3.20.0",
+        "setup_route": "Audited source build; manifest/hash/class-location checks",
+        "paper_comparison": "Qualitative abstract-level; no numerical reproduction",
+        "synthetic_corey_rmse": 0.0418872079722524,
+        "pressure_sampling_max_krg_difference": 0.014310969152466518
+      },
+      "validation": {
+        "clean_runtime": {
+          "status": "passed",
+          "fresh_environment": true,
+          "execution_method": "scripts/execute_notebook_inprocess.py",
+          "execution_time_seconds": 6.2,
+          "python": "3.12.14",
+          "java": "17.0.20",
+          "bridge_release": "3.20.0",
+          "build": "All main Java source compiled with JDK ToolProvider --release 8; 3506 base blobs and 2 additions verified against connector evidence"
+        },
+        "retained_outputs": {
+          "executed_code_cells": "15/15",
+          "stored_errors": 0,
+          "stored_stderr": 0,
+          "figures": 6,
+          "notebook_sha256": "86c00951858d28c1278abf2c572f49f7474d8c37ea0b4bdf510af4c3e3f13188"
+        },
+        "engineering_checks": [
+          {
+            "check": "Uniform cubic network vs analytical flow",
+            "error": 3.3306690738754696e-16,
+            "limit": 1e-12,
+            "pass": true
+          },
+          {
+            "check": "Worst phase network flow balance",
+            "error": 7.121781462499132e-14,
+            "limit": 1e-09,
+            "pass": true
+          },
+          {
+            "check": "NeqSim component balance (45 flashes)",
+            "error": 2.379962893428456e-12,
+            "limit": 1e-08,
+            "pass": true
+          },
+          {
+            "check": "NeqSim log-fugacity residual (45 flashes)",
+            "error": 2.859490422220465e-12,
+            "limit": 1e-06,
+            "pass": true
+          }
+        ],
+        "additional_checks": [
+          "monotone and bounded relative permeability",
+          "phase endpoints",
+          "inverse viscosity scaling",
+          "uniform-angle invariance",
+          "interfacial-tension scaling",
+          "nine size/realization cases",
+          "61/241 pressure samples"
+        ],
+        "renderer": "nbconvert classic Jupyter HTML + MathJax 3 SVG; WeasyPrint raster inspection",
+        "visual_inspection": "All 13 Markdown cells, all result tables, 6 figures, 23 math expressions including 5 display equations inspected over 9 rendered pages; no broken math, clipped plots or omitted columns.",
+        "teaching_readability": "All code lines <=100 characters; no compressed compound statements",
+        "paper_comparison": "Qualitative abstract-level only; full paper/PDF inaccessible (HTTP 403), no reference curve data or numerical error metric claimed",
+        "repository_checker": "PASS: strict main-source check, 1 notebook, 0 errors and 0 warnings",
+        "repository_wide_checker": "PASS: 355 notebooks, 0 errors and 45 existing warnings",
+        "checker_unit_tests": "PASS: 6 tests",
+        "catalog": "Full Jupyter HTML rendered; new relative link and repository catalog targets validated"
+      },
+      "documentation_impact": "New notebook, Hydrogen examples-catalog entry, README feature link and dedicated maintenance evidence. No NeqSim Java API or calibrated parameters changed.",
+      "neqsim_improvement_issues": [
+        "https://github.com/equinor/neqsim/issues/3736"
+      ],
+      "related_issue": "https://github.com/equinor/neqsim/issues/3734"
+    }
+  ]
+}
