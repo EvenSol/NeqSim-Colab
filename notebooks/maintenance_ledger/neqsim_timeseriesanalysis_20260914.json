@@ -1,9 +1,9 @@
 {
   "notebooks": [
     {
-      "code_cells": 26,
+      "code_cells": 31,
       "documentation_impact": {
-        "assessment": "Extend the merged notebook with JSON topology, recycle-aware routing, constrained physical optimization and a local TSA projection. Preserve earlier facility/PID/identification cases; update README and catalog. No NeqSim or TSA implementation changes.",
+        "assessment": "Explain NeqSim/TSA responsibilities and handoffs; add full-process identification, decision, native control and diagnostics; update README/catalog/evidence; update source pin and resolved #3728 status.",
         "updated": [
           "README.md",
           "notebooks/examples_of_NeqSim_in_Colab.ipynb",
@@ -30,9 +30,16 @@
           "50-point two-route pressure scan, two-start SLSQP for each route and fresh native JSON replay",
           "Per-evaluation total/component mass and energy closure; oil, driver, utility and discharge constraints",
           "Graph-permitted full-plant local Jacobian, halved-step sensitivity check and eight-model PlantSimulator projection",
-          "Local step/ramp trajectories with assumed dynamics, nonlinear final-state replay and dynamic operating-limit checks"
+          "Local step/ramp trajectories with assumed dynamics, nonlinear final-state replay and dynamic operating-limit checks",
+          "Original cases now use native IdentifyLinearAndStatic and LowPass instead of Python equivalents",
+          "72 full-process NeqSim operating blocks, 2520 synthetic samples at 2 s; independent assumed exponential response generator",
+          "Six native multivariable dynamic identifications and six static references; chronological training/calibration/test split; native correlation check",
+          "TSA equilibrium surrogate drives bounded SLSQP with nominal 2% driver allowance; fresh nonlinear NeqSim acceptance",
+          "Eleven-model PlantSimulator with two native PidModel loops, six identified responses, pressure actuators and total power",
+          "Native limits, tracking, recovery, driver constraints and serialized-plant replay",
+          "Full-process NeqSim efficiency-loss and separate sensor-bias scenarios; native LowPass residual filtering"
         ],
-        "engineering_checks_passed": 66,
+        "engineering_checks_passed": 98,
         "facility_feed_kg_s": 120,
         "facility_power_MW": 32.07933206298709,
         "facility_units": 67,
@@ -45,7 +52,7 @@
         "json_max_component_relative_error": 0.000006454357349800486,
         "json_max_energy_error_kW": 0.01752324089375179,
         "json_max_mass_error_kg_s": 0.00009868396708156979,
-        "json_native_evaluations": 160,
+        "json_native_evaluations": 231,
         "json_optimized_HP_bara": 38.35794429213398,
         "json_optimized_MP_bara": 9.27657432023816,
         "json_optimized_power_kW": 7192.379679654957,
@@ -69,11 +76,22 @@
           "JSON route choices are engineered alternatives, not arbitrary topology synthesis or proof of global optimality",
           "Stable-oil and export-gas product-quality constraints, compressor maps, hydraulics and economics are outside this example",
           "JSON alone does not determine TSA time constants; local projection uses explicitly assumed 10-90 s response times",
-          "Material recycle is solved in NeqSim; TSA receives full-process local sensitivities without duplicating material edges"
+          "Material recycle is solved in NeqSim; TSA receives full-process local sensitivities without duplicating material edges",
+          "Full-process identification is validated on synthetic low-noise data, not field measurements",
+          "Six learned KPI responses summarize a 24-unit physical process; no unit-by-unit dynamic inventory or hydraulic equivalence is claimed",
+          "Generator lags and pressure-actuator response are explicit assumptions requiring field qualification",
+          "Nominal 2% driver backoff is an engineering allowance, not a quantified uncertainty guarantee",
+          "Local saving is relative to 37/9 bara and must not be added to the earlier baseline-to-optimum saving"
         ],
         "physical_fault_detection_delay_windows": 0,
-        "static_figures": 17,
-        "wrapper_backend_validated": false
+        "static_figures": 21,
+        "wrapper_backend_validated": false,
+        "full_identified_outputs": 6,
+        "full_connected_control_models": 11,
+        "full_held_out_max_nrmse": 0.0181692553,
+        "full_local_verified_saving_kW": 56.2987977,
+        "full_accepted_HP_bara": 37.813056014330165,
+        "full_accepted_MP_bara": 9.18856504207948
       },
       "execution": {
         "all_code_cells_executed_in_order": true,
@@ -81,27 +99,26 @@
         "command": "NEQSIM_VALIDATED_RUNTIME=<audited manifest> <fresh venv>/bin/python scripts/execute_notebook_inprocess.py notebooks/advanced_analytics/neqsim_timeseriesanalysis_large_process.ipynb",
         "environment_resolution": "verified-snapshot-reuse",
         "exit_code": 0,
-        "final_elapsed_seconds": 71.5,
-        "final_environment": "Fresh validation-json-final2 environment; first notebook run in this environment",
-        "final_working_directory": "Fresh json-final-run2; no pre-existing result files",
+        "final_elapsed_seconds": 83.5,
+        "final_environment": "Fresh final-env2 virtual environment; first execution after bootstrap",
+        "final_working_directory": "Fresh final-run2 directory; no pre-existing outputs",
         "method": "Fresh isolated virtual environment from a hash-verified wheel snapshot; fresh IPython process; ordered cells; source JAR and .NET assembly origin assertions",
-        "setup_limit": "Saved execution uses the documented audited runtime manifest. NeqSim source and .NET dependencies were built locally. Fresh-Colab download/build route was not exercised in Google hosted Colab.",
+        "setup_limit": "Audited runtime manifest used locally. The pinned SDK CLI failed reading process metadata in this sandbox; the same TSA NuGet DLL and 16 pinned runtime dependency packages were restored directly. Fresh hosted-Colab SDK publish path remains untested.",
         "stderr_outputs": 0,
         "stored_error_count": 0,
-        "wheel_count": 79,
         "wheel_hashes_verified": true
       },
       "execution_status": "passed",
-      "improvement_assessment": "Verified and reported #3728 against the pinned current NeqSim master: JSON Stream inlet silently ignored. Notebook rejects the pattern and resolves product equipment outlets. Native ValidationReport error/warning lists are used for diagnostics.",
+      "improvement_assessment": "No new NeqSim defect found. #3728 is resolved in pinned source; the teaching adapter retains direct product outlet references. Local SDK CLI process-metadata failure is environment-specific; actual runtime assemblies and notebook calculations executed successfully.",
       "integrity_validation": {
-        "catalog_links": "315 relative catalog links verified against publication base 778ee7eef6ff8709373895fdb355f815ed533262; notebook calculation artifact unchanged",
+        "catalog_links": "Relative notebook targets verified against publication base cfceb8ad9bd655be0956a6e1b38a80e9fb91d76b",
         "checker_unit_tests": "python -m unittest discover -s scripts -p test_check_notebook.py: 6 passed",
-        "code_readability": "All code parsed; Black line length 99; maximum code line length 99",
-        "ledger_index": "Existing notebook entry updated in place; current master active_notebook_count 309 preserved",
+        "code_readability": "AST parsed; Black 99 formatting verified; maximum code line length 99",
+        "ledger_index": "Existing notebook entry updated in place; publication master active_notebook_count 310 preserved",
         "math_source": "Compact balanced dollar delimiters and single-backslash LaTeX verified",
         "pre_commit": "No .pre-commit-config.yaml in the inspected base tree; no Java files changed.",
-        "repository_wide_ci": "Pending GitHub notebook-integrity for this improvement PR",
-        "targeted_checker": "validate_notebook(strict_execution=True, expected_code_cells=26, require_main_source=True): zero errors and warnings"
+        "repository_wide_ci": "Pending GitHub notebook-integrity for this extension",
+        "targeted_checker": "strict_execution=True, expected_code_cells=31, require_main_source=True: zero errors and warnings"
       },
       "java_version": "17.0.20",
       "json_extension": {
@@ -115,8 +132,8 @@
         "topology": "Directed material multigraph with one recycle SCC; two allowed return destinations",
         "upstream_bug": "https://github.com/equinor/neqsim/issues/3728"
       },
-      "notebook_git_blob_sha1": "36ef064b37a4e305976aa7bccc23dfa38b1f860c",
-      "notebook_sha256": "7abf3234fe783967c16851492dc0e182200bf8063484f75783d501e84ce9060b",
+      "notebook_git_blob_sha1": "217d93e58a3d9cde3b6476042e9bcd7cb8f6ef53",
+      "notebook_sha256": "29c15258c002c4d87a1fe78153abbd17153a4ae305c44d96f0d48d9c8b238d11",
       "package_versions": {
         "JPype1": "1.7.1",
         "TimeSeriesAnalysis": "1.4.38",
@@ -129,55 +146,57 @@
       },
       "path": "notebooks/advanced_analytics/neqsim_timeseriesanalysis_large_process.ipynb",
       "previous_validation": {
-        "code_cells": 21,
-        "notebook_git_blob_sha1": "121468cec4817529d3d602b0c811f0f6c430cbdc",
+        "validation_date": "2026-09-15",
+        "notebook_git_blob_sha1": "36ef064b37a4e305976aa7bccc23dfa38b1f860c",
         "source_commit": "c675924586b311f21e24506ec5fc9d4482a8aeaa",
-        "validation_date": "2026-09-15"
+        "code_cells": 26
       },
       "publication": {
         "base": "master",
         "merge_authorized": false,
         "mode": "feature branch and draft pull request",
-        "base_commit": "778ee7eef6ff8709373895fdb355f815ed533262",
-        "authored_against": "7eb0bac3a1eab0d486ec7c9e24065ac240dbb7cb"
+        "base_commit": "cfceb8ad9bd655be0956a6e1b38a80e9fb91d76b",
+        "authored_against": "817821d3e80095747e1e6736e46eb187fb281ec8"
       },
       "python_version": "3.12.14",
       "related_issues": [
         "https://github.com/equinor/neqsim/issues/3728"
       ],
-      "source_commit": "c675924586b311f21e24506ec5fc9d4482a8aeaa",
-      "source_jar_sha256": "9eeab119c5d504bfd49296736d555260f204f4b8341e4dc07966aa1b2874b2d2",
+      "source_commit": "1165998ef6a4658ee7ee1bff05bde327c3801178",
+      "source_jar_sha256": "b16b6a38a707a14824a61e08d69f379b6efdab235cfb1925914b3effc5e6bfa2",
       "source_provenance": {
         "class_origins": "SystemSrkEos and master-only AutoRecycleBuilder both loaded from the verified source JAR.",
-        "compile": "Maven wrapper compile and dependency:copy-dependencies with maven.test.skip=true and spotless.skip=true: exit 0; source unchanged; source class/resource JAR packaged from target/classes.",
+        "compile": "Maven 3.9.16 (same version as source wrapper), compile dependency:copy-dependencies with tests and Spotless skipped: exit 0. Source unchanged.",
         "dotnet_sdk": "8.0.414",
         "maven_bootstrap": "work-with-neqsim prepare_maven.py applied before the build.",
-        "ref": "c675924586b311f21e24506ec5fc9d4482a8aeaa",
+        "ref": "1165998ef6a4658ee7ee1bff05bde327c3801178",
         "repository": "equinor/neqsim",
-        "source_blob_verification": "3506 production-source/resource/POM/wrapper Git blob hashes matched the exact connector-fetched master tree.",
+        "source_blob_verification": "3506 production-source/resource/POM/wrapper Git blobs matched the exact connector-fetched current-master tree before compilation.",
         "tsa_assembly_version": "1.4.38.0",
         "tsa_dll_sha256": "4a1294abf307dbc617b1426c8f24e92166f18d4e6fceb9e90a07818db32d7624",
         "tsa_nuget_version": "1.4.38",
-        "tsa_source_inspected": "c8d65e97fe8a0ce8b79d3d8dd3867de4bbe6edaf"
+        "tsa_source_inspected": "c8d65e97fe8a0ce8b79d3d8dd3867de4bbe6edaf",
+        "source_transport": "Pinned source archive; required extracted Git blobs verified against connected GitHub tree.",
+        "tsa_runtime_restore": "NuGet 1.4.38 plus 16 pinned runtime dependencies restored directly; DLL SHA-256 matches prior SDK-published assembly; CoreCLR 8.0.20 executed."
       },
       "status": "validated",
-      "validation_date": "2026-09-15",
+      "validation_date": "2026-09-16",
       "visual_validation": {
         "catalog_markdown_cells": 6,
         "catalog_review_pages": 22,
-        "display_equations": 8,
-        "inline_equations": 12,
-        "markdown_cells_inspected": 24,
-        "notebook_review_pages": 29,
+        "display_equations": 9,
+        "inline_equations": 16,
+        "markdown_cells_inspected": 29,
+        "notebook_review_pages": 36,
         "renderer": "Jupyter nbconvert 7.17.1 classic HTML; MathJax 3.2.2 SVG; WeasyPrint 70.0 and PyMuPDF page inspection",
         "result": "All equations, tables and figures inspected. No malformed math, clipped plots, blank outputs or truncated result tables. Catalog insertion renders and target links are verified.",
-        "result_code_cells_inspected": 26,
-        "static_figures_inspected": 17,
+        "result_code_cells_inspected": 31,
+        "static_figures_inspected": 21,
         "status": "passed",
-        "catalog_render_scope": "Extended catalog entry rendered in the authoring snapshot (22 pages), then applied unchanged to newer master to preserve its intervening notebook addition. Final integration received structural and link validation; the updated full catalog was not rendered again."
+        "catalog_render_scope": "Complete authoring catalog and notebook rendered and every page inspected. The same catalog entry was applied to publication base cfceb8a to preserve intervening additions; this final integration received structural/link validation, not another full-catalog render."
       },
       "wrapper_integration": {
-        "access_checked": "2026-09-15",
+        "access_checked": "2026-09-16",
         "executed_backend": "Python.NET 3.1.0 / TimeSeriesAnalysis 1.4.38",
         "next_step": "Inspect an accessible wrapper source revision, implement run_candidate(case) with its documented API, and run compare_binding against the exported baseline.",
         "official_wrapper_executed": false,
@@ -186,6 +205,24 @@
         "repository": "https://github.com/equinor/timeseriesanalysis-py",
         "repository_and_readme_status": 404,
         "same_backend_max_absolute_difference": 0
+      },
+      "full_process_tsa_extension": {
+        "library": "TimeSeriesAnalysis 1.4.38",
+        "identification": "6 multivariable dynamic and 6 static native fits",
+        "data": "72 nonlinear NeqSim points; 2520 synthetic 2 s samples; chronological 44/12/16 block split",
+        "control": "11 native models, 2 PID loops; 20 s and 60 s tuning settings",
+        "functions": [
+          "CorrelationCalculator.Calculate",
+          "UnitIdentifier.IdentifyLinear",
+          "UnitIdentifier.IdentifyLinearAndStatic",
+          "UnitModel.GetSteadyStateOutput",
+          "PlantSimulator.Simulate",
+          "PidModel",
+          "LowPass.Filter",
+          "PlantSimulatorSerializer.LoadFromJsonTxt"
+        ],
+        "native_acceptance": true,
+        "historian_is_synthetic": true
       }
     }
   ],
