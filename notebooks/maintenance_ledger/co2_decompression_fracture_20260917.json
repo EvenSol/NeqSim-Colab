@@ -1,0 +1,129 @@
+{
+  "schema_version": 3,
+  "notebooks": [
+    {
+      "path": "notebooks/fluidflow/co2_decompression_fracture_arrest_paper.ipynb",
+      "status": "validated",
+      "execution_status": "passed",
+      "code_cells": 16,
+      "validation_date": "2026-09-17",
+      "notebook_sha256": "8690ca6e1bf5dfdd00d3ce21af5aaf40754126553d2c709a0c451f33aa3afd96",
+      "notebook_git_blob_sha1": "682eda13be7a6738bfba74569a0fe19b901bb471",
+      "source_commit": "0852741babb7601304c70d10528e8de562bdf0be",
+      "source_jar_sha256": "bb6dda2fa0cb134dd43106095bbfee8daaba1bbef746e3744071454adae7acd3",
+      "python_version": "3.12.14",
+      "java_version": "17.0.20",
+      "package_versions": {
+        "JPype1": "1.7.1",
+        "numpy": "2.3.5",
+        "pandas": "2.2.3",
+        "matplotlib": "3.10.8",
+        "scipy": "1.17.0",
+        "CoolProp": "8.0.0"
+      },
+      "execution": {
+        "command": "python scripts/execute_notebook_inprocess.py notebooks/fluidflow/co2_decompression_fracture_arrest_paper.ipynb",
+        "method": "Fresh Python/IPython process, top-to-bottom execution, source-built JAR from a clean checkout of the pinned current master commit",
+        "elapsed_seconds": 9.0,
+        "exit_code": 0,
+        "all_code_cells_executed_in_order": true,
+        "all_code_cells_retain_outputs": true,
+        "stored_error_count": 0,
+        "stderr_outputs": 0,
+        "static_figures": 8,
+        "setup_limit": "Fresh-Colab network/bootstrap path not separately exercised. Local validation supplied the same clean checkout and source-built JAR through NEQSIM_SOURCE_ROOT and NEQSIM_SOURCE_JAR; commit, JAR hash and three Java class origins were checked by the executed notebook."
+      },
+      "source_provenance": {
+        "repository": "equinor/neqsim",
+        "branch_when_inspected": "master",
+        "commit": "0852741babb7601304c70d10528e8de562bdf0be",
+        "class_origin_assertions": 3,
+        "build_command": "./mvnw -q -DskipTests -Dmaven.test.skip=true -Dcheckstyle.skip -Dspotless.skip=true -Dmaven.javadoc.skip=true package",
+        "build_exit_code": 0,
+        "maven_bootstrap": "work-with-neqsim scripts/prepare_maven.py",
+        "working_tree": "git status --porcelain --untracked-files=no returned empty",
+        "source_review": "Issue, recursive repository trees, API sources and default-branch identity inspected through the connected GitHub capability; local checkout used for source compilation and execution."
+      },
+      "engineering_validation": {
+        "source_commit": "0852741babb7601304c70d10528e8de562bdf0be",
+        "jar_sha256": "bb6dda2fa0cb134dd43106095bbfee8daaba1bbef746e3744071454adae7acd3",
+        "java_version": "17.0.20",
+        "python_version": "3.12.14",
+        "class_origins_verified": 3,
+        "issue": "https://github.com/equinor/neqsim/issues/3750",
+        "known_psflash_issue": "https://github.com/equinor/neqsim/issues/3751",
+        "input_basis": "synthetic teaching cases; no paper numerical data used",
+        "model": "PR, mixing rule 2, EOS volume without volume correction",
+        "entropy_residual_max_J_kgK": 3.631871550169308e-07,
+        "component_residual_max": 2.997793435710605e-08,
+        "wave_grid_refinement_max_m_s": 0.3834043038579864,
+        "verification_groups_passed": 12,
+        "fracture_arrest_qualified": false,
+        "phase_entry_refinement_diagnostics": [
+          {
+            "attempted_P_bara": 63.515625,
+            "verified_low_bara": 63.4375,
+            "verified_high_bara": 63.59375,
+            "rejected_entropy_residual": "-0.2554154064346221",
+            "status": "Stopped; wider interval retained"
+          }
+        ],
+        "packages": {
+          "JPype1": "1.7.1",
+          "numpy": "2.3.5",
+          "pandas": "2.2.3",
+          "matplotlib": "3.10.8",
+          "scipy": "1.17.0",
+          "CoolProp": "8.0.0"
+        }
+      },
+      "visual_validation": {
+        "status": "passed",
+        "renderer": "nbconvert classic HTML with MathJax 3.2.2 SVG; WeasyPrint 70 and PyMuPDF page rendering",
+        "markdown_cells_inspected": 17,
+        "result_code_cells_inspected": 16,
+        "display_equations": 10,
+        "inline_math_expressions": 28,
+        "figures_inspected": 8,
+        "inspection_pages": 11,
+        "result": "All equations, result tables and figures inspected. A truncated diagnostic status was shortened, then the notebook was re-executed and re-rendered. Final tables and labels are readable without clipping or missing outputs. Single-phase vapor quality is explicitly undefined."
+      },
+      "integrity_validation": {
+        "nbformat": "passed",
+        "targeted_repository_checker": "validate_notebook(strict_execution=True, expected_code_cells=16, require_main_source=True): zero errors and warnings",
+        "checker_unit_tests": "python -m unittest discover -s scripts -p test_check_notebook.py: 6 passed",
+        "relative_notebook_links_verified": 321,
+        "catalog_and_companion_links": "Verified against exact base tree plus the new notebook",
+        "code_readability": "Every cell parsed; formatted with Black at 98 columns; no code line exceeds 100 except URLs and no semicolon compound statements",
+        "colab_math": "Balanced compact dollar delimiters, single-backslash commands, no obsolete math delimiters; all 38 expressions rendered successfully",
+        "repository_wide_ci": "Pending GitHub notebook-integrity on published head",
+        "pre_commit": "No .pre-commit-config.yaml or AGENTS.md in the inspected NeqSim-Colab base tree"
+      },
+      "documentation_impact": {
+        "assessment": "New user-visible educational workflow; no Java library change.",
+        "updated": [
+          "README.md",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/fluidflow/co2_decompression_fracture_arrest_paper.ipynb"
+        ],
+        "coverage": "Scope, setup, provenance, models and units, residual guards, limitations, source references, numerical verification, examples navigation and reproducible CSV/JSON export"
+      },
+      "paper": {
+        "doi": "10.1115/IPC2024-132853",
+        "source_access": "Publisher metadata and publisher-deposited Crossref abstract; full paper and numerical burst-test records unavailable",
+        "comparison_claim": "Thermodynamic companion using synthetic inputs and an independent pure-CO2 reference EOS; no numerical reproduction or fracture-arrest qualification"
+      },
+      "related_issues": [
+        "https://github.com/equinor/neqsim/issues/3750",
+        "https://github.com/equinor/neqsim/issues/3751",
+        "https://github.com/equinor/neqsim/issues/3752",
+        "https://github.com/equinor/neqsim/issues/2937"
+      ],
+      "publication": {
+        "mode": "feature branch and draft pull request",
+        "base": "master",
+        "merge_authorized": false
+      }
+    }
+  ]
+}
