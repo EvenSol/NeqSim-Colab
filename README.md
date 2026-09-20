@@ -9,6 +9,8 @@ Advanced notebooks use JPype directly or through the Python distribution. They c
 
 ## Featured notebooks
 
+* [AutomaticReactionDiscovery to NeqSim](notebooks/reactions/automatic_reaction_discovery_neqsim.ipynb): prepare external ARD jobs, validate log and molecular-identity handoffs, and run native kinetic reactor/cooling/separation calculations with analytical checks and sensitivity plots. Uses clearly labelled synthetic discovery/kinetic fixtures; quantum calculations run externally.
+
 * [Dense-phase CO₂ decompression and fracture-arrest fluid loading](notebooks/fluidflow/co2_decompression_fracture_arrest_paper.ipynb) – Detailed companion to Mondry and Bosch (IPC2024-132853): PR/SRK versus Span–Wagner, checked expansion paths, equilibrium acoustic derivatives, impurity sensitivity, elastic pipe loading, and a wellbore API audit. Executed against pinned NeqSim master with saved figures, residual checks and explicit limits; no reproduction of unavailable burst-test data or fracture-arrest qualification.
 
 * [Hydrogen–brine pore-network flow and paper comparison](notebooks/reservoir/hydrogen_brine_pore_network_paper_comparison.ipynb) – Source-pinned NeqSim equilibrium and transport, synthetic 3D drainage, native Corey fitting, wettability/connectivity sensitivity, and comparison with the accessible abstract of SPE-219290-MS. Fully executed with analytical checks; no numerical reproduction of the unavailable paper data is claimed.
@@ -42,6 +44,7 @@ See the [NeqSim Colab page](https://colab.research.google.com/github/EvenSol/Neq
 See the [NeqSim Colab page](https://colab.research.google.com/github/EvenSol/NeqSim-Colab/blob/master/notebooks/examples_of_NeqSim_in_Colab.ipynb). Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests.
 
 Repository-wide notebook integrity is checked with `python scripts/check_notebook.py --all`. New main-source notebooks must additionally pass `python scripts/check_notebook.py PATH --require-main-source` after clean execution.
+
 
 
 
