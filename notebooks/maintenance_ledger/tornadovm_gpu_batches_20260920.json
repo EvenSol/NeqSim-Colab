@@ -1,0 +1,55 @@
+{
+  "schema_version": 3,
+  "notebooks": [
+    {
+      "path": "notebooks/performance/tornadovm_gpu_property_batches.ipynb",
+      "execution_status": "passed",
+      "code_cells": 15,
+      "last_validated": "2026-09-20",
+      "notebook_sha256": "bcf8ca999f8f4d498fc24ee068aa49da4c98c79fab63f71b487375f0c2fd1360",
+      "source_provenance": {
+        "NeqSim commit": "e946713a2e5393cc5932ac9fcf74d6ab561221df",
+        "NeqSim JAR SHA256": "6119a721f978ea5cddc1eecb6d3bdfaeca1b8d071915fed7efd8336eab2db1e7",
+        "Loaded class location": "file:/content/gpu-notebook-validation/neqsim-source/target/neqsim-3.21.0.jar",
+        "Java": "21.0.12",
+        "Python": "3.13.15",
+        "TornadoVM": "6.1.0 / CUDA / JDK21"
+      },
+      "execution": {
+        "method": "Fresh Colab A100 runtime; new isolated Python venv from verified public-PyPI wheel snapshot; repository in-process runner",
+        "result": "15/15 code cells in clean top-to-bottom execution; outputs retained; no stored exceptions or stderr",
+        "gpu": "NVIDIA A100-SXM4-40GB",
+        "precision": "FP64",
+        "gpu_jvm_forks": 3,
+        "cases_per_fork": 12,
+        "source_build": "Pinned current-master source built with Maven; actual class JAR location verified"
+      },
+      "validation": {
+        "cpu_reference": "serial/parallel agreement, cubic root checks, temperature derivative finite difference",
+        "neqsim_reference": "nine 8-component gas states; Z and ln(phi) tolerance 1e-8",
+        "gpu": "all outputs compared with CPU; changed-input check; no CPU bailout; positive kernel counters",
+        "process": "48 registered native units, 12 independent trains, cold/changed-state CPU timings; relative mass closure 1e-8",
+        "repository_checker_unit_tests": "6 passed",
+        "repository_wide_integrity": "Pending draft PR CI; full notebook tree not materialized locally"
+      },
+      "visual_review": {
+        "renderer": "Native Google Colab rendering of the byte-verified executed notebook; full-resolution saved PNG inspection",
+        "coverage": "All markdown cells, equations, saved output tables and logs, and both figures",
+        "result": "passed"
+      },
+      "documentation_impact": [
+        "New notebook covers setup, source/provenance, SRK scope, benchmark and process implementation discussion.",
+        "README and examples catalog updated; dedicated ledger shard and root count updated."
+      ],
+      "issues": [
+        "https://github.com/equinor/neqsim/issues/2939",
+        "https://github.com/equinor/neqsim/issues/2937"
+      ],
+      "limitations": [
+        "Extracted gas-property GPU kernel; no full GPU flash or process execution.",
+        "Synthetic benchmark mixtures; NeqSim comparison limited to named gas states.",
+        "Measured hardware-specific crossover; process Amdahl scenarios explicitly hypothetical."
+      ]
+    }
+  ]
+}
