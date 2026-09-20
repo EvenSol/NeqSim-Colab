@@ -9,6 +9,8 @@ Advanced notebooks use JPype directly or through the Python distribution. They c
 
 ## Featured notebooks
 
+* [NeqSim and TornadoVM: GPU property batches](notebooks/performance/tornadovm_gpu_property_batches.ipynb) – Run and validate an FP64 SRK CPU/GPU benchmark on Colab, inspect the batch-size crossover, and connect the measurements to a native 48-unit process model and a staged implementation plan for large process calculations. Full GPU flash/process acceleration remains a proposed next step.
+
 * [AutomaticReactionDiscovery to NeqSim](notebooks/reactions/automatic_reaction_discovery_neqsim.ipynb): prepare external ARD jobs, validate log and molecular-identity handoffs, and run native kinetic reactor/cooling/separation calculations with analytical checks and sensitivity plots. Uses clearly labelled synthetic discovery/kinetic fixtures; quantum calculations run externally.
 
 * [Dense-phase CO₂ decompression and fracture-arrest fluid loading](notebooks/fluidflow/co2_decompression_fracture_arrest_paper.ipynb) – Detailed companion to Mondry and Bosch (IPC2024-132853): PR/SRK versus Span–Wagner, checked expansion paths, equilibrium acoustic derivatives, impurity sensitivity, elastic pipe loading, and a wellbore API audit. Executed against pinned NeqSim master with saved figures, residual checks and explicit limits; no reproduction of unavailable burst-test data or fracture-arrest qualification.
@@ -44,13 +46,3 @@ See the [NeqSim Colab page](https://colab.research.google.com/github/EvenSol/Neq
 See the [NeqSim Colab page](https://colab.research.google.com/github/EvenSol/NeqSim-Colab/blob/master/notebooks/examples_of_NeqSim_in_Colab.ipynb). Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests.
 
 Repository-wide notebook integrity is checked with `python scripts/check_notebook.py --all`. New main-source notebooks must additionally pass `python scripts/check_notebook.py PATH --require-main-source` after clean execution.
-
-
-
-
-
-
-
-
-
-
