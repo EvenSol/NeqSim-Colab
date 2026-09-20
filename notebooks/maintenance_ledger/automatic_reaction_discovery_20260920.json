@@ -1,0 +1,85 @@
+{
+  "schema_version": 3,
+  "notebooks": [
+    {
+      "path": "notebooks/reactions/automatic_reaction_discovery_neqsim.ipynb",
+      "execution_status": "passed",
+      "code_cells": 16,
+      "last_validated": "2026-09-20",
+      "notebook_sha256": "5dfee04a247b0080fd4f216af6fd305772feeaafbff4f5d1bf643b90bf79cecc",
+      "source_provenance": {
+        "neqsim_commit": "1fd6baf4a2e2a09ae8ff9547fff7f77c279d0ec8",
+        "jar_sha256": "8c5e337be552f629016ef23f898a1b76968124cab29ebec0a4c910d7aed306d2",
+        "java": "17.0.20",
+        "python": "3.12.14",
+        "ard_source_commit": "d44893d4bfdd85411ee326381f48783bb6b3e0ef",
+        "ard_quantum_execution": "NOT RUN; synthetic log fixtures below",
+        "dependencies": {
+          "neqsim": "3.20.0",
+          "JPype1": "1.7.1",
+          "numpy": "2.5.3",
+          "pandas": "3.0.6",
+          "scipy": "1.18.1",
+          "matplotlib": "3.11.2",
+          "rdkit": "2026.3.6"
+        }
+      },
+      "execution": {
+        "method": "scripts/execute_notebook_inprocess.py in a newly installed task venv, fresh process",
+        "result": "16/16 cells; all outputs retained; zero stored exceptions or stderr",
+        "runtime_seconds": 8.5,
+        "source_build": "mvnw package with maven.test.skip and maven.javadoc.skip: exit 0",
+        "source_override": "NEQSIM_SOURCE_ROOT / NEQSIM_SOURCE_JAR verified by commit, hash, and class location",
+        "colab_network_install": "not tested inside hosted Colab; equivalent clean local runtime executed"
+      },
+      "validation": {
+        "rate_comparison": "six TST-versus-native checks across 600/650/700 K; relative error < 2e-5",
+        "log_parser": "five negative cases rejected; recursive importer rejects duplicate IDs",
+        "mapping": "explicit canonical SMILES; radicals, ions, isotopologues, unknown species rejected",
+        "element_residual_mol_atoms_s": 8.881784e-16,
+        "separator_component_residual_mol_s": 3.907985e-14,
+        "relative_mass_residual": 1.105468e-06,
+        "selectivity_absolute_error": 1.110223e-16,
+        "ideal_vs_pr_conversion_absolute_difference": 0.0002334997,
+        "cooler_energy_residual_W": 0.0,
+        "native_concentration_rate_relative_error": 0.0,
+        "mesh_steps": [
+          20,
+          40,
+          80,
+          160
+        ],
+        "mesh_80_to_160_conversion_difference": 2.334e-11,
+        "sensitivity": "15 complete native process cases; five temperatures and three barrier shifts",
+        "static": "Python AST; line length <=100; Colab-safe math; all code cells have outputs",
+        "repository_checker_unit_tests": "6 passed",
+        "repository_wide_integrity": "delegated to draft PR CI; full repository not materialized locally"
+      },
+      "visual_review": {
+        "execution": "clean fresh-process run; all 16 code cells; outputs retained",
+        "renderer": "nbconvert 7.17.1 HTML + MathJax 3.2.2 SVG + Chromium 141",
+        "visual_review": "all 32 cells; 35 math expressions, 3 two-panel figures, all tables reviewed",
+        "visual_result": "passed; no malformed math, clipped labels, blank or missing outputs",
+        "ard_quantum_execution": "not run; explicitly labelled synthetic teaching fixture"
+      },
+      "representative_results": {
+        "conversion": 0.5315998,
+        "H2_mol_s": 0.3191653,
+        "CO_mol_s": 0.2124345,
+        "cooler_heat_removed_kW": 126.1125
+      },
+      "documentation_impact": [
+        "New tutorial documents ARD environment boundary, true file formats, identity mapping, units, kinetic evidence, process assumptions, conservation checks, exports and limitations.",
+        "README and examples catalog link to the notebook; root ledger count incremented once."
+      ],
+      "issues": [
+        "https://github.com/equinor/neqsim/issues/3859"
+      ],
+      "limitations": [
+        "ARD/Gaussian not executed; synthetic fixtures and illustrative kinetics are explicit.",
+        "No validated formic-acid kinetics, quantitative acid-water VLE, or reactor thermal design.",
+        "Native parallel-reaction duty is a visible known-bug diagnostic, excluded from accepted results."
+      ]
+    }
+  ]
+}
