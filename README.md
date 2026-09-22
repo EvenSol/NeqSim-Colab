@@ -9,6 +9,8 @@ Advanced notebooks use JPype directly or through the Python distribution. They c
 
 ## Featured notebooks
 
+* [Separator gas release and OpenFOAM dispersion](notebooks/safety/separator_release_openfoam_dispersion.ipynb) – A complete Colab setup and executed separation-train study using NeqSim master release models, conservative inventory and schema-validated native source-term frames as CFD input. Includes mesh/dictionary generation, all five 3D OpenFOAM solver runs, colorful cloud/flow figures and a reproducible CFD movie, detector histories and mass/mesh/time/wind/domain checks. Explicitly documents unqualified nozzle/entrainment assumptions and the [legacy blowdown defect #3905](https://github.com/equinor/neqsim/issues/3905). Creates `separator_release_openfoam_cases.zip`; optional `OPENFOAM_VALIDATED_RUN` verifies source/input/output hashes before reusing executed CFD solutions.
+
 * [Advanced ML and surrogate modelling of process plants](notebooks/process/advanced_ml_process_surrogates.ipynb) – Build a ten-unit NeqSim master plant; compare whole-plant, component-conserving modular, neural ensemble, GP, physics-residual and paired SRK/PR models; calibrate uncertainty, sample actively, replay constrained optimization and integrate a guarded native registry. Includes held-out and shifted tests, a declared dynamic reduced model, 13 saved figures and portable model/data exports.
 
 * [Live safety source terms and external simulator integration](notebooks/safety/neqsim_live_safety_source_terms.ipynb) – Build NeqSim master and demonstrate explicit release models, steady and dynamic ProcessSystem/ProcessModel coupling, conservative gas blowdown, uncertainty, and a standalone JSON/NDJSON consumer with an HTTP round trip. All 27 code cells are executed with saved results and explicit qualification limits. The notebook creates `neqsim_safety_source_terms.zip`; its loopback HTTP adapter closes automatically. Optional `NEQSIM_SOURCE_ROOT` / `NEQSIM_SOURCE_JAR` reuse a checked build; `NEQSIM_AUDITED_SOURCE_MANIFEST` verifies connector-reconstructed source snapshots against Git blob hashes.
@@ -50,5 +52,6 @@ See the [NeqSim Colab page](https://colab.research.google.com/github/EvenSol/Neq
 See the [NeqSim Colab page](https://colab.research.google.com/github/EvenSol/NeqSim-Colab/blob/master/notebooks/examples_of_NeqSim_in_Colab.ipynb). Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests.
 
 Repository-wide notebook integrity is checked with `python scripts/check_notebook.py --all`. New main-source notebooks must additionally pass `python scripts/check_notebook.py PATH --require-main-source` after clean execution.
+
 
 
