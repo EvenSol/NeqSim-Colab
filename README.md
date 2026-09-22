@@ -9,6 +9,8 @@ Advanced notebooks use JPype directly or through the Python distribution. They c
 
 ## Featured notebooks
 
+* [Advanced ML and surrogate modelling of process plants](notebooks/process/advanced_ml_process_surrogates.ipynb) – Build a ten-unit NeqSim master plant; compare whole-plant, component-conserving modular, neural ensemble, GP, physics-residual and paired SRK/PR models; calibrate uncertainty, sample actively, replay constrained optimization and integrate a guarded native registry. Includes held-out and shifted tests, a declared dynamic reduced model, 13 saved figures and portable model/data exports.
+
 * [Live safety source terms and external simulator integration](notebooks/safety/neqsim_live_safety_source_terms.ipynb) – Build NeqSim master and demonstrate explicit release models, steady and dynamic ProcessSystem/ProcessModel coupling, conservative gas blowdown, uncertainty, and a standalone JSON/NDJSON consumer with an HTTP round trip. All 27 code cells are executed with saved results and explicit qualification limits. The notebook creates `neqsim_safety_source_terms.zip`; its loopback HTTP adapter closes automatically. Optional `NEQSIM_SOURCE_ROOT` / `NEQSIM_SOURCE_JAR` reuse a checked build; `NEQSIM_AUDITED_SOURCE_MANIFEST` verifies connector-reconstructed source snapshots against Git blob hashes.
 
 * [NeqSim and TornadoVM: GPU property batches](notebooks/performance/tornadovm_gpu_property_batches.ipynb) – Run and validate an FP64 SRK CPU/GPU benchmark on Colab, inspect the batch-size crossover, and connect the measurements to a native 48-unit process model and a staged implementation plan for large process calculations. Full GPU flash/process acceleration remains a proposed next step.
@@ -48,4 +50,5 @@ See the [NeqSim Colab page](https://colab.research.google.com/github/EvenSol/Neq
 See the [NeqSim Colab page](https://colab.research.google.com/github/EvenSol/NeqSim-Colab/blob/master/notebooks/examples_of_NeqSim_in_Colab.ipynb). Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests.
 
 Repository-wide notebook integrity is checked with `python scripts/check_notebook.py --all`. New main-source notebooks must additionally pass `python scripts/check_notebook.py PATH --require-main-source` after clean execution.
+
 

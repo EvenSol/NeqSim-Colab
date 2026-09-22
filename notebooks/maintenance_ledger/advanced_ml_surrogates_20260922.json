@@ -1,0 +1,114 @@
+{
+  "schema_version": 3,
+  "notebooks": [
+    {
+      "path": "notebooks/process/advanced_ml_process_surrogates.ipynb",
+      "execution_status": "passed",
+      "code_cells": 24,
+      "last_validated": "2026-09-22",
+      "notebook_sha256": "03a1dc88eca821fdbc81ad47dc38e1b10f47f627944ab59f091b66aa64236cb6",
+      "source_provenance": {
+        "NeqSim commit": "65dd8733383d64618fa002ac8137925482093365",
+        "NeqSim JAR SHA256": "105702eb2537873c5bb4448280cdb5df57be51294c0e2af78332eb3ea1747d92",
+        "Loaded class location": "file:/workspace/scratch/3821cb0d6e55/neqsim-runtime/target/neqsim-3.21.0.jar",
+        "Java": "17.0.20",
+        "Python": "3.12.14",
+        "packages": {
+          "neqsim": "3.20.0",
+          "numpy": "2.5.3",
+          "pandas": "3.0.6",
+          "scipy": "1.18.1",
+          "scikit-learn": "1.9.1",
+          "matplotlib": "3.11.2",
+          "joblib": "1.6.0"
+        }
+      },
+      "execution": {
+        "method": "Fresh isolated Python venv; immutable public-PyPI wheel snapshot; source-built current-master JAR; fresh process using repository in-process runner",
+        "source_build": "Maven package -DskipTests; Maven proxy bootstrap applied; exit 0",
+        "result": "24/24 code cells in 70.2 s; all user-relevant outputs retained; zero exceptions, stderr or training warnings",
+        "primary_process_cases": 584,
+        "split_counts": {
+          "train": 240,
+          "validation": 64,
+          "calibration": 100,
+          "test": 120,
+          "shift": 60
+        },
+        "follow_on_experiments": "Equal-budget active learning; paired SRK/PR; native pressure slice; native optimization replay; 8 lag-model trajectories; repeated latency benchmark"
+      },
+      "validation": {
+        "conservation": {
+          "mass_residual": 3.0008918382689678e-12,
+          "component_residual": 1.5834584504599384e-12,
+          "energy_residual": 4.3243884158364463e-10
+        },
+        "invariance": "3 flow-scaled cases; extensive rates/duties and invariant temperature assertions passed",
+        "ml": "Independent training/validation/calibration/IID-test/shift sets; no test or calibration tuning",
+        "gp_test_power_rmse_kW": 5.7798552043088405,
+        "joint_coverage": [
+          {
+            "set": "IID test",
+            "n": 120,
+            "jointly covered": 102,
+            "joint coverage": 0.85,
+            "mean power half-width kW": 122.4817019077894
+          },
+          {
+            "set": "Shift",
+            "n": 60,
+            "jointly covered": 56,
+            "joint coverage": 0.9333333333333333,
+            "mean power half-width kW": 609.0033859389979
+          }
+        ],
+        "optimization": [
+          {
+            "method": "Point prediction",
+            "accepted feed kg/s": 24.512225536171556,
+            "replayed power kW": 2999.738753238609,
+            "accepted": true,
+            "native replay calls": 1
+          },
+          {
+            "method": "Calibrated margin",
+            "accepted feed kg/s": 23.33633003842235,
+            "replayed power kW": 2855.8253563503545,
+            "accepted": true,
+            "native replay calls": 1
+          }
+        ],
+        "native_registry": "JProxy prediction and physics fallback executed; input dimension/NaN guard tests passed",
+        "repository_checker": "validate_notebook(strict_execution=True, expected_code_cells=24, require_main_source=True): passed",
+        "repository_checker_unit_tests": "6 passed",
+        "catalog_and_ledger": "322 catalog links checked against authoritative GitHub tree; 315 unique active entries including this notebook; no missing targets",
+        "repository_wide_integrity": "Pending draft PR CI; unchanged notebook tree not materialized locally",
+        "readability": "AST valid; <=100 characters per code line; no compressed compound statements",
+        "math": "Colab-safe delimiters and single-backslash commands; all 23 expressions rendered"
+      },
+      "visual_review": {
+        "renderer": "nbconvert Jupyter HTML plus MathJax 3 SVG; WeasyPrint 70.0 rasterized for inspection",
+        "coverage": "All 57 cells; 33 Markdown cells; all result tables and logs; 13 plots; 23 unique formula/display combinations",
+        "result": "passed; final inline Greek symbols, color scale, scientific residuals and plot scaling re-inspected"
+      },
+      "documentation_impact": [
+        "New advanced notebook adds research context, reproducible setup, plant definition, equations, results, interpretation, units, caveats and exercises.",
+        "README featured entry, examples catalog and dedicated ledger shard added; root active count incremented.",
+        "No Java or existing numerical API behavior changed."
+      ],
+      "issues": [
+        "https://github.com/equinor/neqsim/issues/3819",
+        "https://github.com/equinor/neqsim/issues/3906"
+      ],
+      "limitations": [
+        "Synthetic dry sweet composition family; no experimental validation",
+        "Fixed topology, efficiencies and outlet specifications; no surge/map/UA constraints",
+        "GP and ensemble uncertainty excludes EOS and measurement uncertainty",
+        "Conformal coverage assumes exchangeability, not adaptive optimizer-selected points",
+        "SRK/PR experiment is model discrepancy, not established fidelity or cost hierarchy",
+        "Dynamic section uses declared lag dynamics, not native equipment transients",
+        "Single acquisition seed; no universal active-learning improvement claim"
+      ]
+    }
+  ]
+}
