@@ -4,23 +4,23 @@
     {
       "path": "notebooks/safety/separator_release_openfoam_dispersion.ipynb",
       "execution_status": "passed",
-      "code_cells": 22,
+      "code_cells": 23,
       "last_validated": "2026-09-22",
-      "notebook_sha256": "6edc86e496620ab64ccc3c886ca16b3e00e19845d2f3cf9a6b0a2fd979879ef6",
+      "notebook_sha256": "23def61f7171592fb8b42e72e10b8157b5a5fd0a5193bf024b190b7bd3f5f9e3",
       "source_provenance": {
         "source_repository": "https://github.com/equinor/neqsim",
         "requested_ref": "master",
-        "source_commit": "65dd8733383d64618fa002ac8137925482093365",
+        "source_commit": "3e35bb26591a0d838abed7fdb2d75a35ff2b136c",
         "source_basis": "Full connector-tree blob verification",
-        "jar_sha256": "f6b3427ca7de7dec02c7d1b705b2fd7bc82a0cb9e7477b34bda61dcc0bd36dff",
+        "jar_sha256": "b14f97109b0ee230e97abaa7df54894cebeee78d250aebf87d8a0d87a1918b48",
         "loaded_class_location": "file:/workspace/scratch/d59c271f86ae/neqsim-source/target/neqsim-current.jar",
         "java": "17.0.20",
         "python": "3.12.14"
       },
       "execution": {
-        "method": "Fresh isolated Python/JVM; all notebook cells executed in order with repository in-process runner. Five CFD solves performed separately; every regenerated input byte and saved solution/log hash verified before reuse.",
-        "result": "22/22 code cells; retained outputs; zero stored exceptions or stderr",
-        "source_build": "All 3548 src/main, pom, Maven-wrapper blobs verified against exact current-master connector tree; fresh Maven compilation and loaded JAR asserted.",
+        "method": "Fresh isolated Python/JVM full execution of all 22 cells including all five complete CFD solves without cache. A final clean 23-cell display/movie pass reused these fresh solutions only after generated-input byte equality and all solution/log hashes passed.",
+        "result": "23/23 final code cells; retained outputs including embedded MP4; zero stored exceptions or stderr",
+        "source_build": "All 3549 src/main and build-input blobs verified against current-master commit 3e35bb26591a0d838abed7fdb2d75a35ff2b136c; fresh Maven compile; loaded JAR identity asserted.",
         "runtime_versions": {
           "JPype1": "1.7.1",
           "numpy": "2.5.3",
@@ -28,42 +28,70 @@
           "scipy": "1.18.1",
           "matplotlib": "3.11.2",
           "pyvista": "0.49.0",
-          "vtk": "9.7.0"
+          "vtk": "9.7.0",
+          "jsonschema": "4.26.0"
         },
         "openfoam": "OpenCFD v1912 / patch 200626",
         "solver_execution": [
           {
             "Case": "base",
+            "Mode": "Solver executed in this run",
+            "Solver wall seconds": 685.4196906300058
+          },
+          {
+            "Case": "coarse",
+            "Mode": "Solver executed in this run",
+            "Solver wall seconds": 49.089321698993444
+          },
+          {
+            "Case": "time_step",
+            "Mode": "Solver executed in this run",
+            "Solver wall seconds": 94.72700391800026
+          },
+          {
+            "Case": "fast_wind",
+            "Mode": "Solver executed in this run",
+            "Solver wall seconds": 50.86565243100631
+          },
+          {
+            "Case": "long_domain",
+            "Mode": "Solver executed in this run",
+            "Solver wall seconds": 103.3365224750014
+          }
+        ],
+        "final_display_execution": [
+          {
+            "Case": "base",
             "Mode": "Input/output-hash-verified executed solution",
-            "Solver wall seconds": 641.9905619659985
+            "Solver wall seconds": 685.4196906300058
           },
           {
             "Case": "coarse",
             "Mode": "Input/output-hash-verified executed solution",
-            "Solver wall seconds": 51.00590895800269
+            "Solver wall seconds": 49.089321698993444
           },
           {
             "Case": "time_step",
             "Mode": "Input/output-hash-verified executed solution",
-            "Solver wall seconds": 94.76076698099496
+            "Solver wall seconds": 94.72700391800026
           },
           {
             "Case": "fast_wind",
             "Mode": "Input/output-hash-verified executed solution",
-            "Solver wall seconds": 52.846144451992586
+            "Solver wall seconds": 50.86565243100631
           },
           {
             "Case": "long_domain",
             "Mode": "Input/output-hash-verified executed solution",
-            "Solver wall seconds": 104.7676719739975
+            "Solver wall seconds": 103.3365224750014
           }
         ]
       },
       "validation": {
         "process": {
-          "mass_residual_kg_s": -2.5352164811920375e-11,
+          "mass_residual_kg_s": -2.5366375666635577e-11,
           "max_component_residual_kg_s": 9.663381206337363e-12,
-          "energy_residual_W": -0.004059275612235069,
+          "energy_residual_W": -0.0037549929693341255,
           "cooling_duty_MW": -5.079755310253615,
           "heating_duty_MW": 2.4767018051576355
         },
@@ -116,12 +144,12 @@
             "cells": 25392,
             "mesh_ok": true,
             "completed": true,
-            "max_courant": 0.4983324936,
-            "final_cumulative_continuity": 2.750606059e-07,
-            "fuel_budget_error_percent": 1.1426064793636466,
+            "max_courant": 2.043479013,
+            "final_cumulative_continuity": 2.753699207e-07,
+            "fuel_budget_error_percent": 1.1426056347196512,
             "time_sampling_s": 0.5,
             "final_time_s": 25.0,
-            "solver_log_start_time_s": 23.5,
+            "solver_log_start_time_s": 0.0,
             "probe_cell_centres_m": [
               [
                 3.75,
@@ -147,7 +175,7 @@
             "pre_release_speed_p95_ms": 3.6159207385755634,
             "pre_release_speed_max_ms": 5.142574445100295,
             "domain_downstream_length_m": 23.0,
-            "final_outlet_max_percent_LFL": 84.20224482685494,
+            "final_outlet_max_percent_LFL": 84.20223121105386,
             "final_LFL_cloud_touches_open_boundary": false,
             "final_half_LFL_cloud_touches_open_boundary": true
           },
@@ -312,16 +340,37 @@
         "repository_checker_unit_tests": "6 passed",
         "repository_wide_integrity": "Scoped checker and remote-tree catalog/root-count checks run locally; full repository notebook-integrity is delegated to hosted CI.",
         "scoped_checker": "0 errors; one broad math-delimiter warning is from OpenFOAM parser regex literals in code. All 25 actual Markdown formula/display combinations pass MathJax render and visual inspection.",
-        "catalog_links": "319 local notebook links resolved against connector master tree plus this new notebook; none missing."
+        "catalog_links": "323 relative catalog notebook links resolved against the connector PR tree; none missing.",
+        "native_handoff": {
+          "schema": "neqsim_safety_source_term.v1",
+          "frames": 31,
+          "path": "neqsim-source-frames.ndjson",
+          "checks": "31 native SourceTermFrame JSON records exported, read back, checked against the JAR-shipped Draft 2020-12 schema and native fingerprint verifier; status and SI-unit checks; adapter explicitly adds pressure thrust."
+        },
+        "movie": {
+          "file": "figures/separator_release_cfd.mp4",
+          "source": "Actual base-case OpenFOAM saved fields; fixed camera and LFL thresholds",
+          "source_snapshots": 41,
+          "simulation_interval_s": [
+            5.0,
+            25.0
+          ],
+          "snapshot_spacing_s": 0.5,
+          "video_duration_s": 13.25,
+          "video_fps": "24/1",
+          "codec": "h264",
+          "bytes": 363624,
+          "render_wall_seconds": 30.56126987900643
+        }
       },
       "visual_review": {
         "renderer": "Jupyter nbconvert HTML; MathJax 3 SVG prerendered HTML; PNG inspection",
-        "coverage": "All 39 Markdown/result cells, all 25 unique formula/display combinations, all nine figures, all output tables and diagnostic messages",
+        "coverage": "All 41 Markdown/result cells, 25 unique MathJax formula/display combinations, all nine figures, MP4 evidence/representative decoded movie frames and all output tables/diagnostics; examples catalog and new entry also rendered and inspected.",
         "result": "passed"
       },
       "documentation_impact": [
-        "New complete process-to-OpenFOAM notebook; README and examples catalog updated.",
-        "Dedicated maintenance ledger shard and root count updated; no Java code or native schema changed."
+        "Complete Colab installation, native frame handoff, case file map, mesh/boundary/solver setup, execution, ParaView rerun, movie generation/playback and archive download instructions in the notebook.",
+        "README, examples catalog and maintenance ledger updated. No NeqSim Java implementation or native schema changed."
       ],
       "issues": [
         "https://github.com/equinor/neqsim/issues/3860",
@@ -333,7 +382,7 @@
         "Virtual entrainment/control-surface model is not independently qualified.",
         "Coarse meshes and stair-stepped geometry; transient RANS, no atmospheric-boundary-layer profile, limited source/weather cases.",
         "Clouds that touch an open boundary are flagged; clipped extents are lower bounds. Mesh, time and domain comparisons are sensitivities, not proof of convergence.",
-        "Adaptive Courant overshoot at the short source ramp is reported. Fine-case solver-log statistics cover a 23.5\u201325 s verification restart; saved-field audits cover the full history. No independent experimental CFD validation, ignition or quantitative risk assessment."
+        "Adaptive Courant overshoot at the short source ramp is reported. All five solver logs now cover the complete 0–25 s run. No independent experimental CFD validation, ignition or quantitative risk assessment."
       ]
     }
   ]
