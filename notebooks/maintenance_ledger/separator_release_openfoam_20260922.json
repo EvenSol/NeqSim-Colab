@@ -1,0 +1,340 @@
+{
+  "schema_version": 3,
+  "notebooks": [
+    {
+      "path": "notebooks/safety/separator_release_openfoam_dispersion.ipynb",
+      "execution_status": "passed",
+      "code_cells": 22,
+      "last_validated": "2026-09-22",
+      "notebook_sha256": "6edc86e496620ab64ccc3c886ca16b3e00e19845d2f3cf9a6b0a2fd979879ef6",
+      "source_provenance": {
+        "source_repository": "https://github.com/equinor/neqsim",
+        "requested_ref": "master",
+        "source_commit": "65dd8733383d64618fa002ac8137925482093365",
+        "source_basis": "Full connector-tree blob verification",
+        "jar_sha256": "f6b3427ca7de7dec02c7d1b705b2fd7bc82a0cb9e7477b34bda61dcc0bd36dff",
+        "loaded_class_location": "file:/workspace/scratch/d59c271f86ae/neqsim-source/target/neqsim-current.jar",
+        "java": "17.0.20",
+        "python": "3.12.14"
+      },
+      "execution": {
+        "method": "Fresh isolated Python/JVM; all notebook cells executed in order with repository in-process runner. Five CFD solves performed separately; every regenerated input byte and saved solution/log hash verified before reuse.",
+        "result": "22/22 code cells; retained outputs; zero stored exceptions or stderr",
+        "source_build": "All 3548 src/main, pom, Maven-wrapper blobs verified against exact current-master connector tree; fresh Maven compilation and loaded JAR asserted.",
+        "runtime_versions": {
+          "JPype1": "1.7.1",
+          "numpy": "2.5.3",
+          "pandas": "3.0.6",
+          "scipy": "1.18.1",
+          "matplotlib": "3.11.2",
+          "pyvista": "0.49.0",
+          "vtk": "9.7.0"
+        },
+        "openfoam": "OpenCFD v1912 / patch 200626",
+        "solver_execution": [
+          {
+            "Case": "base",
+            "Mode": "Input/output-hash-verified executed solution",
+            "Solver wall seconds": 641.9905619659985
+          },
+          {
+            "Case": "coarse",
+            "Mode": "Input/output-hash-verified executed solution",
+            "Solver wall seconds": 51.00590895800269
+          },
+          {
+            "Case": "time_step",
+            "Mode": "Input/output-hash-verified executed solution",
+            "Solver wall seconds": 94.76076698099496
+          },
+          {
+            "Case": "fast_wind",
+            "Mode": "Input/output-hash-verified executed solution",
+            "Solver wall seconds": 52.846144451992586
+          },
+          {
+            "Case": "long_domain",
+            "Mode": "Input/output-hash-verified executed solution",
+            "Solver wall seconds": 104.7676719739975
+          }
+        ]
+      },
+      "validation": {
+        "process": {
+          "mass_residual_kg_s": -2.5352164811920375e-11,
+          "max_component_residual_kg_s": 9.663381206337363e-12,
+          "energy_residual_W": -0.004059275612235069,
+          "cooling_duty_MW": -5.079755310253615,
+          "heating_duty_MW": 2.4767018051576355
+        },
+        "inventory": {
+          "inventory_initial_kg": 1343.9210046997568,
+          "inventory_released_kg": 91.30687156930635,
+          "component_closure_kg": 3.623767952376511e-13,
+          "energy_closure_J": -0.04076347779482603,
+          "volume_m3": 24.0
+        },
+        "source_model_audit": {
+          "full_equilibrium_status": "UNSUPPORTED",
+          "full_equilibrium_diagnostics": [
+            {
+              "code": "UNSUPPORTED_PHYSICS",
+              "message": "CO2 below 216.592 K requires a separately assessed solid-capable model"
+            }
+          ],
+          "10_bara_comparison_status": "VALID_WITH_WARNINGS",
+          "10_bara_comparison_rate_kg_s": 3.8310706510019834,
+          "10_bara_comparison_stations": [
+            {
+              "station": "UPSTREAM_STAGNATION",
+              "P_bara": 65.0,
+              "T_K": 323.15,
+              "gas_mass_fraction": 1.0
+            },
+            {
+              "station": "THROAT_CRITICAL",
+              "P_bara": 36.58310085142158,
+              "T_K": 285.65836090255607,
+              "gas_mass_fraction": 0.9786565645454195
+            },
+            {
+              "station": "ORIFICE_EXIT",
+              "P_bara": 36.58310085142158,
+              "T_K": 285.65836090255607,
+              "gas_mass_fraction": 0.9786565645454195
+            },
+            {
+              "station": "AMBIENT_EXPANDED",
+              "P_bara": 10.0,
+              "T_K": 226.3887591053139,
+              "gas_mass_fraction": 0.8882771300436924
+            }
+          ]
+        },
+        "cfd": {
+          "base": {
+            "cells": 25392,
+            "mesh_ok": true,
+            "completed": true,
+            "max_courant": 0.4983324936,
+            "final_cumulative_continuity": 2.750606059e-07,
+            "fuel_budget_error_percent": 1.1426064793636466,
+            "time_sampling_s": 0.5,
+            "final_time_s": 25.0,
+            "solver_log_start_time_s": 23.5,
+            "probe_cell_centres_m": [
+              [
+                3.75,
+                0.25,
+                3.75
+              ],
+              [
+                7.75,
+                0.25,
+                3.75
+              ],
+              [
+                16.25,
+                0.25,
+                3.25
+              ],
+              [
+                7.75,
+                2.75,
+                1.25
+              ]
+            ],
+            "pre_release_speed_p95_ms": 3.6159207385755634,
+            "pre_release_speed_max_ms": 5.142574445100295,
+            "domain_downstream_length_m": 23.0,
+            "final_outlet_max_percent_LFL": 84.20224482685494,
+            "final_LFL_cloud_touches_open_boundary": false,
+            "final_half_LFL_cloud_touches_open_boundary": true
+          },
+          "coarse": {
+            "cells": 3173,
+            "mesh_ok": true,
+            "completed": true,
+            "max_courant": 2.258782731,
+            "final_cumulative_continuity": -1.413463104e-06,
+            "fuel_budget_error_percent": 1.0227309539483984,
+            "time_sampling_s": 0.5,
+            "final_time_s": 25.0,
+            "solver_log_start_time_s": 0.0,
+            "probe_cell_centres_m": [
+              [
+                4.5,
+                0.5,
+                3.5
+              ],
+              [
+                7.5,
+                0.5,
+                3.5
+              ],
+              [
+                15.5,
+                0.5,
+                3.5
+              ],
+              [
+                8.5,
+                2.5,
+                1.5
+              ]
+            ],
+            "pre_release_speed_p95_ms": 3.659795010326659,
+            "pre_release_speed_max_ms": 4.812171076274378,
+            "domain_downstream_length_m": 23.0,
+            "final_outlet_max_percent_LFL": 118.61886517050178,
+            "final_LFL_cloud_touches_open_boundary": true,
+            "final_half_LFL_cloud_touches_open_boundary": true
+          },
+          "time_step": {
+            "cells": 3173,
+            "mesh_ok": true,
+            "completed": true,
+            "max_courant": 1.335596943,
+            "final_cumulative_continuity": -1.084564624e-06,
+            "fuel_budget_error_percent": 0.9439451851996843,
+            "time_sampling_s": 0.5,
+            "final_time_s": 25.0,
+            "solver_log_start_time_s": 0.0,
+            "probe_cell_centres_m": [
+              [
+                4.5,
+                0.5,
+                3.5
+              ],
+              [
+                7.5,
+                0.5,
+                3.5
+              ],
+              [
+                15.5,
+                0.5,
+                3.5
+              ],
+              [
+                8.5,
+                2.5,
+                1.5
+              ]
+            ],
+            "pre_release_speed_p95_ms": 3.660657533055038,
+            "pre_release_speed_max_ms": 4.823892052754842,
+            "domain_downstream_length_m": 23.0,
+            "final_outlet_max_percent_LFL": 118.48376521466028,
+            "final_LFL_cloud_touches_open_boundary": true,
+            "final_half_LFL_cloud_touches_open_boundary": true
+          },
+          "fast_wind": {
+            "cells": 3173,
+            "mesh_ok": true,
+            "completed": true,
+            "max_courant": 1.336503925,
+            "final_cumulative_continuity": -1.031578702e-06,
+            "fuel_budget_error_percent": 1.382022423575864,
+            "time_sampling_s": 0.5,
+            "final_time_s": 25.0,
+            "solver_log_start_time_s": 0.0,
+            "probe_cell_centres_m": [
+              [
+                4.5,
+                0.5,
+                3.5
+              ],
+              [
+                7.5,
+                0.5,
+                3.5
+              ],
+              [
+                15.5,
+                0.5,
+                3.5
+              ],
+              [
+                8.5,
+                2.5,
+                1.5
+              ]
+            ],
+            "pre_release_speed_p95_ms": 7.219605441150255,
+            "pre_release_speed_max_ms": 9.485918043624851,
+            "domain_downstream_length_m": 23.0,
+            "final_outlet_max_percent_LFL": 85.91119910786827,
+            "final_LFL_cloud_touches_open_boundary": false,
+            "final_half_LFL_cloud_touches_open_boundary": true
+          },
+          "long_domain": {
+            "cells": 7061,
+            "mesh_ok": true,
+            "completed": true,
+            "max_courant": 2.258782733,
+            "final_cumulative_continuity": -1.800273118e-06,
+            "fuel_budget_error_percent": 1.1726716236449313,
+            "time_sampling_s": 0.5,
+            "final_time_s": 25.0,
+            "solver_log_start_time_s": 0.0,
+            "probe_cell_centres_m": [
+              [
+                3.5,
+                0.5,
+                3.5
+              ],
+              [
+                7.5,
+                0.5,
+                3.5
+              ],
+              [
+                15.5,
+                0.5,
+                3.5
+              ],
+              [
+                7.5,
+                2.5,
+                1.5
+              ]
+            ],
+            "pre_release_speed_p95_ms": 3.4226590610321517,
+            "pre_release_speed_max_ms": 4.812163805440585,
+            "domain_downstream_length_m": 59.0,
+            "final_outlet_max_percent_LFL": 32.83704929246165,
+            "final_LFL_cloud_touches_open_boundary": false,
+            "final_half_LFL_cloud_touches_open_boundary": false
+          }
+        },
+        "source_mapping": "Fuel mass, pressure-inclusive thrust and sensible/kinetic energy closure; entrained-mixture SRK phase audit; independent choked-rate equation",
+        "repository_checker_unit_tests": "6 passed",
+        "repository_wide_integrity": "Scoped checker and remote-tree catalog/root-count checks run locally; full repository notebook-integrity is delegated to hosted CI.",
+        "scoped_checker": "0 errors; one broad math-delimiter warning is from OpenFOAM parser regex literals in code. All 25 actual Markdown formula/display combinations pass MathJax render and visual inspection.",
+        "catalog_links": "319 local notebook links resolved against connector master tree plus this new notebook; none missing."
+      },
+      "visual_review": {
+        "renderer": "Jupyter nbconvert HTML; MathJax 3 SVG prerendered HTML; PNG inspection",
+        "coverage": "All 39 Markdown/result cells, all 25 unique formula/display combinations, all nine figures, all output tables and diagnostic messages",
+        "result": "passed"
+      },
+      "documentation_impact": [
+        "New complete process-to-OpenFOAM notebook; README and examples catalog updated.",
+        "Dedicated maintenance ledger shard and root count updated; no Java code or native schema changed."
+      ],
+      "issues": [
+        "https://github.com/equinor/neqsim/issues/3860",
+        "https://github.com/equinor/neqsim/issues/3905"
+      ],
+      "limitations": [
+        "Synthetic industrial inputs and layout; not an asset safety case.",
+        "Atmospheric HEM source fails its CO2 solid-risk guard; explicit unqualified ideal-gas throat approximation with conservative SRK inventory.",
+        "Virtual entrainment/control-surface model is not independently qualified.",
+        "Coarse meshes and stair-stepped geometry; transient RANS, no atmospheric-boundary-layer profile, limited source/weather cases.",
+        "Clouds that touch an open boundary are flagged; clipped extents are lower bounds. Mesh, time and domain comparisons are sensitivities, not proof of convergence.",
+        "Adaptive Courant overshoot at the short source ramp is reported. Fine-case solver-log statistics cover a 23.5\u201325 s verification restart; saved-field audits cover the full history. No independent experimental CFD validation, ignition or quantitative risk assessment."
+      ]
+    }
+  ]
+}
