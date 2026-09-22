@@ -1,0 +1,76 @@
+{
+  "schema_version": 3,
+  "notebooks": [
+    {
+      "path": "notebooks/safety/neqsim_live_safety_source_terms.ipynb",
+      "execution_status": "passed",
+      "code_cells": 27,
+      "last_validated": "2026-09-21",
+      "notebook_sha256": "5e8e541484b47c2092a9a866296771fde0536b38076d27a9df972971b7356f3c",
+      "source_provenance": {
+        "source_repository": "https://github.com/equinor/neqsim",
+        "requested_ref": "master",
+        "source_commit": "e4e9f27534870f510203512f912dd3aa2b9cde1d",
+        "source_basis": "Full connector-tree blob verification",
+        "jar_sha256": "3155bb426af80c22dada2dcef6afe8426bf7aed82253c809670b07608ffabe41",
+        "loaded_class_location": "file:/workspace/scratch/14968d4bce5d/neqsim-master/target/neqsim-safety-master.jar",
+        "java": "17.0.20",
+        "python": "3.12.14"
+      },
+      "execution": {
+        "method": "Fresh isolated Python environment from a verified public-PyPI wheel snapshot; repository in-process runner, new process and JVM",
+        "result": "27/27 code cells, retained outputs, zero stored exceptions or stderr",
+        "duration_seconds": 7.7,
+        "source_build": "8155 substantive source blobs verified against the connector master tree; fresh Maven compile plus runtime JAR; loaded class location asserted"
+      },
+      "validation": {
+        "checks": {
+          "station_energy_entropy_phase_closure": true,
+          "dilute_gas_reference_within_1_5_percent": true,
+          "unavailable_rates_not_zero_filled": true,
+          "steady_process_mass_balance": true,
+          "stale_capture_omits_numeric_payload": true,
+          "process_model_composition_and_identity": true,
+          "native_separator_dynamics_reach_frames": true,
+          "coupled_inventory_mass_energy_and_closure_event": true,
+          "both_containers_and_HEM_component_conservation": true,
+          "export_disable_does_not_stop_physics": true,
+          "gas_blowdown_refinement_and_analytical_limit": true,
+          "standalone_fingerprint_schema_and_receiver_rejections": true,
+          "bounded_native_callback_delivery": true,
+          "HTTP_and_separate_process_round_trip": true,
+          "external_rate_integration_matches_inventory": true,
+          "weighted_statistics_and_retained_failure_probability": true
+        },
+        "schema_and_fingerprint_frames": 64,
+        "expected_rejections": 10,
+        "dilute_gas_max_rate_difference_percent": 0.260385,
+        "inventory_mass_residual_kg_max": 5.995204332975845e-15,
+        "inventory_energy_residual_J_limit": 0.01,
+        "external_integrated_mass_difference_percent": -0.033278,
+        "timestep_pressure_change_ratio": 0.499108109,
+        "repository_checker_unit_tests": "6 passed",
+        "repository_wide_integrity": "Pending hosted notebook-integrity CI; scoped notebook checker and full remote-tree catalog/ledger checks run locally",
+        "inventory_energy_residual_J_max": 0.00020212876734149177
+      },
+      "visual_review": {
+        "renderer": "Jupyter nbconvert HTML plus MathJax 3 SVG-pre-rendered HTML, WeasyPrint and PNG inspection",
+        "coverage": "All 49 Markdown/result cells, all 36 unique formula/display combinations, all tables, all four embedded figures, and diagnostic messages",
+        "result": "passed"
+      },
+      "documentation_impact": [
+        "New detailed notebook documents current Java APIs, physics, units, lifecycle, consumer contract, applicability and failure semantics.",
+        "README, examples catalog, dedicated ledger shard and root count updated. No Java model or schema changed."
+      ],
+      "issues": [
+        "https://github.com/equinor/neqsim/issues/3860"
+      ],
+      "limitations": [
+        "UNQUALIFIED models: analytical and conservation/software evidence, no facility qualification.",
+        "Gas-only coupled inventory; broader inventory, receiving-pressure event location, full-bore/non-equilibrium and solid-risk extensions remain in #3860.",
+        "Propane THROAT_MACH_MISMATCH retained and explained; unresolved mixture fails closed.",
+        "Synthetic source coordinates and fixed replay clock; application HTTP adapter, no external commercial consequence solver executed."
+      ]
+    }
+  ]
+}
