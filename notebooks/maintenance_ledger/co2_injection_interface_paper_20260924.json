@@ -1,0 +1,48 @@
+{
+  "schema_version": 3,
+  "notebooks": [
+    {
+      "path": "notebooks/reservoir/co2_injection_interface_paper_3959.ipynb",
+      "status": "validated",
+      "execution_status": "passed",
+      "code_cells": 11,
+      "validation_date": "2026-09-24",
+      "notebook_sha256": "794d0ee71cb60ffab5f443fe448a9e3eb8d948b09892d73b29a88dbb254c82d5",
+      "notebook_git_blob_sha1": "22bee8f074d05221a4986cd1a6dca575e765feb9",
+      "source_commit": "de26ac5eb57d8981de98d6c26b3c810367f5d6c8",
+      "source_jar_sha256": "5d382156b138c4529a61e087999a42b33991d3423c58e86de172b4de775e81c0",
+      "execution": {
+        "method": "Fresh in-process Python/IPython runtime, sequential cells; pinned master source-built JAR supplied by NEQSIM_SOURCE_ROOT and NEQSIM_SOURCE_JAR",
+        "all_code_cells_executed_in_order": true,
+        "stored_error_count": 0,
+        "static_figures": 5,
+        "colab_bootstrap_tested": false
+      },
+      "visual_validation": {
+        "renderer": "nbconvert classic HTML; embedded PNGs extracted and visually inspected; equation separately rendered with Matplotlib MathText",
+        "markdown_cells_inspected": 10,
+        "code_cells_inspected": 11,
+        "figures_inspected": 5,
+        "equations_inspected": 1,
+        "result": "All figures legible; equation and source syntax inspected; browser MathJax pass unavailable in restricted runtime"
+      },
+      "engineering_validation": {
+        "fluid_system": "PR classic, pure CO2 and 1 mol% N2",
+        "steady_injection_cases": 2,
+        "design_case_crosscheck": "Analyzer BHP/BHT agree with direct PipeBeggsAndBrills profile to 1e-5",
+        "phase_status": "single phase for all plotted states and shutdown samples",
+        "paper_comparison": "paper-reported values labelled, no THM or leakage prediction",
+        "known_issue": "https://github.com/equinor/neqsim/issues/3964"
+      },
+      "documentation_impact": {
+        "assessment": "New educational fluid-to-THM boundary workflow; no Java library changes",
+        "updated": [
+          "README.md",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/reservoir/co2_injection_interface_paper_3959.ipynb"
+        ]
+      },
+      "related_issue": "https://github.com/equinor/neqsim/issues/3959"
+    }
+  ]
+}
