@@ -1,5 +1,5 @@
 {
-  "active_notebook_count": 316,
+  "active_notebook_count": 317,
   "retired_notebooks": [
     {
       "follow_up": "Replace with the planned NeqSim-master data-reconciliation and Bayesian digital-twin notebook.",
@@ -34,5 +34,5 @@
   ],
   "schema_version": 3,
   "shards_glob": "maintenance_ledger/*.json",
-  "updated_at": "2026-09-22T07:31:22Z"
+  "updated_at": "2026-09-24T13:38:00Z"
 }
