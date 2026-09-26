@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "shard": "hydrate-mitigation-choice-4016-20260926",
+  "updated_at": "2026-09-26T00:00:00Z",
+  "notebooks": [
+    {
+      "path": "notebooks/flowassurance/hydrate_mitigation_chemical_choice_4016.ipynb",
+      "verified_date": "2026-09-26",
+      "verified_at_utc": "2026-09-26",
+      "neqsim_version": "3.22.0 source build; Python bridge 3.20.0",
+      "neqsim_java_commit": "bbdd569337e88591bab324960fb016fb2fae7ea0",
+      "neqsim_jar_sha256": "cb97ce9fce0a6df5eb7ce1958b39190e162692b0dc6dce6f3b5622a93a50d1eb",
+      "python_version": "3.12.14",
+      "java_version": "17.0.20",
+      "execution_status": "passed",
+      "execution_method": "Clean in-process IPython namespace using scripts/execute_notebook_inprocess.py with source root and JAR set to a clean, exact master checkout. All code cells executed sequentially and result tables and plot are retained. The notebook bootstrap also supports a clean Google Colab source build.",
+      "code_cells": 9,
+      "substantive_code_cells": 9,
+      "markdown_cells": 8,
+      "git_blob_sha1": "e75e9afccf3088de855089207df9b5d37808e242",
+      "notebook_bytes": 232935,
+      "engineering_validation": {
+        "hydrate_cases": 27,
+        "max_hydrate_fugacity_residual": 7.127825091268747e-07,
+        "max_component_fraction_error": 5.773159728050814e-15,
+        "synthetic_scale_ph_scenarios": 6,
+        "paper_numerical_reproduction": false,
+        "aa_performance_prediction": false
+      },
+      "rendered_visual_validation": {
+        "renderer": "nbconvert 7.17.1 HTML; MathJax 3.2.2 SVG equations; stored Matplotlib PNG",
+        "display_equations_inspected": 1,
+        "inline_equations_inspected": 10,
+        "figures_inspected": 1,
+        "result": "passed",
+        "notes": "All Markdown, data tables, outputs, equation delimiters, units, axes and legend inspected."
+      },
+      "source_paper": "Baraka-Lokmane (OTC Asia 2026), abstract only; no public numerical data reproduced",
+      "documentation_impact": "Adds a direct relative link in the Flow assurance catalog; no Java API change.",
+      "issues": [
+        "https://github.com/equinor/neqsim/issues/4016",
+        "https://github.com/equinor/neqsim/issues/3144"
+      ]
+    }
+  ]
+}
