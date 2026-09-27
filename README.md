@@ -9,6 +9,8 @@ Advanced notebooks use JPype directly or through the Python distribution. They c
 
 ## Featured notebooks
 
+* [Lithium perovskite hydrides: ASE, molecular DFT and NeqSim](notebooks/hydrogen/lithium_perovskite_hydrides_ase_neqsim.ipynb) – Reconstruct theoretical capacities from published crystal structures, run a small PySCF H₂ reference calculation, and screen pressure-dependent desorption using source-pinned NeqSim hydrogen fugacity. Includes stored numerical results, a figure, and explicit limits for the paper's unresolved temperature discrepancy and unknown solid reaction products.
+
 * [Cold CO₂ injection and well interface loading](notebooks/reservoir/co2_injection_interface_paper_3959.ipynb) – Source-built NeqSim fluid and wellbore P–T boundaries for a companion study to Hosking and Zhou (2025), with shutdown sensitivity, labelled paper damage data, and a transparent THM handoff. Executed against a pinned master commit; no cement damage or leakage prediction is claimed.
 
 * [Separator gas release and OpenFOAM dispersion](notebooks/safety/separator_release_openfoam_dispersion.ipynb) – A complete Colab setup and executed separation-train study using NeqSim master release models, conservative inventory and schema-validated native source-term frames as CFD input. Includes mesh/dictionary generation, all five 3D OpenFOAM solver runs, colorful cloud/flow figures and a reproducible CFD movie, detector histories and mass/mesh/time/wind/domain checks. Explicitly documents unqualified nozzle/entrainment assumptions and the [legacy blowdown defect #3905](https://github.com/equinor/neqsim/issues/3905). Creates `separator_release_openfoam_cases.zip`; optional `OPENFOAM_VALIDATED_RUN` verifies source/input/output hashes before reusing executed CFD solutions.

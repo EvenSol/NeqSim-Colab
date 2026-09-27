@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "shard": 7,
+  "updated_at": "2026-09-27T08:55:11Z",
+  "notebooks": [
+    {
+      "path": "notebooks/hydrogen/lithium_perovskite_hydrides_ase_neqsim.ipynb",
+      "verified_date": "2026-09-27",
+      "verified_at_utc": "2026-09-27T08:55:11Z",
+      "execution_status": "passed",
+      "execution_method": "Clean Python 3.12 process, sequential code-cell execution with stored Jupyter outputs; nbconvert HTML/MathJax rendering. ZMQ kernel unavailable in sandbox.",
+      "code_cells": 6,
+      "markdown_cells": 7,
+      "python_version": "3.12.14",
+      "java_version": "OpenJDK 17.0.20",
+      "neqsim_version": "3.22.0 source commit 809c7b21f6d7985df1b5cc896c7e2c3a285510fe",
+      "dependency_versions": {
+        "ase": "3.26.0",
+        "pyscf": "2.11.0",
+        "neqsim_python": "3.20.0"
+      },
+      "source_provenance": {
+        "repository": "equinor/neqsim",
+        "commit": "809c7b21f6d7985df1b5cc896c7e2c3a285510fe",
+        "source_jar_sha256": "d0b19dbc024b9e5691da0ba5cc814203618b4319e278cb94d28e5940c99731aa",
+        "loaded_class": "neqsim.thermo.util.hydrogen.HydrideStorageScreening"
+      },
+      "validation": [
+        "all 6 code cells executed from a clean process, with counts and outputs saved",
+        "four material capacity and crystal-density values agree with published Table 5 within rounding",
+        "PySCF H2 PBE/STO-3G sampled energy minimum at 0.74 angstrom",
+        "12 NeqSim-fugacity Gibbs roots below 1e-3 J/mol H2; equilibrium temperatures rise with pressure",
+        "every equation, result table and one two-panel figure inspected in nbconvert HTML and PNG"
+      ],
+      "documentation_impact": "New notebook linked from the Colab catalog and repository README. Native model documented in equinor/neqsim PR #4042.",
+      "limitations": "Paper abstract and Table 5 conflict for LiCuH3; bulk DFT was not rerun; reaction enthalpies are inferred from reported reference temperatures, and solid product phases, kinetics and experimental reversibility remain unverified.",
+      "related_issues": ["https://github.com/equinor/neqsim/issues/4036"],
+      "publication": {
+        "mode": "draft pull request",
+        "branch": "feat/4036-ase-neqsim-hydride-colab"
+      }
+    }
+  ]
+}
