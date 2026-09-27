@@ -1,0 +1,53 @@
+{
+  "schema_version": 3,
+  "notebooks": [
+    {
+      "path": "notebooks/AI/continuous_agentic_compressor_live_task.ipynb",
+      "status": "validated",
+      "execution_status": "passed",
+      "code_cells": 18,
+      "validation_date": "2026-09-27",
+      "source_commit": "c53327e166448312291b4023c24b58f989c05a33",
+      "source_jar_sha256": "fd2bfb23a341b8f24017031302d6d3cd5fad5a438937937e0b516cece0a2c420",
+      "notebook_sha256": "fee125b4de7e815273e500551c07859c702fa8a4a30350a1e7d3ec7277f4fc90",
+      "python_version": "3.12.14",
+      "java_version": "17.0.20",
+      "package_versions": {
+        "neqsim": "3.20.0",
+        "numpy": "2.5.3",
+        "pandas": "3.0.6",
+        "openai": "3.19.2"
+      },
+      "execution": {
+        "method": "Fresh isolated Python process; execute_notebook_inprocess.py; verified source-built JAR and pinned instruction cache",
+        "elapsed_seconds": 11.3,
+        "exit_code": 0,
+        "stored_error_count": 0,
+        "static_figures": 3,
+        "live_api_status": "not_run",
+        "live_api_limitation": "No API credential. Scripted teaching replay and actual OpenAI SDK with local MockTransport passed; real provider/model behavior was not tested."
+      },
+      "visual_validation": {
+        "status": "passed",
+        "renderer": "nbconvert HTML, MathJax and Chromium",
+        "content_and_output_cells_inspected": 28,
+        "all_static_figures_inspected": true,
+        "result": "All Markdown, equations, tables and plots inspected. No clipped diagram or broken equations."
+      },
+      "documentation_impact": {
+        "assessment": "New teaching companion to Continuous Agentic Engineering with NeqSim Chapter 9; no library API changes",
+        "updated": [
+          "README.md",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/AI/continuous_agentic_compressor_live_task.ipynb"
+        ]
+      },
+      "improvement_assessment": "No distinct NeqSim defect established. Fixed-efficiency screening model, synthetic live replay and optional unexecuted provider path are explicitly bounded.",
+      "publication": {
+        "mode": "draft pull request",
+        "base": "master",
+        "merge_authorized": false
+      }
+    }
+  ]
+}
