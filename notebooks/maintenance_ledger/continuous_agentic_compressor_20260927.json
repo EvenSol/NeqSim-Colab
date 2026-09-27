@@ -9,7 +9,7 @@
       "validation_date": "2026-09-27",
       "source_commit": "c53327e166448312291b4023c24b58f989c05a33",
       "source_jar_sha256": "fd2bfb23a341b8f24017031302d6d3cd5fad5a438937937e0b516cece0a2c420",
-      "notebook_sha256": "fee125b4de7e815273e500551c07859c702fa8a4a30350a1e7d3ec7277f4fc90",
+      "notebook_sha256": "923fc1dbf001d4254e2c54324b009d664ce149a37a1d5357b01ca80feab6906b",
       "python_version": "3.12.14",
       "java_version": "17.0.20",
       "package_versions": {
@@ -24,8 +24,8 @@
         "exit_code": 0,
         "stored_error_count": 0,
         "static_figures": 3,
-        "live_api_status": "not_run",
-        "live_api_limitation": "No API credential. Scripted teaching replay and actual OpenAI SDK with local MockTransport passed; real provider/model behavior was not tested."
+        "live_api_status": "user_executed_results_reviewed",
+        "live_api_limitation": "User-supplied Colab outputs from gpt-5.4 reviewed; four proposal_for_review results. Not independently rerun with credentials. Published RUN_LLM reset to False; original live outputs retained."
       },
       "visual_validation": {
         "status": "passed",
@@ -47,6 +47,36 @@
         "mode": "draft pull request",
         "base": "master",
         "merge_authorized": false
+      },
+      "live_run_review": {
+        "model": "gpt-5.4",
+        "cycles": [
+          1,
+          5,
+          8,
+          11
+        ],
+        "proposal_statuses": [
+          "proposal_for_review",
+          "proposal_for_review",
+          "proposal_for_review",
+          "proposal_for_review"
+        ],
+        "goal_met": [
+          true,
+          false,
+          false,
+          false
+        ],
+        "selected_flow_kg_s": [
+          102.984773,
+          92.799679,
+          81.426719,
+          92.799679
+        ],
+        "round_budget": 12,
+        "secret_scan": "No API key literal found; credentials retrieved from Secrets/environment",
+        "rationale_corrections": "Cycle 1 incorrectly describes initial power as restored; cycle 8 misuses restored for curtailment. Explicit reviewer note added; raw model wording preserved."
       }
     }
   ]
