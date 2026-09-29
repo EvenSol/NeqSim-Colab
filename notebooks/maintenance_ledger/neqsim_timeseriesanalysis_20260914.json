@@ -1,13 +1,14 @@
 {
   "notebooks": [
     {
-      "code_cells": 31,
+      "code_cells": 32,
       "documentation_impact": {
-        "assessment": "Explain NeqSim/TSA responsibilities and handoffs; add full-process identification, decision, native control and diagnostics; update README/catalog/evidence; update source pin and resolved #3728 status.",
+        "assessment": "Document the official Python wrapper 0.4.0, isolated Python 3.13 runtime, same-assembly parity and scope limits.",
         "updated": [
           "README.md",
           "notebooks/examples_of_NeqSim_in_Colab.ipynb",
-          "notebooks/advanced_analytics/neqsim_timeseriesanalysis_large_process.ipynb"
+          "notebooks/advanced_analytics/neqsim_timeseriesanalysis_large_process.ipynb",
+          "notebooks/maintenance_ledger/neqsim_timeseriesanalysis_20260914.json"
         ]
       },
       "engineering_validation": {
@@ -37,9 +38,10 @@
           "TSA equilibrium surrogate drives bounded SLSQP with nominal 2% driver allowance; fresh nonlinear NeqSim acceptance",
           "Eleven-model PlantSimulator with two native PidModel loops, six identified responses, pressure actuators and total power",
           "Native limits, tracking, recovery, driver constraints and serialized-plant replay",
-          "Full-process NeqSim efficiency-loss and separate sensor-bias scenarios; native LowPass residual filtering"
+          "Full-process NeqSim efficiency-loss and separate sensor-bias scenarios; native LowPass residual filtering",
+          "Official timeseriesanalysis-py 0.4.0: 14-model, 1100-sample same-assembly parity, UnitIdentifier and LowPass"
         ],
-        "engineering_checks_passed": 98,
+        "engineering_checks_passed": 103,
         "facility_feed_kg_s": 120,
         "facility_power_MW": 32.07933206298709,
         "facility_units": 67,
@@ -49,9 +51,9 @@
         "json_baseline_power_kW": 7806.0518424550455,
         "json_dynamic_max_power_error_kW": 0.3053132403701966,
         "json_dynamic_models": 8,
-        "json_max_component_relative_error": 0.000006454357349800486,
+        "json_max_component_relative_error": 6.454357349800486e-06,
         "json_max_energy_error_kW": 0.01752324089375179,
-        "json_max_mass_error_kg_s": 0.00009868396708156979,
+        "json_max_mass_error_kg_s": 9.868396708156979e-05,
         "json_native_evaluations": 231,
         "json_optimized_HP_bara": 38.35794429213398,
         "json_optimized_MP_bara": 9.27657432023816,
@@ -68,7 +70,6 @@
           "Optimization is a local candidate inside the sampled domain",
           "Empirical residual threshold is not a guaranteed probability bound",
           "Network scaling timings compare different workloads, not simulator speedup",
-          "Official equinor/timeseriesanalysis-py wrapper repository and README returned 404; its API and execution are not validated",
           "TSA 1.4.38 needs explicit steady PID output seeds for this multi-input graph; subsequent values are proven to come from simulation",
           "Common utility is a prescribed lag, without load-to-utility feedback or a water energy balance",
           "12 K utility stress can extrapolate beyond the identification domain; it is a numerical limit/recovery test",
@@ -81,44 +82,47 @@
           "Six learned KPI responses summarize a 24-unit physical process; no unit-by-unit dynamic inventory or hydraulic equivalence is claimed",
           "Generator lags and pressure-actuator response are explicit assumptions requiring field qualification",
           "Nominal 2% driver backoff is an engineering allowance, not a quantified uncertainty guarantee",
-          "Local saving is relative to 37/9 bara and must not be added to the earlier baseline-to-optimum saving"
+          "Local saving is relative to 37/9 bara and must not be added to the earlier baseline-to-optimum saving",
+          "Official wrapper 0.4.0 requires Python 3.13; the main NeqSim notebook uses Python 3.12 and exchanges JSON/CSV with a separate process",
+          "Wrapper parity covers UnitModel, PidModel, PlantSimulator, UnitIdentifier and LowPass; serialization and other proxy families remain unqualified"
         ],
         "physical_fault_detection_delay_windows": 0,
         "static_figures": 21,
-        "wrapper_backend_validated": false,
+        "wrapper_backend_validated": true,
         "full_identified_outputs": 6,
         "full_connected_control_models": 11,
         "full_held_out_max_nrmse": 0.0181692553,
         "full_local_verified_saving_kW": 56.2987977,
         "full_accepted_HP_bara": 37.813056014330165,
-        "full_accepted_MP_bara": 9.18856504207948
+        "full_accepted_MP_bara": 9.18856504207948,
+        "wrapper_plant_max_absolute_difference": 7.105427357601002e-15
       },
       "execution": {
         "all_code_cells_executed_in_order": true,
         "all_code_cells_retain_outputs": true,
-        "command": "NEQSIM_VALIDATED_RUNTIME=<audited manifest> <fresh venv>/bin/python scripts/execute_notebook_inprocess.py notebooks/advanced_analytics/neqsim_timeseriesanalysis_large_process.ipynb",
-        "environment_resolution": "verified-snapshot-reuse",
+        "command": "NEQSIM_VALIDATED_RUNTIME=<audited manifest> DOTNET_ROOT=<pinned SDK> python execute_notebook_inprocess.py notebooks/advanced_analytics/neqsim_timeseriesanalysis_large_process.ipynb",
+        "environment_resolution": "verified-snapshot-reuse plus isolated Python 3.13 wrapper environment",
         "exit_code": 0,
-        "final_elapsed_seconds": 83.5,
-        "final_environment": "Fresh final-env2 virtual environment; first execution after bootstrap",
-        "final_working_directory": "Fresh final-run2 directory; no pre-existing outputs",
-        "method": "Fresh isolated virtual environment from a hash-verified wheel snapshot; fresh IPython process; ordered cells; source JAR and .NET assembly origin assertions",
-        "setup_limit": "Audited runtime manifest used locally. The pinned SDK CLI failed reading process metadata in this sandbox; the same TSA NuGet DLL and 16 pinned runtime dependency packages were restored directly. Fresh hosted-Colab SDK publish path remains untested.",
+        "final_elapsed_seconds": 129.8,
+        "final_environment": "Fresh Python 3.12.14 process; isolated Python 3.13.15 wrapper process; pinned NeqSim source and TSA 1.4.38 assembly",
+        "final_working_directory": "Fresh empty working directory for the final 32-cell run",
+        "method": "Ordered cells in fresh IPython process; direct and wrapper CLR simulations with same DLL hash and portable fixture",
+        "setup_limit": "Pinned source and hash-verified .NET SDK were prepared locally. SDK CLI process-metadata access failed here, so the same NuGet TSA DLL and runtime dependencies were restored directly. Hosted Colab setup remains untested.",
         "stderr_outputs": 0,
         "stored_error_count": 0,
         "wheel_hashes_verified": true
       },
       "execution_status": "passed",
-      "improvement_assessment": "No new NeqSim defect found. #3728 is resolved in pinned source; the teaching adapter retains direct product outlet references. Local SDK CLI process-metadata failure is environment-specific; actual runtime assemblies and notebook calculations executed successfully.",
+      "improvement_assessment": "No new NeqSim defect found. Official wrapper parity passed for the bounded 14-model control fixture, native identification and filtering; broader wrapper API coverage is a future qualification task.",
       "integrity_validation": {
-        "catalog_links": "Relative notebook targets verified against publication base cfceb8ad9bd655be0956a6e1b38a80e9fb91d76b",
+        "catalog_links": "Relative notebook path retained in README and examples catalog",
         "checker_unit_tests": "python -m unittest discover -s scripts -p test_check_notebook.py: 6 passed",
-        "code_readability": "AST parsed; Black 99 formatting verified; maximum code line length 99",
+        "code_readability": "AST parsed; maximum code line length 100; 32 executed cells retain output",
         "ledger_index": "Existing notebook entry updated in place; publication master active_notebook_count 310 preserved",
         "math_source": "Compact balanced dollar delimiters and single-backslash LaTeX verified",
         "pre_commit": "No .pre-commit-config.yaml in the inspected base tree; no Java files changed.",
-        "repository_wide_ci": "Pending GitHub notebook-integrity for this extension",
-        "targeted_checker": "strict_execution=True, expected_code_cells=31, require_main_source=True: zero errors and warnings"
+        "repository_wide_ci": "Pending GitHub notebook-integrity check",
+        "targeted_checker": "strict_execution=True, expected_code_cells=32, require_main_source=True: zero errors and warnings"
       },
       "java_version": "17.0.20",
       "json_extension": {
@@ -132,8 +136,8 @@
         "topology": "Directed material multigraph with one recycle SCC; two allowed return destinations",
         "upstream_bug": "https://github.com/equinor/neqsim/issues/3728"
       },
-      "notebook_git_blob_sha1": "217d93e58a3d9cde3b6476042e9bcd7cb8f6ef53",
-      "notebook_sha256": "29c15258c002c4d87a1fe78153abbd17153a4ae305c44d96f0d48d9c8b238d11",
+      "notebook_git_blob_sha1": "f07cfb3fa58ea6b12a9ee9cdf601ee533767dff0",
+      "notebook_sha256": "c3d77503cdf0148ec27437ac10c66a2e4b5c61927fb42437ba4768f0af8e9b28",
       "package_versions": {
         "JPype1": "1.7.1",
         "TimeSeriesAnalysis": "1.4.38",
@@ -142,7 +146,11 @@
         "numpy": "2.3.5",
         "pandas": "2.2.3",
         "pythonnet": "3.1.0",
-        "scipy": "1.17.0"
+        "scipy": "1.17.0",
+        "timeseriesanalysis-py": "0.4.0",
+        "Python wrapper": "3.13.15",
+        "wrapper pythonnet": "3.2.0",
+        "wrapper numpy": "2.5.3"
       },
       "path": "notebooks/advanced_analytics/neqsim_timeseriesanalysis_large_process.ipynb",
       "previous_validation": {
@@ -155,15 +163,15 @@
         "base": "master",
         "merge_authorized": false,
         "mode": "feature branch and draft pull request",
-        "base_commit": "cfceb8ad9bd655be0956a6e1b38a80e9fb91d76b",
-        "authored_against": "817821d3e80095747e1e6736e46eb187fb281ec8"
+        "base_commit": "dcaaab964def43a54747228ca118b1208a0ece88",
+        "authored_against": "dcaaab964def43a54747228ca118b1208a0ece88"
       },
       "python_version": "3.12.14",
       "related_issues": [
         "https://github.com/equinor/neqsim/issues/3728"
       ],
       "source_commit": "1165998ef6a4658ee7ee1bff05bde327c3801178",
-      "source_jar_sha256": "b16b6a38a707a14824a61e08d69f379b6efdab235cfb1925914b3effc5e6bfa2",
+      "source_jar_sha256": "b5873b4380f5b3d7c68709bf905b20c28fd26c5d27434af9f52f4c71c5c6bf9b",
       "source_provenance": {
         "class_origins": "SystemSrkEos and master-only AutoRecycleBuilder both loaded from the verified source JAR.",
         "compile": "Maven 3.9.16 (same version as source wrapper), compile dependency:copy-dependencies with tests and Spotless skipped: exit 0. Source unchanged.",
@@ -180,31 +188,36 @@
         "tsa_runtime_restore": "NuGet 1.4.38 plus 16 pinned runtime dependencies restored directly; DLL SHA-256 matches prior SDK-published assembly; CoreCLR 8.0.20 executed."
       },
       "status": "validated",
-      "validation_date": "2026-09-16",
+      "validation_date": "2026-09-29",
       "visual_validation": {
         "catalog_markdown_cells": 6,
-        "catalog_review_pages": 22,
+        "catalog_review_pages": 17,
         "display_equations": 9,
         "inline_equations": 16,
-        "markdown_cells_inspected": 29,
-        "notebook_review_pages": 36,
+        "markdown_cells_inspected": 30,
+        "notebook_review_pages": 27,
         "renderer": "Jupyter nbconvert 7.17.1 classic HTML; MathJax 3.2.2 SVG; WeasyPrint 70.0 and PyMuPDF page inspection",
-        "result": "All equations, tables and figures inspected. No malformed math, clipped plots, blank outputs or truncated result tables. Catalog insertion renders and target links are verified.",
-        "result_code_cells_inspected": 31,
+        "result": "All 25 equations, 21 figures, data tables, wrapper parity evidence and 27 nonblank review pages inspected; no malformed math or clipped output.",
+        "result_code_cells_inspected": 32,
         "static_figures_inspected": 21,
         "status": "passed",
-        "catalog_render_scope": "Complete authoring catalog and notebook rendered and every page inspected. The same catalog entry was applied to publication base cfceb8a to preserve intervening additions; this final integration received structural/link validation, not another full-catalog render."
+        "catalog_render_scope": "Full catalog rendered to 17 pages; updated entry and target path inspected."
       },
       "wrapper_integration": {
-        "access_checked": "2026-09-16",
-        "executed_backend": "Python.NET 3.1.0 / TimeSeriesAnalysis 1.4.38",
-        "next_step": "Inspect an accessible wrapper source revision, implement run_candidate(case) with its documented API, and run compare_binding against the exported baseline.",
-        "official_wrapper_executed": false,
-        "portable_case_outputs": 14,
-        "portable_case_samples": 1100,
         "repository": "https://github.com/equinor/timeseriesanalysis-py",
-        "repository_and_readme_status": 404,
-        "same_backend_max_absolute_difference": 0
+        "source_commit": "38e0b3ad0f074c436e0e7d6c1f5bb921dec3ad07",
+        "package_version": "0.4.0",
+        "python_version": "3.13.15",
+        "assembly_version": "1.4.38.0",
+        "assembly_sha256": "4a1294abf307dbc617b1426c8f24e92166f18d4e6fceb9e90a07818db32d7624",
+        "official_wrapper_executed": true,
+        "portable_case_samples": 1100,
+        "portable_case_outputs": 14,
+        "same_backend_max_absolute_difference": 7.105427357601002e-15,
+        "identification_gain_max_absolute_difference": 0.0,
+        "identification_time_constant_absolute_difference_s": 0.0,
+        "lowpass_max_absolute_difference_K": 0.0,
+        "next_step": "Extend same-assembly parity to select/cascade loops, PID identification and serialization."
       },
       "full_process_tsa_extension": {
         "library": "TimeSeriesAnalysis 1.4.38",
