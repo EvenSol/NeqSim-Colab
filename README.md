@@ -59,3 +59,5 @@ See the [NeqSim Colab page](https://colab.research.google.com/github/EvenSol/Neq
 
 Repository-wide notebook integrity is checked with `python scripts/check_notebook.py --all`. New main-source notebooks must additionally pass `python scripts/check_notebook.py PATH --require-main-source` after clean execution.
 
+
+* [Hydrocarbon phase evolution: NeqSim PVT to OPM Flow](notebooks/reservoir/hydrocarbon_phase_evolution_neqsim_opm.ipynb) — Companion to equinor/neqsim#4198: saturation-pressure temperature sensitivity, CME/CVD laboratory paths, an executed 300-cell black-oil reservoir, and a NeqSim surface process. Synthetic inputs; explicit limits on migration and compositional interpretation.
