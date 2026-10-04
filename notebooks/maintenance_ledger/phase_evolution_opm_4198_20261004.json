@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-10-04",
+  "notebooks": [
+    {
+      "path": "notebooks/reservoir/hydrocarbon_phase_evolution_neqsim_opm.ipynb",
+      "execution_status": "passed",
+      "code_cells": 29,
+      "validation_date": "2026-10-04",
+      "source_commit": "4a0c9b93218cd77c3137ee53cffcd83050d8dfca",
+      "related_issues": [
+        "https://github.com/equinor/neqsim/issues/4198"
+      ],
+      "engineering_validation": {
+        "integrated_checks_passed": 25,
+        "lab_checks": "phase-boundary bracketing, CME mole conservation, CVD withdrawal accounting, finite and monotonic results",
+        "data_basis": "synthetic; no experimental validation"
+      },
+      "visual_validation": {
+        "renderer": "nbconvert HTML + MathJax 3.2.2 SVG + Chromium headless 134",
+        "markdown_cells": 22,
+        "figures": 7,
+        "math_expressions": 17,
+        "status": "passed"
+      },
+      "documentation_impact": {
+        "updated": [
+          "README.md",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/reservoir/hydrocarbon_phase_evolution_neqsim_opm.ipynb"
+        ],
+        "assessment": "New PVT and reservoir coupling teaching notebook; assumptions and setup documented."
+      },
+      "execution": {
+        "method": "Fresh IPython process using scripts/execute_notebook_inprocess.py",
+        "opm_flow": "2026.04",
+        "python": "3.12.14",
+        "neqsim_python": "3.23.0",
+        "exit_code": 0,
+        "setup_limit": "Existing pinned source JAR and extracted Flow runtime reused; hosted-Colab installation branch not exercised."
+      },
+      "integrity_validation": {
+        "targeted_checker": "0 errors, one false-positive warning for Python regex delimiters",
+        "code": "AST, <=100-character lines, schema, execution counts and output retention checked",
+        "ci": "pending"
+      },
+      "improvement_assessment": "No new verified NeqSim library defect found. Research scope remains tracked by #4198."
+    }
+  ]
+}
