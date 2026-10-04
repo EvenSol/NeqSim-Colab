@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "shard": "phase-evolution-opm-4198-20261004",
+  "updated_at": "2026-10-04",
+  "notebooks": [
+    {
+      "path": "notebooks/reservoir/phase_evolution_neqsim_opm_4198.ipynb",
+      "verified_date": "2026-10-04",
+      "execution_status": "passed",
+      "code_cells": 19,
+      "markdown_cells": 13,
+      "execution_method": "Fresh isolated public-PyPI environment; all 19 code cells executed top-to-bottom by execute_notebook_inprocess.py in 17.3 seconds. All useful outputs retained; no error outputs or stderr. Exact source-built JAR supplied through documented environment overrides; Colab apt/source-download bootstrap was not executed inside Google Colab.",
+      "python_version": "3.12",
+      "java_version": "OpenJDK 17.0.20",
+      "neqsim_python_version": "3.23.0",
+      "neqsim_source_commit": "4a0c9b93218cd77c3137ee53cffcd83050d8dfca",
+      "jar_sha256": "77f98ddec383f36373402cc4bcadd7d4a73f10d93ce96e18bfde7af28eca5219",
+      "opm_flow_version": "2026.04",
+      "opm_python_version": "2026.4",
+      "runtime_provenance": "Source commit, SHA256, loaded class location and main-only MountainCavern class checked. Local Flow executed official SHA256-verified Ubuntu/PPA packages extracted into a user-local prefix.",
+      "git_blob_sha1": "ec4b773946fcaf7fd583dfa37ab7843367a9ae31",
+      "notebook_bytes": 702140,
+      "engineering_validation": {
+        "named_assertions_passed": 18,
+        "flashes_checked": 750,
+        "real_flow_cases": 2,
+        "reservoir_cells": 300,
+        "schedule_days": 1095.75
+      },
+      "result_summary": {
+        "issue": "https://github.com/equinor/neqsim/issues/4198",
+        "source_commit": "4a0c9b93218cd77c3137ee53cffcd83050d8dfca",
+        "jar_sha256": "77f98ddec383f36373402cc4bcadd7d4a73f10d93ce96e18bfde7af28eca5219",
+        "opm_flow": "flow 2026.04",
+        "synthetic_inputs": true,
+        "oil_bubble_pressure_bara": 193.24040031433105,
+        "condensate_dew_pressure_bara": 362.08080863952637,
+        "maximum_CVD_liquid_dropout_pct": 22.421465575834997,
+        "CVD_material_balance_passed": true,
+        "CVD_volume_relative_error": 1.2431167206727878e-12,
+        "passed_checks": 18,
+        "scenario_outcomes": [
+          {
+            "case": "Weak support",
+            "final_pressure_bara": 89.48109436035156,
+            "cumulative_oil_MSm3": 0.6694254875183105,
+            "peak_gas_thousand_Sm3_day": 581.6936645507812,
+            "final_water_Sm3_day": 44.18187713623047,
+            "first_average_bubble_crossing_day": 60.875
+          },
+          {
+            "case": "Strong support",
+            "final_pressure_bara": 145.7986297607422,
+            "cumulative_oil_MSm3": 0.7011089324951172,
+            "peak_gas_thousand_Sm3_day": 348.44915771484375,
+            "final_water_Sm3_day": 849.3673706054688,
+            "first_average_bubble_crossing_day": 121.75
+          }
+        ]
+      },
+      "known_upstream_issue": "https://github.com/equinor/neqsim/issues/4202",
+      "limitations": [
+        "Synthetic demonstration; not a numerical reproduction of Xu et al. 2025 or field-history match.",
+        "Equilibrium phase state does not model hydrocarbon generation, cracking or migration kinetics.",
+        "Black-oil export uses only live oil; fixed stock-gas composition, approximate oil viscosity and one undersaturated branch.",
+        "Grid uses explicit multiphase stability checking after default flash defect reproduced."
+      ],
+      "rendered_visual_validation": {
+        "renderer": "nbconvert HTML and Chromium headless; local MathJax 3 SVG typesetting",
+        "display_equations": 2,
+        "figures": 6,
+        "result": "passed",
+        "tables": 18
+      },
+      "publication": {
+        "branch": "notebooks/phase-evolution-opm-4198",
+        "mode": "draft pull request"
+      }
+    }
+  ]
+}
