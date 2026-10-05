@@ -1,39 +1,39 @@
 {
   "schema_version": 1,
   "shard": "co2-hydrate-drilling-fluids-20260908",
-  "updated_at": "2026-09-10T19:46:27Z",
+  "updated_at": "2026-10-05T15:03:41.708994+00:00",
   "notebooks": [
     {
       "path": "notebooks/flowassurance/co2_hydrate_brines_and_drilling_fluids.ipynb",
-      "verified_date": "2026-09-08",
-      "verified_at_utc": "2026-09-08T22:28:23Z",
-      "neqsim_version": "3.20.0 Python bridge; source-built Java runtime",
-      "neqsim_java_commit": "76f14ae079a7b1db1888203d20e11a6433774b4c",
-      "neqsim_jar_sha256": "cd501cdfb684ec5849aa304f1bb9da58b801198dd6c37bda78d389313794946c",
-      "python_version": "3.12.13",
+      "verified_date": "2026-10-05",
+      "verified_at_utc": "2026-10-05T15:03:41.708994+00:00",
+      "neqsim_version": "3.20.0 Python bridge; source-built Java 3.23.0 runtime",
+      "neqsim_java_commit": "f59810115c07d9a3ef479e55be45a5972963231d",
+      "neqsim_jar_sha256": "e26d9dd82e86d351fa58fe05e04801e2af6aebb17d19081c690736d924536f19",
+      "python_version": "3.12.14",
       "java_version": "17.0.20",
       "package_versions": {
         "neqsim": "3.20.0",
         "JPype1": "1.7.1",
-        "numpy": "2.5.3",
-        "pandas": "3.0.5",
-        "matplotlib": "3.11.1",
-        "scipy": "1.18.1"
+        "numpy": "2.3.5",
+        "pandas": "2.2.3",
+        "matplotlib": "3.10.8",
+        "scipy": "1.17.0"
       },
       "execution_status": "passed",
-      "execution_method": "All 20 code cells executed sequentially in a fresh in-process IPython namespace with scripts/execute_notebook_inprocess.py and a fresh isolated Python environment. The Java JAR was built locally from the recorded clean NeqSim master snapshot. Class origin and JAR hash were verified. All tables and seven PNG figures are retained; no stored exceptions or stderr streams. Execution was local, not hosted on the Colab service.",
-      "code_cells": 20,
-      "substantive_code_cells": 20,
-      "markdown_cells": 23,
-      "git_blob_sha1": "f66e74d5ca1e18222565776ba2fedced4f3059c4",
-      "notebook_bytes": 873836,
+      "execution_method": "All 21 code cells executed top to bottom in a fresh Python/IPython process and fresh JVM using scripts/execute_notebook_inprocess.py. Verified clean source-built JAR reused via NEQSIM_SOURCE_ROOT and NEQSIM_SOURCE_JAR; class origin and SHA-256 asserted. Every result-bearing output and all seven figures retained. Hosted Colab installation and remote source checkout were not exercised locally.",
+      "execution_seconds": 198.1,
+      "code_cells": 21,
+      "substantive_code_cells": 21,
+      "markdown_cells": 24,
+      "git_blob_sha1": "63693bce99487ebb1aab3eb953f6a22a5d11b35f",
+      "notebook_bytes": 898834,
       "publication": {
-        "branch": "codex/co2-hydrate-brines-drilling-fluids-20260908",
+        "branch": "codex/fix-kcl-hydrate-notebook-20261005",
         "mode": "focused draft pull request",
         "files": [
           "notebooks/flowassurance/co2_hydrate_brines_and_drilling_fluids.ipynb",
           "notebooks/examples_of_NeqSim_in_Colab.ipynb",
-          "notebooks/notebook_maintenance_ledger.json",
           "notebooks/maintenance_ledger/co2_hydrate_drilling_fluids_20260908.json"
         ]
       },
@@ -43,74 +43,93 @@
         "MEG inhibition, incoming CO2/CH4 composition and aqueous water activity",
         "Finite CO2 inventory and an unbuffered reactive CO2-NaCl aqueous example",
         "Pointwise phase-state, fugacity residual, component balance and charge diagnostics",
-        "Published-data benchmark and an explicitly synthetic mud-discrepancy fitting workflow"
+        "Published-data benchmark and an explicitly synthetic mud-discrepancy fitting workflow",
+        "10 wt% KCl at 11.3 bara and 2.805906013 mol CO2/kg water",
+        "Pressure/inventory phase classification and saturated-inventory independence",
+        "hydt kelvin return, structure-I overload and fresh-fluid comparison",
+        "Conservation against the original input inventory and structured solver diagnostics"
       ],
       "independent_validation": {
-        "source": "Burgass et al. (2023), Table 4, doi:10.2516/stet/2023005, CC BY 4.0",
         "doi": "10.2516/stet/2023005",
         "table": 4,
         "license": "CC BY 4.0",
         "points": 10,
-        "MAE_K": 0.14266259173620027,
-        "RMSE_K": 0.18623514999416388,
-        "interpretation": "Limited NaCl benchmark; no calibration or commercial-mud qualification."
+        "MAE_K": 0.1433749226550674,
+        "RMSE_K": 0.18699753103326525,
+        "source": "Burgass et al. (2023), Table 4, doi:10.2516/stet/2023005, CC BY 4.0",
+        "interpretation": "Limited NaCl benchmark; no KCl calibration or commercial-mud qualification."
       },
       "engineering_validation": {
-        "named_assertions_passed": 16,
+        "named_assertions_passed": 19,
         "assertions_failed": 0,
-        "checks": [
-          "All 36 principal curve attempts recorded",
-          "20, 50 and 100 bara controls accepted for every recipe",
-          "Accepted principal boundaries increase with pressure",
-          "Rejected points excluded from principal temperature table",
-          "NaCl concentration depresses each curve",
-          "MEG depresses both pressure cases",
-          "Water activities finite and in (0,1]",
-          "Component inventory error below 1e-8",
-          "Aqueous charge error below 1e-8",
-          "Ions confined to aqueous phase",
-          "Reactive carbon error below 1e-6 mol",
-          "Starting-temperature spread below 0.002 K",
-          "All ten published points calculated",
-          "No pressure-level leakage in fitting",
-          "High-pressure suspect state rejected",
-          "Unbalanced NaCl-CaCl2 state rejected"
-        ],
         "principal_curve_attempts": 36,
-        "principal_curve_accepted": 35,
-        "all_hydrate_attempts": 68,
-        "accepted_hydrate_attempts": 65,
-        "max_accepted_component_error": 9.0427665355719e-13,
-        "max_accepted_charge_error": 5.106201458159162e-12,
-        "max_accepted_absolute_hydrate_residual": 8.903608175181432e-7
+        "principal_curve_accepted": 36,
+        "all_hydrate_attempts": 85,
+        "accepted_hydrate_attempts": 85,
+        "max_accepted_component_error": 5.379030554308883e-14,
+        "max_accepted_original_feed_error": 5.380506159803984e-14,
+        "max_accepted_charge_error": 5.096317915411774e-12,
+        "max_accepted_absolute_hydrate_residual": 9.782797104618268e-07,
+        "kcl_regression": {
+          "pressure_bara": 11.3,
+          "salt_wt_percent_water_plus_salt": {
+            "KCl": 10.0
+          },
+          "co2_mol_per_kg_water": 2.805906013,
+          "hydrate_temperature_c": -2.5456589399638005,
+          "phase_state": "GAS+AQUEOUS",
+          "pressure_inventory_cases": 16,
+          "saturated_inventory_spread_limit_K": 0.005,
+          "hydt_agreement_limit_K": 0.002,
+          "undersaturated_handling": "Single-aqueous roots are separate finite-inventory screens.",
+          "original_source_probe": "Exact September source 76f14ae079a7b1db1888203d20e11a6433774b4c did not return within a 90-second external process deadline; exit 124. Bundled Python-bridge 3.20.0 JAR also exceeded a separate 60-second deadline."
+        }
       },
       "rendered_visual_validation": {
-        "renderer": "nbconvert 7.17.1 HTML; MathJax 3.2.2 SVG; WeasyPrint PDF inspection",
+        "renderer": "nbconvert 7.17.1 HTML; MathJax 3.2.2 SVG; WeasyPrint 70 PDF and Poppler PNG",
         "display_equations_inspected": 7,
         "inline_equations_inspected": 19,
         "figures_inspected": 7,
         "result": "passed",
-        "notes": "All Markdown, tables, equations and retained figures were inspected after final execution. Units, legends, formula symbols, rejection gaps, synthetic-data labels and result consistency passed. The new catalog entry was rendered and inspected."
+        "notes": "All Markdown and result cells inspected; equations, figures, units, legends and tables checked. Diagnostic column width and scientific number display avoid truncated check labels and residuals rounded to apparent zero."
       },
       "repository_validation": {
         "checker_unit_tests": "6 passed",
-        "scope": "Focused source-provenance and executed-output checker using the new ledger shard; catalog links checked against the authoritative base GitHub tree plus the new notebook. Existing 297 ledger entries remain unchanged; active count becomes 298. Full repository --all validation is delegated to the existing GitHub CI workflow."
+        "focused_checker": "0 errors, 0 warnings; strict execution and --require-main-source",
+        "scope": "Focused ledger/output/provenance checker with a catalog containing the exact changed link. Existing catalog target set unchanged. Repository-wide integrity and full catalog resolution run in the existing GitHub CI workflow.",
+        "source_checks": "AST, notebook schema, <=100-character code lines, retained outputs, Colab math passed",
+        "pre_commit": "No .pre-commit-config.yaml on the inspected Colab base; workflow runs notebook checker.",
+        "ci": "pending"
       },
-      "documentation_impact": "Adds a direct relative link under Flow assurance in examples_of_NeqSim_in_Colab.ipynb. Explains Apache 2.0 use and the boundary between dissolved-phase modelling and whole drilling-fluid qualification. No NeqSim Java API, parameter or default changes.",
+      "documentation_impact": "Updates source-pin/restart guidance, KCl pressure/inventory teaching, hydt kelvin and overload explanation, repaired historical defect examples, diagnostics and CSV export. Catalog entry and this ledger updated. No Java API, salt/hydrate parameters or library implementation changed.",
       "issue_handling": [
         {
           "url": "https://github.com/equinor/neqsim/issues/3584",
-          "handling": "Rejected 40 bara / 10 wt% NaCl and 200 bara / 10 wt% NaCl phase states. Single-aqueous finite-inventory results are separate unqualified screens."
+          "handling": "Existing phase-selection repair used; 40/200 bara and KCl controls retested."
         },
         {
           "url": "https://github.com/equinor/neqsim/issues/3585",
-          "handling": "Rejected NaCl-CaCl2 state with CO2/water inventory imbalance; main mixed curve uses a passing NaCl-KCl control."
+          "handling": "Existing inventory repair used; NaCl-CaCl2 feed passes original-feed conservation."
         }
       ],
-      "editorial_update": {
-        "date": "2026-09-10",
-        "scope": "Remove project-specific framing; add general learning objectives, Colab execution steps and practice tasks. Update catalog and PR description.",
-        "validation": "Eight Markdown cells changed. All 20 executable cells, execution counts and saved outputs are identical to the verified 2026-09-08 run; numerical execution evidence is reused. Existing equations and figures are unchanged. Changed instructional sections rendered and inspected; notebook schema and focused integrity checker passed."
+      "improvement_assessment": "Reported hang reproduced on the stale September pin and resolved by existing current source fixes. No distinct new NeqSim library defect reproduced; no duplicate issue filed.",
+      "previous_validation": {
+        "source_commit": "76f14ae079a7b1db1888203d20e11a6433774b4c",
+        "validation_date": "2026-09-08",
+        "code_cells": 20,
+        "independent_validation": {
+          "source": "Burgass et al. (2023), Table 4, doi:10.2516/stet/2023005, CC BY 4.0",
+          "doi": "10.2516/stet/2023005",
+          "table": 4,
+          "license": "CC BY 4.0",
+          "points": 10,
+          "MAE_K": 0.14266259173620027,
+          "RMSE_K": 0.18623514999416388,
+          "interpretation": "Limited NaCl benchmark; no calibration or commercial-mud qualification."
+        },
+        "principal_curve_attempts": 36,
+        "principal_curve_accepted": 35,
+        "note": "Historical evidence; superseded by clean execution of the updated source pin."
       }
     }
   ]
