@@ -50,6 +50,8 @@ Advanced notebooks use JPype directly or through the Python distribution. They c
 * [Seismic acquisition to RMS-ready subsurface inputs](notebooks/reservoir/seismic_to_rms_input_workflow.ipynb) – Calculate CMP moveout and stacking, interpret public Reek seismic and wells, validate horizons and faults, screen seismic attributes, and export a checked RMS import package.
 * [RMS-origin reservoir to OPM Flow, ERT, and NeqSim](notebooks/reservoir/rms_to_opm_flow_agent_ert.ipynb) – Audit public Reek ROFF exports, demonstrate blocking and property spreading, run OPM Flow and ERT, and define a governed RMS-agent contract.
 
+* [Subsea-to-shore hydraulic design and response surfaces](notebooks/fluidflow/subsea_to_shore_response_surface_4253.ipynb) — Version 1.0.0, companion to equinor/neqsim#4253: 86 executed synthetic rate cases, Beggs–Brill/TwoFluidPipe comparison, held-out RSM qualification, mesh checks, a public-data adapter, and the verified flow-solve defect #4258. Source-pinned NeqSim master; results are retained inline.
+
 ## Getting Started
 See the [NeqSim Colab page](https://colab.research.google.com/github/EvenSol/NeqSim-Colab/blob/master/notebooks/examples_of_NeqSim_in_Colab.ipynb) for how to start using NeqSim in Colab/Python.
 
@@ -60,3 +62,4 @@ Repository-wide notebook integrity is checked with `python scripts/check_noteboo
 
 
 * [Hydrocarbon phase evolution: NeqSim PVT to OPM Flow](notebooks/reservoir/hydrocarbon_phase_evolution_neqsim_opm.ipynb) — Companion to equinor/neqsim#4198: saturation-pressure temperature sensitivity, CME/CVD laboratory paths, an executed 300-cell black-oil reservoir, and a NeqSim surface process. Synthetic inputs; explicit limits on migration and compositional interpretation.
+

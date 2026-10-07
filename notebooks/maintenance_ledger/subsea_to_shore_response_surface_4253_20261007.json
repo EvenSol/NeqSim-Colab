@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-10-07",
+  "notebooks": [
+    {
+      "path": "notebooks/fluidflow/subsea_to_shore_response_surface_4253.ipynb",
+      "execution_status": "passed",
+      "code_cells": 15,
+      "validation_date": "2026-10-07",
+      "source_commit": "1768fc1fec78ff974fe9ff4232582f09ed504686",
+      "source_jar_sha256": "c9ca3a016a9b1e524e53e22e2ff9bb0b8fc98ef629df566e261ec5a3c084f9c8",
+      "related_issues": [
+        "https://github.com/equinor/neqsim/issues/4253",
+        "https://github.com/equinor/neqsim/issues/4258",
+        "https://github.com/equinor/neqsim/issues/2907",
+        "https://github.com/equinor/neqsim/issues/4228",
+        "https://github.com/equinor/neqsim/issues/3298"
+      ],
+      "engineering_validation": {
+        "hydraulic_roots": 86,
+        "training_designs_per_model": 27,
+        "held_out_designs_per_model": 16,
+        "checks": {
+          "source_and_class_location_verified": true,
+          "86_converged_hydraulic_roots": true,
+          "receiving_pressure_residual_qualified": true,
+          "mass_balance_qualified": true,
+          "single_liquid_Darcy_limit_within_15pct": true,
+          "baseline_30_to_60_mesh_rate_within_3pct": true,
+          "all_surrogate_predictions_positive": true,
+          "out_of_domain_fallback_verified": true,
+          "native_flow_iteration_defect_reproduced": true,
+          "no_experimental_accuracy_claim": true
+        },
+        "data_basis": "Synthetic methane/decane; no experimental accuracy validation",
+        "metrics": [
+          {
+            "model": "PipeBeggsAndBrills",
+            "surrogate": "quadratic",
+            "MAE_kg_s": 1.2184734077353012,
+            "MAPE_pct": 3.8430859028461244,
+            "max_relative_error_pct": 11.651558293580367,
+            "minimum_prediction_kg_s": 15.134350951513966
+          },
+          {
+            "model": "PipeBeggsAndBrills",
+            "surrogate": "physics-informed",
+            "MAE_kg_s": 0.09960390773485572,
+            "MAPE_pct": 0.21382231758902337,
+            "max_relative_error_pct": 0.5219953859960703,
+            "minimum_prediction_kg_s": 13.967951244093472
+          },
+          {
+            "model": "TwoFluidPipe",
+            "surrogate": "quadratic",
+            "MAE_kg_s": 1.6050611641125843,
+            "MAPE_pct": 4.766937484878066,
+            "max_relative_error_pct": 15.038090643660587,
+            "minimum_prediction_kg_s": 16.53046593869791
+          },
+          {
+            "model": "TwoFluidPipe",
+            "surrogate": "physics-informed",
+            "MAE_kg_s": 0.2839253847517623,
+            "MAPE_pct": 0.7362376039481943,
+            "max_relative_error_pct": 2.165412836619108,
+            "minimum_prediction_kg_s": 15.30231320298312
+          }
+        ],
+        "model_rate_difference_max_pct": 16.15464595296976,
+        "pressure_residual_max_bar": 7.9e-05,
+        "baseline_mesh_30_to_60_rate_difference_pct": {
+          "PipeBeggsAndBrills": 0.09612,
+          "TwoFluidPipe": 0.98509
+        }
+      },
+      "visual_validation": {
+        "status": "passed",
+        "renderer": "nbconvert classic HTML + MathJax 3.2.2 SVG + WeasyPrint 70.0 paginated QA",
+        "markdown_cells": 12,
+        "figures": 3,
+        "math_expressions": 16,
+        "coverage": "Every Markdown cell, result-bearing cell, equation, table and plot",
+        "paginated_qa_pages": 13
+      },
+      "execution": {
+        "method": "Fresh IPython process, scripts/execute_notebook_inprocess.py",
+        "python": "3.12.14",
+        "java": "17.0.20",
+        "packages": {
+          "neqsim": "3.23.0",
+          "jpype1": "1.7.1",
+          "numpy": "2.5.3",
+          "pandas": "3.0.6",
+          "matplotlib": "3.11.2",
+          "scipy": "1.18.1",
+          "scikit-learn": "1.9.1"
+        },
+        "setup_limit": "Hosted-Colab download/build route not exercised; exact source-built JAR used locally",
+        "exit_code": 0,
+        "runs": "Three clean top-to-bottom runs; final numerical targets reproduce earlier runs"
+      },
+      "integrity_validation": {
+        "scope": "Target notebook, checker unit tests and complete catalog target graph",
+        "repository_wide_scan": "Pending GitHub CI; historical notebooks were not downloaded locally",
+        "catalog_relative_targets_verified": 329,
+        "readability_and_math": "AST, <=100-character code lines, no compressed statements, compact single-backslash Colab math",
+        "notebook_schema": "passed",
+        "checker_unit_tests": "6 passed",
+        "targeted_main_source_checker": "passed"
+      },
+      "documentation_impact": {
+        "updated": [
+          "README.md",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ],
+        "assessment": "New source-pinned hydraulic/RSM teaching notebook; setup, assumptions, limitations and upstream evidence documented"
+      },
+      "improvement_assessment": "Verified flow-solve exhaustion defect filed as #4258. Experimental multiphase validation, common network evidence and transient qualification reference existing #2907/#4228/#3298. #4253 remains open pending paper/public numerical data.",
+      "source_validation_tests": {
+        "TwoFluidPipeSteadyStateConvergenceTest": {
+          "tests": 5,
+          "failures": 0,
+          "errors": 0
+        },
+        "PipeBeggsAndBrillsBoundaryTest": {
+          "tests": 1,
+          "failures": 0,
+          "errors": 0
+        }
+      },
+      "validation_commands": [
+        {
+          "command": "Maven -DskipTests -Dmaven.javadoc.skip=true package",
+          "exit_code": 0
+        },
+        {
+          "command": "Maven -Dtest=TwoFluidPipeSteadyStateConvergenceTest,PipeBeggsAndBrillsBoundaryTest test",
+          "exit_code": 0
+        },
+        {
+          "command": "scripts/execute_notebook_inprocess.py (15 code cells, source-built JAR)",
+          "exit_code": 0
+        },
+        {
+          "command": "python -m unittest discover -s scripts -p test_check_notebook.py",
+          "exit_code": 0
+        }
+      ]
+    }
+  ]
+}
