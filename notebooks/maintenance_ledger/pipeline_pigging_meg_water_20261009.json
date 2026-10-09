@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "shard": "pipeline-pigging-meg-water-20261009",
+  "updated_at": "2026-10-09",
+  "notebooks": [
+    {
+      "path": "notebooks/flowassurance/pipeline_startup_after_pigging_meg_water.ipynb",
+      "verified_date": "2026-10-09",
+      "neqsim_version": "3.23.0 source-built master",
+      "neqsim_java_commit": "ea7d61ac1cbfc4b25689a4e81406a7bef248ae64",
+      "neqsim_jar_sha256": "d110e7f8b0b620d488c6e2aa0881b69ad5dbf6f350016975dbd92b4d2482904f",
+      "python_version": "3.12.14",
+      "java_version": "17.0.20",
+      "execution_status": "passed",
+      "code_cells": 12,
+      "markdown_cells": 9,
+      "git_blob_sha1": "1ffd62b5628fd5040b1a22110be670fb89b5b000",
+      "notebook_bytes": 702853,
+      "execution_method": "12 code cells, clean isolated verified-wheel environment, fresh IPython process; source-built current-master JAR and class-origin/hash assertions. No stored exceptions or stderr. Final execution 80.3 seconds.",
+      "environment_resolution": "Verified public-PyPI wheel snapshot reused; hashes checked, fresh /tmp/pigging-validation environment created; no live package-index resolution claimed.",
+      "engineering_validation": {
+        "result": "passed",
+        "checks": [
+          "CPA phase fugacity consistency",
+          "component conservation including gas accumulation and cumulative net export",
+          "nonnegative inventories within stated numerical mass tolerance",
+          "dilute-species gas bound",
+          "analytical no-transfer gas-advection response",
+          "MEG saturated-vapor-capacity lower bound",
+          "40/80 cell refinement",
+          "solver tolerance and area-taper sensitivity",
+          "film thickness, gas flow and mass-transfer coefficient sensitivity"
+        ],
+        "results": {
+          "provenance": {
+            "source_repository": "https://github.com/equinor/neqsim",
+            "requested_ref": "master",
+            "source_commit": "ea7d61ac1cbfc4b25689a4e81406a7bef248ae64",
+            "jar_sha256": "d110e7f8b0b620d488c6e2aa0881b69ad5dbf6f350016975dbd92b4d2482904f",
+            "java": "17.0.20",
+            "python": "3.12.14",
+            "packages": {
+              "neqsim": "3.23.0",
+              "numpy": "2.5.3",
+              "scipy": "1.18.1",
+              "pandas": "3.0.6",
+              "matplotlib": "3.11.2"
+            }
+          },
+          "inputs": {
+            "length_m": 10000.0,
+            "diameter_m": 0.3,
+            "temperature_C": 5.0,
+            "pressure_bara": 70.0,
+            "film_thickness_um": 100.0,
+            "initial_meg_mass_fraction": 0.99,
+            "gas_flow_Sm3_day": 1000000.0,
+            "water_dew_point_C": -18.0,
+            "dew_point_pressure_bara": 70.0,
+            "gas_composition": [
+              [
+                "methane",
+                1.0
+              ]
+            ],
+            "water_diffusivity_ref": 2e-05,
+            "meg_diffusivity_ref": 1e-05,
+            "mass_transfer_multiplier": 1.0,
+            "cells": 40,
+            "relative_tolerance": 2e-06,
+            "completion_fraction": 0.0001,
+            "patch_fraction": 1e-06,
+            "maximum_days": 3650.0
+          },
+          "completion_reached": true,
+          "completion_days": 644.2631520518922,
+          "retained_residue_kg": 0.0026263696801756596,
+          "dew_point_reference_bara": 70.0,
+          "peak_water_mass_kg": 82.59724885147654,
+          "water_balance_residual_kg": 1.6134517720520308e-08,
+          "meg_balance_residual_kg": 4.687861640559277e-09,
+          "spatial_refinement_change_fraction": 2.581126383294219e-06,
+          "solver_tolerance_change_fraction": 2.5386313051711795e-09,
+          "taper_change_fraction": 8.2646604671055e-08,
+          "capacity_lower_bound_days": 504.5128650094197,
+          "validation_level": "CPA equilibrium, analytical limits, conservation and numerical refinement",
+          "field_drying_validation": false
+        },
+        "absolute_field_drying_validation": false
+      },
+      "rendered_visual_validation": {
+        "renderer": "nbconvert 7.17.1 Jupyter HTML; MathJax 3 SVG rendering of every math expression; WeasyPrint/Poppler raster review; original stored Matplotlib PNG inspection",
+        "mathematical_expressions": 29,
+        "figures_inspected": 6,
+        "result": "passed",
+        "coverage": "All 9 Markdown cells and all result-bearing outputs; equations, six figures and all numerical/provenance tables. Source inspected for readability and compact Colab math. Catalog is six Markdown cells with no code; new catalog entry and all 329 relative notebook targets checked against authoritative remote tree."
+      },
+      "documentation_impact": "New user-facing model, assumptions, source setup, numerical/physical limitations, inputs/units and validation documented in notebook; README and examples catalog updated; ledger index count incremented.",
+      "known_upstream_issues": [
+        "https://github.com/equinor/neqsim/issues/4281"
+      ],
+      "publication": {
+        "branch": "agent/pipeline-pigging-meg-water-drying",
+        "mode": "draft pull request"
+      },
+      "checks": [
+        "python -m unittest discover -s scripts -p test_check_notebook.py: 6 passed",
+        "scripts/check_notebook.py target --require-main-source with focused ledger/catalog: passed",
+        "All 329 catalog relative links resolved against current remote tree plus new notebook",
+        "Python AST, <=100-character code lines, compact single-backslash Colab math: passed",
+        "Repository-wide notebook integrity CI: pending publication"
+      ]
+    }
+  ]
+}
