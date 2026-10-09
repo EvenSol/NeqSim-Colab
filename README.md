@@ -60,3 +60,8 @@ Repository-wide notebook integrity is checked with `python scripts/check_noteboo
 
 
 * [Hydrocarbon phase evolution: NeqSim PVT to OPM Flow](notebooks/reservoir/hydrocarbon_phase_evolution_neqsim_opm.ipynb) — Companion to equinor/neqsim#4198: saturation-pressure temperature sensitivity, CME/CVD laboratory paths, an executed 300-cell black-oil reservoir, and a NeqSim surface process. Synthetic inputs; explicit limits on migration and compositional interpretation.
+
+
+### Pipeline startup after pigging
+
+The [MEG/water residual-film drying notebook](notebooks/flowassurance/pipeline_startup_after_pigging_meg_water.ipynb) follows a 99/1 wt% MEG/water film in a 10 km pipeline at 5 °C with gas specified by a −18 °C water dew point at 70 bara. Editable geometry, film thickness and gas flow connect NeqSim CPA equilibrium to a conservative time-dependent film/gas model. Stored outputs include water absorption, slow MEG removal, outlet water dew point, spatial profiles, gas consumption, and refinement/sensitivity checks. Practical completion uses an explicit residual threshold; the duration is an illustrative prediction rather than an experimentally qualified field dry-out time.
