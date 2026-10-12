@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "notebooks": [
+    {
+      "path": "notebooks/PVT/water_in_mineral_lubricating_oils.ipynb",
+      "version": "1.0.0",
+      "execution_status": "passed",
+      "code_cells": 12,
+      "updated_at": "2026-10-12",
+      "neqsim_source_commit": "9b1366b6d3f3a8f1b170fbd0c623692fa5252a1a",
+      "source_jar_sha256": "2519d82d3b1f41f63ffa885d37efa4a73fcaa903c104522d057623ecbd7f7719",
+      "validation": "Fresh Python 3.12.14 environment; repository in-process runner; Java 17.0.20; all outputs retained. CPA/SRK phase coexistence, fugacity equality, component balances, excess-water independence, held-out comparison and input checks passed.",
+      "rendered_visual_validation": "nbconvert basic HTML, MathJax 3 SVG (23 expressions, zero errors), WeasyPrint visual inspection of every cell/table/equation and all five original figures.",
+      "experimental_provenance": "NACA RM E52D24 Table III and Fig.4(a); Al Sheikh Omar et al. 2024 Table 2. Digitized points, table measurements, correlations and hypothetical characterizations labelled separately.",
+      "limitations": "Unknown molecular characterization for historical paraffin oil; coarse digitization; no matched-pressure high-temperature EOS validation; formulated oil is an operational comparator, not neat-mineral-oil validation.",
+      "documentation_impact": "New notebook linked in README and examples catalog; dedicated ledger shard and index count updated.",
+      "neqsim_improvements": "No library defect established: no new issue filed for hypothetical oil characterization or unsupported additive physics."
+    }
+  ]
+}
