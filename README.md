@@ -1,4 +1,4 @@
-# Introduction to Gas Processing using NeqSim in Colab
+# Introduction to Oil and Gas Value Chain Modelling using NeqSim
 This GitHub repository is the code and notebook base for the web module [Introduction to Gas Processing using NeqSim in Colab](/notebooks/examples_of_NeqSim_in_Colab.ipynb).
 
 NeqSim Python/Colab is part of the [NeqSim project](https://equinor.github.io/neqsimhome/). NeqSim (Non-Equilibrium Simulator) is a Java library for estimation of fluid behavior and process design. The basis for NeqSim is a library of fundamental mathematical models related to phase behavior and physical properties of fluids.
@@ -8,6 +8,8 @@ Advanced notebooks use JPype directly or through the Python distribution. They c
 [NeqSim (Non-Equilibrium Simulator)](https://equinor.github.io/neqsimhome/) is a library for estimation of fluid behaviour for oil and gas production. Colaboratory (Colab) is a free Jupyter notebook environment that requires no setup and runs entirely in the cloud. In the notebooks listed in this page you will find examples of typical gas processing calculations using NeqSim in Colab, and will serve both as introduction to natural gas processing and to interactive use of NeqSim in a Python based notebook. The notebooks serves as a theoretical introduction and as a simulation tool for many processes found in the gas industry.
 
 ## Featured notebooks
+
+* [Water solubility in mineral lubricating oils](notebooks/PVT/water_in_mineral_lubricating_oils.ipynb) – Experimental paraffin and lubricating-oil evidence, a formulated engine-oil comparator, source-pinned CPA/SRK screening of four assumed mineral oils, held-out comparison, pressure sensitivity and cooling water release. Version 1.0.0; executed tables and five saved figures.
 
 * [Lithium perovskite hydrides: ASE, molecular DFT and NeqSim](notebooks/hydrogen/lithium_perovskite_hydrides_ase_neqsim.ipynb) – Reconstruct theoretical capacities from published crystal structures, run a small PySCF H₂ reference calculation, and screen pressure-dependent desorption using source-pinned NeqSim hydrogen fugacity. Includes stored numerical results, a figure, and explicit limits for the paper's unresolved temperature discrepancy and unknown solid reaction products.
 
@@ -61,3 +63,4 @@ Repository-wide notebook integrity is checked with `python scripts/check_noteboo
 
 
 * [Hydrocarbon phase evolution: NeqSim PVT to OPM Flow](notebooks/reservoir/hydrocarbon_phase_evolution_neqsim_opm.ipynb) — Companion to equinor/neqsim#4198: saturation-pressure temperature sensitivity, CME/CVD laboratory paths, an executed 300-cell black-oil reservoir, and a NeqSim surface process. Synthetic inputs; explicit limits on migration and compositional interpretation.
+

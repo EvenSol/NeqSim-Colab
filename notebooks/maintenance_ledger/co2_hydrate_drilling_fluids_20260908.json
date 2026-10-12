@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
   "shard": "co2-hydrate-drilling-fluids-20260908",
-  "updated_at": "2026-10-05T15:03:41.708994+00:00",
+  "updated_at": "2026-10-05T21:20:53.534087+00:00",
   "notebooks": [
     {
       "path": "notebooks/flowassurance/co2_hydrate_brines_and_drilling_fluids.ipynb",
       "verified_date": "2026-10-05",
-      "verified_at_utc": "2026-10-05T15:03:41.708994+00:00",
+      "verified_at_utc": "2026-10-05T21:20:53.534087+00:00",
       "neqsim_version": "3.20.0 Python bridge; source-built Java 3.23.0 runtime",
       "neqsim_java_commit": "f59810115c07d9a3ef479e55be45a5972963231d",
       "neqsim_jar_sha256": "e26d9dd82e86d351fa58fe05e04801e2af6aebb17d19081c690736d924536f19",
@@ -21,15 +21,15 @@
         "scipy": "1.17.0"
       },
       "execution_status": "passed",
-      "execution_method": "All 21 code cells executed top to bottom in a fresh Python/IPython process and fresh JVM using scripts/execute_notebook_inprocess.py. Verified clean source-built JAR reused via NEQSIM_SOURCE_ROOT and NEQSIM_SOURCE_JAR; class origin and SHA-256 asserted. Every result-bearing output and all seven figures retained. Hosted Colab installation and remote source checkout were not exercised locally.",
-      "execution_seconds": 198.1,
-      "code_cells": 21,
-      "substantive_code_cells": 21,
-      "markdown_cells": 24,
-      "git_blob_sha1": "63693bce99487ebb1aab3eb953f6a22a5d11b35f",
-      "notebook_bytes": 898834,
+      "execution_method": "All 24 code cells executed in order in a fresh Python/IPython process and JVM. Immutable source checkout and previously source-built JAR were verified against the existing SHA-256 and source files; class origin asserted. Every result, nine plots, and 110 experimental endpoints retained. Hosted Colab install/build was not rerun locally.",
+      "execution_seconds": 253.4,
+      "code_cells": 24,
+      "substantive_code_cells": 24,
+      "markdown_cells": 26,
+      "git_blob_sha1": "5ff70f3731d2c6be04496f84b4a5e5ede4375245",
+      "notebook_bytes": 1435071,
       "publication": {
-        "branch": "codex/fix-kcl-hydrate-notebook-20261005",
+        "branch": "codex/hydrate-dholabhai-comparison-20261005",
         "mode": "focused draft pull request",
         "files": [
           "notebooks/flowassurance/co2_hydrate_brines_and_drilling_fluids.ipynb",
@@ -47,7 +47,8 @@
         "10 wt% KCl at 11.3 bara and 2.805906013 mol CO2/kg water",
         "Pressure/inventory phase classification and saturated-inventory independence",
         "hydt kelvin return, structure-I overload and fresh-fluid comparison",
-        "Conservation against the original input inventory and structured solver diagnostics"
+        "Conservation against the original input inventory and structured solver diagnostics",
+        "Independent pure-water, single-salt and binary-brine hydrate comparison against 110 Dholabhai (1993) endpoints with numerical diagnostics and family/recipe residuals"
       ],
       "independent_validation": {
         "doi": "10.2516/stet/2023005",
@@ -60,12 +61,12 @@
         "interpretation": "Limited NaCl benchmark; no KCl calibration or commercial-mud qualification."
       },
       "engineering_validation": {
-        "named_assertions_passed": 19,
+        "named_assertions_passed": 22,
         "assertions_failed": 0,
         "principal_curve_attempts": 36,
         "principal_curve_accepted": 36,
-        "all_hydrate_attempts": 85,
-        "accepted_hydrate_attempts": 85,
+        "all_hydrate_attempts": 197,
+        "accepted_hydrate_attempts": 197,
         "max_accepted_component_error": 5.379030554308883e-14,
         "max_accepted_original_feed_error": 5.380506159803984e-14,
         "max_accepted_charge_error": 5.096317915411774e-12,
@@ -86,12 +87,12 @@
         }
       },
       "rendered_visual_validation": {
-        "renderer": "nbconvert 7.17.1 HTML; MathJax 3.2.2 SVG; WeasyPrint 70 PDF and Poppler PNG",
-        "display_equations_inspected": 7,
-        "inline_equations_inspected": 19,
-        "figures_inspected": 7,
+        "renderer": "nbconvert HTML, MathJax 3.2.2 SVG, WeasyPrint PDF and Poppler PNG",
+        "display_equations_inspected": 8,
+        "inline_equations_inspected": 24,
+        "figures_inspected": 9,
         "result": "passed",
-        "notes": "All Markdown and result cells inspected; equations, figures, units, legends and tables checked. Diagnostic column width and scientific number display avoid truncated check labels and residuals rounded to apparent zero."
+        "notes": "Every Markdown/result cell inspected; all equations, tables, plots and units checked. Catalog text fully rendered and inspected; scientific figures inspected individually."
       },
       "repository_validation": {
         "checker_unit_tests": "6 passed",
@@ -101,7 +102,7 @@
         "pre_commit": "No .pre-commit-config.yaml on the inspected Colab base; workflow runs notebook checker.",
         "ci": "pending"
       },
-      "documentation_impact": "Updates source-pin/restart guidance, KCl pressure/inventory teaching, hydt kelvin and overload explanation, repaired historical defect examples, diagnostics and CSV export. Catalog entry and this ledger updated. No Java API, salt/hydrate parameters or library implementation changed.",
+      "documentation_impact": "Adds Dholabhai measured recipes, complete supported-point comparison, family/per-recipe metrics, two figures, matched K10 concentration/inventory controls, experimental uncertainty and model-discrepancy discussion, CSV exports and citation. Catalog and this ledger updated. No Java API or model parameters changed.",
       "issue_handling": [
         {
           "url": "https://github.com/equinor/neqsim/issues/3584",
@@ -110,9 +111,13 @@
         {
           "url": "https://github.com/equinor/neqsim/issues/3585",
           "handling": "Existing inventory repair used; NaCl-CaCl2 feed passes original-feed conservation."
+        },
+        {
+          "url": "https://github.com/equinor/neqsim/issues/4234",
+          "handling": "Dedicated empirical accuracy follow-up; no fitting in this comparison."
         }
       ],
-      "improvement_assessment": "Reported hang reproduced on the stale September pin and resolved by existing current source fixes. No distinct new NeqSim library defect reproduced; no duplicate issue filed.",
+      "improvement_assessment": "KCl model-accuracy limitation documented in equinor/neqsim#4234 under #3144; not a recurrence of the numerical hang. No model fitted to this paper.",
       "previous_validation": {
         "source_commit": "76f14ae079a7b1db1888203d20e11a6433774b4c",
         "validation_date": "2026-09-08",
@@ -130,7 +135,375 @@
         "principal_curve_attempts": 36,
         "principal_curve_accepted": 35,
         "note": "Historical evidence; superseded by clean execution of the updated source pin."
-      }
+      },
+      "neqsim_java_master_inspected": "17c0beca5a5ca53401fa214c2a542892e5a6a467",
+      "master_comparison": "No thermo, hydrate flash, electrolyte or database changes from tested pin.",
+      "dholabhai_validation": {
+        "doi": "10.1021/je00012a045",
+        "tables": [
+          "I",
+          "III",
+          "IV"
+        ],
+        "source": "User-supplied paper; manually transcribed numerical endpoints",
+        "points": 110,
+        "compared": 110,
+        "excluded": "Five synthetic seawater points: recipe outside the three-salt builder",
+        "family_metrics": [
+          {
+            "Family": "Pure water",
+            "Measured": 4,
+            "Compared": 4,
+            "Bias [K]": 0.3639718239515872,
+            "MAE [K]": 0.3639718239515872,
+            "RMSE [K]": 0.3830125365504527,
+            "Max absolute error [K]": 0.5243938347231278
+          },
+          {
+            "Family": "NaCl",
+            "Measured": 25,
+            "Compared": 25,
+            "Bias [K]": 0.15801747910150651,
+            "MAE [K]": 0.2647777588608801,
+            "RMSE [K]": 0.32486187038181336,
+            "Max absolute error [K]": 0.7773410951842266
+          },
+          {
+            "Family": "KCl",
+            "Measured": 21,
+            "Compared": 21,
+            "Bias [K]": 1.7411253670351812,
+            "MAE [K]": 1.7411253670351812,
+            "RMSE [K]": 2.685081832407701,
+            "Max absolute error [K]": 6.729003869912958
+          },
+          {
+            "Family": "CaCl2",
+            "Measured": 21,
+            "Compared": 21,
+            "Bias [K]": 0.4448687376450569,
+            "MAE [K]": 0.47048312904848627,
+            "RMSE [K]": 0.7608002512078572,
+            "Max absolute error [K]": 2.145490223592219
+          },
+          {
+            "Family": "NaCl + KCl",
+            "Measured": 17,
+            "Compared": 17,
+            "Bias [K]": 0.05710972524584309,
+            "MAE [K]": 0.7451141124244901,
+            "RMSE [K]": 0.9997587971638354,
+            "Max absolute error [K]": 1.7640223174028051
+          },
+          {
+            "Family": "NaCl + CaCl2",
+            "Measured": 22,
+            "Compared": 22,
+            "Bias [K]": -0.01524452654061034,
+            "MAE [K]": 0.37705945714725947,
+            "RMSE [K]": 0.5105665176898994,
+            "Max absolute error [K]": 1.186529079953857
+          }
+        ],
+        "parameters_fitted": false,
+        "accuracy_follow_up": "https://github.com/equinor/neqsim/issues/4234",
+        "recipe_count": 28,
+        "excluded_seawater_points": 5,
+        "original_units": {
+          "temperature": "K",
+          "pressure": "MPa"
+        },
+        "pressure_basis": "absolute: corrected gauge reading plus atmosphere in the paper",
+        "salt_basis": "mass percent of water plus all dissolved salts, Table I actual values",
+        "paper_sha256": "229d7d6a011d2bc63dc2d56ec84af7ab1942511ceacd71f6206f7a62b8014765",
+        "access_conditions": "User-supplied ACS copyrighted paper; factual numerical transcription. No paper pages, figures or PDF redistributed.",
+        "recipe_metrics": [
+          {
+            "Solution": "water",
+            "Compared": 4,
+            "Bias [K]": 0.3639718239515872,
+            "MAE [K]": 0.3639718239515872,
+            "RMSE [K]": 0.3830125365504527,
+            "Min error [K]": 0.1967875349310475,
+            "Max error [K]": 0.5243938347231278
+          },
+          {
+            "Solution": "Na3-1",
+            "Compared": 4,
+            "Bias [K]": 0.3477767342162963,
+            "MAE [K]": 0.3477767342162963,
+            "RMSE [K]": 0.3891925871958145,
+            "Min error [K]": 0.1276623547657323,
+            "Max error [K]": 0.6060719764695364
+          },
+          {
+            "Solution": "Na3-2",
+            "Compared": 1,
+            "Bias [K]": 0.3618092085234252,
+            "MAE [K]": 0.3618092085234252,
+            "RMSE [K]": 0.3618092085234252,
+            "Min error [K]": 0.3618092085234252,
+            "Max error [K]": 0.3618092085234252
+          },
+          {
+            "Solution": "Na3-3",
+            "Compared": 1,
+            "Bias [K]": -0.044139815524943,
+            "MAE [K]": 0.044139815524943,
+            "RMSE [K]": 0.044139815524943,
+            "Min error [K]": -0.044139815524943,
+            "Max error [K]": -0.044139815524943
+          },
+          {
+            "Solution": "Na5-1",
+            "Compared": 4,
+            "Bias [K]": 0.4939312713169244,
+            "MAE [K]": 0.4939312713169244,
+            "RMSE [K]": 0.5263035496206743,
+            "Min error [K]": 0.3117722678024393,
+            "Max error [K]": 0.7773410951842266
+          },
+          {
+            "Solution": "Na5-2",
+            "Compared": 1,
+            "Bias [K]": -0.2233135520441465,
+            "MAE [K]": 0.2233135520441465,
+            "RMSE [K]": 0.2233135520441465,
+            "Min error [K]": -0.2233135520441465,
+            "Max error [K]": -0.2233135520441465
+          },
+          {
+            "Solution": "Na10-1",
+            "Compared": 2,
+            "Bias [K]": -0.0967227684019746,
+            "MAE [K]": 0.0967227684019746,
+            "RMSE [K]": 0.0968029155125083,
+            "Min error [K]": -0.1006611087097439,
+            "Max error [K]": -0.0927844280942054
+          },
+          {
+            "Solution": "Na10-2",
+            "Compared": 5,
+            "Bias [K]": 0.1505309560605951,
+            "MAE [K]": 0.236233116737128,
+            "RMSE [K]": 0.2962645837769826,
+            "Min error [K]": -0.1260039275048825,
+            "Max error [K]": 0.531083075277536
+          },
+          {
+            "Solution": "Na15",
+            "Compared": 4,
+            "Bias [K]": 0.0073302246820219,
+            "MAE [K]": 0.1950904463798792,
+            "RMSE [K]": 0.2209570313280566,
+            "Min error [K]": -0.2895708933221499,
+            "Max error [K]": 0.3075423986202281
+          },
+          {
+            "Solution": "Na20",
+            "Compared": 3,
+            "Bias [K]": -0.0330936759255564,
+            "MAE [K]": 0.1561254890958328,
+            "RMSE [K]": 0.1721427224915065,
+            "Min error [K]": -0.2272434745776195,
+            "Max error [K]": 0.1845477197554146
+          },
+          {
+            "Solution": "K3",
+            "Compared": 6,
+            "Bias [K]": 0.3400518262451442,
+            "MAE [K]": 0.3400518262451442,
+            "RMSE [K]": 0.3871564822812567,
+            "Min error [K]": 0.1077415950883278,
+            "Max error [K]": 0.6033697674800464
+          },
+          {
+            "Solution": "K5",
+            "Compared": 7,
+            "Bias [K]": 0.5214696766857401,
+            "MAE [K]": 0.5214696766857401,
+            "RMSE [K]": 0.5310665844154743,
+            "Min error [K]": 0.4244962785168127,
+            "Max error [K]": 0.6788289152129323
+          },
+          {
+            "Solution": "K10",
+            "Compared": 4,
+            "Bias [K]": 2.056410731209624,
+            "MAE [K]": 2.056410731209624,
+            "RMSE [K]": 2.083688640731458,
+            "Min error [K]": 1.5834853509147138,
+            "Max error [K]": 2.4720390600299997
+          },
+          {
+            "Solution": "K15",
+            "Compared": 4,
+            "Bias [K]": 5.661847772157316,
+            "MAE [K]": 5.661847772157316,
+            "RMSE [K]": 5.726306774548871,
+            "Min error [K]": 4.477513615322721,
+            "Max error [K]": 6.729003869912958
+          },
+          {
+            "Solution": "Ca3",
+            "Compared": 4,
+            "Bias [K]": 0.2138087640509809,
+            "MAE [K]": 0.218556645079758,
+            "RMSE [K]": 0.2822304836804269,
+            "Min error [K]": -0.0094957620575542,
+            "Max error [K]": 0.482801819277995
+          },
+          {
+            "Solution": "Ca5",
+            "Compared": 4,
+            "Bias [K]": 0.1312393476264759,
+            "MAE [K]": 0.1685436460759746,
+            "RMSE [K]": 0.2333741709171692,
+            "Min error [K]": -0.0746085968989973,
+            "Max error [K]": 0.435992477865966
+          },
+          {
+            "Solution": "Ca10",
+            "Compared": 5,
+            "Bias [K]": 0.0689090433379647,
+            "MAE [K]": 0.1428477436497473,
+            "RMSE [K]": 0.1889431294106265,
+            "Min error [K]": -0.0990009000423128,
+            "Max error [K]": 0.3727507573752859
+          },
+          {
+            "Solution": "Ca15",
+            "Compared": 4,
+            "Bias [K]": 0.2925894817580285,
+            "MAE [K]": 0.2925894817580285,
+            "RMSE [K]": 0.3055930777255068,
+            "Min error [K]": 0.1459495808307451,
+            "Max error [K]": 0.3678909782612436
+          },
+          {
+            "Solution": "Ca20",
+            "Compared": 4,
+            "Bias [K]": 1.6117869750286076,
+            "MAE [K]": 1.6117869750286076,
+            "RMSE [K]": 1.6633280810881284,
+            "Min error [K]": 1.018679175139198,
+            "Max error [K]": 2.145490223592219
+          },
+          {
+            "Solution": "Na3K3",
+            "Compared": 5,
+            "Bias [K]": 0.1341771918263134,
+            "MAE [K]": 0.1665289357648248,
+            "RMSE [K]": 0.2077153294797957,
+            "Min error [K]": -0.0772794177613036,
+            "Max error [K]": 0.3137855993855964
+          },
+          {
+            "Solution": "Na5K5",
+            "Compared": 4,
+            "Bias [K]": 0.0626582963828639,
+            "MAE [K]": 0.1172039927521382,
+            "RMSE [K]": 0.1190740219907959,
+            "Min error [K]": -0.1090913927385486,
+            "Max error [K]": 0.1523227454111406
+          },
+          {
+            "Solution": "Na7K10",
+            "Compared": 4,
+            "Bias [K]": 1.4268531807374956,
+            "MAE [K]": 1.4268531807374956,
+            "RMSE [K]": 1.475801649248203,
+            "Min error [K]": 0.821105651898165,
+            "Max error [K]": 1.7640223174028051
+          },
+          {
+            "Solution": "Na15K5",
+            "Compared": 4,
+            "Bias [K]": -1.414516634608418,
+            "MAE [K]": 1.414516634608418,
+            "RMSE [K]": 1.4148670679217996,
+            "Min error [K]": -1.4684805759328017,
+            "Max error [K]": -1.3915922237843006
+          },
+          {
+            "Solution": "Na3Ca3",
+            "Compared": 5,
+            "Bias [K]": 0.1375118701681231,
+            "MAE [K]": 0.1522163646830449,
+            "RMSE [K]": 0.2042579163404697,
+            "Min error [K]": -0.0367612362873046,
+            "Max error [K]": 0.3466357046389134
+          },
+          {
+            "Solution": "Na8Ca2",
+            "Compared": 4,
+            "Bias [K]": 0.0458206756673149,
+            "MAE [K]": 0.1267876040098343,
+            "RMSE [K]": 0.144952123722395,
+            "Min error [K]": -0.1619338566850388,
+            "Max error [K]": 0.2114326195965645
+          },
+          {
+            "Solution": "Na2Ca8",
+            "Compared": 4,
+            "Bias [K]": -0.0565060348203303,
+            "MAE [K]": 0.1118383603220252,
+            "RMSE [K]": 0.1190746244802942,
+            "Min error [K]": -0.1607910711805402,
+            "Max error [K]": 0.1106646510033897
+          },
+          {
+            "Solution": "Na5Ca15",
+            "Compared": 5,
+            "Bias [K]": 0.5599524878375064,
+            "MAE [K]": 0.5599524878375064,
+            "RMSE [K]": 0.5798214012575342,
+            "Min error [K]": 0.3682485387117822,
+            "Max error [K]": 0.8228473050418756
+          },
+          {
+            "Solution": "Na15Ca5",
+            "Compared": 4,
+            "Bias [K]": -0.9449899843273784,
+            "MAE [K]": 0.9449899843273784,
+            "RMSE [K]": 0.9623654985899016,
+            "Min error [K]": -1.186529079953857,
+            "Max error [K]": -0.7019803566178666
+          }
+        ],
+        "k10_at_11_3_bara": {
+          "solution": "K10",
+          "family": "KCl",
+          "table": "III",
+          "NaCl_wt_percent": 0.0,
+          "KCl_wt_percent": 10.02,
+          "CaCl2_wt_percent": 0.0,
+          "salt_total_wt_percent": 10.02,
+          "measured_K": 269.02,
+          "pressure_MPa": 1.13,
+          "pressure_bara": 11.3,
+          "measured_c": -4.129999999999996,
+          "predicted_c": -2.5465146490852817,
+          "raw_returned_c": -2.5465146490852817,
+          "comparable": true,
+          "material_phases": "GAS+AQUEOUS",
+          "numerically_accepted": true,
+          "saturated_boundary": true,
+          "hydrate_residual": -1.5598766722746404e-10,
+          "original_feed_error": 1.0373514122669443e-16,
+          "error_K": 1.5834853509147138
+        },
+        "interpretation": "Reliable numerical boundaries, with concentration-dependent KCl accuracy gap and opposing mixture biases. No fitting or empirical correction. Solid-phase stability and full mud qualification remain outside scope."
+      },
+      "validation_history": [
+        {
+          "verified_at_utc": "2026-10-05T15:03:41.708994+00:00",
+          "code_cells": 21,
+          "execution_seconds": 198.1,
+          "git_blob_sha1": "63693bce99487ebb1aab3eb953f6a22a5d11b35f",
+          "note": "October KCl hang repair validation, before Dholabhai comparison."
+        }
+      ]
     }
   ]
 }
