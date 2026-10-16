@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "notebooks": [
+    {
+      "path": "notebooks/flowassurance/barium_rich_formation_water_mixing.ipynb",
+      "version": "1.0.0",
+      "execution_status": "passed",
+      "code_cells": 10,
+      "updated_at": "2026-10-16",
+      "neqsim_source_commit": "54d6be9c794cec093fbfa0e347fa54f5250881db",
+      "source_jar_sha256": "806fb3404843a12d29fb7d559d953895493c7d9f3cdfacdc2d27dacfe95bafc6",
+      "validation": "Fresh Python process; repository in-process executor; 10/10 cells with outputs and zero stored exceptions/stderr. Java 17.0.20, Python 3.12.14. All 3,675 source/resource/POM blobs verified against the connector-read immutable source tree before source build. Synthetic water charge closure, per-case free-ion balance <=1e-12 mol/L, complementarity <=1e-3 SI, inventory bounds, repeatability, independent barite quadratic root and 101-to-401-point maximum-SI refinement passed.",
+      "rendered_visual_validation": "nbconvert basic Jupyter HTML + MathJax 3.2.2 SVG, 21 expressions; WeasyPrint paginated inspection of all Markdown/result cells, equations and tables; both original PNG figures inspected.",
+      "representative_results": {
+        "AB_max_barite_SI": 2.45113,
+        "fraction_A_at_max_SI": 0.38,
+        "half_mix_native_barite_mg_L": 532.94056964,
+        "half_mix_inventory_bound_mg_L": 679.825,
+        "AC_max_barite_SI": -1.9728
+      },
+      "limitations": "Synthetic analyses and fixed pH; Pitzer binary/equivalent-I trace mapping with frozen ion-paired free-ion pools and molarity approximation, not full mixed-ion Pitzer. No experimental mixture qualification, deposition rate, inhibitor dose, gas/CO2 flash, Ba/Sr solid solution or NORM calculation. Hosted-Colab installation/build not tested; local audited source/JAR override was tested.",
+      "documentation_impact": "New notebook, README entry, examples catalog and maintenance index/shard. No Java behavior changed.",
+      "neqsim_improvements": [
+        "https://github.com/equinor/neqsim/issues/4351",
+        "https://github.com/equinor/neqsim/issues/3144"
+      ]
+    }
+  ]
+}
