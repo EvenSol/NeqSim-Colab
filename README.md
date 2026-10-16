@@ -9,6 +9,8 @@ Advanced notebooks use JPype directly or through the Python distribution. They c
 
 ## Featured notebooks
 
+* [Mixing barium-rich formation waters](notebooks/flowassurance/barium_rich_formation_water_mixing.ipynb) – Version 1.0.0. Executed formation-water compatibility discussion: native Pitzer-binary scale screening, mixing envelopes, solid-inventory bounds, sulfate-treatment sensitivities and a practical qualification plan. Full-Pitzer parameter coverage is explicitly tracked in equinor/neqsim#4351.
+
 * [Water solubility in mineral lubricating oils](notebooks/PVT/water_in_mineral_lubricating_oils.ipynb) – Experimental paraffin and lubricating-oil evidence, a formulated engine-oil comparator, source-pinned CPA/SRK screening of four assumed mineral oils, held-out comparison, pressure sensitivity and cooling water release. Version 1.0.0; executed tables and five saved figures.
 
 * [Lithium perovskite hydrides: ASE, molecular DFT and NeqSim](notebooks/hydrogen/lithium_perovskite_hydrides_ase_neqsim.ipynb) – Reconstruct theoretical capacities from published crystal structures, run a small PySCF H₂ reference calculation, and screen pressure-dependent desorption using source-pinned NeqSim hydrogen fugacity. Includes stored numerical results, a figure, and explicit limits for the paper's unresolved temperature discrepancy and unknown solid reaction products.
@@ -62,4 +64,5 @@ Repository-wide notebook integrity is checked with `python scripts/check_noteboo
 
 
 * [Hydrocarbon phase evolution: NeqSim PVT to OPM Flow](notebooks/reservoir/hydrocarbon_phase_evolution_neqsim_opm.ipynb) — Companion to equinor/neqsim#4198: saturation-pressure temperature sensitivity, CME/CVD laboratory paths, an executed 300-cell black-oil reservoir, and a NeqSim surface process. Synthetic inputs; explicit limits on migration and compositional interpretation.
+
 
