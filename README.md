@@ -9,6 +9,8 @@ Advanced notebooks use JPype directly or through the Python distribution. They c
 
 ## Featured notebooks
 
+* [DOE Big Hill atmospheric-to-vacuum sensitivity](notebooks/process/doe_big_hill_connected_vacuum_sensitivity.ipynb) – Carry one public DOE SPR Big Hill Sweet assay through a source-pinned fired heater, rigorous atmospheric column, and three-point connected vacuum reboiler-temperature screen. Retains conservation, MESH residual, product-ordering, stream-immutability, provenance, and rendered sensitivity evidence while explicitly avoiding plant-envelope or ASTM claims. Version 1.0.0.
+
 * [Water solubility in mineral lubricating oils](notebooks/PVT/water_in_mineral_lubricating_oils.ipynb) – Experimental paraffin and lubricating-oil evidence, a formulated engine-oil comparator, source-pinned CPA/SRK screening of four assumed mineral oils, held-out comparison, pressure sensitivity and cooling water release. Version 1.0.0; executed tables and five saved figures.
 
 * [Lithium perovskite hydrides: ASE, molecular DFT and NeqSim](notebooks/hydrogen/lithium_perovskite_hydrides_ase_neqsim.ipynb) – Reconstruct theoretical capacities from published crystal structures, run a small PySCF H₂ reference calculation, and screen pressure-dependent desorption using source-pinned NeqSim hydrogen fugacity. Includes stored numerical results, a figure, and explicit limits for the paper's unresolved temperature discrepancy and unknown solid reaction products.
