@@ -9,6 +9,8 @@ Advanced notebooks use JPype directly or through the Python distribution. They c
 
 ## Featured notebooks
 
+* [CO₂ injection wells: fluid behaviour, shutdown and thermal loading](notebooks/reservoir/co2_injection_well_integrity_paper_4509.ipynb) – Companion to equinor/neqsim#4509: PR/SRK versus Span–Wagner, composable injection wells, impurity partitioning, native shutdown screening and explicit elastic thermal loading. Version 1.0.0; all 12 code cells executed with five saved figures and analytical/numerical checks.
+
 * [Water solubility in mineral lubricating oils](notebooks/PVT/water_in_mineral_lubricating_oils.ipynb) – Experimental paraffin and lubricating-oil evidence, a formulated engine-oil comparator, source-pinned CPA/SRK screening of four assumed mineral oils, held-out comparison, pressure sensitivity and cooling water release. Version 1.0.0; executed tables and five saved figures.
 
 * [Lithium perovskite hydrides: ASE, molecular DFT and NeqSim](notebooks/hydrogen/lithium_perovskite_hydrides_ase_neqsim.ipynb) – Reconstruct theoretical capacities from published crystal structures, run a small PySCF H₂ reference calculation, and screen pressure-dependent desorption using source-pinned NeqSim hydrogen fugacity. Includes stored numerical results, a figure, and explicit limits for the paper's unresolved temperature discrepancy and unknown solid reaction products.
@@ -62,4 +64,5 @@ Repository-wide notebook integrity is checked with `python scripts/check_noteboo
 
 
 * [Hydrocarbon phase evolution: NeqSim PVT to OPM Flow](notebooks/reservoir/hydrocarbon_phase_evolution_neqsim_opm.ipynb) — Companion to equinor/neqsim#4198: saturation-pressure temperature sensitivity, CME/CVD laboratory paths, an executed 300-cell black-oil reservoir, and a NeqSim surface process. Synthetic inputs; explicit limits on migration and compositional interpretation.
+
 
