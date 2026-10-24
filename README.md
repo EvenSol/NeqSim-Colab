@@ -9,6 +9,8 @@ Advanced notebooks use JPype directly or through the Python distribution. They c
 
 ## Featured notebooks
 
+* [Low-GOR oil pseudo-fraction analysis and PVT](notebooks/PVT/low_gor_oil_pseudofraction_paper_4528.ipynb) – Companion to NeqSim #4528: published Sadi composition, mass-audited splitting/lumping, CCE and differential liberation, LBC/PFCT viscosity, pressure-unit sensitivity and a bounded saturation-only fit. Version 1.0.0; 13 executed code cells, four saved figures and explicit upstream gaps.
+
 * [CO₂ injection wells: fluid behaviour, shutdown and thermal loading](notebooks/reservoir/co2_injection_well_integrity_paper_4509.ipynb) – Companion to equinor/neqsim#4509: PR/SRK versus Span–Wagner, composable injection wells, impurity partitioning, native shutdown screening and explicit elastic thermal loading. Version 1.0.0; all 12 code cells executed with five saved figures and analytical/numerical checks.
 
 * [Water solubility in mineral lubricating oils](notebooks/PVT/water_in_mineral_lubricating_oils.ipynb) – Experimental paraffin and lubricating-oil evidence, a formulated engine-oil comparator, source-pinned CPA/SRK screening of four assumed mineral oils, held-out comparison, pressure sensitivity and cooling water release. Version 1.0.0; executed tables and five saved figures.
