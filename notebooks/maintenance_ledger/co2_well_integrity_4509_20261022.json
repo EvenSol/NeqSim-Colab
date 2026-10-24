@@ -3,19 +3,19 @@
   "notebooks": [
     {
       "path": "notebooks/reservoir/co2_injection_well_integrity_paper_4509.ipynb",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "status": "validated",
       "execution_status": "passed",
       "code_cells": 12,
-      "validation_date": "2026-10-22",
-      "notebook_sha256": "60debfd0b2fe45dfd3d97b5b074efe226ce40f4eb1080be66f0315ca7e9f1dca",
-      "notebook_git_blob_sha1": "7bb2d569620cf75ab35a6dff8895ef593ab98add",
-      "source_commit": "cb94f1d10cbc12f5aa6452c095fe58c8ff44f3ae",
-      "source_jar_sha256": "0c6b07476954a54417276cda91d2603ea42fe37adb399715ab428561afb848a8",
+      "validation_date": "2026-10-24",
+      "notebook_sha256": "9571b8f63c1bc334fa6d82ec99bc38ff60f8f21b487d6465cd58007d1224496a",
+      "notebook_git_blob_sha1": "d39ff549d2b14fb771e973acf9a45e06f2782e65",
+      "source_commit": "98d185ded48c5c0c12b2faec374544b6b6b043b1",
+      "source_jar_sha256": "79bbf5b193922223f6fb920ff6897d51e7ce3f32ab83ccb3152952b8c01c4bd1",
       "runtime": {
         "neqsim_source_repository": "https://github.com/equinor/neqsim",
-        "neqsim_source_ref": "cb94f1d10cbc12f5aa6452c095fe58c8ff44f3ae",
-        "jar_sha256": "0c6b07476954a54417276cda91d2603ea42fe37adb399715ab428561afb848a8",
+        "neqsim_source_ref": "98d185ded48c5c0c12b2faec374544b6b6b043b1",
+        "jar_sha256": "79bbf5b193922223f6fb920ff6897d51e7ce3f32ab83ccb3152952b8c01c4bd1",
         "java": "17.0.20",
         "python": "3.12.14",
         "packages": {
@@ -28,31 +28,35 @@
         "class_origin_verified": true
       },
       "execution": {
-        "method": "New isolated Python venv; fresh in-process IPython process, sequential code cells; source-built shaded JAR from clean pinned master worktree",
+        "method": "Fresh isolated Python 3.12 process; sequential IPython execution; hash-verified clean source-built NeqSim runtime",
         "all_code_cells_executed_in_order": true,
+        "all_code_cells_retain_outputs": true,
         "stored_error_count": 0,
         "stderr_output_count": 0,
         "static_figures": 5,
         "colab_network_bootstrap_tested": false,
         "commands": [
-          "bash mvnw -q -DskipTests -Dmaven.test.skip=true -Dcheckstyle.skip -Dspotless.skip=true -Dmaven.javadoc.skip=true package (exit 0; Maven prepared with work-with-neqsim prepare_maven.py)",
-          "NEQSIM_SOURCE_ROOT=<clean-source> NEQSIM_SOURCE_JAR=<source-built-jar> python scripts/execute_notebook_inprocess.py notebooks/reservoir/co2_injection_well_integrity_paper_4509.ipynb (exit 0)",
-          "python -m unittest discover -s scripts -p 'test_check_notebook.py' (exit 0; 6 tests)",
-          "scripts/check_notebook.py validate_notebook(strict_execution=True, expected_code_cells=12, require_main_source=True): 0 errors, 0 warnings",
-          "Catalog link audit against GitHub-plugin default-branch tree: all local notebook links valid; only catalog cell 3 changed"
+          "prepare_maven.py followed by ./mvnw -q -DskipTests -Dmaven.test.skip=true -Dcheckstyle.skip -Dspotless.skip=true -Dmaven.javadoc.skip=true package: exit 0",
+          "NEQSIM_SOURCE_ROOT=<clean-source> NEQSIM_SOURCE_JAR=<source-built-jar> python scripts/execute_notebook_inprocess.py notebooks/reservoir/co2_injection_well_integrity_paper_4509.ipynb: exit 0",
+          "python -m unittest discover -s scripts -p test_check_notebook.py: exit 0, 6 passed",
+          "validate_notebook(strict_execution=True, require_main_source=True): zero errors/warnings"
         ],
-        "repository_wide_integrity": "Delegated to existing notebook-integrity GitHub Actions workflow; not run locally on a partial checkout"
+        "dependency_environment": "New venv from SHA-256-verified public-PyPI wheel snapshot; CoolProp 7.2.0 installed and its version reported",
+        "repository_wide_integrity": "Pending GitHub CI; partial checkout locally. All 66 original ledger shards read via GitHub plugin; 323 original unique entries plus the new entry = 324. All relative catalog links checked against exact remote-head tree plus new notebook.",
+        "pre_commit": "No .pre-commit-config.yaml or AGENTS.md in the inspected NeqSim-Colab tree; no Java source edits"
       },
       "visual_validation": {
-        "renderer": "nbconvert 7.17.2 classic HTML; Chromium 134 headless via Playwright; MathJax 3.2.2 SVG-full",
+        "status": "passed",
+        "renderer": "nbconvert classic HTML; MathJax 3.2.2 SVG rendered for every Markdown expression; WeasyPrint 70 and PyMuPDF page rasterization",
         "markdown_cells_inspected": 10,
         "code_cells_inspected": 12,
-        "math_expressions_inspected": 25,
-        "display_equations_inspected": 4,
+        "inline_math_expressions": 21,
+        "display_equations": 4,
         "figures_inspected": 5,
         "result_tables_inspected": 8,
+        "inspection_pages": 9,
         "math_render_errors": 0,
-        "result": "All 22 rendered cells visually inspected; all math, figures and tables legible, no clipped output, no truncated table columns; independent static PNG figures retained"
+        "result": "Every cell, equation, result table and static figure inspected; readable units and labels; no blank, malformed or clipped result. Date/source provenance synchronized after replay."
       },
       "engineering_validation": {
         "relative_mass_error_max": 0.0,
@@ -69,7 +73,7 @@
         "integrity_qualification": false
       },
       "documentation_impact": {
-        "assessment": "New educational CO2 well/thermal-loading companion; no Java API changes. Adds assumptions, units, limits, source provenance and reusable outputs.",
+        "assessment": "New CO2/H2 educational workflow and current-source replay of CO2 well companion. No Java API changes. Explicit units, assumptions, synthetic versus paper data, evidence, implementation issues and qualification limits.",
         "updated": [
           "README.md",
           "notebooks/examples_of_NeqSim_in_Colab.ipynb",
@@ -78,15 +82,18 @@
       },
       "related_issues": [
         "https://github.com/equinor/neqsim/issues/4509",
+        "https://github.com/equinor/neqsim/issues/4551",
+        "https://github.com/equinor/neqsim/issues/4553",
+        "https://github.com/equinor/neqsim/issues/4554",
+        "https://github.com/equinor/neqsim/issues/4555",
         "https://github.com/equinor/neqsim/issues/2911",
         "https://github.com/equinor/neqsim/issues/4228",
         "https://github.com/equinor/neqsim/issues/3964"
       ],
       "limitations": [
-        "Synthetic inputs; full SPE-229116-MS numerical cases unavailable; no paper reproduction claimed",
-        "PR/SRK density errors reported against independent pure-CO2 Span-Wagner HEOS; no reference-mixture validation",
-        "Native TransientWellbore uses assumed initial temperature and fixed-density hydrostatics; current results not a conservative closed-inventory transient",
-        "Elastic axial thermal loading only; wall temperature and restraint are assumed; no integrity, fatigue, leakage, solid-CO2 or safety-factor qualification"
+        "Full paper and numerical reference data unavailable; no numerical paper reproduction",
+        "Synthetic engineering inputs and explicitly unqualified material/stress sensitivities",
+        "Automatic fresh-Colab network/build path not separately exercised; checked local source reuse path executed"
       ]
     }
   ]

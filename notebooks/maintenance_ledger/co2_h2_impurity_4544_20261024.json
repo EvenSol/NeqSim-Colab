@@ -1,0 +1,93 @@
+{
+  "schema_version": 3,
+  "notebooks": [
+    {
+      "path": "notebooks/fluidflow/co2_h2_impurity_fatigue_fracture_4544.ipynb",
+      "version": "1.0.0",
+      "status": "validated",
+      "execution_status": "passed",
+      "code_cells": 9,
+      "validation_date": "2026-10-24",
+      "notebook_sha256": "a731d1a8f3150ea5e016b6d935e5618330a0efab34f3ed82ff1396552fb4d8ff",
+      "notebook_git_blob_sha1": "e4c9bed2a82536801b91b19941ffc7c52c908178",
+      "source_commit": "98d185ded48c5c0c12b2faec374544b6b6b043b1",
+      "source_jar_sha256": "79bbf5b193922223f6fb920ff6897d51e7ce3f32ab83ccb3152952b8c01c4bd1",
+      "runtime": {
+        "neqsim_source_repository": "https://github.com/equinor/neqsim",
+        "neqsim_source_ref": "98d185ded48c5c0c12b2faec374544b6b6b043b1",
+        "jar_sha256": "79bbf5b193922223f6fb920ff6897d51e7ce3f32ab83ccb3152952b8c01c4bd1",
+        "java": "17.0.20",
+        "python": "3.12.14",
+        "packages": {
+          "JPype1": "1.7.1",
+          "numpy": "2.5.4",
+          "pandas": "3.1.0",
+          "matplotlib": "3.11.2",
+          "CoolProp": "7.2.0"
+        },
+        "class_origin_verified": true
+      },
+      "execution": {
+        "method": "Fresh isolated Python 3.12 process; sequential IPython execution; hash-verified clean source-built NeqSim runtime",
+        "all_code_cells_executed_in_order": true,
+        "all_code_cells_retain_outputs": true,
+        "stored_error_count": 0,
+        "stderr_output_count": 0,
+        "static_figures": 3,
+        "colab_network_bootstrap_tested": false,
+        "commands": [
+          "prepare_maven.py followed by ./mvnw -q -DskipTests -Dmaven.test.skip=true -Dcheckstyle.skip -Dspotless.skip=true -Dmaven.javadoc.skip=true package: exit 0",
+          "NEQSIM_SOURCE_ROOT=<clean-source> NEQSIM_SOURCE_JAR=<source-built-jar> python scripts/execute_notebook_inprocess.py notebooks/fluidflow/co2_h2_impurity_fatigue_fracture_4544.ipynb: exit 0",
+          "python -m unittest discover -s scripts -p test_check_notebook.py: exit 0, 6 passed",
+          "validate_notebook(strict_execution=True, require_main_source=True): zero errors/warnings"
+        ],
+        "dependency_environment": "New venv from SHA-256-verified public-PyPI wheel snapshot; CoolProp 7.2.0 installed and its version reported",
+        "repository_wide_integrity": "Pending GitHub CI; partial checkout locally. All 66 original ledger shards read via GitHub plugin; 323 original unique entries plus the new entry = 324. All relative catalog links checked against exact remote-head tree plus new notebook.",
+        "pre_commit": "No .pre-commit-config.yaml or AGENTS.md in the inspected NeqSim-Colab tree; no Java source edits"
+      },
+      "visual_validation": {
+        "status": "passed",
+        "renderer": "nbconvert classic HTML; MathJax 3.2.2 SVG rendered for every Markdown expression; WeasyPrint 70 and PyMuPDF page rasterization",
+        "markdown_cells_inspected": 8,
+        "code_cells_inspected": 9,
+        "inline_math_expressions": 17,
+        "display_equations": 4,
+        "figures_inspected": 3,
+        "result_tables_inspected": 8,
+        "inspection_pages": 8,
+        "math_render_errors": 0,
+        "result": "Every cell, equation, result table and static figure inspected; readable units and labels; no blank, malformed or clipped result. Date/source provenance synchronized after replay."
+      },
+      "engineering_validation": {
+        "component_residual_max": 6.105151106883255e-13,
+        "interphase_H2_fugacity_relative_error_max": 9.458097159679947e-11,
+        "analytical_integral_relative_error_max_refined": 1.0997603916429455e-07,
+        "stale_H2_pressure_bar_reused": 0.2,
+        "fresh_H2_pressure_bar": 0.0,
+        "paper_numerical_reproduction": false,
+        "material_parameters_are_synthetic": true,
+        "integrity_qualified": false
+      },
+      "documentation_impact": {
+        "assessment": "New CO2/H2 educational workflow and current-source replay of CO2 well companion. No Java API changes. Explicit units, assumptions, synthetic versus paper data, evidence, implementation issues and qualification limits.",
+        "updated": [
+          "README.md",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/fluidflow/co2_h2_impurity_fatigue_fracture_4544.ipynb"
+        ]
+      },
+      "related_issues": [
+        "https://github.com/equinor/neqsim/issues/4544",
+        "https://github.com/equinor/neqsim/issues/4550",
+        "https://github.com/equinor/neqsim/issues/4551",
+        "https://github.com/equinor/neqsim/issues/4552",
+        "https://github.com/equinor/neqsim/issues/3318"
+      ],
+      "limitations": [
+        "Full paper and numerical reference data unavailable; no numerical paper reproduction",
+        "Synthetic engineering inputs and explicitly unqualified material/stress sensitivities",
+        "Automatic fresh-Colab network/build path not separately exercised; checked local source reuse path executed"
+      ]
+    }
+  ]
+}
