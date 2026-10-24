@@ -15,7 +15,7 @@
       "rendered_visual_validation": "nbconvert 7.17.2 classic HTML plus MathJax 3 SVG; all 4 display equations and 8 inline occurrences, all tables, all 4 figures and all 24 cells visually inspected through WeasyPrint/PyMuPDF rendering. No malformed math or clipped plots. Catalog is Markdown-only and preserves existing links/content. Final notebook: 13 rendered pages; complete Markdown-only catalog: 16 rendered pages, all inspected.",
       "experimental_provenance": "Kadhim & Al-Ameri 2026, DOI 10.31699/IJCPE.2026.1.9, CC BY 4.0, Tables 1/2/3 and explicitly qualified single-property text anchors. Full curves are not digitized or fabricated.",
       "limitations": "Unreported PVTp BIPs, volume shifts and LBC tuning; ambiguous density/critical-pressure labels; Table 2 composition inconsistency. Untuned and Pb-only-fit results are capability/comparison studies, not reproduction or qualification of the published full model.",
-      "documentation_impact": "New tutorial, README featured link, PVT catalog entry, dedicated ledger shard and index count update.",
+      "documentation_impact": "New tutorial, README featured link, PVT catalog entry, dedicated ledger shard; reconciled current-master additions and counted all 66 upstream shards (323 entries) before setting the final index to 324.",
       "neqsim_improvements": [
         {
           "issue": 4547,
