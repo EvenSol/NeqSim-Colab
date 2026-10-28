@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "notebooks": [
+    {
+      "path": "notebooks/hydrogen/alkaline_electrolysis_paper_4651.ipynb",
+      "version": "1.0.0",
+      "execution_status": "passed",
+      "code_cells": 10,
+      "updated_at": "2026-10-28",
+      "neqsim_source_commit": "f8a83ed106ea3ab08909d809bd3f7f8b4ffa7748",
+      "source_jar_sha256": "fa371c7285f2aa3404f5e369797fc63e50cee83e62cdc1f97e992dccdba9d4bb",
+      "provenance": "Exact current master source tree; all9390 Git blobs verified. Source-built shaded Java JAR, git HEAD/JAR SHA256 and advanced class location verified in the notebook.",
+      "validation": "Fresh isolated Python3.12.14, Java17.0.20 and neqsim bridge3.26.0 from65 hash-verified public-PyPI wheels. All10 code cells executed top-to-bottom with outputs retained, no stored errors/stderr. Fourteen accepted checks cover H/O atoms, mass (0.01% tolerance for species molar-mass rounding), Faraday law, AC/DC budget, explicit gas-equipment energy, export pressure and deterministic repeat. Additional load/voltage/pressure trends and isothermal compression reference passed. Excluded diagnostic reproduces nonunity-Faradaic defects.",
+      "rendered_visual_validation": "nbconvert7.17.2 classic HTML + MathJax3.2.2 SVG + WeasyPrint/PyMuPDF. Full18-cell notebook:3display equations,11inline math occurrences,10tables,2stored figures,10rendered pages. All inspected; no malformed math, clipping or overlap. Modified catalog entry also rendered and inspected.",
+      "source_paper": "Al-Hebshi et al.2024, DOI10.53523/ijoirVol11I3ID471, publisher PDF pp2,4,5; public simulation assertions, no experimental dataset. NIST thermochemistry supplies independent25C reference; DOE liquid-alkaline table distinguishes energy/current efficiency.",
+      "limitations": "Paper power/production imply4.796kWh/kg and are unqualified as validation data. Assumed80C,1.85V,etaF1,rectifier0.97,auxiliary0.02,compressor etaIsentropic0.75/motor0.95. Native dry pure products, no KOH loops/purity/crossover model. No full thermal plant closure or experimental validation. Valid unity-efficiency process separated from retained upstream defect diagnostic.",
+      "results": {
+        "hydrogen_kg_h": 348.20068,
+        "stack_system_ac_MW": 18.0,
+        "compression_shaft_MW": 0.507421,
+        "compression_ac_MW": 0.534127,
+        "export_bara": 100.0,
+        "export_sec_kWh_kg": 53.22829
+      },
+      "documentation_impact": "New executed tutorial; README featured entry; existing notebook catalog hydrogen section; dedicated maintenance shard; root active count audited against67upstream shards (324unique entries) then incremented to325. No Java/library API changed.",
+      "neqsim_improvements": [
+        {
+          "issue": 4681,
+          "url": "https://github.com/equinor/neqsim/issues/4681",
+          "scope": "Nonunity current efficiency violates water balance and mode consistency; executed source-built reproducer."
+        },
+        {
+          "issue": 4682,
+          "url": "https://github.com/equinor/neqsim/issues/4682",
+          "scope": "Technology defaults conflate current and energy efficiency; primary DOE comparison and executed getter/Faraday evidence."
+        },
+        {
+          "issue": 4651,
+          "url": "https://github.com/equinor/neqsim/issues/4651",
+          "scope": "Parent application; full paper/plant validation remains unresolved."
+        }
+      ],
+      "checks": "Local checker unit tests6/6; focused require-main-source notebook/ledger check passed with0errors/0warnings; all332catalog links mapped against upstream tree plus new notebook. Repository-wide notebook-integrity workflow supplies the full-tree PR check."
+    }
+  ]
+}
