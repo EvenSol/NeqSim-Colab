@@ -9,6 +9,8 @@ Advanced notebooks use JPype directly or through the Python distribution. They c
 
 ## Featured notebooks
 
+* [18 MW alkaline electrolysis: paper audit and NeqSim evaluation](notebooks/hydrogen/alkaline_electrolysis_paper_4651.ipynb) – Companion to NeqSim #4651: audit published power/production claims, run a native alkaline stack with dry-gas cooling and compression, validate Faraday/material/energy relations, and isolate current-efficiency defects. Version 1.0.0; 10 executed code cells and two saved figures; explicit limits on KOH, purity and experimental validation.
+
 * [Low-GOR oil pseudo-fraction analysis and PVT](notebooks/PVT/low_gor_oil_pseudofraction_paper_4528.ipynb) – Companion to NeqSim #4528: published Sadi composition, mass-audited splitting/lumping, CCE and differential liberation, LBC/PFCT viscosity, pressure-unit sensitivity and a bounded saturation-only fit. Version 1.0.0; 13 executed code cells, four saved figures and explicit upstream gaps.
 
 * [CO₂ injection wells: fluid behaviour, shutdown and thermal loading](notebooks/reservoir/co2_injection_well_integrity_paper_4509.ipynb) – Companion to equinor/neqsim#4509: PR/SRK versus Span–Wagner, composable injection wells, impurity partitioning, native shutdown screening and explicit elastic thermal loading. Version 1.0.0; all 12 code cells executed with five saved figures and analytical/numerical checks.
