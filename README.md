@@ -68,3 +68,7 @@ Repository-wide notebook integrity is checked with `python scripts/check_noteboo
 * [Hydrocarbon phase evolution: NeqSim PVT to OPM Flow](notebooks/reservoir/hydrocarbon_phase_evolution_neqsim_opm.ipynb) — Companion to equinor/neqsim#4198: saturation-pressure temperature sensitivity, CME/CVD laboratory paths, an executed 300-cell black-oil reservoir, and a NeqSim surface process. Synthetic inputs; explicit limits on migration and compositional interpretation.
 
 
+
+## Offshore process reports and professional flow diagrams
+
+[Offshore process simulation, professional reports and PFDs](notebooks/process/offshore_process_professional_report.ipynb) demonstrates a complete main processing train, two operating cases, a traceable Word report, all-stream tables, A3 PFDs and a presentation overview. Synthetic inputs and the dryer performance assumption are explicit.
