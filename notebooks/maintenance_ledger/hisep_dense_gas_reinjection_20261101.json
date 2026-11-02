@@ -1,0 +1,95 @@
+{
+  "schema_version": 3,
+  "notebooks": [
+    {
+      "path": "notebooks/subseaequipment/high_pressure_subsea_separation_dense_gas_reinjection.ipynb",
+      "version": "1.0.0",
+      "status": "validated",
+      "execution_status": "passed",
+      "code_cells": 11,
+      "validation_date": "2026-11-01",
+      "notebook_sha256": "3d7356fe486a264a25d978864d5c8355b6b5a920c514fff642523ccb71c6b1f7",
+      "notebook_git_blob_sha1": "0f081a6feb6d27071b5e953ae80860a65702385d",
+      "source_commit": "a049b0c147a7dc27999f4182fe8f7c5041614daa",
+      "source_jar_sha256": "cf841ef2adac9e7ad2ef369b345f472f5a3019afb42700ed1a6ced40e407932d",
+      "execution": {
+        "method": "Fresh isolated Python environment; repository in-process IPython runner; sequential native Java calculations",
+        "all_code_cells_executed_in_order": true,
+        "stored_error_count": 0,
+        "stored_stderr_count": 0,
+        "static_figures": 6,
+        "colab_bootstrap_tested": false,
+        "environment_resolution_mode": "online-new-snapshot",
+        "python": "3.12.14",
+        "java": "17.0.20",
+        "python_bridge_distribution": "3.27.0",
+        "runtime": "All current Java source compiled with Eclipse ECJ 3.40.0, Java 8 target; current resources overlaid; released shaded JAR supplies third-party dependencies",
+        "source_audit": "All 3770 current Java/resource Git blobs verified against connector-fetched master tree; all Java source compiled"
+      },
+      "visual_validation": {
+        "renderer": "nbconvert classic HTML, offline MathJax 3.2.2 SVG for all equations, WeasyPrint A3 review PDF",
+        "markdown_cells_inspected": 12,
+        "code_cells_inspected": 11,
+        "figures_inspected": 6,
+        "display_equations_inspected": 5,
+        "inline_math_expressions_rendered": 18,
+        "review_pages": 15,
+        "result": "passed; complete rendered review, six figures, equation rendering and table wrapping inspected"
+      },
+      "engineering_validation": {
+        "mass_and_component_balance": true,
+        "energy_balance": true,
+        "pump_integral_relative_error": 2.7573574117312205e-06,
+        "pump_enthalpy_relative_error": 1.1102230246251565e-15,
+        "pure_CO2_max_density_difference_percent": 7.141793452901258,
+        "native_capacity_replay": true
+      },
+      "representative_results": {
+        "feed_kg_s": 50.0,
+        "CO2_mole_fraction": 0.45,
+        "subsea_separation_bara": 150.0,
+        "subsea_separation_C": 80.0,
+        "injection_target_bara": 300.0,
+        "topside_reference_gas_kg_s": 28.565113485657882,
+        "concept_topside_gas_kg_s": 10.627130485058652,
+        "subsea_bypass_kg_s": 18.606242368125862,
+        "feed_CO2_bypassed_fraction": 0.595792689485319,
+        "reference_electrical_processing_MW": 6.37619815567274,
+        "concept_electrical_processing_MW": 3.3457360688766404
+      },
+      "validation_checks": [
+        "Repository checker validate_notebook: strict execution and require_main_source passed",
+        "Repository notebook checker unit suite: 6 tests passed",
+        "nbformat schema, zero errors/stderr, line lengths and Colab math syntax passed",
+        "Catalog links checked against authoritative repository tree"
+      ],
+      "documentation_impact": {
+        "assessment": "New educational screening workflow; no core Java API changes",
+        "updated": [
+          "README.md",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/subseaequipment/high_pressure_subsea_separation_dense_gas_reinjection.ipynb",
+          "notebooks/notebook_maintenance_ledger.json"
+        ]
+      },
+      "limitations": [
+        "Dry synthetic fluid; no measured assay/PVT calibration or water/hydrate/corrosion qualification",
+        "Equilibrium separation and assumed efficiencies; no vendor maps, carryover or kinetics",
+        "Common reference elevation and target P/T; no riser, flowline or downhole hydraulics",
+        "Capacity results use declared limits and fixed-state scaling; no reservoir recovery forecast",
+        "Pure-CO2 reference-EOS comparison does not qualify the synthetic multicomponent oil",
+        "Normal Colab network clone/Maven bootstrap not executed here; audited source-build path executed"
+      ],
+      "upstream_improvements": [],
+      "upstream_assessment": "Native APIs support the bounded screening scope. Explicitly disabling volume correction avoids mixing density-only volume translation with the untranslated-EOS work integral; no library defect demonstrated.",
+      "references": [
+        "https://www.technipfmc.com/en/media/news/2024/03/inside-hisep-how-technipfmc-is-taking-dense-gas-separation-and-storage-fully-subsea/",
+        "https://www.sulzer.com/en/shared/news/240604-sulzer-supports-technipfmc-on-innovative-co2-pumps-for-subsea-oil-and-gas-separation",
+        "https://doi.org/10.48072/2525-7579.roge.2024.2792",
+        "https://doi.org/10.1063/1.555991",
+        "https://doi.org/10.1021/ie4033999",
+        "https://doi.org/10.3390/pr12122924"
+      ]
+    }
+  ]
+}
