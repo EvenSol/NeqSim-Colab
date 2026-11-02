@@ -9,6 +9,8 @@ Advanced notebooks use JPype directly or through the Python distribution. They c
 
 ## Featured notebooks
 
+* [High-pressure subsea separation and dense-gas reinjection](notebooks/subseaequipment/high_pressure_subsea_separation_dense_gas_reinjection.ipynb) — HISEP-inspired open-literature study: synthetic CO₂-rich oil, native separation/compression/pumping, conserved components and energy, pressure/temperature and EOS sensitivity, and conditional facility throughput. Version 1.0.0; 11 executed code cells and six saved figures.
+
 * [Low-GOR oil pseudo-fraction analysis and PVT](notebooks/PVT/low_gor_oil_pseudofraction_paper_4528.ipynb) – Companion to NeqSim #4528: published Sadi composition, mass-audited splitting/lumping, CCE and differential liberation, LBC/PFCT viscosity, pressure-unit sensitivity and a bounded saturation-only fit. Version 1.0.0; 13 executed code cells, four saved figures and explicit upstream gaps.
 
 * [CO₂ injection wells: fluid behaviour, shutdown and thermal loading](notebooks/reservoir/co2_injection_well_integrity_paper_4509.ipynb) – Companion to equinor/neqsim#4509: PR/SRK versus Span–Wagner, composable injection wells, impurity partitioning, native shutdown screening and explicit elastic thermal loading. Version 1.0.0; all 12 code cells executed with five saved figures and analytical/numerical checks.
