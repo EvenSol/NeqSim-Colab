@@ -71,3 +71,6 @@ Repository-wide notebook integrity is checked with `python scripts/check_noteboo
 
 
 
+## Offshore process reports and professional flow diagrams
+
+[Offshore process simulation, professional reports and PFDs](notebooks/process/offshore_process_professional_report.ipynb) demonstrates a complete main processing train, two operating cases, a traceable Word report, all-stream tables, A3 PFDs and a presentation overview. Synthetic inputs and the dryer performance assumption are explicit.
