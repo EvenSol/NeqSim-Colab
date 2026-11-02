@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-10-04T06:34:00Z",
+  "notebooks": [
+    {
+      "path": "notebooks/process/multi_burner_hot_oil_heater_co_emissions.ipynb",
+      "verified_date": "2026-10-04",
+      "verified_at_utc": "2026-10-04T06:34:00Z",
+      "neqsim_version": "3.23.0 dependencies with source overlay at 64e0a0a5997c0d130b9326a78d46269063f5bc94",
+      "python_version": "3.12.14",
+      "java_version": "openjdk 17.0.20",
+      "execution_status": "passed",
+      "execution_method": "All 11 code cells executed sequentially in a fresh Python process and shared namespace. The managed validator blocks Jupyter ZeroMQ sockets, so execution used ordinary Python while retaining stdout, rich HTML tables, PNG figures and execution counts. Java loaded connector-reconstructed source classes compiled at the pinned NeqSim master commit over public NeqSim 3.23.0 dependencies; Cantera 3.2.0 supplied GRI-Mech 3.0 finite-rate chemistry.",
+      "code_cells": 11,
+      "markdown_cells": 8,
+      "publication": {
+        "branch": "feat/multi-burner-heater-colab",
+        "mode": "draft pull request",
+        "commit": "this atomic commit"
+      },
+      "retained_figures": {
+        "count": 4,
+        "purposes": [
+          "seven/five burner comparison at equal total fuel and air",
+          "fixed-common-air CO mass, concentration, oxygen and temperature sweep",
+          "useful heat, residual chemical power, methane, organic carbon and assumed local-air capture",
+          "10–40 MW useful-heat and CO scaling"
+        ],
+        "visual_inspection": "Passed at original resolution: titles, units, legends, scales and rise/fall CO behavior are readable with no clipping or overlap."
+      },
+      "key_checks": [
+        "11 of 11 code cells executed in order with zero stored errors",
+        "seven/five cases passed independent zone mass and every-element residuals below 1e-7, full energy residual below 1e-6 and omitted-element fractions below the native 1e-6 projection limit",
+        "fixed-air sweep maximum omitted-element fraction was 3.247241e-4 against its declared 1e-3 limit; maximum full-energy residual was 1.788856e-7",
+        "CO mass rose to 18.0719 kg/h at 30% load and fell to 9.4747 kg/h at 20% load while useful hot-oil heat stayed positive, so complete extinction was not used as the explanation",
+        "10, 20, 30 and 40 MW scale points produced 8.7454, 17.5066, 26.2714 and 35.0381 MW useful hot-oil heat",
+        "actual CO kg/h, raw dry ppmv and mg/Nm3, 3 vol% O2-corrected mg/Nm3, O2, burner/stack temperatures, residual chemical power, CH4 and organic-carbon diagnostics are retained separately",
+        "loaded MultiBurnerFiredHeater class origin, exact NeqSim source ref, Cantera version, GRI-Mech mechanism fingerprint, species/reaction counts and top omitted hydrogen species are displayed",
+        "four retained figures were extracted and visually inspected after the final execution"
+      ],
+      "limitations": "GRI-Mech 3.0 is only a software demonstration. Local-air capture, effective tube sink, chamber geometry and steady refractory are declared assumptions. The notebook does not claim C3/C4 benchmark qualification, spatial CFD, dynamic refractory storage, plant calibration, VOC-instrument equivalence, emissions compliance, burner safety or heater-design certification.",
+      "summary": "Adds an executed, source-pinned demonstration of the native NeqSim multi-burner fired-heater API with finite-rate Cantera chemistry, explicit hot-oil heat transfer and fail-closed projection/conservation evidence."
+    }
+  ]
+}
