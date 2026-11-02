@@ -1,0 +1,98 @@
+{
+  "schema_version": 3,
+  "notebooks": [
+    {
+      "path": "notebooks/process/offshore_process_professional_report.ipynb",
+      "execution_status": "passed",
+      "code_cells": 27,
+      "last_validated": "2026-11-01",
+      "notebook_sha256": "1aad3a6f37f55ac3bf1ffbbe02227b84c1a769355068c14971f858c6c7a85add",
+      "source_provenance": {
+        "source_commit": "0ed75c2f10d9030ec8d9270c51e4ade28f5603f8",
+        "jar_sha256": "cf841ef2adac9e7ad2ef369b345f472f5a3019afb42700ed1a6ced40e407932d",
+        "class_origin": "file:/workspace/scratch/173328b47b0e/source/target/neqsim-master-0ed75c2.jar",
+        "build_method": "All current Java source compiled with Eclipse ECJ 3.40.0, Java 8 target; current resources overlaid; released shaded JAR supplies third-party dependencies",
+        "python": "3.12.14",
+        "java": "17.0.20"
+      },
+      "execution": {
+        "method": "27/27 code cells in 44.0 s; fresh isolated Python environment and fresh process; OS socket block verified in parent/child; no exceptions or stderr",
+        "source_build": "All current Java source compiled with Eclipse ECJ 3.40.0, Java 8 target; current resources overlaid; released shaded JAR supplies third-party dependencies",
+        "result": "27 code cells executed in order; all user-relevant outputs retained",
+        "cases": 2,
+        "areas": 7,
+        "equipment": 41,
+        "streams": 56,
+        "components": 8
+      },
+      "validation": {
+        "validated": "2026-11-01",
+        "report_checks": {
+          "PASS": 36,
+          "WARN": 3
+        },
+        "balance_checks": {
+          "PASS": 272,
+          "NOTE": 6
+        },
+        "energy_reconciliation": {
+          "A": {
+            "isothermal_dryer_heat_kw": -13.966024182910132,
+            "corrected_whole_facility_energy_residual_kw": 0.008376048169793648
+          },
+          "B": {
+            "isothermal_dryer_heat_kw": -16.75923880057553,
+            "corrected_whole_facility_energy_residual_kw": -0.003279333783666516
+          }
+        },
+        "overview_validation": "PASS",
+        "issued_overviews": [
+          "A3 colour",
+          "A3 monochrome",
+          "16:9 colour",
+          "16:9 monochrome"
+        ],
+        "report_drawing_review": "BFD plus 11 detailed A3 PFD sheets: PASS",
+        "overview_detail_review": "BFD plus six collapsed-area A3 detail sheets: PASS",
+        "catalog_links": 332,
+        "catalog_missing_targets": [],
+        "repository_focused_check": "PASS; strict execution and master-source provenance",
+        "repository_checker_unit_tests": "6 passed",
+        "repository_wide_integrity": "Not run against the partial local checkout; draft PR CI tracked separately",
+        "static_checks": "AST valid, code lines <=100 except URLs, safe math delimiters, complete ordered execution counts, no stored errors/stderr",
+        "mathjax": {
+          "display": 3,
+          "inline": 8
+        }
+      },
+      "visual_review": {
+        "renderer": "nbconvert classic HTML; MathJax 3 SVG; WeasyPrint 70; PyMuPDF raster review",
+        "pages": {
+          "notebook_review.pdf": 54,
+          "catalog_review.pdf": 18
+        },
+        "coverage": "Every notebook/catalog cell and result output, all issued diagram sheets, equation and dense-label close-ups",
+        "result": "PASS; optional supporting detail slides excluded due to upstream clipping defect"
+      },
+      "documentation_impact": [
+        "New executed main offshore processing tutorial demonstrates the native professional report and PFD skills.",
+        "README topic, examples catalog entry and dedicated maintenance-ledger shard added.",
+        "No NeqSim Java/core API behavior or existing notebook content changed."
+      ],
+      "issues": [
+        "https://github.com/equinor/neqsim/issues/4793",
+        "https://github.com/equinor/neqsim/issues/4794",
+        "https://github.com/equinor/neqsim/issues/4795"
+      ],
+      "limitations": [
+        "Synthetic SRK/classic fluid; no measured PVT or plant/vendor validation.",
+        "Dryer is an explicit 99.9% component water-removal assumption, with reconciled implied heat; no TEG/bed/regeneration simulation.",
+        "Fixed efficiencies and specifications; no equipment maps/ratings or capacity certification.",
+        "Wells/subsea hydraulics, utility generation, flare hydraulics, safety design and product-quality qualification excluded.",
+        "Standards catalog status checked; full standard text not assessed and conformance not claimed.",
+        "Native report retains draft-basis, phase-beta-normalization and dryer-bookkeeping warnings.",
+        "Optional supporting presentation detail slides excluded; complete A3 detail drawings issued."
+      ]
+    }
+  ]
+}
