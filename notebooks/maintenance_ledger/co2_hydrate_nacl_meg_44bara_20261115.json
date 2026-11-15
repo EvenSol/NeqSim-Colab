@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "shard": "co2-hydrate-nacl-meg-44bara-20261115",
+  "updated_at": "2026-11-15T12:08:18Z",
+  "notebooks": [
+    {
+      "path": "notebooks/flowassurance/co2_hydrate_nacl_meg_44bara.ipynb",
+      "verified_date": "2026-11-15",
+      "verified_at_utc": "2026-11-15T12:08:18Z",
+      "neqsim_version": "Source-built Java 3.29.0 from master, JPype 1.7.1",
+      "neqsim_java_commit": "33057ab304332df9c97b3a1a0f0ec56c1dd73397",
+      "neqsim_jar_sha256": "8241d0cf7e6783a94ca4b2bb5d2992e4c2262bde293c5bda3bd92a1ecd73ca29",
+      "python_version": "3.12.14",
+      "java_version": "21.0.13",
+      "package_versions": {
+        "JPype1": "1.7.1",
+        "matplotlib": "3.11.2"
+      },
+      "execution_status": "passed",
+      "execution_method": "All six code cells ran in a fresh IPython process and JVM using the repository runner. All 3710 tracked Java production files came from the exact checked-out master tree and were compiled for Java 17 on Temurin 21. Maven packaged the complete shaded runtime. The default notebook path verified the pinned commit from the cached checkout and checked the three NeqSim Java class origins and JAR hash. Hosted Colab was not run.",
+      "execution_seconds": 38.2,
+      "code_cells": 6,
+      "substantive_code_cells": 6,
+      "markdown_cells": 7,
+      "git_blob_sha1": "be8d5a4377b4c70e62f09d84771689837ec157eb",
+      "notebook_bytes": 107633,
+      "publication": {
+        "branch": "example/co2-hydrate-nacl-meg-44bara",
+        "mode": "draft pull request",
+        "files": [
+          "notebooks/flowassurance/co2_hydrate_nacl_meg_44bara.ipynb",
+          "notebooks/examples_of_NeqSim_in_Colab.ipynb",
+          "notebooks/notebook_maintenance_ledger.json",
+          "notebooks/maintenance_ledger/co2_hydrate_nacl_meg_44bara_20261115.json"
+        ]
+      },
+      "engineering_validation": {
+        "reported_temperature_c": 2.7083142207,
+        "reported_co2_rich_density_kg_per_m3": 798.1,
+        "maximum_material_error_mol": 7.11e-15,
+        "maximum_absolute_molecular_log_fugacity_residual": 7.58e-12,
+        "maximum_absolute_hydrate_residual": 1.63e-09,
+        "pressure_sweep_bara": [
+          30,
+          35,
+          37,
+          40,
+          44,
+          48,
+          60
+        ],
+        "verified_saturated_sweep_states": 21,
+        "reported_recipe_density_at_37_bara_kg_per_m3": 102,
+        "reported_recipe_density_at_40_bara_kg_per_m3": 792,
+        "finite_inventory_at_100_bara": {
+          "0.5 mol CO2": "AQUEOUS",
+          "10 mol CO2": "OIL+AQUEOUS"
+        }
+      },
+      "independent_validation": {
+        "doi": "10.1021/je00012a045",
+        "tables": [
+          "I",
+          "III"
+        ],
+        "pressure_bara": 11.3,
+        "kcl_mass_percent_water_plus_salt": 10.02,
+        "measured_temperature_k": 269.02,
+        "calculated_minus_measured_k": 0.2976
+      },
+      "rendered_visual_validation": {
+        "renderer": "Jupyter nbconvert HTML, WeasyPrint PDF and Poppler",
+        "pages_inspected": 7,
+        "tables_inspected": 2,
+        "figures_inspected": 1,
+        "result": "passed",
+        "notes": "All Markdown, code, numerical outputs, tables, and both panels of the static figure inspected."
+      },
+      "repository_validation": {
+        "checker_unit_tests": "6 passed",
+        "focused_checker": "Strict execution, required main-source markers and exact executed notebook blob",
+        "catalog_link_targets": 331,
+        "ci": "pending"
+      },
+      "documentation_impact": "Updates the focused hydrate example and catalog entry to use merged NeqSim master Java. Retains the original 44 bara and KCl cases, and adds a pressure sweep and free-CO2 controls.",
+      "issue_handling": [
+        {
+          "url": "https://github.com/equinor/neqsim/issues/5026",
+          "handling": "Reproduces the closed reported case using the Java fix merged in equinor/neqsim#5027."
+        },
+        {
+          "url": "https://github.com/equinor/neqsim/issues/4234",
+          "handling": "Retains the measured KCl comparison as an accuracy check for a separate fluid."
+        }
+      ],
+      "neqsim_java_tree": "8259acfe454fb1ac8c8f08b6989250bdb779d433"
+    }
+  ]
+}
