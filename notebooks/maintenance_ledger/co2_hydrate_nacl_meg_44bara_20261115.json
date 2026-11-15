@@ -1,28 +1,29 @@
 {
   "schema_version": 1,
   "shard": "co2-hydrate-nacl-meg-44bara-20261115",
-  "updated_at": "2026-11-15T09:46:03Z",
+  "updated_at": "2026-11-15T12:08:18Z",
   "notebooks": [
     {
       "path": "notebooks/flowassurance/co2_hydrate_nacl_meg_44bara.ipynb",
       "verified_date": "2026-11-15",
-      "verified_at_utc": "2026-11-15T09:46:03Z",
-      "neqsim_version": "Source-built Java 3.29.0, JPype 1.7.1",
-      "neqsim_java_commit": "4c4df77cb9f09a999cb724991cac6ce40726cb04",
-      "neqsim_jar_sha256": "00645950659c1148e973fcce5d89b3cd307e2fe35953b83e5beb2a08c9bf51ec",
+      "verified_at_utc": "2026-11-15T12:08:18Z",
+      "neqsim_version": "Source-built Java 3.29.0 from master, JPype 1.7.1",
+      "neqsim_java_commit": "33057ab304332df9c97b3a1a0f0ec56c1dd73397",
+      "neqsim_jar_sha256": "8241d0cf7e6783a94ca4b2bb5d2992e4c2262bde293c5bda3bd92a1ecd73ca29",
       "python_version": "3.12.14",
       "java_version": "21.0.13",
       "package_versions": {
-        "JPype1": "1.7.1"
+        "JPype1": "1.7.1",
+        "matplotlib": "3.11.2"
       },
       "execution_status": "passed",
-      "execution_method": "All four code cells executed sequentially in a fresh IPython process and JVM using the repository in-process runner. Exact source tree matched the NeqSim core draft head. Shaded JAR hash and class origin were verified. The hosted Colab build path was not run.",
-      "execution_seconds": 12.4,
-      "code_cells": 4,
-      "substantive_code_cells": 4,
-      "markdown_cells": 5,
-      "git_blob_sha1": "0f998e14e07ecd566bb62707cf0f3ba43b629115",
-      "notebook_bytes": 17902,
+      "execution_method": "All six code cells ran in a fresh IPython process and JVM using the repository runner. All 3710 tracked Java production files came from the exact checked-out master tree and were compiled for Java 17 on Temurin 21. Maven packaged the complete shaded runtime. The default notebook path verified the pinned commit from the cached checkout and checked the three NeqSim Java class origins and JAR hash. Hosted Colab was not run.",
+      "execution_seconds": 38.2,
+      "code_cells": 6,
+      "substantive_code_cells": 6,
+      "markdown_cells": 7,
+      "git_blob_sha1": "be8d5a4377b4c70e62f09d84771689837ec157eb",
+      "notebook_bytes": 107633,
       "publication": {
         "branch": "example/co2-hydrate-nacl-meg-44bara",
         "mode": "draft pull request",
@@ -38,7 +39,23 @@
         "reported_co2_rich_density_kg_per_m3": 798.1,
         "maximum_material_error_mol": 7.11e-15,
         "maximum_absolute_molecular_log_fugacity_residual": 7.58e-12,
-        "maximum_absolute_hydrate_residual": 1.63e-9
+        "maximum_absolute_hydrate_residual": 1.63e-09,
+        "pressure_sweep_bara": [
+          30,
+          35,
+          37,
+          40,
+          44,
+          48,
+          60
+        ],
+        "verified_saturated_sweep_states": 21,
+        "reported_recipe_density_at_37_bara_kg_per_m3": 102,
+        "reported_recipe_density_at_40_bara_kg_per_m3": 792,
+        "finite_inventory_at_100_bara": {
+          "0.5 mol CO2": "AQUEOUS",
+          "10 mol CO2": "OIL+AQUEOUS"
+        }
       },
       "independent_validation": {
         "doi": "10.1021/je00012a045",
@@ -53,29 +70,30 @@
       },
       "rendered_visual_validation": {
         "renderer": "Jupyter nbconvert HTML, WeasyPrint PDF and Poppler",
-        "pages_inspected": 5,
-        "tables_inspected": 1,
-        "figures_inspected": 0,
+        "pages_inspected": 7,
+        "tables_inspected": 2,
+        "figures_inspected": 1,
         "result": "passed",
-        "notes": "All Markdown, code cells, data table and numerical outputs inspected. There are no LaTeX equations or plots."
+        "notes": "All Markdown, code, numerical outputs, tables, and both panels of the static figure inspected."
       },
       "repository_validation": {
         "checker_unit_tests": "6 passed",
-        "focused_checker": "Strict execution and exact notebook blob verification",
+        "focused_checker": "Strict execution, required main-source markers and exact executed notebook blob",
         "catalog_link_targets": 331,
         "ci": "pending"
       },
-      "documentation_impact": "New focused example and catalog entry complement the general CO2 hydrate tutorial. The 44 bara mixed-inhibitor case is a numerical comparison; the separate KCl point has a published experimental reference.",
+      "documentation_impact": "Updates the focused hydrate example and catalog entry to use merged NeqSim master Java. Retains the original 44 bara and KCl cases, and adds a pressure sweep and free-CO2 controls.",
       "issue_handling": [
         {
           "url": "https://github.com/equinor/neqsim/issues/5026",
-          "handling": "Audits the candidate fix for the NaCl/MEG hydrate temperature stall."
+          "handling": "Reproduces the closed reported case using the Java fix merged in equinor/neqsim#5027."
         },
         {
           "url": "https://github.com/equinor/neqsim/issues/4234",
           "handling": "Retains the measured KCl comparison as an accuracy check for a separate fluid."
         }
-      ]
+      ],
+      "neqsim_java_tree": "8259acfe454fb1ac8c8f08b6989250bdb779d433"
     }
   ]
 }
