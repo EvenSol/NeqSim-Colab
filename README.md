@@ -9,6 +9,8 @@ Advanced notebooks use JPype directly or through the Python distribution. They c
 
 ## Featured notebooks
 
+* [DOE Big Hill atmospheric-to-vacuum sensitivity](notebooks/process/doe_big_hill_connected_vacuum_sensitivity.ipynb) – Carry one public DOE SPR Big Hill Sweet assay through a source-pinned fired heater, rigorous atmospheric column, and three-point connected vacuum reboiler-temperature screen. Retains conservation, MESH residual, product-ordering, stream-immutability, provenance, and rendered sensitivity evidence while explicitly avoiding plant-envelope or ASTM claims. Version 1.0.0.
+
 * [High-pressure subsea separation and dense-gas reinjection](notebooks/subseaequipment/high_pressure_subsea_separation_dense_gas_reinjection.ipynb) — HISEP-inspired open-literature study: synthetic CO₂-rich oil, native separation/compression/pumping, conserved components and energy, pressure/temperature and EOS sensitivity, and conditional facility throughput. Version 1.0.0; 11 executed code cells and six saved figures.
 
 * [Low-GOR oil pseudo-fraction analysis and PVT](notebooks/PVT/low_gor_oil_pseudofraction_paper_4528.ipynb) – Companion to NeqSim #4528: published Sadi composition, mass-audited splitting/lumping, CCE and differential liberation, LBC/PFCT viscosity, pressure-unit sensitivity and a bounded saturation-only fit. Version 1.0.0; 13 executed code cells, four saved figures and explicit upstream gaps.

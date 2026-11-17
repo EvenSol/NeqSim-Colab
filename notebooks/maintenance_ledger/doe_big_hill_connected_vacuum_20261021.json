@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-10-21T20:26:00Z",
+  "notebooks": [
+    {
+      "path": "notebooks/process/doe_big_hill_connected_vacuum_sensitivity.ipynb",
+      "verified_date": "2026-10-21",
+      "verified_at_utc": "2026-10-21T20:26:00Z",
+      "execution_status": "passed",
+      "execution_method": "Fresh Python 3.12 environment from a SHA-256-verified public-PyPI wheel snapshot; current-source NeqSim JAR; sequential in-process IPython execution with stored outputs; nbconvert HTML/MathJax rendering.",
+      "code_cells": 7,
+      "markdown_cells": 8,
+      "python_version": "3.12.14",
+      "java_version": "OpenJDK 17.0.20",
+      "neqsim_version": "3.26.0 source commit 74a0529d19db577cb41034685905067a8ac9d0c6",
+      "dependency_versions": {
+        "neqsim_python": "3.26.0",
+        "jpype1": "1.7.1",
+        "nbformat": "5.11.1",
+        "nbconvert": "7.17.2",
+        "matplotlib": "3.11.2",
+        "pandas": "3.0.6",
+        "numpy": "2.5.4",
+        "cairosvg": "2.9.1"
+      },
+      "source_provenance": {
+        "repository": "equinor/neqsim",
+        "commit": "74a0529d19db577cb41034685905067a8ac9d0c6",
+        "source_jar_sha256": "da6d66a14de7410b596308358664df4b50f20091799e4d48aad0686561f44270",
+        "loaded_class": "neqsim.process.equipment.distillation.DoeBigHillVacuumReboilerTemperatureSensitivity",
+        "class_origin_verified": true,
+        "assay_sources": [
+          "https://www.spr.doe.gov/reports/Assays/2024/BigHillSwAssay.xlsx",
+          "https://www.spr.doe.gov/reports/Assays/2021/BigHillSwPIANO.xlsx"
+        ]
+      },
+      "engineering_results": {
+        "feed_mass_flow_kg_per_hour": 5000.0,
+        "furnace_absorbed_duty_kW": 1037.365573,
+        "atmospheric_bottoms_kg_per_hour": 2034.516494,
+        "vacuum_reboiler_temperature_K": [
+          698.0,
+          700.0,
+          702.0
+        ],
+        "vacuum_overhead_mass_fraction_percent": [
+          71.953165,
+          72.234274,
+          72.49605
+        ],
+        "maximum_mass_closure_relative_error": 2.728014953294373e-13,
+        "maximum_component_closure_relative_error": 9.329328558291545e-13,
+        "maximum_column_energy_balance_error": 0.02480693977165781,
+        "maximum_mesh_residual_norm": 0.012251508667021531,
+        "source_mass_flow_delta_kg_per_hour": 0.0,
+        "source_maximum_composition_delta": 0.0
+      },
+      "validation": [
+        "all seven code cells executed from a clean process in top-to-bottom order with counts and outputs retained",
+        "source commit, runtime JAR SHA-256, and connected-sensitivity class origin were verified before calculation",
+        "atmospheric and all three vacuum points passed mass, component, energy, MESH residual, and product-ordering gates",
+        "the caller-owned atmospheric-bottoms mass flow and complete molar composition remained exactly unchanged",
+        "the repository checker reported zero errors and zero warnings with strict execution and current-main-source provenance",
+        "nbformat validation, Python AST/readability checks, compact Colab-safe math checks, and stored stderr/error scans passed",
+        "nbconvert 7.17.2 HTML export retained both equations, every table, the validation receipt, and one two-panel PNG",
+        "the two-panel figure was inspected at original resolution: titles, axes, units, legend, contrast, trends, and layout were readable with no clipping or overlap",
+        "both compact conservation equations rendered with correct overdots, subscripts, operators, and symbols"
+      ],
+      "rendered_visual_validation": {
+        "renderer": "nbconvert 7.17.2 HTML with MathJax-compatible source and Matplotlib 3.11.2 inline PNG",
+        "equations_inspected": 2,
+        "tables_inspected": 3,
+        "figures_inspected": 1,
+        "result": "passed"
+      },
+      "notebook_sha256": "483d39d54751630d9e35253f1a26f38be770f188f97d36e981e739ac4926be3e",
+      "documentation_impact": "Adds a new versioned refinery notebook and indexes it in the repository README and executable notebook catalog. No Java API or numerical model is changed.",
+      "limitations": "Numerical screening only. DOE sources identify the assay but not the modeled operating conditions. No matched plant-yield benchmark, ASTM D86/D1160/D2887 qualification, hydraulics, coking, corrosion, control, safe-operability, or design approval is claimed.",
+      "related_issues": [
+        "https://github.com/equinor/neqsim/issues/3305",
+        "https://github.com/equinor/neqsim/pull/4501"
+      ],
+      "publication": {
+        "mode": "draft pull request",
+        "branch": "automation/3305-big-hill-vacuum-colab"
+      }
+    }
+  ]
+}
