@@ -1344,37 +1344,38 @@
     },
     {
       "path": "notebooks/process/MEGprocess.ipynb",
-      "verified_date": "2026-07-23",
-      "verified_at_utc": "2026-07-23T01:31:42.914Z",
-      "neqsim_version": "3.16.0",
-      "python_version": "3.12.13",
-      "java_version": "openjdk 17.0.19",
+      "verified_date": "2026-11-17",
+      "neqsim_version": "3.29.0",
+      "python_version": "3.12.14",
+      "java_version": "OpenJDK 21.0.13",
       "execution_status": "passed",
-      "execution_method": "fresh Python 3.12 virtual environment with latest public PyPI neqsim installed using python -m pip install --upgrade --no-cache-dir neqsim; all 17 code cells executed sequentially in one isolated shared namespace after final readability formatting",
-      "code_cells": 17,
-      "markdown_cells": 26,
+      "execution_method": "Fresh isolated Python virtual environment, public PyPI installation from notebook setup, and all cells executed in order with scripts/execute_notebook_inprocess.py. Final rendered-source revision rerun from a fresh Python process.",
+      "code_cells": 10,
+      "markdown_cells": 12,
+      "dependency_provenance": {
+        "distribution": "https://pypi.org/project/neqsim/3.29.0/",
+        "wheel_sha256": "a60898162ffb17686e317e88a5c4e81a7640f1cfd727aad2b6771a2d3aafa80a",
+        "loaded_jar": "neqsim-3.29.0.jar",
+        "loaded_jar_sha256": "d75c8314a0ac14bebdd2be5c0a733be836cbc9752a19bb6c9185b8cbb32d40bb",
+        "jpype_version": "1.7.1",
+        "scipy_version": "1.18.1"
+      },
       "publication": {
-        "branch": "master",
-        "mode": "atomic direct-to-default-branch commit",
-        "commit": "this atomic commit"
+        "branch": "example/meg-regeneration-neqsim-3.29.0",
+        "mode": "draft pull request"
       },
       "key_checks": [
-        "replaced the eight-code/nine-Markdown legacy notebook, obsolete Colab magic, wildcard imports, embedded video, duplicated imports, monolithic two-tray column sketch, ambiguous wt-percent output, stale outputs, and missing balance validation",
-        "valid nbformat 4.5 JSON with execution counts 1 through 17, complete meaningful outputs, two embedded PNG figures, and zero exceptions, error outputs, or stderr",
-        "all 22 focused engineering assertions passed",
-        "current CPA fluid, Stream, ThrottlingValve, Separator, Heater, Pump, and ProcessSystem APIs executed against a normalized synthetic methane-water-MEG feed",
-        "base lean-MEG purity was 91.918119 wt percent, water removal was 75.946463 percent, and MEG recovery was 89.363207 percent",
-        "base reboiler duty was 1104.332707 kW, specific duty was 0.989203 kWh per kg water removed, and lean-MEG pump power was 10.595795 kW",
-        "overall mass residual was -9.095e-13 kg/h and maximum component residual was 9.095e-13 kg/h",
-        "maximum unit energy residual was 9.699e-4 W; valves, separators, heater, cooler, and pump sign conventions were independently audited",
-        "temperature, pressure, and rich-feed-water sensitivities were finite and physically interpreted; required purity, recovery, and duty trends were monotonic",
-        "the single-equilibrium-flash solvent-loss limitation remained explicit: 478.516088 kg/h MEG left in the regenerator overhead and triggered a focused warning assertion",
-        "readability audit passed with one statement per line, no semicolon chains, wildcard imports, magics, compressed compound bodies, or code lines over 79 characters",
-        "seven display equations and four inline expressions passed Colab-safe source validation; all 11 expressions rendered through MathJax and passed visual inspection",
-        "both stored, unit-labelled sensitivity figures were extracted from the final execution and passed visual inspection",
-        "the Colab badge, unique catalog target, current NeqSim documentation, source repository, separator and CPA source files, and hydrate reference were validated"
+        "The original notebook completed the simulation on 3.29.0 and then failed its hard-coded 3.16.0 version assertion. The new setup verifies both the released Python package and the Java core loaded through JPype.",
+        "All 10 code cells have saved execution counts. Notebook schema and strict catalog checker passed with zero warnings or errors and no stored stderr. All six repository checker unit tests passed.",
+        "Original vacuum flash at 135 °C produced 91.9181 wt% lean MEG and 89.3627% MEG recovery. Rebuilt temperature, pressure, and rich-feed water scans passed material and energy audits.",
+        "For 92 wt% lean MEG at 0.8 bara, reflux at 105 °C improved MEG recovery from 89.168% to 99.012%, cutting overhead MEG from 487.291 to 44.322 kg/h. Lean/rich heat exchange reduced reboiler duty from 1376.355 to 1256.363 kW relative to reflux only.",
+        "Across the four tested condenser settings, 108 °C was the minimum-duty setting meeting 98.5% MEG recovery. It achieved 98.594% recovery at 1153.706 kW reboiler duty.",
+        "Matched flowsheets closed mass, individual component and external energy balances. The 105 °C integrated case had a total mass residual of 0.00474 kg/h and an energy residual of -0.390 W. The two exchanger duties agreed, with both terminal approaches positive.",
+        "With reflux only, deferred execution reduced post-recycle cooler and pump calls from nine to one each. The integrated exchanger is outside the release deferral allowlist. Performance follow-up is covered by equinor/neqsim#2939.",
+        "CPA bubble-point deviations were within 0.90 K for three atmospheric water–MEG points from Kamihama et al., using mole fractions reproduced at Table 3-6 precision. Evidence does not qualify vacuum vapor composition or plant operation.",
+        "Rendered Jupyter nbconvert HTML with MathJax 3.2.2 and visually reviewed the rendered Markdown, seven mathematical expressions, 13 tables and two stored figures. All 336 catalog notebook links resolved against the repository tree."
       ],
-      "summary": "Rebuilt the rich-MEG catalog notebook as an auditable gas-flash and vacuum flash-regeneration study. Added CPA theory, explicit SI units and absolute pressures, reusable current process objects, stream and component tables, purity-water-removal-solvent-recovery metrics, total/component/energy audits, three operating sensitivities, an explicit single-flash solvent-loss diagnostic, limitations, troubleshooting, references, and exercises."
+      "summary": "Upgraded the existing MEG regeneration tutorial to the released NeqSim 3.29.0 runtime. Added native partial condensation, accelerated reflux and heat recovery loops, equal-purity comparison, condenser-temperature screening, deferral profiling, and public bubble-point checks."
     },
     {
       "path": "notebooks/process/MEGwaterprocess.ipynb",
