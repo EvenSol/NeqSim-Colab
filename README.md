@@ -9,6 +9,8 @@ Advanced notebooks use JPype directly or through the Python distribution. They c
 
 ## Featured notebooks
 
+* [Cryogenic phase equilibrium and LNG with NeqSim](notebooks/PVT/cryogenic_eos_paper_5281.ipynb) — Released NeqSim 3.29.0 tutorial comparing seven EOS options, pure-fluid normal boiling, synthetic LNG regasification, phase properties, and an independent hydrogen Joule–Thomson check.
+
 * [High-pressure subsea separation and dense-gas reinjection](notebooks/subseaequipment/high_pressure_subsea_separation_dense_gas_reinjection.ipynb) — HISEP-inspired open-literature study: synthetic CO₂-rich oil, native separation/compression/pumping, conserved components and energy, pressure/temperature and EOS sensitivity, and conditional facility throughput. Version 1.0.0; 11 executed code cells and six saved figures.
 
 * [Low-GOR oil pseudo-fraction analysis and PVT](notebooks/PVT/low_gor_oil_pseudofraction_paper_4528.ipynb) – Companion to NeqSim #4528: published Sadi composition, mass-audited splitting/lumping, CCE and differential liberation, LBC/PFCT viscosity, pressure-unit sensitivity and a bounded saturation-only fit. Version 1.0.0; 13 executed code cells, four saved figures and explicit upstream gaps.
