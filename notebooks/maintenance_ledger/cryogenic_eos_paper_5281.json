@@ -1,0 +1,22 @@
+{
+  "notebooks": [
+    {
+      "path": "notebooks/PVT/cryogenic_eos_paper_5281.ipynb",
+      "notebook_version": "1.0.0",
+      "execution_status": "passed",
+      "code_cells": 6,
+      "validated_at": "2026-11-26",
+      "neqsim_version": "3.29.0",
+      "validation_runtime": "Repository in-process IPython runner, Python 3.12.14, Java 21.0.13.1, CoolProp 8.1.0",
+      "visual_validation": "Jupyter nbconvert HTML, MathJax 3.2.2 SVG, and WeasyPrint visual review of equations, tables, and both chart panels",
+      "validation_summary": "Published normal-boiling reference plus independent HEOS comparison, max mixture molar component residual 1.58e-12 and log fugacity residual 2.07e-10 for successful states. Explicitly flags unqualified GERG-2008 and Leachman states.",
+      "related_issues": [
+        "https://github.com/equinor/neqsim/issues/5281",
+        "https://github.com/equinor/neqsim/issues/5283",
+        "https://github.com/equinor/neqsim/issues/5284",
+        "https://github.com/equinor/neqsim/issues/5285",
+        "https://github.com/equinor/neqsim/issues/5286"
+      ]
+    }
+  ]
+}
